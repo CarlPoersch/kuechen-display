@@ -1,0 +1,64 @@
+{
+ "id": "af-halloumi-gemuese",
+ "title": "Halloumi mit Ofengemüse",
+ "icon": "🧀",
+ "cuisine": "Mediterran",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Halloumi, in dicken Scheiben"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "200 g",
+   "name": "Cherrytomaten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kräuter der Provence"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse in mundgerechte Stücke schneiden, mit Öl, Kräutern, Salz und Pfeffer mischen."
+  },
+  {
+   "text": "Bei 200 °C garen, nach der Hälfte schütteln.",
+   "minutes": 12
+  },
+  {
+   "text": "Halloumi auf das Gemüse legen und weitergaren, bis er goldbraun ist.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Honig und Zitronensaft beträufeln."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

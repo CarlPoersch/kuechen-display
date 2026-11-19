@@ -1,0 +1,58 @@
+{
+ "id": "penne-arrabbiata",
+ "title": "Penne all'Arrabbiata",
+ "icon": "🌶",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Penne"
+  },
+  {
+   "amount": "400 g",
+   "name": "geschälte Tomaten (Dose)"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "getrocknete Chilis"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "",
+   "name": "Pecorino (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Knoblauch in Scheiben schneiden und mit zerbröselten Chilis im Öl anschwitzen, ohne dass er braun wird.",
+   "minutes": 2
+  },
+  {
+   "text": "Tomaten zerdrücken, zugeben, salzen und köcheln lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Penne kochen.",
+   "minutes": 11
+  },
+  {
+   "text": "Penne mit etwas Nudelwasser in der Sauce schwenken."
+  },
+  {
+   "text": "Mit Petersilie und Pecorino servieren."
+  }
+ ]
+}

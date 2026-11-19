@@ -1,0 +1,51 @@
+{
+ "id": "af-gyoza",
+ "title": "Knusprige Gyoza",
+ "icon": "🥟",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "20",
+   "name": "TK-Gyoza"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliöl"
+  },
+  {
+   "amount": "1",
+   "name": "Frühlingszwiebel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gyoza gefroren in eine Schüssel geben und rundum mit Öl benetzen. Warum: Ohne Öl wird der Teig im Airfryer hart statt knusprig."
+  },
+  {
+   "text": "In einer Lage in den Korb legen und bei 190 °C garen, nach der Hälfte wenden.",
+   "minutes": 12
+  },
+  {
+   "text": "Dip verrühren, Frühlingszwiebel hineinschneiden und dazu servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

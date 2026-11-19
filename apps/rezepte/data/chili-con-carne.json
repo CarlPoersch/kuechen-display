@@ -1,0 +1,90 @@
+{
+ "id": "chili-con-carne",
+ "title": "Chili con Carne",
+ "icon": "🌶",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "800 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 Dose (400 g)",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "1 Dose (300 g)",
+   "name": "Mais"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "20 g",
+   "name": "Zartbitterschokolade"
+  },
+  {
+   "amount": "",
+   "name": "Saure Sahne und Reis (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack in Öl krümelig und kräftig braun anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Paprika zugeben und weich braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Tomatenmark und Gewürze 1 Minute mitrösten."
+  },
+  {
+   "text": "Tomaten zugeben und zugedeckt köcheln.",
+   "minutes": 30
+  },
+  {
+   "text": "Bohnen, Mais und Schokolade zugeben und weiterköcheln. Warum Schokolade: Sie macht das Chili runder und dunkler.",
+   "minutes": 15
+  },
+  {
+   "text": "Abschmecken und mit saurer Sahne und Reis servieren."
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "id": "hummus",
+ "title": "Hummus",
+ "icon": "🫘",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Dose (400 g)",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Eiswasser"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "",
+   "name": "Fladenbrot (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kichererbsen abgießen, etwas Kochflüssigkeit aufheben. Optional die Häutchen abreiben, dann wird es cremiger."
+  },
+  {
+   "text": "Tahin mit Zitronensaft und Knoblauch im Mixer aufschlagen."
+  },
+  {
+   "text": "Kichererbsen, Kreuzkümmel und Salz zugeben und pürieren, dabei Eiswasser zugeben, bis es sehr cremig ist.",
+   "minutes": 3
+  },
+  {
+   "text": "In eine Schale streichen, mit einer Mulde Olivenöl und Paprika garnieren."
+  },
+  {
+   "text": "Mit warmem Fladenbrot servieren."
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "id": "okonomiyaki",
+ "title": "Okonomiyaki",
+ "icon": "🥞",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Dashi oder Wasser"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "300 g",
+   "name": "Weißkohl, fein geschnitten"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schweinebauch in dünnen Scheiben (oder Speck)"
+  },
+  {
+   "group": "Topping"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Okonomiyaki-Sauce oder Worcestersauce mit Ketchup"
+  },
+  {
+   "amount": "2 EL",
+   "name": "japanische Mayonnaise"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Bonitoflocken (optional)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Aonori (optional)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Dashi und Eier zu einem dicken Teig verrühren."
+  },
+  {
+   "text": "Kohl und Frühlingszwiebeln unterheben."
+  },
+  {
+   "text": "Etwas Öl in einer Pfanne erhitzen, die Hälfte des Teigs zu einem 2 cm dicken Fladen formen, Fleisch darauflegen."
+  },
+  {
+   "text": "Bei mittlerer Hitze braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Vorsichtig wenden (mit Hilfe eines Tellers) und weiterbraten, bis er durch ist.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Sauce und Mayonnaise bestreichen, mit Bonito und Aonori bestreuen. Zweiten Fladen genauso backen."
+  }
+ ]
+}

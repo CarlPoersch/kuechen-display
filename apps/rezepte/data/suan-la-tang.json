@@ -1,0 +1,81 @@
+{
+ "id": "suan-la-tang",
+ "title": "Scharf-saure Suppe",
+ "icon": "🥣",
+ "cuisine": "Chinesisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "1 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schweinefleisch, in feinen Streifen"
+  },
+  {
+   "amount": "5",
+   "name": "getrocknete Shiitake-Pilze"
+  },
+  {
+   "amount": "200 g",
+   "name": "fester Tofu, in Streifen"
+  },
+  {
+   "amount": "100 g",
+   "name": "Bambussprossen, in Streifen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "schwarzer Reisessig"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "weißer Pfeffer"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Speisestärke in 4 EL Wasser"
+  },
+  {
+   "amount": "1",
+   "name": "Ei, verquirlt"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pilze in heißem Wasser einweichen, dann in Streifen schneiden.",
+   "minutes": 20
+  },
+  {
+   "text": "Brühe mit Pilzen, Fleisch und Bambus aufkochen und 5 Minuten köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Tofu, Essig, Sojasauce und Pfeffer zugeben und 2 Minuten köcheln.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit der Stärke binden."
+  },
+  {
+   "text": "Das Ei in dünnem Strahl unter Rühren einlaufen lassen."
+  },
+  {
+   "text": "Mit Frühlingszwiebeln und Chiliöl servieren. Mit Essig und Pfeffer abschmecken: Sie soll deutlich scharf und sauer sein."
+  }
+ ]
+}

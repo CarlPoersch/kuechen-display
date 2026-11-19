@@ -1,0 +1,70 @@
+{
+ "id": "af-honig-senf-lachs",
+ "title": "Honig-Senf-Lachs mit Brokkoli",
+ "icon": "🐟",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Lachsfilets (je 150 g)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Brokkoli, in Röschen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "group": "Glasur"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe, gepresst"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis oder Couscous"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Brokkoli mit Öl und Salz mischen und bei 190 °C vorgaren.",
+   "minutes": 5
+  },
+  {
+   "text": "Glasur verrühren, Lachs damit bestreichen."
+  },
+  {
+   "text": "Lachs zum Brokkoli in den Korb legen und bei 190 °C garen, bis er innen gerade glasig ist.",
+   "minutes": 9
+  },
+  {
+   "text": "Mit Reis servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

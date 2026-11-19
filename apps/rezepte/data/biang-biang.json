@@ -1,0 +1,120 @@
+{
+  "id": "biang-biang",
+  "title": "Biang-Biang-Nudeln",
+  "icon": "🍜",
+  "servings": 2,
+  "time": "ca. 1 Std. 45 Min. (davon 1 Std. Ruhezeit)",
+  "ingredients": [
+    {
+      "group": "Teig"
+    },
+    {
+      "amount": "300 g",
+      "name": "Weizenmehl (Type 550)"
+    },
+    {
+      "amount": "160 ml",
+      "name": "Wasser, lauwarm"
+    },
+    {
+      "amount": "3 g",
+      "name": "Salz"
+    },
+    {
+      "amount": "1 EL",
+      "name": "neutrales Öl zum Bestreichen"
+    },
+    {
+      "group": "Topping"
+    },
+    {
+      "amount": "2",
+      "name": "Knoblauchzehen, fein gehackt"
+    },
+    {
+      "amount": "2",
+      "name": "Frühlingszwiebeln, in Ringen"
+    },
+    {
+      "amount": "2 EL",
+      "name": "Chiliflocken"
+    },
+    {
+      "amount": "1 TL",
+      "name": "Sichuanpfeffer, gemahlen"
+    },
+    {
+      "amount": "½ TL",
+      "name": "Kreuzkümmel, gemahlen (optional)"
+    },
+    {
+      "amount": "60 ml",
+      "name": "neutrales Öl"
+    },
+    {
+      "group": "Sauce"
+    },
+    {
+      "amount": "30 ml",
+      "name": "helle Sojasauce"
+    },
+    {
+      "amount": "15 ml",
+      "name": "schwarzer Reisessig (Chinkiang)"
+    },
+    {
+      "amount": "1 TL",
+      "name": "Zucker"
+    },
+    {
+      "group": "Dazu"
+    },
+    {
+      "amount": "150 g",
+      "name": "Pak Choi (optional)"
+    }
+  ],
+  "steps": [
+    {
+      "text": "Mehl und Salz mischen, Wasser nach und nach einrühren, bis ein zottiger Teig entsteht."
+    },
+    {
+      "text": "Teig 10 Minuten glatt und elastisch kneten.",
+      "minutes": 10
+    },
+    {
+      "text": "Abgedeckt 30 Minuten ruhen lassen.",
+      "minutes": 30
+    },
+    {
+      "text": "Kurz durchkneten, in 6 gleich große Stücke teilen und zu länglichen Fladen formen."
+    },
+    {
+      "text": "Fladen rundum mit Öl bestreichen, abdecken und 1 Stunde ruhen lassen.",
+      "minutes": 60
+    },
+    {
+      "text": "Sojasauce, Essig und Zucker in einer Schüssel verrühren."
+    },
+    {
+      "text": "Großen Topf mit Wasser zum Kochen bringen."
+    },
+    {
+      "text": "Einen Fladen flach drücken, mit einem Stäbchen der Länge nach eine Rille eindrücken, an den Enden fassen und unter leichtem Schlagen auf die Arbeitsfläche auf ca. 1 m Länge ziehen. Entlang der Rille in zwei Hälften reißen."
+    },
+    {
+      "text": "Nudeln 1–2 Minuten kochen, bis sie oben schwimmen. Pak Choi in der letzten Minute mitgaren.",
+      "minutes": 2
+    },
+    {
+      "text": "Nudeln abtropfen lassen, in Schalen geben, Sauce darüber. Knoblauch, Frühlingszwiebeln, Chili, Sichuanpfeffer und Kreuzkümmel obenauf häufen."
+    },
+    {
+      "text": "Öl in einem kleinen Topf stark erhitzen, bis es leicht raucht, und zischend über das Topping gießen."
+    },
+    {
+      "text": "Sofort gut durchmischen und servieren."
+    }
+  ],
+  "cuisine": "Chinesisch"
+}

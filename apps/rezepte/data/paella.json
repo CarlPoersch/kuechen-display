@@ -1,0 +1,91 @@
+{
+ "id": "paella",
+ "title": "Paella mit Hähnchen und Garnelen",
+ "icon": "🥘",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Paella-Reis (Bomba)"
+  },
+  {
+   "amount": "400 g",
+   "name": "Hähnchenschenkel, gewürfelt"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "200 g",
+   "name": "Tomaten, gerieben"
+  },
+  {
+   "amount": "150 g",
+   "name": "grüne Bohnen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Safran"
+  },
+  {
+   "amount": "900 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Olivenöl in der Paellapfanne rundum anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebel, Paprika, Bohnen und Knoblauch zugeben und weich braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Tomate und Paprikapulver zugeben und einkochen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Reis einstreuen, kurz verrühren, dann heiße Brühe mit Safran angießen. Ab jetzt nicht mehr rühren."
+  },
+  {
+   "text": "Bei mittlerer Hitze köcheln lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Garnelen auf den Reis drücken und weitergaren, bis die Flüssigkeit aufgesogen ist und sich am Boden eine Kruste bildet.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit einem Tuch abgedeckt ruhen lassen und mit Zitrone servieren.",
+   "minutes": 5
+  }
+ ]
+}

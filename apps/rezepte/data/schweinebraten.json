@@ -1,0 +1,75 @@
+{
+ "id": "schweinebraten",
+ "title": "Bayerischer Schweinebraten",
+ "icon": "🍖",
+ "cuisine": "Deutsch",
+ "servings": 3,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Schweineschulter mit Schwarte"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "grobes Salz"
+  },
+  {
+   "amount": "330 ml",
+   "name": "dunkles Bier"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "1",
+   "name": "Airfryer-geeignete Form, in die der Braten passt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schwarte rautenförmig einschneiden, ohne ins Fleisch zu schneiden."
+  },
+  {
+   "text": "Fleisch rundum mit Salz, Pfeffer und Kümmel einreiben."
+  },
+  {
+   "text": "Mit der Schwarte nach unten in die Form legen, 100 ml Wasser angießen und im Airfryer bei 160 °C garen. Warum Schwarte nach unten: Sie weicht auf und poppt später besser auf.",
+   "minutes": 30
+  },
+  {
+   "text": "Wenden, die Schwarte kräftig mit grobem Salz einreiben und bei 160 °C weitergaren, bis das Fleisch innen ca. 75 °C hat.",
+   "minutes": 45
+  },
+  {
+   "text": "Währenddessen die Sauce im Topf ansetzen: Zwiebeln und Karotten grob gewürfelt anrösten, mit Bier und Brühe ablöschen und köcheln lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Für die Kruste auf 200 °C stellen, bis die Schwarte aufpoppt. Nicht aus den Augen lassen.",
+   "minutes": 12
+  },
+  {
+   "text": "Bratensaft aus der Form zur Sauce geben, abseihen und leicht binden. Braten kurz ruhen lassen. Mit Knödeln und Krautsalat servieren.",
+   "minutes": 10
+  }
+ ],
+ "airfryer": true
+}

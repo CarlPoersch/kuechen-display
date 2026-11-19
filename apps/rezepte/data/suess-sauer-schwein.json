@@ -1,0 +1,99 @@
+{
+ "id": "suess-sauer-schwein",
+ "title": "Schweinefleisch süß-sauer",
+ "icon": "🍍",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "350 g",
+   "name": "Schweinenacken, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "1",
+   "name": "Paprika, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel, in Spalten"
+  },
+  {
+   "amount": "150 g",
+   "name": "Ananas, gewürfelt"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Ketchup"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Ananassaft"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "group": "Zum Frittieren"
+  },
+  {
+   "amount": "500 ml",
+   "name": "neutrales Öl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis zum Servieren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Fleisch mit Ei vermischen und in Stärke wenden."
+  },
+  {
+   "text": "Öl in einem Topf auf ca. 170 °C erhitzen und das Fleisch portionsweise 4–5 Minuten goldbraun frittieren. Auf Küchenpapier abtropfen.",
+   "minutes": 5
+  },
+  {
+   "text": "Saucenzutaten verrühren."
+  },
+  {
+   "text": "2 EL Öl in einer Pfanne erhitzen, Zwiebel und Paprika 2 Minuten braten.",
+   "minutes": 2
+  },
+  {
+   "text": "Ananas und Sauce zugeben und aufkochen, bis die Sauce andickt.",
+   "minutes": 2
+  },
+  {
+   "text": "Fleisch kurz in der Sauce schwenken und sofort mit Reis servieren, damit es knusprig bleibt."
+  }
+ ]
+}

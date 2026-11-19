@@ -1,0 +1,65 @@
+{
+ "id": "gnocchi-salbeibutter",
+ "title": "Kartoffelgnocchi in Salbeibutter",
+ "icon": "🥔",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "8",
+   "name": "Salbeiblätter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Parmesan"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln mit Schale weich kochen.",
+   "minutes": 25
+  },
+  {
+   "text": "Pellen und noch heiß durch eine Presse drücken, ausdampfen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Mehl, Eigelb, Salz und Muskat rasch zu einem glatten Teig verkneten. Nicht zu lange kneten, sonst werden sie zäh."
+  },
+  {
+   "text": "Teig zu daumendicken Rollen formen und 2 cm lange Stücke abschneiden."
+  },
+  {
+   "text": "In siedendem Salzwasser garen, bis sie oben schwimmen, dann herausheben.",
+   "minutes": 3
+  },
+  {
+   "text": "Butter mit Salbei aufschäumen lassen, bis sie nussig duftet, Gnocchi darin schwenken.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Parmesan servieren."
+  }
+ ]
+}

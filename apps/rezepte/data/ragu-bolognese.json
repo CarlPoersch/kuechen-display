@@ -1,0 +1,89 @@
+{
+ "id": "ragu-bolognese",
+ "title": "Ragù alla Bolognese",
+ "icon": "🍝",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hackfleisch (Rind und Schwein)"
+  },
+  {
+   "amount": "100 g",
+   "name": "Pancetta, fein gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "Stange Sellerie"
+  },
+  {
+   "amount": "150 ml",
+   "name": "trockener Rotwein"
+  },
+  {
+   "amount": "400 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "400 g",
+   "name": "Tagliatelle"
+  },
+  {
+   "amount": "",
+   "name": "Parmesan (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Sellerie sehr fein würfeln (Soffritto)."
+  },
+  {
+   "text": "Pancetta in Olivenöl auslassen, Soffritto zugeben und weich dünsten.",
+   "minutes": 10
+  },
+  {
+   "text": "Hack zugeben und krümelig braten, bis die Flüssigkeit verdampft ist.",
+   "minutes": 10
+  },
+  {
+   "text": "Tomatenmark 1 Minute mitrösten, mit Wein ablöschen und einkochen lassen."
+  },
+  {
+   "text": "Milch zugeben und einkochen lassen. Warum Milch: Sie macht das Fleisch zart und die Sauce runder."
+  },
+  {
+   "text": "Tomaten und Brühe zugeben und bei kleinster Hitze offen köcheln, bei Bedarf Brühe nachgießen.",
+   "minutes": 120
+  },
+  {
+   "text": "Tagliatelle kochen, mit dem Ragù mischen und mit Parmesan servieren.",
+   "minutes": 8
+  }
+ ]
+}

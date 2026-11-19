@@ -1,0 +1,73 @@
+{
+ "id": "gebratener-reis",
+ "title": "Gebratener Eierreis",
+ "icon": "🍚",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "gekochter Reis vom Vortag"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte, fein gewürfelt"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln, in Ringen"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen, gehackt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "weißer Pfeffer"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Den Reis mit den Händen lockern, damit keine Klumpen entstehen. Warum Reis vom Vortag: Er ist trockener und wird nicht matschig."
+  },
+  {
+   "text": "1 EL Öl im Wok erhitzen, Eier verquirlen, darin stocken lassen und herausnehmen."
+  },
+  {
+   "text": "Restliches Öl erhitzen, Karotte und Knoblauch 2 Minuten braten.",
+   "minutes": 2
+  },
+  {
+   "text": "Reis zugeben und bei starker Hitze 4–5 Minuten braten, dabei immer wieder wenden.",
+   "minutes": 5
+  },
+  {
+   "text": "Erbsen, Ei, Sojasauce und Pfeffer untermischen und 2 Minuten weiterbraten.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit Sesamöl und Frühlingszwiebeln abschmecken."
+  }
+ ]
+}

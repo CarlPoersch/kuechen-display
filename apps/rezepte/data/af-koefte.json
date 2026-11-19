@@ -1,0 +1,92 @@
+{
+ "id": "af-koefte",
+ "title": "Köfte mit Joghurtsauce",
+ "icon": "🍢",
+ "cuisine": "Orientalisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Lamm- oder Rinderhack"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel, fein gerieben"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Minze, getrocknet"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "2",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "1",
+   "name": "Tomate"
+  },
+  {
+   "amount": "½",
+   "name": "Gurke"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit Zwiebel, Knoblauch, gehackter Petersilie und Gewürzen kräftig verkneten. Warum lange kneten: Die Köfte halten dann besser zusammen."
+  },
+  {
+   "text": "Zu 8 länglichen Röllchen formen."
+  },
+  {
+   "text": "Bei 200 °C garen, nach der Hälfte wenden.",
+   "minutes": 12
+  },
+  {
+   "text": "Joghurt mit Minze, Knoblauch und Salz verrühren."
+  },
+  {
+   "text": "Mit Fladenbrot, Tomate, Gurke und Sauce servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

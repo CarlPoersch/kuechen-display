@@ -1,0 +1,79 @@
+{
+ "id": "af-samosa",
+ "title": "Samosas mit Filoteig",
+ "icon": "🥟",
+ "cuisine": "Indisch",
+ "servings": 3,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer, gerieben"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Chili"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "6",
+   "name": "Blätter Filoteig"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter, geschmolzen"
+  },
+  {
+   "amount": "",
+   "name": "Mango-Chutney (zum Dippen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln würfeln und weich kochen.",
+   "minutes": 12
+  },
+  {
+   "text": "Zwiebel, Ingwer, Chili und Gewürze kurz anbraten, Kartoffeln und Erbsen zugeben, grob zerdrücken, mit Koriander und Salz würzen. Abkühlen lassen."
+  },
+  {
+   "text": "Filoblätter längs dritteln, jeden Streifen mit Butter bestreichen."
+  },
+  {
+   "text": "1 EL Füllung an ein Ende setzen und zu Dreiecken falten."
+  },
+  {
+   "text": "Mit Butter bestreichen und bei 180 °C goldbraun backen, nach der Hälfte wenden.",
+   "minutes": 10
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

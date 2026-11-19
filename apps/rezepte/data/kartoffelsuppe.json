@@ -1,0 +1,72 @@
+{
+ "id": "kartoffelsuppe",
+ "title": "Kartoffelsuppe mit Würstchen",
+ "icon": "🥣",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Bund Suppengrün"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "4",
+   "name": "Wiener Würstchen"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln, Suppengrün und Zwiebel würfeln."
+  },
+  {
+   "text": "Zwiebel in etwas Butter andünsten, Gemüse zugeben und kurz mitdünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Brühe angießen und köcheln, bis die Kartoffeln weich sind.",
+   "minutes": 20
+  },
+  {
+   "text": "Etwa die Hälfte grob pürieren, damit die Suppe sämig wird."
+  },
+  {
+   "text": "Sahne, Majoran, Muskat, Salz und Pfeffer zugeben."
+  },
+  {
+   "text": "Würstchen in Scheiben schneiden und in der Suppe erwärmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Petersilie servieren."
+  }
+ ]
+}

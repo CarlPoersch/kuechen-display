@@ -1,0 +1,83 @@
+{
+ "id": "gemuese-korma",
+ "title": "Gemüse-Korma",
+ "icon": "🥕",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "gemischtes Gemüse (Karotten, Erbsen, Bohnen, Blumenkohl)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "60 g",
+   "name": "Cashewkerne"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "4",
+   "name": "Kardamomkapseln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Ghee"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Cashews 15 Minuten in heißem Wasser einweichen und mit wenig Wasser fein pürieren.",
+   "minutes": 15
+  },
+  {
+   "text": "Kardamom im Ghee anrösten, Zwiebel weich braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Knoblauch, Ingwer und Gewürze 1 Minute mitbraten."
+  },
+  {
+   "text": "Gemüse und 200 ml Wasser zugeben und zugedeckt bissfest garen.",
+   "minutes": 12
+  },
+  {
+   "text": "Basmatireis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Cashewpaste, Kokosmilch und Joghurt einrühren und 5 Minuten sanft köcheln.",
+   "minutes": 5
+  }
+ ]
+}

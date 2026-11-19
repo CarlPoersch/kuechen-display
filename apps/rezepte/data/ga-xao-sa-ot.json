@@ -1,0 +1,77 @@
+{
+ "id": "ga-xao-sa-ot",
+ "title": "Zitronengras-Hähnchen",
+ "icon": "🍋",
+ "cuisine": "Vietnamesisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Hähnchenschenkel, gewürfelt"
+  },
+  {
+   "amount": "3",
+   "name": "Stängel Zitronengras, fein gehackt"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Chilis"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Jasminreis"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Fischsauce, Kurkuma und der Hälfte des Zitronengrases marinieren.",
+   "minutes": 15
+  },
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zucker in der Pfanne mit 1 EL Wasser hell karamellisieren."
+  },
+  {
+   "text": "Öl, restliches Zitronengras, Knoblauch und Chili zugeben und 1 Minute braten."
+  },
+  {
+   "text": "Hähnchen und Zwiebel zugeben und braten, bis das Fleisch durch und glasiert ist.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Koriander und Reis servieren."
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+{
+ "id": "kung-pao-haehnchen",
+ "title": "Kung-Pao-Hähnchen",
+ "icon": "🌶",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "group": "Hähnchen"
+  },
+  {
+   "amount": "350 g",
+   "name": "Hähnchenbrust, gewürfelt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "schwarzer Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "50 ml",
+   "name": "Wasser"
+  },
+  {
+   "group": "Pfanne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  },
+  {
+   "amount": "8",
+   "name": "getrocknete Chilischoten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sichuanpfeffer"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen, gehackt"
+  },
+  {
+   "amount": "1 Stück (2 cm)",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln, in Stücken"
+  },
+  {
+   "amount": "60 g",
+   "name": "geröstete Erdnüsse"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis zum Servieren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Sojasauce und Stärke vermischen und kurz ziehen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Reis nach Packungsangabe kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Alle Zutaten für die Sauce verrühren."
+  },
+  {
+   "text": "Öl im Wok stark erhitzen, Chili und Sichuanpfeffer 30 Sekunden anrösten, ohne dass sie schwarz werden."
+  },
+  {
+   "text": "Hähnchen zugeben und 4–5 Minuten braten, bis es fast gar ist.",
+   "minutes": 5
+  },
+  {
+   "text": "Knoblauch, Ingwer und Frühlingszwiebeln 1 Minute mitbraten."
+  },
+  {
+   "text": "Sauce einrühren, kurz aufkochen lassen, bis sie glänzt. Erdnüsse unterheben und mit Reis servieren."
+  }
+ ]
+}

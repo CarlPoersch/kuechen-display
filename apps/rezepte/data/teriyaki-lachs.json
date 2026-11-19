@@ -1,0 +1,80 @@
+{
+ "id": "teriyaki-lachs",
+ "title": "Teriyaki-Lachs",
+ "icon": "🐟",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Lachsfilets (je 150 g)"
+  },
+  {
+   "group": "Teriyaki-Sauce"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sake oder Wasser"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Sushi- oder Jasminreis"
+  },
+  {
+   "amount": "200 g",
+   "name": "Brokkoli"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  },
+  {
+   "amount": "1 EL",
+   "name": "neutrales Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Saucenzutaten verrühren."
+  },
+  {
+   "text": "Brokkoli dämpfen oder kochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Lachs trocken tupfen und in Öl auf der Hautseite knusprig braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Wenden und 2 Minuten weiterbraten.",
+   "minutes": 2
+  },
+  {
+   "text": "Sauce in die Pfanne gießen und einkochen, bis sie glänzt. Lachs dabei immer wieder damit überziehen.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit Reis, Brokkoli und Sesam servieren."
+  }
+ ]
+}

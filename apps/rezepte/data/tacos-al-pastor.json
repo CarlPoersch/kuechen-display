@@ -1,0 +1,92 @@
+{
+ "id": "tacos-al-pastor",
+ "title": "Tacos al Pastor",
+ "icon": "🌮",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 1 Std. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Schweinenacken, in dünnen Scheiben"
+  },
+  {
+   "group": "Marinade"
+  },
+  {
+   "amount": "2",
+   "name": "getrocknete Ancho-Chilis (oder 2 EL Chipotle-Paste)"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Ananassaft"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Apfelessig"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "group": "Zum Servieren"
+  },
+  {
+   "amount": "12",
+   "name": "kleine Maistortillas"
+  },
+  {
+   "amount": "200 g",
+   "name": "Ananas, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel, fein gewürfelt"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "",
+   "name": "Salsa (nach Geschmack)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Chilis entkernen, 10 Minuten in heißem Wasser einweichen und mit den übrigen Marinadezutaten pürieren.",
+   "minutes": 10
+  },
+  {
+   "text": "Fleisch mit der Marinade mischen und kühl ziehen lassen (gern über Nacht).",
+   "minutes": 120
+  },
+  {
+   "text": "Fleisch in einer sehr heißen Pfanne portionsweise scharf anbraten, bis die Ränder karamellisieren.",
+   "minutes": 6
+  },
+  {
+   "text": "Ananas kurz in derselben Pfanne anrösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Fleisch klein schneiden, Tortillas in einer trockenen Pfanne erwärmen."
+  },
+  {
+   "text": "Tortillas mit Fleisch, Ananas, Zwiebel, Koriander und Salsa belegen, mit Limette servieren."
+  }
+ ]
+}

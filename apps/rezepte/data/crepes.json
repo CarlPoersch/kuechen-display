@@ -1,0 +1,60 @@
+{
+ "id": "crepes",
+ "title": "Crêpes",
+ "icon": "🥞",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "50 g",
+   "name": "geschmolzene Butter"
+  },
+  {
+   "amount": "",
+   "name": "Zucker, Zitrone, Nutella oder Marmelade (zum Füllen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Zucker und Salz mischen, Eier und nach und nach die Milch einrühren, bis ein glatter Teig entsteht."
+  },
+  {
+   "text": "Butter unterrühren und den Teig ruhen lassen. Warum ruhen: Das Mehl quillt, die Crêpes reißen nicht.",
+   "minutes": 30
+  },
+  {
+   "text": "Eine beschichtete Pfanne leicht fetten und heiß werden lassen."
+  },
+  {
+   "text": "Eine kleine Kelle Teig hineingeben und durch Schwenken dünn verteilen."
+  },
+  {
+   "text": "Backen, bis der Rand sich löst, wenden und kurz weiterbacken.",
+   "minutes": 2
+  },
+  {
+   "text": "Nach Belieben füllen und falten."
+  }
+ ]
+}

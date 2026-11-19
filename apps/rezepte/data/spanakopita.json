@@ -1,0 +1,69 @@
+{
+ "id": "spanakopita",
+ "title": "Spanakopita (Spinat-Feta-Pita)",
+ "icon": "🥧",
+ "cuisine": "Mediterran",
+ "servings": 3,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Blattspinat (oder TK)"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "125 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "125 g",
+   "name": "Filoteig"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter, geschmolzen"
+  },
+  {
+   "amount": "1",
+   "name": "Airfryer-geeignete Form (ca. 20 cm)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spinat in einer Pfanne zusammenfallen lassen, gut ausdrücken und hacken.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Frühlingszwiebeln, Dill, zerbröseltem Feta, Eiern, Muskat und Pfeffer mischen."
+  },
+  {
+   "text": "Form fetten."
+  },
+  {
+   "text": "Die Hälfte der Teigblätter einzeln mit Butter bestreichen und in die Form legen."
+  },
+  {
+   "text": "Füllung verteilen, mit den restlichen gebutterten Blättern bedecken."
+  },
+  {
+   "text": "Oberfläche in Portionsstücke einritzen und im Airfryer bei 160 °C backen, bis sie goldbraun ist.",
+   "minutes": 25
+  }
+ ],
+ "airfryer": true
+}

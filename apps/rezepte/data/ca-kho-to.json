@@ -1,0 +1,73 @@
+{
+ "id": "ca-kho-to",
+ "title": "Cá Kho Tộ (karamellisierter Fisch)",
+ "icon": "🐟",
+ "cuisine": "Vietnamesisch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "festes Fischfilet (Wels, Kabeljau)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Schalotten"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "schwarzer Pfeffer"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Kokoswasser oder Wasser"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Chili"
+  },
+  {
+   "amount": "150 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fisch in 4 cm Stücke schneiden und mit Fischsauce und Pfeffer marinieren.",
+   "minutes": 15
+  },
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zucker in einem kleinen Topf dunkelbraun karamellisieren lassen."
+  },
+  {
+   "text": "Schalotten und Knoblauch kurz darin anbraten."
+  },
+  {
+   "text": "Fisch mit Marinade und Kokoswasser zugeben und offen köcheln, bis die Sauce dick ist.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Frühlingszwiebeln und Chili bestreuen und mit Reis servieren."
+  }
+ ]
+}

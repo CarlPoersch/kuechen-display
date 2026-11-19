@@ -1,0 +1,74 @@
+{
+ "id": "tom-yum-goong",
+ "title": "Tom Yum Goong",
+ "icon": "🍲",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "700 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "250 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "2",
+   "name": "Stängel Zitronengras"
+  },
+  {
+   "amount": "1 Stück (3 cm)",
+   "name": "Galgant"
+  },
+  {
+   "amount": "4",
+   "name": "Kaffirlimettenblätter"
+  },
+  {
+   "amount": "150 g",
+   "name": "Austernpilze oder Champignons"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Nam Prik Pao (Chilipaste)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "3",
+   "name": "kleine Chilis, angedrückt"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brühe mit Zitronengras, Galgant und Limettenblättern aufkochen und ziehen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Pilze und Chilipaste zugeben und 2 Minuten köcheln.",
+   "minutes": 2
+  },
+  {
+   "text": "Garnelen zugeben und nur garen, bis sie rosa sind.",
+   "minutes": 2
+  },
+  {
+   "text": "Vom Herd nehmen, mit Fischsauce und Limettensaft abschmecken: scharf, sauer, salzig."
+  },
+  {
+   "text": "Mit Chilis und Koriander servieren."
+  }
+ ]
+}

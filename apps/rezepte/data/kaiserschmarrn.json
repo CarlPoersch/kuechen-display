@@ -1,0 +1,71 @@
+{
+ "id": "kaiserschmarrn",
+ "title": "Kaiserschmarrn",
+ "icon": "🥞",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "125 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "40 g",
+   "name": "Rosinen (optional)"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Puderzucker"
+  },
+  {
+   "amount": "300 g",
+   "name": "Zwetschgenröster oder Apfelmus"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier trennen. Eigelbe mit Mehl, Milch und Salz glatt rühren."
+  },
+  {
+   "text": "Eiweiß mit Zucker steif schlagen und locker unterheben."
+  },
+  {
+   "text": "Butter in einer großen Pfanne schmelzen, Teig hineingeben, Rosinen darüberstreuen."
+  },
+  {
+   "text": "Bei mittlerer Hitze stocken lassen, bis die Unterseite goldbraun ist.",
+   "minutes": 5
+  },
+  {
+   "text": "Vierteln, wenden und mit zwei Gabeln in Stücke reißen."
+  },
+  {
+   "text": "Etwas Puderzucker darüberstreuen und unter Wenden karamellisieren lassen.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Puderzucker und Zwetschgenröster servieren."
+  }
+ ]
+}

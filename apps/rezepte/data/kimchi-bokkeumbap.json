@@ -1,0 +1,66 @@
+{
+ "id": "kimchi-bokkeumbap",
+ "title": "Kimchi-Bratreis",
+ "icon": "🍳",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "gekochter Reis vom Vortag"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kimchi, gehackt"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Kimchisaft"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speck oder Schinken, gewürfelt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Gochujang"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Nori-Blatt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Speck in der Pfanne auslassen.",
+   "minutes": 3
+  },
+  {
+   "text": "Kimchi zugeben und 3 Minuten braten.",
+   "minutes": 3
+  },
+  {
+   "text": "Reis, Kimchisaft und Gochujang zugeben und bei starker Hitze braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Sesamöl abschmecken."
+  },
+  {
+   "text": "Spiegeleier braten und auf den Reis setzen, mit Frühlingszwiebeln und zerbröseltem Nori bestreuen."
+  }
+ ]
+}

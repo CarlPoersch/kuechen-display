@@ -1,0 +1,84 @@
+{
+ "id": "falafel",
+ "title": "Falafel im Fladenbrot",
+ "icon": "🧆",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 1 Std. (plus Einweichen)",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "getrocknete Kichererbsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Koriander, gemahlen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Natron"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Öl zum Frittieren"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "",
+   "name": "Tahinsauce, Salat, Tomaten (zum Füllen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kichererbsen über Nacht in viel Wasser einweichen. Wichtig: nicht kochen, sonst zerfällt die Masse.",
+   "minutes": 720
+  },
+  {
+   "text": "Abtropfen lassen und mit Zwiebel, Knoblauch, Kräutern und Gewürzen im Mixer fein, aber nicht breiig zerkleinern."
+  },
+  {
+   "text": "Natron unterrühren und die Masse kühl ruhen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Walnussgroße Bällchen formen."
+  },
+  {
+   "text": "In 175 °C heißem Öl portionsweise goldbraun frittieren.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Salat, Tomaten und Tahinsauce im Fladenbrot servieren."
+  }
+ ]
+}

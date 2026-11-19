@@ -1,0 +1,97 @@
+{
+ "id": "jiaozi",
+ "title": "Jiaozi (gefüllte Teigtaschen)",
+ "icon": "🥟",
+ "cuisine": "Chinesisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "300 g",
+   "name": "Weizenmehl"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Wasser, kalt"
+  },
+  {
+   "group": "Füllung"
+  },
+  {
+   "amount": "300 g",
+   "name": "Schweinehack"
+  },
+  {
+   "amount": "150 g",
+   "name": "Chinakohl, fein gehackt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln, fein"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer, gerieben"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "3 EL",
+   "name": "schwarzer Reisessig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl und Wasser 8 Minuten zu einem glatten Teig kneten.",
+   "minutes": 8
+  },
+  {
+   "text": "Abgedeckt ruhen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Chinakohl mit Salz mischen, 10 Minuten ziehen lassen und kräftig ausdrücken.",
+   "minutes": 10
+  },
+  {
+   "text": "Kohl mit allen übrigen Füllungszutaten verkneten."
+  },
+  {
+   "text": "Teig zu einer Rolle formen, in ca. 30 Stücke teilen und jedes zu einem dünnen Kreis (ca. 8 cm) ausrollen."
+  },
+  {
+   "text": "Je 1 TL Füllung daraufgeben, zu Halbmonden falten und den Rand fest zusammendrücken."
+  },
+  {
+   "text": "In kochendem Wasser garen, bis sie oben schwimmen, dann noch 2 Minuten ziehen lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Dip verrühren und dazu servieren."
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+{
+ "id": "pad-thai",
+ "title": "Pad Thai mit Garnelen",
+ "icon": "🍤",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Reisbandnudeln (5 mm)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Tamarindenpaste"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "40 g",
+   "name": "Erdnüsse, gehackt"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln in lauwarmem Wasser einweichen, bis sie biegsam sind.",
+   "minutes": 25
+  },
+  {
+   "text": "Sauce verrühren, bis der Zucker gelöst ist."
+  },
+  {
+   "text": "Öl im Wok erhitzen, Knoblauch und Garnelen 2 Minuten braten und an den Rand schieben.",
+   "minutes": 2
+  },
+  {
+   "text": "Eier in den Wok schlagen und verrühren, bis sie fast gestockt sind."
+  },
+  {
+   "text": "Nudeln und Sauce zugeben und 3 Minuten braten, bis die Nudeln weich sind. Bei Bedarf einen Schuss Wasser zugeben.",
+   "minutes": 3
+  },
+  {
+   "text": "Sprossen und Frühlingszwiebeln unterheben. Mit Erdnüssen, Chili und Limettenspalten servieren."
+  }
+ ]
+}

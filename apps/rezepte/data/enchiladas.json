@@ -1,0 +1,92 @@
+{
+ "id": "enchiladas",
+ "title": "Hähnchen-Enchiladas",
+ "icon": "🌯",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "8",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Paprika"
+  },
+  {
+   "amount": "1 Dose (400 g)",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "200 g",
+   "name": "geriebener Käse (Cheddar)"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "500 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Salzwasser gar ziehen lassen und mit zwei Gabeln zerzupfen.",
+   "minutes": 15
+  },
+  {
+   "text": "Sauce aufkochen und 10 Minuten köcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Zwiebel und Paprika anbraten, mit Hähnchen, Bohnen und der Hälfte des Käses mischen.",
+   "minutes": 5
+  },
+  {
+   "text": "Etwas Sauce in eine Airfryer-geeignete Form (ca. 20 cm) geben."
+  },
+  {
+   "text": "Tortillas füllen, aufrollen und dicht nebeneinander in die Form legen. Passen nicht alle hinein, halbieren oder in zwei Durchgängen backen."
+  },
+  {
+   "text": "Mit Sauce und restlichem Käse bedecken und im Airfryer bei 180 °C backen, bis der Käse blubbert.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit saurer Sahne und Koriander servieren."
+  }
+ ],
+ "airfryer": true
+}

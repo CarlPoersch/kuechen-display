@@ -1,0 +1,76 @@
+{
+ "id": "af-baked-potato",
+ "title": "Baked Potato mit Kräuterquark",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "große mehligkochende Kartoffeln (je ca. 300 g)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "grobes Salz"
+  },
+  {
+   "group": "Kräuterquark"
+  },
+  {
+   "amount": "250 g",
+   "name": "Quark"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "group": "Topping (optional)"
+  },
+  {
+   "amount": "50 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Röstzwiebeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln waschen, trocknen, mehrmals mit einer Gabel einstechen und mit Öl und Salz einreiben."
+  },
+  {
+   "text": "Bei 200 °C garen, nach der Hälfte wenden, bis ein Messer leicht hineingleitet.",
+   "minutes": 40
+  },
+  {
+   "text": "Quark mit Milch, Knoblauch, gehackten Kräutern, Salz und Pfeffer cremig rühren."
+  },
+  {
+   "text": "Speck in den letzten 5 Minuten in einer kleinen Form mit in den Airfryer stellen."
+  },
+  {
+   "text": "Kartoffeln kreuzweise einschneiden, etwas aufdrücken, mit Quark, Speck und Röstzwiebeln füllen."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

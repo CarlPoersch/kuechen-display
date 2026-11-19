@@ -1,0 +1,82 @@
+{
+ "id": "palak-paneer",
+ "title": "Palak Paneer",
+ "icon": "🥬",
+ "cuisine": "Indisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Blattspinat"
+  },
+  {
+   "amount": "200 g",
+   "name": "Paneer, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Chili"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Ghee"
+  },
+  {
+   "amount": "150 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spinat 2 Minuten blanchieren, in Eiswasser abschrecken und fein pürieren. Warum Eiswasser: Er bleibt grün.",
+   "minutes": 2
+  },
+  {
+   "text": "Basmatireis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Paneer in 1 EL Ghee goldbraun braten und herausnehmen.",
+   "minutes": 4
+  },
+  {
+   "text": "Kreuzkümmel im restlichen Ghee anrösten, Zwiebel weich braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Knoblauch, Ingwer, Chili und Garam Masala 1 Minute mitbraten."
+  },
+  {
+   "text": "Spinatpüree zugeben und 5 Minuten köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Paneer und Sahne unterrühren, mit Salz abschmecken."
+  }
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "id": "japchae",
+ "title": "Japchae (Glasnudeln)",
+ "icon": "🍝",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Süßkartoffel-Glasnudeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Rindfleisch, in Streifen"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "100 g",
+   "name": "Shiitake"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen, gepresst"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln nach Packung kochen, abschrecken und mit einer Schere etwas kürzen.",
+   "minutes": 6
+  },
+  {
+   "text": "Saucenzutaten verrühren."
+  },
+  {
+   "text": "Gemüse in Streifen schneiden und nacheinander kurz anbraten, damit jedes bissfest bleibt."
+  },
+  {
+   "text": "Fleisch mit 1 EL Sauce anbraten.",
+   "minutes": 3
+  },
+  {
+   "text": "Alles mit den Nudeln und der restlichen Sauce in einer großen Schüssel vermengen."
+  },
+  {
+   "text": "Mit Sesam bestreuen. Schmeckt warm und kalt."
+  }
+ ]
+}

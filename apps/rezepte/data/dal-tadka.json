@@ -1,0 +1,93 @@
+{
+ "id": "dal-tadka",
+ "title": "Dal Tadka (gelbe Linsen)",
+ "icon": "🍲",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "gelbe Linsen (Toor oder Mung Dal)"
+  },
+  {
+   "amount": "1 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Tadka (Würzöl)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Ghee oder Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senfsamen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "2",
+   "name": "getrocknete Chilis"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen waschen, mit Wasser, Kurkuma und Salz weich kochen.",
+   "minutes": 25
+  },
+  {
+   "text": "Basmatireis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Ghee erhitzen, Kreuzkümmel, Senfsamen und Chilis knistern lassen."
+  },
+  {
+   "text": "Zwiebel und Knoblauch goldbraun braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tomaten und Garam Masala zugeben und 3 Minuten braten.",
+   "minutes": 3
+  },
+  {
+   "text": "Tadka in die Linsen rühren, mit Koriander servieren. Warum am Ende: So bleibt das Gewürzaroma frisch."
+  }
+ ]
+}

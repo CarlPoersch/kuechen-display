@@ -1,0 +1,68 @@
+{
+ "id": "pesto-genovese",
+ "title": "Trofie mit Pesto Genovese",
+ "icon": "🌿",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Trofie oder Linguine"
+  },
+  {
+   "amount": "50 g",
+   "name": "Basilikumblätter"
+  },
+  {
+   "amount": "30 g",
+   "name": "Pinienkerne"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "40 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "20 g",
+   "name": "Pecorino"
+  },
+  {
+   "amount": "80 ml",
+   "name": "mildes Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "kleine Kartoffel"
+  },
+  {
+   "amount": "100 g",
+   "name": "grüne Bohnen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pinienkerne ohne Fett goldbraun rösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Basilikum, Knoblauch, Pinienkerne und etwas Salz im Mörser oder Mixer zerkleinern, Käse und Öl einarbeiten. Nicht zu lange mixen: Basilikum wird sonst bitter."
+  },
+  {
+   "text": "Kartoffel würfeln, Bohnen in Stücke schneiden."
+  },
+  {
+   "text": "Nudeln mit Kartoffel und Bohnen im selben Topf kochen.",
+   "minutes": 11
+  },
+  {
+   "text": "Abgießen, dabei etwas Nudelwasser auffangen."
+  },
+  {
+   "text": "Mit Pesto und 2–3 EL Nudelwasser vermengen, bis alles cremig ist."
+  }
+ ]
+}

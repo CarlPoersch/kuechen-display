@@ -1,0 +1,61 @@
+{
+ "id": "tomaten-ei",
+ "title": "Tomaten mit Rührei (Fanqie Chao Dan)",
+ "icon": "🍅",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "3",
+   "name": "Tomaten, in Spalten"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ketchup"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis zum Servieren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Eier mit einer Prise Salz verquirlen. In 1 EL Öl locker stocken lassen und herausnehmen."
+  },
+  {
+   "text": "Restliches Öl erhitzen, Tomaten 3 Minuten braten, bis sie Saft ziehen.",
+   "minutes": 3
+  },
+  {
+   "text": "Ketchup, Zucker und Salz zugeben und 1 Minute köcheln."
+  },
+  {
+   "text": "Ei zurück in die Pfanne geben, kurz durchschwenken, mit Frühlingszwiebeln bestreuen und auf Reis servieren."
+  }
+ ]
+}

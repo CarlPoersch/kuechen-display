@@ -1,0 +1,76 @@
+{
+ "id": "frikadellen",
+ "title": "Frikadellen mit Kartoffelpüree",
+ "icon": "🍔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gemischtes Hack"
+  },
+  {
+   "amount": "1",
+   "name": "altbackenes Brötchen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "group": "Püree"
+  },
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brötchen in Wasser einweichen und gut ausdrücken.",
+   "minutes": 10
+  },
+  {
+   "text": "Kartoffeln schälen und in Salzwasser weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Hack mit Brötchen, fein gewürfelter Zwiebel, Ei, Senf, Paprika, Salz und Pfeffer verkneten."
+  },
+  {
+   "text": "Mit feuchten Händen 8 Frikadellen formen."
+  },
+  {
+   "text": "In Öl bei mittlerer Hitze von beiden Seiten braten, bis sie durch sind.",
+   "minutes": 12
+  },
+  {
+   "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen, mit Muskat und Salz würzen."
+  }
+ ]
+}

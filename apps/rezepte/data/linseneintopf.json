@@ -1,0 +1,71 @@
+{
+ "id": "linseneintopf",
+ "title": "Linseneintopf",
+ "icon": "🥣",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Tellerlinsen"
+  },
+  {
+   "amount": "1",
+   "name": "Bund Suppengrün"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "300 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speck, gewürfelt"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "4",
+   "name": "Wiener Würstchen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Speck im Topf auslassen, Zwiebel und gewürfeltes Suppengrün darin andünsten.",
+   "minutes": 6
+  },
+  {
+   "text": "Linsen, Brühe und Lorbeer zugeben und köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Kartoffeln würfeln, zugeben und weiterköcheln, bis alles weich ist.",
+   "minutes": 20
+  },
+  {
+   "text": "Würstchen in Scheiben darin erwärmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Essig, Zucker, Salz und Pfeffer süß-sauer abschmecken."
+  }
+ ]
+}

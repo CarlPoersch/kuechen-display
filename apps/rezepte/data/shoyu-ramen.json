@@ -1,0 +1,86 @@
+{
+ "id": "shoyu-ramen",
+ "title": "Shoyu-Ramen (schnelle Variante)",
+ "icon": "🍜",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "1 Stück (3 cm)",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "200 g",
+   "name": "Ramen-Nudeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Hähnchenbrust oder Schweinebauch"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Nori-Blatt"
+  },
+  {
+   "amount": "100 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier 6½ Minuten kochen, in Eiswasser abschrecken und schälen.",
+   "minutes": 7
+  },
+  {
+   "text": "Eier in einer Mischung aus 2 EL Sojasauce, Mirin und 50 ml Wasser marinieren.",
+   "minutes": 30
+  },
+  {
+   "text": "Brühe mit Ingwer und Knoblauch aufkochen und köcheln lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Fleisch in der Brühe garen, herausnehmen und in Scheiben schneiden.",
+   "minutes": 12
+  },
+  {
+   "text": "Brühe mit restlicher Sojasauce und Sesamöl abschmecken."
+  },
+  {
+   "text": "Nudeln nach Packung kochen, Spinat kurz mitgaren.",
+   "minutes": 3
+  },
+  {
+   "text": "Nudeln in Schalen, heiße Brühe darüber, mit Fleisch, halbiertem Ei, Frühlingszwiebeln und Nori belegen."
+  }
+ ]
+}

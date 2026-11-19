@@ -1,0 +1,66 @@
+{
+ "id": "af-suesskartoffel",
+ "title": "Süßkartoffel-Wedges mit Dip",
+ "icon": "🍠",
+ "cuisine": "Amerikanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Süßkartoffeln (ca. 600 g)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "150 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "½",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Süßkartoffeln waschen und mit Schale in Spalten schneiden."
+  },
+  {
+   "text": "Mit Stärke, Öl, Paprika und Salz mischen."
+  },
+  {
+   "text": "In einer Lage bei 190 °C garen, nach der Hälfte schütteln. Bei Bedarf in zwei Durchgängen.",
+   "minutes": 20
+  },
+  {
+   "text": "Joghurt mit gepresstem Knoblauch, Limettensaft, Schnittlauch und Salz verrühren und dazu servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

@@ -1,0 +1,84 @@
+{
+ "id": "af-katsu",
+ "title": "Hähnchen-Katsu aus dem Airfryer",
+ "icon": "🍱",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Hähnchenbrustfilets"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "70 g",
+   "name": "Panko"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Katsu-Sauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Ketchup"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Worcestersauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "150 g",
+   "name": "Weißkohl, fein gehobelt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Panko mit dem Öl in einer Pfanne goldbraun rösten. Warum vorrösten: Im Airfryer wird Panko ohne Fett sonst nur blass."
+  },
+  {
+   "text": "Hähnchen flach klopfen, salzen, in Mehl, verquirltem Ei und dem gerösteten Panko wenden."
+  },
+  {
+   "text": "Bei 190 °C garen, nach der Hälfte wenden.",
+   "minutes": 12
+  },
+  {
+   "text": "Sauce verrühren."
+  },
+  {
+   "text": "Schnitzel in Streifen schneiden und mit Reis, Kohl und Sauce servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

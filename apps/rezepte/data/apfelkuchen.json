@@ -1,0 +1,80 @@
+{
+ "id": "apfelkuchen",
+ "title": "Versunkener Apfelkuchen",
+ "icon": "🍎",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "65 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "65 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "½ Päckchen",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "2",
+   "name": "kleine Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Milch"
+  },
+  {
+   "amount": "2",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "½",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Puderzucker"
+  },
+  {
+   "amount": "1",
+   "name": "kleine Springform oder Kuchenform (16–18 cm)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Form fetten. Warum kleiner als üblich: Sie muss in den Airfryer-Korb passen."
+  },
+  {
+   "text": "Butter, Zucker und Vanillezucker cremig rühren, Eier einzeln unterrühren.",
+   "minutes": 4
+  },
+  {
+   "text": "Mehl mit Backpulver mischen und mit der Milch unterrühren."
+  },
+  {
+   "text": "Äpfel schälen, vierteln, Kerngehäuse entfernen und die Rücken mehrmals einschneiden. Mit Zitronensaft beträufeln."
+  },
+  {
+   "text": "Teig in die Form streichen, Äpfel mit der Rundung nach oben hineindrücken."
+  },
+  {
+   "text": "Im Airfryer bei 150 °C backen. Bräunt die Oberfläche zu schnell, mit Alufolie abdecken. Fertig, wenn ein Holzstäbchen sauber herauskommt.",
+   "minutes": 35
+  },
+  {
+   "text": "Abkühlen lassen und mit Puderzucker bestäuben."
+  }
+ ],
+ "airfryer": true
+}

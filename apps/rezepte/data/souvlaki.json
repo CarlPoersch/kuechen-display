@@ -1,0 +1,92 @@
+{
+ "id": "souvlaki",
+ "title": "Souvlaki mit Tzatziki",
+ "icon": "🍢",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 45 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Schweinenacken oder Hähnchen, gewürfelt"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Oregano"
+  },
+  {
+   "group": "Tzatziki"
+  },
+  {
+   "amount": "500 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Dill"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "4",
+   "name": "Pitabrote"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch mit Öl, Zitronensaft, Knoblauch, Oregano, Salz und Pfeffer marinieren.",
+   "minutes": 60
+  },
+  {
+   "text": "Gurke grob reiben, salzen und nach 10 Minuten kräftig ausdrücken. Warum: Sonst wird das Tzatziki wässrig.",
+   "minutes": 10
+  },
+  {
+   "text": "Gurke mit Joghurt, gepresstem Knoblauch, Öl und Dill verrühren und kühlen."
+  },
+  {
+   "text": "Fleisch auf Spieße stecken."
+  },
+  {
+   "text": "Spieße (kurze, die in den Korb passen) im Airfryer bei 200 °C garen, nach der Hälfte wenden.",
+   "minutes": 12
+  },
+  {
+   "text": "Pita kurz rösten und mit Spießen, Tzatziki, Zwiebeln und Tomaten servieren."
+  }
+ ],
+ "airfryer": true
+}

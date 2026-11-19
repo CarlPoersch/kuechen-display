@@ -1,0 +1,55 @@
+{
+ "id": "af-pommes",
+ "title": "Knusprige Pommes",
+ "icon": "🍟",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß (optional)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in 1 cm dicke Stifte schneiden."
+  },
+  {
+   "text": "In kaltem Wasser einweichen. Warum: Das spült Stärke aus, die Pommes werden knuspriger statt klebrig.",
+   "minutes": 20
+  },
+  {
+   "text": "Gründlich trocken tupfen, mit Stärke bestäuben und mit Öl mischen."
+  },
+  {
+   "text": "Bei 180 °C garen, alle 5 Minuten den Korb schütteln.",
+   "minutes": 20
+  },
+  {
+   "text": "Auf 200 °C erhöhen und goldbraun knuspern lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Sofort salzen (und mit Paprika würzen)."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

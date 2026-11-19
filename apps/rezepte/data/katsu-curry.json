@@ -1,0 +1,85 @@
+{
+ "id": "katsu-curry",
+ "title": "Chicken Katsu Curry",
+ "icon": "🍛",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Hähnchenbrustfilets"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "60 g",
+   "name": "Panko"
+  },
+  {
+   "amount": "300 ml",
+   "name": "neutrales Öl zum Ausbacken"
+  },
+  {
+   "group": "Curry"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "Kartoffel"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "60 g",
+   "name": "japanische Currywürfel"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zwiebel, Karotte und Kartoffel würfeln, in etwas Öl 5 Minuten anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Wasser zugeben und köcheln, bis das Gemüse weich ist.",
+   "minutes": 15
+  },
+  {
+   "text": "Vom Herd nehmen, Currywürfel einrühren, bis sie gelöst sind, dann noch 3 Minuten sanft köcheln.",
+   "minutes": 3
+  },
+  {
+   "text": "Hähnchen flach klopfen, in Mehl, verquirltem Ei und Panko wenden."
+  },
+  {
+   "text": "Im heißen Öl (ca. 170 °C) pro Seite 3–4 Minuten goldbraun ausbacken.",
+   "minutes": 7
+  },
+  {
+   "text": "Schnitzel in Streifen schneiden und mit Reis und Currysauce servieren."
+  }
+ ]
+}

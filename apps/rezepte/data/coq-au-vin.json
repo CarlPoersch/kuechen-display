@@ -1,0 +1,78 @@
+{
+ "id": "coq-au-vin",
+ "title": "Coq au Vin",
+ "icon": "🍷",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "1,2 kg",
+   "name": "Hähnchenteile (Keulen)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Speck, gewürfelt"
+  },
+  {
+   "amount": "200 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "12",
+   "name": "Perlzwiebeln oder Schalotten"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "500 ml",
+   "name": "kräftiger Rotwein"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "3",
+   "name": "Zweige Thymian"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen salzen und pfeffern. Speck im Bräter auslassen und herausnehmen.",
+   "minutes": 4
+  },
+  {
+   "text": "Hähnchen im Fett rundum goldbraun anbraten und herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Zwiebeln und Pilze anbraten, Knoblauch zugeben.",
+   "minutes": 5
+  },
+  {
+   "text": "Mehl darüberstäuben, kurz anschwitzen, dann mit Wein und Brühe ablöschen."
+  },
+  {
+   "text": "Hähnchen, Speck und Kräuter zurückgeben und zugedeckt schmoren.",
+   "minutes": 75
+  },
+  {
+   "text": "Sauce bei Bedarf einkochen und mit der Butter verfeinern. Dazu Baguette oder Kartoffeln."
+  }
+ ]
+}

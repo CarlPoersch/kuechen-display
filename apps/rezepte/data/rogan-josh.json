@@ -1,0 +1,89 @@
+{
+ "id": "rogan-josh",
+ "title": "Rogan Josh (Lammcurry)",
+ "icon": "🍖",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Lammschulter, gewürfelt"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Kaschmiri-Chilipulver (oder Paprika edelsüß)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Fenchelsamen, gemahlen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwerpulver"
+  },
+  {
+   "amount": "4",
+   "name": "Kardamomkapseln"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Ghee"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ganze Gewürze im Ghee kurz anrösten."
+  },
+  {
+   "text": "Zwiebeln goldbraun braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Fleisch zugeben und rundum anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Knoblauch, Ingwer und gemahlene Gewürze 1 Minute mitbraten."
+  },
+  {
+   "text": "Joghurt löffelweise einrühren, damit er nicht gerinnt, dann 300 ml Wasser angießen."
+  },
+  {
+   "text": "Zugedeckt schmoren, bis das Lamm zart ist.",
+   "minutes": 90
+  },
+  {
+   "text": "Basmatireis kochen und dazu servieren.",
+   "minutes": 15
+  }
+ ]
+}

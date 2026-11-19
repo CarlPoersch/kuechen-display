@@ -1,0 +1,61 @@
+{
+ "id": "reibekuchen",
+ "title": "Reibekuchen mit Apfelmus",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Öl zum Braten"
+  },
+  {
+   "amount": "400 g",
+   "name": "Apfelmus"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und mit der Zwiebel fein reiben."
+  },
+  {
+   "text": "Masse in einem Tuch kräftig ausdrücken. Warum: Weniger Wasser = knusprigere Puffer."
+  },
+  {
+   "text": "Mit Eiern, Mehl und Salz vermengen."
+  },
+  {
+   "text": "Öl erhitzen, je 2 EL Masse flach drücken und pro Seite goldbraun braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Auf Küchenpapier abtropfen. Vor dem Servieren alle zusammen im Airfryer bei 180 °C wieder aufknuspern.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Apfelmus servieren."
+  }
+ ],
+ "airfryer": true
+}

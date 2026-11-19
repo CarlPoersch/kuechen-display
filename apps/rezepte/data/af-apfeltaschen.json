@@ -1,0 +1,69 @@
+{
+ "id": "af-apfeltaschen",
+ "title": "Apfeltaschen mit Zimt",
+ "icon": "🥐",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Rolle",
+   "name": "Blätterteig (Kühlregal)"
+  },
+  {
+   "amount": "2",
+   "name": "Äpfel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "30 g",
+   "name": "Rosinen (optional)"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Puderzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Äpfel schälen, klein würfeln und mit Zucker, Zimt, Zitronensaft und Rosinen mischen."
+  },
+  {
+   "text": "Blätterteig in 8 Quadrate schneiden."
+  },
+  {
+   "text": "Füllung auf je eine Hälfte geben, zu Dreiecken falten und die Ränder mit einer Gabel fest andrücken."
+  },
+  {
+   "text": "Eigelb mit Milch verquirlen, Taschen damit bestreichen und oben einritzen."
+  },
+  {
+   "text": "Auf Backpapier in den Korb legen und bei 170 °C goldbraun backen. Nicht stapeln.",
+   "minutes": 12
+  },
+  {
+   "text": "Etwas abkühlen lassen und mit Puderzucker bestäuben."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

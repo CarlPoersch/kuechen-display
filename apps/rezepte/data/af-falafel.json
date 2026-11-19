@@ -1,0 +1,86 @@
+{
+ "id": "af-falafel",
+ "title": "Falafel aus dem Airfryer",
+ "icon": "🧆",
+ "cuisine": "Orientalisch",
+ "servings": 3,
+ "time": "ca. 40 Min. (plus Einweichen)",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "getrocknete Kichererbsen"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Natron"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "3",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "",
+   "name": "Tahinsauce, Salat, Tomaten (zum Füllen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kichererbsen über Nacht einweichen (nicht kochen).",
+   "minutes": 720
+  },
+  {
+   "text": "Abtropfen lassen und mit Zwiebel, Knoblauch, Kräutern und Gewürzen im Mixer fein, aber nicht breiig zerkleinern."
+  },
+  {
+   "text": "Natron und Mehl unterrühren und kühl ruhen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zu kleinen, etwas flacheren Bällchen formen. Warum flacher: Sie garen im Airfryer gleichmäßiger durch."
+  },
+  {
+   "text": "Rundum mit Öl bepinseln und bei 190 °C garen, nach der Hälfte wenden.",
+   "minutes": 14
+  },
+  {
+   "text": "Im Fladenbrot mit Salat, Tomaten und Tahinsauce servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

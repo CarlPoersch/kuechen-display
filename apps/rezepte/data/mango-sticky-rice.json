@@ -1,0 +1,57 @@
+{
+ "id": "mango-sticky-rice",
+ "title": "Mango Sticky Rice",
+ "icon": "🥭",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 1 Std. (plus Einweichen)",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Klebreis"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "50 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2",
+   "name": "reife Mangos"
+  },
+  {
+   "amount": "1 EL",
+   "name": "geröstete Sesamsamen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Klebreis in Wasser einweichen (am besten über Nacht, mindestens 4 Stunden).",
+   "minutes": 240
+  },
+  {
+   "text": "Abgießen und im Dämpfeinsatz über kochendem Wasser garen, bis er glasig ist.",
+   "minutes": 25
+  },
+  {
+   "text": "Kokosmilch mit Zucker und Salz erwärmen, bis der Zucker gelöst ist. Nicht kochen."
+  },
+  {
+   "text": "Zwei Drittel der Kokosmilch unter den heißen Reis mischen und abgedeckt ziehen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Mangos schälen und in Scheiben schneiden."
+  },
+  {
+   "text": "Reis mit Mango anrichten, restliche Kokosmilch darüber und mit Sesam bestreuen."
+  }
+ ]
+}

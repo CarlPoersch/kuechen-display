@@ -1,0 +1,99 @@
+{
+ "id": "butter-chicken",
+ "title": "Butter Chicken",
+ "icon": "🍛",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 1 Std. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenschenkel, gewürfelt"
+  },
+  {
+   "amount": "150 g",
+   "name": "Naturjoghurt"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gerieben"
+  },
+  {
+   "amount": "400 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kasuri Methi (Bockshornkleeblätter)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Joghurt und den Gewürzen marinieren (gern auch über Nacht).",
+   "minutes": 60
+  },
+  {
+   "text": "Hähnchen im Airfryer bei 200 °C rösten, bis die Ränder Farbe haben. Nach der Hälfte den Korb schütteln.",
+   "minutes": 12
+  },
+  {
+   "text": "Butter im Topf schmelzen, Zwiebel glasig dünsten, Knoblauch und Ingwer 1 Minute mitbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tomaten zugeben und einköcheln lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Basmatireis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Sahne, Zucker und Hähnchen zugeben und köcheln, bis das Fleisch gar ist.",
+   "minutes": 10
+  },
+  {
+   "text": "Kasuri Methi zwischen den Fingern zerreiben und unterrühren."
+  }
+ ],
+ "airfryer": true
+}

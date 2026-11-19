@@ -1,0 +1,79 @@
+{
+ "id": "af-tandoori",
+ "title": "Tandoori-Hähnchen",
+ "icon": "🍗",
+ "cuisine": "Indisch",
+ "servings": 2,
+ "time": "ca. 40 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenunterschenkel oder 400 g Schenkelfilet"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer-Knoblauch-Paste"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Tandoori-Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kaschmiri-Chili oder Paprika"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Basmatireis"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel, in Ringen"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch mehrmals einschneiden. Warum: Die Marinade zieht so tiefer ein."
+  },
+  {
+   "text": "Mit allen Marinadezutaten mischen und kühl ziehen lassen (gern über Nacht).",
+   "minutes": 60
+  },
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Überschüssige Marinade abstreifen und bei 200 °C garen, nach der Hälfte wenden, bis die Ränder dunkel werden.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Zwiebelringen, Zitrone und Koriander servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

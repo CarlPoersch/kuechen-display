@@ -1,0 +1,66 @@
+{
+ "id": "gyudon",
+ "title": "Gyudon (Rindfleisch-Reisschale)",
+ "icon": "🍚",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Rindfleisch, hauchdünn geschnitten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel, in Streifen"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Dashi oder Brühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "",
+   "name": "eingelegter Ingwer (nach Geschmack)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Dashi, Sojasauce, Mirin und Zucker in einer Pfanne aufkochen."
+  },
+  {
+   "text": "Zwiebel darin weich köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Rindfleisch zugeben und nur kurz garen, bis es nicht mehr rosa ist.",
+   "minutes": 2
+  },
+  {
+   "text": "Auf Reis verteilen, etwas Sud darübergeben, mit Frühlingszwiebeln und Ingwer servieren."
+  }
+ ]
+}

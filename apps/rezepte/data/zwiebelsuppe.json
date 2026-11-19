@@ -1,0 +1,70 @@
+{
+ "id": "zwiebelsuppe",
+ "title": "Französische Zwiebelsuppe",
+ "icon": "🧅",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "150 ml",
+   "name": "trockener Weißwein"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "2",
+   "name": "Zweige Thymian"
+  },
+  {
+   "amount": "8",
+   "name": "Scheiben Baguette"
+  },
+  {
+   "amount": "150 g",
+   "name": "Gruyère, gerieben"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln in feine Ringe schneiden."
+  },
+  {
+   "text": "In Butter mit dem Zucker bei mittlerer Hitze langsam tief goldbraun karamellisieren, regelmäßig rühren.",
+   "minutes": 40
+  },
+  {
+   "text": "Mehl darüberstäuben und kurz anschwitzen, mit Wein ablöschen."
+  },
+  {
+   "text": "Brühe und Thymian zugeben und köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Baguettescheiben mit Käse belegen und im Airfryer bei 200 °C überbacken, bis der Käse blubbert.",
+   "minutes": 4
+  },
+  {
+   "text": "Suppe in Schalen füllen und die Käsebrote darauflegen."
+  }
+ ],
+ "airfryer": true
+}

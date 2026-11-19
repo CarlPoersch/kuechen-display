@@ -1,0 +1,68 @@
+{
+ "id": "obatzda",
+ "title": "Obatzda mit Brezn",
+ "icon": "🥨",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min. (plus Ziehen)",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "reifer Camembert"
+  },
+  {
+   "amount": "50 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "Frischkäse"
+  },
+  {
+   "amount": "1",
+   "name": "kleine Zwiebel, sehr fein gewürfelt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kümmel, gemahlen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Weißbier (optional)"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "4",
+   "name": "Brezn"
+  },
+  {
+   "amount": "4",
+   "name": "Radieschen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Camembert mit einer Gabel klein drücken."
+  },
+  {
+   "text": "Mit Butter, Frischkäse und Bier cremig vermengen, grobe Stücke dürfen bleiben."
+  },
+  {
+   "text": "Zwiebel, Paprika, Kümmel, Salz und Pfeffer unterrühren."
+  },
+  {
+   "text": "Abgedeckt kühl durchziehen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Mit Schnittlauch, Radieschen und frischen Brezn servieren."
+  }
+ ]
+}

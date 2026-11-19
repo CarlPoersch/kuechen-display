@@ -1,0 +1,60 @@
+{
+ "id": "horiatiki",
+ "title": "Griechischer Bauernsalat",
+ "icon": "🥗",
+ "cuisine": "Mediterran",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "reife Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kalamata-Oliven"
+  },
+  {
+   "amount": "200 g",
+   "name": "Feta (am Stück)"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tomaten in Spalten, Gurke in dicke Halbmonde schneiden."
+  },
+  {
+   "text": "Paprika und Zwiebel in Ringe schneiden."
+  },
+  {
+   "text": "Alles mit Oliven in eine Schüssel geben, salzen und mit Essig mischen."
+  },
+  {
+   "text": "Feta als Ganzes obenauf legen, mit Oregano bestreuen und Olivenöl darübergießen."
+  }
+ ]
+}

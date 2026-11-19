@@ -1,0 +1,45 @@
+{
+ "id": "mango-lassi",
+ "title": "Mango Lassi",
+ "icon": "🥭",
+ "cuisine": "Indisch",
+ "servings": 2,
+ "time": "ca. 5 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "reife Mango (oder 250 g Mangopüree)"
+  },
+  {
+   "amount": "250 g",
+   "name": "Naturjoghurt"
+  },
+  {
+   "amount": "150 ml",
+   "name": "kalte Milch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker oder Honig"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Kardamom"
+  },
+  {
+   "amount": "4",
+   "name": "Eiswürfel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mango schälen und vom Stein schneiden."
+  },
+  {
+   "text": "Alles im Mixer cremig pürieren."
+  },
+  {
+   "text": "Mit Kardamom bestäubt sofort servieren."
+  }
+ ]
+}

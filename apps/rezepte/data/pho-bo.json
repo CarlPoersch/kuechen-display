@@ -1,0 +1,119 @@
+{
+ "id": "pho-bo",
+ "title": "Phở Bò (Rindernudelsuppe)",
+ "icon": "🍜",
+ "cuisine": "Vietnamesisch",
+ "servings": 4,
+ "time": "ca. 3 Std.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rinderknochen"
+  },
+  {
+   "amount": "500 g",
+   "name": "Rinderbrust"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1 Stück (6 cm)",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürznelken"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Koriandersamen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2,5 l",
+   "name": "Wasser"
+  },
+  {
+   "group": "Zum Servieren"
+  },
+  {
+   "amount": "400 g",
+   "name": "Reisbandnudeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Rinderfilet, hauchdünn"
+  },
+  {
+   "amount": "200 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Thai-Basilikum"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "2",
+   "name": "Chilis"
+  },
+  {
+   "amount": "",
+   "name": "Hoisin- und Sriracha (nach Geschmack)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Knochen und Brust in Wasser aufkochen, 5 Minuten kochen, abgießen und abspülen. Warum: Die Brühe wird klar.",
+   "minutes": 5
+  },
+  {
+   "text": "Zwiebeln und Ingwer halbiert in einer Pfanne ohne Fett schwarz rösten, Gewürze kurz mitrösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Alles mit 2,5 l frischem Wasser aufsetzen und sanft simmern, nicht sprudelnd kochen.",
+   "minutes": 150
+  },
+  {
+   "text": "Brust nach 2 Stunden herausnehmen und in Scheiben schneiden."
+  },
+  {
+   "text": "Brühe abseihen, mit Fischsauce und Zucker abschmecken."
+  },
+  {
+   "text": "Nudeln nach Packung garen und auf Schalen verteilen.",
+   "minutes": 5
+  },
+  {
+   "text": "Brust und rohes Filet darauflegen und mit kochender Brühe übergießen, das Filet gart dabei."
+  },
+  {
+   "text": "Mit Kräutern, Sprossen, Limette, Chili und Saucen servieren."
+  }
+ ]
+}

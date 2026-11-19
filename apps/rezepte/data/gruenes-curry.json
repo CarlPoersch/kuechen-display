@@ -1,0 +1,75 @@
+{
+ "id": "gruenes-curry",
+ "title": "Grünes Curry mit Hähnchen",
+ "icon": "🍛",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Hähnchenbrust, in Streifen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "grüne Currypaste"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1",
+   "name": "Aubergine oder 150 g Thai-Auberginen"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zuckerschoten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Palmzucker oder brauner Zucker"
+  },
+  {
+   "amount": "4",
+   "name": "Kaffirlimettenblätter"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Thai-Basilikum"
+  },
+  {
+   "amount": "150 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Den dicken Teil der Kokosmilch im Topf erhitzen, bis sich das Fett absetzt, dann die Currypaste 2 Minuten darin anrösten.",
+   "minutes": 2
+  },
+  {
+   "text": "Hähnchen zugeben und 3 Minuten mitgaren.",
+   "minutes": 3
+  },
+  {
+   "text": "Restliche Kokosmilch, Aubergine und Limettenblätter zugeben und köcheln lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Zuckerschoten, Fischsauce und Zucker zugeben und 2 Minuten köcheln.",
+   "minutes": 2
+  },
+  {
+   "text": "Basilikum unterheben und mit Reis servieren."
+  }
+ ]
+}

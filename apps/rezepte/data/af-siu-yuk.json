@@ -1,0 +1,79 @@
+{
+ "id": "af-siu-yuk",
+ "title": "Knuspriger Schweinebauch (Siu Yuk)",
+ "icon": "🥓",
+ "cuisine": "Chinesisch",
+ "servings": 3,
+ "time": "ca. 1 Std. 30 Min. (plus Trocknen)",
+ "ingredients": [
+  {
+   "amount": "700 g",
+   "name": "Schweinebauch mit Schwarte, am Stück"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Fünf-Gewürze-Pulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Shaoxing-Wein"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "2 EL",
+   "name": "grobes Salz"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "",
+   "name": "Senf oder Hoisinsauce (zum Dippen)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch kurz in kochendes Wasser legen, dann die Schwarte mit einer Gabel dicht einstechen.",
+   "minutes": 3
+  },
+  {
+   "text": "Fleischseite (nicht die Schwarte) mit Wein, Fünf-Gewürze-Pulver, Zucker und Salz einreiben."
+  },
+  {
+   "text": "Unabgedeckt im Kühlschrank trocknen lassen, am besten über Nacht. Warum: Eine trockene Schwarte wird knusprig.",
+   "minutes": 240
+  },
+  {
+   "text": "Schwarte mit Essig bestreichen und dick mit grobem Salz bedecken."
+  },
+  {
+   "text": "Bei 160 °C garen.",
+   "minutes": 35
+  },
+  {
+   "text": "Salzkruste abklopfen, auf 200 °C erhöhen und garen, bis die Schwarte aufpoppt.",
+   "minutes": 20
+  },
+  {
+   "text": "Ruhen lassen, in Würfel schneiden und mit Reis und Dip servieren.",
+   "minutes": 10
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

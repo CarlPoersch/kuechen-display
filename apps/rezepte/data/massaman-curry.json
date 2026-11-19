@@ -1,0 +1,82 @@
+{
+ "id": "massaman-curry",
+ "title": "Massaman-Curry mit Rind",
+ "icon": "🥜",
+ "cuisine": "Thailändisch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rindergulasch"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Massaman-Currypaste"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "500 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel, in Spalten"
+  },
+  {
+   "amount": "60 g",
+   "name": "Erdnüsse"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tamarindenpaste"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Palmzucker"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "300 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Etwas Kokosmilch erhitzen und die Currypaste darin 2 Minuten anrösten.",
+   "minutes": 2
+  },
+  {
+   "text": "Fleisch zugeben und rundum anbraten."
+  },
+  {
+   "text": "Restliche Kokosmilch, Wasser und Zimtstange zugeben und zugedeckt schmoren.",
+   "minutes": 75
+  },
+  {
+   "text": "Kartoffeln, Zwiebel und Erdnüsse zugeben und weiterköcheln, bis die Kartoffeln weich sind.",
+   "minutes": 25
+  },
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Mit Fischsauce, Tamarinde und Zucker abschmecken: mild-süß und leicht säuerlich."
+  }
+ ]
+}

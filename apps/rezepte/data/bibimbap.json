@@ -1,0 +1,107 @@
+{
+ "id": "bibimbap",
+ "title": "Bibimbap",
+ "icon": "🍲",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "200 g",
+   "name": "Rinderhack oder Rindfleischstreifen"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte, in Streifen"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini, in Streifen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "100 g",
+   "name": "Shiitake, in Scheiben"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Gochujang"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Fleisch mit Sojasauce, Zucker, Knoblauch und 1 TL Sesamöl marinieren.",
+   "minutes": 10
+  },
+  {
+   "text": "Spinat und Sprossen jeweils 1 Minute blanchieren, ausdrücken und mit etwas Sesamöl und Salz würzen."
+  },
+  {
+   "text": "Karotte, Zucchini und Pilze nacheinander kurz in etwas Öl anbraten und leicht salzen."
+  },
+  {
+   "text": "Fleisch scharf anbraten.",
+   "minutes": 4
+  },
+  {
+   "text": "Spiegeleier braten."
+  },
+  {
+   "text": "Sauce verrühren. Reis in Schalen geben, Gemüse und Fleisch darauf anordnen, Ei obenauf, Sauce dazu. Beim Essen alles vermischen."
+  }
+ ]
+}

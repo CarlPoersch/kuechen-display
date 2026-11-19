@@ -1,0 +1,65 @@
+{
+ "id": "larb-gai",
+ "title": "Larb Gai (Hähnchensalat)",
+ "icon": "🥬",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Hähnchenhack"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Klebreis (roh)"
+  },
+  {
+   "amount": "2",
+   "name": "Schalotten, in Ringen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Minze"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1",
+   "name": "Kopf Romanasalat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Klebreis in einer Pfanne ohne Fett goldbraun rösten und im Mörser fein mahlen. Warum: Das gibt den typischen nussigen Biss.",
+   "minutes": 5
+  },
+  {
+   "text": "Hack mit 3 EL Wasser in der Pfanne krümelig garen, ohne es anzubraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Vom Herd nehmen, mit Fischsauce, Limettensaft und Chili würzen."
+  },
+  {
+   "text": "Schalotten, Kräuter und das Reispulver unterheben."
+  },
+  {
+   "text": "In Salatblättern servieren."
+  }
+ ]
+}

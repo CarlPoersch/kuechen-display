@@ -1,0 +1,67 @@
+{
+ "id": "kaesespaetzle",
+ "title": "Allgäuer Kässpatzen",
+ "icon": "🧀",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "200 g",
+   "name": "Bergkäse, gerieben"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Eier, Wasser und Salz zu einem zähen Teig schlagen, bis er Blasen wirft.",
+   "minutes": 5
+  },
+  {
+   "text": "Teig ruhen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zwiebeln in Ringe schneiden und in Butter langsam goldbraun braten.",
+   "minutes": 15
+  },
+  {
+   "text": "Teig portionsweise in kochendes Salzwasser schaben oder pressen. Sobald die Spätzle oben schwimmen, abschöpfen."
+  },
+  {
+   "text": "Lagenweise mit Käse in eine Airfryer-geeignete Form schichten und bei 160 °C kurz überbacken, bis der Käse schmilzt.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Röstzwiebeln und Schnittlauch servieren."
+  }
+ ],
+ "airfryer": true
+}

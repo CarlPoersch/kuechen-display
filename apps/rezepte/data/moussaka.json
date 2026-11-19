@@ -1,0 +1,106 @@
+{
+ "id": "moussaka",
+ "title": "Moussaka",
+ "icon": "🍆",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 1 Std. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Auberginen"
+  },
+  {
+   "amount": "400 g",
+   "name": "Lammhack oder Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "group": "Béchamel"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "450 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "50 g",
+   "name": "Kefalotyri oder Parmesan"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "group": "Außerdem"
+  },
+  {
+   "amount": "1",
+   "name": "Airfryer-geeignete Form (ca. 20 cm)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Auberginen in 1 cm Scheiben schneiden, salzen, mit Öl bestreichen und portionsweise im Airfryer bei 200 °C garen, bis sie weich und gebräunt sind.",
+   "minutes": 12
+  },
+  {
+   "text": "Zwiebel und Knoblauch andünsten, Hack krümelig braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Wein ablöschen, Tomaten, Zimt und Oregano zugeben und köcheln.",
+   "minutes": 25
+  },
+  {
+   "text": "Béchamel kochen: Butter schmelzen, Mehl einrühren, Milch unterrühren, andicken lassen, vom Herd nehmen, Eigelbe, Käse und Muskat unterrühren.",
+   "minutes": 8
+  },
+  {
+   "text": "Abwechselnd Auberginen und Fleischsauce in eine Form schichten, mit Béchamel abschließen."
+  },
+  {
+   "text": "Im Airfryer bei 160 °C backen. Wird die Oberfläche zu schnell dunkel, mit Alufolie abdecken. Warum niedriger als im Ofen: Der Airfryer bläst die Hitze direkt von oben.",
+   "minutes": 30
+  },
+  {
+   "text": "Vor dem Anschneiden ruhen lassen.",
+   "minutes": 20
+  }
+ ],
+ "airfryer": true
+}

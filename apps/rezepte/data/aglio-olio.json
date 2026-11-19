@@ -1,0 +1,49 @@
+{
+ "id": "aglio-olio",
+ "title": "Spaghetti Aglio, Olio e Peperoncino",
+ "icon": "🧄",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen, in dünnen Scheiben"
+  },
+  {
+   "amount": "1–2",
+   "name": "getrocknete Peperoncini"
+  },
+  {
+   "amount": "80 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie, gehackt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spaghetti in gesalzenem Wasser kochen.",
+   "minutes": 9
+  },
+  {
+   "text": "Öl mit Knoblauch und Peperoncino bei kleiner Hitze erwärmen, bis der Knoblauch hellgolden ist. Er darf nicht braun werden.",
+   "minutes": 4
+  },
+  {
+   "text": "Nudeln mit einer Kelle Nudelwasser in die Pfanne geben."
+  },
+  {
+   "text": "Kräftig schwenken, bis eine leicht sämige Sauce entsteht."
+  },
+  {
+   "text": "Petersilie unterheben."
+  }
+ ]
+}

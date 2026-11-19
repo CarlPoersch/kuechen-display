@@ -1,0 +1,83 @@
+{
+ "id": "af-fruehlingsrollen",
+ "title": "Gemüse-Frühlingsrollen",
+ "icon": "🌯",
+ "cuisine": "Chinesisch",
+ "servings": 3,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "12",
+   "name": "Frühlingsrollenblätter (TK, aufgetaut)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "3",
+   "name": "Shiitake"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "50 g",
+   "name": "Glasnudeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke + 2 EL Wasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "",
+   "name": "Süß-scharfe Chilisauce (zum Dippen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Glasnudeln einweichen, abtropfen und kürzen.",
+   "minutes": 10
+  },
+  {
+   "text": "Gemüse fein schneiden, in einer Pfanne kurz anbraten und mit Sojasauce und Sesamöl würzen. Abkühlen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Glasnudeln untermischen."
+  },
+  {
+   "text": "Je 2 EL Füllung auf ein Blatt geben, Seiten einschlagen, straff aufrollen und mit Stärkewasser verkleben."
+  },
+  {
+   "text": "Rollen rundum mit Öl bepinseln."
+  },
+  {
+   "text": "Bei 190 °C goldbraun garen, nach der Hälfte wenden.",
+   "minutes": 12
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

@@ -1,0 +1,93 @@
+{
+ "id": "chana-masala",
+ "title": "Chana Masala (Kichererbsencurry)",
+ "icon": "🫘",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen (je 400 g)",
+   "name": "Kichererbsen, abgetropft"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Chili"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Koriander, gemahlen"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kreuzkümmel in Öl anrösten, bis er duftet."
+  },
+  {
+   "text": "Zwiebel goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Knoblauch, Ingwer, Chili und gemahlene Gewürze 1 Minute mitbraten."
+  },
+  {
+   "text": "Tomaten zugeben und einköcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Basmatireis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Kichererbsen mit 150 ml Wasser zugeben, einige zerdrücken und köcheln lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Mit Zitronensaft und Koriander abschmecken."
+  }
+ ]
+}

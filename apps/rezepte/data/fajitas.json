@@ -1,0 +1,69 @@
+{
+ "id": "fajitas",
+ "title": "Hähnchen-Fajitas",
+ "icon": "🫑",
+ "cuisine": "Mexikanisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Hähnchenbrust, in Streifen"
+  },
+  {
+   "amount": "2",
+   "name": "Paprika (verschiedene Farben)"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "6",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "",
+   "name": "Guacamole, saure Sahne, Salsa (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Gewürzen, Limettensaft und 1 EL Öl marinieren.",
+   "minutes": 15
+  },
+  {
+   "text": "Paprika und Zwiebel in Streifen schneiden."
+  },
+  {
+   "text": "Pfanne sehr heiß werden lassen, Hähnchen braten, bis es durch ist, und herausnehmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Gemüse bei starker Hitze bissfest braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Hähnchen zurückgeben und durchschwenken."
+  },
+  {
+   "text": "Tortillas erwärmen und alles am Tisch selbst füllen."
+  }
+ ]
+}

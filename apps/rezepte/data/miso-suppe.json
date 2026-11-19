@@ -1,0 +1,48 @@
+{
+ "id": "miso-suppe",
+ "title": "Miso-Suppe",
+ "icon": "🥣",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "600 ml",
+   "name": "Dashi (oder Wasser mit 1 TL Dashi-Pulver)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "helle Misopaste"
+  },
+  {
+   "amount": "150 g",
+   "name": "Seidentofu, gewürfelt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "getrockneter Wakame"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Wakame 5 Minuten in Wasser einweichen und abgießen.",
+   "minutes": 5
+  },
+  {
+   "text": "Dashi erhitzen, aber nicht kochen lassen."
+  },
+  {
+   "text": "Misopaste in einer Kelle Brühe glatt rühren und zurück in den Topf geben. Warum nicht kochen: Miso verliert sonst Aroma."
+  },
+  {
+   "text": "Tofu und Wakame zugeben und 1 Minute erwärmen."
+  },
+  {
+   "text": "Mit Frühlingszwiebeln servieren."
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "id": "yakisoba",
+ "title": "Yakisoba",
+ "icon": "🍝",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Yakisoba- oder Mie-Nudeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schweinebauch oder Hähnchen, in Streifen"
+  },
+  {
+   "amount": "200 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Worcestersauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ketchup"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "",
+   "name": "eingelegter Ingwer (nach Geschmack)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Aonori (optional)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln nach Packung vorbereiten und lockern."
+  },
+  {
+   "text": "Sauce verrühren."
+  },
+  {
+   "text": "Fleisch in etwas Öl knusprig braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Zwiebel, Karotte und Kohl zugeben und 3 Minuten braten.",
+   "minutes": 3
+  },
+  {
+   "text": "Nudeln und Sauce zugeben und 2–3 Minuten unter Wenden braten.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Ingwer und Aonori servieren."
+  }
+ ]
+}

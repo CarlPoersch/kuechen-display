@@ -1,0 +1,75 @@
+{
+ "id": "rotes-curry",
+ "title": "Rotes Curry mit Kürbis",
+ "icon": "🎃",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Hokkaido-Kürbis, gewürfelt"
+  },
+  {
+   "amount": "200 g",
+   "name": "Tofu oder Hähnchen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "rote Currypaste"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce oder Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Thai-Basilikum"
+  },
+  {
+   "amount": "150 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Etwas Kokosmilch erhitzen und die Currypaste 2 Minuten darin anrösten.",
+   "minutes": 2
+  },
+  {
+   "text": "Kürbis, restliche Kokosmilch und Wasser zugeben und köcheln, bis der Kürbis fast weich ist.",
+   "minutes": 12
+  },
+  {
+   "text": "Tofu oder Hähnchen und Paprika zugeben und gar ziehen lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Fischsauce, Zucker und Limettensaft abschmecken, Basilikum unterheben."
+  }
+ ]
+}

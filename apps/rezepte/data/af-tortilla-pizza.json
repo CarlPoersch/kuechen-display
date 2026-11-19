@@ -1,0 +1,51 @@
+{
+ "id": "af-tortilla-pizza",
+ "title": "Tortilla-Pizza in 10 Minuten",
+ "icon": "🍕",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Tomatensauce oder passierte Tomaten"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "125 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "",
+   "name": "Belag nach Wahl (Salami, Pilze, Paprika) (nach Geschmack)"
+  },
+  {
+   "amount": "",
+   "name": "Basilikum (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tomatensauce mit Oregano und Salz würzen."
+  },
+  {
+   "text": "Eine Tortilla mit Sauce bestreichen, mit Mozzarella und Belag belegen."
+  },
+  {
+   "text": "Bei 190 °C backen, bis der Käse blubbert und der Rand knusprig ist.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Basilikum servieren, zweite Pizza genauso."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

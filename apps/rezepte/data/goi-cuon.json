@@ -1,0 +1,78 @@
+{
+ "id": "goi-cuon",
+ "title": "Gỏi Cuốn (Sommerrollen)",
+ "icon": "🥗",
+ "cuisine": "Vietnamesisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Reispapierblätter"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen, gekocht"
+  },
+  {
+   "amount": "60 g",
+   "name": "Reisnudeln (Vermicelli)"
+  },
+  {
+   "amount": "1",
+   "name": "Kopf Salat"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "½",
+   "name": "Gurke"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Hoisinsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Erdnussbutter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Erdnüsse, gehackt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reisnudeln mit kochendem Wasser übergießen und ziehen lassen, dann abgießen.",
+   "minutes": 5
+  },
+  {
+   "text": "Garnelen längs halbieren, Gurke in Stifte schneiden."
+  },
+  {
+   "text": "Reispapier kurz durch lauwarmes Wasser ziehen und auf ein feuchtes Brett legen."
+  },
+  {
+   "text": "Salat, Nudeln, Gurke und Kräuter auf das untere Drittel legen, 3 Garnelenhälften darüber."
+  },
+  {
+   "text": "Seiten einschlagen und straff aufrollen."
+  },
+  {
+   "text": "Dip verrühren und mit Erdnüssen bestreuen."
+  }
+ ]
+}

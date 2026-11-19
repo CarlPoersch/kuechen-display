@@ -1,0 +1,78 @@
+{
+ "id": "haehnchen-shawarma",
+ "title": "Hähnchen-Shawarma",
+ "icon": "🥙",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 50 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "group": "Marinade"
+  },
+  {
+   "amount": "100 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Paprika"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "",
+   "name": "Knoblauchsauce, Salat, eingelegte Gurken (zum Füllen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Marinadezutaten verrühren, Hähnchen darin mindestens 1 Stunde ziehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Hähnchen locker in den Airfryer-Korb legen (nicht stapeln, sonst wird es nicht knusprig) und bei 200 °C garen, nach der Hälfte wenden. Bei Bedarf in zwei Durchgängen.",
+   "minutes": 15
+  },
+  {
+   "text": "Kurz ruhen lassen und in dünne Streifen schneiden.",
+   "minutes": 5
+  },
+  {
+   "text": "In warmen Fladenbroten mit Salat, Gurken und Knoblauchsauce servieren."
+  }
+ ],
+ "airfryer": true
+}

@@ -1,0 +1,101 @@
+{
+ "id": "banh-mi",
+ "title": "Bánh Mì mit Hähnchen",
+ "icon": "🥖",
+ "cuisine": "Vietnamesisch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Baguettebrötchen"
+  },
+  {
+   "amount": "300 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "group": "Eingelegtes Gemüse"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "150 g",
+   "name": "Rettich (Daikon)"
+  },
+  {
+   "amount": "50 ml",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "½",
+   "name": "Gurke"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1",
+   "name": "Chili"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sojasauce"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Karotte und Rettich in Streifen schneiden, mit Essig, Zucker und Salz mischen und ziehen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Hähnchen mit Fischsauce, Zucker und Knoblauch marinieren.",
+   "minutes": 20
+  },
+  {
+   "text": "Hähnchen in der Pfanne pro Seite 5 Minuten braten, bis es karamellisiert und durch ist.",
+   "minutes": 10
+  },
+  {
+   "text": "Brötchen im Airfryer bei 180 °C aufbacken.",
+   "minutes": 3
+  },
+  {
+   "text": "Brötchen aufschneiden, mit Mayo und Sojasauce bestreichen."
+  },
+  {
+   "text": "Mit Fleisch, eingelegtem Gemüse, Gurke, Koriander und Chili füllen."
+  }
+ ],
+ "airfryer": true
+}

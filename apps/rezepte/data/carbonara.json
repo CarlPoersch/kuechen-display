@@ -1,0 +1,56 @@
+{
+ "id": "carbonara",
+ "title": "Spaghetti Carbonara",
+ "icon": "🍝",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "120 g",
+   "name": "Guanciale oder Pancetta, gewürfelt"
+  },
+  {
+   "amount": "3",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1",
+   "name": "ganzes Ei"
+  },
+  {
+   "amount": "50 g",
+   "name": "Pecorino Romano, fein gerieben"
+  },
+  {
+   "amount": "1 TL",
+   "name": "schwarzer Pfeffer, frisch gemahlen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spaghetti in gut gesalzenem Wasser kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Guanciale in einer Pfanne ohne Öl langsam knusprig auslassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Eigelbe, Ei, Pecorino und Pfeffer zu einer dicken Creme verrühren."
+  },
+  {
+   "text": "Pfanne vom Herd nehmen. Nudeln tropfnass zum Guanciale geben."
+  },
+  {
+   "text": "Eiercreme mit 3 EL Nudelwasser zugeben und kräftig schwenken, bis eine cremige Sauce entsteht. Warum vom Herd: Sonst wird das Ei zu Rührei."
+  },
+  {
+   "text": "Mit Pecorino und Pfeffer servieren."
+  }
+ ]
+}

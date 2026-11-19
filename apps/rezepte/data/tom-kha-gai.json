@@ -1,0 +1,77 @@
+{
+ "id": "tom-kha-gai",
+ "title": "Tom Kha Gai (Kokossuppe)",
+ "icon": "🥥",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "250 g",
+   "name": "Hähnchenbrust, in Streifen"
+  },
+  {
+   "amount": "1 Stück (4 cm)",
+   "name": "Galgant, in Scheiben"
+  },
+  {
+   "amount": "2",
+   "name": "Stängel Zitronengras"
+  },
+  {
+   "amount": "4",
+   "name": "Kaffirlimettenblätter"
+  },
+  {
+   "amount": "150 g",
+   "name": "Champignons, in Scheiben"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "kleine Chilis"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zitronengras flach klopfen und in Stücke schneiden. Warum klopfen: So gibt es mehr Aroma ab."
+  },
+  {
+   "text": "Brühe, Kokosmilch, Galgant, Zitronengras und Limettenblätter aufkochen und ziehen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Hähnchen und Pilze zugeben und sanft köcheln, bis das Fleisch gar ist.",
+   "minutes": 6
+  },
+  {
+   "text": "Vom Herd nehmen, mit Fischsauce, Limettensaft und Zucker abschmecken."
+  },
+  {
+   "text": "Mit Chili und Koriander servieren. Galgant und Zitronengras werden nicht mitgegessen."
+  }
+ ]
+}

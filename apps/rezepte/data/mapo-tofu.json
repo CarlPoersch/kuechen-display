@@ -1,0 +1,86 @@
+{
+ "id": "mapo-tofu",
+ "title": "Mapo Tofu",
+ "icon": "🥘",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Seidentofu oder weicher Tofu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Hackfleisch (Schwein oder Rind)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Doubanjiang (Chili-Bohnenpaste)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "fermentierte schwarze Bohnen (optional)"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen, gehackt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke in 2 EL Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sichuanpfeffer, gemahlen"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln, in Ringen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis zum Servieren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Tofu in 2 cm große Würfel schneiden und 2 Minuten in leicht gesalzenem Wasser ziehen lassen, dann abgießen.",
+   "minutes": 2
+  },
+  {
+   "text": "Öl erhitzen, Hackfleisch krümelig und knusprig braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Doubanjiang, schwarze Bohnen, Knoblauch und Ingwer 1 Minute mitbraten, bis das Öl rot wird."
+  },
+  {
+   "text": "Brühe und Sojasauce angießen, Tofu vorsichtig hineingeben und 5 Minuten köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Stärke binden, mit Sichuanpfeffer und Frühlingszwiebeln bestreuen und mit Reis servieren."
+  }
+ ]
+}

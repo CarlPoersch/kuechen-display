@@ -1,0 +1,63 @@
+{
+ "id": "tiramisu",
+ "title": "Tiramisu",
+ "icon": "☕",
+ "cuisine": "Italienisch",
+ "servings": 6,
+ "time": "ca. 30 Min. (plus 6 Std. Kühlen)",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "sehr frische Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "500 g",
+   "name": "Mascarpone"
+  },
+  {
+   "amount": "300 ml",
+   "name": "starker Espresso, abgekühlt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Amaretto (optional)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Löffelbiskuits"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kakaopulver"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier trennen. Eigelbe mit Zucker hell und cremig aufschlagen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mascarpone unterrühren."
+  },
+  {
+   "text": "Eiweiß steif schlagen und vorsichtig unterheben."
+  },
+  {
+   "text": "Espresso mit Amaretto mischen. Biskuits nur kurz eintauchen, damit sie nicht durchweichen."
+  },
+  {
+   "text": "Abwechselnd Biskuits und Creme in eine Form schichten, mit Creme abschließen."
+  },
+  {
+   "text": "Abgedeckt kühlen, am besten über Nacht.",
+   "minutes": 360
+  },
+  {
+   "text": "Vor dem Servieren mit Kakao bestäuben."
+  }
+ ]
+}

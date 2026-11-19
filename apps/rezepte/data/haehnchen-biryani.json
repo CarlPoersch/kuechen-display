@@ -1,0 +1,94 @@
+{
+ "id": "haehnchen-biryani",
+ "title": "Hähnchen-Biryani",
+ "icon": "🍚",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "200 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Biryani- oder Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer-Knoblauch-Paste"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln, in Streifen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Ghee"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Safran in 3 EL warmer Milch"
+  },
+  {
+   "amount": "4",
+   "name": "Kardamomkapseln"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Joghurt, Gewürzen und Paste marinieren.",
+   "minutes": 60
+  },
+  {
+   "text": "Reis waschen und einweichen.",
+   "minutes": 30
+  },
+  {
+   "text": "Zwiebeln im Ghee langsam tief goldbraun braten. Die Hälfte beiseitelegen.",
+   "minutes": 15
+  },
+  {
+   "text": "Hähnchen zu den Zwiebeln geben und 10 Minuten schmoren.",
+   "minutes": 10
+  },
+  {
+   "text": "Reis mit Kardamom und Zimt in Salzwasser 5 Minuten vorkochen (er soll noch Biss haben) und abgießen.",
+   "minutes": 5
+  },
+  {
+   "text": "Reis über das Hähnchen schichten, Safranmilch, Kräuter und restliche Zwiebeln darauf verteilen."
+  },
+  {
+   "text": "Fest zugedeckt bei kleinster Hitze garen.",
+   "minutes": 25
+  },
+  {
+   "text": "Vor dem Servieren vorsichtig auflockern."
+  }
+ ]
+}

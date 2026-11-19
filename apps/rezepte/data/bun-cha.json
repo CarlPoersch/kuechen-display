@@ -1,0 +1,96 @@
+{
+ "id": "bun-cha",
+ "title": "Bún Chả (Hanoi-Fleischbällchen)",
+ "icon": "🍖",
+ "cuisine": "Vietnamesisch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Schweinehack"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Schalotten, fein"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "group": "Dipsauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "150 ml",
+   "name": "warmes Wasser"
+  },
+  {
+   "amount": "1",
+   "name": "Chili"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte, in dünnen Scheiben"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reisnudeln"
+  },
+  {
+   "amount": "1",
+   "name": "Kopf Salat"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Kräuter (Minze, Koriander)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit Fischsauce, Zucker, Schalotten und Knoblauch verkneten und ziehen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Dipsauce verrühren, Karotte und Chili hineingeben."
+  },
+  {
+   "text": "Aus dem Hack kleine flache Patties formen."
+  },
+  {
+   "text": "Im Airfryer bei 200 °C garen, nach der Hälfte wenden, bis sie gebräunt sind. Warum Airfryer: Die heiße Luft gibt ähnliche Röstaromen wie der Holzkohlegrill.",
+   "minutes": 10
+  },
+  {
+   "text": "Reisnudeln garen.",
+   "minutes": 5
+  },
+  {
+   "text": "Patties in die Dipsauce legen. Nudeln, Salat und Kräuter dazu: Zum Essen alles in die Sauce tunken."
+  }
+ ],
+ "airfryer": true
+}

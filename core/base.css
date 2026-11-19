@@ -1,0 +1,77 @@
+/* Gemeinsames Aussehen für Startbildschirm und alle Unterapps.
+   Warum zentrale Farben: Eine Änderung hier wirkt überall. */
+:root {
+  --bg: #f6f1e9;
+  --card: #fffdf9;
+  --ink: #2b2420;
+  --quiet: #8a7d72;
+  --accent: #c2410c;
+  --accent-soft: #fde6d6;
+  --done: #b9ada2;
+  --line: #e6ddd2;
+  --bar-h: 72px;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px; /* Warum: aus 1–1,5 m Abstand gut lesbar */
+  line-height: 1.4;
+  -webkit-user-select: none; user-select: none; /* Warum: kein versehentliches Markieren */
+}
+button {
+  font: inherit; cursor: pointer; border-radius: 12px;
+  background: var(--card); color: var(--ink); border: 1px solid var(--line);
+  padding: 10px 16px; min-height: 48px; /* Warum: große Tippfläche, auch mit nassen Fingern */
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* Immer nur ein Bildschirm sichtbar: Start ODER eine Unterapp */
+.screen { display: none; position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.screen.active { display: flex; flex-direction: column; }
+body.has-timers .screen { bottom: var(--bar-h); } /* Platz für die Timer-Leiste */
+
+/* ---------- Startbildschirm ---------- */
+.home { padding: max(32px, env(safe-area-inset-top)) 32px 32px; overflow-y: auto; }
+.clock { margin-bottom: 32px; }
+.time { font-size: 88px; font-weight: 200; line-height: 1; letter-spacing: -2px; }
+.date { font-size: 24px; color: var(--quiet); margin-top: 8px; }
+.tiles { display: flex; flex-wrap: wrap; gap: 20px; }
+.tile {
+  width: 180px; height: 180px; border-radius: 28px; border: none;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  color: #fff; font-size: 22px; font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.tile .icon { font-size: 64px; line-height: 1; }
+.tile:active { transform: scale(.96); }
+
+/* ---------- Rahmen der Unterapps ---------- */
+.topbar {
+  display: flex; align-items: center; gap: 16px;
+  padding: max(12px, env(safe-area-inset-top)) 20px 12px;
+  border-bottom: 1px solid var(--line); background: var(--bg);
+}
+.back { font-size: 20px; min-width: 120px; text-align: left; }
+.apptitle { flex: 1; text-align: center; font-size: 24px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.topbar-spacer { min-width: 120px; }
+.appcontent { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; position: relative; }
+.empty { padding: 40px; text-align: center; color: var(--quiet); }
+
+/* ---------- Timer-Leiste unten ---------- */
+.timerbar {
+  display: none; position: absolute; left: 0; right: 0; bottom: 0; height: var(--bar-h);
+  background: var(--ink); color: #fff; padding: 12px 16px; gap: 12px; align-items: center; overflow-x: auto;
+}
+body.has-timers .timerbar { display: flex; }
+.chip {
+  flex: 0 0 auto; border-radius: 24px; padding: 8px 18px; min-height: 48px;
+  background: rgba(255,255,255,.12); border: none; color: #fff; font-size: 18px;
+}
+.chip b { font-variant-numeric: tabular-nums; margin-left: 8px; }
+.chip.ringing { animation: blink .6s infinite alternate; }
+@keyframes blink { from { background: var(--accent); } to { background: rgba(255,255,255,.12); } }
+/* Variante für helle Flächen (Knöpfe und Zeilen in den Apps) */
+@keyframes blink-light { from { background: var(--accent); color: #fff; } to { background: var(--accent-soft); color: var(--accent); } }

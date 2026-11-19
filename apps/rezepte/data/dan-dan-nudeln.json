@@ -1,0 +1,91 @@
+{
+ "id": "dan-dan-nudeln",
+ "title": "Dan-Dan-Nudeln",
+ "icon": "🍜",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Weizennudeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schweinehack"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Shaoxing-Wein (optional)"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sesampaste (Tahin)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Chiliöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "schwarzer Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Sichuanpfeffer, gemahlen"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe, gepresst"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Pak Choi"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "geröstete Erdnüsse, gehackt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Saucenzutaten in zwei Schalen aufteilen und verrühren."
+  },
+  {
+   "text": "Hack in wenig Öl krümelig braten, mit Sojasauce und Wein ablöschen, bis es knusprig ist.",
+   "minutes": 6
+  },
+  {
+   "text": "Nudeln nach Packung kochen, Pak Choi in der letzten Minute mitgaren.",
+   "minutes": 5
+  },
+  {
+   "text": "Nudeln mit etwas Kochwasser in die Schalen geben und gut mit der Sauce mischen."
+  },
+  {
+   "text": "Hack, Pak Choi, Frühlingszwiebeln und Erdnüsse darauf verteilen."
+  }
+ ]
+}

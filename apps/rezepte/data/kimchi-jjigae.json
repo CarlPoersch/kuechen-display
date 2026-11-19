@@ -1,0 +1,71 @@
+{
+ "id": "kimchi-jjigae",
+ "title": "Kimchi-Jjigae (Eintopf)",
+ "icon": "🍲",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "gut gereiftes Kimchi, mit Saft"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schweinebauch, in Scheiben"
+  },
+  {
+   "amount": "200 g",
+   "name": "Tofu, in Scheiben"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Gochugaru (Chiliflocken)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Gochujang"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Wasser oder Brühe"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Schweinebauch im Topf anbraten, bis Fett austritt.",
+   "minutes": 4
+  },
+  {
+   "text": "Kimchi und Zwiebel zugeben und 3 Minuten mitbraten.",
+   "minutes": 3
+  },
+  {
+   "text": "Gochugaru, Gochujang, Kimchisaft und Wasser zugeben und köcheln lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Tofu einlegen und 5 Minuten mitköcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Frühlingszwiebeln bestreuen und mit Reis servieren."
+  }
+ ]
+}

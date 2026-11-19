@@ -1,0 +1,76 @@
+{
+ "id": "pad-kra-pao",
+ "title": "Pad Kra Pao (Basilikum-Hack)",
+ "icon": "🌿",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Hähnchen- oder Schweinehack"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3",
+   "name": "rote Chilis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 Handvoll",
+   "name": "Thai-Basilikum (Holy Basil)"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 g",
+   "name": "Jasminreis"
+  },
+  {
+   "amount": "3 EL",
+   "name": "neutrales Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Knoblauch und Chilis im Mörser grob zerstoßen."
+  },
+  {
+   "text": "1 EL Öl im Wok erhitzen, Knoblauch-Chili 30 Sekunden anbraten."
+  },
+  {
+   "text": "Hack zugeben und krümelig braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Saucen und Zucker zugeben, Basilikum unterheben, bis es zusammenfällt."
+  },
+  {
+   "text": "Restliches Öl in einer Pfanne stark erhitzen und die Eier knusprig braten (Spiegelei mit krossem Rand). Alles auf Reis servieren."
+  }
+ ]
+}

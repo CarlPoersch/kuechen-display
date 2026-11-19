@@ -1,0 +1,88 @@
+{
+ "id": "pizza-margherita",
+ "title": "Pizza Margherita",
+ "icon": "🍕",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 3 Std. (inkl. Gehzeit)",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "300 g",
+   "name": "Pizzamehl (Tipo 00)"
+  },
+  {
+   "amount": "190 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "3 g",
+   "name": "Trockenhefe"
+  },
+  {
+   "amount": "7 g",
+   "name": "Salz"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "200 g",
+   "name": "San-Marzano-Tomaten (Dose)"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mozzarella (Fior di Latte)"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Wasser und Hefe vermengen, Salz zugeben und 10 Minuten kneten.",
+   "minutes": 10
+  },
+  {
+   "text": "Abgedeckt gehen lassen.",
+   "minutes": 120
+  },
+  {
+   "text": "Teig in drei Kugeln teilen und noch einmal ruhen lassen. Warum drei: Eine Pizza muss in den Airfryer-Korb passen (ca. 18 cm).",
+   "minutes": 30
+  },
+  {
+   "text": "Airfryer auf 200 °C vorheizen.",
+   "minutes": 3
+  },
+  {
+   "text": "Tomaten mit Salz zerdrücken. Mozzarella abtropfen lassen und zerzupfen."
+  },
+  {
+   "text": "Eine Kugel auf Backpapier von innen nach außen dünn drücken (ca. 18 cm), Rand dicker lassen."
+  },
+  {
+   "text": "Mit Tomaten bestreichen und mit dem Backpapier in den Korb legen. Backen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mozzarella belegen und fertig backen. Die übrigen Pizzen genauso.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Basilikum und Olivenöl servieren."
+  }
+ ],
+ "airfryer": true
+}

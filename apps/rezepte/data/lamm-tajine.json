@@ -1,0 +1,87 @@
+{
+ "id": "lamm-tajine",
+ "title": "Lamm-Tajine mit Aprikosen",
+ "icon": "🍲",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Lammschulter, gewürfelt"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Ras el Hanout"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Safran"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "150 g",
+   "name": "getrocknete Aprikosen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mandeln, geröstet"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "250 g",
+   "name": "Couscous"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in Olivenöl portionsweise anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebeln, Knoblauch und Ingwer weich braten, Gewürze 1 Minute mitrösten.",
+   "minutes": 6
+  },
+  {
+   "text": "Fleisch zurückgeben, Brühe und Safran zugeben und zugedeckt schmoren.",
+   "minutes": 90
+  },
+  {
+   "text": "Aprikosen und Honig zugeben und weiterschmoren.",
+   "minutes": 20
+  },
+  {
+   "text": "Couscous mit gleicher Menge kochender Brühe übergießen und quellen lassen, dann auflockern.",
+   "minutes": 5
+  },
+  {
+   "text": "Tajine mit Mandeln und Koriander bestreut auf dem Couscous servieren."
+  }
+ ]
+}

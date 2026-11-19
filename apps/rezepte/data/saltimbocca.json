@@ -1,0 +1,57 @@
+{
+ "id": "saltimbocca",
+ "title": "Saltimbocca alla Romana",
+ "icon": "🥩",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "dünne Kalbsschnitzel (je ca. 80 g)"
+  },
+  {
+   "amount": "4",
+   "name": "Scheiben Parmaschinken"
+  },
+  {
+   "amount": "4",
+   "name": "Salbeiblätter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "100 ml",
+   "name": "trockener Weißwein"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schnitzel zwischen Frischhaltefolie dünn klopfen."
+  },
+  {
+   "text": "Jedes mit einer Scheibe Schinken und einem Salbeiblatt belegen und mit einem Zahnstocher feststecken."
+  },
+  {
+   "text": "Auf der Unterseite leicht mehlieren."
+  },
+  {
+   "text": "Butter und Öl erhitzen, Schnitzel zuerst auf der Schinkenseite braten, dann wenden.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Wein ablöschen, kurz einkochen und die Sauce über das Fleisch geben.",
+   "minutes": 2
+  }
+ ]
+}

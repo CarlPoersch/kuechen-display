@@ -1,0 +1,64 @@
+{
+ "id": "gazpacho",
+ "title": "Gazpacho",
+ "icon": "🍅",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 20 Min. (plus Kühlen)",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "sehr reife Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "50 g",
+   "name": "Weißbrot vom Vortag"
+  },
+  {
+   "amount": "80 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sherryessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse grob schneiden, Brot kurz einweichen."
+  },
+  {
+   "text": "Alles mit Öl, Essig und Salz im Mixer sehr fein pürieren."
+  },
+  {
+   "text": "Durch ein Sieb streichen, damit sie samtig wird."
+  },
+  {
+   "text": "Gut gekühlt durchziehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Mit fein gewürfeltem Gemüse und einem Schuss Olivenöl servieren."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "id": "af-bratwurst",
+ "title": "Bratwurst mit Kartoffelspalten",
+ "icon": "🌭",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "grobe Bratwürste"
+  },
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Rosmarin"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "",
+   "name": "Senf (nach Geschmack)"
+  },
+  {
+   "amount": "250 g",
+   "name": "Sauerkraut"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in Spalten schneiden, mit Öl, Rosmarin, Paprika und Salz mischen."
+  },
+  {
+   "text": "Bei 190 °C garen, nach der Hälfte schütteln.",
+   "minutes": 15
+  },
+  {
+   "text": "Bratwürste auf die Kartoffeln legen und weitergaren, nach der Hälfte wenden.",
+   "minutes": 12
+  },
+  {
+   "text": "Sauerkraut im Topf erwärmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Senf servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

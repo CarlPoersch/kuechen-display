@@ -1,0 +1,74 @@
+{
+ "id": "bulgogi",
+ "title": "Bulgogi",
+ "icon": "🥩",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Rinderhüfte, hauchdünn geschnitten"
+  },
+  {
+   "amount": "½",
+   "name": "Birne, gerieben"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen, gepresst"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel, in Streifen"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1",
+   "name": "Kopf Salat zum Einwickeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Birne, Sojasauce, Zucker, Sesamöl und Knoblauch verrühren. Warum Birne: Ihre Enzyme machen das Fleisch zart."
+  },
+  {
+   "text": "Fleisch und Zwiebel in der Marinade ziehen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Pfanne stark erhitzen und das Fleisch portionsweise 2–3 Minuten braten.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Frühlingszwiebeln und Sesam bestreuen, mit Reis und Salatblättern servieren."
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "id": "rindergulasch",
+ "title": "Rindergulasch",
+ "icon": "🍲",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rindergulasch (Wade oder Schulter)"
+  },
+  {
+   "amount": "800 g",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika scharf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel, gemahlen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "750 ml",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butterschmalz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln in Streifen schneiden und im Schmalz langsam goldbraun schmoren. Warum so viele: Sie binden später die Sauce.",
+   "minutes": 20
+  },
+  {
+   "text": "Tomatenmark kurz mitrösten, Topf vom Herd nehmen und das Paprikapulver einrühren (es verbrennt sonst leicht)."
+  },
+  {
+   "text": "Mit Essig ablöschen, Fleisch, Kümmel, Majoran und Knoblauch zugeben."
+  },
+  {
+   "text": "Brühe angießen und zugedeckt sanft schmoren, bis das Fleisch zart ist.",
+   "minutes": 120
+  },
+  {
+   "text": "Mit Salz und Pfeffer abschmecken. Dazu passen Semmelknödel oder Spätzle."
+  }
+ ]
+}

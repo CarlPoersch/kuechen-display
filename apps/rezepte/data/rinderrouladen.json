@@ -1,0 +1,84 @@
+{
+ "id": "rinderrouladen",
+ "title": "Rinderrouladen",
+ "icon": "🥩",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 2 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Rinderrouladen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "mittelscharfer Senf"
+  },
+  {
+   "amount": "4",
+   "name": "Scheiben Speck"
+  },
+  {
+   "amount": "2",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sellerie"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rouladen ausbreiten, salzen, pfeffern und mit Senf bestreichen."
+  },
+  {
+   "text": "Je eine Scheibe Speck, Gurkenstreifen und Zwiebelstreifen darauflegen, aufrollen und mit Rouladennadeln feststecken."
+  },
+  {
+   "text": "Rouladen in Öl rundum kräftig anbraten und herausnehmen.",
+   "minutes": 8
+  },
+  {
+   "text": "Gemüse würfeln und im Bratfett anrösten, Tomatenmark mitrösten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Wein ablöschen, Brühe zugeben, Rouladen hineinlegen und zugedeckt schmoren.",
+   "minutes": 90
+  },
+  {
+   "text": "Rouladen herausnehmen, Sauce passieren und mit Stärke binden."
+  },
+  {
+   "text": "Dazu passen Rotkohl und Kartoffelklöße."
+  }
+ ]
+}

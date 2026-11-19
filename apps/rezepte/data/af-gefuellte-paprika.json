@@ -1,0 +1,64 @@
+{
+ "id": "af-gefuellte-paprika",
+ "title": "Gefüllte Paprika mit Feta",
+ "icon": "🫑",
+ "cuisine": "Mediterran",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "große Paprika"
+  },
+  {
+   "amount": "150 g",
+   "name": "Couscous oder gekochter Reis"
+  },
+  {
+   "amount": "200 g",
+   "name": "Rinderhack oder 1 Dose Kichererbsen"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "200 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "100 g",
+   "name": "Feta"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Couscous mit gleicher Menge kochender Brühe übergießen und quellen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Hack anbraten, Tomaten und Oregano zugeben und 5 Minuten köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Couscous und der Hälfte des Fetas mischen."
+  },
+  {
+   "text": "Paprika halbieren, entkernen und füllen, restlichen Feta darüberbröseln."
+  },
+  {
+   "text": "Bei 180 °C garen, bis die Paprika weich und der Feta gebräunt ist.",
+   "minutes": 15
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

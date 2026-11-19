@@ -1,0 +1,69 @@
+{
+ "id": "oyakodon",
+ "title": "Oyakodon (Hähnchen-Ei-Schale)",
+ "icon": "🍳",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Hähnchenschenkel, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel, in Streifen"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Dashi"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Dashi, Sojasauce, Mirin und Zucker in einer kleinen Pfanne aufkochen."
+  },
+  {
+   "text": "Zwiebel und Hähnchen darin zugedeckt garen.",
+   "minutes": 7
+  },
+  {
+   "text": "Eier nur leicht verquirlen und gleichmäßig darübergießen."
+  },
+  {
+   "text": "Zugedeckt stocken lassen, das Ei soll noch weich sein.",
+   "minutes": 1
+  },
+  {
+   "text": "Auf Reis gleiten lassen und mit Frühlingszwiebeln bestreuen."
+  }
+ ]
+}

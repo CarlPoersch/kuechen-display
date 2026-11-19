@@ -1,0 +1,78 @@
+{
+ "id": "risotto-funghi",
+ "title": "Risotto ai Funghi",
+ "icon": "🍄",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "160 g",
+   "name": "Risottoreis (Arborio, Carnaroli)"
+  },
+  {
+   "amount": "250 g",
+   "name": "Champignons oder Steinpilze"
+  },
+  {
+   "amount": "1",
+   "name": "Schalotte"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "trockener Weißwein"
+  },
+  {
+   "amount": "800 ml",
+   "name": "heiße Gemüsebrühe"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pilze in Scheiben schneiden und in 1 EL Öl kräftig anbraten, herausnehmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Schalotte und Knoblauch in restlichem Öl glasig dünsten.",
+   "minutes": 3
+  },
+  {
+   "text": "Reis zugeben und 2 Minuten anschwitzen, bis er glasig ist.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit Wein ablöschen und einkochen lassen."
+  },
+  {
+   "text": "Nach und nach Brühe zugeben und unter Rühren garen, bis der Reis cremig ist und noch Biss hat.",
+   "minutes": 18
+  },
+  {
+   "text": "Pilze untermischen, vom Herd nehmen, Butter und Parmesan einrühren und abgedeckt ruhen lassen.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit Petersilie servieren."
+  }
+ ]
+}

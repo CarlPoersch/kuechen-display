@@ -1,0 +1,80 @@
+{
+ "id": "hong-shao-rou",
+ "title": "Rot geschmorter Schweinebauch",
+ "icon": "🍖",
+ "cuisine": "Chinesisch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Schweinebauch ohne Schwarte, in 3 cm Würfeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3 EL",
+   "name": "helle Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "dunkle Sojasauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Shaoxing-Wein"
+  },
+  {
+   "amount": "1 Stück (3 cm)",
+   "name": "Ingwer, in Scheiben"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis zum Servieren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in kaltem Wasser aufsetzen, 3 Minuten kochen und abgießen. Warum: So werden Trübstoffe entfernt.",
+   "minutes": 3
+  },
+  {
+   "text": "Zucker in einem Topf mit 1 EL Öl hellbraun karamellisieren lassen."
+  },
+  {
+   "text": "Fleisch zugeben und rundum im Karamell wenden."
+  },
+  {
+   "text": "Wein, beide Sojasaucen, Gewürze, Ingwer und Wasser zugeben."
+  },
+  {
+   "text": "Zugedeckt bei kleiner Hitze schmoren.",
+   "minutes": 90
+  },
+  {
+   "text": "Deckel abnehmen und die Sauce bei starker Hitze sirupartig einkochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Reis servieren."
+  }
+ ]
+}

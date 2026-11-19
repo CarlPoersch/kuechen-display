@@ -1,0 +1,88 @@
+{
+ "id": "quiche-lorraine",
+ "title": "Quiche Lorraine",
+ "icon": "🥧",
+ "cuisine": "Französisch",
+ "servings": 3,
+ "time": "ca. 1 Std. 20 Min.",
+ "ingredients": [
+  {
+   "group": "Mürbeteig"
+  },
+  {
+   "amount": "120 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "60 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "group": "Füllung"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speck, gewürfelt"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "120 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "50 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "60 g",
+   "name": "Gruyère, gerieben"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "group": "Außerdem"
+  },
+  {
+   "amount": "1",
+   "name": "Tarteform (18–20 cm)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Butterwürfel, Ei, Salz und 1–2 EL kaltes Wasser rasch zu einem Teig verkneten und kühlen.",
+   "minutes": 30
+  },
+  {
+   "text": "Teig ausrollen, in die Form legen, mit einer Gabel einstechen und mit Backpapier und Hülsenfrüchten beschwert im Airfryer bei 170 °C blind backen. Warum beschweren: Sonst bläht sich der Boden auf.",
+   "minutes": 10
+  },
+  {
+   "text": "Speck in einer Pfanne knusprig braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Eier, Sahne, Milch, Muskat und Pfeffer verquirlen."
+  },
+  {
+   "text": "Speck und Käse auf dem Boden verteilen, Eiermasse darübergießen."
+  },
+  {
+   "text": "Im Airfryer bei 150 °C backen, bis die Füllung gestockt und goldbraun ist.",
+   "minutes": 25
+  }
+ ],
+ "airfryer": true
+}

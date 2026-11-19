@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<!-- Warum: Ohne viewport-Angabe würde Safari die Seite wie eine Desktop-Seite verkleinern. -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<!-- Warum: Damit startet die Seite vom Home-Bildschirm im Vollbild, ohne Safari-Leiste. -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Küche">
+<title>Küche</title>
+<link rel="stylesheet" href="core/base.css">
+</head>
+<body>
+
+<!-- Startbildschirm: Uhr + Kacheln der Unterapps -->
+<div id="home" class="screen home">
+  <div class="clock">
+    <div id="time" class="time"></div>
+    <div id="date" class="date"></div>
+  </div>
+  <div id="tiles" class="tiles"></div>
+</div>
+
+<!-- Rahmen, in dem jede Unterapp angezeigt wird -->
+<div id="appview" class="screen appview">
+  <div class="topbar">
+    <button id="back" class="back">‹ Start</button>
+    <div id="apptitle" class="apptitle"></div>
+    <div class="topbar-spacer"></div>
+  </div>
+  <div id="appcontent" class="appcontent"></div>
+</div>
+
+<!-- Laufende Timer, sichtbar in jeder Ansicht -->
+<div id="timerbar" class="timerbar"></div>
+
+<!-- Kern: Startbildschirm, Navigation, Speicher, Timer -->
+<script src="core/config.js"></script>
+<script src="core/launcher.js"></script>
+<script src="core/timers.js"></script>
+<script src="core/store.js"></script>
+
+<!-- Unterapps: Für eine neue App einfach eine Zeile ergänzen (siehe README.md) -->
+<!-- Küche: gemeinsame Bausteine, dann die Bereiche, zuletzt der Rahmen -->
+<script src="apps/kueche/shared.js"></script>
+<script src="apps/kueche/rezepte.js"></script>
+<script src="apps/kueche/plan.js"></script>
+<script src="apps/kueche/einkauf.js"></script>
+<script src="apps/kueche/vorrat.js"></script>
+<script src="apps/kueche/airfryer.js"></script>
+<script src="apps/kueche/kueche.js"></script>
+<script src="apps/fahrten/efa.js"></script>
+<script src="apps/fahrten/fahrten.js"></script>
+<script src="apps/timer/timer.js"></script>
+
+<script>Launcher.start();</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+ "id": "guacamole",
+ "title": "Guacamole mit Nachos",
+ "icon": "🥑",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "reife Avocados"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "½",
+   "name": "rote Zwiebel, fein gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Tomate, entkernt und gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Jalapeño, fein gehackt"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "200 g",
+   "name": "Tortilla-Chips"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Avocados halbieren, Kern entfernen und das Fruchtfleisch mit einer Gabel grob zerdrücken."
+  },
+  {
+   "text": "Sofort mit Limettensaft mischen. Warum: Die Säure verhindert, dass sie braun wird."
+  },
+  {
+   "text": "Zwiebel, Tomate, Jalapeño und gehackten Koriander unterheben."
+  },
+  {
+   "text": "Mit Salz abschmecken und mit Tortilla-Chips servieren."
+  }
+ ]
+}

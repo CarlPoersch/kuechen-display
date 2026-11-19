@@ -1,0 +1,61 @@
+{
+ "id": "quesadillas",
+ "title": "Quesadillas mit Bohnen und Mais",
+ "icon": "🧀",
+ "cuisine": "Mexikanisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "150 g",
+   "name": "geriebener Käse"
+  },
+  {
+   "amount": "200 g",
+   "name": "schwarze Bohnen (Dose)"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mais"
+  },
+  {
+   "amount": "1",
+   "name": "Frühlingszwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Jalapeño (optional)"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "",
+   "name": "Salsa und saure Sahne (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bohnen leicht zerdrücken und mit Mais, Frühlingszwiebel, Jalapeño und Kreuzkümmel mischen."
+  },
+  {
+   "text": "Eine Tortilla in eine trockene Pfanne legen, mit Käse, Füllung und noch etwas Käse belegen, zweite Tortilla darauf."
+  },
+  {
+   "text": "Bei mittlerer Hitze braten, bis die Unterseite knusprig ist.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Hilfe eines Tellers wenden und weiterbraten, bis der Käse geschmolzen ist.",
+   "minutes": 3
+  },
+  {
+   "text": "In Dreiecke schneiden und mit Salsa servieren."
+  }
+ ]
+}

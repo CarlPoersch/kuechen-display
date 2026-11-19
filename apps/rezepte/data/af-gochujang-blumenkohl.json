@@ -1,0 +1,86 @@
+{
+ "id": "af-gochujang-blumenkohl",
+ "title": "Gochujang-Blumenkohl",
+ "icon": "🥦",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "kleiner Blumenkohl"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Glasur"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Gochujang"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Blumenkohl in kleine Röschen teilen, mit Öl mischen und mit Stärke bestäuben."
+  },
+  {
+   "text": "Bei 200 °C garen, nach der Hälfte schütteln.",
+   "minutes": 15
+  },
+  {
+   "text": "Glasur in einer Pfanne aufkochen, bis sie leicht eindickt.",
+   "minutes": 2
+  },
+  {
+   "text": "Blumenkohl darin schwenken, mit Sesam und Frühlingszwiebeln bestreuen."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}

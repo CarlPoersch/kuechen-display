@@ -1,0 +1,82 @@
+{
+ "id": "minestrone",
+ "title": "Minestrone",
+ "icon": "🥣",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "2",
+   "name": "Stangen Sellerie"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "2",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "grüne Bohnen"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 Dose (400 g)",
+   "name": "Borlotti- oder weiße Bohnen"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "80 g",
+   "name": "kleine Nudeln (Ditalini)"
+  },
+  {
+   "amount": "1",
+   "name": "Parmesanrinde (optional)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "",
+   "name": "Parmesan und Basilikum (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Alles Gemüse in kleine Würfel schneiden."
+  },
+  {
+   "text": "Zwiebel, Karotten und Sellerie in Olivenöl weich dünsten.",
+   "minutes": 8
+  },
+  {
+   "text": "Kartoffeln, Zucchini, grüne Bohnen, Tomaten, Brühe und Parmesanrinde zugeben und köcheln.",
+   "minutes": 25
+  },
+  {
+   "text": "Bohnen und Nudeln zugeben und weiterköcheln, bis die Nudeln gar sind.",
+   "minutes": 10
+  },
+  {
+   "text": "Rinde entfernen, mit Salz und Pfeffer abschmecken, mit Parmesan, Basilikum und einem Schuss Olivenöl servieren."
+  }
+ ]
+}

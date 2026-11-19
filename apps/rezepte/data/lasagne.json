@@ -1,0 +1,113 @@
+{
+ "id": "lasagne",
+ "title": "Lasagne",
+ "icon": "🧀",
+ "cuisine": "Italienisch",
+ "servings": 3,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "group": "Fleischsauce"
+  },
+  {
+   "amount": "250 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "½",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "400 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Oregano"
+  },
+  {
+   "group": "Béchamel"
+  },
+  {
+   "amount": "25 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "25 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "group": "Außerdem"
+  },
+  {
+   "amount": "125 g",
+   "name": "Lasagneplatten"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan, gerieben"
+  },
+  {
+   "amount": "60 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "1",
+   "name": "Airfryer-geeignete Form (ca. 20 cm)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Knoblauch fein würfeln und in Öl andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Hack krümelig braten, Tomatenmark mitrösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomaten und Oregano zugeben, salzen und köcheln lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Für die Béchamel Butter schmelzen, Mehl einrühren, Milch nach und nach unterrühren und köcheln, bis sie andickt. Mit Muskat und Salz würzen.",
+   "minutes": 6
+  },
+  {
+   "text": "In die Form abwechselnd Sauce, Platten (passend gebrochen), Béchamel und Parmesan schichten. Mit Béchamel, Mozzarella und Parmesan abschließen."
+  },
+  {
+   "text": "Mit Alufolie abgedeckt im Airfryer bei 160 °C backen. Warum abdecken: So garen die Platten durch, bevor der Käse verbrennt.",
+   "minutes": 20
+  },
+  {
+   "text": "Folie abnehmen und bei 180 °C goldbraun backen.",
+   "minutes": 8
+  },
+  {
+   "text": "Vor dem Anschneiden ruhen lassen, damit sie nicht zerfällt.",
+   "minutes": 10
+  }
+ ],
+ "airfryer": true
+}

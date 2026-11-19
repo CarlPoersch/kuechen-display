@@ -1,0 +1,70 @@
+{
+ "id": "som-tam",
+ "title": "Som Tam (Papayasalat)",
+ "icon": "🥗",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "grüne Papaya (oder Kohlrabi)"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Cherrytomaten"
+  },
+  {
+   "amount": "50 g",
+   "name": "grüne Bohnen"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "kleine Chilis"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Palmzucker"
+  },
+  {
+   "amount": "30 g",
+   "name": "geröstete Erdnüsse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Papaya und Karotte schälen und in feine Streifen hobeln."
+  },
+  {
+   "text": "Bohnen in 3 cm Stücke schneiden, Tomaten halbieren."
+  },
+  {
+   "text": "Knoblauch und Chilis im Mörser zerstoßen, dann Zucker, Fischsauce und Limettensaft verrühren."
+  },
+  {
+   "text": "Bohnen und Tomaten zugeben und leicht andrücken."
+  },
+  {
+   "text": "Papaya und Karotte unterheben und kurz mit dem Stößel durchklopfen, damit sie das Dressing aufnehmen."
+  },
+  {
+   "text": "Mit Erdnüssen bestreut sofort servieren."
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "id": "burrito-bowl",
+ "title": "Burrito Bowl",
+ "icon": "🥗",
+ "cuisine": "Mexikanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "300 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "200 g",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Mais"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "150 g",
+   "name": "Cherrytomaten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "50 g",
+   "name": "Käse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen und mit Limettensaft und gehacktem Koriander mischen.",
+   "minutes": 15
+  },
+  {
+   "text": "Hähnchen mit Gewürzen, Salz und Öl einreiben."
+  },
+  {
+   "text": "In der Pfanne pro Seite braten, bis es durch ist, dann ruhen lassen und in Streifen schneiden.",
+   "minutes": 10
+  },
+  {
+   "text": "Bohnen und Mais erwärmen."
+  },
+  {
+   "text": "Avocado und Tomaten würfeln."
+  },
+  {
+   "text": "Alles nebeneinander auf dem Reis anrichten, mit saurer Sahne und Käse toppen."
+  }
+ ]
+}

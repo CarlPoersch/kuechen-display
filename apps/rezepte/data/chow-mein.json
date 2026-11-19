@@ -1,0 +1,88 @@
+{
+ "id": "chow-mein",
+ "title": "Chow Mein mit Gemüse",
+ "icon": "🍜",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mie-Nudeln"
+  },
+  {
+   "amount": "1",
+   "name": "Paprika, in Streifen"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte, in Streifen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Weißkohl oder Chinakohl, in Streifen"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "dunkle Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "group": "Pfanne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "neutrales Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln nach Packung kochen, abschrecken und mit etwas Öl vermischen.",
+   "minutes": 4
+  },
+  {
+   "text": "Saucenzutaten verrühren."
+  },
+  {
+   "text": "Öl im Wok stark erhitzen, Knoblauch, Karotte und Paprika 2 Minuten braten.",
+   "minutes": 2
+  },
+  {
+   "text": "Kohl zugeben und 2 Minuten weiterbraten.",
+   "minutes": 2
+  },
+  {
+   "text": "Nudeln und Sauce zugeben und 2–3 Minuten unter Wenden braten, bis die Nudeln Farbe annehmen.",
+   "minutes": 3
+  },
+  {
+   "text": "Sojasprossen unterheben und sofort servieren."
+  }
+ ]
+}

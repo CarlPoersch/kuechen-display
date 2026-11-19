@@ -1,0 +1,61 @@
+{
+ "id": "tabouleh",
+ "title": "Tabouleh",
+ "icon": "🌿",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "60 g",
+   "name": "feiner Bulgur"
+  },
+  {
+   "amount": "3 Bund",
+   "name": "glatte Petersilie"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "3",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Zitronen"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Piment oder Baharat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bulgur mit 80 ml kochendem Wasser übergießen und quellen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Petersilie und Minze sehr fein hacken. Warum so viel: Echtes Tabouleh ist ein Kräutersalat, kein Bulgursalat."
+  },
+  {
+   "text": "Tomaten fein würfeln, Frühlingszwiebeln in Ringe schneiden."
+  },
+  {
+   "text": "Alles mit Bulgur, Zitronensaft, Öl, Gewürz und Salz mischen."
+  },
+  {
+   "text": "Kurz durchziehen lassen und frisch servieren.",
+   "minutes": 10
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "id": "naan",
+ "title": "Knoblauch-Naan",
+ "icon": "🫓",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Weizenmehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Trockenhefe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "120 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "100 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen, gehackt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Koriander, gehackt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Alle Teigzutaten 8 Minuten zu einem weichen Teig kneten.",
+   "minutes": 8
+  },
+  {
+   "text": "Abgedeckt an einem warmen Ort gehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Teig in 6 Stücke teilen und oval ausrollen (ca. 5 mm)."
+  },
+  {
+   "text": "Eine Pfanne (am besten Gusseisen) ohne Fett sehr heiß werden lassen."
+  },
+  {
+   "text": "Naan backen, bis Blasen entstehen, wenden und weiterbacken.",
+   "minutes": 3
+  },
+  {
+   "text": "Butter mit Knoblauch schmelzen und die heißen Naan damit bestreichen, mit Koriander bestreuen."
+  }
+ ]
+}

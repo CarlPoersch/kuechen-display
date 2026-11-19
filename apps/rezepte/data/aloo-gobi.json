@@ -1,0 +1,81 @@
+{
+ "id": "aloo-gobi",
+ "title": "Aloo Gobi (Kartoffel-Blumenkohl)",
+ "icon": "🥔",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Kartoffeln, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Blumenkohl, in Röschen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Koriander, gemahlen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kreuzkümmel in Öl anrösten, Zwiebel glasig braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Knoblauch, Ingwer, Kurkuma und Koriander 1 Minute mitbraten."
+  },
+  {
+   "text": "Kartoffeln und Blumenkohl zugeben, salzen und gut vermischen."
+  },
+  {
+   "text": "Mit 100 ml Wasser zugedeckt garen, gelegentlich umrühren.",
+   "minutes": 20
+  },
+  {
+   "text": "Tomaten und Garam Masala zugeben und offen 5 Minuten braten, bis das Gemüse leicht Farbe annimmt.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Koriander bestreuen."
+  }
+ ]
+}

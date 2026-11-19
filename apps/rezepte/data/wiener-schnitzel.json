@@ -1,0 +1,88 @@
+{
+ "id": "wiener-schnitzel",
+ "title": "Wiener Schnitzel mit Kartoffelsalat",
+ "icon": "🥩",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Kalbsschnitzel (je 150 g)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "60 g",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "group": "Kartoffelsalat"
+  },
+  {
+   "amount": "500 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "150 ml",
+   "name": "heiße Brühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln mit Schale kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zwiebel fein würfeln, mit Brühe, Essig, Senf, Salz und Pfeffer aufkochen."
+  },
+  {
+   "text": "Kartoffeln pellen, warm in Scheiben schneiden und mit dem heißen Sud übergießen. Öl unterheben und ziehen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Schnitzel dünn klopfen, salzen, in Mehl, verquirltem Ei und Bröseln wenden. Panade nicht andrücken."
+  },
+  {
+   "text": "Butterschmalz reichlich erhitzen und die Schnitzel schwimmend ausbacken, dabei die Pfanne schwenken, damit die Panade Wellen schlägt.",
+   "minutes": 4
+  },
+  {
+   "text": "Auf Küchenpapier abtropfen lassen. Mit Zitrone und dem Salat (mit Schnittlauch) servieren."
+  }
+ ]
+}

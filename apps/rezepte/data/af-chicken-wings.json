@@ -1,0 +1,84 @@
+{
+ "id": "af-chicken-wings",
+ "title": "Buffalo Chicken Wings",
+ "icon": "🍗",
+ "cuisine": "Amerikanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Hähnchenflügel, geteilt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Knoblauchpulver"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "4 EL",
+   "name": "scharfe Chilisauce (z. B. Frank's)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "100 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "30 g",
+   "name": "Blauschimmelkäse oder Feta"
+  },
+  {
+   "amount": "2",
+   "name": "Stangen Sellerie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Flügel trocken tupfen und mit Backpulver, Salz und Gewürzen mischen. Warum Backpulver: Es macht die Haut extra knusprig."
+  },
+  {
+   "text": "In einer Lage in den Korb legen und bei 180 °C garen, nach der Hälfte wenden.",
+   "minutes": 20
+  },
+  {
+   "text": "Auf 200 °C erhöhen und knusprig fertig garen.",
+   "minutes": 6
+  },
+  {
+   "text": "Butter schmelzen, Chilisauce und Honig einrühren."
+  },
+  {
+   "text": "Wings in der Sauce schwenken."
+  },
+  {
+   "text": "Saure Sahne mit zerdrücktem Käse verrühren und mit Selleriesticks dazu servieren."
+  }
+ ],
+ "airfryer": true,
+ "tab": "airfryer"
+}
