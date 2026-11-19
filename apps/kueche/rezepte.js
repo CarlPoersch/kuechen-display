@@ -394,7 +394,7 @@
       ".r-toolbar { display: flex; align-items: center; gap: 16px; padding: 14px 24px 0; }",
       ".r-random { font-size: 20px; padding: 12px 22px; }",
       ".r-count { color: var(--quiet); font-size: 16px; }",
-      ".r-chips { display: flex; gap: 8px; padding: 14px 24px 4px; overflow-x: auto; -webkit-overflow-scrolling: touch; }",
+      ".r-chips { display: flex; gap: 8px; padding: 14px 24px 4px; overflow-x: auto; }",
       ".r-chip { flex: 0 0 auto; border-radius: 24px; font-size: 17px; padding: 8px 16px; min-height: 44px; }",
       ".r-chip span { color: var(--quiet); font-size: 14px; margin-left: 4px; }",
       ".r-chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }",
@@ -421,7 +421,7 @@
       ".r-progress { height: 6px; background: var(--line); margin: 0 24px; border-radius: 3px; overflow: hidden; }",
       ".r-progress > div { height: 100%; width: 0; background: var(--accent); transition: width .3s; }",
       ".r-main { display: flex; gap: 20px; padding: 16px 24px 24px; }",
-      ".r-col { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 8px 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }",
+      ".r-col { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 8px 0; overflow-y: auto; }",
       ".r-ing { flex: 0 0 36%; } .r-steps { flex: 1; }",
       // Querformat: Spalten scrollen einzeln. Hochformat: untereinander.
       "@media (orientation: landscape) { .r-main { height: calc(100% - 60px); } }",

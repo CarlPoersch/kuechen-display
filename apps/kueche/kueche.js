@@ -151,7 +151,7 @@
 
   // Aussehen: gemeinsame Küche-Styles + die CSS aller Bereiche in einem Block
   var css = [
-    ".k-nav { display: flex; align-items: center; gap: 6px; padding: 10px 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 5; }",
+    ".k-nav { display: flex; align-items: center; gap: 6px; padding: 10px 16px; overflow-x: auto; border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 5; }",
     ".k-tab { flex: 0 0 auto; border-radius: 22px; padding: 6px 14px; min-height: 44px; font-size: 17px; display: flex; align-items: center; gap: 6px; }",
     ".k-tab.on { background: var(--ink); color: #fff; border-color: var(--ink); }",
     ".k-tab-ic { font-size: 20px; }",
@@ -164,7 +164,7 @@
     ".k-muted { color: var(--quiet); font-size: 16px; }",
     ".k-small { color: var(--quiet); font-size: 15px; margin-top: 6px; }",
     ".k-row { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }",
-    ".k-input { font: inherit; font-size: 18px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); min-height: 48px; -webkit-user-select: text; user-select: text; }",
+    ".k-input { font: inherit; font-size: 18px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--ink); min-height: 48px; }",
     ".k-h2 { font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: var(--quiet); margin: 22px 0 10px; }",
     // Übersicht
     ".k-dash { padding: 16px 24px; }",

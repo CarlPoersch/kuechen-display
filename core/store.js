@@ -102,10 +102,10 @@
       var incoming = res.data || {}, changed = false;
       Object.keys(incoming).forEach(function (k) {
         var e = incoming[k];
-        if (!data[k] || e.t >= data[k].t) {
-          if (JSON.stringify(data[k]) !== JSON.stringify(e)) changed = true;
-          data[k] = e;
-        }
+        var cur = data[k];
+        if (!cur || e.t > cur.t) { data[k] = e; changed = true; }
+        // Gleicher Zeitstempel = derselbe Eintrag (der Server liefert die Felder nur in
+        // anderer Reihenfolge). Kein Neuzeichnen, sonst würde die App alle 5 s flackern.
       });
       Object.keys(pending).forEach(function (k) { data[k] = pending[k]; });
       if (res.now) { since = res.now; save(LS_SINCE, since); }

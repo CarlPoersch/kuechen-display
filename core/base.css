@@ -19,11 +19,12 @@ body {
   font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-size: 20px; /* Warum: aus 1–1,5 m Abstand gut lesbar */
   line-height: 1.4;
-  -webkit-user-select: none; user-select: none; /* Warum: kein versehentliches Markieren */
 }
-/* Eingabefelder ausdrücklich wieder auswählbar machen. Warum: iOS-Safari öffnet bei
-   "user-select: none" (siehe body) manchmal keine Tastatur für Felder darin. */
-input, textarea, select { -webkit-user-select: auto; user-select: auto; -webkit-touch-callout: default; }
+/* Kein versehentliches Markieren beim Antippen – aber NUR auf Knöpfen und Kacheln.
+   Warum nicht auf der ganzen Seite: iOS-Safari öffnet sonst für Eingabefelder keine Tastatur. */
+button, .tile, .chip, .r-item, .r-card, .e-row, .k-card, .k-line, .k-tab, .p-item, .v-item, .a-row, .f-row, .clock {
+  -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
+}
 button {
   font: inherit; cursor: pointer; border-radius: 12px;
   background: var(--card); color: var(--ink); border: 1px solid var(--line);
@@ -60,7 +61,7 @@ body.has-timers .screen { bottom: var(--bar-h); } /* Platz für die Timer-Leiste
 .back { font-size: 20px; min-width: 120px; text-align: left; }
 .apptitle { flex: 1; text-align: center; font-size: 24px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .topbar-spacer { min-width: 120px; }
-.appcontent { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; position: relative; }
+.appcontent { flex: 1; overflow-y: auto; position: relative; }
 .empty { padding: 40px; text-align: center; color: var(--quiet); }
 
 /* ---------- Timer-Leiste unten ---------- */
