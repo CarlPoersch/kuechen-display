@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<!-- Gleiche Einstellungen wie index.html, damit sich die Seite auf dem Home-Bildschirm genauso verhält -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tastatur-Test">
+<title>Tastatur-Test</title>
+<link rel="stylesheet" href="core/base.css?v=3">
+<style>
+  .t-box { background: #fffdf9; border: 1px solid #e6ddd2; border-radius: 14px; padding: 12px 16px; margin: 10px 0; }
+  .t-box b { display: block; margin-bottom: 6px; }
+  .t-box input { font: inherit; font-size: 18px; padding: 10px; border: 1px solid #ccc; border-radius: 10px; width: 100%; }
+  #log { font-size: 14px; color: #555; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<!-- Nachbau des App-Rahmens: .screen (position: absolute) mit scrollbarem .appcontent -->
+<div class="screen active" style="display:flex;flex-direction:column">
+  <div class="topbar"><div class="apptitle">Tastatur-Test</div></div>
+  <div class="appcontent" style="padding: 12px 20px">
+    <div class="t-box"><b>Feld 1 – im App-Rahmen (wie Einkauf/Vorrat)</b><input id="f1" placeholder="hier antippen"></div>
+    <div class="t-box"><b>Feld 2 – im App-Rahmen, in einem Formular</b><form onsubmit="return false"><input id="f2" placeholder="hier antippen"></form></div>
+    <div class="t-box"><b>Feld 3 – wie Feld 1, aber vom Code erzeugt (wie in der App)</b><div id="f3wrap"></div></div>
+    <div class="t-box"><b>Ton-Freigabe einschalten (macht die App beim ersten Tippen)</b>
+      <button id="audio">Ton-Freigabe aktivieren</button></div>
+    <div class="t-box"><b>Protokoll</b><div id="log"></div></div>
+  </div>
+</div>
+<!-- Feld 4 liegt außerhalb des Rahmens, wie das Schlüssel-Fenster -->
+<div style="position:fixed;left:20px;right:20px;bottom:20px;z-index:50" class="t-box"><b>Feld 4 – außerhalb des Rahmens (wie der Schlüssel)</b><input id="f4" placeholder="hier antippen"></div>
+<script>
+  var log = document.getElementById("log");
+  function L(t) { log.textContent = new Date().toLocaleTimeString() + "  " + t + "\n" + log.textContent; }
+  L("Modus: " + (window.navigator.standalone ? "Home-Bildschirm-App" : "Safari"));
+  document.getElementById("f3wrap").innerHTML = '<input id="f3" placeholder="hier antippen" autocomplete="off">';
+  ["f1", "f2", "f3", "f4"].forEach(function (id) {
+    var el = document.getElementById(id);
+    el.addEventListener("focus", function () { L(id + ": hat den Fokus"); });
+    el.addEventListener("blur", function () { L(id + ": Fokus verloren"); });
+    el.addEventListener("input", function () { L(id + ": Eingabe '" + el.value + "'"); });
+  });
+  document.getElementById("audio").onclick = function () {
+    var a = null; // wie in der App: nur einmal anlegen
+    function unlock() {
+      try {
+        if (!a) { a = new (window.AudioContext || window.webkitAudioContext)(); L("Ton angelegt"); }
+        if (a.state === "suspended") a.resume();
+      } catch (e) { L("Ton-Fehler " + e); }
+    }
+    document.addEventListener("touchend", unlock);
+    document.addEventListener("click", unlock);
+    L("Ton-Freigabe aktiv – jetzt Felder 1–4 nochmal testen");
+  };
+</script>
+</body>
+</html>
