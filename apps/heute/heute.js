@@ -103,6 +103,52 @@
     }).join("");
   }
 
+  // ---------- Termine (aus der Kalender-App des Geräts) ----------
+  var DAYS = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+  function evRow(e, now) {
+    var s = new Date(e.s), en = new Date(e.e);
+    var running = !e.a && s.getTime() <= now && en.getTime() > now;
+    var time = e.a ? "ganztägig" : running ? "läuft" : F.hhmm(s);
+    return '<div class="h-ev' + (running ? " is-now" : "") + '"><span class="h-ev-time">' + time + "</span>" +
+      '<span class="h-ev-bar" style="background:' + esc(e.f || "#8a7d72") + '"></span>' +
+      '<span class="h-ev-txt"><span class="h-ev-t">' + esc(e.t) + "</span>" +
+      (e.o || !e.a ? '<span class="h-ev-sub">' + (e.a ? "" : F.hhmm(s) + "–" + F.hhmm(en)) +
+        (e.o ? (e.a ? "" : " · ") + esc(e.o) : "") + "</span>" : "") + "</span></div>";
+  }
+  function drawCalendar() {
+    var box = $("h-cal");
+    if (!box) return;
+    var h = head("📅", "Termine");
+    var c = F.cached("kalender"), now = Date.now();
+    if (!F.inApp()) {
+      box.innerHTML = h + '<div class="h-muted">Deine Termine siehst du in der Hubert-App.</div>';
+      return;
+    }
+    if (!c) { box.innerHTML = h + '<div class="h-muted">Lädt …</div>'; return; }
+    if (c.data.status === "denied") {
+      box.innerHTML = h + '<div class="h-muted">Kein Zugriff auf den Kalender. Erlauben unter Einstellungen › Datenschutz › Kalender › Hubert.</div>';
+      return;
+    }
+    var evs = (c.data.events || []).filter(function (e) { return Date.parse(e.e) > now; });
+    var today = evs.filter(function (e) { return F.dayDiff(e.s) <= 0; });
+    var tomorrow = evs.filter(function (e) { return F.dayDiff(e.s) === 1; });
+    var out = "", left = 5;
+    function block(label, list) {
+      if (!list.length || left <= 0) return;
+      out += '<div class="h-n-sec">' + label + "</div>" + list.slice(0, left).map(function (e) { return evRow(e, now); }).join("");
+      left -= Math.min(left, list.length);
+    }
+    block("Heute", today);
+    block("Morgen", tomorrow);
+    if (!out) {
+      var next = evs[0];
+      out = '<div class="h-k-line h-k-main">Heute und morgen frei 🎉</div>' + (next ?
+        '<div class="h-k-line h-muted">Nächster Termin: ' + DAYS[new Date(next.s).getDay()] + ", " + new Date(next.s).getDate() + "." +
+        (new Date(next.s).getMonth() + 1) + ". · " + esc(next.t) + "</div>" : "");
+    }
+    box.innerHTML = h + out;
+  }
+
   // ---------- Sport ----------
   /** Auswahl für die Startseite: Live zuerst, dann Favoriten (Bayern, DFB, Deutsche), dann Rest */
   function pickMatches(list) {
@@ -188,9 +234,10 @@
   var stops = [], timers = [];
   Launcher.onHome({
     show: function () {
-      drawGreet(); drawWeather(); drawSport(); drawNews(); drawBus(); drawKueche();
+      drawGreet(); drawWeather(); drawCalendar(); drawSport(); drawNews(); drawBus(); drawKueche();
       stops = [
         F.subscribe("wetter", drawWeather), F.subscribe("sport", drawSport), F.subscribe("news", drawNews),
+        F.subscribe("kalender", drawCalendar),
         F.keepFresh("wetter"), F.keepFresh("sport"), F.keepFresh("news"),
         Launcher.store ? Launcher.store.subscribe(drawKueche) : function () {}
       ];
@@ -198,7 +245,7 @@
       timers = [
         setInterval(loadBus, 60000),
         // Countdown, "vor 5 Min" usw. aktuell halten, ohne neu zu laden
-        setInterval(function () { drawGreet(); drawBus(); drawSport(); drawNews(); }, 20000)
+        setInterval(function () { drawGreet(); drawCalendar(); drawBus(); drawSport(); drawNews(); }, 20000)
       ];
     },
     hide: function () {

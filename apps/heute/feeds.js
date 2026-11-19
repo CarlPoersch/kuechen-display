@@ -13,7 +13,7 @@
   var mem = Launcher.storage("hubert");
   var LAT = 49.0134, LON = 12.1016; // Regensburg
   var OBS_URL = "https://api.brightsky.dev/current_weather?lat=" + LAT + "&lon=" + LON;
-  var listeners = { sport: [], news: [], wetter: [] };
+  var listeners = { sport: [], news: [], wetter: [], kalender: [] };
   var inflight = {};
 
   function cloud() { return !!(window.CONFIG && CONFIG.supabaseUrl); }
@@ -173,9 +173,21 @@
       side(m.a) + side(m.b) + "</div>";
   }
 
+  // ---------- Kalender: kommt nicht aus dem Netz, sondern von der Hubert-App ----------
+  // Warum: Die native App liest die Termine direkt aus dem Gerät (alle Kalender,
+  // nichts verlässt das Gerät) und ruft dafür HubertNative.setCalendar(...) auf.
+  function inApp() { return !!window.HUBERT_APP; }
+  window.HubertNative = {
+    setCalendar: function (events, status) {
+      var entry = { at: Date.now(), data: { status: status || "ok", events: events || [] } };
+      mem.set("feed:kalender", entry);
+      listeners.kalender.forEach(function (fn) { try { fn(entry); } catch (e) { console.error(e); } });
+    }
+  };
+
   window.Hubert = window.Hubert || {};
   Hubert.Feeds = {
-    cloud: cloud, cached: cached, load: load, subscribe: subscribe, keepFresh: keepFresh,
+    cloud: cloud, inApp: inApp, cached: cached, load: load, subscribe: subscribe, keepFresh: keepFresh,
     hhmm: hhmm, when: when, ago: ago, dayDiff: dayDiff, weather: weather, matchHtml: matchHtml, flag: flag
   };
 })();
