@@ -15,7 +15,7 @@
   function drawWeather() {
     var box = $("h-weather"), c = F.cached("wetter");
     if (!box) return;
-    if (!c || !c.data || !c.data.current) { box.innerHTML = '<div class="h-muted">Wetter lädt …</div>'; return; }
+    if (!c || !c.data || !c.data.current) { box.innerHTML = '<div class="h-w-txt">Wetter lädt …</div>'; return; }
     var w = c.data, cur = w.current, d = w.daily;
     var now = F.weather(cur.weather_code, cur.is_day);
     // Regen in den nächsten Stunden? Warum: "Schirm mitnehmen?" ist die eigentliche Frage.
@@ -27,7 +27,7 @@
     }
     var html = '<div class="h-w-now"><span class="h-w-ic">' + now[0] + '</span><span class="h-w-t">' +
       Math.round(cur.temperature_2m) + '°</span></div><div class="h-w-txt">' + esc(now[1]) +
-      " · " + Math.round(d.temperature_2m_max[0]) + "° / " + Math.round(d.temperature_2m_min[0]) + "°</div>" +
+      " · ↑" + Math.round(d.temperature_2m_max[0]) + "° ↓" + Math.round(d.temperature_2m_min[0]) + "°</div>" +
       '<div class="h-w-rain">' + (rain >= 40 ? "☂️ Regen " + rain + " % " + (rainAt <= nowMs ? "jetzt" : "gegen " + F.hhmm(rainAt)) : "Kein Regen in Sicht") + "</div>";
     html += '<div class="h-w-days">';
     for (var k = 1; k < Math.min(4, d.time.length); k++) {
@@ -36,6 +36,12 @@
         F.weather(d.weather_code[k], 1)[0] + "<b>" + Math.round(d.temperature_2m_max[k]) + "°</b></div>";
     }
     box.innerHTML = html + "</div>";
+  }
+
+  // Begrüßung je nach Tageszeit
+  function drawGreet() {
+    var el = $("h-greet"), h = new Date().getHours();
+    if (el) el.textContent = h < 5 ? "Gute Nacht" : h < 11 ? "Guten Morgen" : h < 18 ? "Guten Tag" : "Guten Abend";
   }
 
   // ---------- Nächster Bus (zum Hbf, wie in "Fahrten") ----------
@@ -65,17 +71,18 @@
       if (x.leave <= now - 30000 || next.length >= 2) return;
       if (!next.length || x.leave - next[0].leave >= 120000) next.push(x);
     });
+    var head = '<div class="h-card-h"><span>🚌 Nächster Bus zum Hbf</span></div>';
     if (!next.length) {
-      box.innerHTML = '<div class="h-muted">' + (bus.at ? "Kein Bus zum Hbf" : bus.err ? "Fahrplan nicht erreichbar" : "Bus lädt …") + "</div>";
+      box.innerHTML = head + '<div class="h-muted">' + (bus.at ? "Gerade kein Bus" : bus.err ? "Fahrplan nicht erreichbar" : "Lädt …") + "</div>";
       return;
     }
-    box.innerHTML = next.map(function (x, i) {
+    box.innerHTML = head + next.map(function (x, i) {
       var m = Math.floor((x.leave - now) / 60000);
       var los = m < 1 ? "jetzt los" : "los in " + m + " Min";
       var cls = m < 1 ? "late" : m <= 5 ? "soon" : "";
       return '<div class="h-bus-row' + (i ? " h-bus-2" : "") + '"><span class="h-bus-line">' + esc(x.d.line) + "</span>" +
-        '<span class="h-bus-los ' + cls + '">' + los + "</span>" +
-        '<span class="h-bus-stop">ab ' + esc(x.s.title) + " " + F.hhmm(x.d.actual) + "</span></div>";
+        '<div class="h-bus-txt"><span class="h-bus-los ' + cls + '">' + los + "</span>" +
+        '<span class="h-bus-stop">' + F.hhmm(x.d.actual) + " ab " + esc(x.s.title) + "</span></div></div>";
     }).join("");
   }
 
@@ -96,7 +103,7 @@
   function drawSport() {
     var box = $("h-sport"), c = F.cached("sport");
     if (!box) return;
-    var h = '<div class="h-card-h"><span>⚽️ Sport ›</span>' + stamp(c) + "</div>";
+    var h = '<div class="h-card-h"><span>⚽️ Sport</span>' + (stamp(c) || '<span class="h-more">Alle ›</span>') + "</div>";
     if (!F.cloud()) h += '<div class="h-muted">Nur in der Cloud-Version verfügbar.</div>';
     else if (!c) h += '<div class="h-muted">Lädt …</div>';
     else {
@@ -121,7 +128,7 @@
       var b = d && d.breaking && d.breaking[0];
       br.innerHTML = b ? '<a class="h-break" href="' + esc(b.u) + '" target="_blank" rel="noopener"><b>EILMELDUNG</b> ' + esc(b.t) + "</a>" : "";
     }
-    var h = '<div class="h-card-h" data-home-go="news"><span>📰 News ›</span>' + stamp(c) + "</div>";
+    var h = '<div class="h-card-h" data-home-go="news"><span>📰 News</span>' + (stamp(c) || '<span class="h-more">Alle ›</span>') + "</div>";
     if (!F.cloud()) h += '<div class="h-muted">Nur in der Cloud-Version verfügbar.</div>';
     else if (!d) h += '<div class="h-muted">Lädt …</div>';
     else {
@@ -153,18 +160,18 @@
     var planned = K.planFor(K.isoDate(new Date())).map(function (p) { return recipesById[p.id]; }).filter(Boolean);
     var open = K.shopItems().filter(function (i) { return !i.done; }).length;
     var exp = K.pantryItems().filter(function (p) { return p.mhd && K.daysUntil(p.mhd) <= 2; }).length;
-    var parts = [];
-    parts.push(planned.length ? esc(planned[0].icon + " " + planned[0].title) : "Noch nichts geplant");
-    parts.push("🛒 " + open + (open === 1 ? " Sache" : " Sachen") + " kaufen");
-    if (exp) parts.push('<span class="h-warn">⏳ ' + exp + " bald verbrauchen</span>");
-    box.innerHTML = '<span class="h-k-h">🍳 Heute</span>' + parts.join('<span class="h-dot">·</span>');
+    var h = '<div class="h-card-h"><span>🍳 Küche heute</span></div>';
+    h += '<div class="h-k-line h-k-main">' + (planned.length ? esc(planned[0].icon + " " + planned[0].title) : '<span class="h-muted">Noch nichts geplant</span>') + "</div>";
+    h += '<div class="h-k-line">🛒 ' + (open ? open + (open === 1 ? " Sache" : " Sachen") + " auf der Liste" : "Einkaufsliste leer") + "</div>";
+    if (exp) h += '<div class="h-k-line h-warn">⏳ ' + exp + " bald verbrauchen</div>";
+    box.innerHTML = h;
   }
 
   // ---------- Ein- und Ausschalten ----------
   var stops = [], timers = [];
   Launcher.onHome({
     show: function () {
-      drawWeather(); drawSport(); drawNews(); drawBus(); drawKueche();
+      drawGreet(); drawWeather(); drawSport(); drawNews(); drawBus(); drawKueche();
       stops = [
         F.subscribe("wetter", drawWeather), F.subscribe("sport", drawSport), F.subscribe("news", drawNews),
         F.keepFresh("wetter"), F.keepFresh("sport"), F.keepFresh("news"),
@@ -174,7 +181,7 @@
       timers = [
         setInterval(loadBus, 60000),
         // Countdown, "vor 5 Min" usw. aktuell halten, ohne neu zu laden
-        setInterval(function () { drawBus(); drawSport(); drawNews(); }, 20000)
+        setInterval(function () { drawGreet(); drawBus(); drawSport(); drawNews(); }, 20000)
       ];
     },
     hide: function () {

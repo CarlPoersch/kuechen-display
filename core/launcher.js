@@ -161,8 +161,9 @@
     apps.forEach(function (app) {
       var b = document.createElement("button");
       b.className = "tile";
-      b.style.background = app.color || "#8a7d72";
-      b.innerHTML = '<span class="icon">' + esc(app.icon || "•") + "</span>" + esc(app.name);
+      // Farbe aufs Symbol, Name darunter – wie auf dem iPhone-Homescreen
+      b.innerHTML = '<span class="icon" style="background:' + esc(app.color || "#8a7d72") + '">' + esc(app.icon || "•") +
+        '</span><span class="label">' + esc(app.name) + "</span>";
       b.onclick = function () { navigate(app.id); };
       box.appendChild(b);
     });

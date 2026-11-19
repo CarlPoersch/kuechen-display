@@ -43,14 +43,7 @@ body.has-timers .screen { bottom: var(--bar-h); } /* Platz für die Timer-Leiste
 .time { font-size: 88px; font-weight: 200; line-height: 1; letter-spacing: -2px; }
 .date { font-size: 24px; color: var(--quiet); margin-top: 8px; }
 .tiles { display: flex; flex-wrap: wrap; gap: 20px; }
-.tile {
-  width: 180px; height: 180px; border-radius: 28px; border: none;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  color: #fff; font-size: 22px; font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0,0,0,.08);
-}
-.tile .icon { font-size: 64px; line-height: 1; }
-.tile:active { transform: scale(.96); }
+/* Kacheln: Aussehen steht in apps/heute/heute.css */
 
 /* ---------- Rahmen der Unterapps ---------- */
 .topbar {
