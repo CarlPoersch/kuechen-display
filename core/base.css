@@ -21,6 +21,9 @@ body {
   line-height: 1.4;
   -webkit-user-select: none; user-select: none; /* Warum: kein versehentliches Markieren */
 }
+/* Eingabefelder ausdrücklich wieder auswählbar machen. Warum: iOS-Safari öffnet bei
+   "user-select: none" (siehe body) manchmal keine Tastatur für Felder darin. */
+input, textarea, select { -webkit-user-select: auto; user-select: auto; -webkit-touch-callout: default; }
 button {
   font: inherit; cursor: pointer; border-radius: 12px;
   background: var(--card); color: var(--ink); border: 1px solid var(--line);
