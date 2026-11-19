@@ -268,6 +268,9 @@
   Launcher.onHome({
     show: function () {
       drawGreet(); drawWeather(); drawCalendar(); drawSport(); drawNews(); drawBus(); drawKueche();
+      // Warum nochmal: Beim ersten Zeichnen ist das Layout evtl. noch nicht fertig,
+      // dann würde fit() falsch kürzen.
+      setTimeout(function () { drawCalendar(); drawSport(); drawNews(); }, 600);
       stops = [
         F.subscribe("wetter", drawWeather), F.subscribe("sport", drawSport), F.subscribe("news", drawNews),
         F.subscribe("kalender", drawCalendar),
@@ -287,6 +290,8 @@
       stops = []; timers = [];
     }
   });
+
+  window.addEventListener("resize", function () { drawCalendar(); drawSport(); drawNews(); });
 
   document.addEventListener("click", function (e) {
     var t = e.target.closest && e.target.closest("[data-home-go]");
