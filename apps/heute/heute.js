@@ -22,18 +22,30 @@
     if (!box) return;
     if (!c || !c.data || !c.data.current) { box.innerHTML = '<div class="h-w-txt">Wetter lädt …</div>'; return; }
     var w = c.data, cur = w.current, d = w.daily;
-    var now = F.weather(cur.weather_code, cur.is_day);
+    var now = F.weather(cur.weather_code, cur.is_day), temp = cur.temperature_2m, nowMs = Date.now();
+    // Messwert der DWD-Station Regensburg hat Vorrang vor der Vorhersage (wenn nicht älter als 2 Std)
+    var obs = w.obs && nowMs - Date.parse(w.obs.timestamp) < 2 * 3600000 ? w.obs : null;
+    var wet = false;
+    if (obs) {
+      if (obs.temperature != null) temp = obs.temperature;
+      var cond = { rain: ["🌧", "Regen"], drizzle: ["🌦", "Nieselregen"], sleet: ["🌨", "Schneeregen"], snow: ["🌨", "Schnee"],
+        hail: ["🌨", "Hagel"], thunderstorm: ["⛈", "Gewitter"], fog: ["🌫", "Nebel"] }[obs.condition];
+      if (cond) now = cond;
+      wet = /rain|drizzle|sleet|snow|hail|thunderstorm/.test(obs.condition || "") || (obs.precipitation_10 || 0) > 0;
+    }
+    if ((cur.precipitation || 0) > 0) wet = true;
     // Regen in den nächsten Stunden? Warum: "Schirm mitnehmen?" ist die eigentliche Frage.
-    var rain = 0, rainAt = null, h = w.hourly, nowMs = Date.now();
+    var rain = 0, rainAt = null, h = w.hourly;
     for (var i = 0; h && i < h.time.length; i++) {
       var t = Date.parse(h.time[i]);
-      if (t < nowMs - 3600000 || t > nowMs + 6 * 3600000) continue;
+      if (t < nowMs || t > nowMs + 6 * 3600000) continue;
       if (h.precipitation_probability[i] > rain) { rain = h.precipitation_probability[i]; rainAt = t; }
     }
+    var rainTxt = wet ? "☂️ Es regnet gerade" : rain >= 40 ? "☂️ Regen " + rain + " % gegen " + F.hhmm(rainAt) : "Kein Regen in Sicht";
     var html = '<div class="h-w-now"><span class="h-w-ic">' + now[0] + '</span><span class="h-w-t">' +
-      Math.round(cur.temperature_2m) + '°</span></div><div class="h-w-txt">' + esc(now[1]) +
+      Math.round(temp) + '°</span></div><div class="h-w-txt">' + esc(now[1]) +
       " · ↑" + Math.round(d.temperature_2m_max[0]) + "° ↓" + Math.round(d.temperature_2m_min[0]) + "°</div>" +
-      '<div class="h-w-rain">' + (rain >= 40 ? "☂️ Regen " + rain + " % " + (rainAt <= nowMs ? "jetzt" : "gegen " + F.hhmm(rainAt)) : "Kein Regen in Sicht") + "</div>";
+      '<div class="h-w-rain">' + rainTxt + "</div>";
     html += '<div class="h-w-days">';
     for (var k = 1; k < Math.min(4, d.time.length); k++) {
       var day = new Date(d.time[k]);

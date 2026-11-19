@@ -12,6 +12,7 @@
 (function () {
   var mem = Launcher.storage("hubert");
   var LAT = 49.0134, LON = 12.1016; // Regensburg
+  var OBS_URL = "https://api.brightsky.dev/current_weather?lat=" + LAT + "&lon=" + LON;
   var listeners = { sport: [], news: [], wetter: [] };
   var inflight = {};
 
@@ -20,7 +21,7 @@
   function url(kind) {
     if (kind === "wetter") {
       return "https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON +
-        "&current=temperature_2m,apparent_temperature,weather_code,is_day" +
+        "&current=temperature_2m,apparent_temperature,weather_code,is_day,precipitation" +
         "&hourly=temperature_2m,precipitation_probability,weather_code" +
         "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,sunrise,sunset" +
         "&timezone=Europe%2FBerlin&forecast_days=4";
@@ -37,8 +38,20 @@
     if (kind !== "wetter" && !cloud()) return Promise.resolve(cached(kind));
     var headers = {};
     if (kind !== "wetter") headers["x-kueche-key"] = Launcher.store ? Launcher.store.householdKey() : "";
-    inflight[kind] = fetch(url(kind), { headers: headers, cache: "no-store" })
-      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    function get(u, h) {
+      return fetch(u, { headers: h || {}, cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
+    }
+    var job = get(url(kind), headers);
+    if (kind === "wetter") {
+      // Warum zwei Quellen: Open-Meteo liefert die Vorhersage, verpasst aber oft leichten Regen.
+      // Der Deutsche Wetterdienst (über Bright Sky) misst an der Station Regensburg, was JETZT ist.
+      job = Promise.all([job, get(OBS_URL).catch(function () { return null; })]).then(function (r) {
+        r[0].obs = r[1] && r[1].weather ? r[1].weather : null;
+        return r[0];
+      });
+    }
+    inflight[kind] = job
       .then(function (data) {
         var entry = { at: Date.now(), data: data };
         mem.set("feed:" + kind, entry);
