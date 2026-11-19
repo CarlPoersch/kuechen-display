@@ -26,10 +26,23 @@
     while (box.scrollHeight > box.clientHeight + 1 && guard--) {
       var items = box.querySelectorAll(".h-n, .s-match, .h-ev");
       if (items.length <= 1) break;
-      var last = items[items.length - 1], prev = last.previousElementSibling;
-      last.parentNode.removeChild(last);
+      var victim = items[items.length - 1];
+      // News: lieber jede Rubrik kürzen als eine ganz weglassen
+      var secs = box.querySelectorAll(".h-n-sec");
+      if (secs.length > 1) {
+        var best = null, bestN = 1;
+        for (var i = 0; i < secs.length; i++) {
+          var n = 0, el = secs[i].nextElementSibling, lastEl = null;
+          while (el && el.className.indexOf("h-n-sec") < 0) { n++; lastEl = el; el = el.nextElementSibling; }
+          if (n > bestN) { bestN = n; best = lastEl; }
+        }
+        if (best) victim = best;
+      }
+      var prev = victim.previousElementSibling;
+      victim.parentNode.removeChild(victim);
       // Rubrik-Überschrift ohne Einträge darunter auch entfernen
-      if (prev && prev.className === "h-n-sec" && !prev.nextElementSibling) prev.parentNode.removeChild(prev);
+      var nxt = prev && prev.nextElementSibling;
+      if (prev && prev.className === "h-n-sec" && (!nxt || nxt.className === "h-n-sec")) prev.parentNode.removeChild(prev);
     }
   }
 
