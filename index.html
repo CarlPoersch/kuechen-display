@@ -9,7 +9,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Küche">
 <title>Küche</title>
-<link rel="stylesheet" href="core/base.css">
+<!-- ?v=… : bei jeder Änderung hochzählen. Warum: Die Home-Bildschirm-App behält
+     sonst alte Dateien im Zwischenspeicher. -->
+<link rel="stylesheet" href="core/base.css?v=3">
 </head>
 <body>
 
@@ -36,23 +38,23 @@
 <div id="timerbar" class="timerbar"></div>
 
 <!-- Kern: Startbildschirm, Navigation, Speicher, Timer -->
-<script src="core/config.js"></script>
-<script src="core/launcher.js"></script>
-<script src="core/timers.js"></script>
-<script src="core/store.js"></script>
+<script src="core/config.js?v=3"></script>
+<script src="core/launcher.js?v=3"></script>
+<script src="core/timers.js?v=3"></script>
+<script src="core/store.js?v=3"></script>
 
 <!-- Unterapps: Für eine neue App einfach eine Zeile ergänzen (siehe README.md) -->
 <!-- Küche: gemeinsame Bausteine, dann die Bereiche, zuletzt der Rahmen -->
-<script src="apps/kueche/shared.js"></script>
-<script src="apps/kueche/rezepte.js"></script>
-<script src="apps/kueche/plan.js"></script>
-<script src="apps/kueche/einkauf.js"></script>
-<script src="apps/kueche/vorrat.js"></script>
-<script src="apps/kueche/airfryer.js"></script>
-<script src="apps/kueche/kueche.js"></script>
-<script src="apps/fahrten/efa.js"></script>
-<script src="apps/fahrten/fahrten.js"></script>
-<script src="apps/timer/timer.js"></script>
+<script src="apps/kueche/shared.js?v=3"></script>
+<script src="apps/kueche/rezepte.js?v=3"></script>
+<script src="apps/kueche/plan.js?v=3"></script>
+<script src="apps/kueche/einkauf.js?v=3"></script>
+<script src="apps/kueche/vorrat.js?v=3"></script>
+<script src="apps/kueche/airfryer.js?v=3"></script>
+<script src="apps/kueche/kueche.js?v=3"></script>
+<script src="apps/fahrten/efa.js?v=3"></script>
+<script src="apps/fahrten/fahrten.js?v=3"></script>
+<script src="apps/timer/timer.js?v=3"></script>
 
 <script>Launcher.start();</script>
 </body>
