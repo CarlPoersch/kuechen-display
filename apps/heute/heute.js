@@ -16,6 +16,23 @@
     return '<div class="h-card-h"><span class="h-title"><span class="h-ic">' + icon + "</span>" + esc(title) + "</span>" + (right || "") + "</div>";
   }
 
+  /**
+   * Feste Kartengröße: Passt der Inhalt nicht hinein, fallen die letzten Einträge weg
+   * (statt mitten in einer Zeile abgeschnitten zu werden).
+   */
+  function fit(box) {
+    if (!box || box.clientHeight === 0) return;
+    var guard = 30;
+    while (box.scrollHeight > box.clientHeight + 1 && guard--) {
+      var items = box.querySelectorAll(".h-n, .s-match, .h-ev");
+      if (items.length <= 1) break;
+      var last = items[items.length - 1], prev = last.previousElementSibling;
+      last.parentNode.removeChild(last);
+      // Rubrik-Überschrift ohne Einträge darunter auch entfernen
+      if (prev && prev.className === "h-n-sec" && !prev.nextElementSibling) prev.parentNode.removeChild(prev);
+    }
+  }
+
   // ---------- Wetter ----------
   function drawWeather() {
     var box = $("h-weather"), c = F.cached("wetter");
@@ -147,6 +164,7 @@
         (new Date(next.s).getMonth() + 1) + ". · " + esc(next.t) + "</div>" : "");
     }
     box.innerHTML = h + out;
+    fit(box);
   }
 
   // ---------- Sport ----------
@@ -161,7 +179,7 @@
       return fa - fb || Date.parse(a.date) - Date.parse(b.date);
     });
     var done = list.filter(function (m) { return m.state === "post" && m.prio === 1; });
-    return live.concat(next.slice(0, 3), done.slice(0, 2)).slice(0, 4);
+    return live.concat(next.slice(0, 4), done.slice(0, 2)).slice(0, 5);
   }
   function drawSport() {
     var box = $("h-sport"), c = F.cached("sport");
@@ -175,6 +193,7 @@
         : '<div class="h-muted">Heute keine Spiele deiner Teams.</div>';
     }
     box.innerHTML = h;
+    fit(box);
   }
 
   // ---------- News ----------
@@ -202,6 +221,7 @@
       });
     }
     box.innerHTML = h;
+    fit(box);
   }
 
   /** "Stand 14:20", nur wenn der Stand älter ist – Warum: zeigt, dass eine Quelle hakt */
