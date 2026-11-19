@@ -1,0 +1,115 @@
+/* ============================================================
+   "Heute"-Startseite und gemeinsame Bausteine für Sport und News.
+   Warum eigene Datei: base.css bleibt der Rahmen, hier steckt Huberts Startseite.
+   ============================================================ */
+
+/* ---------- Kopfzeile: Uhr | Wetter | Bus ---------- */
+.home { padding: max(20px, env(safe-area-inset-top)) 24px 24px; gap: 16px; }
+.home > * { flex-shrink: 0; } /* Warum: sonst quetscht Safari die Karten statt zu scrollen */
+[data-home-go] { cursor: pointer; }
+.h-top { display: flex; gap: 16px; align-items: stretch; }
+.h-top .clock { margin: 0; flex: 0 0 auto; display: flex; flex-direction: column; justify-content: center; padding-right: 8px; }
+.h-top .time { font-size: 68px; }
+.h-top .date { font-size: 20px; margin-top: 4px; }
+.h-box { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 14px 18px; }
+.h-weather { flex: 1 1 0; min-width: 0; }
+.h-bus { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.h-muted { color: var(--quiet); font-size: 17px; }
+.h-w-now { display: flex; align-items: center; gap: 10px; line-height: 1; }
+.h-w-ic { font-size: 40px; }
+.h-w-t { font-size: 44px; font-weight: 300; }
+.h-w-txt { font-size: 16px; color: var(--quiet); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.h-w-rain { font-size: 16px; margin-top: 2px; }
+.h-w-days { display: flex; gap: 14px; margin-top: 6px; font-size: 15px; color: var(--quiet); }
+.h-w-days div { display: flex; gap: 4px; align-items: center; }
+.h-w-days b { color: var(--ink); font-weight: 600; }
+.h-bus-row { display: flex; align-items: center; gap: 10px; font-size: 19px; white-space: nowrap; }
+.h-bus-2 { opacity: .55; font-size: 16px; }
+.h-bus-line { background: #3D6FB6; color: #fff; border-radius: 8px; padding: 2px 10px; font-weight: 700; min-width: 40px; text-align: center; }
+.h-bus-los { font-weight: 600; }
+.h-bus-los.soon { color: #b45309; }
+.h-bus-los.late { color: #dc2626; }
+.h-bus-stop { color: var(--quiet); font-size: .85em; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- Eilmeldung ---------- */
+.h-break { display: block; background: #b91c1c; color: #fff; text-decoration: none; border-radius: 16px; padding: 12px 18px; font-size: 19px; margin-bottom: 8px; }
+.h-break b { background: rgba(255,255,255,.2); border-radius: 6px; padding: 1px 8px; margin-right: 8px; font-size: 14px; letter-spacing: .5px; }
+
+/* ---------- Karten Sport | News ---------- */
+.h-grid { display: flex; gap: 16px; align-items: flex-start; }
+.h-card { flex: 1 1 0; min-width: 0; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 14px 18px; }
+.h-card-h { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+.h-stamp { font-weight: 400; font-size: 14px; color: var(--quiet); }
+.h-n-sec { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--accent); font-weight: 700; margin: 10px 0 2px; }
+.h-n { display: flex; gap: 10px; justify-content: space-between; color: var(--ink); text-decoration: none; padding: 5px 0; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.3; }
+.h-n-sec + .h-n { border-top: none; }
+.h-n-t { flex: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.h-n-d { flex: 0 0 auto; color: var(--quiet); font-size: 13px; padding-top: 2px; }
+
+/* ---------- Küche-Zeile ---------- */
+.h-kueche { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 18px; cursor: pointer; }
+.h-k-h { font-weight: 700; margin-right: 6px; }
+.h-dot { color: var(--done); }
+.h-warn { color: #b45309; }
+
+/* ---------- Unten: Küche-Zeile + kompakte Kacheln nebeneinander ---------- */
+/* Warum: Auf dem iPad quer soll alles ohne Scrollen auf einen Bildschirm passen. */
+.h-bottom { display: flex; gap: 16px; align-items: stretch; }
+.h-bottom .h-kueche { flex: 1 1 auto; min-width: 0; }
+.home .tiles { gap: 10px; flex-wrap: nowrap; }
+.home .tile { width: 84px; height: 84px; border-radius: 20px; font-size: 14px; gap: 4px; }
+.home .tile .icon { font-size: 32px; }
+
+/* ---------- Spielzeile (Startseite + Sport) ---------- */
+.s-match { padding: 8px 0; border-top: 1px solid var(--line); }
+.h-card-h + .s-match { border-top: none; padding-top: 2px; }
+.s-meta { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--quiet); margin-bottom: 2px; }
+.s-comp { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-live { color: #dc2626; font-weight: 700; white-space: nowrap; }
+.s-live::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #dc2626; margin-right: 5px; vertical-align: 1px; animation: s-pulse 1.4s infinite; }
+@keyframes s-pulse { 50% { opacity: .25; } }
+.s-end, .s-time { white-space: nowrap; }
+.s-time { color: var(--ink); font-weight: 600; }
+.s-side { display: flex; justify-content: space-between; align-items: center; font-size: 18px; line-height: 1.35; }
+.s-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-win { font-weight: 700; }
+.s-score { font-weight: 700; font-variant-numeric: tabular-nums; min-width: 24px; text-align: right; }
+.s-sets { display: flex; gap: 4px; }
+.s-sets b { min-width: 20px; text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; }
+.is-live .s-side { color: var(--ink); }
+.is-fav .s-comp { color: var(--accent); }
+
+/* ---------- Bereiche Sport & News ---------- */
+.sp-wrap, .nw-wrap { padding: 16px 20px 32px; max-width: 980px; margin: 0 auto; }
+.sp-tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+.sp-tabs button { flex: 1; }
+.sp-tabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.sp-day { font-size: 14px; text-transform: uppercase; letter-spacing: .8px; font-weight: 700; color: var(--quiet); margin: 18px 0 6px; }
+.sp-grid { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.sp-grid .s-match { flex: 1 1 360px; min-width: 0; }
+.sp-foot { margin-top: 20px; font-size: 13px; color: var(--quiet); text-align: center; }
+.nw-item { display: block; color: var(--ink); text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 12px 16px; margin-bottom: 10px; }
+.nw-top { font-size: 14px; color: var(--accent); font-weight: 600; }
+.nw-t { font-size: 20px; font-weight: 600; line-height: 1.3; }
+.nw-s { font-size: 16px; color: #5b5048; margin-top: 4px; }
+.nw-d { font-size: 13px; color: var(--quiet); margin-top: 4px; }
+
+/* ---------- Schmale Bildschirme (iPhone, iPad hochkant geteilt) ---------- */
+@media (max-width: 760px) {
+  .home { padding: max(12px, env(safe-area-inset-top)) 14px 20px; gap: 12px; }
+  .h-top { flex-wrap: wrap; gap: 10px; }
+  .h-top .clock { flex: 1 0 100%; flex-direction: row; align-items: baseline; gap: 12px; }
+  .h-top .time { font-size: 46px; }
+  .h-top .date { font-size: 16px; white-space: nowrap; }
+  .h-w-t { font-size: 36px; } .h-w-ic { font-size: 32px; }
+  .h-weather, .h-bus { flex: 1 1 100%; }
+  .h-grid { flex-direction: column; gap: 12px; }
+  .h-card { width: 100%; }
+  .h-bottom { flex-direction: column; gap: 12px; }
+  .home .tiles { gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+  .home .tile { width: calc(33.3% - 8px); height: 92px; font-size: 14px; border-radius: 20px; }
+  .home .tile .icon { font-size: 32px; }
+  .back, .topbar-spacer { min-width: 80px; font-size: 17px; }
+  .sp-wrap, .nw-wrap { padding: 12px 12px 28px; }
+  .nw-t { font-size: 18px; }
+}

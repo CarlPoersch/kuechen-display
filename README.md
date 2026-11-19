@@ -119,3 +119,11 @@ Die Rezepte stehen kompakt in `tools/rezepte/data_*.py`. Neu erzeugen mit:
 ```
 cd tools/rezepte && python3 gen.py ../../apps/rezepte/data
 ```
+
+
+## Hubert „Heute“ (seit 19.11.2026)
+- Startseite = `apps/heute/heute.js` (+ `heute.css`): Uhr, Wetter (Open-Meteo), nächster Bus (EFA), Sport, News, Küche.
+- Gemeinsame Datenquelle: `apps/heute/feeds.js` (`Hubert.Feeds`), merkt sich den letzten Stand im Browser.
+- Bereiche: `apps/sport/sport.js`, `apps/news/news.js`.
+- Supabase-Funktion `supabase/functions/feeds`: holt ESPN (Sport), Tagesschau und heise (News), dampft ein, prüft den Haushalts-Schlüssel.
+- Design: `docs/specs/2026-11-19-hubert-heute-design.md`.

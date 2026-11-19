@@ -11,6 +11,8 @@
   var apps = [];
   var current = null; // { app, cleanups: [] }
   var styled = {};    // welche App-CSS schon eingefügt wurde
+  var homeHooks = []; // { show, hide } – z. B. die Widgets der "Heute"-Seite
+  var homeVisible = false;
 
   // ---------- Speicher pro App ----------
   // Warum Namensraum (z. B. "rezepte:..."): Apps überschreiben sich nicht gegenseitig.
@@ -98,8 +100,10 @@
     if (!app) { // Startbildschirm
       $("appview").classList.remove("active");
       $("home").classList.add("active");
+      setHomeVisible(true);
       return;
     }
+    setHomeVisible(false);
 
     // App-eigenes CSS einmalig einfügen
     if (app.css && !styled[app.id]) {
@@ -135,6 +139,17 @@
     $("appcontent").scrollTop = 0;
   }
 
+  // Warum: Die Widgets sollen nur Daten laden, solange der Startbildschirm zu sehen ist.
+  function setHomeVisible(v) {
+    v = v && !document.hidden;
+    if (v === homeVisible) return;
+    homeVisible = v;
+    homeHooks.forEach(function (h) { try { (v ? h.show : h.hide)(); } catch (e) { console.error(e); } });
+  }
+  document.addEventListener("visibilitychange", function () {
+    setHomeVisible(!parseHash().id || !findApp(parseHash().id));
+  });
+
   function navigate(path) {
     location.hash = path ? "#" + path : "#";
   }
@@ -166,6 +181,8 @@
   window.Launcher = {
     // Jede Unterapp meldet sich hiermit an (siehe README.md)
     register: function (app) { apps.push(app); },
+    // Startbildschirm-Bausteine: show() beim Erscheinen, hide() beim Verlassen
+    onHome: function (hook) { homeHooks.push(hook); if (homeVisible) hook.show(); },
     navigate: navigate,
     storage: storage,
     beep: beep,

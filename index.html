@@ -7,21 +7,35 @@
 <!-- Warum: Damit startet die Seite vom Home-Bildschirm im Vollbild, ohne Safari-Leiste. -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Küche">
-<title>Küche</title>
+<meta name="apple-mobile-web-app-title" content="Hubert">
+<title>Hubert</title>
 <!-- ?v=… : bei jeder Änderung hochzählen. Warum: Die Home-Bildschirm-App behält
      sonst alte Dateien im Zwischenspeicher. -->
-<link rel="stylesheet" href="core/base.css?v=3">
+<link rel="stylesheet" href="core/base.css?v=4">
+<link rel="stylesheet" href="apps/heute/heute.css?v=4">
 </head>
 <body>
 
-<!-- Startbildschirm: Uhr + Kacheln der Unterapps -->
+<!-- Startbildschirm "Heute": Uhr, Wetter, Bus, Sport, News, Küche, darunter die Bereiche.
+     Befüllt von apps/heute/heute.js -->
 <div id="home" class="screen home">
-  <div class="clock">
-    <div id="time" class="time"></div>
-    <div id="date" class="date"></div>
+  <div class="h-top">
+    <div class="clock">
+      <div id="time" class="time"></div>
+      <div id="date" class="date"></div>
+    </div>
+    <div id="h-weather" class="h-box h-weather"></div>
+    <div id="h-bus" class="h-box h-bus" data-home-go="fahrten"></div>
   </div>
-  <div id="tiles" class="tiles"></div>
+  <div id="h-breaking"></div>
+  <div class="h-grid">
+    <div id="h-sport" class="h-card" data-home-go="sport"></div>
+    <div id="h-news" class="h-card"></div>
+  </div>
+  <div class="h-bottom">
+    <div id="h-kueche" class="h-box h-kueche" data-home-go="kueche"></div>
+    <div id="tiles" class="tiles"></div>
+  </div>
 </div>
 
 <!-- Rahmen, in dem jede Unterapp angezeigt wird -->
@@ -38,23 +52,28 @@
 <div id="timerbar" class="timerbar"></div>
 
 <!-- Kern: Startbildschirm, Navigation, Speicher, Timer -->
-<script src="core/config.js?v=3"></script>
-<script src="core/launcher.js?v=3"></script>
-<script src="core/timers.js?v=3"></script>
-<script src="core/store.js?v=3"></script>
+<script src="core/config.js?v=4"></script>
+<script src="core/launcher.js?v=4"></script>
+<script src="core/timers.js?v=4"></script>
+<script src="core/store.js?v=4"></script>
 
 <!-- Unterapps: Für eine neue App einfach eine Zeile ergänzen (siehe README.md) -->
 <!-- Küche: gemeinsame Bausteine, dann die Bereiche, zuletzt der Rahmen -->
-<script src="apps/kueche/shared.js?v=3"></script>
-<script src="apps/kueche/rezepte.js?v=3"></script>
-<script src="apps/kueche/plan.js?v=3"></script>
-<script src="apps/kueche/einkauf.js?v=3"></script>
-<script src="apps/kueche/vorrat.js?v=3"></script>
-<script src="apps/kueche/airfryer.js?v=3"></script>
-<script src="apps/kueche/kueche.js?v=3"></script>
-<script src="apps/fahrten/efa.js?v=3"></script>
-<script src="apps/fahrten/fahrten.js?v=3"></script>
-<script src="apps/timer/timer.js?v=3"></script>
+<script src="apps/kueche/shared.js?v=4"></script>
+<script src="apps/kueche/rezepte.js?v=4"></script>
+<script src="apps/kueche/plan.js?v=4"></script>
+<script src="apps/kueche/einkauf.js?v=4"></script>
+<script src="apps/kueche/vorrat.js?v=4"></script>
+<script src="apps/kueche/airfryer.js?v=4"></script>
+<script src="apps/kueche/kueche.js?v=4"></script>
+<!-- Heute-Startseite, Sport und News -->
+<script src="apps/heute/feeds.js?v=4"></script>
+<script src="apps/sport/sport.js?v=4"></script>
+<script src="apps/news/news.js?v=4"></script>
+<script src="apps/fahrten/efa.js?v=4"></script>
+<script src="apps/fahrten/fahrten.js?v=4"></script>
+<script src="apps/timer/timer.js?v=4"></script>
+<script src="apps/heute/heute.js?v=4"></script>
 
 <script>Launcher.start();</script>
 </body>
