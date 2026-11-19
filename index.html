@@ -11,8 +11,8 @@
 <title>Hubert</title>
 <!-- ?v=… : bei jeder Änderung hochzählen. Warum: Die Home-Bildschirm-App behält
      sonst alte Dateien im Zwischenspeicher. -->
-<link rel="stylesheet" href="core/base.css?v=7">
-<link rel="stylesheet" href="apps/heute/heute.css?v=7">
+<link rel="stylesheet" href="core/base.css?v=8">
+<link rel="stylesheet" href="apps/heute/heute.css?v=8">
 </head>
 <body>
 
@@ -29,16 +29,17 @@
       <div id="h-weather" class="h-hero-r"></div>
     </section>
     <div id="h-breaking"></div>
-    <div class="h-row">
-      <section id="h-cal" class="h-card h-cal"></section>
+    <!-- Zwei Spalten, jede Karte nur so hoch wie ihr Inhalt -->
+    <div class="h-cols">
       <div class="h-col">
+        <section id="h-sport" class="h-card" data-home-go="sport"></section>
+        <section id="h-cal" class="h-card h-cal"></section>
+      </div>
+      <div class="h-col">
+        <section id="h-news" class="h-card"></section>
         <section id="h-bus" class="h-card h-bus" data-home-go="fahrten"></section>
         <section id="h-kueche" class="h-card h-kueche" data-home-go="kueche"></section>
       </div>
-    </div>
-    <div class="h-row">
-      <section id="h-sport" class="h-card" data-home-go="sport"></section>
-      <section id="h-news" class="h-card"></section>
     </div>
     <div class="h-label">Apps</div>
     <div id="tiles" class="tiles"></div>
@@ -59,28 +60,28 @@
 <div id="timerbar" class="timerbar"></div>
 
 <!-- Kern: Startbildschirm, Navigation, Speicher, Timer -->
-<script src="core/config.js?v=7"></script>
-<script src="core/launcher.js?v=7"></script>
-<script src="core/timers.js?v=7"></script>
-<script src="core/store.js?v=7"></script>
+<script src="core/config.js?v=8"></script>
+<script src="core/launcher.js?v=8"></script>
+<script src="core/timers.js?v=8"></script>
+<script src="core/store.js?v=8"></script>
 
 <!-- Unterapps: Für eine neue App einfach eine Zeile ergänzen (siehe README.md) -->
 <!-- Küche: gemeinsame Bausteine, dann die Bereiche, zuletzt der Rahmen -->
-<script src="apps/kueche/shared.js?v=7"></script>
-<script src="apps/kueche/rezepte.js?v=7"></script>
-<script src="apps/kueche/plan.js?v=7"></script>
-<script src="apps/kueche/einkauf.js?v=7"></script>
-<script src="apps/kueche/vorrat.js?v=7"></script>
-<script src="apps/kueche/airfryer.js?v=7"></script>
-<script src="apps/kueche/kueche.js?v=7"></script>
+<script src="apps/kueche/shared.js?v=8"></script>
+<script src="apps/kueche/rezepte.js?v=8"></script>
+<script src="apps/kueche/plan.js?v=8"></script>
+<script src="apps/kueche/einkauf.js?v=8"></script>
+<script src="apps/kueche/vorrat.js?v=8"></script>
+<script src="apps/kueche/airfryer.js?v=8"></script>
+<script src="apps/kueche/kueche.js?v=8"></script>
 <!-- Heute-Startseite, Sport und News -->
-<script src="apps/heute/feeds.js?v=7"></script>
-<script src="apps/sport/sport.js?v=7"></script>
-<script src="apps/news/news.js?v=7"></script>
-<script src="apps/fahrten/efa.js?v=7"></script>
-<script src="apps/fahrten/fahrten.js?v=7"></script>
-<script src="apps/timer/timer.js?v=7"></script>
-<script src="apps/heute/heute.js?v=7"></script>
+<script src="apps/heute/feeds.js?v=8"></script>
+<script src="apps/sport/sport.js?v=8"></script>
+<script src="apps/news/news.js?v=8"></script>
+<script src="apps/fahrten/efa.js?v=8"></script>
+<script src="apps/fahrten/fahrten.js?v=8"></script>
+<script src="apps/timer/timer.js?v=8"></script>
+<script src="apps/heute/heute.js?v=8"></script>
 
 <script>Launcher.start();</script>
 </body>
