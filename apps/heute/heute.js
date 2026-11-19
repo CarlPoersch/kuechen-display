@@ -11,6 +11,11 @@
   var F = Hubert.Feeds, esc = Launcher.esc;
   function $(id) { return document.getElementById(id); }
 
+  /** Kartenkopf: Symbol + Titel links, optional etwas rechts (z. B. "Alle ›") */
+  function head(icon, title, right) {
+    return '<div class="h-card-h"><span class="h-title"><span class="h-ic">' + icon + "</span>" + esc(title) + "</span>" + (right || "") + "</div>";
+  }
+
   // ---------- Wetter ----------
   function drawWeather() {
     var box = $("h-weather"), c = F.cached("wetter");
@@ -71,12 +76,12 @@
       if (x.leave <= now - 30000 || next.length >= 2) return;
       if (!next.length || x.leave - next[0].leave >= 120000) next.push(x);
     });
-    var head = '<div class="h-card-h"><span>🚌 Nächster Bus zum Hbf</span></div>';
+    var top = head("🚌", "Nächster Bus zum Hbf");
     if (!next.length) {
-      box.innerHTML = head + '<div class="h-muted">' + (bus.at ? "Gerade kein Bus" : bus.err ? "Fahrplan nicht erreichbar" : "Lädt …") + "</div>";
+      box.innerHTML = top + '<div class="h-muted">' + (bus.at ? "Gerade kein Bus" : bus.err ? "Fahrplan nicht erreichbar" : "Lädt …") + "</div>";
       return;
     }
-    box.innerHTML = head + next.map(function (x, i) {
+    box.innerHTML = top + next.map(function (x, i) {
       var m = Math.floor((x.leave - now) / 60000);
       var los = m < 1 ? "jetzt los" : "los in " + m + " Min";
       var cls = m < 1 ? "late" : m <= 5 ? "soon" : "";
@@ -103,7 +108,7 @@
   function drawSport() {
     var box = $("h-sport"), c = F.cached("sport");
     if (!box) return;
-    var h = '<div class="h-card-h"><span>⚽️ Sport</span>' + (stamp(c) || '<span class="h-more">Alle ›</span>') + "</div>";
+    var h = head("⚽️", "Sport", stamp(c) || '<span class="h-more">Alle ›</span>');
     if (!F.cloud()) h += '<div class="h-muted">Nur in der Cloud-Version verfügbar.</div>';
     else if (!c) h += '<div class="h-muted">Lädt …</div>';
     else {
@@ -128,7 +133,7 @@
       var b = d && d.breaking && d.breaking[0];
       br.innerHTML = b ? '<a class="h-break" href="' + esc(b.u) + '" target="_blank" rel="noopener"><b>EILMELDUNG</b> ' + esc(b.t) + "</a>" : "";
     }
-    var h = '<div class="h-card-h" data-home-go="news"><span>📰 News</span>' + (stamp(c) || '<span class="h-more">Alle ›</span>') + "</div>";
+    var h = head("📰", "News", stamp(c) || '<span class="h-more" data-home-go="news">Alle ›</span>');
     if (!F.cloud()) h += '<div class="h-muted">Nur in der Cloud-Version verfügbar.</div>';
     else if (!d) h += '<div class="h-muted">Lädt …</div>';
     else {
@@ -160,7 +165,7 @@
     var planned = K.planFor(K.isoDate(new Date())).map(function (p) { return recipesById[p.id]; }).filter(Boolean);
     var open = K.shopItems().filter(function (i) { return !i.done; }).length;
     var exp = K.pantryItems().filter(function (p) { return p.mhd && K.daysUntil(p.mhd) <= 2; }).length;
-    var h = '<div class="h-card-h"><span>🍳 Küche heute</span></div>';
+    var h = head("🍳", "Küche heute");
     h += '<div class="h-k-line h-k-main">' + (planned.length ? esc(planned[0].icon + " " + planned[0].title) : '<span class="h-muted">Noch nichts geplant</span>') + "</div>";
     h += '<div class="h-k-line">🛒 ' + (open ? open + (open === 1 ? " Sache" : " Sachen") + " auf der Liste" : "Einkaufsliste leer") + "</div>";
     if (exp) h += '<div class="h-k-line h-warn">⏳ ' + exp + " bald verbrauchen</div>";
