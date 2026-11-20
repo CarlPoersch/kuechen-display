@@ -1,4 +1,5 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 // ============================================================
 // Startseite: oben das Briefing (Glance-Buckets im Raster),
@@ -9,6 +10,8 @@ struct HomeView: View {
     @EnvironmentObject var store: AppStore
     @State private var showSettings = false
     @State private var scrolled: CGFloat = 0   // wie weit nach unten gescrollt
+    @State private var editing = false          // Startseite bearbeiten (wackeln, verschieben)
+    @State private var dragging: String?        // Bucket, der gerade gezogen wird
 
     private var glances: [BucketInstance] {
         store.buckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
@@ -26,7 +29,7 @@ struct HomeView: View {
                             .background(GeometryReader { g in
                                 Color.clear.preference(key: ScrollOffsetKey.self, value: g.frame(in: .named("home")).minY)
                             })
-                        BriefingGrid(items: glances, width: geo.size.width - 2 * pad(geo.size.width))
+                        BriefingGrid(items: glances, width: geo.size.width - 2 * pad(geo.size.width), dragging: $dragging)
                         if glances.isEmpty {
                             emptyHint
                         }
@@ -40,9 +43,13 @@ struct HomeView: View {
                 .refreshable { await store.reload() }
                 // Große Kopfkarte weggescrollt → schmale Leiste bleibt oben stehen
                 .overlay(alignment: .top) {
-                    if scrolled > 120 { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
+                    if editing { editBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
+                    else if scrolled > 120 { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
                 }
                 .animation(.easeOut(duration: 0.2), value: scrolled > 120)
+                .animation(.easeOut(duration: 0.2), value: editing)
+                .environment(\.homeEditing, editing)
+                .environment(\.startHomeEditing, { withAnimation { editing = true } })
             }
             .background(Theme.background.ignoresSafeArea())
             .navigationBarHidden(true)
@@ -91,6 +98,23 @@ struct HomeView: View {
         }
     }
 
+    /// Leiste im Bearbeiten-Modus, wie auf dem iPhone-Home-Bildschirm
+    private func editBar(_ pad: CGFloat) -> some View {
+        HStack {
+            Button { showSettings = true } label: { Label("Hinzufügen", systemImage: "plus") }
+            Spacer()
+            Text("Ziehen zum Verschieben").font(.subheadline).foregroundColor(Theme.secondary)
+            Spacer()
+            Button { withAnimation { editing = false }; store.saveBuckets() } label: {
+                Text("Fertig").font(.body.weight(.semibold)).foregroundColor(.white)
+                    .padding(.horizontal, 16).padding(.vertical, 7)
+                    .background(Capsule().fill(Theme.accent))
+            }
+        }
+        .padding(.horizontal, pad + 4).padding(.vertical, 10)
+        .background(Rectangle().fill(.regularMaterial).ignoresSafeArea(edges: .top))
+    }
+
     /// Schmale Leiste: Uhr, Datum, Einstellungen
     private func compactBar(_ pad: CGFloat) -> some View {
         TimelineView(.periodic(from: .now, by: 1)) { ctx in
@@ -135,6 +159,16 @@ struct HomeView: View {
                 ForEach(tools) { inst in
                     if let kind = BucketRegistry.kind(inst.bucket) {
                         AppIcon(kind: kind)
+                            .overlay(alignment: .topLeading) {
+                                if editing { RemoveBadge { store.removeBucket(id: inst.id) }.offset(x: 2, y: -6) }
+                            }
+                            .modifier(Wiggle(on: editing))
+                            .contextMenu(editing ? nil : ContextMenu {
+                                Button { withAnimation { editing = true } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
+                                Button(role: .destructive) { store.removeBucket(id: inst.id) } label: { Label("Entfernen", systemImage: "trash") }
+                            })
+                            .onDrag { dragging = inst.id; withAnimation { editing = true }; return NSItemProvider(object: inst.id as NSString) }
+                            .onDrop(of: [UTType.text], delegate: BucketDrop(target: inst.id, dragging: $dragging, store: store))
                     }
                 }
             }
@@ -174,8 +208,12 @@ struct AppIcon: View {
 /// Ordnet Buckets in Reihen: Klein = 1 Einheit, Mittel = 2, Groß = ganze Breite.
 /// Warum eigenes Raster: SwiftUI auf iOS 15 kann Kacheln nicht über mehrere Spalten spannen.
 struct BriefingGrid: View {
+    @EnvironmentObject var store: AppStore
+    @Environment(\.homeEditing) private var editing
+    @Environment(\.startHomeEditing) private var startEditing
     let items: [BucketInstance]
     let width: CGFloat
+    @Binding var dragging: String?
     private let gap: CGFloat = 14
 
     private var columns: Int { width < 560 ? 2 : (width < 1000 ? 4 : 6) }
@@ -210,6 +248,10 @@ struct BriefingGrid: View {
                     ForEach(row) { it in
                         BucketCard(instance: it)
                             .frame(width: free * CGFloat(min(span(it.size), columns)) / total, height: height(row))
+                            .opacity(dragging == it.id ? 0.4 : 1)
+                            // Im Bearbeiten-Modus: Karte ziehen und auf einer anderen loslassen
+                            .onDrag { dragging = it.id; startEditing(); return NSItemProvider(object: it.id as NSString) }
+                            .onDrop(of: [UTType.text], delegate: BucketDrop(target: it.id, dragging: $dragging, store: store))
                     }
                 }
             }
@@ -228,6 +270,8 @@ struct BriefingGrid: View {
 /// Der Regler-Knopf (oder lange drücken) öffnet die Einstellungen direkt hier.
 struct BucketCard: View {
     @EnvironmentObject var store: AppStore
+    @Environment(\.homeEditing) private var homeEditing
+    @Environment(\.startHomeEditing) private var startHomeEditing
     let instance: BucketInstance
     @State private var editing = false
 
@@ -237,15 +281,22 @@ struct BucketCard: View {
                 head(kind)
                 content(kind)
             }
+            .disabled(homeEditing)   // beim Bearbeiten nichts öffnen
+            .environment(\.bucketId, instance.id)
             .padding(16)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .background(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).fill(Theme.card))
             .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
             .shadow(color: .black.opacity(0.05), radius: 8, y: 3)
-            .contextMenu {
-                Button { editing = true } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
-                Button(role: .destructive) { store.removeBucket(id: instance.id) } label: { Label("Entfernen", systemImage: "trash") }
+            .overlay(alignment: .topLeading) {
+                if homeEditing { RemoveBadge { store.removeBucket(id: instance.id) }.offset(x: -8, y: -8) }
             }
+            .modifier(Wiggle(on: homeEditing))
+            .contextMenu(homeEditing ? nil : ContextMenu {
+                Button { editing = true } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
+                Button { startHomeEditing() } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
+                Button(role: .destructive) { store.removeBucket(id: instance.id) } label: { Label("Entfernen", systemImage: "trash") }
+            })
             .environment(\.editBucket, { editing = true })
             .sheet(isPresented: $editing) { BucketEditSheet(bucketId: instance.id).environmentObject(store) }
         }
@@ -309,6 +360,7 @@ struct BucketDetailHost: View {
         (kind.detail?(current) ?? AnyView(EmptyView()))
             .navigationTitle(kind.name)
             .navigationBarHidden(false)
+            .environment(\.bucketId, instance.id)
             .environment(\.editBucket, { editing = true })
             .toolbar {
                 // Warum das "if" innen steht: Bedingte Toolbar-Einträge gibt es erst ab iOS 16
@@ -335,5 +387,53 @@ struct BucketEditSheet: View {
                 .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fertig") { dismiss() } } }
         }
         .navigationViewStyle(.stack)
+    }
+}
+
+// MARK: Startseite bearbeiten
+
+/// Leichtes Wackeln wie beim iPhone-Home-Bildschirm
+struct Wiggle: ViewModifier {
+    let on: Bool
+    @State private var phase = false
+    func body(content: Content) -> some View {
+        content
+            .rotationEffect(.degrees(on ? (phase ? 0.8 : -0.8) : 0))
+            .animation(on ? .easeInOut(duration: 0.14).repeatForever(autoreverses: true) : .easeOut(duration: 0.1), value: phase)
+            .onAppear { if on { phase = true } }
+            .onChange(of: on) { v in phase = v }
+    }
+}
+
+/// Graues Minus oben links zum Entfernen
+struct RemoveBadge: View {
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: "minus").font(.system(size: 13, weight: .bold)).foregroundColor(.primary)
+                .frame(width: 26, height: 26)
+                .background(Circle().fill(.regularMaterial))
+                .shadow(color: .black.opacity(0.15), radius: 2, y: 1)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("Entfernen")
+    }
+}
+
+/// Beim Darüberziehen rückt der gezogene Bucket an diese Stelle
+struct BucketDrop: DropDelegate {
+    let target: String
+    @Binding var dragging: String?
+    let store: AppStore
+
+    func dropEntered(info: DropInfo) {
+        guard let id = dragging, id != target else { return }
+        withAnimation(.easeInOut(duration: 0.2)) { store.moveBucket(id, to: target) }
+    }
+    func dropUpdated(info: DropInfo) -> DropProposal? { DropProposal(operation: .move) }
+    func performDrop(info: DropInfo) -> Bool {
+        dragging = nil
+        store.saveBuckets()
+        return true
     }
 }

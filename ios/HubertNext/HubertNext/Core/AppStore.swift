@@ -116,6 +116,22 @@ final class AppStore: ObservableObject {
         saveBuckets()
     }
 
+    /// Beim Verschieben auf der Startseite: Bucket `id` an die Stelle von `target` setzen.
+    /// Speichert noch nicht – erst beim Loslassen (saveBuckets), sonst gäbe es pro Zwischenschritt einen Aufruf.
+    func moveBucket(_ id: String, to target: String) {
+        guard id != target, let from = buckets.firstIndex(where: { $0.id == id }),
+              let to = buckets.firstIndex(where: { $0.id == target }) else { return }
+        let item = buckets.remove(at: from)
+        buckets.insert(item, at: to)
+    }
+
+    /// Einstellungen eines Buckets direkt ändern (z. B. Auswahl in der Karte) und speichern
+    func updateConfig(_ id: String, _ change: (inout [String: JSON]) -> Void) {
+        guard let i = buckets.firstIndex(where: { $0.id == id }) else { return }
+        change(&buckets[i].config)
+        saveBuckets()
+    }
+
     /// Speichern im Hintergrund (Änderungen sind lokal sofort sichtbar)
     func saveBuckets() {
         saveCache()

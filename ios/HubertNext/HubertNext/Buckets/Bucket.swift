@@ -96,6 +96,26 @@ extension EnvironmentValues {
     }
 }
 
+/// Welcher Bucket gerade gezeichnet wird (für Änderungen direkt in der Karte)
+private struct BucketIdKey: EnvironmentKey { static let defaultValue = "" }
+/// Startseite im Bearbeiten-Modus (wackelnde Karten, verschieben, entfernen)
+private struct HomeEditingKey: EnvironmentKey { static let defaultValue = false }
+private struct StartEditingKey: EnvironmentKey { static let defaultValue: () -> Void = {} }
+extension EnvironmentValues {
+    var bucketId: String {
+        get { self[BucketIdKey.self] }
+        set { self[BucketIdKey.self] = newValue }
+    }
+    var homeEditing: Bool {
+        get { self[HomeEditingKey.self] }
+        set { self[HomeEditingKey.self] = newValue }
+    }
+    var startHomeEditing: () -> Void {
+        get { self[StartEditingKey.self] }
+        set { self[StartEditingKey.self] = newValue }
+    }
+}
+
 /// Wie viele Zeilen der Höhe `row` passen in `height` (mindestens 1, höchstens `max`)
 func fitRows(_ height: CGFloat, row: CGFloat, max m: Int = 12) -> Int {
     Swift.max(1, Swift.min(m, Int((height + 4) / row)))
