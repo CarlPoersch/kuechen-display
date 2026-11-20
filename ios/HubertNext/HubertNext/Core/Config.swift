@@ -1,0 +1,18 @@
+import SwiftUI
+
+/// Feste Einstellungen der App.
+/// Warum der Schlüssel hier stehen darf: Der "publishable key" ist für Apps gedacht.
+/// Geschützt werden die Daten über die Anmeldung und die Zugriffsregeln (RLS) in Supabase.
+enum Config {
+    static let supabaseURL = URL(string: "https://jcnpfkyntdujgudewmzb.supabase.co")!
+    static let supabaseKey = "sb_publishable_CYlA5db0qaRSHec7pMlk8w_2L39e_AV"
+}
+
+/// Farben im Apple-Look. Systemfarben passen sich hell/dunkel automatisch an.
+enum Theme {
+    static let accent = Color("AccentColor")
+    static let background = Color(UIColor.systemGroupedBackground)
+    static let card = Color(UIColor.secondarySystemGroupedBackground)
+    static let secondary = Color(UIColor.secondaryLabel)
+    static let cardRadius: CGFloat = 22
+}
