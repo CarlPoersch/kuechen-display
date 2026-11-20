@@ -205,7 +205,7 @@ struct BriefingGrid: View {
                 // Füllt eine Reihe nicht die ganze Breite, werden ihre Karten anteilig breiter.
                 // Warum: Jede Reihe endet bündig rechts → das Briefing bleibt ein Rechteck.
                 let total = CGFloat(row.reduce(0) { $0 + min(span($1.size), columns) })
-                let free = width - gap * CGFloat(row.count - 1)
+                let free = max(0, width - gap * CGFloat(row.count - 1))   // beim ersten Messen kann die Breite 0 sein
                 HStack(alignment: .top, spacing: gap) {
                     ForEach(row) { it in
                         BucketCard(instance: it)

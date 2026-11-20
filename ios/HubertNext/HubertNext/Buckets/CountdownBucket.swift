@@ -84,7 +84,7 @@ struct CountdownGlance: View {
                             .font((rowH > 44 ? Font.title3 : .headline).weight(.semibold).monospacedDigit())
                             .foregroundColor(CountdownBucket.daysLeft(e.date) <= 7 ? Theme.accent : .primary)
                     }
-                    .frame(height: rowH - 1)
+                    .frame(height: max(0, rowH - 1))
                 }
             }
         }
