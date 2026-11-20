@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 /// Zentraler Zustand der App: Anmeldung, Profil, Haushalt, Buckets.
 /// Warum ein Ort für alles: Startseite, Onboarding und Einstellungen sehen immer denselben Stand.

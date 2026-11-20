@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 // ============================================================
 // Wetter-Bucket: beliebiger Ort, Daten von Open-Meteo (frei, ohne Schlüssel).
