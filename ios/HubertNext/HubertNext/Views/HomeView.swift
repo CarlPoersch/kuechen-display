@@ -9,7 +9,7 @@ import UniformTypeIdentifiers
 struct HomeView: View {
     @EnvironmentObject var store: AppStore
     @State private var showSettings = false
-    @State private var scrolled: CGFloat = 0   // wie weit nach unten gescrollt
+    @State private var collapsed = false        // große Kopfkarte weggescrollt → schmale Leiste
     @State private var editing = false          // Startseite bearbeiten (wackeln, verschieben)
     @State private var dragging: String?        // Bucket, der gerade gezogen wird
 
@@ -26,9 +26,6 @@ struct HomeView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 18) {
                         header
-                            .background(GeometryReader { g in
-                                Color.clear.preference(key: ScrollOffsetKey.self, value: g.frame(in: .named("home")).minY)
-                            })
                         BriefingGrid(items: glances, width: geo.size.width - 2 * pad(geo.size.width), dragging: $dragging)
                         if glances.isEmpty {
                             emptyHint
@@ -37,22 +34,24 @@ struct HomeView: View {
                     }
                     .padding(.horizontal, pad(geo.size.width))
                     .padding(.vertical, 12)
+                    // Liest die Scroll-Position direkt aus UIKit (die SwiftUI-Messung
+                    // hat auf dem iPad mit iOS 15 nicht zuverlässig ausgelöst)
+                    .background(ScrollOffsetReader { y in
+                        let c = y > 130
+                        if c != collapsed { collapsed = c }
+                    })
                 }
-                .onPreferenceChange(ScrollOffsetKey.self) { y in scrolled = 12 - y }
                 .refreshable { await store.reload() }
                 // Große Kopfkarte weggescrollt → schmale Leiste bleibt oben stehen
                 .overlay(alignment: .top) {
                     if editing { editBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
-                    else if scrolled > 120 { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
+                    else if collapsed { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
                 }
-                .animation(.easeOut(duration: 0.2), value: scrolled > 120)
+                .animation(.easeOut(duration: 0.2), value: collapsed)
                 .animation(.easeOut(duration: 0.2), value: editing)
                 .environment(\.homeEditing, editing)
                 .environment(\.startHomeEditing, { withAnimation { editing = true } })
             }
-            // Warum hier und nicht an der ScrollView: Dort wandert der Bezugsrahmen
-            // je nach iOS-Version mit dem Inhalt mit – dann ändert sich beim Scrollen nichts.
-            .coordinateSpace(name: "home")
             .background(Theme.background.ignoresSafeArea())
             .navigationBarHidden(true)
         }
@@ -184,9 +183,32 @@ struct HomeView: View {
     private func firstName(_ n: String) -> String { n.split(separator: " ").first.map(String.init) ?? n }
 }
 
-private struct ScrollOffsetKey: PreferenceKey {
-    static let defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = nextValue() }
+/// Meldet, wie weit die umgebende Scrollfläche gescrollt ist (0 = ganz oben).
+/// Sucht dazu die echte UIScrollView und beobachtet deren Position.
+struct ScrollOffsetReader: UIViewRepresentable {
+    let onChange: (CGFloat) -> Void
+
+    func makeUIView(context: Context) -> Reader { let v = Reader(); v.onChange = onChange; return v }
+    func updateUIView(_ v: Reader, context: Context) { v.onChange = onChange }
+
+    final class Reader: UIView {
+        var onChange: ((CGFloat) -> Void)?
+        private var observation: NSKeyValueObservation?
+
+        override func didMoveToWindow() { super.didMoveToWindow(); attach() }
+        override func layoutSubviews() { super.layoutSubviews(); attach() }
+
+        private func attach() {
+            guard observation == nil, window != nil else { return }
+            var v = superview
+            while let s = v, !(s is UIScrollView) { v = s.superview }
+            guard let scroll = v as? UIScrollView else { return }
+            observation = scroll.observe(\.contentOffset, options: [.initial, .new]) { [weak self] sv, _ in
+                let y = sv.contentOffset.y + sv.adjustedContentInset.top
+                DispatchQueue.main.async { self?.onChange?(y) }
+            }
+        }
+    }
 }
 
 /// App-Symbol im Stil des Home-Bildschirms
