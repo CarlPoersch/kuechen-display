@@ -42,26 +42,41 @@ struct HomeView: View {
 
     private func pad(_ w: CGFloat) -> CGFloat { w < 600 ? 16 : 24 }
 
-    // Begrüßung, Uhr, Datum, Einstellungen
+    // Kopf: orange Karte mit Begrüßung, großer Uhr und Datum; Einstellungen oben rechts
     private var header: some View {
         TimelineView(.periodic(from: .now, by: 1)) { ctx in
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 2) {
+            ZStack(alignment: .topTrailing) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(greeting(ctx.date) + (store.profile?.name.map { ", " + firstName($0) } ?? ""))
-                        .font(.title3.weight(.semibold)).foregroundColor(Theme.secondary)
-                    Text(ctx.date, format: .dateTime.hour().minute())
-                        .font(.system(size: 64, weight: .thin)).monospacedDigit()
+                        .font(.headline).foregroundColor(.white.opacity(0.9))
+                    Text(ctx.date, format: .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits))
+                        .font(.system(size: 76, weight: .thin, design: .default))
+                        .monospacedDigit()
+                        .foregroundColor(.white)
+                        .minimumScaleFactor(0.6)
+                        .lineLimit(1)
                     Text(ctx.date.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: "de_DE"))))
-                        .font(.title3).foregroundColor(Theme.secondary)
+                        .font(.title3.weight(.medium)).foregroundColor(.white.opacity(0.9))
                 }
-                Spacer()
+                .frame(maxWidth: .infinity, alignment: .leading)
+
                 Button { showSettings = true } label: {
-                    Image(systemName: "gearshape.fill").font(.title2)
-                        .frame(width: 44, height: 44)
-                        .background(Circle().fill(Theme.card))
+                    Image(systemName: "gearshape.fill").font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Circle().fill(Color.white.opacity(0.22)))
                 }
                 .accessibilityLabel("Einstellungen")
             }
+            .padding(.horizontal, 22).padding(.vertical, 20)
+            .background(
+                RoundedRectangle(cornerRadius: 26, style: .continuous)
+                    .fill(LinearGradient(colors: [Color(red: 0.97, green: 0.64, blue: 0.36),
+                                                  Color(red: 0.92, green: 0.42, blue: 0.12),
+                                                  Color(red: 0.76, green: 0.25, blue: 0.05)],
+                                         startPoint: .topLeading, endPoint: .bottomTrailing))
+            )
+            .shadow(color: Color(red: 0.76, green: 0.25, blue: 0.05).opacity(0.25), radius: 14, y: 6)
         }
     }
 
@@ -140,14 +155,16 @@ struct BriefingGrid: View {
     }
 
     var body: some View {
-        let unit = (width - gap * CGFloat(columns - 1)) / CGFloat(columns)
         VStack(alignment: .leading, spacing: gap) {
             ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
+                // Füllt eine Reihe nicht die ganze Breite, werden ihre Karten anteilig breiter.
+                // Warum: Jede Reihe endet bündig rechts → das Briefing bleibt ein Rechteck.
+                let total = CGFloat(row.reduce(0) { $0 + min(span($1.size), columns) })
+                let free = width - gap * CGFloat(row.count - 1)
                 HStack(alignment: .top, spacing: gap) {
                     ForEach(row) { it in
-                        let sp = CGFloat(min(span(it.size), columns))
                         BucketCard(instance: it)
-                            .frame(width: unit * sp + gap * (sp - 1), height: height(row))
+                            .frame(width: free * CGFloat(min(span(it.size), columns)) / total, height: height(row))
                     }
                 }
             }
