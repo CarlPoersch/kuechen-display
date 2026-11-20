@@ -2,35 +2,49 @@ import SwiftUI
 import Combine
 
 // ============================================================
-// ÖPNV-Bucket. Du legst Orte an (Haltestellen oder Adressen) und gibst
-// ihnen Namen wie "Zuhause", "Uni", "Philipp". In der Karte wählst du
-// per Menü "Von" und "Nach":
-//  - Nach = "Abfahrten": Abfahrtstafel der Start-Haltestelle
-//  - Nach = ein Ort:     Verbindungen dorthin (mit Umstiegen)
-// "Los" = wann man aus der Tür muss (Abfahrt minus Fußweg).
+// ÖPNV-Bucket. Du hinterlegst deine Heimatadresse ("Zuhause") und
+// beliebig viele Ziele mit eigenem Namen ("Uni", "Philipp" …).
+// In der Karte wählst du per Menü "Von" und "Nach":
+//  - Zuhause → Abfahrten in der Nähe: Haltestellen rund um dein Zuhause,
+//    Gehzeit automatisch aus der Entfernung berechnet
+//  - → Ziel: Verbindungen dorthin; der Fußweg zur besten Haltestelle
+//    kommt von der Fahrplanauskunft
+// "Los" = wann man aus der Tür muss.
 // Quelle: Bayern-Fahrplanauskunft (EFA) über die Supabase-Funktion "efa".
-// Einstellungen: places = [{ key, label, id, name, stop, walk, lines }], from = key, to = key | ""
+// Einstellungen: home = {id, name, lat, lon}, places = [{ key, label, id, name, stop, lat, lon }],
+//                from = "home" | key, to = key | ""
 // ============================================================
 enum TransitBucket {
     static let kind = BucketKind(
         id: "oepnv", name: "ÖPNV", symbol: "bus.fill", tint: .blue, art: .glance,
-        interests: ["unterwegs"], blurb: "Wann du los musst – Abfahrten oder Verbindungen zu deinen Orten (Bayern).",
-        needsSetup: { saved($0).isEmpty },
+        interests: ["unterwegs"], blurb: "Wann du los musst – ab Zuhause zu deinen Zielen (Bayern).",
+        needsSetup: { home($0) == nil },
         glance: { inst, size in AnyView(TransitGlance(config: inst.config)) },
         detail: { inst in AnyView(TransitDetail(config: inst.config)) },
         itemLinks: true,   // Menüs in der Karte; Details über "Alle ›"
         settings: { binding in AnyView(TransitSettings(config: binding)) }
     )
 
+    static let homeKey = "home"
+
     /// Ein Ort laut Fahrplanauskunft
     struct Place: Equatable, Hashable {
         var id: String      // Haltestellen-Nummer oder EFA-Ortskennung (Adresse)
         var name: String
         var stop: Bool
-        init(id: String, name: String, stop: Bool) { self.id = id; self.name = name; self.stop = stop }
+        var lat: Double? = nil
+        var lon: Double? = nil
+        init(id: String, name: String, stop: Bool, lat: Double? = nil, lon: Double? = nil) {
+            self.id = id; self.name = name; self.stop = stop; self.lat = lat; self.lon = lon
+        }
         init?(_ j: JSON?) {
             guard let o = j?.object, let id = o["id"]?.string, let n = o["name"]?.string else { return nil }
-            self.init(id: id, name: n, stop: o["stop"]?.bool ?? true)
+            self.init(id: id, name: n, stop: o["stop"]?.bool ?? true, lat: o["lat"]?.double, lon: o["lon"]?.double)
+        }
+        var fields: [String: JSON] {
+            var o: [String: JSON] = ["id": .string(id), "name": .string(name), "stop": .bool(stop)]
+            if let a = lat, let b = lon { o["lat"] = .number(a); o["lon"] = .number(b) }
+            return o
         }
     }
 
@@ -39,46 +53,45 @@ enum TransitBucket {
         var key: String
         var label: String
         var loc: Place
-        var walk: Int        // Fußweg zur Haltestelle (nur bei Haltestellen)
-        var lines: String    // Linienfilter für die Abfahrtstafel
         var id: String { key }
-        var json: JSON {
-            .object(["key": .string(key), "label": .string(label), "id": .string(loc.id), "name": .string(loc.name),
-                     "stop": .bool(loc.stop), "walk": .number(Double(walk)), "lines": .string(lines)])
-        }
+        var isHome: Bool { key == TransitBucket.homeKey }
+        var json: JSON { var o = loc.fields; o["key"] = .string(key); o["label"] = .string(label); return .object(o) }
     }
 
     struct Route: Identifiable, Equatable {
         var key: String
         var from: Place
         var to: Place?
-        var walk: Int
-        var lines: String
+        var nearby: Bool     // Zuhause ohne Ziel: Abfahrten an den Haltestellen in der Nähe
         var id: String { key }
-
-        func accepts(_ d: Departure) -> Bool {
-            let wanted = lines.split(whereSeparator: { $0 == "," || $0 == " " }).map { String($0).lowercased() }
-            return wanted.isEmpty || wanted.contains(d.line.lowercased())
-        }
     }
 
+    static func home(_ c: [String: JSON]) -> Saved? {
+        guard let p = Place(c["home"]) else { return nil }
+        return Saved(key: homeKey, label: "Zuhause", loc: p)
+    }
+
+    static func setHome(_ p: Place?, in c: inout [String: JSON]) {
+        c["home"] = p.map { .object($0.fields) }
+        if p != nil { c["from"] = .string(homeKey) }
+    }
+
+    /// Ziele (ohne Zuhause)
     static func saved(_ c: [String: JSON]) -> [Saved] {
         if let list = c["places"]?.array {
             return list.compactMap { j in
                 guard let o = j.object, let key = o["key"]?.string, let loc = Place(j) else { return nil }
-                return Saved(key: key, label: o["label"]?.string ?? shortStop(loc.name), loc: loc,
-                             walk: Int(o["walk"]?.double ?? 0), lines: o["lines"]?.string ?? "")
+                return Saved(key: key, label: o["label"]?.string ?? shortStop(loc.name), loc: loc)
             }
         }
         // Älteres Format (stops = Einträge mit from/to) übernehmen
         var out: [Saved] = []
         for j in c["stops"]?.array ?? [] {
             guard let o = j.object else { continue }
-            let walk = Int(o["walk"]?.double ?? 0), lines = o["lines"]?.string ?? ""
             let from = Place(o["from"]) ?? o["id"]?.string.flatMap { id in o["name"]?.string.map { Place(id: id, name: $0, stop: true) } }
-            for (p, isFrom) in [(from, true), (Place(o["to"]), false)] {
+            for p in [from, Place(o["to"])] {
                 guard let p = p, !out.contains(where: { $0.loc.id == p.id }) else { continue }
-                out.append(Saved(key: p.id, label: shortStop(p.name), loc: p, walk: isFrom ? walk : 5, lines: isFrom ? lines : ""))
+                out.append(Saved(key: p.id, label: shortStop(p.name), loc: p))
             }
         }
         return out
@@ -89,22 +102,21 @@ enum TransitBucket {
         c["stops"] = nil
     }
 
+    /// Alle wählbaren Startpunkte: Zuhause zuerst
+    static func starts(_ c: [String: JSON]) -> [Saved] { [home(c)].compactMap { $0 } + saved(c) }
+
     /// Aktuelle Auswahl "Von" und "Nach" (nil = Abfahrten)
     static func selection(_ c: [String: JSON]) -> (from: Saved?, to: Saved?) {
-        let list = saved(c)
-        let from = list.first { $0.key == c["from"]?.string } ?? list.first
-        var to = list.first { $0.key == c["to"]?.string && $0.key != from?.key }
-        if c["to"] == nil, c["places"] == nil {   // altes Format: erstes Ziel übernehmen
-            let old = (c["stops"]?.array ?? []).first?.object
-            to = list.first { $0.loc.id == TransitBucket.Place(old?["to"])?.id && $0.key != from?.key }
-        }
-        // Von einer Adresse gibt es keine Abfahrtstafel → erstes anderes Ziel
-        if to == nil, let f = from, !f.loc.stop { to = list.first { $0.key != f.key } }
+        let all = starts(c)
+        let from = all.first { $0.key == c["from"]?.string } ?? all.first
+        var to = saved(c).first { $0.key == c["to"]?.string && $0.key != from?.key }
+        // Von einer fremden Adresse gibt es keine Abfahrtstafel → erstes Ziel
+        if to == nil, let f = from, !f.isHome, !f.loc.stop { to = saved(c).first { $0.key != f.key } }
         return (from, to)
     }
 
     static func route(_ from: Saved, _ to: Saved?) -> Route {
-        Route(key: from.key + ">" + (to?.key ?? ""), from: from.loc, to: to?.loc, walk: from.walk, lines: from.lines)
+        Route(key: from.key + ">" + (to?.key ?? ""), from: from.loc, to: to?.loc, nearby: from.isHome && to == nil)
     }
 }
 
@@ -177,17 +189,21 @@ private struct TripResponse: Decodable {
 
 private struct StopFinder: Decodable {
     struct Loc: Decodable {
-        struct P: Decodable { let stopId: String? }
-        let id: String?; let name: String?; let type: String?; let properties: P?
+        struct P: Decodable { let stopId: String?; let distance: Double? }
+        let id: String?; let name: String?; let type: String?; let properties: P?; let coord: [Double]?
     }
     let locations: [Loc]?
 }
+
+/// Haltestelle in der Nähe von Zuhause, mit berechneter Gehzeit
+struct NearStop: Identifiable, Equatable { let id: String; let name: String; let walk: Int; let meters: Int }
 
 final class TransitService: ObservableObject {
     static let shared = TransitService()
     @Published private(set) var boards: [String: [Departure]] = [:]    // je Haltestelle
     @Published private(set) var trips: [String: [Journey]] = [:]       // je Route
     @Published private(set) var failed: Set<String> = []
+    @Published private(set) var nearby: [String: [NearStop]] = [:]     // je Zuhause-Ort
     private var loadedAt: [String: Date] = [:]
 
     private func fresh(_ key: String) -> Bool {
@@ -197,8 +213,32 @@ final class TransitService: ObservableObject {
 
     func load(_ routes: [TransitBucket.Route]) async {
         for r in routes {
-            if r.to != nil { await loadTrips(r) } else if r.from.stop { await loadBoard(r.from.id) }
+            if r.to != nil { await loadTrips(r) }
+            else if r.nearby { await loadNearby(r.from); for s in nearby[r.from.id] ?? [] { await loadBoard(s.id) } }
+            else if r.from.stop { await loadBoard(r.from.id) }
         }
+    }
+
+    /// Haltestellen im Umkreis von 700 m. Gehzeit: Luftlinie × 1,3 (Umwege) bei 80 m/min, plus 1 min Puffer.
+    private func loadNearby(_ p: TransitBucket.Place) async {
+        guard let lat = p.lat, let lon = p.lon else { return }
+        if nearby[p.id] != nil, let t = loadedAt["n:" + p.id], Date().timeIntervalSince(t) < 24 * 3600 { return }
+        do {
+            let fmt = "WGS84[dd.ddddd]"
+            let data = try await efa("XML_COORD_REQUEST", [
+                ("outputFormat", "rapidJSON"), ("coordOutputFormat", fmt),
+                ("coord", String(format: "%.6f:%.6f:", lon, lat) + fmt),
+                ("type_1", "STOP"), ("radius_1", "700"), ("inclFilter", "1"), ("max", "6"),
+            ])
+            let r = try JSONDecoder().decode(StopFinder.self, from: data)
+            nearby[p.id] = (r.locations ?? []).compactMap { l in
+                guard let id = l.properties?.stopId, let n = l.name, let d = l.properties?.distance else { return nil }
+                return NearStop(id: id, name: n, walk: Int((d * 1.3 / 80).rounded(.up)) + 1, meters: Int(d))
+            }
+            .sorted { $0.meters < $1.meters }
+            .prefix(4).map { $0 }
+            loadedAt["n:" + p.id] = Date(); failed.remove("n:" + p.id)
+        } catch { failed.insert("n:" + p.id); print("ÖPNV Umkreis:", error) }
     }
 
     private func efa(_ endpoint: String, _ q: [(String, String)]) async throws -> Data {
@@ -225,8 +265,7 @@ final class TransitService: ObservableObject {
 
     private func loadTrips(_ r: TransitBucket.Route) async {
         guard let to = r.to, !fresh("t:" + r.key) else { return }
-        // Ab Haltestelle: frühestens nach dem Fußweg. Ab Adresse rechnet EFA den Fußweg selbst.
-        let start = Date().addingTimeInterval(r.from.stop ? Double(r.walk) * 60 : 0)
+        let start = Date()   // Ab Adresse rechnet EFA den Fußweg selbst
         let d = DateFormatter(); d.dateFormat = "yyyyMMdd"
         let t = DateFormatter(); t.dateFormat = "HHmm"
         do {
@@ -247,8 +286,7 @@ final class TransitService: ObservableObject {
                 guard let first = rides.first, let firstLeg = j.legs.first, let arrive = j.legs.last?.destination.arr,
                       let rideLeg = j.legs.first(where: { $0.isRide }) else { continue }
                 // Start an einer Adresse: losgehen, wenn der Fußweg beginnt
-                let leave = !firstLeg.isRide && !r.from.stop ? (firstLeg.origin.dep ?? first.dep)
-                                                             : first.dep.addingTimeInterval(-Double(r.walk) * 60)
+                let leave = firstLeg.isRide ? first.dep : (firstLeg.origin.dep ?? first.dep)
                 let delay = (rideLeg.origin.depPlanned).map { Int(first.dep.timeIntervalSince($0) / 60) } ?? 0
                 let id = rides.map { $0.line + "\(Int($0.dep.timeIntervalSince1970))" }.joined()
                 if out.contains(where: { $0.id == id }) { continue }
@@ -263,15 +301,17 @@ final class TransitService: ObservableObject {
 
     /// Suche nach Haltestellen und Adressen
     func search(_ text: String, stopsOnly: Bool) async -> [TransitBucket.Place] {
-        var q: [(String, String)] = [("outputFormat", "rapidJSON"), ("type_sf", "any"), ("name_sf", text)]
+        var q: [(String, String)] = [("outputFormat", "rapidJSON"), ("type_sf", "any"), ("name_sf", text),
+                                     ("coordOutputFormat", "WGS84[dd.ddddd]")]
         if stopsOnly { q.append(("anyObjFilter_sf", "2")) }
         guard let data = try? await efa("XML_STOPFINDER_REQUEST", q),
               let r = try? JSONDecoder().decode(StopFinder.self, from: data) else { return [] }
         return (r.locations ?? []).prefix(8).compactMap { l in
             guard let n = l.name else { return nil }
-            if l.type == "stop", let sid = l.properties?.stopId { return TransitBucket.Place(id: sid, name: n, stop: true) }
+            let lat = l.coord?.first, lon = (l.coord?.count ?? 0) > 1 ? l.coord?[1] : nil
+            if l.type == "stop", let sid = l.properties?.stopId { return TransitBucket.Place(id: sid, name: n, stop: true, lat: lat, lon: lon) }
             guard let id = l.id, ["singlehouse", "street", "poi", "suburb"].contains(l.type ?? "") else { return nil }
-            return TransitBucket.Place(id: id, name: n, stop: false)
+            return TransitBucket.Place(id: id, name: n, stop: false, lat: lat, lon: lon)
         }
     }
 
@@ -296,17 +336,45 @@ final class TransitService: ObservableObject {
                                   depart: j.depart, arrive: j.arrive, delay: j.delay, transferLine: transfer)
             }
         }
-        return (boards[r.from.id] ?? []).filter { r.accepts($0) }.compactMap { d in
-            let leave = d.actual.addingTimeInterval(-Double(r.walk) * 60)
+        if r.nearby {
+            // Alle Haltestellen in der Nähe zusammen; dieselbe Fahrt nur einmal (an der Haltestelle mit mehr Zeit)
+            var out: [TransitRow] = []
+            for st in nearby[r.from.id] ?? [] {
+                for row in boardRows(st.id, st.name, walk: st.walk, key: r.key) {
+                    if let i = out.firstIndex(where: { $0.line == row.line && $0.title == row.title && abs($0.depart.timeIntervalSince(row.depart)) < 300 }) {
+                        if row.leave > out[i].leave { out[i] = row }
+                    } else { out.append(row) }
+                }
+            }
+            return out.sorted { $0.leave < $1.leave }
+        }
+        return boardRows(r.from.id, r.from.name, walk: 0, key: r.key)
+    }
+
+    /// Abfahrten einer Haltestelle als Zeilen
+    func boardRows(_ id: String, _ name: String, walk: Int, key: String) -> [TransitRow] {
+        let now = Date().addingTimeInterval(-30)
+        return (boards[id] ?? []).compactMap { d in
+            let leave = d.actual.addingTimeInterval(-Double(walk) * 60)
             guard leave > now else { return nil }
-            return TransitRow(id: r.key + d.id, line: d.line, title: shortStop(d.dest),
-                              detail: "ab " + shortStop(r.from.name) + (d.platform.isEmpty ? "" : " · Steig " + d.platform),
+            var detail = "ab " + shortStop(name)
+            if walk > 0 { detail += " · \(walk) min zu Fuß" }
+            if !d.platform.isEmpty { detail += " · Steig " + d.platform }
+            return TransitRow(id: key + d.id, line: d.line, title: shortStop(d.dest), detail: detail,
                               leave: leave, depart: d.actual, arrive: nil, delay: d.delay, transferLine: nil)
         }
     }
 
-    func loaded(_ r: TransitBucket.Route) -> Bool { r.to != nil ? trips[r.key] != nil : boards[r.from.id] != nil }
-    func failed(_ r: TransitBucket.Route) -> Bool { failed.contains(r.to != nil ? r.key : r.from.id) }
+    func loaded(_ r: TransitBucket.Route) -> Bool {
+        if r.to != nil { return trips[r.key] != nil }
+        if r.nearby { return (nearby[r.from.id] ?? []).contains { boards[$0.id] != nil } }
+        return boards[r.from.id] != nil
+    }
+    func failed(_ r: TransitBucket.Route) -> Bool {
+        if r.to != nil { return failed.contains(r.key) }
+        if r.nearby { return failed.contains("n:" + r.from.id) }
+        return failed.contains(r.from.id)
+    }
 }
 
 /// "Regensburg, Arnulfsplatz" → "Arnulfsplatz": Stadtname spart Platz
@@ -406,35 +474,34 @@ struct TransitPicker: View {
     @Environment(\.editBucket) private var edit
 
     var body: some View {
-        let list = TransitBucket.saved(config)
         let sel = TransitBucket.selection(config)
         HStack(spacing: 6) {
             Menu {
-                ForEach(list) { p in
-                    Button { set("from", p.key) } label: { item(p, on: p.key == sel.from?.key) }
+                ForEach(TransitBucket.starts(config)) { p in
+                    Button { set("from", p.key) } label: { item(p.label, on: p.key == sel.from?.key) }
                 }
                 Divider()
-                Button(action: edit) { Label("Orte bearbeiten …", systemImage: "slider.horizontal.3") }
-            } label: { chip(sel.from?.label ?? "Start", icon: sel.from?.loc.stop == false ? "house.fill" : "bus") }
+                Button(action: edit) { Label("Zuhause & Ziele bearbeiten …", systemImage: "slider.horizontal.3") }
+            } label: { chip(sel.from?.label ?? "Start", icon: sel.from?.isHome == true ? "house.fill" : "mappin") }
             Image(systemName: "arrow.right").font(.caption.weight(.bold)).foregroundColor(Theme.secondary)
             Menu {
-                if sel.from?.loc.stop == true {
-                    Button { set("to", "") } label: {
-                        if sel.to == nil { Label("Abfahrten", systemImage: "checkmark") } else { Text("Abfahrten") }
-                    }
+                if sel.from?.isHome == true || sel.from?.loc.stop == true {
+                    Button { set("to", "") } label: { item(abfahrten(sel.from), on: sel.to == nil) }
                 }
-                ForEach(list.filter { $0.key != sel.from?.key }) { p in
-                    Button { set("to", p.key) } label: { item(p, on: p.key == sel.to?.key) }
+                ForEach(TransitBucket.saved(config).filter { $0.key != sel.from?.key }) { p in
+                    Button { set("to", p.key) } label: { item(p.label, on: p.key == sel.to?.key) }
                 }
                 Divider()
-                Button(action: edit) { Label("Ort hinzufügen …", systemImage: "plus") }
-            } label: { chip(sel.to?.label ?? "Abfahrten", icon: sel.to == nil ? "list.bullet" : "flag.checkered") }
+                Button(action: edit) { Label("Ziel hinzufügen …", systemImage: "plus") }
+            } label: { chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : "flag.checkered") }
             Spacer(minLength: 0)
         }
     }
 
-    @ViewBuilder private func item(_ p: TransitBucket.Saved, on: Bool) -> some View {
-        if on { Label(p.label, systemImage: "checkmark") } else { Text(p.label) }
+    private func abfahrten(_ from: TransitBucket.Saved?) -> String { from?.isHome == true ? "Abfahrten in der Nähe" : "Abfahrten" }
+
+    @ViewBuilder private func item(_ text: String, on: Bool) -> some View {
+        if on { Label(text, systemImage: "checkmark") } else { Text(text) }
     }
 
     private func chip(_ text: String, icon: String) -> some View {
@@ -497,7 +564,7 @@ struct TransitGlance: View {
                 }
             }
         } else {
-            Label("Orte über den Regler oben anlegen", systemImage: "plus.circle.fill")
+            Label("Zuhause über den Regler oben festlegen", systemImage: "house.fill")
                 .font(.headline).foregroundColor(Theme.accent)
         }
     }
@@ -510,7 +577,7 @@ struct TransitDetail: View {
 
     private var sel: (from: TransitBucket.Saved?, to: TransitBucket.Saved?) { TransitBucket.selection(config) }
     private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to) } }
-    /// Zusätzlich: die anderen Orte als Ziel (mehr Überblick)
+    /// Zusätzlich: die anderen Ziele (mehr Überblick)
     private var others: [(TransitBucket.Saved, TransitBucket.Route)] {
         guard let f = sel.from else { return [] }
         return TransitBucket.saved(config).filter { $0.key != f.key && $0.key != sel.to?.key }.map { ($0, TransitBucket.route(f, $0)) }
@@ -520,21 +587,33 @@ struct TransitDetail: View {
         List {
             Section { TransitPicker(config: config).listRowBackground(Color.clear).listRowInsets(EdgeInsets()) }
             if let r = main {
-                Section(footer: footer(r)) {
-                    TransitHead(title: sel.to.map { "Nach " + $0.label } ?? "Abfahrten", showArrival: r.to != nil)
-                    rows(r, max: 10)
+                if r.nearby {
+                    // Je Haltestelle in der Nähe ein Abschnitt, wie am Bus-Display
+                    let stops = svc.nearby[r.from.id] ?? []
+                    if stops.isEmpty { Section { status(r) } }
+                    ForEach(stops) { st in
+                        Section(footer: Text("\(st.meters) m · Gehzeit berechnet aus der Entfernung")) {
+                            TransitHead(title: shortStop(st.name) + " · \(st.walk) min", showArrival: false)
+                            rowList(svc.boardRows(st.id, st.name, walk: st.walk, key: r.key), arrival: false, max: 6)
+                        }
+                    }
+                } else {
+                    Section(footer: Text("Los = wann du losgehen musst")) {
+                        TransitHead(title: sel.to.map { "Nach " + $0.label } ?? "Abfahrten", showArrival: r.to != nil)
+                        rowList(svc.rows(r), arrival: r.to != nil, max: 10, route: r)
+                    }
                 }
                 ForEach(others, id: \.0.key) { p, r in
                     Section {
                         TransitHead(title: "Nach " + p.label, showArrival: true)
-                        rows(r, max: 3)
+                        rowList(svc.rows(r), arrival: true, max: 3, route: r)
                     }
                 }
             } else {
-                Button(action: edit) { Label("Orte anlegen", systemImage: "plus.circle.fill") }
+                Button(action: edit) { Label("Zuhause festlegen", systemImage: "house.fill") }
             }
             Section {
-                Button(action: edit) { Label("Orte bearbeiten", systemImage: "slider.horizontal.3") }
+                Button(action: edit) { Label("Zuhause & Ziele bearbeiten", systemImage: "slider.horizontal.3") }
             }
         }
         .listStyle(.insetGrouped)
@@ -543,23 +622,19 @@ struct TransitDetail: View {
         }
     }
 
-    @ViewBuilder private func rows(_ r: TransitBucket.Route, max: Int) -> some View {
-        let list = Array(svc.rows(r).prefix(max))
+    @ViewBuilder private func rowList(_ all: [TransitRow], arrival: Bool, max: Int, route: TransitBucket.Route? = nil) -> some View {
+        let list = Array(all.prefix(max))
         if list.isEmpty {
-            Text(svc.failed(r) ? "Fahrplan nicht erreichbar" : svc.loaded(r) ? "Gerade keine Fahrt" : "Lädt …")
-                .foregroundColor(Theme.secondary)
+            if let r = route { status(r) } else { Text("Gerade keine Abfahrt").foregroundColor(Theme.secondary) }
         }
         ForEach(Array(list.enumerated()), id: \.element.id) { i, row in
-            TransitRowView(row: row, showArrival: r.to != nil, best: i == 0)
+            TransitRowView(row: row, showArrival: arrival, best: i == 0)
         }
     }
 
-    private func footer(_ r: TransitBucket.Route) -> Text {
-        var parts: [String] = []
-        if r.from.stop && r.walk > 0 { parts.append("\(r.walk) min Fußweg zur Haltestelle") }
-        if r.to == nil && !r.lines.isEmpty { parts.append("nur Linien " + r.lines) }
-        parts.append("Los = wann du losgehen musst")
-        return Text(parts.joined(separator: " · "))
+    private func status(_ r: TransitBucket.Route) -> some View {
+        Text(svc.failed(r) ? "Fahrplan nicht erreichbar" : svc.loaded(r) ? "Gerade keine Fahrt" : "Lädt …")
+            .foregroundColor(Theme.secondary)
     }
 }
 
@@ -600,6 +675,7 @@ struct PlaceSearch: View {
 
 struct TransitSettings: View {
     @Binding var config: [String: JSON]
+    @State private var changingHome = false
 
     private var places: [TransitBucket.Saved] { TransitBucket.saved(config) }
 
@@ -610,39 +686,52 @@ struct TransitSettings: View {
     }
 
     var body: some View {
-        ForEach(places) { p in
-            VStack(alignment: .leading, spacing: 8) {
+        // Zuhause
+        VStack(alignment: .leading, spacing: 6) {
+            Label("Zuhause", systemImage: "house.fill").font(.headline).foregroundColor(Theme.accent)
+            if let h = TransitBucket.home(config), !changingHome {
                 HStack {
-                    Image(systemName: p.loc.stop ? "bus" : "house.fill").foregroundColor(Theme.accent).frame(width: 22)
-                    TextField("Name, z. B. Zuhause", text: Binding(get: { p.label }, set: { v in update(p.key) { $0.label = v } }))
-                        .font(.headline)
-                    Button(role: .destructive) {
-                        var l = places; l.removeAll { $0.key == p.key }; TransitBucket.store(l, in: &config)
-                    } label: { Image(systemName: "trash") }
-                    .buttonStyle(.borderless)
+                    Text(h.loc.name).font(.subheadline)
+                    Spacer()
+                    Button("Ändern") { changingHome = true }.buttonStyle(.borderless)
                 }
-                Text(p.loc.name).font(.footnote).foregroundColor(Theme.secondary).padding(.leading, 30)
-                if p.loc.stop {
-                    Stepper("Gehzeit bis zur Haltestelle: \(p.walk) min", value: Binding(
-                        get: { p.walk }, set: { v in update(p.key) { $0.walk = v } }), in: 0...30)
-                        .padding(.leading, 30)
-                    Text("Wie lange du von dir bis hierher brauchst, wenn du hier einsteigst. Daraus rechnet Hubert „Los“: Abfahrt minus Gehzeit.")
-                        .font(.caption).foregroundColor(Theme.secondary).padding(.leading, 30)
-                    TextField("Abfahrten nur für Linien, z. B. 5, 11", text: Binding(
-                        get: { p.lines }, set: { v in update(p.key) { $0.lines = v } }))
-                        .font(.subheadline).padding(.leading, 30)
+                Text("Gehzeiten zu den Haltestellen rechnet Hubert aus der Entfernung.")
+                    .font(.caption).foregroundColor(Theme.secondary)
+            } else {
+                Text("Deine Adresse – von hier aus zeigt Hubert Abfahrten in der Nähe und Verbindungen zu deinen Zielen.")
+                    .font(.caption).foregroundColor(Theme.secondary)
+                PlaceSearch(prompt: "z. B. Regensburg Fort-Skelly-Straße 23") { loc in
+                    TransitBucket.setHome(loc, in: &config)
+                    if config["places"] == nil { TransitBucket.store(places, in: &config) }
+                    changingHome = false
                 }
             }
-            .padding(.vertical, 4)
+        }
+        .padding(.vertical, 4)
+
+        // Ziele
+        ForEach(places) { p in
+            HStack {
+                Image(systemName: p.loc.stop ? "bus" : "flag.checkered").foregroundColor(Theme.accent).frame(width: 22)
+                VStack(alignment: .leading, spacing: 2) {
+                    TextField("Name, z. B. Uni", text: Binding(get: { p.label }, set: { v in update(p.key) { $0.label = v } }))
+                        .font(.headline)
+                    Text(p.loc.name).font(.footnote).foregroundColor(Theme.secondary)
+                }
+                Button(role: .destructive) {
+                    var l = places; l.removeAll { $0.key == p.key }; TransitBucket.store(l, in: &config)
+                } label: { Image(systemName: "trash") }
+                .buttonStyle(.borderless)
+            }
+            .padding(.vertical, 2)
         }
         VStack(alignment: .leading, spacing: 4) {
-            Text("Ort hinzufügen").font(.subheadline.weight(.semibold))
-            Text("Haltestelle oder Adresse – den Namen (z. B. „Uni“) kannst du danach ändern.")
-                .font(.footnote).foregroundColor(Theme.secondary)
+            Text("Ziel hinzufügen").font(.subheadline.weight(.semibold))
+            Text("Adresse oder Haltestelle – den Namen (z. B. „Philipp“) kannst du danach ändern.")
+                .font(.caption).foregroundColor(Theme.secondary)
             PlaceSearch(prompt: "z. B. Regensburg Liebermannweg 1") { loc in
                 var l = places
-                l.append(TransitBucket.Saved(key: UUID().uuidString, label: shortStop(loc.name), loc: loc,
-                                             walk: loc.stop ? 5 : 0, lines: ""))
+                l.append(TransitBucket.Saved(key: UUID().uuidString, label: shortStop(loc.name), loc: loc))
                 TransitBucket.store(l, in: &config)
             }
         }
