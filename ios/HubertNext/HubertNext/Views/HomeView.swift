@@ -38,7 +38,6 @@ struct HomeView: View {
                     .padding(.horizontal, pad(geo.size.width))
                     .padding(.vertical, 12)
                 }
-                .coordinateSpace(name: "home")
                 .onPreferenceChange(ScrollOffsetKey.self) { y in scrolled = 12 - y }
                 .refreshable { await store.reload() }
                 // Große Kopfkarte weggescrollt → schmale Leiste bleibt oben stehen
@@ -51,6 +50,9 @@ struct HomeView: View {
                 .environment(\.homeEditing, editing)
                 .environment(\.startHomeEditing, { withAnimation { editing = true } })
             }
+            // Warum hier und nicht an der ScrollView: Dort wandert der Bezugsrahmen
+            // je nach iOS-Version mit dem Inhalt mit – dann ändert sich beim Scrollen nichts.
+            .coordinateSpace(name: "home")
             .background(Theme.background.ignoresSafeArea())
             .navigationBarHidden(true)
         }

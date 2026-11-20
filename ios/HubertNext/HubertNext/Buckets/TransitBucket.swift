@@ -623,9 +623,11 @@ struct TransitSettings: View {
                 }
                 Text(p.loc.name).font(.footnote).foregroundColor(Theme.secondary).padding(.leading, 30)
                 if p.loc.stop {
-                    Stepper("Fußweg dorthin: \(p.walk) min", value: Binding(
+                    Stepper("Gehzeit bis zur Haltestelle: \(p.walk) min", value: Binding(
                         get: { p.walk }, set: { v in update(p.key) { $0.walk = v } }), in: 0...30)
                         .padding(.leading, 30)
+                    Text("Wie lange du von dir bis hierher brauchst, wenn du hier einsteigst. Daraus rechnet Hubert „Los“: Abfahrt minus Gehzeit.")
+                        .font(.caption).foregroundColor(Theme.secondary).padding(.leading, 30)
                     TextField("Abfahrten nur für Linien, z. B. 5, 11", text: Binding(
                         get: { p.lines }, set: { v in update(p.key) { $0.lines = v } }))
                         .font(.subheadline).padding(.leading, 30)
