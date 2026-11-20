@@ -311,8 +311,9 @@ struct BucketDetailHost: View {
             .navigationBarHidden(false)
             .environment(\.editBucket, { editing = true })
             .toolbar {
-                if kind.settings != nil {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                // Warum das "if" innen steht: Bedingte Toolbar-Einträge gibt es erst ab iOS 16
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if kind.settings != nil {
                         Button { editing = true } label: { Image(systemName: "slider.horizontal.3") }
                             .accessibilityLabel("Anpassen")
                     }
