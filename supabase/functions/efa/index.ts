@@ -5,17 +5,17 @@
 // Diese Funktion holt sie und reicht sie mit passenden CORS-Headern weiter,
 // genau wie server.py im lokalen Betrieb.
 //
-// Schutz: Nur mit gültigem Haushalts-Schlüssel (Header "x-kueche-key"),
-// geprüft über die Datenbank-Funktion kueche_check.
+// Schutz: Nur mit gültigem Haushalts-Schlüssel (Header "x-kueche-key",
+// geprüft über kueche_check) oder Login der nativen App (Bearer-Token).
 // Aufruf: GET <supabase-url>/functions/v1/efa/XML_DM_REQUEST?...
 // ============================================================
 const EFA_BASE = "https://mobile.defas-fgi.de/beg/";
-const ALLOWED = new Set(["XML_DM_REQUEST", "XML_TRIP_REQUEST2"]);
+const ALLOWED = new Set(["XML_DM_REQUEST", "XML_TRIP_REQUEST2", "XML_STOPFINDER_REQUEST"]);
 const CACHE_MS = 30_000; // gleiche Abfrage innerhalb von 30 s nicht erneut senden
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "x-kueche-key, content-type",
+  "Access-Control-Allow-Headers": "x-kueche-key, content-type, authorization, apikey",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
 };
 
@@ -38,6 +38,17 @@ async function keyOk(key: string | null): Promise<boolean> {
   return ok;
 }
 
+// Oder: angemeldeter Nutzer der nativen App (Supabase-Login)
+async function userOk(auth: string | null): Promise<boolean> {
+  if (!auth || !auth.startsWith("Bearer ")) return false;
+  const seen = goodKeys.get(auth);
+  if (seen && Date.now() - seen < 5 * 60_000) return true;
+  const svc = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+  const r = await fetch(Deno.env.get("SUPABASE_URL") + "/auth/v1/user", { headers: { apikey: svc, Authorization: auth } });
+  if (r.ok) goodKeys.set(auth, Date.now());
+  return r.ok;
+}
+
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
 
@@ -46,7 +57,7 @@ Deno.serve(async (req) => {
   if (!ALLOWED.has(endpoint)) {
     return new Response("Abfrage nicht erlaubt", { status: 403, headers: cors });
   }
-  if (!(await keyOk(req.headers.get("x-kueche-key")))) {
+  if (!(await keyOk(req.headers.get("x-kueche-key"))) && !(await userOk(req.headers.get("authorization")))) {
     return new Response("Falscher Haushalts-Schlüssel", { status: 401, headers: cors });
   }
 
