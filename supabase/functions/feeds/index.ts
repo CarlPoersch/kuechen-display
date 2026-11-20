@@ -210,8 +210,9 @@ async function tennis(): Promise<Match[]> {
           const roundEn = c.round?.displayName ?? "";
           const german = [country(p1.athlete), country(p2.athlete)].includes("GER");
           const lateRound = /^(semi|final)/i.test(roundEn);
-          // Herren: Deutsche + alle Halbfinals/Finals · Damen: nur Deutsche
-          if (!(german || (tour === "atp" && lateRound))) continue;
+          // Herren: Deutsche + alle Halbfinals/Finals + ATP Finals komplett · Damen: nur Deutsche
+          const allMatches = tour === "atp" && /ATP Finals/i.test(ev.name ?? "");
+          if (!(german || allMatches || (tour === "atp" && lateRound))) continue;
           const st = c.status?.type ?? {};
           const side = (p: any): Side => ({
             n: p.athlete.shortName || p.athlete.displayName, c: country(p.athlete), win: p.winner === true,

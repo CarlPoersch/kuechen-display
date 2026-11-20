@@ -9,7 +9,7 @@ Hubert wird von einer Kachel-Sammlung zur persönlichen Zentrale. Carl will **hi
 - Neue Startseite **„Heute“** mit Widgets (Variante A), darunter Einstiege in die Bereiche.
 - **Sport-Liveticker** (nur anzeigen, keine Töne, keine Push-Mitteilungen):
   - Fußball: alle Bayern-Spiele, Champions League komplett, weitere große Vereinswettbewerbe (Europa League, Conference League, DFB-Pokal), Spiele der deutschen Nationalmannschaft.
-  - Tennis Herren: Turniere ab ATP 250 aufwärts (inkl. Grand Slams, Masters, ATP Finals). Gezeigt werden alle Matches mit deutscher Beteiligung **plus** alle Halbfinals und Finals, egal wer spielt.
+  - Tennis Herren: Turniere ab ATP 250 aufwärts (inkl. Grand Slams, Masters, ATP Finals). Gezeigt werden alle Matches mit deutscher Beteiligung **plus** alle Halbfinals und Finals, egal wer spielt. ATP Finals: alle Matches (Wunsch vom 20.11.).
   - Tennis Damen: Turniere ab WTA 250 aufwärts, **nur** Matches mit deutschen Spielerinnen (keine fremden Halbfinals/Finals).
 - **News** nach Weg 1: Top-Meldungen seriöser Quellen, je eine Rubrik **Deutschland**, **Welt**, **KI**. Eilmeldungen oben und hervorgehoben.
 - **Wetter Regensburg** und **nächster Bus** auf der Startseite (aus der geplanten Tagesinfo).
