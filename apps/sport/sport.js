@@ -186,7 +186,9 @@
     }
     function loadDetail() {
       var m = findMatch(id);
-      if (!alive || !m || m.sport !== "fb" || !m.lg) return;
+      if (!alive || !m || m.sport !== "fb") return;
+      // Ältere gespeicherte Listen kennen die Liga noch nicht: einmal frisch laden
+      if (!m.lg) { if (!loadDetail.retried) { loadDetail.retried = true; F.load("sport").then(loadDetail); } return; }
       F.api("match?lg=" + encodeURIComponent(m.lg) + "&id=" + encodeURIComponent(m.eid)).then(function (d) {
         if (!alive) return;
         detail = d;
