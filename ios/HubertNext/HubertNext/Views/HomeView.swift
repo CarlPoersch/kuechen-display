@@ -8,6 +8,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var store: AppStore
     @State private var showSettings = false
+    @State private var scrolled: CGFloat = 0   // wie weit nach unten gescrollt
 
     private var glances: [BucketInstance] {
         store.buckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
@@ -22,6 +23,9 @@ struct HomeView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 18) {
                         header
+                            .background(GeometryReader { g in
+                                Color.clear.preference(key: ScrollOffsetKey.self, value: g.frame(in: .named("home")).minY)
+                            })
                         BriefingGrid(items: glances, width: geo.size.width - 2 * pad(geo.size.width))
                         if glances.isEmpty {
                             emptyHint
@@ -31,7 +35,14 @@ struct HomeView: View {
                     .padding(.horizontal, pad(geo.size.width))
                     .padding(.vertical, 12)
                 }
+                .coordinateSpace(name: "home")
+                .onPreferenceChange(ScrollOffsetKey.self) { y in scrolled = 12 - y }
                 .refreshable { await store.reload() }
+                // Große Kopfkarte weggescrollt → schmale Leiste bleibt oben stehen
+                .overlay(alignment: .top) {
+                    if scrolled > 120 { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
+                }
+                .animation(.easeOut(duration: 0.2), value: scrolled > 120)
             }
             .background(Theme.background.ignoresSafeArea())
             .navigationBarHidden(true)
@@ -80,6 +91,35 @@ struct HomeView: View {
         }
     }
 
+    /// Schmale Leiste: Uhr, Datum, Einstellungen
+    private func compactBar(_ pad: CGFloat) -> some View {
+        TimelineView(.periodic(from: .now, by: 1)) { ctx in
+            HStack(spacing: 12) {
+                Text(ctx.date, format: .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits))
+                    .font(.system(size: 24, weight: .semibold)).monospacedDigit()
+                Text(ctx.date.formatted(.dateTime.weekday(.abbreviated).day().month(.abbreviated).locale(Locale(identifier: "de_DE"))))
+                    .font(.subheadline.weight(.medium)).opacity(0.9)
+                Spacer()
+                Button { showSettings = true } label: {
+                    Image(systemName: "gearshape.fill").font(.system(size: 15, weight: .semibold))
+                        .frame(width: 34, height: 34)
+                        .background(Circle().fill(Color.white.opacity(0.22)))
+                }
+                .accessibilityLabel("Einstellungen")
+            }
+            .foregroundColor(.white)
+            .padding(.horizontal, pad + 6).padding(.vertical, 10)
+            .background(heroGradient.ignoresSafeArea(edges: .top))
+            .shadow(color: .black.opacity(0.12), radius: 6, y: 2)
+        }
+    }
+
+    private var heroGradient: LinearGradient {
+        LinearGradient(colors: [Color(red: 0.97, green: 0.64, blue: 0.36), Color(red: 0.92, green: 0.42, blue: 0.12),
+                                Color(red: 0.76, green: 0.25, blue: 0.05)],
+                       startPoint: .topLeading, endPoint: .bottomTrailing)
+    }
+
     private var emptyHint: some View {
         Button { showSettings = true } label: {
             Label("Buckets hinzufügen", systemImage: "plus.circle.fill")
@@ -106,6 +146,11 @@ struct HomeView: View {
         return h < 5 ? "Gute Nacht" : h < 11 ? "Guten Morgen" : h < 18 ? "Guten Tag" : "Guten Abend"
     }
     private func firstName(_ n: String) -> String { n.split(separator: " ").first.map(String.init) ?? n }
+}
+
+private struct ScrollOffsetKey: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = nextValue() }
 }
 
 /// App-Symbol im Stil des Home-Bildschirms
@@ -178,34 +223,59 @@ struct BriefingGrid: View {
     }
 }
 
-/// Karte mit Kopfzeile; Antippen öffnet die Details, falls der Bucket welche hat
+/// Karte mit Kopfzeile. Der Kopf ("Alle ›") öffnet die Details.
+/// Der Inhalt öffnet sie auch – außer der Bucket hat eigene antippbare Einträge.
 struct BucketCard: View {
     let instance: BucketInstance
 
     var body: some View {
         if let kind = BucketRegistry.kind(instance.bucket) {
-            let card = VStack(alignment: .leading, spacing: 10) {
-                HStack(spacing: 6) {
-                    Image(systemName: kind.symbol).foregroundColor(kind.tint)
-                    Text(kind.name.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
-                    Spacer(minLength: 0)
-                    if kind.detail != nil { Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary) }
-                }
-                kind.glance(instance, instance.size)
-                Spacer(minLength: 0)
+            VStack(alignment: .leading, spacing: 10) {
+                head(kind)
+                content(kind)
             }
             .padding(16)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             .background(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).fill(Theme.card))
             .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
             .shadow(color: .black.opacity(0.05), radius: 8, y: 3)
+        }
+    }
 
-            if let detail = kind.detail {
-                NavigationLink(destination: detail(instance).navigationTitle(kind.name)) { card }
-                    .buttonStyle(.plain)
-            } else {
-                card
+    private func destination(_ kind: BucketKind) -> some View {
+        (kind.detail?(instance) ?? AnyView(EmptyView())).navigationTitle(kind.name)
+    }
+
+    @ViewBuilder private func head(_ kind: BucketKind) -> some View {
+        let row = HStack(spacing: 6) {
+            Image(systemName: kind.symbol).foregroundColor(kind.tint)
+            Text(kind.name.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+            Spacer(minLength: 0)
+            if kind.detail != nil {
+                Text("Alle").font(.subheadline).foregroundColor(Theme.accent)
+                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
             }
+        }
+        .contentShape(Rectangle())
+        if kind.detail != nil {
+            NavigationLink(destination: destination(kind)) { row }.buttonStyle(.plain)
+        } else {
+            row
+        }
+    }
+
+    @ViewBuilder private func content(_ kind: BucketKind) -> some View {
+        let inner = GeometryReader { g in
+            kind.glance(instance, instance.size)
+                .environment(\.glanceSpace, g.size)
+                .frame(width: g.size.width, height: g.size.height, alignment: .topLeading)
+        }
+        .clipped()
+        .contentShape(Rectangle())
+        if kind.detail != nil && !kind.itemLinks {
+            NavigationLink(destination: destination(kind)) { inner }.buttonStyle(.plain)
+        } else {
+            inner
         }
     }
 }

@@ -189,6 +189,11 @@ struct CatalogRow: View {
                     .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
             } else if added && kind.art == .tool {
                 Image(systemName: "checkmark").foregroundColor(Theme.accent)
+            } else if added {
+                // Schon auf der Startseite – ein zweiter (z. B. anderer Ort) geht trotzdem
+                Image(systemName: "checkmark").foregroundColor(Theme.accent)
+                Button(action: onAdd) { Image(systemName: "plus.circle").font(.title2) }
+                    .buttonStyle(.borderless)
             } else {
                 Button(action: onAdd) { Image(systemName: "plus.circle.fill").font(.title2) }
                     .buttonStyle(.borderless)

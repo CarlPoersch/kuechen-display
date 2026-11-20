@@ -47,29 +47,44 @@ enum CountdownBucket {
 struct CountdownGlance: View {
     let config: [String: JSON]
     let size: BucketSize
+    @Environment(\.glanceSpace) private var space
 
     var body: some View {
-        let list = CountdownBucket.entries(config)
+        let all = CountdownBucket.entries(config)
             .filter { CountdownBucket.daysLeft($0.date) >= 0 }
             .sorted { $0.date < $1.date }
-            .prefix(size == .s ? 1 : size == .m ? 3 : 6)
-        if list.isEmpty {
+        // Nur einer, oder wenig Platz → der nächste groß. Sonst so viele Zeilen, wie passen,
+        // und die Schrift wächst mit dem freien Platz.
+        let rows = fitRows(space.height, row: 34)
+        if all.isEmpty {
             Text("Noch keine Countdowns").foregroundColor(Theme.secondary)
-        } else if size == .s, let e = list.first {
+        } else if all.count == 1 || rows < 3 || space.width < 220 {
+            let e = all[0]
+            let big = min(space.height * 0.42, 72)
             VStack(alignment: .leading, spacing: 2) {
-                Text(e.emoji).font(.title2)
-                Text(label(CountdownBucket.daysLeft(e.date))).font(.system(size: 34, weight: .semibold)).minimumScaleFactor(0.6)
-                Text(e.title).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
+                Text(e.emoji).font(.system(size: big * 0.55))
+                Text(label(CountdownBucket.daysLeft(e.date))).font(.system(size: big, weight: .semibold).monospacedDigit())
+                    .minimumScaleFactor(0.5).lineLimit(1)
+                Text(e.title).font(.headline).foregroundColor(Theme.secondary).lineLimit(1)
+                if all.count > 1 && space.height > 150 {
+                    Text("+ \(all.count - 1) weitere").font(.footnote).foregroundColor(Theme.secondary)
+                }
             }
         } else {
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(Array(list)) { e in
-                    HStack {
-                        Text(e.emoji)
-                        Text(e.title).lineLimit(1)
+            let list = Array(all.prefix(rows))
+            let rowH = min(space.height / CGFloat(list.count), 60)
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(Array(list.enumerated()), id: \.element.id) { i, e in
+                    if i > 0 { Divider() }
+                    HStack(spacing: 10) {
+                        Text(e.emoji).font(.system(size: rowH * 0.45))
+                        Text(e.title).font(rowH > 44 ? .title3 : .body).lineLimit(1)
                         Spacer()
-                        Text(label(CountdownBucket.daysLeft(e.date))).font(.headline.monospacedDigit())
+                        Text(label(CountdownBucket.daysLeft(e.date)))
+                            .font((rowH > 44 ? Font.title3 : .headline).weight(.semibold).monospacedDigit())
+                            .foregroundColor(CountdownBucket.daysLeft(e.date) <= 7 ? Theme.accent : .primary)
                     }
+                    .frame(height: rowH - 1)
                 }
             }
         }

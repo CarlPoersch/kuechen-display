@@ -12,6 +12,7 @@ enum SportBucket {
         interests: ["sport"], blurb: "Live-Ticker für Fußball und Tennis.",
         glance: { inst, size in AnyView(SportGlance(sports: chosen(inst.config), size: size)) },
         detail: { inst in AnyView(SportDetail(sports: chosen(inst.config))) },
+        itemLinks: true,
         settings: { binding in AnyView(SportSettings(config: binding)) }
     )
 
@@ -38,6 +39,7 @@ struct SportGlance: View {
     let sports: Set<String>
     let size: BucketSize
     @ObservedObject private var feed = FeedService.shared
+    @Environment(\.glanceSpace) private var space
 
     var body: some View {
         content.refreshing(every: { FeedService.shared.sportInterval }) { await FeedService.shared.loadSport() }
@@ -45,12 +47,19 @@ struct SportGlance: View {
 
     @ViewBuilder private var content: some View {
         if let f = feed.sport {
-            let list = SportBucket.pick(f.matches.filter { sports.contains($0.sport) }, count: size == .s ? 1 : size == .m ? 3 : 6)
+            let list = SportBucket.pick(f.matches.filter { sports.contains($0.sport) }, count: fitRows(space.height, row: 54))
             if list.isEmpty {
                 Text("Gerade keine Spiele").foregroundColor(Theme.secondary)
             } else {
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(list) { MatchRow(match: $0, compact: true) }
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(Array(list.enumerated()), id: \.element.id) { i, m in
+                        if i > 0 { Divider() }
+                        // Jedes Spiel einzeln antippbar
+                        NavigationLink(destination: MatchDetailView(match: m)) {
+                            MatchRow(match: m, compact: true).padding(.vertical, 6).contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    }
                 }
             }
         } else {
@@ -116,11 +125,22 @@ struct MatchRow: View {
 
 struct SportDetail: View {
     let sports: Set<String>
+    @State private var only = "alle"
     @ObservedObject private var feed = FeedService.shared
 
     var body: some View {
-        let all = (feed.sport?.matches ?? []).filter { sports.contains($0.sport) }
+        let all = (feed.sport?.matches ?? []).filter { sports.contains($0.sport) && (only == "alle" || $0.sport == only) }
         List {
+            // Ausgewählte Sportarten als Umschalter
+            if sports.count > 1 {
+                Picker("Sportart", selection: $only) {
+                    Text("Alle").tag("alle")
+                    if sports.contains("fb") { Text("⚽️ Fußball").tag("fb") }
+                    if sports.contains("tn") { Text("🎾 Tennis").tag("tn") }
+                }
+                .pickerStyle(.segmented)
+                .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
+            }
             if feed.sport == nil { ProgressView() }
             else if all.isEmpty { Text("Gerade keine Spiele").foregroundColor(Theme.secondary) }
             section("Live", all.filter { $0.isLive })

@@ -23,6 +23,9 @@ struct BucketKind: Identifiable {
     var glance: (BucketInstance, BucketSize) -> AnyView = { _, _ in AnyView(EmptyView()) }
     /// Ansicht nach dem Antippen (nil = nicht antippbar)
     var detail: ((BucketInstance) -> AnyView)? = nil
+    /// true = die Einträge in der Karte sind selbst antippbar (News, Sport);
+    /// die ganze Karte öffnet dann nicht die Details, nur "Alle ›" im Kopf.
+    var itemLinks = false
     /// Einstellungen (nil = nichts einzustellen)
     var settings: ((Binding<[String: JSON]>) -> AnyView)? = nil
 }
@@ -70,6 +73,23 @@ enum BucketRegistry {
         BucketKind(id: id, name: name, symbol: symbol, tint: tint, art: art, interests: interests,
                    blurb: blurb, available: false)
     }
+}
+
+// MARK: Platz in der Karte
+
+/// Wie viel Platz die Karte ihrem Inhalt lässt. Warum: Damit jeder Bucket
+/// genau so viele Einträge zeigt, wie hineinpassen – egal ob iPhone oder iPad.
+private struct GlanceSpaceKey: EnvironmentKey { static let defaultValue = CGSize(width: 300, height: 120) }
+extension EnvironmentValues {
+    var glanceSpace: CGSize {
+        get { self[GlanceSpaceKey.self] }
+        set { self[GlanceSpaceKey.self] = newValue }
+    }
+}
+
+/// Wie viele Zeilen der Höhe `row` passen in `height` (mindestens 1, höchstens `max`)
+func fitRows(_ height: CGFloat, row: CGFloat, max m: Int = 12) -> Int {
+    Swift.max(1, Swift.min(m, Int((height + 4) / row)))
 }
 
 /// Hilfen für Bucket-Einstellungen

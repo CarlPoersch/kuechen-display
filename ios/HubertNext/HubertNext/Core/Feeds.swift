@@ -188,12 +188,14 @@ final class FeedService: ObservableObject {
     }
 }
 
-/// Wiederholt eine Ladefunktion, solange die Ansicht sichtbar ist
+/// Wiederholt eine Ladefunktion, solange die Ansicht sichtbar ist.
+/// Ändert sich `id` (z. B. andere Haltestellen), startet die Schleife neu.
 struct RefreshLoop: ViewModifier {
+    let id: String
     let every: () -> TimeInterval
     let action: () async -> Void
     func body(content: Content) -> some View {
-        content.task {
+        content.task(id: id) {
             while !Task.isCancelled {
                 await action()
                 try? await Task.sleep(nanoseconds: UInt64(max(10, every()) * 1_000_000_000))
@@ -203,7 +205,7 @@ struct RefreshLoop: ViewModifier {
 }
 
 extension View {
-    func refreshing(every: @escaping () -> TimeInterval, _ action: @escaping () async -> Void) -> some View {
-        modifier(RefreshLoop(every: every, action: action))
+    func refreshing(id: String = "", every: @escaping () -> TimeInterval, _ action: @escaping () async -> Void) -> some View {
+        modifier(RefreshLoop(id: id, every: every, action: action))
     }
 }

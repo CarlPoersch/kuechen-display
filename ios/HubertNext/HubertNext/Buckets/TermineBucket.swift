@@ -11,7 +11,7 @@ import EventKit
 enum TermineBucket {
     static let kind = BucketKind(
         id: "termine", name: "Termine", symbol: "calendar", tint: .red, art: .glance,
-        interests: ["organisation"], blurb: "Heute und morgen aus deinem Kalender.",
+        interests: ["organisation"], blurb: "Deine nächsten Termine aus dem Kalender.",
         glance: { _, size in AnyView(TermineGlance(size: size)) },
         detail: { _ in AnyView(TermineDetail()) }
     )
@@ -63,7 +63,7 @@ final class CalendarService: ObservableObject {
     func reload() {
         guard granted else { return }
         let from = Calendar.current.startOfDay(for: Date())
-        let to = Calendar.current.date(byAdding: .day, value: 7, to: from)!
+        let to = Calendar.current.date(byAdding: .day, value: 60, to: from)!
         let pred = store.predicateForEvents(withStart: from, end: to, calendars: nil)
         events = store.events(matching: pred)
             .filter { $0.endDate > Date() }
@@ -83,30 +83,42 @@ final class CalendarService: ObservableObject {
 struct TermineGlance: View {
     let size: BucketSize
     @ObservedObject private var cal = CalendarService.shared
+    @Environment(\.glanceSpace) private var space
 
     var body: some View {
         content.refreshing(every: { 300 }) { await CalendarService.shared.start() }
     }
 
+    /// Die nächsten Termine – heute, morgen oder später –, so viele wie in die Karte passen
+    private var list: [CalEvent] {
+        var out: [CalEvent] = []; var used: CGFloat = 0
+        for (i, e) in cal.events.enumerated() {
+            let newDay = i == 0 || Fmt.dayDiff(cal.events[i - 1].start) != Fmt.dayDiff(e.start)
+            let h: CGFloat = 28 + (newDay ? 20 : 0)
+            if used + h > space.height + 4 { break }
+            used += h; out.append(e)
+        }
+        return out
+    }
+
     @ViewBuilder private var content: some View {
-        // Startseite: nur heute und morgen
-        let soon = cal.events.filter { Fmt.dayDiff($0.start) <= 1 }
         if cal.access == .denied {
             Text("Kalender-Zugriff in den Einstellungen erlauben").foregroundColor(Theme.secondary)
-        } else if soon.isEmpty {
-            Text(cal.access == .unknown ? "Lädt …" : "Heute und morgen frei").foregroundColor(Theme.secondary)
-        } else if size == .s, let e = soon.first {
+        } else if cal.events.isEmpty {
+            Text(cal.access == .unknown ? "Lädt …" : "Keine Termine in den nächsten 60 Tagen").foregroundColor(Theme.secondary)
+        } else if space.height < 90 || (space.width < 220 && size == .s), let e = cal.events.first {
+            // Wenig Platz: nur der nächste Termin, groß
             VStack(alignment: .leading, spacing: 3) {
-                Text(Fmt.dayDiff(e.start) == 0 ? e.time : "Morgen " + e.time)
-                    .font(.title2.weight(.semibold).monospacedDigit())
+                Text(Fmt.dayDiff(e.start) == 0 ? e.time : Fmt.dayLabel(e.start) + (e.allDay ? "" : " " + e.time))
+                    .font(.title3.weight(.semibold).monospacedDigit()).lineLimit(1).minimumScaleFactor(0.7)
                 Text(e.title).font(.headline).lineLimit(2)
                 if let l = e.location, !l.isEmpty { Text(l).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1) }
             }
         } else {
-            let list = Array(soon.prefix(size == .m ? 3 : 6))
+            let l = list
             VStack(alignment: .leading, spacing: 8) {
-                ForEach(Array(list.enumerated()), id: \.element.id) { i, e in
-                    if i == 0 || Fmt.dayDiff(list[i - 1].start) != Fmt.dayDiff(e.start) {
+                ForEach(Array(l.enumerated()), id: \.element.id) { i, e in
+                    if i == 0 || Fmt.dayDiff(l[i - 1].start) != Fmt.dayDiff(e.start) {
                         Text(Fmt.dayLabel(e.start).uppercased()).font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
                     }
                     EventRow(event: e)
@@ -142,7 +154,7 @@ struct TermineDetail: View {
     var body: some View {
         List {
             if days.isEmpty {
-                Text("Die nächsten 7 Tage sind frei").foregroundColor(Theme.secondary)
+                Text("Keine Termine in den nächsten 60 Tagen").foregroundColor(Theme.secondary)
             }
             ForEach(days) { day in
                 Section(header: Text(Fmt.dayLabel(day.id))) {

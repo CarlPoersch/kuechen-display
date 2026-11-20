@@ -15,6 +15,7 @@ enum NewsBucket {
         defaultConfig: ["topics": .array(topics.map { .string($0.id) })],
         glance: { inst, size in AnyView(NewsGlance(topics: chosen(inst.config), size: size)) },
         detail: { inst in AnyView(NewsDetail(topics: chosen(inst.config))) },
+        itemLinks: true,
         settings: { binding in AnyView(NewsSettings(config: binding)) }
     )
 
@@ -44,29 +45,50 @@ struct NewsGlance: View {
         return out
     }
 
+    @Environment(\.glanceSpace) private var space
+
     var body: some View {
         content.refreshing(every: { 300 }) { await FeedService.shared.loadNews() }
     }
 
+    /// Kleine Karte: Schlagzeile zweizeilig. Sonst einzeilig, damit mehr Meldungen passen.
+    private var twoLines: Bool { space.width < 260 }
+    private var rowHeight: CGFloat { twoLines ? 62 : 44 }
+
     @ViewBuilder private var content: some View {
         if let n = feed.news {
             let breaking = n.breaking.first
-            let count = (size == .s ? 1 : size == .m ? 3 : 6) - (breaking == nil ? 0 : 1)
-            VStack(alignment: .leading, spacing: 9) {
+            let room = space.height - (breaking == nil ? 0 : (twoLines ? 58 : 40))
+            let items = pick(n, count: room < rowHeight - 6 ? 0 : fitRows(room, row: rowHeight))
+            VStack(alignment: .leading, spacing: 0) {
                 if let b = breaking {
-                    HStack(alignment: .top, spacing: 8) {
-                        Text("EIL").font(.caption2.weight(.heavy)).foregroundColor(.white)
-                            .padding(.horizontal, 6).padding(.vertical, 2)
-                            .background(Capsule().fill(Color.red))
-                        Text(b.t).font(.subheadline.weight(.semibold)).lineLimit(2)
+                    NavigationLink(destination: ArticleView(item: b)) {
+                        HStack(alignment: .top, spacing: 8) {
+                            Text("EIL").font(.caption2.weight(.heavy)).foregroundColor(.white)
+                                .padding(.horizontal, 6).padding(.vertical, 2)
+                                .background(Capsule().fill(Color.red))
+                            Text(b.t).font(.subheadline.weight(.semibold)).lineLimit(twoLines ? 2 : 1)
+                            Spacer(minLength: 0)
+                        }
+                        .padding(.bottom, 8).contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
                 }
-                ForEach(pick(n, count: max(1, count)), id: \.item.u) { topic, item in
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text((NewsBucket.name(topic) + " · " + Fmt.ago(item.date)).uppercased())
-                            .font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
-                        Text(item.t).font(size == .s ? .headline : .subheadline).lineLimit(2)
+                ForEach(Array(items.enumerated()), id: \.element.item.u) { i, x in
+                    if i > 0 || breaking != nil { Divider() }
+                    NavigationLink(destination: ArticleView(item: x.item)) {
+                        HStack(spacing: 6) {
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text((NewsBucket.name(x.topic) + " · " + Fmt.ago(x.item.date)).uppercased())
+                                    .font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
+                                Text(x.item.t).font(.subheadline).lineLimit(twoLines ? 2 : 1)
+                            }
+                            Spacer(minLength: 0)
+                            Image(systemName: "chevron.right").font(.caption2.weight(.semibold)).foregroundColor(Color(UIColor.tertiaryLabel))
+                        }
+                        .padding(.vertical, 6).contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
                 }
             }
         } else {
