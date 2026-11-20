@@ -173,7 +173,8 @@ struct BriefingGrid: View {
 
     /// Alle Karten einer Reihe gleich hoch → saubere Rechtecke
     private func height(_ row: [BucketInstance]) -> CGFloat {
-        row.contains { $0.size == .l } ? 300 : 170
+        // Groß: bis zu 6 Einträge · Mittel: 3 · Klein: einer
+        row.contains { $0.size == .l } ? 340 : row.contains { $0.size == .m } ? 240 : 170
     }
 }
 

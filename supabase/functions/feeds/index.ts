@@ -7,7 +7,7 @@
 //    sie auf das Nötige eingedampft, damit das alte iPad flott bleibt.
 //  - Quellen lassen sich später austauschen, ohne die App zu ändern.
 //
-// Aufrufe (immer mit Header "x-kueche-key"):
+// Aufrufe mit Header "x-kueche-key" (Web) oder "Authorization: Bearer <Login>" (native App):
 //   GET <supabase-url>/functions/v1/feeds/sport
 //   GET <supabase-url>/functions/v1/feeds/news
 //   GET <supabase-url>/functions/v1/feeds/match?lg=<liga>&id=<spiel>
@@ -16,7 +16,7 @@
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "x-kueche-key, content-type",
+  "Access-Control-Allow-Headers": "x-kueche-key, content-type, authorization, apikey",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
 };
 const UA = { "User-Agent": "Hubert/1.0 (privates Wanddisplay)" };
@@ -37,6 +37,17 @@ async function keyOk(key: string | null): Promise<boolean> {
   const ok = r.ok && (await r.json()) === true;
   if (ok) goodKeys.set(key, Date.now());
   return ok;
+}
+
+// ---------- Oder: angemeldeter Nutzer der nativen App (Supabase-Login) ----------
+async function userOk(auth: string | null): Promise<boolean> {
+  if (!auth || !auth.startsWith("Bearer ")) return false;
+  const seen = goodKeys.get(auth);
+  if (seen && Date.now() - seen < 5 * 60_000) return true;
+  const svc = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+  const r = await fetch(Deno.env.get("SUPABASE_URL") + "/auth/v1/user", { headers: { apikey: svc, Authorization: auth } });
+  if (r.ok) goodKeys.set(auth, Date.now());
+  return r.ok;
 }
 
 // ---------- Zwischenspeicher ----------
@@ -425,7 +436,7 @@ Deno.serve(async (req) => {
   if (!["sport", "news", "match", "article"].includes(what)) {
     return new Response("Unbekannte Abfrage", { status: 404, headers: cors });
   }
-  if (!(await keyOk(req.headers.get("x-kueche-key")))) {
+  if (!(await keyOk(req.headers.get("x-kueche-key"))) && !(await userOk(req.headers.get("authorization")))) {
     return new Response("Falscher Haushalts-Schlüssel", { status: 401, headers: cors });
   }
   let body: unknown;

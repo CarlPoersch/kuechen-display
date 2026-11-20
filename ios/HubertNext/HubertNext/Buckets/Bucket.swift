@@ -29,15 +29,12 @@ struct BucketKind: Identifiable {
 
 /// Alle Buckets, die es gibt
 enum BucketRegistry {
-    static let all: [BucketKind] = [WeatherBucket.kind, CountdownBucket.kind] + comingSoon
+    static let all: [BucketKind] = [WeatherBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, CountdownBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
 
     /// Schon im Katalog sichtbar, kommt in den nächsten Etappen
     static let comingSoon: [BucketKind] = [
-        soon("termine", "Termine", "calendar", .red, .glance, ["organisation"], "Heute und morgen aus deinem Kalender."),
-        soon("news", "News", "newspaper", .indigo, .glance, ["news", "technik"], "Top-Meldungen nach deinen Themen."),
-        soon("sport", "Sport", "sportscourt", .green, .glance, ["sport"], "Live-Ticker für deine Vereine und Spieler."),
         soon("oepnv", "ÖPNV", "tram.fill", .blue, .glance, ["unterwegs"], "Nächste Abfahrt an deinen Haltestellen."),
         soon("kueche", "Küche", "fork.knife", .orange, .tool, ["haushalt"], "Rezepte, Wochenplan, Einkauf, Vorrat."),
         soon("timer", "Timer", "timer", .teal, .tool, ["haushalt"], "Mehrere Timer gleichzeitig."),
