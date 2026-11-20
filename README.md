@@ -127,3 +127,11 @@ cd tools/rezepte && python3 gen.py ../../apps/rezepte/data
 - Bereiche: `apps/sport/sport.js`, `apps/news/news.js`.
 - Supabase-Funktion `supabase/functions/feeds`: holt ESPN (Sport), Tagesschau und heise (News), dampft ein, prüft den Haushalts-Schlüssel.
 - Design: `docs/specs/2026-11-19-hubert-heute-design.md`.
+
+## iOS-App „Hubert“ (`ios/Hubert`)
+Schlanke Hülle (WKWebView) um die Web-App, weil im iOS-15-Homescreen-Modus die Tastatur nicht aufgeht.
+- `KuecheApp.swift`: App-Start, Display bleibt an.
+- `WebView.swift`: lädt die GitHub-Pages-Seite, Offline-Seite, Ziehen zum Neuladen.
+- `CalendarBridge.swift`: liest die Termine aus dem Gerätekalender → `HubertNative.setCalendar(...)`.
+- `NightMode.swift`: 23–6 Uhr schwarz + Helligkeit 0, Antippen zeigt Hubert 30 s.
+Bauen: `ios/Hubert/Hubert.xcodeproj` in Xcode öffnen, iPad wählen, ▶︎.
