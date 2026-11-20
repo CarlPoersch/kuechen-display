@@ -10,6 +10,8 @@
 // Aufrufe (immer mit Header "x-kueche-key"):
 //   GET <supabase-url>/functions/v1/feeds/sport
 //   GET <supabase-url>/functions/v1/feeds/news
+//   GET <supabase-url>/functions/v1/feeds/match?lg=<liga>&id=<spiel>
+//   GET <supabase-url>/functions/v1/feeds/article?u=<artikel-link>
 // ============================================================
 
 const cors = {
@@ -112,10 +114,12 @@ const ROUNDS: Record<string, string> = {
 };
 const de = (n: string) => NAMES[n] ?? n;
 
-type Side = { n: string; c?: string; score?: string; win?: boolean; sets?: (number | string)[] };
+type Side = { n: string; c?: string; score?: string; win?: boolean; sets?: (number | string)[];
+  tb?: (number | null)[]; r?: number };
 type Match = {
   id: string; sport: "fb" | "tn"; comp: string; round?: string; date: string;
   state: "pre" | "in" | "post"; detail: string; a: Side; b: Side; prio: number;
+  lg?: string; eid?: string; venue?: string; note?: string;
 };
 
 function inWindow(iso: string) {
@@ -176,6 +180,7 @@ async function football(): Promise<Match[]> {
       });
       out.push({
         id: "fb" + ev.id, sport: "fb", comp: label, date: ev.date, state, detail: fbDetail(st),
+        lg: slug, eid: String(ev.id),
         a: side(home), b: side(away),
         prio: bayern || germany ? 1 : deClub ? 2 : 3,
       });
@@ -211,12 +216,15 @@ async function tennis(): Promise<Match[]> {
           const side = (p: any): Side => ({
             n: p.athlete.shortName || p.athlete.displayName, c: country(p.athlete), win: p.winner === true,
             sets: (p.linescores ?? []).map((l: any) => l.value),
+            tb: (p.linescores ?? []).map((l: any) => l.tiebreak ?? null),
+            r: p.curatedRank?.current ?? undefined,
           });
           out.push({
             id: "tn" + c.id, sport: "tn", comp: ev.name + (tour === "wta" ? " (Damen)" : ""),
             round: ROUNDS[roundEn] ?? roundEn, date: c.date, state: st.state ?? "pre",
             detail: st.state === "in" ? "live" : st.state === "post" ? (/Retired|RET/i.test(st.detail ?? "") ? "Aufgabe" : "Ende") : "",
             a: side(p1), b: side(p2), prio: german ? 1 : 2,
+            venue: c.venue?.fullName ?? ev.venue?.fullName, note: c.notes?.[0]?.text,
           });
         }
       }
@@ -237,7 +245,7 @@ async function sport() {
 // ============================================================
 // NEWS
 // ============================================================
-type News = { t: string; top?: string; d: string; u: string; s?: string; b?: boolean };
+type News = { t: string; top?: string; d: string; u: string; s?: string; b?: boolean; x?: string };
 const TS = "https://www.tagesschau.de/api2u/";
 const HEISE_KI = "https://www.heise.de/thema/Kuenstliche-Intelligenz.xml";
 
@@ -245,7 +253,7 @@ function tsItem(n: any): News | null {
   if (!n?.title || !(n.shareURL || n.detailsweb)) return null;
   if (n.type && !["story", "webview"].includes(n.type)) return null;
   return { t: n.title, top: n.topline?.trim() || undefined, d: n.date, u: n.shareURL || n.detailsweb,
-    s: n.firstSentence || undefined, b: n.breakingNews === true || undefined };
+    s: n.firstSentence || undefined, b: n.breakingNews === true || undefined, x: n.details || undefined };
 }
 
 function merge(top: News[], rest: News[], max = 15): News[] {
@@ -279,7 +287,7 @@ function parseFeed(xml: string): News[] {
     if (!t || !link) continue;
     if (/^heise[-+ ]?(Angebot|Anzeige)/i.test(t)) continue; // Werbung des Verlags weglassen
     const s = (tag(b, "summary") || tag(b, "description")).slice(0, 220) || undefined;
-    out.push({ t, d: d ? new Date(d).toISOString() : new Date().toISOString(), u: link, s });
+    out.push({ t, d: d ? new Date(d).toISOString() : new Date().toISOString(), u: link.split("?")[0], s });
   }
   return out;
 }
@@ -308,16 +316,126 @@ async function news() {
 }
 
 // ============================================================
+// SPIELDETAILS (Fußball): Tore, Karten, Statistik, Aufstellung
+// ============================================================
+const STATS: [string, string][] = [
+  ["possessionPct", "Ballbesitz"], ["totalShots", "Schüsse"], ["shotsOnTarget", "Aufs Tor"],
+  ["wonCorners", "Ecken"], ["foulsCommitted", "Fouls"], ["offsides", "Abseits"],
+  ["saves", "Paraden"], ["yellowCards", "Gelbe Karten"], ["redCards", "Rote Karten"],
+];
+async function match(lg: string, id: string) {
+  if (!/^[a-z0-9_.]+$/.test(lg) || !/^\d+$/.test(id)) throw new Error("bad");
+  const s: any = await cached("m:" + lg + ":" + id, 20_000, () => getJson(ESPN + "soccer/" + lg + "/summary?event=" + id));
+  if (!s) throw new Error("no data");
+  const comp = s.header?.competitions?.[0];
+  const home = comp.competitors.find((c: any) => c.homeAway === "home") ?? comp.competitors[0];
+  const away = comp.competitors.find((c: any) => c.homeAway === "away") ?? comp.competitors[1];
+  const hid = String(home.team.id);
+  const st = comp.status;
+  const side = (c: any) => ({ n: de(c.team.displayName), score: c.score, win: c.winner === true,
+    ht: c.linescores?.[0]?.displayValue });
+  const events = (s.keyEvents ?? []).map((k: any) => {
+    const type = k.type?.text ?? "";
+    let kind = "";
+    if (/Own Goal/i.test(type)) kind = "own";
+    else if (/Penalty - Scored/i.test(type)) kind = "pen";
+    else if (/^Goal/i.test(type)) kind = "goal";
+    else if (/Yellow/i.test(type)) kind = "yellow";
+    else if (/Red/i.test(type)) kind = "red";
+    else if (/Substitution/i.test(type)) kind = "sub";
+    if (!kind) return null;
+    const ps = (k.participants ?? []).map((p: any) => p.athlete?.displayName).filter(Boolean);
+    let who = ps[0] ?? "", extra = kind.match(/goal|pen/) && ps[1] ? "Vorlage: " + ps[1] : "";
+    if (kind === "sub") {
+      const m = /([^.]+?) replaces (.+?)\.?\s*$/.exec(k.text ?? "");
+      if (m) { who = m[1].trim(); extra = "für " + m[2]; }
+    }
+    return { min: k.clock?.displayValue ?? "", kind, side: String(k.team?.id) === hid ? "h" : "a", who, extra };
+  }).filter(Boolean);
+  const teams = s.boxscore?.teams ?? [];
+  const statOf = (t: any, name: string) => t?.statistics?.find((x: any) => x.name === name)?.displayValue;
+  const th = teams.find((t: any) => String(t.team.id) === hid), ta = teams.find((t: any) => String(t.team.id) !== hid);
+  const stats = STATS.map(([k, label]) => [label, statOf(th, k), statOf(ta, k)])
+    .filter((r) => r[1] != null && r[2] != null);
+  const lineup = (sideId: string, isHome: boolean) => {
+    const r = (s.rosters ?? []).find((x: any) => (String(x.team.id) === sideId) === true) ??
+      (s.rosters ?? [])[isHome ? 0 : 1];
+    if (!r?.roster?.length) return null;
+    const p = (x: any) => ({ n: x.athlete?.displayName ?? "", nr: x.jersey ?? "", pos: x.position?.abbreviation ?? "" });
+    return { form: r.formation ?? "", xi: r.roster.filter((x: any) => x.starter).map(p),
+      bench: r.roster.filter((x: any) => !x.starter).map(p) };
+  };
+  return {
+    at: new Date().toISOString(), date: comp.date, state: st?.type?.state ?? "pre", detail: fbDetail(st),
+    h: side(home), a: side(away), events, stats,
+    lineups: { h: lineup(hid, true), a: lineup(String(away.team.id), false) },
+    venue: s.gameInfo?.venue?.fullName, ref: s.gameInfo?.officials?.[0]?.displayName,
+  };
+}
+
+// ============================================================
+// ARTIKEL: Text zum Lesen direkt in Hubert (ohne Browser,
+// funktioniert auch im geführten Zugriff)
+// ============================================================
+type Block = { k: "p" | "h" | "q"; t: string };
+async function article(u: string) {
+  const url = new URL(u);
+  if (url.hostname === "www.tagesschau.de" && url.pathname.startsWith("/api2u/")) {
+    const j: any = await cached("a:" + u, 600_000, () => getJson(u));
+    const blocks: Block[] = [];
+    for (const c of j?.content ?? []) {
+      if (c.type === "text" && c.value) blocks.push({ k: "p", t: decode(c.value) });
+      else if (c.type === "headline" && c.value) blocks.push({ k: "h", t: decode(c.value) });
+      else if (c.type === "quotation" && c.quotation?.text) blocks.push({ k: "q", t: decode(c.quotation.text) });
+    }
+    const img = j?.teaserImage?.imageVariants?.["16x9-640"] ?? j?.teaserImage?.imageVariants?.["16x9-512"];
+    return { t: j.title, top: j.topline, d: j.date, img, blocks: blocks.filter((b) => b.t), src: "tagesschau.de", url: j.shareURL };
+  }
+  if (url.hostname === "www.heise.de" && url.pathname.startsWith("/news/")) {
+    const html: string = (await cached("a:" + u, 600_000, async () => {
+      const r = await fetch(url.origin + url.pathname, { headers: UA });
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return await r.text();
+    })) ?? "";
+    let ld: any = {};
+    try { ld = JSON.parse(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/.exec(html)?.[1] ?? "{}"); } catch { /* egal */ }
+    // Artikeltext: ab dem ersten echten Absatz bis zum Autorenkürzel, z. B. "(mho)"
+    const blocks: Block[] = [];
+    let started = false;
+    for (const m of html.matchAll(/<(p|h3)>([\s\S]*?)<\/\1>/g)) {
+      const t = decode(m[2]).replace(/\s+/g, " ").trim();
+      if (!t || t.includes("${") || /einverstanden/i.test(t)) continue;
+      if (!started) { if (m[1] === "p" && t.length > 60) started = true; else continue; }
+      if (/^\([a-z]{2,5}\)$/.test(t)) break;
+      blocks.push({ k: m[1] === "h3" ? "h" : "p", t });
+    }
+    const img = Array.isArray(ld.image) ? (ld.image[0]?.url ?? ld.image[0]) : ld.image?.url;
+    return { t: ld.headline ?? "", top: "", d: ld.datePublished, img: typeof img === "string" ? img : undefined,
+      blocks, src: "heise online", url: url.origin + url.pathname, plus: ld.isAccessibleForFree === false };
+  }
+  throw new Error("Quelle nicht erlaubt");
+}
+
+// ============================================================
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
-  const what = new URL(req.url).pathname.split("/").filter(Boolean).pop() ?? "";
-  if (what !== "sport" && what !== "news") {
+  const reqUrl = new URL(req.url);
+  const what = reqUrl.pathname.split("/").filter(Boolean).pop() ?? "";
+  if (!["sport", "news", "match", "article"].includes(what)) {
     return new Response("Unbekannte Abfrage", { status: 404, headers: cors });
   }
   if (!(await keyOk(req.headers.get("x-kueche-key")))) {
     return new Response("Falscher Haushalts-Schlüssel", { status: 401, headers: cors });
   }
-  const body = what === "sport" ? await sport() : await news();
+  let body: unknown;
+  try {
+    const q = reqUrl.searchParams;
+    body = what === "sport" ? await sport() : what === "news" ? await news()
+      : what === "match" ? await match(q.get("lg") ?? "", q.get("id") ?? "")
+      : await article(q.get("u") ?? "");
+  } catch (e) {
+    return new Response(JSON.stringify({ error: String(e) }), { status: 400, headers: { ...cors, "Content-Type": "application/json" } });
+  }
   return new Response(JSON.stringify(body), {
     headers: { ...cors, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
   });

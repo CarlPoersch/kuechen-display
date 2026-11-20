@@ -128,9 +128,13 @@
       storage: storage(app.id),
       setTitle: function (t) { $("apptitle").textContent = t; },
       // Zurück-Knopf anpassen, z. B. vom Rezept zurück zur Rezeptliste statt zur App-Startseite
+      // sub === null: zurück dorthin, wo man herkam (z. B. von der Startseite in einen Artikel)
       setBack: function (label, sub) {
         $("back").textContent = "‹ " + label;
-        $("back").onclick = function () { navigate(app.id + (sub ? "/" + sub : "")); };
+        $("back").onclick = function () {
+          if (sub === null && history.length > 1) history.back();
+          else navigate(app.id + (sub ? "/" + sub : ""));
+        };
       },
       // Warum: Was die App beim Verlassen stoppen muss (Intervalle, Abos), meldet sie hier an.
       onCleanup: function (fn) { if (current) current.cleanups.push(fn); }

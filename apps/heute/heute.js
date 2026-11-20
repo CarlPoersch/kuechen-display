@@ -211,8 +211,8 @@
 
   // ---------- News ----------
   function newsLine(n) {
-    return '<a class="h-n" href="' + esc(n.u) + '" target="_blank" rel="noopener">' +
-      '<span class="h-n-t">' + esc(n.t) + '</span><span class="h-n-d">' + esc(F.ago(n.d)) + "</span></a>";
+    return '<div class="h-n" data-home-go="' + esc(F.articleRoute(n)) + '">' +
+      '<span class="h-n-t">' + esc(n.t) + '</span><span class="h-n-d">' + esc(F.ago(n.d)) + "</span></div>";
   }
   function drawNews() {
     var box = $("h-news"), br = $("h-breaking"), c = F.cached("news");
@@ -221,7 +221,7 @@
     // Eilmeldung: ganz oben, farbig
     if (br) {
       var b = d && d.breaking && d.breaking[0];
-      br.innerHTML = b ? '<a class="h-break" href="' + esc(b.u) + '" target="_blank" rel="noopener"><b>EILMELDUNG</b> ' + esc(b.t) + "</a>" : "";
+      br.innerHTML = b ? '<div class="h-break" data-home-go="' + esc(F.articleRoute(b)) + '"><b>EILMELDUNG</b> ' + esc(b.t) + "</div>" : "";
     }
     var h = head("📰", "News", stamp(c) || '<span class="h-more" data-home-go="news">Alle ›</span>');
     if (!F.cloud()) h += '<div class="h-muted">Nur in der Cloud-Version verfügbar.</div>';

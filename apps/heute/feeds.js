@@ -169,7 +169,8 @@
       }
       return '<div class="s-side">' + name + score + "</div>";
     }
-    return '<div class="s-match' + (live ? " is-live" : "") + (m.prio === 1 ? " is-fav" : "") + '">' + head +
+    return '<div class="s-match' + (live ? " is-live" : "") + (m.prio === 1 ? " is-fav" : "") +
+      '" data-home-go="sport/m/' + esc(m.id) + '">' + head +
       side(m.a) + side(m.b) + "</div>";
   }
 
@@ -185,8 +186,20 @@
     }
   };
 
+  /** Wohin ein Tipp auf eine Meldung führt: Lesen direkt in Hubert */
+  function articleRoute(n) { return "news/a/" + encodeURIComponent(n.x || n.u); }
+
+  /** Einzelabruf bei der Supabase-Funktion (Spieldetails, Artikel) */
+  function api(path) {
+    if (!cloud()) return Promise.reject(new Error("offline"));
+    return fetch(CONFIG.supabaseUrl + "/functions/v1/feeds/" + path, {
+      headers: { "x-kueche-key": Launcher.store ? Launcher.store.householdKey() : "" }, cache: "no-store"
+    }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.status); return j; }); });
+  }
+
   window.Hubert = window.Hubert || {};
   Hubert.Feeds = {
+    articleRoute: articleRoute, api: api,
     cloud: cloud, inApp: inApp, cached: cached, load: load, subscribe: subscribe, keepFresh: keepFresh,
     hhmm: hhmm, when: when, ago: ago, dayDiff: dayDiff, weather: weather, matchHtml: matchHtml, flag: flag
   };

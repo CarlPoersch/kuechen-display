@@ -145,6 +145,59 @@
 .nw-s { font-size: 16px; color: #5b5048; margin-top: 4px; }
 .nw-d { font-size: 13px; color: var(--quiet); margin-top: 4px; }
 
+
+/* ---------- Spieldetails (#sport/m/…) ---------- */
+.md { max-width: 820px; margin: 0 auto; padding: 16px 18px 36px; }
+.md-head { background: var(--card); border-radius: 24px; padding: 18px 20px 20px; box-shadow: 0 1px 2px rgba(60,40,20,.06), 0 6px 18px rgba(60,40,20,.06); }
+.md-comp { font-size: 14px; color: var(--accent); font-weight: 600; text-align: center; margin-bottom: 14px; }
+.md-score { display: flex; align-items: center; gap: 12px; }
+.md-team { flex: 1 1 0; min-width: 0; text-align: center; font-size: 21px; font-weight: 600; line-height: 1.25; }
+.md-mid { flex: 0 0 auto; text-align: center; min-width: 120px; }
+.md-res { font-size: 46px; font-weight: 300; font-variant-numeric: tabular-nums; line-height: 1.05; }
+.md-status { font-size: 15px; color: var(--quiet); margin-top: 4px; }
+.md-sub { font-size: 13px; color: var(--quiet); margin-top: 2px; }
+.md-rank { font-size: 13px; font-weight: 400; color: var(--quiet); margin-top: 2px; }
+.md-sec { background: var(--card); border-radius: 20px; padding: 16px 18px; margin-top: 14px; }
+.md-sec-h { font-size: 13px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; color: var(--quiet); margin-bottom: 10px; }
+.md-ev { display: grid; grid-template-columns: 1fr 56px 1fr; align-items: center; padding: 7px 0; border-top: 1px solid var(--line); font-size: 16px; }
+.md-sec-h + .md-ev { border-top: none; }
+.md-ev.is-sub { font-size: 14px; color: var(--quiet); }
+.md-ev-h { display: flex; flex-direction: row-reverse; gap: 8px; text-align: right; }
+.md-ev-a { display: flex; gap: 8px; }
+.md-ev-h span:last-child, .md-ev-a span:last-child { display: flex; flex-direction: column; }
+.md-min { text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
+.md-x { font-size: 13px; color: var(--quiet); font-weight: 400; }
+.md-ic { flex: 0 0 auto; }
+.md-st { padding: 6px 0; }
+.md-st-row { display: flex; justify-content: space-between; font-size: 15px; }
+.md-st-row span { color: var(--quiet); }
+.md-bar { display: flex; gap: 4px; height: 6px; margin-top: 5px; }
+.md-bar i { display: block; border-radius: 3px; background: var(--accent); min-width: 3px; }
+.md-bar i + i { background: #3A4A6B; }
+.md-lus { display: flex; gap: 20px; }
+.md-lu { flex: 1 1 0; min-width: 0; }
+.md-lu-h { font-weight: 700; margin-bottom: 6px; }
+.md-pl { font-size: 15px; padding: 3px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.md-nr { display: inline-block; width: 28px; color: var(--quiet); font-variant-numeric: tabular-nums; }
+.md-bench { font-size: 13px; color: var(--quiet); margin-top: 8px; line-height: 1.4; }
+.md-sets { width: 100%; border-collapse: collapse; font-size: 17px; }
+.md-sets th { text-align: left; font-weight: 600; padding: 6px 0; }
+.md-sets td { text-align: center; width: 48px; font-variant-numeric: tabular-nums; padding: 6px 0; }
+.md-sets tr:first-child td { font-size: 12px; color: var(--quiet); }
+.md-sets sup { font-size: 11px; color: var(--quiet); }
+
+/* ---------- Artikel (#news/a/…) ---------- */
+.ar { max-width: 720px; margin: 0 auto; padding: 18px 22px 40px; }
+.ar-top { color: var(--accent); font-weight: 600; font-size: 16px; }
+.ar-t { font-size: 30px; line-height: 1.2; margin: 4px 0 8px; font-weight: 700; }
+.ar-meta { font-size: 14px; color: var(--quiet); margin-bottom: 14px; }
+.ar-img { width: 100%; border-radius: 16px; margin-bottom: 16px; display: block; }
+.ar-p { font-size: 19px; line-height: 1.55; margin: 0 0 14px; }
+.ar-h { font-size: 21px; margin: 22px 0 8px; }
+.ar-q { margin: 16px 0; padding: 4px 0 4px 16px; border-left: 4px solid var(--accent); font-size: 19px; font-style: italic; color: #5b5048; }
+.ar-muted { color: var(--quiet); font-size: 16px; }
+.nw-item { cursor: pointer; }
+
 /* ---------- Schmale Bildschirme (iPhone) ---------- */
 @media (max-width: 600px) {
   .h-wrap { padding: max(12px, env(safe-area-inset-top)) 14px 24px; gap: 12px; }
@@ -165,4 +218,12 @@
   .back, .topbar-spacer { min-width: 80px; font-size: 17px; }
   .sp-wrap, .nw-wrap { padding: 12px 12px 28px; }
   .nw-t { font-size: 18px; }
+  .md { padding: 12px 12px 28px; }
+  .md-team { font-size: 17px; }
+  .md-res { font-size: 36px; }
+  .md-mid { min-width: 90px; }
+  .md-lus { flex-direction: column; gap: 14px; }
+  .ar { padding: 14px 16px 32px; }
+  .ar-t { font-size: 24px; }
+  .ar-p { font-size: 17px; }
 }
