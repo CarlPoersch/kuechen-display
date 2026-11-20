@@ -301,6 +301,8 @@
   });
 
   window.addEventListener("resize", function () { drawCalendar(); drawSport(); drawNews(); });
+  // Erst wenn Schriften und Stylesheets fertig sind, stimmt die Höhe sicher
+  window.addEventListener("load", function () { drawCalendar(); drawSport(); drawNews(); });
 
   document.addEventListener("click", function (e) {
     var t = e.target.closest && e.target.closest("[data-home-go]");
