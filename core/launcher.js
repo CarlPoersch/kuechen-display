@@ -117,7 +117,7 @@
     $("appview").classList.add("active");
     $("apptitle").textContent = app.name;
     // Zurück-Knopf: von einer Unterseite zur App-Startseite, sonst zum Start
-    $("back").textContent = r.sub ? "‹ " + app.name : "‹ Start";
+    setBackLabel(r.sub ? app.name : "Start");
     $("back").onclick = function () { navigate(r.sub ? app.id : ""); };
 
     current = { app: app, cleanups: [] };
@@ -130,7 +130,7 @@
       // Zurück-Knopf anpassen, z. B. vom Rezept zurück zur Rezeptliste statt zur App-Startseite
       // sub === null: zurück dorthin, wo man herkam (z. B. von der Startseite in einen Artikel)
       setBack: function (label, sub) {
-        $("back").textContent = "‹ " + label;
+        setBackLabel(label);
         $("back").onclick = function () {
           if (sub === null && history.length > 1) history.back();
           else navigate(app.id + (sub ? "/" + sub : ""));
@@ -141,6 +141,11 @@
     };
     app.mount($("appcontent"), ctx);
     $("appcontent").scrollTop = 0;
+  }
+
+  // Zurück-Knopf im iOS-Stil: Pfeil (per CSS gezeichnet) + Text
+  function setBackLabel(label) {
+    $("back").innerHTML = '<span class="chev" aria-hidden="true"></span><span class="back-l">' + esc(label) + "</span>";
   }
 
   // Warum: Die Widgets sollen nur Daten laden, solange der Startbildschirm zu sehen ist.

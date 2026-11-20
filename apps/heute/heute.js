@@ -191,8 +191,17 @@
       var fb = b.prio === 1 && Date.parse(b.date) < now + 3 * 86400000 ? 0 : 1;
       return fa - fb || Date.parse(a.date) - Date.parse(b.date);
     });
-    var done = list.filter(function (m) { return m.state === "post" && m.prio === 1; });
-    return live.concat(next.slice(0, 4), done.slice(0, 2)).slice(0, 5);
+    var done = list.filter(function (m) { return m.state === "post" && (m.prio === 1 || m.sport === "tn"); });
+    var ordered = live.concat(next, done);
+    // Fußball UND Tennis zeigen: die beiden ersten Plätze gehen an das Wichtigste
+    // jeder Sportart. Warum vorne: Passt die Karte nicht, kürzt fit() von hinten.
+    var out = [];
+    ["fb", "tn"].map(function (sp) { return ordered.filter(function (m) { return m.sport === sp; })[0]; })
+      .filter(Boolean)
+      .sort(function (a, b) { return ordered.indexOf(a) - ordered.indexOf(b); })
+      .forEach(function (m) { out.push(m); });
+    ordered.forEach(function (m) { if (out.indexOf(m) < 0) out.push(m); });
+    return out.slice(0, 5);
   }
   function drawSport() {
     var box = $("h-sport"), c = F.cached("sport");

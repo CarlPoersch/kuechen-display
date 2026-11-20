@@ -1,0 +1,118 @@
+/* ============================================================
+   Apple-Look für Hubert (nach den Human Interface Guidelines).
+   Wird als letztes Stylesheet geladen und überschreibt das alte Aussehen.
+   Regeln stehen im Skill "hubert-apple-look".
+
+   Warum "body ..." vor vielen Regeln: Die Unterapps fügen ihr CSS erst beim
+   Öffnen ein. Mit etwas mehr Gewicht gewinnt trotzdem dieser Look.
+   ============================================================ */
+
+:root {
+  /* iOS-Systemfarben (hell) */
+  --bg: #F2F2F7;              /* systemGroupedBackground */
+  --card: #FFFFFF;            /* secondarySystemGroupedBackground */
+  --ink: #1C1C1E;             /* label */
+  --quiet: #8E8E93;           /* secondaryLabel (systemGray) */
+  --line: #E5E5EA;            /* separator */
+  --fill: rgba(118,118,128,.12); /* tertiarySystemFill: Knöpfe, Eingabefelder */
+  --accent: #E8590C;          /* Huberts Tint-Farbe (Orange) */
+  --accent-soft: rgba(232,89,12,.12);
+  --done: #C7C7CC;
+  --radius: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  font-size: 19px; letter-spacing: -.2px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Navigationsleiste: durchscheinend, Haarlinie, Titel mittig ---------- */
+body .topbar {
+  position: relative; z-index: 20; gap: 8px;
+  padding: max(10px, env(safe-area-inset-top)) 12px 10px;
+  background: rgba(242,242,247,.82);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: .5px solid rgba(60,60,67,.29);
+}
+body .apptitle { font-size: 18px; font-weight: 600; letter-spacing: -.3px; }
+
+/* Zurück: nur Pfeil + Text in Tint-Farbe, kein Kasten */
+body .back {
+  display: flex; align-items: center; gap: 4px; min-width: 120px; min-height: 44px;
+  padding: 0 8px 0 4px; border: none; background: none; box-shadow: none;
+  color: var(--accent); font-size: 18px; font-weight: 400;
+}
+body .back:active { opacity: .4; }
+.back .chev {
+  width: 13px; height: 13px; flex: 0 0 auto; margin: 0 2px 0 6px;
+  border-left: 3px solid currentColor; border-bottom: 3px solid currentColor; border-radius: 1px;
+  transform: rotate(45deg);
+}
+.back .back-l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+body .topbar-spacer { min-width: 120px; }
+
+/* ---------- Knöpfe ---------- */
+body button {
+  border: none; border-radius: 12px; background: var(--fill); color: var(--accent);
+  font-weight: 500; min-height: 44px; transition: opacity .15s;
+}
+body button:active { opacity: .55; }
+body button.primary { background: var(--accent); color: #fff; font-weight: 600; }
+
+/* ---------- Eingabefelder ---------- */
+body input:not([type=checkbox]):not([type=radio]), body select, body textarea, body .k-input {
+  border: none; border-radius: 10px; background: var(--fill); color: var(--ink);
+  font: inherit; font-size: 18px; padding: 10px 14px; min-height: 44px;
+  -webkit-appearance: none; appearance: none;
+}
+body input:focus, body select:focus, body textarea:focus { outline: 2px solid var(--accent-soft); }
+body input::placeholder { color: var(--quiet); }
+body input[type=checkbox] { accent-color: var(--accent); }
+
+/* ---------- Segment-Steuerung (Tabs in Sport, News, Rezepte …) ---------- */
+body .sp-tabs {
+  display: flex; gap: 0; padding: 2px; border-radius: 10px; background: rgba(118,118,128,.12); margin-bottom: 16px;
+}
+body .sp-tabs button {
+  flex: 1; min-height: 34px; border-radius: 8px; background: none; color: var(--ink);
+  font-size: 16px; font-weight: 500; padding: 4px 10px;
+}
+body .sp-tabs button.on {
+  background: #fff; color: var(--ink); font-weight: 600; border: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,.12), 0 3px 1px rgba(0,0,0,.04);
+}
+
+/* Küche: Bereichsleiste wie eine iOS-Tab-/Segmentleiste */
+body .k-nav {
+  background: rgba(242,242,247,.82);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: .5px solid rgba(60,60,67,.29); gap: 4px;
+}
+body .k-tab { background: none; color: var(--ink); border-radius: 18px; min-height: 36px; font-weight: 500; }
+body .k-tab.on { background: var(--accent); color: #fff; }
+
+/* ---------- Karten und Listen: weiß auf Grau, ohne Rahmen ---------- */
+body .h-card, body .md-head, body .md-sec, body .nw-item,
+body .e-row, body .p-day, body .a-row, body .v-item, body .r-card, body .k-card, body .f-row {
+  border: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 4px 14px rgba(0,0,0,.05);
+}
+body .p-item { border: none; background: var(--bg); }
+
+/* Kleine Grautexte und Abschnittsüberschriften wie in iOS-Einstellungen */
+body .h-card-h, body .md-sec-h, body .sp-day, body .h-label { color: var(--quiet); letter-spacing: .4px; }
+body .empty { color: var(--quiet); }
+
+/* App-Kacheln: Symbole wie auf dem Home-Bildschirm (Verlauf + "Squircle") */
+body.home-tiles .tile .icon, .home .tile .icon {
+  border-radius: 23%;
+  background-image: linear-gradient(180deg, rgba(255,255,255,.18), rgba(0,0,0,.06));
+  box-shadow: 0 2px 6px rgba(0,0,0,.14);
+}
+.home .tile .label { font-size: 14px; font-weight: 500; }
+
+/* Eilmeldung: iOS-Rot */
+body .h-break { background: #FF3B30; }
+body .s-live { color: #FF3B30; }
+body .s-live::before { background: #FF3B30; }
