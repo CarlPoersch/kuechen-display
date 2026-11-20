@@ -174,38 +174,49 @@ struct WeatherGlance: View {
         }
     }
 
-    /// Was zusätzlich in die Karte passt, je nach Platz
+    /// Was zusätzlich in die Karte passt, je nach Platz:
+    /// klein = jetzt · mittel = + nächste Tage · groß = + stündlich
     @ViewBuilder private func content(_ w: WeatherData) -> some View {
         let now = WeatherCode.info(w.current.code, day: w.current.isDay == 1)
         let wide = space.width >= 260
-        let big: CGFloat = space.height > 200 ? 54 : 40
-        VStack(alignment: .leading, spacing: 6) {
+        let big: CGFloat = space.height > 200 ? 52 : 40
+        VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .center, spacing: 10) {
                 Image(systemName: now.symbol).renderingMode(.original).font(.system(size: big * 0.8))
                 Text("\(Int(w.current.temp.rounded()))°").font(.system(size: big, weight: .light))
                 Spacer(minLength: 0)
-                if wide && space.height > 150 {
+                if wide {
                     VStack(alignment: .trailing, spacing: 2) {
                         Text(city).font(.headline).lineLimit(1)
-                        Text(now.text).font(.subheadline).foregroundColor(Theme.secondary)
+                        Text(now.text).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
                         Text("↑\(w.maxT(0))° ↓\(w.minT(0))°").font(.subheadline.monospacedDigit()).foregroundColor(Theme.secondary)
                     }
                 }
             }
-            if !(wide && space.height > 150) {
+            if !wide {
                 Text(city).font(.subheadline.weight(.semibold)).lineLimit(1)
                 Text("\(now.text) · ↑\(w.maxT(0))° ↓\(w.minT(0))°").font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
             }
-            if space.height > 140 {
+            if space.height > 120 {
                 Text(rainHint(w)).font(.subheadline).lineLimit(1)
             }
-            if wide && space.height > 190 {
-                Spacer(minLength: 0)
+            Spacer(minLength: 0)
+            if wide && space.height > 250 {
                 hourStrip(w, count: space.width > 500 ? 10 : 6)
-            }
-            if wide && space.height > 270 {
                 Divider()
+            }
+            if wide && space.height > 140 {
                 dayStrip(w, count: space.width > 500 ? 7 : 5)
+            } else if !wide && space.height > 170 {
+                // Schmal, aber hoch: die nächsten Tage als Zeilen
+                ForEach(1..<min(Int((space.height - 110) / 24) + 1, w.daily.time.count), id: \.self) { i in
+                    HStack {
+                        Text(w.dayDate(i).map { WeatherFmt.weekday($0) } ?? "").font(.subheadline).frame(width: 28, alignment: .leading)
+                        Image(systemName: WeatherCode.info(w.daily.code[i] ?? 0).symbol).renderingMode(.original)
+                        Spacer()
+                        Text("\(w.maxT(i))° / \(w.minT(i))°").font(.subheadline.monospacedDigit())
+                    }
+                }
             }
         }
     }

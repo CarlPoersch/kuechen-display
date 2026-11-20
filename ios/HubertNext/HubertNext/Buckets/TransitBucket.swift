@@ -78,6 +78,7 @@ struct Departure: Identifiable {
     let planned: Date
     let actual: Date
     let realtime: Bool
+    let platform: String
     var delay: Int { Int(actual.timeIntervalSince(planned) / 60) }
 }
 
@@ -88,18 +89,22 @@ struct Journey: Identifiable {
     let depart: Date       // Abfahrt des ersten Fahrzeugs
     let arrive: Date
     let delay: Int         // Verspätung des ersten Fahrzeugs
+    let footMinutes: Int   // Fußweg vor dem ersten Fahrzeug (bei Start an einer Adresse)
     let rides: [Ride]
     var changes: Int { max(0, rides.count - 1) }
 }
 
-/// Einheitlicher Eintrag für die Startseite
-struct TransitItem: Identifiable {
+/// Eine Zeile wie am Bus-Display: Linie · Ziel · Los · Ab · An
+struct TransitRow: Identifiable {
     let id: String
     let line: String
-    let leave: Date
-    let top: String
-    let sub: String
+    let title: String      // Fahrtziel oder "Umstieg Hbf"
+    let detail: String     // z. B. "ab Otto-Hahn-Straße · Steig 2"
+    let leave: Date        // Los
+    let depart: Date       // Ab
+    let arrive: Date?      // An (nur mit Ziel)
     let delay: Int
+    let transferLine: String?
 }
 
 private struct DMResponse: Decodable {
@@ -110,7 +115,7 @@ private struct DMResponse: Decodable {
         }
     }
     struct Line: Decodable { let number: String?; let direction: String?; let key: String? }
-    struct D: Decodable { let dateTime: T?; let realDateTime: T?; let servingLine: Line? }
+    struct D: Decodable { let dateTime: T?; let realDateTime: T?; let servingLine: Line?; let platform: String?; let platformName: String? }
     let departureList: [D]?
 }
 
@@ -172,7 +177,8 @@ final class TransitService: ObservableObject {
                 let a = d.realDateTime?.date
                 return Departure(id: id + (d.servingLine?.key ?? "") + "\(p.timeIntervalSince1970)",
                                  line: d.servingLine?.number ?? "?", dest: d.servingLine?.direction ?? "",
-                                 planned: p, actual: a ?? p, realtime: a != nil)
+                                 planned: p, actual: a ?? p, realtime: a != nil,
+                                 platform: (d.platformName?.isEmpty == false ? d.platformName : d.platform) ?? "")
             }.sorted { $0.actual < $1.actual }
             loadedAt["b:" + id] = Date(); failed.remove(id)
         } catch { failed.insert(id); print("ÖPNV:", error) }
@@ -207,7 +213,9 @@ final class TransitService: ObservableObject {
                 let delay = (rideLeg.origin.depPlanned).map { Int(first.dep.timeIntervalSince($0) / 60) } ?? 0
                 let id = rides.map { $0.line + "\(Int($0.dep.timeIntervalSince1970))" }.joined()
                 if out.contains(where: { $0.id == id }) { continue }
-                out.append(Journey(id: id, leave: leave, depart: first.dep, arrive: arrive, delay: max(0, delay), rides: rides))
+                let foot = firstLeg.isRide ? 0 : Int(((firstLeg.destination.arr ?? first.dep).timeIntervalSince(firstLeg.origin.dep ?? first.dep)) / 60)
+                out.append(Journey(id: id, leave: leave, depart: first.dep, arrive: arrive, delay: max(0, delay),
+                                   footMinutes: foot, rides: rides))
             }
             trips[r.key] = out.sorted { $0.leave < $1.leave }
             loadedAt["t:" + r.key] = Date(); failed.remove(r.key)
@@ -228,45 +236,127 @@ final class TransitService: ObservableObject {
         }
     }
 
-    /// Einträge für die Startseite, nach "Los in" sortiert
-    func items(_ routes: [TransitBucket.Route]) -> [TransitItem] {
+    /// Zeilen eines Eintrags, nach "Los" sortiert, nur noch erreichbare
+    func rows(_ r: TransitBucket.Route) -> [TransitRow] {
         let now = Date().addingTimeInterval(-30)
-        var out: [TransitItem] = []
-        for r in routes {
-            if let to = r.to {
-                for j in trips[r.key] ?? [] where j.leave > now {
-                    out.append(TransitItem(id: r.key + j.id, line: j.rides.first?.line ?? "?", leave: j.leave,
-                                           top: "nach " + to.name,
-                                           sub: Fmt.hhmm(j.depart) + " → " + Fmt.hhmm(j.arrive) + (j.changes > 0 ? " · \(j.changes)× umsteigen" : " · direkt"),
-                                           delay: j.delay))
+        if r.to != nil {
+            return (trips[r.key] ?? []).filter { $0.leave > now }.map { j in
+                let first = j.rides[0]
+                var detail = "ab " + shortStop(first.from)
+                if j.footMinutes > 0 { detail += " · \(j.footMinutes) min Fußweg" }
+                var title = shortStop(first.to), transfer: String?
+                if j.rides.count > 1 {
+                    let next = j.rides[1]
+                    title = "Umstieg " + shortStop(next.from)
+                    transfer = next.line
+                    let wait = Int(next.dep.timeIntervalSince(first.arr) / 60)
+                    detail += " · weiter \(Fmt.hhmm(next.dep)) (\(wait) min)"
+                    if j.rides.count > 2 { detail += " · +\(j.rides.count - 2) Umstieg" }
                 }
-            } else {
-                for d in (boards[r.from.id] ?? []) where r.accepts(d) {
-                    let leave = d.actual.addingTimeInterval(-Double(r.walk) * 60)
-                    if leave > now {
-                        out.append(TransitItem(id: r.key + d.id, line: d.line, leave: leave, top: d.dest,
-                                               sub: Fmt.hhmm(d.actual) + " ab " + r.from.name, delay: d.delay))
-                    }
-                }
+                return TransitRow(id: r.key + j.id, line: first.line, title: title, detail: detail, leave: j.leave,
+                                  depart: j.depart, arrive: j.arrive, delay: j.delay, transferLine: transfer)
             }
         }
-        return out.sorted { $0.leave < $1.leave }
+        return (boards[r.from.id] ?? []).filter { r.accepts($0) }.compactMap { d in
+            let leave = d.actual.addingTimeInterval(-Double(r.walk) * 60)
+            guard leave > now else { return nil }
+            return TransitRow(id: r.key + d.id, line: d.line, title: shortStop(d.dest),
+                              detail: "ab " + shortStop(r.from.name) + (d.platform.isEmpty ? "" : " · Steig " + d.platform),
+                              leave: leave, depart: d.actual, arrive: nil, delay: d.delay, transferLine: nil)
+        }
+    }
+
+    func loaded(_ r: TransitBucket.Route) -> Bool { r.to != nil ? trips[r.key] != nil : boards[r.from.id] != nil }
+    func failed(_ r: TransitBucket.Route) -> Bool { failed.contains(r.to != nil ? r.key : r.from.id) }
+}
+
+/// "Regensburg, Arnulfsplatz" → "Arnulfsplatz": Stadtname spart Platz
+func shortStop(_ s: String) -> String {
+    if let i = s.firstIndex(of: ","), s[s.index(after: i)...].trimmingCharacters(in: .whitespaces).count > 2 {
+        return s[s.index(after: i)...].trimmingCharacters(in: .whitespaces)
+    }
+    return s.replacingOccurrences(of: "Regensburg ", with: "")
+}
+
+// MARK: Ansichten (im Stil des Bus-Displays)
+
+/// Los-Spalte: "jetzt", "4 min" oder Uhrzeit; rot = jetzt los, gelb = fertig machen
+private func los(_ leave: Date) -> (String, Color) {
+    let s = leave.timeIntervalSinceNow
+    if s < 60 { return ("jetzt", .red) }
+    if s < 3600 {
+        let m = Int(s / 60)
+        return ("\(m) min", m <= 2 ? .red : m <= 5 ? Color(red: 0.72, green: 0.47, blue: 0.12) : .primary)
+    }
+    return (Fmt.hhmm(leave), Theme.secondary)
+}
+
+/// Linienfarben wie am Display: Stadtbusse farbig, sonst Blau
+func lineColor(_ l: String) -> Color {
+    switch l {
+    case "3": return Color(red: 0.91, green: 0.51, blue: 0.05)
+    case "5": return Color(red: 0.18, green: 0.62, blue: 0.27)
+    case "6": return Color(red: 0.84, green: 0.15, blue: 0.18)
+    case "C6": return Color(red: 0.56, green: 0.11, blue: 0.24)
+    default: return Color(red: 0.24, green: 0.44, blue: 0.71)
     }
 }
 
-private func leaveText(_ leave: Date) -> String {
-    let m = Int(leave.timeIntervalSinceNow / 60)
-    return m <= 0 ? "jetzt los" : "in \(m) min"
-}
-
-// MARK: Ansichten
+let transitNavy = Color(red: 0.11, green: 0.21, blue: 0.31)
 
 struct LineBadge: View {
     let line: String
     var body: some View {
         Text(line).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(.white).lineLimit(1)
             .frame(minWidth: 34).padding(.horizontal, 6).padding(.vertical, 4)
-            .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(Color.blue))
+            .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(lineColor(line)))
+    }
+}
+
+/// Kopf eines Eintrags: Start (→ Ziel) und die Spaltennamen
+struct TransitHead: View {
+    let route: TransitBucket.Route
+    let showArrival: Bool
+    var body: some View {
+        HStack(alignment: .lastTextBaseline, spacing: 0) {
+            Text(shortStop(route.from.name) + (route.to.map { " → " + shortStop($0.name) } ?? ""))
+                .font(.subheadline.weight(.bold)).foregroundColor(transitNavy).lineLimit(1)
+            Spacer(minLength: 6)
+            col("LOS"); col("AB"); if showArrival { col("AN") }
+        }
+    }
+    private func col(_ t: String) -> some View {
+        Text(t).font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary).frame(width: 52, alignment: .trailing)
+    }
+}
+
+/// Eine Abfahrt/Verbindung als Zeile
+struct TransitRowView: View {
+    let row: TransitRow
+    let showArrival: Bool
+    var best = false
+    var body: some View {
+        let l = los(row.leave)
+        HStack(spacing: 8) {
+            LineBadge(line: row.line)
+            VStack(alignment: .leading, spacing: 1) {
+                HStack(spacing: 4) {
+                    Text(row.title).font(.subheadline.weight(.medium)).lineLimit(1)
+                    if let t = row.transferLine { LineBadge(line: t).scaleEffect(0.8) }
+                }
+                Text(row.detail).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+            }
+            Spacer(minLength: 2)
+            if row.delay > 0 { Text("+\(row.delay)").font(.caption.weight(.semibold)).foregroundColor(.red) }
+            Text(l.0).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(l.1).frame(width: 52, alignment: .trailing)
+            Text(Fmt.hhmm(row.depart)).font(.subheadline.monospacedDigit()).foregroundColor(row.delay > 0 ? .red : .primary)
+                .frame(width: 52, alignment: .trailing)
+            if showArrival {
+                Text(row.arrive.map { Fmt.hhmm($0) } ?? "–").font(.subheadline.monospacedDigit()).frame(width: 52, alignment: .trailing)
+            }
+        }
+        .padding(.vertical, 5).padding(.horizontal, best ? 6 : 0)
+        .background(RoundedRectangle(cornerRadius: 8).fill(best ? Color(red: 0.89, green: 0.92, blue: 0.95) : .clear))
     }
 }
 
@@ -274,6 +364,7 @@ struct TransitGlance: View {
     let routes: [TransitBucket.Route]
     @ObservedObject private var svc = TransitService.shared
     @Environment(\.glanceSpace) private var space
+    @Environment(\.editBucket) private var edit
 
     var body: some View {
         content.refreshing(id: routes.map { $0.key + ($0.to?.id ?? "") + "\($0.walk)" }.joined(), every: { 60 }) {
@@ -281,115 +372,99 @@ struct TransitGlance: View {
         }
     }
 
+    /// Platz auf die Einträge verteilen: je Eintrag Kopf + so viele Zeilen wie passen
+    private var sections: [(route: TransitBucket.Route, rows: [TransitRow])] {
+        var left = space.height, out: [(route: TransitBucket.Route, rows: [TransitRow])] = []
+        let per = max(1, Int((space.height - CGFloat(routes.count) * 24) / 44) / max(1, routes.count))
+        for r in routes {
+            guard left >= 24 + 40 else { break }
+            let n = min(per, Int((left - 24) / 44), 6)
+            let rows = Array(svc.rows(r).prefix(max(1, n)))
+            out.append((r, rows)); left -= 24 + CGFloat(max(1, rows.count)) * 44
+        }
+        return out
+    }
+
     @ViewBuilder private var content: some View {
-        let list = Array(svc.items(routes).prefix(fitRows(space.height, row: 50)))
+        let wide = space.width > 420
         if routes.isEmpty {
-            Text("Startpunkt in den Einstellungen wählen").foregroundColor(Theme.secondary)
-        } else if list.isEmpty {
-            Text(svc.boards.isEmpty && svc.trips.isEmpty ? (svc.failed.isEmpty ? "Lädt …" : "Fahrplan nicht erreichbar") : "Gerade keine Abfahrt")
-                .foregroundColor(Theme.secondary)
-        } else if space.height < 90 || space.width < 220, let x = list.first {
-            VStack(alignment: .leading, spacing: 4) {
-                HStack { LineBadge(line: x.line); Text(x.top).font(.subheadline).lineLimit(1) }
-                Text(leaveText(x.leave)).font(.system(size: 28, weight: .semibold).monospacedDigit())
-                    .foregroundColor(x.leave.timeIntervalSinceNow < 120 ? Theme.accent : .primary)
-                Text(x.sub).font(.footnote).foregroundColor(Theme.secondary).lineLimit(1)
+            // Antippen öffnet die Details, dort (oder über den Regler oben) Start festlegen
+            Label("Startpunkt festlegen", systemImage: "plus.circle.fill").font(.headline).foregroundColor(Theme.accent)
+        } else if space.width < 260 {
+            // Kleine Karte: nur die nächste Fahrt, groß
+            let next = routes.flatMap { svc.rows($0) }.sorted { $0.leave < $1.leave }.first
+            if let x = next {
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack { LineBadge(line: x.line); Text(x.title).font(.subheadline).lineLimit(1) }
+                    Text(los(x.leave).0).font(.system(size: 30, weight: .bold).monospacedDigit()).foregroundColor(los(x.leave).1)
+                    Text("ab " + Fmt.hhmm(x.depart) + " · " + x.detail.replacingOccurrences(of: "ab ", with: "")).font(.caption)
+                        .foregroundColor(Theme.secondary).lineLimit(2)
+                }
+            } else {
+                Text("Lädt …").foregroundColor(Theme.secondary)
             }
         } else {
-            VStack(alignment: .leading, spacing: 0) {
-                ForEach(Array(list.enumerated()), id: \.element.id) { i, x in
-                    if i > 0 { Divider() }
-                    HStack(spacing: 10) {
-                        LineBadge(line: x.line)
-                        VStack(alignment: .leading, spacing: 1) {
-                            HStack(spacing: 6) {
-                                Text("Los " + leaveText(x.leave)).font(.subheadline.weight(.semibold))
-                                    .foregroundColor(x.leave.timeIntervalSinceNow < 120 ? Theme.accent : .primary)
-                                Text(x.top).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
-                            }
-                            Text(x.sub).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
-                        }
-                        Spacer(minLength: 0)
-                        if x.delay > 0 { Text("+\(x.delay)").font(.caption.weight(.semibold)).foregroundColor(.red) }
+            table(wide)
+        }
+    }
+
+    private func table(_ wide: Bool) -> some View {
+            VStack(alignment: .leading, spacing: 4) {
+                ForEach(sections, id: \.route.key) { sec in
+                    TransitHead(route: sec.route, showArrival: wide && sec.route.to != nil)
+                    if sec.rows.isEmpty {
+                        Text(svc.failed(sec.route) ? "Fahrplan nicht erreichbar" : svc.loaded(sec.route) ? "Gerade keine Fahrt" : "Lädt …")
+                            .font(.subheadline).foregroundColor(Theme.secondary).frame(height: 36)
                     }
-                    .padding(.vertical, 6)
+                    ForEach(Array(sec.rows.enumerated()), id: \.element.id) { i, row in
+                        TransitRowView(row: row, showArrival: wide && sec.route.to != nil, best: i == 0)
+                    }
                 }
             }
-        }
+            .contentShape(Rectangle())
     }
 }
 
 struct TransitDetail: View {
     let routes: [TransitBucket.Route]
     @ObservedObject private var svc = TransitService.shared
+    @Environment(\.editBucket) private var edit
 
     var body: some View {
         List {
-            if routes.isEmpty { Text("Noch kein Startpunkt gewählt").foregroundColor(Theme.secondary) }
+            if routes.isEmpty {
+                Button(action: edit) { Label("Startpunkt festlegen", systemImage: "plus.circle.fill") }
+            }
             ForEach(routes) { r in
-                Section(header: Text(r.title + (r.from.stop && r.walk > 0 ? " · \(r.walk) min zu Fuß" : ""))) {
-                    if r.to != nil { journeys(r) } else { departures(r) }
+                Section(footer: footer(r)) {
+                    TransitHead(route: r, showArrival: r.to != nil)
+                    let rows = Array(svc.rows(r).prefix(10))
+                    if rows.isEmpty {
+                        Text(svc.failed(r) ? "Fahrplan nicht erreichbar" : svc.loaded(r) ? "Gerade keine Fahrt" : "Lädt …")
+                            .foregroundColor(Theme.secondary)
+                    }
+                    ForEach(Array(rows.enumerated()), id: \.element.id) { i, row in
+                        TransitRowView(row: row, showArrival: r.to != nil, best: i == 0)
+                    }
+                }
+            }
+            if !routes.isEmpty {
+                Section {
+                    Button(action: edit) { Label("Start und Ziele bearbeiten", systemImage: "slider.horizontal.3") }
                 }
             }
         }
         .listStyle(.insetGrouped)
-        .refreshing(id: routes.map { $0.key }.joined(), every: { 60 }) { await svc.load(routes) }
+        .refreshing(id: routes.map { $0.key + ($0.to?.id ?? "") }.joined(), every: { 60 }) { await svc.load(routes) }
     }
 
-    @ViewBuilder private func departures(_ r: TransitBucket.Route) -> some View {
-        let deps = Array((svc.boards[r.from.id] ?? []).filter { r.accepts($0) && $0.actual > Date().addingTimeInterval(-60) }.prefix(12))
-        if !r.from.stop {
-            Text("Ohne Ziel zeigt Hubert Abfahrten – dafür bitte eine Haltestelle als Start wählen oder ein Ziel festlegen.")
-                .foregroundColor(Theme.secondary)
-        } else if deps.isEmpty {
-            status(r.from.id, loaded: svc.boards[r.from.id] != nil)
-        }
-        ForEach(deps) { d in
-            HStack(spacing: 12) {
-                LineBadge(line: d.line)
-                Text(d.dest).lineLimit(1)
-                Spacer()
-                VStack(alignment: .trailing, spacing: 1) {
-                    Text(Fmt.hhmm(d.actual)).font(.body.monospacedDigit().weight(.semibold)).foregroundColor(d.delay > 0 ? .red : .primary)
-                    Text(d.delay > 0 ? "+\(d.delay) min" : d.realtime ? "pünktlich" : "Plan")
-                        .font(.caption).foregroundColor(d.delay > 0 ? .red : Theme.secondary)
-                }
-            }
-        }
-    }
-
-    @ViewBuilder private func journeys(_ r: TransitBucket.Route) -> some View {
-        let list = (svc.trips[r.key] ?? []).filter { $0.leave > Date().addingTimeInterval(-60) }
-        if list.isEmpty { status(r.key, loaded: svc.trips[r.key] != nil) }
-        ForEach(list) { j in
-            VStack(alignment: .leading, spacing: 6) {
-                HStack {
-                    Text(Fmt.hhmm(j.depart) + " → " + Fmt.hhmm(j.arrive)).font(.headline.monospacedDigit())
-                        .foregroundColor(j.delay > 0 ? .red : .primary)
-                    Text("\(Int(j.arrive.timeIntervalSince(j.depart) / 60)) min").foregroundColor(Theme.secondary)
-                    Spacer()
-                    Text("Los " + leaveText(j.leave)).font(.subheadline.weight(.semibold))
-                        .foregroundColor(j.leave.timeIntervalSinceNow < 120 ? Theme.accent : Theme.secondary)
-                }
-                HStack(spacing: 4) {
-                    ForEach(Array(j.rides.enumerated()), id: \.offset) { i, ride in
-                        if i > 0 { Image(systemName: "chevron.right").font(.caption2).foregroundColor(Theme.secondary) }
-                        LineBadge(line: ride.line)
-                    }
-                    Text(j.changes == 0 ? "direkt" : "\(j.changes)× umsteigen").font(.caption).foregroundColor(Theme.secondary)
-                }
-                if j.changes > 0 {
-                    Text(j.rides.dropFirst().map { "Umstieg " + $0.from + " " + Fmt.hhmm($0.dep) }.joined(separator: " · "))
-                        .font(.caption).foregroundColor(Theme.secondary)
-                }
-            }
-            .padding(.vertical, 4)
-        }
-    }
-
-    private func status(_ key: String, loaded: Bool) -> some View {
-        Text(svc.failed.contains(key) ? "Fahrplan nicht erreichbar" : loaded ? "Gerade keine Verbindung" : "Lädt …")
-            .foregroundColor(Theme.secondary)
+    private func footer(_ r: TransitBucket.Route) -> Text {
+        if r.to == nil && !r.from.stop { return Text("Für Abfahrten eine Haltestelle als Start wählen oder ein Ziel festlegen.") }
+        var parts: [String] = []
+        if r.from.stop && r.walk > 0 { parts.append("\(r.walk) min Fußweg zur Haltestelle") }
+        if !r.lines.isEmpty { parts.append("nur Linien " + r.lines) }
+        parts.append("Los = wann du losgehen musst")
+        return Text(parts.joined(separator: " · "))
     }
 }
 

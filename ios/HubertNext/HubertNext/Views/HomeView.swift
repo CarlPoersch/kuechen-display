@@ -225,8 +225,11 @@ struct BriefingGrid: View {
 
 /// Karte mit Kopfzeile. Der Kopf ("Alle ›") öffnet die Details.
 /// Der Inhalt öffnet sie auch – außer der Bucket hat eigene antippbare Einträge.
+/// Der Regler-Knopf (oder lange drücken) öffnet die Einstellungen direkt hier.
 struct BucketCard: View {
+    @EnvironmentObject var store: AppStore
     let instance: BucketInstance
+    @State private var editing = false
 
     var body: some View {
         if let kind = BucketRegistry.kind(instance.bucket) {
@@ -239,28 +242,40 @@ struct BucketCard: View {
             .background(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).fill(Theme.card))
             .clipShape(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
             .shadow(color: .black.opacity(0.05), radius: 8, y: 3)
+            .contextMenu {
+                Button { editing = true } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
+                Button(role: .destructive) { store.removeBucket(id: instance.id) } label: { Label("Entfernen", systemImage: "trash") }
+            }
+            .environment(\.editBucket, { editing = true })
+            .sheet(isPresented: $editing) { BucketEditSheet(bucketId: instance.id).environmentObject(store) }
         }
-    }
-
-    private func destination(_ kind: BucketKind) -> some View {
-        (kind.detail?(instance) ?? AnyView(EmptyView())).navigationTitle(kind.name)
     }
 
     @ViewBuilder private func head(_ kind: BucketKind) -> some View {
-        let row = HStack(spacing: 6) {
-            Image(systemName: kind.symbol).foregroundColor(kind.tint)
-            Text(kind.name.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
-            Spacer(minLength: 0)
-            if kind.detail != nil {
-                Text("Alle").font(.subheadline).foregroundColor(Theme.accent)
-                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+        HStack(spacing: 10) {
+            let row = HStack(spacing: 6) {
+                Image(systemName: kind.symbol).foregroundColor(kind.tint)
+                Text(kind.name.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                Spacer(minLength: 0)
+                if kind.detail != nil {
+                    Text("Alle").font(.subheadline).foregroundColor(Theme.accent)
+                    Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                }
             }
-        }
-        .contentShape(Rectangle())
-        if kind.detail != nil {
-            NavigationLink(destination: destination(kind)) { row }.buttonStyle(.plain)
-        } else {
-            row
+            .contentShape(Rectangle())
+            if kind.detail != nil {
+                NavigationLink(destination: BucketDetailHost(instance: instance, kind: kind)) { row }.buttonStyle(.plain)
+            } else {
+                row
+            }
+            if kind.settings != nil {
+                Button { editing = true } label: {
+                    Image(systemName: "slider.horizontal.3").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
+                        .frame(width: 28, height: 22)
+                }
+                .buttonStyle(.borderless)
+                .accessibilityLabel("Anpassen")
+            }
         }
     }
 
@@ -273,9 +288,51 @@ struct BucketCard: View {
         .clipped()
         .contentShape(Rectangle())
         if kind.detail != nil && !kind.itemLinks {
-            NavigationLink(destination: destination(kind)) { inner }.buttonStyle(.plain)
+            NavigationLink(destination: BucketDetailHost(instance: instance, kind: kind)) { inner }.buttonStyle(.plain)
         } else {
             inner
         }
+    }
+}
+
+/// Detailansicht mit "Anpassen"-Knopf oben rechts
+struct BucketDetailHost: View {
+    @EnvironmentObject var store: AppStore
+    let instance: BucketInstance
+    let kind: BucketKind
+    @State private var editing = false
+
+    /// Immer die aktuelle Fassung (nach dem Anpassen sofort sichtbar)
+    private var current: BucketInstance { store.buckets.first { $0.id == instance.id } ?? instance }
+
+    var body: some View {
+        (kind.detail?(current) ?? AnyView(EmptyView()))
+            .navigationTitle(kind.name)
+            .navigationBarHidden(false)
+            .environment(\.editBucket, { editing = true })
+            .toolbar {
+                if kind.settings != nil {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button { editing = true } label: { Image(systemName: "slider.horizontal.3") }
+                            .accessibilityLabel("Anpassen")
+                    }
+                }
+            }
+            .sheet(isPresented: $editing) { BucketEditSheet(bucketId: instance.id).environmentObject(store) }
+    }
+}
+
+/// Bucket-Einstellungen als Blatt mit "Fertig"
+struct BucketEditSheet: View {
+    @EnvironmentObject var store: AppStore
+    @Environment(\.dismiss) private var dismiss
+    let bucketId: String
+    var body: some View {
+        NavigationView {
+            BucketEditView(bucketId: bucketId)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fertig") { dismiss() } } }
+        }
+        .navigationViewStyle(.stack)
     }
 }

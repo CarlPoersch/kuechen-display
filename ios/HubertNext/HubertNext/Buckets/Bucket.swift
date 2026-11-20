@@ -87,6 +87,15 @@ extension EnvironmentValues {
     }
 }
 
+/// Öffnet die Einstellungen des Buckets direkt aus der Karte oder den Details
+private struct EditBucketKey: EnvironmentKey { static let defaultValue: () -> Void = {} }
+extension EnvironmentValues {
+    var editBucket: () -> Void {
+        get { self[EditBucketKey.self] }
+        set { self[EditBucketKey.self] = newValue }
+    }
+}
+
 /// Wie viele Zeilen der Höhe `row` passen in `height` (mindestens 1, höchstens `max`)
 func fitRows(_ height: CGFloat, row: CGFloat, max m: Int = 12) -> Int {
     Swift.max(1, Swift.min(m, Int((height + 4) / row)))

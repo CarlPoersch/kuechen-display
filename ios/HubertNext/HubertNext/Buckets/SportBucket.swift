@@ -56,7 +56,12 @@ struct SportGlance: View {
                         if i > 0 { Divider() }
                         // Jedes Spiel einzeln antippbar
                         NavigationLink(destination: MatchDetailView(match: m)) {
-                            MatchRow(match: m, compact: true).padding(.vertical, 6).contentShape(Rectangle())
+                            HStack(spacing: 6) {
+                                MatchRow(match: m, compact: true)
+                                Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
+                                    .foregroundColor(Color(UIColor.tertiaryLabel))
+                            }
+                            .padding(.vertical, 6).contentShape(Rectangle())
                         }
                         .buttonStyle(.plain)
                     }
