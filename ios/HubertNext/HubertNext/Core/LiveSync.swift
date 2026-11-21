@@ -75,9 +75,13 @@ struct LiveCookingRow: Codable {
     var active: Bool? = true     // false = beendet (statt Löschen, siehe Migration 007)
 }
 
-final class LiveSync {
+final class LiveSync: ObservableObject {
     static let shared = LiveSync()
+    /// Für die Anzeige in den Einstellungen
+    @Published private(set) var connected = false
+    @Published private(set) var lastSync: Date?
     private var household: String?
+    private var joinRef: String?
     private var socket: URLSessionWebSocketTask?
     private var heartbeat: AnyCancellable?
     private var poll: AnyCancellable?
@@ -107,6 +111,7 @@ final class LiveSync {
     func pause() {
         socket?.cancel(with: .goingAway, reason: nil); socket = nil
         heartbeat = nil; poll = nil
+        connected = false
     }
 
     func stop() {
@@ -132,6 +137,7 @@ final class LiveSync {
                 let (timers, cooking) = try await (t, c)
                 TimerCenter.shared.apply(remote: timers)
                 await CookSession.shared.apply(remote: cooking.first.flatMap { $0.active == false ? nil : $0 })
+                lastSync = Date()
             } catch {
                 print("Live-Abgleich:", error)
             }
@@ -167,7 +173,9 @@ final class LiveSync {
             changes.append(["event": "UPDATE", "schema": "public", "table": t, "filter": "household_id=eq." + h])
             changes.append(["event": "DELETE", "schema": "public", "table": t])
         }
-        send(["topic": "realtime:hubert-" + h, "event": "phx_join", "ref": next(), "join_ref": "1",
+        let r = next()
+        joinRef = r
+        send(["topic": "realtime:hubert-" + h, "event": "phx_join", "ref": r, "join_ref": r,
               "payload": ["config": ["broadcast": ["self": false], "presence": ["key": ""], "postgres_changes": changes],
                           "access_token": token]])
     }
@@ -200,7 +208,7 @@ final class LiveSync {
         switch result {
         case .failure:
             // Verbindung weg → nach kurzer Pause neu verbinden (1 s, 2 s, 4 s … max. 30 s)
-            socket = nil; heartbeat = nil
+            socket = nil; heartbeat = nil; connected = false
             let wait = retry; retry = min(30, retry * 2)
             Task { @MainActor in
                 try? await Task.sleep(nanoseconds: UInt64(wait * 1_000_000_000))
@@ -213,7 +221,12 @@ final class LiveSync {
                let obj = (try? JSONSerialization.jsonObject(with: Data(s.utf8))) as? [String: Any],
                let event = obj["event"] as? String {
                 if event == "postgres_changes" { changed(obj) }
-                if event == "phx_reply", let p = obj["payload"] as? [String: Any], p["status"] as? String == "ok" { Task { await pull() } }
+                // Antwort auf die Anmeldung (nicht auf jeden Herzschlag): verbunden → einmal abgleichen
+                if event == "phx_reply", let r = obj["ref"] as? String, r == joinRef, let p = obj["payload"] as? [String: Any] {
+                    connected = p["status"] as? String == "ok"
+                    if connected { Task { await pull() } } else { print("Live-Abgleich: Anmeldung abgelehnt", p) }
+                }
+                if event == "phx_error" || event == "phx_close" { connected = false }
             }
             receive(ws)
         }

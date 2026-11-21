@@ -16,6 +16,13 @@ struct SettingsView: View {
     @State private var deleteError: String?
     @State private var householdName = ""
     @State private var copied = false
+    @State private var members: Int?
+    @ObservedObject private var live = LiveSync.shared
+
+    private var version: String {
+        let i = Bundle.main.infoDictionary
+        return "Hubert \(i?["CFBundleShortVersionString"] as? String ?? "?") (Build \(i?["CFBundleVersion"] as? String ?? "?"))"
+    }
 
     var body: some View {
         NavigationView {
@@ -66,8 +73,23 @@ struct SettingsView: View {
                             }
                             .buttonStyle(.bordered)
                         }
+                        if let n = members {
+                            HStack {
+                                Text("Mitglieder")
+                                Spacer()
+                                Text(n == 1 ? "nur du" : "\(n) Personen").foregroundColor(Theme.secondary)
+                            }
+                        }
+                        HStack(spacing: 10) {
+                            Circle().fill(live.connected ? Color.green : Color(UIColor.systemGray3)).frame(width: 10, height: 10)
+                            Text("Live-Abgleich")
+                            Spacer()
+                            Text(live.connected ? "verbunden" : "getrennt").foregroundColor(Theme.secondary)
+                        }
+                        .accessibilityElement(children: .combine)
                     } header: { Text("Haushalt") } footer: {
-                        Text("Mit diesem Code treten andere deinem Haushalt bei und teilen Küche, Einkaufsliste und Haushalts-Tools.")
+                        Text("Mit diesem Code treten andere deinem Haushalt bei und teilen Küche, Einkaufsliste und Haushalts-Tools. Timer und das laufende Rezept erscheinen auf allen Geräten dieses Haushalts – auch auf deinen eigenen, wenn du dort mit demselben Konto angemeldet bist."
+                             + (live.lastSync.map { " Zuletzt abgeglichen: " + Fmt.hhmm($0) + " Uhr." } ?? ""))
                     }
                 }
 
@@ -82,7 +104,7 @@ struct SettingsView: View {
                     .disabled(deleting)
                     if let e = deleteError { Text(e).font(.footnote).foregroundColor(.red) }
                 } header: { Text("Konto") } footer: {
-                    Text("Löschen entfernt dein Konto, deine Startseite und deine Einstellungen endgültig. Bist du das letzte Mitglied deines Haushalts, wird auch dessen Küche gelöscht.")
+                    Text("Löschen entfernt dein Konto, deine Startseite und deine Einstellungen endgültig. Bist du das letzte Mitglied deines Haushalts, wird auch dessen Küche gelöscht.\n\n" + version)
                 }
             }
             .listStyle(.insetGrouped)
@@ -112,6 +134,7 @@ struct SettingsView: View {
                      : "Dein Konto und deine Startseite werden gelöscht. Der Haushalt mit Küche bleibt für die anderen Mitglieder bestehen. Das lässt sich nicht rückgängig machen.")
             }
             .onAppear { householdName = store.household?.name ?? "" }
+            .task { members = await store.memberCount() }
         }
         .navigationViewStyle(.stack)
     }

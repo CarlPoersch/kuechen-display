@@ -79,6 +79,14 @@ final class AppStore: ObservableObject {
 
     // MARK: Haushalt
 
+    /// Wie viele Personen im Haushalt sind (für die Anzeige in den Einstellungen)
+    func memberCount() async -> Int? {
+        guard let h = household else { return nil }
+        struct M: Decodable { let user_id: String }
+        let members: [M]? = try? await api.select("household_members", ["household_id": "eq." + h.id])
+        return members?.count
+    }
+
     func createHousehold(name: String) async throws {
         household = try await api.rpc("create_household", ["p_name": name])
         saveCache()
