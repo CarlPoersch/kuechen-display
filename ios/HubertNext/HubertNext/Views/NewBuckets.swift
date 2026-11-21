@@ -15,7 +15,7 @@ enum NewBuckets {
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
         "deals": [
-            Highlight(symbol: "square.grid.2x2", text: "Bereiche antippen – Mode, Schuhe, Make-up, Pflege, Parfum, Technik und mehr"),
+            Highlight(symbol: "square.grid.2x2", text: "Bereiche antippen – Mode, Streetwear, Schuhe, Make-up, Pflege, Parfum, Technik und mehr"),
             Highlight(symbol: "photo.on.rectangle", text: "Angebote mit Bild, Preis und Rabatt – je Suche eine eigene Reihe"),
             Highlight(symbol: "wand.and.stars", text: "Findet auch verwandte Wörter und Tippfehler (Kleider → Strickkleid)"),
         ],

@@ -221,31 +221,45 @@ struct WeatherGlance: View {
         }
     }
 
+    /// Breite einer Spalte: `count` Spalten passen ganz hinein, eine halbe ragt rechts herein –
+    /// so sieht man, dass es nach rechts weitergeht (wie die Stunden in Apple Wetter)
+    private func cell(_ count: Int) -> CGFloat { max(40, space.width / (CGFloat(count) + 0.5)) }
+
+    /// Die nächsten 24 Stunden, waagerecht zu wischen
     private func hourStrip(_ w: WeatherData, count: Int) -> some View {
-        let next = Array(w.hours.filter { $0.date > Date().addingTimeInterval(-3600) }.prefix(count))
-        return HStack(spacing: 0) {
-            ForEach(next) { h in
-                VStack(spacing: 4) {
-                    Text(h.id == next.first?.id ? "Jetzt" : String(Fmt.hhmm(h.date).prefix(2))).font(.caption).foregroundColor(Theme.secondary)
-                    Image(systemName: WeatherCode.info(h.code, day: h.day).symbol).renderingMode(.original).frame(height: 20)
-                    Text("\(h.temp)°").font(.subheadline.weight(.semibold))
+        let next = Array(w.hours.filter { $0.date > Date().addingTimeInterval(-3600) }.prefix(24))
+        let width = cell(count)
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(next) { h in
+                    VStack(spacing: 4) {
+                        Text(h.id == next.first?.id ? "Jetzt" : String(Fmt.hhmm(h.date).prefix(2))).font(.caption).foregroundColor(Theme.secondary)
+                        Image(systemName: WeatherCode.info(h.code, day: h.day).symbol).renderingMode(.original).frame(height: 20)
+                        Text("\(h.temp)°").font(.subheadline.weight(.semibold))
+                    }
+                    .frame(width: width)
                 }
-                .frame(maxWidth: .infinity)
             }
         }
+        .fixedSize(horizontal: false, vertical: true)   // nur so hoch wie die Spalten
     }
 
+    /// Alle Tage der Vorhersage (bis 9 nach heute), waagerecht zu wischen
     private func dayStrip(_ w: WeatherData, count: Int) -> some View {
-        HStack(spacing: 0) {
-            ForEach(1..<min(count + 1, w.daily.time.count), id: \.self) { i in
-                VStack(spacing: 4) {
-                    Text(w.dayDate(i).map { WeatherFmt.weekday($0) } ?? "").font(.caption).foregroundColor(Theme.secondary)
-                    Image(systemName: WeatherCode.info(w.daily.code[i] ?? 0).symbol).renderingMode(.original).frame(height: 20)
-                    Text("\(w.maxT(i))°").font(.subheadline.weight(.semibold)) + Text(" \(w.minT(i))°").font(.caption).foregroundColor(Theme.secondary)
+        let width = cell(count)
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(1..<max(1, w.daily.time.count), id: \.self) { i in
+                    VStack(spacing: 4) {
+                        Text(w.dayDate(i).map { WeatherFmt.weekday($0) } ?? "").font(.caption).foregroundColor(Theme.secondary)
+                        Image(systemName: WeatherCode.info(w.daily.code[i] ?? 0).symbol).renderingMode(.original).frame(height: 20)
+                        Text("\(w.maxT(i))°").font(.subheadline.weight(.semibold)) + Text(" \(w.minT(i))°").font(.caption).foregroundColor(Theme.secondary)
+                    }
+                    .frame(width: width)
                 }
-                .frame(maxWidth: .infinity)
             }
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 

@@ -210,6 +210,13 @@ enum SportBucket {
         return isFav(m.a, in: m, f) || isFav(m.b, in: m, f)
     }
 
+    /// Überschrift, unter der ein Spiel steht: „Live“, der Tag („Heute“, „Morgen“, „Montag, 24.11.“) oder „Ergebnisse“
+    static func group(_ m: Match) -> String {
+        if m.isLive { return "Live" }
+        if m.state == "pre" { return Fmt.dayLabel(m.start) }
+        return "Ergebnisse"
+    }
+
     /// Startseite: Live zuerst, dann Favoriten, dann der Rest; Ergebnisse höchstens 20 Std. alt
     static func pick(_ all: [Match], _ f: [SportFollow]) -> [Match] {
         let now = Date()
@@ -248,14 +255,25 @@ struct SportGlance: View {
             if list.isEmpty {
                 Text("Gerade keine Spiele").foregroundColor(Theme.secondary)
             } else {
-                GlancePager(pages: Pages.split(list, height: space.height, row: 54)) { page in
+                // Nach Tagen geordnet: Überschrift kostet extra Platz (wie bei den Terminen)
+                let pages = Pages.split(list, height: space.height) { m, first, prev in
+                    54 + ((first || prev.map { SportBucket.group($0) != SportBucket.group(m) } ?? true) ? 20 : 0)
+                }
+                GlancePager(pages: pages) { page in
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(Array(page.enumerated()), id: \.element.id) { i, m in
-                            if i > 0 { Divider() }
+                            if i == 0 || SportBucket.group(page[i - 1]) != SportBucket.group(m) {
+                                Text(SportBucket.group(m).uppercased())
+                                    .font(.caption2.weight(.semibold))
+                                    .foregroundColor(m.isLive ? .red : Theme.secondary)
+                                    .frame(height: 20, alignment: .bottomLeading)
+                            } else {
+                                Divider()
+                            }
                             // Jedes Spiel einzeln antippbar
                             NavigationLink(destination: MatchDetailView(match: m, follows: follows)) {
                                 HStack(spacing: 6) {
-                                    MatchRow(match: m, compact: true, follows: follows)
+                                    MatchRow(match: m, compact: true, follows: follows, timeOnly: true)
                                     Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
                                         .foregroundColor(Color(UIColor.tertiaryLabel))
                                 }
@@ -277,6 +295,8 @@ struct MatchRow: View {
     let match: Match
     var compact = false
     var follows: [SportFollow] = []
+    /// Steht der Tag schon in der Überschrift, reicht die Uhrzeit
+    var timeOnly = false
 
     private var status: some View {
         Group {
@@ -284,7 +304,8 @@ struct MatchRow: View {
                 Text(match.sport == "tn" ? "LIVE" : match.detailDE)
                     .font(.caption.weight(.bold).monospacedDigit()).foregroundColor(.red)
             } else if match.state == "pre" {
-                Text(Fmt.when(match.start)).font(.caption.monospacedDigit()).foregroundColor(Theme.secondary)
+                Text(timeOnly ? Fmt.hhmm(match.start) : Fmt.when(match.start))
+                    .font((timeOnly ? Font.subheadline : Font.caption).monospacedDigit()).foregroundColor(Theme.secondary)
             } else {
                 Text(match.detail.isEmpty ? "Ende" : match.detailDE).font(.caption).foregroundColor(Theme.secondary)
             }
@@ -365,8 +386,13 @@ struct SportDetail: View {
         return SportBucket.order.filter(have.contains)
     }
 
+    private struct Day: Identifiable { let id: Date; let matches: [Match] }
+
     var body: some View {
         let all = SportBucket.filter(feed.sportFeeds[key]?.matches ?? [], follows).filter { only == "alle" || $0.sport == only }
+        let pre = all.filter { $0.state == "pre" }.sorted { $0.start < $1.start }
+        let byDay = Dictionary(grouping: pre) { Calendar.current.startOfDay(for: $0.start) }
+        let days = byDay.keys.sorted().map { Day(id: $0, matches: byDay[$0] ?? []) }
         List {
             // Sportarten als Kapseln (bei vielen Sportarten passt kein Segment mehr)
             if sports.count > 1 {
@@ -382,10 +408,14 @@ struct SportDetail: View {
             if follows.isEmpty { Text("Du folgst noch niemandem – oben rechts über den Regler einstellen.").foregroundColor(Theme.secondary) }
             else if feed.sportFeeds[key] == nil { ProgressView() }
             else if all.isEmpty { Text("Gerade keine Spiele").foregroundColor(Theme.secondary) }
-            section("Live", all.filter { $0.isLive })
-            section("Meine Favoriten", all.filter { !$0.isLive && $0.state == "pre" && SportBucket.isFav($0, follows) })
-            section("Demnächst", all.filter { $0.state == "pre" && !SportBucket.isFav($0, follows) })
-            section("Ergebnisse", all.filter { $0.state == "post" })
+            section("Live", all.filter { $0.isLive }.sorted { $0.start < $1.start })
+            // Favoriten oben zusätzlich – im Tagesplan darunter stehen sie trotzdem (mit Stern)
+            section("Meine Favoriten", pre.filter { SportBucket.isFav($0, follows) })
+            // Demnächst: nach Tagen, innerhalb des Tages nach Uhrzeit
+            ForEach(days) { d in
+                section(days.first?.id == d.id ? "Demnächst · " + Fmt.dayLabel(d.id) : Fmt.dayLabel(d.id), d.matches, timeOnly: true)
+            }
+            section("Ergebnisse", all.filter { $0.state == "post" }.sorted { $0.start > $1.start })
         }
         .listStyle(.insetGrouped)
         .refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) { await FeedService.shared.loadSport(leagues: leagues) }
@@ -401,11 +431,13 @@ struct SportDetail: View {
         .buttonStyle(.plain)
     }
 
-    @ViewBuilder private func section(_ title: String, _ list: [Match]) -> some View {
+    @ViewBuilder private func section(_ title: String, _ list: [Match], timeOnly: Bool = false) -> some View {
         if !list.isEmpty {
             Section(header: Text(title)) {
                 ForEach(list) { m in
-                    NavigationLink(destination: MatchDetailView(match: m, follows: follows)) { MatchRow(match: m, follows: follows).padding(.vertical, 4) }
+                    NavigationLink(destination: MatchDetailView(match: m, follows: follows)) {
+                        MatchRow(match: m, follows: follows, timeOnly: timeOnly).padding(.vertical, 4)
+                    }
                 }
             }
         }

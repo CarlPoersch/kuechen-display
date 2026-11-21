@@ -5,8 +5,10 @@ import Combine   // ObservableObject und @Published (das Projekt verlangt den Im
 // ============================================================
 // Deals-Bucket – gute Angebote zu dem, was man sucht.
 // Aufbau wie der App Store:
-//  • Bereiche antippen (Mode, Schuhe, Make-up, Pflege, Parfum, Taschen &
-//    Schmuck, Shops … bis Technik) → passende Suchen sind vorgewählt
+//  • Bereiche antippen (Mode, Streetwear, Schuhe, Make-up, Pflege, Parfum,
+//    Taschen & Schmuck, Shops … bis Technik) → passende Suchen sind vorgewählt
+//  • Mode: der Server kennt die Trends der Saison, sortiert Angesagtes nach
+//    vorn, lässt Basic-Marken weg und liefert „Gerade im Trend“
 //  • Karte: Produkt-Kacheln mit Bild, Preis, Rabatt
 //  • Alle Deals: je Suche eine Reihe zum Wischen, „Alle ›“ als Raster
 // Passt auch ungefähr (Umlaute, Mehrzahl, Tippfehler, Synonyme) – macht der Server.
@@ -30,8 +32,13 @@ struct Deal: Decodable, Identifiable, Hashable {
     let d: String
     let off: Int?          // Rabatt in % (aus dem Titel)
     let code: Bool?        // Gutschein statt Produkt
+    let hype: Int?         // Trend-Punkte 0–6 (angesagte Marken, Modelle, Schnitte)
 
     var date: Date { Fmt.date(d) ?? Date() }
+    /// Gerade angesagt (zeigt die Trend-Plakette)
+    var trendy: Bool { (hype ?? 0) >= 3 }
+    /// Reihenfolge wie beim Server: neu zuerst, Angesagtes rutscht bis zu drei Tage nach vorn
+    var rank: Date { date.addingTimeInterval(Double(max(0, hype ?? 0)) * 12 * 3600) }
     var image: URL? { img.flatMap { URL(string: $0) } }
     /// Bilder liefert mydealz in festen Größen – Kacheln in 300 × 300, Details größer
     var tileImage: URL? { sized("300x300") }
@@ -53,7 +60,12 @@ struct DealHit: Identifiable {
     var terms: [String]
     var id: String { deal.id }
 }
-struct DealMatch: Decodable { let at: String; let groups: [DealGroup]; let hot: [Deal] }
+struct DealMatch: Decodable {
+    let at: String
+    let groups: [DealGroup]
+    let hot: [Deal]
+    let trend: [Deal]?      // angesagte Mode der letzten Tage (ältere Server liefern nichts)
+}
 struct DealPreview: Decodable {
     struct Std: Decodable { let alts: [String]; let not: [String] }
     let n: Int
@@ -141,15 +153,15 @@ enum DealFmt {
 /// Symbol und Farbe je Bereich
 enum DealArea {
     static func symbol(_ id: String?) -> String {
-        ["mode": "tshirt", "schuhe": "figure.walk", "makeup": "paintbrush.pointed", "pflege": "drop", "parfum": "sparkles",
-         "accessoires": "bag", "shops": "tag", "wohnen": "house", "technik": "headphones", "gaming": "gamecontroller",
-         "haushalt": "wrench.and.screwdriver", "einkauf": "cart", "freizeit": "gift", "reisen": "airplane",
-         "aktionen": "percent"][id ?? ""] ?? "magnifyingglass"
+        ["mode": "tshirt", "streetwear": "bolt", "schuhe": "figure.walk", "makeup": "paintbrush.pointed", "pflege": "drop",
+         "parfum": "sparkles", "accessoires": "bag", "shops": "tag", "wohnen": "house", "technik": "headphones",
+         "gaming": "gamecontroller", "haushalt": "wrench.and.screwdriver", "einkauf": "cart", "freizeit": "gift",
+         "reisen": "airplane", "aktionen": "percent", "trend": "flame"][id ?? ""] ?? "magnifyingglass"
     }
     static func color(_ id: String?) -> Color {
-        ["mode": .pink, "schuhe": .orange, "makeup": .red, "pflege": .teal, "parfum": .purple, "accessoires": .brown,
-         "shops": .indigo, "wohnen": .yellow, "technik": .blue, "gaming": .green, "haushalt": .gray, "einkauf": .mint,
-         "freizeit": .cyan, "reisen": .blue, "aktionen": .orange][id ?? ""] ?? Theme.accent
+        ["mode": .pink, "streetwear": .indigo, "schuhe": .orange, "makeup": .red, "pflege": .teal, "parfum": .purple,
+         "accessoires": .brown, "shops": .blue, "wohnen": .yellow, "technik": .blue, "gaming": .green, "haushalt": .gray,
+         "einkauf": .mint, "freizeit": .cyan, "reisen": .blue, "aktionen": .orange, "trend": Theme.accent][id ?? ""] ?? Theme.accent
     }
 }
 
@@ -196,7 +208,11 @@ enum DealsBucket {
         return DealService.shared.catalog.first { c in c.items.contains { $0.t.caseInsensitiveCompare(w.t) == .orderedSame } }?.id
     }
 
-    /// Treffer aller Suchen, ohne Doppelte, neueste zuerst
+    /// Bereiche, in denen „Gerade im Trend“ mitläuft
+    static let styleAreas: Set<String> = ["mode", "streetwear", "schuhe", "accessoires"]
+    static func wantsTrend(_ w: [DealWatch]) -> Bool { w.contains { styleAreas.contains(area(of: $0) ?? "") } }
+
+    /// Treffer aller Suchen, ohne Doppelte, neueste zuerst (Angesagtes etwas weiter vorn)
     static func merged(_ m: DealMatch) -> [DealHit] {
         var order: [String] = []
         var byId: [String: DealHit] = [:]
@@ -206,7 +222,7 @@ enum DealsBucket {
                 else { byId[d.id] = DealHit(deal: d, terms: [g.t]); order.append(d.id) }
             }
         }
-        return order.compactMap { byId[$0] }.sorted { $0.deal.date > $1.deal.date }
+        return order.compactMap { byId[$0] }.sorted { $0.deal.rank > $1.deal.rank }
     }
 
     static func hits(_ m: DealMatch, for term: String) -> [DealHit] {
@@ -252,7 +268,7 @@ final class DealService: ObservableObject {
 
     /// Bereiche und Vorschläge (vom Server, damit neue ohne App-Update dazukommen)
     @Published private(set) var catalog: [DealCatalog] = {
-        guard let d = UserDefaults.standard.data(forKey: "deals.catalog.v2"),
+        guard let d = UserDefaults.standard.data(forKey: "deals.catalog.v3"),
               let c = try? JSONDecoder().decode([DealCatalog].self, from: d) else { return [] }
         return c
     }()
@@ -264,7 +280,7 @@ final class DealService: ObservableObject {
               let c = try? JSONDecoder().decode([DealCatalog].self, from: data) else { return }
         catalog = c
         catalogAt = Date()
-        UserDefaults.standard.set(data, forKey: "deals.catalog.v2")
+        UserDefaults.standard.set(data, forKey: "deals.catalog.v3")
     }
 }
 
@@ -342,6 +358,11 @@ struct DealTile: View {
             }
             if deal.code == true {
                 Text("Gutschein").font(.caption2.weight(.semibold)).foregroundColor(.primary)
+                    .padding(.horizontal, 7).padding(.vertical, 3)
+                    .background(Capsule().fill(.regularMaterial))
+            }
+            if deal.trendy {
+                Label("Trend", systemImage: "flame.fill").font(.caption2.weight(.semibold)).foregroundColor(Theme.accent)
                     .padding(.horizontal, 7).padding(.vertical, 3)
                     .background(Capsule().fill(.regularMaterial))
             }
@@ -429,14 +450,19 @@ struct DealsGlance: View {
         } else if let m = service.results[key] {
             let hits = DealsBucket.merged(m)
             let fallback = hits.isEmpty && DealsBucket.showHot(config)
-            let list = fallback ? m.hot.map { DealHit(deal: $0, terms: []) } : hits
+            // Wer Mode sucht, bekommt statt „heiß bei allen“ das, was gerade angesagt ist
+            let trend = DealsBucket.wantsTrend(watch) ? (m.trend ?? []) : []
+            let list = fallback ? (trend.isEmpty ? m.hot : trend).map { DealHit(deal: $0, terms: []) } : hits
             let banner = BlackWeek.banner
             VStack(alignment: .leading, spacing: 8) {
                 if let b = banner { BlackWeekBanner(text: b) }
                 if list.isEmpty {
                     Text("Gerade nichts Neues – Hubert schaut alle 10 Minuten nach.").foregroundColor(Theme.secondary)
                 } else {
-                    if fallback { Text("Zu deinen Suchen gerade nichts – heiß bei allen:").font(.caption).foregroundColor(Theme.secondary) }
+                    if fallback {
+                        Text(trend.isEmpty ? "Zu deinen Suchen gerade nichts – heiß bei allen:" : "Zu deinen Suchen gerade nichts – gerade im Trend:")
+                            .font(.caption).foregroundColor(Theme.secondary)
+                    }
                     let h = space.height - (banner == nil ? 0 : 28) - (fallback ? 22 : 0)
                     // Kacheln nur, wenn mindestens eine ganze Reihe hineinpasst – sonst Liste
                     if space.width >= 280 && h >= layout.tileH + Pages.dots { tiles(list, height: h) } else { rows(list, height: h) }
@@ -518,6 +544,11 @@ struct DealsDetail: View {
                     }
                     .padding(.horizontal, 20)
                 } else if let m = m {
+                    let trend = DealsBucket.wantsTrend(watch) ? (m.trend ?? []) : []
+                    if !trend.isEmpty {
+                        shelf(title: "Gerade im Trend", area: "trend", count: trend.count,
+                              hits: trend.map { DealHit(deal: $0, terms: []) }, showLabel: false)
+                    }
                     let empty = watch.filter { w in (m.groups.first { $0.t == w.t }?.n ?? 0) == 0 }
                     ForEach(watch.filter { w in !empty.contains(w) }) { w in
                         shelf(title: w.t, area: DealsBucket.area(of: w), count: m.groups.first { $0.t == w.t }?.n ?? 0,
@@ -580,12 +611,13 @@ struct DealSearchView: View {
     let title: String
     let area: String?
     let hits: [DealHit]
-    @State private var sort = 0          // 0 neueste, 1 günstigste, 2 höchster Rabatt
+    @State private var sort = 0          // 0 Top (wie vom Server: bei Mode Angesagtes vorn), 1 neueste, 2 günstigste, 3 höchster Rabatt
 
     private var sorted: [DealHit] {
         switch sort {
-        case 1: return hits.sorted { ($0.deal.p ?? .greatestFiniteMagnitude) < ($1.deal.p ?? .greatestFiniteMagnitude) }
-        case 2: return hits.sorted { ($0.deal.off ?? -1) > ($1.deal.off ?? -1) }
+        case 1: return hits.sorted { $0.deal.date > $1.deal.date }
+        case 2: return hits.sorted { ($0.deal.p ?? .greatestFiniteMagnitude) < ($1.deal.p ?? .greatestFiniteMagnitude) }
+        case 3: return hits.sorted { ($0.deal.off ?? -1) > ($1.deal.off ?? -1) }
         default: return hits
         }
     }
@@ -594,7 +626,7 @@ struct DealSearchView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Picker("Sortieren", selection: $sort) {
-                    Text("Neueste").tag(0); Text("Günstigste").tag(1); Text("Rabatt").tag(2)
+                    Text("Top").tag(0); Text("Neueste").tag(1); Text("Günstigste").tag(2); Text("Rabatt").tag(3)
                 }
                 .pickerStyle(.segmented)
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 14, alignment: .top)], alignment: .leading, spacing: 18) {
@@ -663,6 +695,10 @@ struct DealDetailView: View {
                 HStack { Text("Eingestellt"); Spacer(); Text(Fmt.ago(deal.date)).foregroundColor(Theme.secondary) }
                 if !terms.isEmpty { HStack { Text("Passt zu"); Spacer(); Text(terms.joined(separator: ", ")).foregroundColor(Theme.secondary) } }
                 if let c = deal.cat { HStack { Text("Kategorie"); Spacer(); Text(c).foregroundColor(Theme.secondary) } }
+                if deal.trendy {
+                    Label("Gerade angesagt – Marke, Modell oder Schnitt sind in dieser Saison gefragt", systemImage: "flame.fill")
+                        .foregroundColor(Theme.accent)
+                }
             } footer: {
                 Text("„Zum Angebot“ öffnet den Deal bei mydealz – innerhalb von Hubert.")
             }

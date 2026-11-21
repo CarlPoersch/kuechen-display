@@ -45,25 +45,74 @@ async function userOk(auth: string | null): Promise<boolean> {
 
 // ============================================================
 // VORSCHLÄGE – wie die Grundliste beim Einkaufszettel: sofort nutzbar,
-// mit Synonymen (alts), Ausschlüssen (not) und passenden mydealz-Gruppen (g)
+// mit Synonymen (alts), Ausschlüssen (not) und passenden mydealz-Gruppen (g).
+// Mode, Streetwear und Schuhe sind nach dem ausgerichtet, was gerade angesagt
+// ist (Herbst/Winter 2026: Zara, H&M, Mango, Streetwear-Shops, Modemagazine):
+// Barrel-/Baggy-Jeans, Bomber und Leder-Look, Kunstpelz, Strick und Zip-Pullover,
+// Karo, Spitze; flache Retro-Sneaker (Samba, Speedcat, Onitsuka), kniehohe Stiefel.
 // ============================================================
-type Preset = { t: string; alts?: string[]; not?: string[]; g?: string[]; s?: boolean };   // s = Startvorschlag des Bereichs
-const CATALOG: { id: string; name: string; emoji: string; items: Preset[] }[] = [
-  { id: "mode", name: "Mode", emoji: "👗", items: [
-    { t: "Kleider", alts: ["Kleid", "Maxikleid", "Midikleid", "Strickkleid", "Abendkleid"], g: ["kleider", "kleidung"], s: true },
-    { t: "Jeans", alts: ["Mom Jeans", "Straight Jeans", "Levi's"], not: ["Jeansjacke"], g: ["jeans"], s: true },
-    { t: "Pullover", alts: ["Strickpullover", "Cardigan", "Strickjacke", "Hoodie", "Sweatshirt"], g: ["pullover"], s: true },
-    { t: "Winterjacke", alts: ["Mantel", "Wintermantel", "Daunenjacke", "Parka", "Steppjacke", "Teddyjacke"], g: ["winterjacken", "jacken"], s: true },
-    { t: "Leggings", alts: ["Sportleggings", "Yogahose", "Sport-BH", "Trainingshose"], g: ["leggings", "fitness"] },
-    { t: "Unterwäsche", alts: ["BH", "Dessous", "Slip", "Pyjama", "Schlafanzug", "Bademantel"], g: ["unterwaesche", "dessous"] },
-    { t: "Kleidung", alts: ["Fashion", "Damenmode", "Herrenmode", "Bekleidung"], g: ["kleidung", "fashion-accessoires"] },
+type Preset = {
+  t: string; alts?: string[]; not?: string[]; g?: string[];
+  s?: boolean;        // Startvorschlag des Bereichs
+  aka?: string[];     // frühere Namen (ältere Karten suchen damit weiter)
+  shop?: boolean;     // Shop/Marke: passt auch über den Händler, nicht nur über den Titel
+  cat?: string;       // passt auf eine ganze mydealz-Kategorie
+  style?: boolean;    // Mode: Basic-Marken raus, Angesagtes nach vorn
+};
+type Area = { id: string; name: string; emoji: string; style?: boolean; items: Preset[] };
+const CATALOG: Area[] = [
+  { id: "mode", name: "Mode", emoji: "👗", style: true, items: [
+    { t: "Baggy & Barrel Jeans", aka: ["Jeans"], alts: ["Jeans", "Baggy Jeans", "Barrel Jeans", "Wide Leg", "Balloon Jeans", "Ballonhose", "Mom Jeans", "Straight Jeans", "Low Rise", "Levi's 501"],
+      not: ["Jeansjacke", "Jeans Short", "Jeansshorts", "Jeans-Shorts", "Skinny", "Push Up", "Stretchjeans", "Poloshirt", "Parka", "Hoodie", "Sweatshirt", "Jacket"], g: ["jeans", "levis"], s: true },
+    { t: "Bomber & Lederjacken", alts: ["Bomberjacke", "Bomber", "Lederjacke", "Kunstlederjacke", "Bikerjacke", "Wildlederjacke", "Suede Jacket", "Varsity Jacket", "Collegejacke", "Harrington"],
+      not: ["Motorradjacke", "Motorrad"], g: ["jacken"], s: true },
+    { t: "Puffer & Daunenjacken", aka: ["Winterjacke"], alts: ["Pufferjacke", "Puffer Jacket", "Puffer", "Daunenjacke", "Steppjacke", "Nuptse", "Down Jacket", "Daunenweste", "Parka", "Winterjacke"],
+      not: ["Kinder", "Hund"], g: ["winterjacken", "jacken"], s: true },
+    { t: "Strick & Zip-Pullover", aka: ["Pullover"], alts: ["Strickpullover", "Strickpulli", "Cardigan", "Strickjacke", "Kaschmir", "Cashmere", "Merino", "Wollpullover", "Grobstrick", "Zopfstrick", "Rollkragen", "Half Zip", "Quarter Zip", "1/4 Zip", "Troyer", "Better Sweater"],
+      not: ["Training", "Kapuzenpullover"], g: ["pullover"], s: true },
+    { t: "Mäntel", alts: ["Mantel", "Wollmantel", "Trenchcoat", "Karomantel", "Kurzmantel", "Longcoat", "Wintermantel", "Teddymantel", "Coat"],
+      not: ["Regenmantel", "Bademantel", "Coating", "Topcoat", "MTB", "Regenjacke", "Radjacke", "Fahrrad"], g: ["jacken"] },
+    { t: "Kunstpelz & Teddy", alts: ["Kunstpelz", "Faux Fur", "Fake Fur", "Teddyjacke", "Teddy Jacke", "Shearling", "Sherpa", "Fellkragen"],
+      not: ["Stiefel", "Schuh", "Schuhe", "Boots"], g: ["jacken"] },
+    { t: "Kleider & Röcke", aka: ["Kleider"], alts: ["Kleid", "Strickkleid", "Midikleid", "Maxikleid", "Minikleid", "Spitzenkleid", "Slipdress", "Minirock", "Midirock", "Maxirock", "Lederrock", "Faltenrock", "Jeansrock"],
+      not: ["Kleidung", "Bekleidung"], g: ["kleider"] },
+    { t: "Blusen & Tops", alts: ["Bluse", "Spitzenbluse", "Spitzentop", "Rüschenbluse", "Lace Top", "Korsage", "Corsage", "Satin Top", "Crop Top", "Bodysuit"] },
+    { t: "Leggings & Sportswear", aka: ["Leggings"], alts: ["Leggings", "Sport-BH", "Yogahose", "Flared Leggings", "Alo Yoga", "Lululemon", "Gymshark", "Sportleggings"], g: ["leggings", "fitness"] },
+    { t: "Unterwäsche", alts: ["BH", "Dessous", "Slip", "Pyjama", "Schlafanzug", "Calvin Klein", "Skims", "Hunkemöller", "Intimissimi"], g: ["unterwaesche", "dessous"] },
+    { t: "Alles aus Mode", aka: ["Kleidung"], cat: "Fashion & Accessoires", alts: ["Damenmode", "Herrenmode"], g: ["kleidung", "fashion-accessoires"] },
   ] },
-  { id: "schuhe", name: "Schuhe", emoji: "👟", items: [
-    { t: "Sneaker", alts: ["Turnschuhe", "Nike Air", "Adidas Samba", "New Balance", "Converse", "Vans"], g: ["sneaker", "schuhe"], s: true },
-    { t: "Stiefel", alts: ["Boots", "Stiefeletten", "Chelsea Boots", "Overknee", "Winterstiefel"], g: ["stiefel"], s: true },
-    { t: "UGG", alts: ["Ugg Boots", "Tasman"], g: ["ugg"] },
-    { t: "Laufschuhe", alts: ["Running", "Asics", "Hoka", "On Cloud", "Brooks"], g: ["laufschuhe"] },
-    { t: "Hausschuhe", alts: ["Pantoffeln", "Birkenstock"], g: ["schuhe"] },
+  { id: "streetwear", name: "Streetwear", emoji: "🧢", style: true, items: [
+    { t: "Hoodies & Sweats", alts: ["Hoodie", "Kapuzenpullover", "Zip Hoodie", "Sweatshirt", "Crewneck", "Jogginghose", "Sweatpants", "Trackpants", "Trainingsjacke", "Track Jacket", "Track Top", "Firebird"],
+      g: ["pullover", "kleidung"], s: true },
+    { t: "Cargo & Workwear", alts: ["Cargohose", "Cargo Pants", "Cargo Hose", "Parachute Pants", "Double Knee", "Carpenter", "Workwear", "Work Jacket", "Detroit Jacket"], not: ["Sicherheitsschuh", "Arbeitsschuh"] },
+    { t: "Caps & Beanies", alts: ["Beanie", "Mütze", "Cap", "New Era", "Baseball Cap", "Strickmütze", "Bucket Hat", "Balaclava"] },
+    { t: "Carhartt WIP", alts: ["Carhartt"], g: ["carhartt"], shop: true, s: true },
+    { t: "The North Face", alts: ["North Face", "TNF", "Nuptse"], g: ["the-north-face"], shop: true, s: true },
+    { t: "Nike", alts: ["Jordan", "Air Jordan"], not: ["Jordanien"], g: ["nike"], shop: true, s: true },
+    { t: "Adidas Originals", aka: ["Adidas"], alts: ["Samba", "Gazelle", "Handball Spezial", "SL 72", "Taekwondo", "Campus 00s", "Superstar", "Adistar", "Firebird", "Adicolor", "Trefoil"],
+      not: ["Trikot", "Fußball"], g: ["adidas"], shop: true, s: true },
+    { t: "New Balance", g: ["new-balance"], shop: true, s: true },
+    { t: "Stüssy", alts: ["Stussy"], shop: true },
+    { t: "Arc'teryx", alts: ["Arcteryx"], shop: true },
+    { t: "Salomon", alts: ["XT-6", "XT 6", "ACS Pro"], not: ["Ski", "Skischuh", "Skischuhe", "Wanderschuh"], shop: true },
+    { t: "Ralph Lauren", alts: ["Polo Ralph Lauren"], shop: true },
+    { t: "Tommy Jeans", shop: true },
+    { t: "Dickies", shop: true },
+    { t: "Puma", alts: ["Speedcat", "Palermo"], g: ["puma"], shop: true },
+  ] },
+  { id: "schuhe", name: "Schuhe", emoji: "👟", style: true, items: [
+    { t: "Trend-Sneaker", aka: ["Sneaker"], s: true, g: ["sneaker", "adidas", "nike", "new-balance", "asics", "puma"], alts: [
+      "Samba", "Gazelle", "Handball Spezial", "SL 72", "Taekwondo", "Adidas Japan", "Campus 00s", "Superstar", "Adistar",
+      "Speedcat", "Palermo", "Onitsuka Tiger", "Mexico 66", "Gel-1130", "Gel-Kayano 14", "GT-2160", "Gel-NYC",
+      "New Balance 530", "New Balance 9060", "New Balance 204L", "New Balance 1906", "New Balance 2002R", "New Balance 550", "New Balance 990",
+      "Air Jordan 1", "Jordan 4", "Dunk Low", "Air Force 1", "Vomero 5", "Cortez", "V2K", "P-6000", "Air Max 1", "Air Max 95", "Air Max Plus",
+      "XT-6", "Chuck 70", "Chuck Taylor", "Old Skool", "Knu Skool", "Club C", "Sneakerina"] },
+    { t: "Stiefel & Boots", aka: ["Stiefel"], alts: ["Boots", "Stiefeletten", "Chelsea Boots", "Kniehohe Stiefel", "Overknee", "Cowboystiefel", "Westernstiefel", "Cowboy Boots", "Dr. Martens", "Timberland", "Bikerboots", "Winterstiefel"],
+      not: ["Gummistiefel", "Sicherheitsschuh", "Sicherheitsstiefel", "Kinder", "Wanderschuh"], g: ["stiefel"], s: true },
+    { t: "UGG", alts: ["Ugg Boots", "Tasman", "Ultra Mini", "Lowmel", "Tazz"], g: ["ugg"], s: true },
+    { t: "Ballerinas & Loafer", alts: ["Ballerina", "Mary Jane", "Mary Janes", "Loafer", "Mokassin", "Mules", "Sneakerina", "Kitten Heels", "Slingpumps"], g: ["schuhe"] },
+    { t: "Clogs & Hausschuhe", aka: ["Hausschuhe"], alts: ["Birkenstock", "Clogs", "Hausschuhe", "Pantoffeln", "Crocs"], g: ["schuhe"] },
+    { t: "Laufschuhe", alts: ["Running", "Asics", "Hoka", "On Cloud", "Brooks", "Pegasus"], g: ["laufschuhe"], style: false },
   ] },
   { id: "makeup", name: "Make-up", emoji: "💄", items: [
     { t: "Make-up", alts: ["Makeup", "Mascara", "Foundation", "Concealer", "Lippenstift", "Lipgloss", "Lidschatten", "Eyeliner", "Rouge", "Highlighter", "Bronzer", "Make-up Primer"], g: ["kosmetik", "beauty"], s: true },
@@ -80,29 +129,36 @@ const CATALOG: { id: string; name: string; emoji: string; items: Preset[] }[] = 
   { id: "parfum", name: "Parfum", emoji: "🌸", items: [
     { t: "Parfum", alts: ["Eau de Parfum", "Eau de Toilette", "Parfüm", "Duft"], g: ["parfum"], s: true },
     { t: "Duft-Geschenkset", alts: ["Geschenkset", "Duftset"], g: ["parfum"] },
-    { t: "Rituals", g: ["rituals"] },
+    { t: "Rituals", g: ["rituals"], shop: true },
   ] },
-  { id: "accessoires", name: "Taschen & Schmuck", emoji: "👜", items: [
-    { t: "Handtaschen", alts: ["Umhängetasche", "Shopper", "Clutch", "Michael Kors", "Coach", "Longchamp"], not: ["Kühltasche", "Laptoptasche"], g: ["handtaschen", "taschen"], s: true },
-    { t: "Schmuck", alts: ["Halskette", "Kette", "Ohrringe", "Armkette", "Armreif", "Pandora", "Thomas Sabo", "Swarovski", "Silberschmuck", "Goldschmuck"], not: ["Schlüsselring", "Ringlicht", "Lichterkette", "Fahrradkette", "Schneekette", "Apple Watch", "Smartwatch"], g: ["schmuck"], s: true },
-    { t: "Sonnenbrille", alts: ["Ray-Ban"], g: ["sonnenbrillen"] },
-    { t: "Uhren", alts: ["Armbanduhr", "Fossil", "Casio"], g: ["uhren"] },
-    { t: "Rucksack", alts: ["Kånken", "Fjällräven", "Eastpak"], g: ["taschen"] },
+  { id: "accessoires", name: "Taschen & Schmuck", emoji: "👜", style: true, items: [
+    { t: "Handtaschen", alts: ["Umhängetasche", "Schultertasche", "Shopper", "Clutch", "Mini Bag", "Crossbody", "Baguette Bag", "Michael Kors", "Coach", "Longchamp", "Liebeskind", "Marc Jacobs"],
+      not: ["Kühltasche", "Laptoptasche", "Laptop-Tasche", "Kameratasche", "Erste-Hilfe", "Werkzeugtasche"], g: ["handtaschen", "taschen"], s: true },
+    { t: "Schmuck", alts: ["Halskette", "Kette", "Ohrringe", "Armkette", "Armreif", "Pandora", "Thomas Sabo", "Swarovski", "Silberschmuck", "Goldschmuck", "Paul Valentine", "Purelei"],
+      not: ["Schlüsselring", "Ringlicht", "Lichterkette", "Fahrradkette", "Schneekette", "Kettenfett", "Kettenöl", "Kettensäge", "Apple Watch", "Smartwatch"], g: ["schmuck"], s: true },
+    { t: "Sonnenbrille", alts: ["Ray-Ban", "Wayfarer"], g: ["sonnenbrillen"] },
+    { t: "Gürtel & Schals", alts: ["Gürtel", "Ledergürtel", "Schal", "Kaschmirschal", "Lederhandschuhe", "Handschuhe"], not: ["Sicherheitsgurt", "Spanngurt", "Fahrradhandschuhe", "Arbeitshandschuhe", "Einweghandschuhe"] },
+    { t: "Uhren", alts: ["Armbanduhr", "Fossil", "Casio"], g: ["uhren"], style: false },
+    { t: "Rucksack", alts: ["Kånken", "Fjällräven", "Eastpak", "Herschel"], not: ["Laptop-Rucksack", "Laptoprucksack", "Wanderrucksack", "Trekkingrucksack"], g: ["taschen"] },
   ] },
-  { id: "shops", name: "Shops & Marken", emoji: "🛍️", items: [
-    { t: "Zalando" }, { t: "About You" }, { t: "H&M" }, { t: "Zara" }, { t: "Mango" }, { t: "Douglas" }, { t: "Flaconi" },
-    { t: "Sephora" }, { t: "Notino" }, { t: "Lookfantastic" }, { t: "dm" }, { t: "Rossmann" },
-    { t: "Nike", g: ["nike"] }, { t: "Adidas", g: ["adidas"] },
+  { id: "shops", name: "Shops", emoji: "🛍️", items: [
+    { t: "Zalando", shop: true }, { t: "About You", shop: true }, { t: "H&M", shop: true }, { t: "Zara", shop: true }, { t: "Mango", shop: true },
+    { t: "Weekday", shop: true }, { t: "COS", shop: true }, { t: "Arket", shop: true }, { t: "& Other Stories", alts: ["Other Stories"], shop: true },
+    { t: "Pull&Bear", alts: ["Pull & Bear", "Pull and Bear"], shop: true }, { t: "Bershka", shop: true }, { t: "Stradivarius", shop: true },
+    { t: "Urban Outfitters", shop: true }, { t: "Asos", shop: true }, { t: "Snipes", shop: true }, { t: "Levi's", alts: ["Levis"], shop: true },
+    { t: "Douglas", shop: true }, { t: "Flaconi", shop: true }, { t: "Sephora", shop: true }, { t: "Notino", shop: true },
+    { t: "Lookfantastic", shop: true }, { t: "dm", shop: true }, { t: "Rossmann", shop: true },
   ] },
   { id: "wohnen", name: "Wohnen & Deko", emoji: "🕯️", items: [
     { t: "Kerzen", alts: ["Duftkerze", "Yankee Candle", "Lichterkette", "Weihnachtsdeko"], g: ["kerzen", "home-living"], s: true },
     { t: "Bettwäsche", alts: ["Kissen", "Kuscheldecke", "Bettdecke", "Spannbettlaken"], g: ["bettwaesche"], s: true },
-    { t: "IKEA" },
+    { t: "IKEA", shop: true },
   ] },
   { id: "technik", name: "Technik", emoji: "🎧", items: [
     { t: "Kopfhörer", alts: ["AirPods", "Earbuds", "Ohrhörer", "In-Ear-Kopfhörer", "Over-Ear-Kopfhörer", "Headphones", "Headset", "True Wireless", "Bose QuietComfort"], not: ["Ersatzpolster"], g: ["kopfhoerer", "airpods"], s: true },
     { t: "AirPods", g: ["airpods"] },
-    { t: "Smartphone", alts: ["Handy", "iPhone", "Galaxy", "Pixel"], not: ["Hülle", "Panzerglas", "Schutzfolie", "Displayschutz", "Tarif", "Vertrag", "Ladekabel"], g: ["smartphone", "iphone"], s: true },
+    { t: "Smartphone", alts: ["Handy", "iPhone", "Samsung Galaxy", "Galaxy S", "Galaxy Z", "Galaxy A", "Pixel", "Xiaomi"],
+      not: ["Hülle", "Lederhülle", "Lederhüllen", "Panzerglas", "Schutzfolie", "Displayschutz", "Tarif", "Vertrag", "Ladekabel", "Gimbal", "Halterung", "Stativ", "Laufschuh"], g: ["smartphone", "iphone"], s: true },
     { t: "iPhone", not: ["Hülle", "Panzerglas", "Schutzfolie", "Displayschutz", "Ladekabel"], g: ["iphone"] },
     { t: "Fernseher", alts: ["TV", "Smart TV", "OLED", "QLED", "Fernsehgerät"], not: ["Wandhalterung", "Halterung", "Fernbedienung", "Antenne"], g: ["fernseher"] },
     { t: "Laptop", alts: ["Notebook", "MacBook", "Ultrabook", "Chromebook"], not: ["Tasche", "Hülle", "Ständer", "Rucksack"], g: ["laptop"] },
@@ -128,7 +184,7 @@ const CATALOG: { id: string; name: string; emoji: string; items: Preset[] }[] = 
     { t: "Wein", alts: ["Rotwein", "Weißwein", "Sekt", "Champagner", "Prosecco"], not: ["Weinglas", "Weingläser", "Weinkühlschrank"], g: ["wein"] },
     { t: "Bier", alts: ["Kasten Bier", "Craft Beer"], not: ["Bierglas", "Biergläser"], g: ["bier"] },
     { t: "Waschmittel", alts: ["Persil", "Ariel", "Weichspüler", "Spülmaschinentabs", "Geschirrtabs"], g: ["drogerie"] },
-    { t: "Lidl" }, { t: "Aldi" },
+    { t: "Lidl", shop: true }, { t: "Aldi", shop: true },
   ] },
   { id: "freizeit", name: "Freizeit & Familie", emoji: "🎁", items: [
     { t: "Lego", g: ["lego"], s: true },
@@ -138,7 +194,8 @@ const CATALOG: { id: string; name: string; emoji: string; items: Preset[] }[] = 
     { t: "Fahrrad", alts: ["E-Bike", "Ebike", "Pedelec", "Fahrradhelm"], g: ["fahrraeder", "e-bikes"] },
   ] },
   { id: "reisen", name: "Reisen", emoji: "✈️", items: [
-    { t: "Reisen", alts: ["Urlaub", "Hotel", "Kurzurlaub", "Städtetrip"], g: ["reisen"], s: true },
+    { t: "Reisen", alts: ["Urlaub", "Hotel", "Kurzurlaub", "Städtetrip"], cat: "Urlaub & Reisen",
+      not: ["Reiseetui", "Reisegröße", "Reisegrößen", "Reisekoffer", "Koffer", "Trolley", "Pflaster", "Zahnbürste"], g: ["reisen"], s: true },
     { t: "Flüge", alts: ["Flug", "Ryanair", "Eurowings", "Lufthansa", "Condor"], g: ["fluege"], s: true },
     { t: "Bahn", alts: ["Bahntickets", "Sparpreis", "BahnCard", "Deutschlandticket", "Flixtrain", "Flixbus"], g: ["bahntickets", "bahncard"] },
     { t: "Wellness", alts: ["Therme", "Spa", "Wellnesshotel", "Sauna"] },
@@ -150,7 +207,62 @@ const CATALOG: { id: string; name: string; emoji: string; items: Preset[] }[] = 
     { t: "Preisfehler", g: ["preisfehler"] },
   ] },
 ];
+// „style“ des Bereichs gilt für seine Vorschläge (außer wo ausdrücklich aus, z. B. Laufschuhe)
+for (const c of CATALOG) for (const i of c.items) if (c.style && i.style === undefined) i.style = true;
 const PRESETS = CATALOG.flatMap((c) => c.items);
+
+// ============================================================
+// WAS GERADE ANGESAGT IST – Stand Herbst/Winter 2026.
+// Gewicht 1–3; ein Deal sammelt Punkte für jedes passende Stichwort (höchstens 6).
+// Quellen: Kollektionen von Zara, H&M, Mango, Weekday; Sneaker- und Streetwear-
+// Shops (Asphaltgold, Overkill, Breuninger) und Modemagazine. Regelmäßig pflegen.
+// ============================================================
+const TREND: [string, number][] = [
+  // Sneaker: flach und retro, dazu Running-Klassiker der 2000er
+  ["Samba", 3], ["Gazelle", 3], ["Handball Spezial", 3], ["SL 72", 3], ["Taekwondo", 3], ["Adidas Japan", 3], ["Campus 00s", 2],
+  ["Superstar", 1], ["Adistar", 2], ["Speedcat", 3], ["Palermo", 2], ["Onitsuka", 3], ["Mexico 66", 3],
+  ["Gel-1130", 3], ["Gel-Kayano 14", 3], ["GT-2160", 2], ["Gel-NYC", 2],
+  ["New Balance 530", 3], ["New Balance 9060", 3], ["New Balance 204L", 3], ["New Balance 1906", 2], ["New Balance 2002R", 2],
+  ["New Balance 550", 2], ["New Balance 990", 2], ["Air Jordan 1", 3], ["Jordan 4", 3], ["Dunk Low", 3], ["Vomero 5", 3],
+  ["Cortez", 2], ["V2K", 2], ["P-6000", 2], ["Air Force 1", 2], ["Air Max 1", 2], ["Air Max 95", 2], ["Air Max Plus", 2],
+  ["XT-6", 3], ["Chuck 70", 2], ["Knu Skool", 2], ["Club C", 1], ["Sneakerina", 3],
+  ["Tasman", 3], ["Lowmel", 3], ["Ultra Mini", 3], ["UGG", 2], ["Birkenstock Boston", 3], ["Birkenstock", 1],
+  // Marken
+  ["Carhartt", 3], ["Stüssy", 3], ["Stussy", 3], ["The North Face", 2], ["Nuptse", 3], ["Arc'teryx", 3], ["Arcteryx", 3],
+  ["Salomon", 2], ["Patagonia", 2], ["Ralph Lauren", 2], ["Tommy Jeans", 1], ["Levi's", 1], ["Dickies", 2], ["New Balance", 2],
+  ["Asics", 1], ["Converse", 1], ["Vans", 1], ["Dr. Martens", 2], ["Represent", 2], ["Axel Arigato", 2], ["Veja", 2], ["Autry", 2],
+  ["Golden Goose", 2], ["Ganni", 3], ["Acne Studios", 3], ["Jacquemus", 3], ["Miu Miu", 2], ["Coach", 1], ["Longchamp", 1],
+  ["Marc Jacobs", 2], ["Alo Yoga", 2], ["Lululemon", 2], ["Skims", 2], ["Adidas Originals", 1], ["Jordan", 1],
+  ["Zara", 2], ["Weekday", 2], ["Arket", 2], ["Other Stories", 2], ["COS", 1], ["Mango", 1], ["Pull&Bear", 1], ["Bershka", 1],
+  ["Stradivarius", 1], ["Urban Outfitters", 1], ["Snipes", 1],
+  // Teile und Stoffe der Saison
+  ["Barrel", 2], ["Baggy", 2], ["Wide Leg", 2], ["Balloon", 2], ["Ballonhose", 2], ["Bomber", 2], ["Lederjacke", 2], ["Wildleder", 2],
+  ["Suede", 2], ["Kunstpelz", 2], ["Faux Fur", 2], ["Shearling", 2], ["Tartan", 2], ["Kaschmir", 2], ["Cashmere", 2],
+  ["Half Zip", 2], ["Quarter Zip", 2], ["1/4 Zip", 2], ["Trenchcoat", 2], ["Puffer", 2], ["Spitzenbluse", 2], ["Korsage", 2],
+  ["Mary Jane", 2], ["Loafer", 2], ["Cowboystiefel", 2], ["Westernstiefel", 2], ["Kniehohe Stiefel", 2], ["Firebird", 2],
+  ["Track Jacket", 2], ["Trackpants", 2], ["Double Knee", 2], ["Detroit Jacket", 3], ["Varsity", 2], ["Cardigan", 1],
+  ["Beanie", 1], ["Balaclava", 1], ["Bucket Hat", 1], ["Schultertasche", 1], ["Wayfarer", 1], ["Oversized", 1],
+];
+// Basic-, Bequem- und Funktionskram – bei Mode-Vorschlägen nicht zeigen (eigene Suchen bleiben unberührt)
+const BASIC = [
+  "Amazon Essentials", "Amazon Basics", "Camel Active", "Skechers", "Rieker", "Jack & Jones", "Jack and Jones", "Esmara", "Livergy",
+  "Crivit", "Ernsting", "Kik", "Takko", "engbers", "Maier Sports", "McKinley", "Killtec", "Elten", "HAIX", "Sicherheitsschuh",
+  "Sicherheitsschuhe", "Arbeitsschuhe", "Arbeitshose", "Arbeitsjacke", "Funktionssocken", "Wandersocken", "Fahrradsocken", "Socken",
+  "Thermounterwäsche", "Thermo Unterwäsche", "Kompressionsstrümpfe", "Gummistiefel", "Lauflernschuhe", "Kinderschuhe", "Kinder",
+  "Memory Foam", "Bequemschuhe", "Barfußschuhe", "Spreadshirt", "Qwertee", "Fanshop", "FC Bayern Store", "NFL", "Wellensteyn",
+  "Bugatti", "Pierre Cardin", "Bruno Banani", "Tom Tailor", "Lerros", "Schiesser", "Trigema", "Laptoptasche", "Laptop-Tasche",
+  "Kühltasche", "Erste-Hilfe", "Koffer", "Trolley", "Reisekoffer", "Handgepäck", "Under Armour", "teamFINAL", "teamGOAL",
+  "Runfalcon", "Adidas Galaxy", "adi365", "adidas Essentials", "Jako", "Erima", "Padel",
+];
+const FASHION_CATS = new Set(["Fashion & Accessoires", "Sport & Outdoor"]);
+/** Trend-Punkte (0–6) und ob es Basic-Kram ist */
+function score(tp: Prepared, all: Prepared): { hype: number; basic: boolean } {
+  let hype = 0;
+  for (const [k, w] of TREND) if (phraseOk(k, all)) hype += w;
+  return { hype: Math.min(6, hype), basic: BASIC.some((b) => phraseOk(b, tp)) };
+}
+/** Reihenfolge bei Mode: neu zuerst, Angesagtes rutscht bis zu drei Tage nach vorn */
+const rank = (d: Item) => Date.parse(d.d) + Math.max(0, d.hype ?? 0) * 12 * 3600_000;
 
 // ============================================================
 // UNGEFÄHRES PASSEN
@@ -207,25 +319,36 @@ function prepare(text: string): Prepared {
   for (let i = 0; i + 1 < w.length; i++) if (w[i].length >= 2 && w[i + 1].length >= 2) joined.push(stem(w[i] + w[i + 1]));   // „Air Pods“ ↔ „AirPods“
   return { words: w, joined, text: fold(text) };
 }
+/** Eine Suchphrase, einmal zerlegt (wird oft gegen alle Deals geprüft) */
+type Phrase = { short?: RegExp; ks: string[]; c?: string };
+const phrases = new Map<string, Phrase | null>();
+function compile(phrase: string): Phrase | null {
+  const have = phrases.get(phrase);
+  if (have !== undefined) return have;
+  const raw = toks(phrase).filter((x) => !STOP.has(x));
+  let out: Phrase | null = null;
+  if (raw.length && raw.every((x) => x.length <= 2)) {
+    // Kurze Namen wie „H&M“, „dm“ oder „TV“ nur als ganzes Wort (sonst passt „h“ überall)
+    out = { ks: [], short: new RegExp("(^|[^a-z0-9])" + raw.join("[^a-z0-9]{0,3}") + "($|[^a-z0-9])") };
+  } else if (raw.length) {
+    const c = raw.length > 1 ? stem(raw.join("")) : undefined;                // „Play Station“ ↔ „PlayStation“
+    out = { ks: raw.map(stem), c: c && c.length >= 5 ? c : undefined };
+  }
+  if (phrases.size > 5000) phrases.clear();
+  phrases.set(phrase, out);
+  return out;
+}
 /** Passt eine Suchphrase (alle Wörter, Reihenfolge egal) auf den Text? */
 function phraseOk(phrase: string, p: Prepared): boolean {
-  const raw = toks(phrase).filter((x) => !STOP.has(x));
-  if (!raw.length) return false;
-  // Kurze Namen wie „H&M“, „dm“ oder „TV“ nur als ganzes Wort (sonst passt „h“ überall)
-  if (raw.every((x) => x.length <= 2)) {
-    return new RegExp("(^|[^a-z0-9])" + raw.join("[^a-z0-9]{0,3}") + "($|[^a-z0-9])").test(p.text);
-  }
-  const ks = raw.map(stem);
+  const c = compile(phrase);
+  if (!c) return false;
+  if (c.short) return c.short.test(p.text);
   // Zusammengezogene Wortpaare nur für längere Suchwörter (sonst passt „ear“ auf „e aroma“)
   // Wortpaare nur genau bzw. am Anfang („Air Pods“ = „AirPods“), sonst passt „Shopper“ auf „Proshop Proshop“
   const hit = (k: string) => p.words.some((t) => tokOk(k, t)) ||
     (k.length >= 5 && p.joined.some((t) => t === k || (t.startsWith(k) && t.length - k.length <= 3)));
-  if (ks.every(hit)) return true;
-  if (raw.length > 1) {                                             // „Play Station“ ↔ „PlayStation“
-    const c = stem(raw.join(""));
-    if (c.length >= 5 && hit(c)) return true;
-  }
-  return false;
+  if (c.ks.every(hit)) return true;
+  return c.c !== undefined && hit(c.c);
 }
 /** Gleicher Begriff? (für Vorschläge: „kopfhoerer“, „Kopfhörern“ → „Kopfhörer“) */
 function same(a: string, b: string): boolean {
@@ -234,20 +357,23 @@ function same(a: string, b: string): boolean {
 }
 
 type Watch = { t: string; alts?: string[]; not?: string[]; max?: number | null };
-type Rule = { t: string; phrases: string[]; not: string[]; max?: number | null; groups: string[]; std: { alts: string[]; not: string[] } };
-type Item = Deal & { prep: Prepared; tprep: Prepared };
+type Rule = { t: string; phrases: string[]; not: string[]; max?: number | null; groups: string[]; std: { alts: string[]; not: string[] };
+  title: boolean; cat?: string; style: boolean };
+type Item = Deal & { prep: Prepared; tprep: Prepared; basic?: boolean };
 const slug = (s: string) => s.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
   .normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 function rule(w: Watch): Rule {
-  const p = PRESETS.find((x) => same(x.t, w.t));
+  const p = PRESETS.find((x) => same(x.t, w.t)) ?? PRESETS.find((x) => (x.aka ?? []).some((a) => same(a, w.t)));
   const alts = (w.alts ?? []).filter(Boolean), not = (w.not ?? []).filter(Boolean);
   const groups = [...(p?.g ?? [slug(w.t)])];
   for (const a of alts.slice(0, 2)) if (slug(a).length >= 3) groups.push(slug(a));
   // Ausschlüsse greifen nicht, wenn das Stichwort selbst danach fragt („Panzerglas“ sucht Panzerglas)
   const self = prepare(w.t);
   return {
-    t: w.t, phrases: [w.t, ...(p?.alts ?? []), ...alts], not: [...(p?.not ?? []), ...not].filter((n) => !phraseOk(n, self)), max: w.max ?? null,
+    t: w.t, phrases: [p ? p.t : w.t, ...(p?.alts ?? []), ...alts], not: [...(p?.not ?? []), ...not].filter((n) => !phraseOk(n, self)), max: w.max ?? null,
     groups: [...new Set(groups.filter((g) => g.length >= 2))], std: { alts: p?.alts ?? [], not: p?.not ?? [] },
+    // Vorschläge passen nur über den Titel (Händler „Mantel“ ist kein Mantel); Shops und eigene Suchen auch über den Händler
+    title: !!p && !p.shop, cat: p?.cat, style: !!p?.style,
   };
 }
 
@@ -255,7 +381,7 @@ function rule(w: Watch): Rule {
 // FEEDS LESEN
 // ============================================================
 type Deal = { id: string; t: string; m?: string; p?: number | null; pt?: string; temp?: number; cat?: string; img?: string; u: string; x?: string; d: string;
-  off?: number; code?: boolean };
+  off?: number; code?: boolean; hype?: number };
 /** „-30%“, „30 % Rabatt“, „bis zu 70%“ → 30/70 (höchster genannter Wert, 5–90 %) */
 function discount(t: string): number | undefined {
   const all = [...t.matchAll(/(\d{1,2})\s?%/g)].map((m) => +m[1]).filter((n) => n >= 5 && n <= 90);
@@ -301,7 +427,7 @@ function parseRss(xml: string): Deal[] {
 }
 
 const BASE = ["rss/hot", "rss/new", "rss/deals", "rss/gutscheine",
-  ...["fashion-accessoires", "beauty", "kosmetik", "kleidung", "elektronik", "gaming", "family-kids", "home-living", "lebensmittel",
+  ...["fashion-accessoires", "beauty", "kosmetik", "kleidung", "sneaker", "schuhe", "jacken", "elektronik", "gaming", "family-kids", "home-living", "lebensmittel",
     "drogerie", "kultur-freizeit", "reisen", "freebies", "sport", "garten-baumarkt"].map((g) => "rss/gruppe/" + g)];
 let baseAt = 0, cleanAt = 0;
 const groupOk = new Map<string, { ok: boolean; at: number }>();
@@ -393,7 +519,12 @@ async function load() {
       temp: r.temp ?? undefined, cat: r.cat ?? undefined, img: r.img ?? undefined, u: r.url, x: r.snippet ?? undefined, d: new Date(r.pub).toISOString() };
     d.off = discount(d.t);
     if (d.u.includes("/gutscheine/")) d.code = true;
-    return { ...d, prep: prepare([d.t, d.m ?? "", d.cat ?? ""].join(" ")), tprep: prepare(d.t) };
+    const prep = prepare([d.t, d.m ?? "", d.cat ?? ""].join(" ")), tprep = prepare(d.t);
+    // Trend-Punkte nur bei Mode und Sport (spart Rechenzeit), Basic-Erkennung bei allen
+    const sc = FASHION_CATS.has(d.cat ?? "") || !d.cat ? score(tprep, prepare([d.t, d.m ?? ""].join(" ")))
+      : { hype: 0, basic: BASIC.some((b) => phraseOk(b, tprep)) };
+    if (sc.hype > 0) d.hype = sc.hype;
+    return { ...d, prep, tprep, basic: sc.basic };
   });
   memo = { at: Date.now(), deals };
   return deals;
@@ -402,30 +533,41 @@ async function load() {
 function matches(r: Rule, d: Item, min: number): boolean {
   if ((d.temp ?? 0) < min) return false;
   if (r.max !== null && r.max !== undefined && (d.p === null || d.p === undefined || d.p > r.max)) return false;
-  if (!r.phrases.some((p) => phraseOk(p, d.prep))) return false;
+  if (r.style && (d.basic || (d.cat && !FASHION_CATS.has(d.cat)))) return false;      // Mode: nur Mode, ohne Basic-Kram
+  const text = r.title ? d.tprep : d.prep;
+  if (!(r.cat && d.cat === r.cat) && !r.phrases.some((p) => phraseOk(p, text))) return false;
   // Ausschlüsse nur gegen den Titel
   return !r.not.some((n) => phraseOk(n, d.tprep));
 }
-const strip = ({ prep: _p, tprep: _t, ...d }: Item): Deal => d;
+const strip = ({ prep: _p, tprep: _t, basic: _b, ...d }: Item): Deal => d;
+/** Treffer einer Regel – bei Mode Angesagtes zuerst */
+function hits(r: Rule, all: Item[], min: number): Item[] {
+  const hit = all.filter((d) => matches(r, d, min));
+  return r.style ? hit.sort((a, b) => rank(b) - rank(a)) : hit;
+}
 
 async function match(watch: Watch[], min: number) {
   const rules = watch.slice(0, 40).map(rule);
   await refresh(rules.flatMap((r) => r.groups));
   const all = await load();
   const groups = rules.map((r) => {
-    const hit = all.filter((d) => matches(r, d, min));
+    const hit = hits(r, all, min);
     return { t: r.t, n: hit.length, deals: hit.slice(0, 40).map(strip) };
   });
   const recent = Date.now() - 36 * 3600_000;
   const hot = all.filter((d) => (d.temp ?? 0) >= 200 && Date.parse(d.d) > recent)
     .sort((a, b) => (b.temp ?? 0) - (a.temp ?? 0)).slice(0, 15).map(strip);
-  return { at: new Date().toISOString(), total: all.length, groups, hot };
+  // Gerade im Trend: angesagte Mode der letzten 5 Tage, egal ob gesucht
+  const since = Date.now() - 5 * 24 * 3600_000;
+  const trend = all.filter((d) => (d.hype ?? 0) >= 3 && !d.basic && FASHION_CATS.has(d.cat ?? "") && Date.parse(d.d) > since && (d.temp ?? 0) >= min)
+    .sort((a, b) => rank(b) - rank(a)).slice(0, 24).map(strip);
+  return { at: new Date().toISOString(), total: all.length, groups, hot, trend };
 }
 
 async function preview(w: Watch, min: number) {
   const r = rule(w);
   await refresh(r.groups);
-  const hit = (await load()).filter((d) => matches(r, d, min));
+  const hit = hits(r, await load(), min);
   return { n: hit.length, deals: hit.slice(0, 8).map(strip), std: r.std };
 }
 
@@ -438,7 +580,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
   const url = new URL(req.url);
   const what = url.pathname.split("/").filter(Boolean).pop() ?? "";
-  if (!["catalog", "match", "preview"].includes(what)) return new Response("Unbekannte Abfrage", { status: 404, headers: cors });
+  if (!["catalog", "match", "preview", "probe"].includes(what)) return new Response("Unbekannte Abfrage", { status: 404, headers: cors });
   if (!(await keyOk(req.headers.get("x-kueche-key"))) && !(await userOk(req.headers.get("authorization")))) {
     return new Response("Kein Zugang", { status: 401, headers: cors });
   }
@@ -447,6 +589,13 @@ Deno.serve(async (req) => {
     if (what === "catalog") {
       body = CATALOG.map((c) => ({ id: c.id, name: c.name, emoji: c.emoji,
         items: c.items.map((i) => ({ t: i.t, alts: i.alts ?? [], not: i.not ?? [], s: i.s ?? false })) }));
+    } else if (what === "probe") {
+      // Welche mydealz-Gruppen gibt es? (zum Pflegen der Vorschläge)
+      const gs = list(url.searchParams.get("g")).map(slug);
+      body = Object.fromEntries(await Promise.all(gs.map(async (g) => {
+        const r = await fetch(MD + "rss/gruppe/" + g, { headers: UA });
+        return [g, r.status === 200 ? (await r.text()).split("<item>").length - 1 : r.status];
+      })));
     } else if (what === "preview") {
       const q = url.searchParams;
       body = await preview({ t: clean(q.get("t")), alts: list(q.get("alts")), not: list(q.get("not")), max: num(q.get("max")) }, Number(q.get("min") ?? 0) || 0);
