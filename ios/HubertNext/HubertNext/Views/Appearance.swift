@@ -66,6 +66,7 @@ struct HeroHeader: View {
 struct AppearanceView: View {
     @EnvironmentObject var store: AppStore
     @ObservedObject private var look = ThemeStore.shared
+    @State private var pickingColor = false
 
     var body: some View {
         List {
@@ -78,17 +79,27 @@ struct AppearanceView: View {
             Section {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 72), spacing: 12)], spacing: 14) {
                     ForEach(HubertTheme.all) { t in swatch(t) }
-                    // Eigene Farbe
-                    VStack(spacing: 6) {
-                        ZStack {
-                            Circle().fill(AngularGradient(colors: [.red, .orange, .yellow, .green, .blue, .purple, .red], center: .center))
-                                .frame(width: 48, height: 48)
-                            ColorPicker("", selection: $look.customColor, supportsOpacity: false)
-                                .labelsHidden().opacity(0.02).frame(width: 48, height: 48)
-                            if look.themeId == "eigene" { selectedRing }
+                    // Eigene Farbe: öffnet den Farbwähler von iOS als Blatt.
+                    // Warum kein ColorPicker mehr: Der war unsichtbar über den Kreis gelegt
+                    // und nahm in der Liste keine Tipper an.
+                    Button { pickingColor = true } label: {
+                        VStack(spacing: 6) {
+                            ZStack {
+                                Circle().fill(AngularGradient(colors: [.red, .orange, .yellow, .green, .blue, .purple, .red], center: .center))
+                                    .frame(width: 48, height: 48)
+                                if look.themeId == "eigene" {
+                                    Circle().fill(look.current.gradient).frame(width: 36, height: 36)
+                                    selectedRing
+                                } else {
+                                    Image(systemName: "plus").font(.system(size: 16, weight: .bold)).foregroundColor(.white)
+                                        .shadow(color: .black.opacity(0.3), radius: 2)
+                                }
+                            }
+                            Text("Eigene").font(.caption).foregroundColor(.primary)
                         }
-                        Text("Eigene").font(.caption)
                     }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Eigene Farbe wählen" + (look.themeId == "eigene" ? ", ausgewählt" : ""))
                 }
                 .padding(.vertical, 6)
             } header: { Text("Farbthema") } footer: {
@@ -109,6 +120,10 @@ struct AppearanceView: View {
             }
         }
         .listStyle(.insetGrouped)
+        .sheet(isPresented: $pickingColor) {
+            SystemColorPicker(color: Binding(get: { look.customColor }, set: { c in withAnimation { look.customColor = c } }))
+                .ignoresSafeArea()
+        }
         .navigationTitle("Darstellung")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -131,6 +146,33 @@ struct AppearanceView: View {
         ZStack {
             Circle().stroke(Color.primary, lineWidth: 2.5).frame(width: 56, height: 56)
             Image(systemName: "checkmark").font(.system(size: 16, weight: .bold)).foregroundColor(.white)
+        }
+    }
+}
+
+/// Der Farbwähler von iOS (Raster, Spektrum, Regler) als Blatt.
+/// Jede Änderung wird sofort übernommen – die Vorschau oben färbt sich live mit.
+struct SystemColorPicker: UIViewControllerRepresentable {
+    @Binding var color: Color
+
+    func makeUIViewController(context: Context) -> UIColorPickerViewController {
+        let vc = UIColorPickerViewController()
+        vc.title = "Eigene Farbe"
+        vc.supportsAlpha = false
+        vc.selectedColor = UIColor(color)
+        vc.delegate = context.coordinator
+        return vc
+    }
+
+    func updateUIViewController(_ vc: UIColorPickerViewController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
+
+    final class Coordinator: NSObject, UIColorPickerViewControllerDelegate {
+        let parent: SystemColorPicker
+        init(_ p: SystemColorPicker) { parent = p }
+        func colorPickerViewController(_ vc: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+            parent.color = Color(color)
         }
     }
 }

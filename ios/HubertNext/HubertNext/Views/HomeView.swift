@@ -323,7 +323,9 @@ struct BucketCard: View {
         HStack(spacing: 10) {
             let row = HStack(spacing: 6) {
                 Image(systemName: kind.symbol).foregroundColor(kind.tint)
-                Text(kind.name.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                // Eigener Name aus den Einstellungen (z. B. zwei Termine-Karten „Familie“ und „Arbeit“)
+                Text((instance.config["title"]?.string.flatMap { $0.isEmpty ? nil : $0 } ?? kind.name).uppercased())
+                    .font(.caption.weight(.semibold)).foregroundColor(Theme.secondary).lineLimit(1)
                 Spacer(minLength: 0)
                 if kind.detail != nil {
                     Text("Alle").font(.subheadline).foregroundColor(Theme.accent)
