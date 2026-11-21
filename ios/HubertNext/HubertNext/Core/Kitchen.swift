@@ -363,7 +363,18 @@ final class KitchenStore: ObservableObject {
         write { try await self.api.upsert("kitchen_items", [it]) }
     }
 
-    func toggle(_ it: KitchenItem) { var c = it; c.done.toggle(); update(c) }
+    /// Abhaken auf der Einkaufsliste = eingekauft → kommt automatisch in den Vorrat.
+    /// Der Vorrats-Eintrag merkt sich, woher er kam ("shop:<id>"), damit Zurückhaken ihn wieder entfernt.
+    func toggle(_ it: KitchenItem) {
+        var c = it; c.done.toggle(); update(c)
+        guard it.kind == "shop" else { return }
+        let marker = "shop:" + it.id
+        if c.done {
+            if !inPantry(it.name) { add("pantry", name: it.name, place: "Vorrat", recipe: marker) }
+        } else {
+            for p in pantry where p.recipe == marker { delete(p) }
+        }
+    }
 
     func delete(_ it: KitchenItem) {
         items.removeAll { $0.id == it.id }

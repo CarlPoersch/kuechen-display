@@ -835,7 +835,7 @@ struct ShopTab: View {
                 ForEach(open) { ShopRow(item: $0) }
             }
             if !done.isEmpty {
-                Section(header: Text("Erledigt"), footer: Text("Nach links wischen: in den Vorrat legen.")) {
+                Section(header: Text("Eingekauft"), footer: Text("Abgehakte Artikel stehen automatisch im Vorrat. Zurückhaken nimmt sie dort wieder heraus.")) {
                     ForEach(done) { ShopRow(item: $0) }
                     Button(role: .destructive) { withAnimation { kitchen.clearDone() } } label: {
                         Label("Erledigte entfernen", systemImage: "trash")
@@ -881,9 +881,6 @@ struct ShopRow: View {
         .padding(.vertical, compact ? 0 : 2)
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) { kitchen.delete(item) } label: { Label("Löschen", systemImage: "trash") }
-            if item.done {
-                Button { kitchen.moveToPantry(item) } label: { Label("In den Vorrat", systemImage: "archivebox") }.tint(.green)
-            }
         }
     }
 }
