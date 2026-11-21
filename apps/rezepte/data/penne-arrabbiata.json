@@ -54,5 +54,9 @@
   {
    "text": "Mit Petersilie und Pecorino servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
 }

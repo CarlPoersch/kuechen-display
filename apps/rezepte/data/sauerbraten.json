@@ -1,0 +1,106 @@
+{
+ "id": "sauerbraten",
+ "title": "Rheinischer Sauerbraten",
+ "icon": "🥩",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 3 Std. (plus 3 Tage Marinieren)",
+ "ingredients": [
+  {
+   "amount": "1,5 kg",
+   "name": "Rinderschmorbraten (Schulter)"
+  },
+  {
+   "group": "Marinade"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "¼",
+   "name": "Sellerieknolle"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "5",
+   "name": "Wacholderbeeren"
+  },
+  {
+   "amount": "4",
+   "name": "Nelken"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pfefferkörner"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "60 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "80 g",
+   "name": "Aachener Printen oder Lebkuchen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zuckerrübensirup"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse grob würfeln und mit allen Zutaten der Marinade aufkochen. Abkühlen lassen."
+  },
+  {
+   "text": "Fleisch in eine Schüssel legen, mit Marinade bedecken und zugedeckt im Kühlschrank 3 Tage ziehen lassen, täglich wenden."
+  },
+  {
+   "text": "Fleisch herausnehmen, trocken tupfen und salzen. Marinade durch ein Sieb gießen, Gemüse aufheben."
+  },
+  {
+   "text": "Fleisch im Bräter in Butterschmalz rundum kräftig anbraten, Gemüse kurz mitbraten.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit der Marinade aufgießen und zugedeckt bei kleiner Hitze schmoren, bis es weich ist.",
+   "minutes": 150
+  },
+  {
+   "text": "Fleisch warm stellen. Sauce durch ein Sieb streichen, Printen hineinbröseln, Rosinen und Sirup zugeben und sämig einkochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Fleisch aufschneiden und mit Sauce, Rotkohl und Kartoffelklößen servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 180
+}

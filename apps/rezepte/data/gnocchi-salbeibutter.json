@@ -61,5 +61,9 @@
   {
    "text": "Mit Parmesan servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
 }

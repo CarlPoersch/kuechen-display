@@ -88,5 +88,9 @@
    "text": "Pita kurz rösten und mit Spießen, Tzatziki, Zwiebeln und Tomaten servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45,
  "airfryer": true
 }

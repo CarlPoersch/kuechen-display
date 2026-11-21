@@ -1,0 +1,63 @@
+{
+ "id": "haehnchen-honig-senf",
+ "title": "Honig-Senf-Hähnchen aus der Pfanne",
+ "icon": "🍯",
+ "cuisine": "International",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrustfilet"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "körniger Senf"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen flach klopfen, salzen und pfeffern."
+  },
+  {
+   "text": "In Öl pro Seite goldbraun und durchgebraten braten. Herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Knoblauch kurz anbraten, Honig, beide Senfsorten und Sahne zugeben und einkochen.",
+   "minutes": 3
+  },
+  {
+   "text": "Hähnchen in der Sauce wenden und mit Petersilie servieren. Dazu Reis oder Ofenkartoffeln."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

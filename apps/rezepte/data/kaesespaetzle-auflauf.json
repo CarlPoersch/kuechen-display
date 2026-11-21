@@ -1,0 +1,58 @@
+{
+ "id": "kaesespaetzle-auflauf",
+ "title": "Spätzle-Auflauf mit Lauch",
+ "icon": "🧀",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Spätzle (Kühlregal)"
+  },
+  {
+   "amount": "2",
+   "name": "Lauchstangen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Kochschinken (optional)"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 g",
+   "name": "Bergkäse, gerieben"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Lauch in Ringe schneiden und in Butter weich dünsten.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Spätzle und gewürfeltem Schinken mischen und in eine Form geben."
+  },
+  {
+   "text": "Sahne und Eier verquirlen, salzen, pfeffern und darübergießen."
+  },
+  {
+   "text": "Mit Käse bestreuen und goldbraun backen.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40
+}

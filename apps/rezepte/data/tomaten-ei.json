@@ -57,5 +57,10 @@
   {
    "text": "Ei zurück in die Pfanne geben, kurz durchschwenken, mit Frühlingszwiebeln bestreuen und auf Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
 }

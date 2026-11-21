@@ -1,0 +1,73 @@
+{
+ "id": "zwetschgendatschi",
+ "title": "Zwetschgendatschi",
+ "icon": "🍑",
+ "cuisine": "Deutsch",
+ "servings": 20,
+ "time": "ca. 1 Std. 30 Min. (inkl. Gehzeit)",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "½ Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "50 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "2 kg",
+   "name": "Zwetschgen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefeteig aus Mehl, Hefe, Milch, Zucker, Butter, Ei und Salz kneten und gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "Zwetschgen entsteinen und längs einschneiden (nicht halbieren)."
+  },
+  {
+   "text": "Teig auf ein gefettetes Blech ausrollen und die Zwetschgen dachziegelartig dicht daraufsetzen."
+  },
+  {
+   "text": "Bei 200 °C backen.",
+   "minutes": 30
+  },
+  {
+   "text": "Noch warm mit Zimt und Zucker bestreuen, mit Schlagsahne servieren."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

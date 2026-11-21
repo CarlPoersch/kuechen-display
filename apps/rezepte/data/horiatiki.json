@@ -56,5 +56,10 @@
   {
    "text": "Feta als Ganzes obenauf legen, mit Oregano bestreuen und Olivenöl darübergießen."
   }
- ]
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
 }

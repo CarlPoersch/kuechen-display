@@ -79,5 +79,10 @@
    "text": "Cashewpaste, Kokosmilch und Joghurt einrühren und 5 Minuten sanft köcheln.",
    "minutes": 5
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 45,
+ "gf": true
 }

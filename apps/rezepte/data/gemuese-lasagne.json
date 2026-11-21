@@ -1,0 +1,95 @@
+{
+ "id": "gemuese-lasagne",
+ "title": "Gemüselasagne",
+ "icon": "🥕",
+ "cuisine": "Italienisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Aubergine"
+  },
+  {
+   "amount": "2",
+   "name": "Paprikaschoten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "800 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "12",
+   "name": "Lasagneplatten"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "50 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "750 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "125 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "60 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse klein würfeln und in Öl kräftig anbraten.",
+   "minutes": 10
+  },
+  {
+   "text": "Tomaten zugeben, salzen, pfeffern und köcheln.",
+   "minutes": 15
+  },
+  {
+   "text": "Béchamel: Butter schmelzen, Mehl anschwitzen, Milch einrühren und andicken lassen. Mit Muskat und Salz würzen.",
+   "minutes": 6
+  },
+  {
+   "text": "Ofen auf 180 °C vorheizen. Abwechselnd Gemüsesauce, Platten und Béchamel in eine Form schichten."
+  },
+  {
+   "text": "Mit Béchamel, Mozzarella und Parmesan abschließen und backen.",
+   "minutes": 40
+  },
+  {
+   "text": "Vor dem Schneiden ruhen lassen.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

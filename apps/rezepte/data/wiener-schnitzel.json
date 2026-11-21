@@ -84,5 +84,9 @@
   {
    "text": "Auf Küchenpapier abtropfen lassen. Mit Zitrone und dem Salat (mit Schnittlauch) servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
 }

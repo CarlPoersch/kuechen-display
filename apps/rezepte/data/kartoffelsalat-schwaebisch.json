@@ -1,0 +1,69 @@
+{
+ "id": "kartoffelsalat-schwaebisch",
+ "title": "Schwäbischer Kartoffelsalat",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min. (plus Ziehen)",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "300 ml",
+   "name": "heiße Brühe"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zucker"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke (optional)"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in der Schale gar kochen.",
+   "minutes": 25
+  },
+  {
+   "text": "Noch warm pellen und in dünne Scheiben schneiden."
+  },
+  {
+   "text": "Zwiebel sehr fein würfeln, mit Brühe, Essig, Senf, Zucker, Salz und Pfeffer aufkochen."
+  },
+  {
+   "text": "Heiß über die Kartoffeln gießen, vorsichtig mischen. Warum heiß: Warme Kartoffeln saugen die Marinade auf."
+  },
+  {
+   "text": "Ziehen lassen, dann Öl, Gurkenscheiben und Schnittlauch unterheben. Lauwarm servieren.",
+   "minutes": 30
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45
+}

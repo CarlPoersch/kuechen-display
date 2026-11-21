@@ -1,0 +1,50 @@
+{
+ "id": "kartoffelecken",
+ "title": "Kartoffelspalten mit Paprika",
+ "icon": "🍟",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Knoblauchpulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C Umluft vorheizen."
+  },
+  {
+   "text": "Kartoffeln mit Schale in Spalten schneiden und trocken tupfen."
+  },
+  {
+   "text": "Mit Öl und Gewürzen mischen und mit Abstand auf ein Blech legen."
+  },
+  {
+   "text": "Knusprig backen, nach der Hälfte wenden.",
+   "minutes": 35
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

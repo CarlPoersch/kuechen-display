@@ -1,0 +1,70 @@
+{
+ "id": "schnitzel-jaeger",
+ "title": "Jägerschnitzel mit Spätzle",
+ "icon": "🍄",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Schweineschnitzel"
+  },
+  {
+   "amount": "300 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Bratenfond"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "500 g",
+   "name": "Spätzle"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schnitzel flach klopfen, salzen, pfeffern und in Mehl wenden."
+  },
+  {
+   "text": "In Butterschmalz pro Seite goldbraun braten, warm stellen.",
+   "minutes": 6
+  },
+  {
+   "text": "Zwiebel und Pilze im Bratfett anbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Fond und Sahne ablöschen und sämig einkochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Spätzle erwärmen. Schnitzel mit Pilzsauce, Spätzle und Petersilie servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40
+}

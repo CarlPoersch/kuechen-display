@@ -1,0 +1,50 @@
+{
+ "id": "ofen-kartoffeln",
+ "title": "Rosmarin-Ofenkartoffeln",
+ "icon": "🥔",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "kleine festkochende Kartoffeln"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "3 Zweige",
+   "name": "Rosmarin"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "grobes Meersalz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C Umluft vorheizen."
+  },
+  {
+   "text": "Kartoffeln halbieren, mit Öl, Rosmarinnadeln, angedrückten Knoblauchzehen und Salz mischen."
+  },
+  {
+   "text": "Mit der Schnittfläche nach unten auf ein Blech legen. So werden sie unten besonders knusprig."
+  },
+  {
+   "text": "Goldbraun und weich backen.",
+   "minutes": 40
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 50,
+ "gf": true
+}

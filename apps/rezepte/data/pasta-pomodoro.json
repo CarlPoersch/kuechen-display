@@ -1,0 +1,57 @@
+{
+ "id": "pasta-pomodoro",
+ "title": "Spaghetti al Pomodoro",
+ "icon": "🍅",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "800 g",
+   "name": "geschälte Tomaten (Dose)"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "",
+   "name": "Parmesan (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Knoblauch in Scheiben schneiden und in Olivenöl sanft goldgelb braten."
+  },
+  {
+   "text": "Tomaten zugeben, mit dem Löffel zerdrücken, salzen und köcheln, bis die Sauce eindickt.",
+   "minutes": 15
+  },
+  {
+   "text": "Spaghetti bissfest kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Nudeln mit etwas Nudelwasser in der Sauce schwenken, Basilikum unterheben."
+  },
+  {
+   "text": "Mit Parmesan und einem Schuss Olivenöl servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

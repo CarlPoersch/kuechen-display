@@ -79,6 +79,11 @@
    "text": "Saure Sahne mit zerdrücktem Käse verrühren und mit Selleriesticks dazu servieren."
   }
  ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35,
+ "gf": true,
  "airfryer": true,
  "tab": "airfryer"
 }

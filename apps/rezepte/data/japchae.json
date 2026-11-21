@@ -79,5 +79,9 @@
   {
    "text": "Mit Sesam bestreuen. Schmeckt warm und kalt."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35
 }

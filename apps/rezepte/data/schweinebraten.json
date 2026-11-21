@@ -71,5 +71,9 @@
    "minutes": 10
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 120,
  "airfryer": true
 }

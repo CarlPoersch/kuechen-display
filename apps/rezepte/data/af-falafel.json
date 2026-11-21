@@ -81,6 +81,10 @@
    "text": "Im Fladenbrot mit Salat, Tomaten und Tahinsauce servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 40,
  "airfryer": true,
  "tab": "airfryer"
 }

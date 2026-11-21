@@ -53,5 +53,9 @@
    "text": "Mit Wein ablöschen, kurz einkochen und die Sauce über das Fleisch geben.",
    "minutes": 2
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20
 }

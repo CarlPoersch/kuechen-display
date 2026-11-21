@@ -1,0 +1,61 @@
+{
+ "id": "vollkornbrot",
+ "title": "Schnelles Vollkornbrot",
+ "icon": "🍞",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 1 Std. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Dinkelvollkornmehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "500 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Apfelessig"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sonnenblumenkerne"
+  },
+  {
+   "amount": "50 g",
+   "name": "Leinsamen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Haferflocken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen (nicht vorheizen ist auch möglich – dann 10 Minuten länger)."
+  },
+  {
+   "text": "Hefe im Wasser auflösen. Mit Mehl, Essig, Salz, Kernen und Leinsamen zu einem klebrigen Teig verrühren. Kneten ist nicht nötig."
+  },
+  {
+   "text": "In eine gefettete Kastenform füllen, mit Haferflocken bestreuen und mit Wasser besprühen."
+  },
+  {
+   "text": "Backen, bis das Brot beim Klopfen auf den Boden hohl klingt.",
+   "minutes": 60
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 80
+}

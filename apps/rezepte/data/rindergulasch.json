@@ -69,5 +69,9 @@
   {
    "text": "Mit Salz und Pfeffer abschmecken. Dazu passen Semmelknödel oder Spätzle."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 150
 }

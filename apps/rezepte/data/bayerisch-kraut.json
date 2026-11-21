@@ -1,0 +1,60 @@
+{
+ "id": "bayerisch-kraut",
+ "title": "Bayerisch Kraut",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "kleiner Weißkohl (ca. 800 g)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Brühe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kohl vierteln, Strunk entfernen und in feine Streifen schneiden."
+  },
+  {
+   "text": "Speck auslassen, Zwiebel zugeben und glasig dünsten. Zucker darüberstreuen und leicht karamellisieren."
+  },
+  {
+   "text": "Kohl zugeben und kurz anbraten, mit Essig und Brühe ablöschen, Kümmel zugeben."
+  },
+  {
+   "text": "Zugedeckt weich schmoren.",
+   "minutes": 30
+  },
+  {
+   "text": "Mit Salz und Pfeffer abschmecken."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45
+}

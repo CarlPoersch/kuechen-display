@@ -1,0 +1,57 @@
+{
+ "id": "spinat-ricotta-quiche",
+ "title": "Spinat-Feta-Quiche",
+ "icon": "🥧",
+ "cuisine": "Französisch",
+ "servings": 6,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1 Rolle",
+   "name": "Mürbeteig (Kühlregal)"
+  },
+  {
+   "amount": "450 g",
+   "name": "Blattspinat (TK)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Quicheform mit dem Teig auslegen, mehrmals einstechen."
+  },
+  {
+   "text": "Spinat auftauen, sehr gut ausdrücken und mit Knoblauch hacken."
+  },
+  {
+   "text": "Sahne, Eier, Muskat, Salz und Pfeffer verquirlen, Spinat und zerbröselten Feta unterrühren."
+  },
+  {
+   "text": "Füllung auf den Teig geben und backen, bis sie gestockt ist.",
+   "minutes": 35
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60
+}

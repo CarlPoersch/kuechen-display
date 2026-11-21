@@ -1,0 +1,54 @@
+{
+ "id": "pasta-pesto-rosso",
+ "title": "Penne mit Pesto Rosso",
+ "icon": "🍅",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Penne"
+  },
+  {
+   "amount": "100 g",
+   "name": "getrocknete Tomaten in Öl"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mandeln"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "40 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "6 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Basilikum"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Penne kochen.",
+   "minutes": 11
+  },
+  {
+   "text": "Tomaten, Mandeln, Knoblauch, Parmesan, Öl und Basilikum im Mixer zu einem Pesto pürieren, salzen."
+  },
+  {
+   "text": "Nudeln mit Pesto und etwas Nudelwasser mischen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

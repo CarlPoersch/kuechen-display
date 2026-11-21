@@ -67,5 +67,10 @@
   {
    "text": "Mit Essig, Zucker, Salz und Pfeffer süß-sauer abschmecken."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
+ "gf": true
 }

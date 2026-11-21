@@ -1,0 +1,78 @@
+{
+ "id": "enchilada-auflauf",
+ "title": "Tortilla-Auflauf mit Bohnen",
+ "icon": "🌯",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "6",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kidneybohnen (Dose)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Mais (Dose)"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "500 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "200 g",
+   "name": "Cheddar, gerieben"
+  },
+  {
+   "amount": "150 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Zwiebel und Paprika würfeln und andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Bohnen, Mais, die Hälfte der Tomaten und Gewürze zugeben, salzen und kurz köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Restliche Tomaten mit etwas Salz in eine Form streichen. Tortillas, Füllung und Käse abwechselnd schichten."
+  },
+  {
+   "text": "Mit Käse abschließen und backen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit saurer Sahne und Avocadowürfeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

@@ -66,5 +66,9 @@
    "text": "Suppe in Schalen füllen und die Käsebrote darauflegen."
   }
  ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75,
  "airfryer": true
 }

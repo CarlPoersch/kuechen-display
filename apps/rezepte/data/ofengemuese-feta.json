@@ -1,0 +1,81 @@
+{
+ "id": "ofengemuese-feta",
+ "title": "Ofengemüse mit Feta",
+ "icon": "🥕",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Paprikaschoten"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Aubergine"
+  },
+  {
+   "amount": "2",
+   "name": "rote Zwiebeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Rosmarin"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "250 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen."
+  },
+  {
+   "text": "Gemüse und Kartoffeln in mundgerechte Stücke schneiden, mit Öl, Kräutern, Salz und Pfeffer mischen."
+  },
+  {
+   "text": "Auf einem Blech verteilen und rösten, nach 20 Minuten wenden.",
+   "minutes": 35
+  },
+  {
+   "text": "Feta zerbröseln, darüberstreuen und kurz mitbacken.",
+   "minutes": 5
+  },
+  {
+   "text": "Joghurt mit Knoblauch und Salz verrühren und dazu servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

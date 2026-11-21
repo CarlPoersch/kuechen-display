@@ -1,0 +1,86 @@
+{
+ "id": "chili-sin-carne",
+ "title": "Chili sin Carne",
+ "icon": "🌶️",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "Süßkartoffel"
+  },
+  {
+   "amount": "800 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kidneybohnen (Dose)"
+  },
+  {
+   "amount": "400 g",
+   "name": "schwarze Bohnen (Dose)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mais (Dose)"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kakaopulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Knoblauch, Paprika und Süßkartoffel würfeln."
+  },
+  {
+   "text": "Zwiebel und Knoblauch in Öl andünsten, Gewürze kurz mitrösten."
+  },
+  {
+   "text": "Paprika, Süßkartoffel und Tomaten zugeben und köcheln.",
+   "minutes": 25
+  },
+  {
+   "text": "Bohnen und Mais abspülen, zugeben und mit Kakao weiter köcheln. Kakao rundet die Schärfe ab.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Salz abschmecken und mit Reis oder Brot servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 50,
+ "gf": true
+}

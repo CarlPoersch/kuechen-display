@@ -1,0 +1,59 @@
+{
+ "id": "pilzpfanne-knoedel",
+ "title": "Rahmschwammerl mit Semmelknödeln",
+ "icon": "🍄",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "gemischte Pilze"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Packung",
+   "name": "Semmelknödel (oder selbst gemacht)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Knödel nach Packung zubereiten.",
+   "minutes": 20
+  },
+  {
+   "text": "Pilze putzen und schneiden. Portionsweise in Butter scharf anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebel zugeben, mit Brühe und Sahne ablöschen und sämig einkochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Salz, Pfeffer und viel Petersilie abschmecken und mit den Knödeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

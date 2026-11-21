@@ -1,0 +1,69 @@
+{
+ "id": "wraps-haehnchen",
+ "title": "Hähnchen-Wraps",
+ "icon": "🌯",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "400 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "1",
+   "name": "Tomate"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Salat"
+  },
+  {
+   "amount": "100 g",
+   "name": "Cheddar"
+  },
+  {
+   "amount": "4 EL",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Streifen schneiden, mit Gewürzen und Salz in Öl braten.",
+   "minutes": 7
+  },
+  {
+   "text": "Avocado und Tomate in Streifen schneiden."
+  },
+  {
+   "text": "Tortillas kurz in der Pfanne erwärmen."
+  },
+  {
+   "text": "Mit saurer Sahne bestreichen, mit Salat, Hähnchen, Gemüse und Käse belegen und einrollen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
+}

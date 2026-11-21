@@ -1,0 +1,69 @@
+{
+ "id": "gemuesepfanne-reis",
+ "title": "Gemüse-Reispfanne mit Ei",
+ "icon": "🍳",
+ "cuisine": "International",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "gekochter Reis (vom Vortag)"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse klein würfeln."
+  },
+  {
+   "text": "In Öl in einer großen Pfanne scharf anbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Reis zugeben und mitbraten, bis er leicht knusprig ist.",
+   "minutes": 5
+  },
+  {
+   "text": "Gemüse zur Seite schieben, Eier hineinschlagen und unter Rühren stocken lassen, dann alles mischen."
+  },
+  {
+   "text": "Mit Sojasauce würzen und mit Frühlingszwiebeln bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

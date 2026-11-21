@@ -73,5 +73,10 @@
   {
    "text": "Mit Koriander und Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 30,
+ "gf": true
 }

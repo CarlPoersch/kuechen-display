@@ -72,5 +72,9 @@
   {
    "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen, mit Muskat und Salz würzen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50
 }

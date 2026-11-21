@@ -59,6 +59,11 @@
    "text": "Mit Honig und Zitronensaft beträufeln."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true,
  "airfryer": true,
  "tab": "airfryer"
 }

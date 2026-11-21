@@ -1,0 +1,89 @@
+{
+ "id": "wiener-backhendl",
+ "title": "Backhendl mit Erdäpfelsalat",
+ "icon": "🍗",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Hähnchenteile (Keulen, Brust)"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "200 g",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Öl zum Ausbacken"
+  },
+  {
+   "group": "Erdäpfelsalat"
+  },
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "250 ml",
+   "name": "heiße Rinderbrühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in der Schale kochen, pellen und noch warm in Scheiben schneiden.",
+   "minutes": 25
+  },
+  {
+   "text": "Zwiebel fein würfeln, mit Brühe, Essig, Senf, Zucker, Salz und Pfeffer aufkochen und über die Kartoffeln gießen. Öl unterheben und ziehen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Hähnchenteile salzen, nacheinander in Mehl, verquirltem Ei und Bröseln wenden. Panade nicht andrücken."
+  },
+  {
+   "text": "Öl auf 160 °C erhitzen und die Teile goldbraun und durchgegart ausbacken (Keulen dauern länger).",
+   "minutes": 15
+  },
+  {
+   "text": "Auf Küchenpapier abtropfen und mit Zitronenspalten und Erdäpfelsalat servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

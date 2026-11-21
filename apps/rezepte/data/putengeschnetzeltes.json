@@ -1,0 +1,71 @@
+{
+ "id": "putengeschnetzeltes",
+ "title": "Putengeschnetzeltes mit Champignons",
+ "icon": "🍄",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Putenbrust"
+  },
+  {
+   "amount": "300 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "400 g",
+   "name": "Bandnudeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln kochen.",
+   "minutes": 9
+  },
+  {
+   "text": "Pute in Streifen schneiden, mit Mehl bestäuben und in Öl portionsweise scharf anbraten. Herausnehmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Zwiebel und Pilze anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Brühe und Sahne ablöschen, einkochen, Fleisch zurückgeben, abschmecken.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Petersilie und Nudeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

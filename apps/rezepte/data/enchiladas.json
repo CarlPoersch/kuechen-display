@@ -88,5 +88,9 @@
    "text": "Mit saurer Sahne und Koriander servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
  "airfryer": true
 }

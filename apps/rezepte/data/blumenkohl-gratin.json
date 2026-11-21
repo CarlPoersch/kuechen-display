@@ -1,0 +1,62 @@
+{
+ "id": "blumenkohl-gratin",
+ "title": "Blumenkohl-Gratin",
+ "icon": "🥦",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Blumenkohl"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "30 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Bergkäse, gerieben"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Paniermehl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Blumenkohl in Röschen teilen und in Salzwasser bissfest garen.",
+   "minutes": 6
+  },
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und andicken lassen. Mit Salz, Pfeffer und Muskat würzen.",
+   "minutes": 5
+  },
+  {
+   "text": "Die Hälfte des Käses einrühren."
+  },
+  {
+   "text": "Blumenkohl in eine Form geben, Sauce darübergießen, mit restlichem Käse und Paniermehl bestreuen."
+  },
+  {
+   "text": "Goldbraun überbacken.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

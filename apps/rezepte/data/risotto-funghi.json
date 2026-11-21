@@ -74,5 +74,10 @@
   {
    "text": "Mit Petersilie servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
 }

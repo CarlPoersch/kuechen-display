@@ -82,5 +82,9 @@
   {
    "text": "Nudeln in Schalen, heiße Brühe darüber, mit Fleisch, halbiertem Ei, Frühlingszwiebeln und Nori belegen."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45
 }

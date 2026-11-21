@@ -44,5 +44,10 @@
   {
    "text": "Mit Frühlingszwiebeln servieren."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
 }

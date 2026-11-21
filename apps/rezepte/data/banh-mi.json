@@ -97,5 +97,9 @@
    "text": "Mit Fleisch, eingelegtem Gemüse, Gurke, Koriander und Chili füllen."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
  "airfryer": true
 }

@@ -92,5 +92,10 @@
    "text": "Patties in die Dipsauce legen. Nudeln, Salat und Kräuter dazu: Zum Essen alles in die Sauce tunken."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45,
+ "gf": true,
  "airfryer": true
 }

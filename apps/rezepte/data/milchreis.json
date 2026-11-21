@@ -1,0 +1,63 @@
+{
+ "id": "milchreis",
+ "title": "Milchreis mit Kirschen",
+ "icon": "🍚",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Milchreis"
+  },
+  {
+   "amount": "1 l",
+   "name": "Milch"
+  },
+  {
+   "amount": "50 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 Glas",
+   "name": "Sauerkirschen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "",
+   "name": "Zimt und Zucker (zum Bestreuen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Milch mit Zucker, Vanillezucker und Salz aufkochen, Reis einrühren."
+  },
+  {
+   "text": "Bei kleinster Hitze zugedeckt quellen lassen, gelegentlich umrühren, damit nichts ansetzt.",
+   "minutes": 30
+  },
+  {
+   "text": "Kirschen mit Saft erhitzen, mit angerührter Stärke binden.",
+   "minutes": 3
+  },
+  {
+   "text": "Milchreis mit Kirschen und Zimt-Zucker servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

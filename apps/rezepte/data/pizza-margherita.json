@@ -84,5 +84,9 @@
    "text": "Mit Basilikum und Olivenöl servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "anspruchsvoll",
+ "min": 180,
  "airfryer": true
 }

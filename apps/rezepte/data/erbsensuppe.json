@@ -1,0 +1,72 @@
+{
+ "id": "erbsensuppe",
+ "title": "Erbsensuppe mit Würstchen",
+ "icon": "🍲",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "getrocknete grüne Schälerbsen"
+  },
+  {
+   "amount": "2 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "¼",
+   "name": "Sellerieknolle"
+  },
+  {
+   "amount": "1",
+   "name": "Lauchstange"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "250 g",
+   "name": "geräucherter Speck (am Stück)"
+  },
+  {
+   "amount": "6",
+   "name": "Wiener Würstchen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Erbsen abspülen und mit Wasser und Speck aufkochen. Schaum abschöpfen und köcheln.",
+   "minutes": 45
+  },
+  {
+   "text": "Gemüse und Kartoffeln würfeln, zugeben und weiterköcheln, bis alles weich ist.",
+   "minutes": 30
+  },
+  {
+   "text": "Speck herausnehmen, würfeln und zurückgeben. Suppe nach Wunsch teilweise pürieren."
+  },
+  {
+   "text": "Würstchen in Scheiben in der Suppe erwärmen. Mit Majoran, Salz und Pfeffer abschmecken.",
+   "minutes": 5
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 90,
+ "gf": true
+}

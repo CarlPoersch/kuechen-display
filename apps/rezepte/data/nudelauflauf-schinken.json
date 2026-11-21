@@ -1,0 +1,69 @@
+{
+ "id": "nudelauflauf-schinken",
+ "title": "Nudelauflauf mit Schinken und Käse",
+ "icon": "🧀",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Penne"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kochschinken"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "200 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 g",
+   "name": "Gouda, gerieben"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Nudeln 2 Minuten kürzer als angegeben kochen.",
+   "minutes": 8
+  },
+  {
+   "text": "Schinken und Zwiebel würfeln, Zwiebel kurz andünsten."
+  },
+  {
+   "text": "Sahne, Milch und Eier verquirlen, mit Salz, Pfeffer und Muskat würzen."
+  },
+  {
+   "text": "Nudeln, Schinken, Zwiebel und Erbsen in eine Auflaufform geben und den Guss darübergießen."
+  },
+  {
+   "text": "Mit Käse bestreuen und goldbraun backen.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 50
+}

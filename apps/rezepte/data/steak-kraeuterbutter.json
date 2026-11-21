@@ -1,0 +1,61 @@
+{
+ "id": "steak-kraeuterbutter",
+ "title": "Rumpsteak mit Kräuterbutter",
+ "icon": "🥩",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Rumpsteaks (je 250 g, 3 cm dick)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Kräuterbutter"
+  },
+  {
+   "amount": "80 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "gehackte Kräuter (Petersilie, Schnittlauch)"
+  },
+  {
+   "amount": "1 Spritzer",
+   "name": "Zitronensaft"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Steaks 30 Minuten vorher aus dem Kühlschrank nehmen. Butter mit Knoblauch, Kräutern, Zitrone und Salz verkneten."
+  },
+  {
+   "text": "Steaks trocken tupfen. Pfanne sehr heiß werden lassen, Öl zugeben."
+  },
+  {
+   "text": "Steaks pro Seite scharf anbraten (medium).",
+   "minutes": 3
+  },
+  {
+   "text": "Ruhen lassen, damit der Saft sich verteilt. Dann salzen und pfeffern.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Kräuterbutter, Ofenkartoffeln und Salat servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

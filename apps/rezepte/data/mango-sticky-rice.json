@@ -53,5 +53,10 @@
   {
    "text": "Reis mit Mango anrichten, restliche Kokosmilch darüber und mit Sesam bestreuen."
   }
- ]
+ ],
+ "cat": "Dessert",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 60,
+ "gf": true
 }

@@ -1,0 +1,72 @@
+{
+ "id": "currywurst",
+ "title": "Currywurst mit Pommes",
+ "icon": "🌭",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Bratwürste"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Tomatenketchup"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Apfelessig"
+  },
+  {
+   "amount": "800 g",
+   "name": "Pommes (TK)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pommes nach Packung im Ofen oder Airfryer backen.",
+   "minutes": 25
+  },
+  {
+   "text": "Zwiebel fein würfeln, in Öl glasig dünsten, Curry und Paprika kurz mitrösten."
+  },
+  {
+   "text": "Ketchup, Wasser, Honig und Essig zugeben und sämig köcheln. Nach Wunsch pürieren.",
+   "minutes": 8
+  },
+  {
+   "text": "Würste braten, in Stücke schneiden und mit Sauce, Currypulver und Pommes servieren.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

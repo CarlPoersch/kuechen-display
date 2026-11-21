@@ -1,0 +1,71 @@
+{
+ "id": "rote-gruetze",
+ "title": "Rote Grütze mit Vanillesauce",
+ "icon": "🍓",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 20 Min. (plus Kühlen)",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gemischte rote Beeren (TK)"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Kirschsaft"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "30 g",
+   "name": "Speisestärke"
+  },
+  {
+   "group": "Vanillesauce"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Vanilleschote"
+  },
+  {
+   "amount": "2",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "40 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Saft mit Zucker aufkochen, Stärke mit etwas Wasser anrühren und einrühren. Beeren zugeben und kurz aufkochen.",
+   "minutes": 3
+  },
+  {
+   "text": "Abkühlen lassen und kalt stellen.",
+   "minutes": 60
+  },
+  {
+   "text": "Milch mit Vanilleschote aufkochen. Eigelb, Zucker und Stärke verquirlen, heiße Milch langsam einrühren."
+  },
+  {
+   "text": "Zurück in den Topf geben und unter Rühren erhitzen, bis die Sauce bindet – nicht kochen lassen.",
+   "minutes": 4
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

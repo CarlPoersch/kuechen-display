@@ -1,0 +1,64 @@
+{
+ "id": "kaiserschmarrn-apfel",
+ "title": "Apfelpfannkuchen",
+ "icon": "🍎",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "2",
+   "name": "Äpfel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Milch, Eier und Salz glatt rühren."
+  },
+  {
+   "text": "Äpfel schälen und in dünne Spalten schneiden."
+  },
+  {
+   "text": "Butter in einer Pfanne schmelzen, Apfelspalten darin kurz anbraten."
+  },
+  {
+   "text": "Teig darübergießen, zugedeckt stocken lassen, wenden und fertig backen.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Zimt und Zucker bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

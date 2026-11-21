@@ -1,0 +1,96 @@
+{
+ "id": "kohlrouladen",
+ "title": "Kohlrouladen",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Weißkohl (ca. 1,5 kg)"
+  },
+  {
+   "amount": "500 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "altbackenes Brötchen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckscheiben"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "",
+   "name": "Küchengarn (zum Binden)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Strunk aus dem Kohl schneiden. Kohl in kochendes Salzwasser legen und die äußeren 8 Blätter nach und nach ablösen.",
+   "minutes": 8
+  },
+  {
+   "text": "Dicke Blattrippen flach schneiden."
+  },
+  {
+   "text": "Eingeweichtes, ausgedrücktes Brötchen, gehackte Zwiebel, Hack, Ei, Senf und Paprika verkneten, salzen und pfeffern."
+  },
+  {
+   "text": "Je 2 Blätter überlappend legen, Füllung daraufgeben, Seiten einschlagen, aufrollen und mit Garn binden."
+  },
+  {
+   "text": "Rouladen in Butterschmalz rundum anbraten, Speck mitbraten. Tomatenmark kurz anrösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Brühe ablöschen und zugedeckt schmoren, zwischendurch wenden.",
+   "minutes": 50
+  },
+  {
+   "text": "Rouladen herausnehmen. Sauce mit Sahne verfeinern und mit angerührter Stärke binden. Mit Salzkartoffeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 90
+}

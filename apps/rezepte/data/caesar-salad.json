@@ -1,0 +1,77 @@
+{
+ "id": "caesar-salad",
+ "title": "Caesar Salad mit Hähnchen",
+ "icon": "🥗",
+ "cuisine": "Amerikanisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Romanasalat"
+  },
+  {
+   "amount": "2",
+   "name": "Hähnchenbrustfilets"
+  },
+  {
+   "amount": "2 Scheiben",
+   "name": "Toastbrot"
+  },
+  {
+   "amount": "40 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dressing"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "2",
+   "name": "Sardellenfilets"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "80 ml",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Für das Dressing Eigelb, Knoblauch, Sardellen, Senf und Zitronensaft pürieren, Öl langsam einlaufen lassen. Die Hälfte des Parmesans unterrühren."
+  },
+  {
+   "text": "Hähnchen salzen, pfeffern und in Öl pro Seite braten, ruhen lassen und in Streifen schneiden.",
+   "minutes": 12
+  },
+  {
+   "text": "Brot würfeln und in der Pfanne knusprig rösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Salat zerzupfen, mit Dressing mischen, mit Hähnchen, Croutons und Parmesanspänen anrichten."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 30
+}

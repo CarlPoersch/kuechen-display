@@ -88,5 +88,9 @@
   {
    "text": "Tortillas mit Fleisch, Ananas, Zwiebel, Koriander und Salsa belegen, mit Limette servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
 }

@@ -1,0 +1,75 @@
+{
+ "id": "fischstäbchen-kartoffelsalat",
+ "title": "Selbstgemachte Fischstäbchen",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Seelachs- oder Kabeljaufilet"
+  },
+  {
+   "amount": "50 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Panko"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "group": "Remoulade"
+  },
+  {
+   "amount": "150 g",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "2",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fisch in fingerdicke Stäbchen schneiden, salzen."
+  },
+  {
+   "text": "Nacheinander in Mehl, verquirltem Ei und Panko wenden."
+  },
+  {
+   "text": "In Öl rundum goldbraun braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Gurken, Kapern und Dill hacken und unter die Mayonnaise rühren."
+  },
+  {
+   "text": "Mit Remoulade, Zitrone und Kartoffelsalat oder Pommes servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30
+}

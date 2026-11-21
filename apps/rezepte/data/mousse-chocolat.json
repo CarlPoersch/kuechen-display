@@ -1,0 +1,53 @@
+{
+ "id": "mousse-chocolat",
+ "title": "Mousse au Chocolat",
+ "icon": "🍫",
+ "cuisine": "Französisch",
+ "servings": 6,
+ "time": "ca. 25 Min. (plus 4 Std. Kühlen)",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Zartbitterschokolade (70 %)"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "40 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schokolade über dem Wasserbad schmelzen und etwas abkühlen lassen."
+  },
+  {
+   "text": "Eier trennen. Eigelbe mit der Hälfte des Zuckers cremig schlagen und die Schokolade einrühren."
+  },
+  {
+   "text": "Sahne steif schlagen und unterheben."
+  },
+  {
+   "text": "Eiweiß mit Salz und restlichem Zucker steif schlagen und vorsichtig unterheben."
+  },
+  {
+   "text": "In Gläser füllen und kalt stellen.",
+   "minutes": 240
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 25,
+ "gf": true
+}

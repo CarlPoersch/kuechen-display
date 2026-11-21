@@ -1,0 +1,69 @@
+{
+ "id": "couscous-salat",
+ "title": "Couscous-Salat mit Feta",
+ "icon": "🥗",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Couscous"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "150 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Couscous mit heißer Brühe übergießen, zugedeckt quellen lassen und mit einer Gabel auflockern.",
+   "minutes": 10
+  },
+  {
+   "text": "Gemüse würfeln, Kräuter hacken."
+  },
+  {
+   "text": "Alles mit Zitronensaft und Öl mischen, salzen, pfeffern."
+  },
+  {
+   "text": "Feta darüberbröseln."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

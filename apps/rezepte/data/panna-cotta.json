@@ -1,0 +1,59 @@
+{
+ "id": "panna-cotta",
+ "title": "Panna Cotta mit Beerensauce",
+ "icon": "🍮",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 20 Min. (plus 4 Std. Kühlen)",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "50 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Vanilleschote"
+  },
+  {
+   "amount": "3 Blatt",
+   "name": "Gelatine"
+  },
+  {
+   "amount": "300 g",
+   "name": "Beeren (TK)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Puderzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gelatine in kaltem Wasser einweichen.",
+   "minutes": 5
+  },
+  {
+   "text": "Sahne mit Zucker und ausgekratzter Vanille aufkochen und leise köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Vom Herd nehmen, Gelatine ausdrücken und darin auflösen."
+  },
+  {
+   "text": "In Gläser füllen und kalt stellen.",
+   "minutes": 240
+  },
+  {
+   "text": "Beeren mit Puderzucker erwärmen, pürieren und über die Panna Cotta geben."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

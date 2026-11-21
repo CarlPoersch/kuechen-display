@@ -1,0 +1,70 @@
+{
+ "id": "pasta-pilze-sahne",
+ "title": "Tagliatelle mit Pilz-Rahmsauce",
+ "icon": "🍄",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Tagliatelle"
+  },
+  {
+   "amount": "500 g",
+   "name": "braune Champignons"
+  },
+  {
+   "amount": "1",
+   "name": "Schalotte"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "50 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "",
+   "name": "Parmesan (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pilze in Scheiben schneiden und portionsweise in heißer Butter scharf anbraten. Warum portionsweise: Sonst kochen sie im eigenen Saft.",
+   "minutes": 8
+  },
+  {
+   "text": "Schalotte und Knoblauch zugeben, mit Wein ablöschen."
+  },
+  {
+   "text": "Sahne zugeben und cremig einkochen, salzen und pfeffern.",
+   "minutes": 4
+  },
+  {
+   "text": "Tagliatelle kochen und mit der Sauce mischen.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Petersilie und Parmesan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

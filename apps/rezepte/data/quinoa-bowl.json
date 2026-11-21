@@ -1,0 +1,74 @@
+{
+ "id": "quinoa-bowl",
+ "title": "Quinoa-Bowl mit Ofengemüse",
+ "icon": "🥙",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Quinoa"
+  },
+  {
+   "amount": "1",
+   "name": "Süßkartoffel"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kichererbsen (Dose)"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "100 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "group": "Dressing"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ahornsirup"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen. Süßkartoffel würfeln, mit Kichererbsen, Öl, Paprika und Salz mischen und rösten.",
+   "minutes": 25
+  },
+  {
+   "text": "Quinoa abspülen und in doppelter Menge Wasser garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Tahin mit Zitronensaft, Ahornsirup, Salz und Wasser zu einem cremigen Dressing rühren."
+  },
+  {
+   "text": "Quinoa, Spinat, Ofengemüse und Avocadoscheiben in Schalen anrichten und mit Dressing beträufeln."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

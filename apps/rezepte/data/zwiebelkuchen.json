@@ -1,0 +1,91 @@
+{
+ "id": "zwiebelkuchen",
+ "title": "Schwäbischer Zwiebelkuchen",
+ "icon": "🧅",
+ "cuisine": "Deutsch",
+ "servings": 8,
+ "time": "ca. 1 Std. 45 Min.",
+ "ingredients": [
+  {
+   "group": "Hefeteig"
+  },
+  {
+   "amount": "300 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "½ Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "150 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "40 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "1 kg",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe in Milch auflösen, mit Mehl, Butter und Salz zu einem glatten Teig kneten. Abgedeckt gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "Zwiebeln in feine Streifen schneiden. Speck in Butter auslassen, Zwiebeln zugeben und glasig dünsten, nicht bräunen.",
+   "minutes": 15
+  },
+  {
+   "text": "Abkühlen lassen. Saure Sahne, Sahne, Eier, Kümmel, Salz und Pfeffer verrühren und unterheben."
+  },
+  {
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Teig auf ein gefettetes Blech ausrollen, Rand hochziehen."
+  },
+  {
+   "text": "Zwiebelmasse daraufstreichen und backen, bis sie goldbraun und gestockt ist.",
+   "minutes": 35
+  },
+  {
+   "text": "Lauwarm servieren – klassisch mit neuem Wein (Federweißer)."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 105
+}

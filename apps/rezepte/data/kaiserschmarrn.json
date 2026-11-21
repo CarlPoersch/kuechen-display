@@ -67,5 +67,9 @@
   {
    "text": "Mit Puderzucker und Zwetschgenröster servieren."
   }
- ]
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 30
 }

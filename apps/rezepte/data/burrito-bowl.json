@@ -76,5 +76,10 @@
   {
    "text": "Alles nebeneinander auf dem Reis anrichten, mit saurer Sahne und Käse toppen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35,
+ "gf": true
 }

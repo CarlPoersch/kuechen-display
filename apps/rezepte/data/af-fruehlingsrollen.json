@@ -78,6 +78,10 @@
    "minutes": 12
   }
  ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 45,
  "airfryer": true,
  "tab": "airfryer"
 }

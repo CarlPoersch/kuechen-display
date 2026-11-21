@@ -115,5 +115,9 @@
   {
    "text": "Mit Kräutern, Sprossen, Limette, Chili und Saucen servieren."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 180
 }

@@ -1,0 +1,68 @@
+{
+ "id": "cheeseburger",
+ "title": "Cheeseburger",
+ "icon": "🍔",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "4",
+   "name": "Burgerbrötchen"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Bergkäse"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "4 Blätter",
+   "name": "Kopfsalat"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Senf-Mayonnaise"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack ohne viel Kneten zu 4 flachen Patties formen, mit dem Daumen eine Mulde in die Mitte drücken (so wölben sie sich nicht)."
+  },
+  {
+   "text": "Zwiebel in Ringe, Tomaten und Gurken in Scheiben schneiden."
+  },
+  {
+   "text": "Pfanne sehr heiß werden lassen, Patties mit Öl einpinseln, salzen und pro Seite braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Nach dem Wenden mit Käse belegen und zugedeckt schmelzen lassen."
+  },
+  {
+   "text": "Brötchen anrösten und mit Senf-Mayo, Salat, Patty, Tomate, Zwiebel und Gurke belegen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

@@ -65,6 +65,10 @@
    "text": "Mit Reis servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 20,
  "airfryer": true,
  "tab": "airfryer"
 }

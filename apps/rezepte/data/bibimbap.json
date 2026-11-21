@@ -103,5 +103,9 @@
   {
    "text": "Sauce verrühren. Reis in Schalen geben, Gemüse und Fleisch darauf anordnen, Ei obenauf, Sauce dazu. Beim Essen alles vermischen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 45
 }

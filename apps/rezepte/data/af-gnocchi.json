@@ -55,6 +55,10 @@
    "text": "Mit Basilikum servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
  "airfryer": true,
  "tab": "airfryer"
 }

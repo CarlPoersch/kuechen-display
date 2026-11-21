@@ -71,5 +71,10 @@
   {
    "text": "Basilikum unterheben und mit Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
 }

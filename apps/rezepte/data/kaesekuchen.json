@@ -1,0 +1,84 @@
+{
+ "id": "kaesekuchen",
+ "title": "Käsekuchen",
+ "icon": "🍰",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 1 Std. 30 Min. (plus Abkühlen)",
+ "ingredients": [
+  {
+   "group": "Boden"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "group": "Füllung"
+  },
+  {
+   "amount": "1 kg",
+   "name": "Magerquark"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Vanillepuddingpulver"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 g",
+   "name": "geschmolzene Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone (Abrieb)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Zucker, Butter und Ei zu einem Mürbeteig verkneten und kalt stellen.",
+   "minutes": 30
+  },
+  {
+   "text": "Ofen auf 170 °C Ober-/Unterhitze vorheizen. Teig in einer Springform (26 cm) als Boden und 3 cm hohen Rand auslegen."
+  },
+  {
+   "text": "Quark, Zucker, Eier, Puddingpulver, Sahne, Butter und Zitronenabrieb glatt rühren."
+  },
+  {
+   "text": "Füllung auf den Boden geben und backen.",
+   "minutes": 70
+  },
+  {
+   "text": "Im ausgeschalteten Ofen bei leicht geöffneter Tür abkühlen lassen – so reißt er nicht ein.",
+   "minutes": 30
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

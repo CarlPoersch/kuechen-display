@@ -1,0 +1,88 @@
+{
+ "id": "senfeier",
+ "title": "Senfeier mit Kartoffelpüree",
+ "icon": "🥚",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Eier"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "3 EL",
+   "name": "mittelscharfer Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "körniger Senf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zitronensaft"
+  },
+  {
+   "group": "Püree"
+  },
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Eier 8 Minuten kochen, abschrecken und pellen.",
+   "minutes": 8
+  },
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen und nach und nach Brühe und Milch einrühren. Köcheln lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Beide Senfsorten einrühren, mit Zitronensaft, Salz, Pfeffer und einer Prise Zucker abschmecken."
+  },
+  {
+   "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen und mit Muskat würzen."
+  },
+  {
+   "text": "Eier halbieren, in die Sauce legen und mit Püree servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

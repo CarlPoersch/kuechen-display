@@ -1,0 +1,70 @@
+{
+ "id": "spargelcremesuppe",
+ "title": "Spargelcremesuppe",
+ "icon": "🌱",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "weißer Spargel"
+  },
+  {
+   "amount": "1 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 Spritzer",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Kerbel oder Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spargel schälen. Schalen und Enden mit Wasser, Salz und Zucker auskochen, dann absieben – das ist der Fond.",
+   "minutes": 20
+  },
+  {
+   "text": "Spargelstangen in Stücke schneiden und im Fond bissfest garen, herausnehmen.",
+   "minutes": 8
+  },
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen und mit dem Fond glatt rühren. Köcheln lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Sahne mit Eigelb verquirlen, vom Herd nehmen und einrühren. Mit Salz und Zitrone abschmecken."
+  },
+  {
+   "text": "Spargelstücke zugeben und mit Kräutern servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 45
+}

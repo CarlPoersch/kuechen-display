@@ -71,6 +71,10 @@
    "text": "Kartoffeln kreuzweise einschneiden, etwas aufdrücken, mit Quark, Speck und Röstzwiebeln füllen."
   }
  ],
+ "cat": "Beilage",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
  "airfryer": true,
  "tab": "airfryer"
 }

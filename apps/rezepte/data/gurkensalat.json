@@ -1,0 +1,46 @@
+{
+ "id": "gurkensalat",
+ "title": "Gurkensalat mit Dill",
+ "icon": "🥒",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Salatgurken"
+  },
+  {
+   "amount": "150 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gurken in dünne Scheiben hobeln, leicht salzen und 10 Minuten ziehen lassen. Wasser abgießen.",
+   "minutes": 10
+  },
+  {
+   "text": "Saure Sahne, Essig, Zucker und gehackten Dill verrühren, pfeffern."
+  },
+  {
+   "text": "Mit den Gurken mischen und sofort servieren."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15
+}

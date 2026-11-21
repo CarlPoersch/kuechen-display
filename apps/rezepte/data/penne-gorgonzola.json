@@ -1,0 +1,52 @@
+{
+ "id": "penne-gorgonzola",
+ "title": "Penne mit Gorgonzola und Walnüssen",
+ "icon": "🧀",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Penne"
+  },
+  {
+   "amount": "150 g",
+   "name": "Gorgonzola"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "50 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Rucola"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Penne kochen.",
+   "minutes": 11
+  },
+  {
+   "text": "Walnüsse ohne Fett rösten und grob hacken."
+  },
+  {
+   "text": "Gorgonzola in der Sahne bei kleiner Hitze schmelzen, mit Pfeffer würzen."
+  },
+  {
+   "text": "Nudeln mit etwas Nudelwasser in der Sauce schwenken."
+  },
+  {
+   "text": "Mit Walnüssen und Rucola servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

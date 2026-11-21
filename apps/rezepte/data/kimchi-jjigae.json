@@ -67,5 +67,10 @@
   {
    "text": "Mit Frühlingszwiebeln bestreuen und mit Reis servieren."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35,
+ "gf": true
 }

@@ -61,6 +61,11 @@
    "text": "Joghurt mit gepresstem Knoblauch, Limettensaft, Schnittlauch und Salz verrühren und dazu servieren."
   }
  ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 35,
+ "gf": true,
  "airfryer": true,
  "tab": "airfryer"
 }

@@ -57,5 +57,9 @@
    "text": "Mit Apfelmus servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 40,
  "airfryer": true
 }

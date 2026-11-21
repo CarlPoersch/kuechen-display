@@ -1,0 +1,81 @@
+{
+ "id": "gulaschsuppe",
+ "title": "Gulaschsuppe",
+ "icon": "🍲",
+ "cuisine": "Ungarisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rindergulasch"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Paprikaschoten"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Schmalz oder Öl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika scharf"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Rinderbrühe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in kleine Würfel schneiden und in Schmalz portionsweise kräftig anbraten."
+  },
+  {
+   "text": "Gewürfelte Zwiebeln zugeben und goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomatenmark und Paprika kurz mitrösten, sofort mit Brühe ablöschen."
+  },
+  {
+   "text": "Kümmel und Majoran zugeben und zugedeckt köcheln.",
+   "minutes": 60
+  },
+  {
+   "text": "Kartoffeln und Paprika würfeln, zugeben und weich garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Salz und Pfeffer abschmecken."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 105
+}

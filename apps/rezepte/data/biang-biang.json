@@ -116,5 +116,9 @@
       "text": "Sofort gut durchmischen und servieren."
     }
   ],
-  "cuisine": "Chinesisch"
+  "cuisine": "Chinesisch",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "anspruchsvoll",
+  "min": 105
 }

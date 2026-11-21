@@ -1,0 +1,66 @@
+{
+ "id": "lachs-nudel-gratin",
+ "title": "Lachs-Spinat-Lasagne",
+ "icon": "🐟",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Lachsfilet ohne Haut"
+  },
+  {
+   "amount": "450 g",
+   "name": "Blattspinat (TK)"
+  },
+  {
+   "amount": "12",
+   "name": "Lasagneplatten"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "50 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "700 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone (Abrieb)"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "80 g",
+   "name": "Parmesan"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Spinat auftauen und ausdrücken, Lachs in Würfel schneiden."
+  },
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und köcheln, bis die Sauce andickt. Mit Salz, Pfeffer, Zitronenabrieb und Knoblauch würzen.",
+   "minutes": 6
+  },
+  {
+   "text": "Etwas Sauce in eine Form geben, dann Platten, Spinat, Lachs und Sauce schichten."
+  },
+  {
+   "text": "Mit Sauce und Parmesan abschließen und backen.",
+   "minutes": 40
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 70
+}

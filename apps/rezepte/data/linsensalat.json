@@ -1,0 +1,66 @@
+{
+ "id": "linsensalat",
+ "title": "Linsensalat mit Ziegenkäse",
+ "icon": "🥗",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Belugalinsen"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Rucola"
+  },
+  {
+   "amount": "150 g",
+   "name": "Ziegenfrischkäse"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen in ungesalzenem Wasser bissfest kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zwiebel und Karotte fein würfeln."
+  },
+  {
+   "text": "Essig, Senf, Honig und Öl verquirlen, salzen und pfeffern. Mit den warmen Linsen und dem Gemüse mischen."
+  },
+  {
+   "text": "Mit Rucola und zerbröseltem Ziegenkäse servieren."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

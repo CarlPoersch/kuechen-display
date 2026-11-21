@@ -76,5 +76,9 @@
   {
    "text": "Mit Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 120
 }

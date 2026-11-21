@@ -1,0 +1,62 @@
+{
+ "id": "wurstsalat",
+ "title": "Schweizer Wurstsalat",
+ "icon": "🥗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min. (plus Ziehen)",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Fleischwurst (Lyoner)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Emmentaler"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Gurkenwasser"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Wurst und Käse in feine Streifen schneiden, Zwiebel in Ringe, Gurken in Scheiben."
+  },
+  {
+   "text": "Essig, Gurkenwasser, Senf, Öl, Salz und Pfeffer verrühren."
+  },
+  {
+   "text": "Mit den Zutaten mischen und ziehen lassen. Mit Schnittlauch und Brot servieren.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 15
+}

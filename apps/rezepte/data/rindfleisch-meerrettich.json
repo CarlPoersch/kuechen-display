@@ -1,0 +1,90 @@
+{
+ "id": "rindfleisch-meerrettich",
+ "title": "Tafelspitz mit Meerrettich",
+ "icon": "🥩",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 3 Std.",
+ "ingredients": [
+  {
+   "amount": "1,2 kg",
+   "name": "Tafelspitz"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "¼",
+   "name": "Sellerieknolle"
+  },
+  {
+   "amount": "1",
+   "name": "Lauchstange"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel (mit Schale halbiert)"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pfefferkörner"
+  },
+  {
+   "group": "Apfelkren"
+  },
+  {
+   "amount": "2",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "frisch geriebener Meerrettich"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "group": "Beilage"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebelhälften in einem trockenen Topf auf der Schnittfläche dunkel rösten (gibt Farbe und Geschmack)."
+  },
+  {
+   "text": "Fleisch in einen großen Topf legen, mit kaltem Wasser bedecken und aufkochen. Schaum abschöpfen."
+  },
+  {
+   "text": "Zwiebel, Lorbeer, Pfeffer und 1 EL Salz zugeben und knapp unter dem Siedepunkt garen.",
+   "minutes": 150
+  },
+  {
+   "text": "Gemüse grob schneiden und mitgaren.",
+   "minutes": 30
+  },
+  {
+   "text": "Äpfel reiben, sofort mit Zitronensaft und Meerrettich mischen, leicht salzen."
+  },
+  {
+   "text": "Kartoffeln garen. Fleisch quer zur Faser in Scheiben schneiden, mit etwas Brühe, Gemüse, Kartoffeln, Apfelkren und Schnittlauch servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 180
+}

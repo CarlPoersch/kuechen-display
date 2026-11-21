@@ -76,5 +76,9 @@
    "text": "Abkühlen lassen und mit Puderzucker bestäuben."
   }
  ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60,
  "airfryer": true
 }

@@ -1,0 +1,54 @@
+{
+ "id": "rote-bete-salat",
+ "title": "Rote-Bete-Salat mit Apfel",
+ "icon": "🍠",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gekochte Rote Bete"
+  },
+  {
+   "amount": "1",
+   "name": "Apfel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Apfelessig"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Meerrettich (Glas)"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rote Bete und Apfel würfeln, Zwiebel fein würfeln."
+  },
+  {
+   "text": "Essig, Öl, Meerrettich, Salz und Pfeffer verrühren."
+  },
+  {
+   "text": "Alles mischen und mit Petersilie bestreuen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
+}

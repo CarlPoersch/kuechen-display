@@ -1,0 +1,102 @@
+{
+ "id": "koenigsberger-klopse",
+ "title": "Königsberger Klopse",
+ "icon": "🧆",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "altbackenes Brötchen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "2",
+   "name": "Sardellenfilets (optional)"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Lorbeerblatt"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "group": "Beilage"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brötchen einweichen und gut ausdrücken. Zwiebel und Sardellen fein hacken."
+  },
+  {
+   "text": "Hack, Brötchen, Zwiebel, Sardellen und Ei verkneten, salzen, pfeffern und 12 Klopse formen."
+  },
+  {
+   "text": "Brühe mit Lorbeer aufkochen, Klopse einlegen und knapp unter dem Siedepunkt gar ziehen lassen. Warum nicht kochen: Sonst zerfallen sie.",
+   "minutes": 15
+  },
+  {
+   "text": "Kartoffeln schälen und in Salzwasser garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Klopse herausnehmen. Butter schmelzen, Mehl anschwitzen und mit 500 ml Kochbrühe glatt rühren.",
+   "minutes": 5
+  },
+  {
+   "text": "Sahne und Kapern zugeben, vom Herd nehmen und mit Eigelb legieren. Mit Zitronensaft, Salz und Pfeffer abschmecken."
+  },
+  {
+   "text": "Klopse in der Sauce erwärmen und mit Kartoffeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

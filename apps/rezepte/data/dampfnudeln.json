@@ -1,0 +1,91 @@
+{
+ "id": "dampfnudeln",
+ "title": "Dampfnudeln mit Vanillesauce",
+ "icon": "🥟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 2 Std. (inkl. Gehzeit)",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "250 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "60 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "group": "Zum Garen"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "group": "Vanillesauce"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Vanillesaucenpulver"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe in Milch mit 1 TL Zucker auflösen. Mit Mehl, restlichem Zucker, Butter, Ei und Salz zu einem glatten Teig kneten."
+  },
+  {
+   "text": "Abgedeckt gehen lassen, bis er doppelt so groß ist.",
+   "minutes": 60
+  },
+  {
+   "text": "8 Kugeln formen und nochmals gehen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "In einem breiten Topf mit Deckel Milch, Butter und Zucker aufkochen, Kugeln hineinsetzen."
+  },
+  {
+   "text": "Zugedeckt bei kleiner Hitze garen, bis es knistert und unten eine Kruste entsteht. Deckel nicht öffnen!",
+   "minutes": 25
+  },
+  {
+   "text": "Vanillesauce nach Packung kochen und dazu servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "anspruchsvoll",
+ "min": 120
+}

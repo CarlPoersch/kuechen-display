@@ -1,0 +1,73 @@
+{
+ "id": "kartoffelgratin",
+ "title": "Kartoffelgratin",
+ "icon": "🥔",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "½ TL",
+   "name": "schwarzer Pfeffer"
+  },
+  {
+   "amount": "100 g",
+   "name": "Gruyère oder Bergkäse, gerieben"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter (für die Form)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Auflaufform mit Butter ausstreichen."
+  },
+  {
+   "text": "Kartoffeln schälen und in 2–3 mm dünne Scheiben hobeln. Nicht waschen – die Stärke bindet die Sauce."
+  },
+  {
+   "text": "Sahne, Milch, zerdrückten Knoblauch, Salz, Pfeffer und Muskat aufkochen."
+  },
+  {
+   "text": "Kartoffelscheiben dachziegelartig in die Form schichten und die heiße Sahnemilch darübergießen."
+  },
+  {
+   "text": "Mit Käse bestreuen und backen, bis die Kartoffeln weich sind und die Oberfläche goldbraun ist.",
+   "minutes": 55
+  },
+  {
+   "text": "10 Minuten ruhen lassen, damit die Sauce andickt.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 75,
+ "gf": true
+}

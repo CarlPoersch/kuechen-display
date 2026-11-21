@@ -1,0 +1,83 @@
+{
+ "id": "shepherds-pie",
+ "title": "Shepherd's Pie",
+ "icon": "🥧",
+ "cuisine": "Britisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Lammhack (oder Rinderhack)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Worcestershiresauce"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Thymian"
+  },
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "80 g",
+   "name": "Cheddar"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen, weich kochen und mit Milch und Butter zu Püree stampfen, salzen.",
+   "minutes": 20
+  },
+  {
+   "text": "Hack scharf anbraten, gewürfelte Zwiebel und Karotten zugeben.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomatenmark, Worcestershiresauce, Thymian und Brühe zugeben und sämig einkochen. Erbsen unterrühren.",
+   "minutes": 15
+  },
+  {
+   "text": "Ofen auf 200 °C vorheizen. Fleisch in eine Form geben, Püree darauf verstreichen und mit einer Gabel Rillen ziehen."
+  },
+  {
+   "text": "Mit Cheddar bestreuen und goldbraun backen.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75
+}

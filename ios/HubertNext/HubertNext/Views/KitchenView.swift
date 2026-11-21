@@ -97,34 +97,60 @@ func cookedText(_ m: RecipeMeta) -> String? {
 struct RecipesTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
     @State private var query = ""
-    @State private var filter = "Alle"
+    @State private var category = "Alle"
     @State private var cuisine = "Alle"
+    @State private var filter = RecipeFilter()
+    @State private var showFilter = false
     @State private var suggestion: RecipeSummary?
     @State private var sheet: Sheet?
-    private let filters = ["Alle", "Eigene", "Airfryer", "Schnell", "Favoriten", "Lange nicht"]
 
     enum Sheet: String, Identifiable { case new, link, cookbook, stats; var id: String { rawValue } }
 
-    private var list: [RecipeSummary] {
-        kitchen.recipes.filter { r in
-            let q = query.lowercased()
-            let match = q.isEmpty || r.title.lowercased().contains(q) || (r.cuisine ?? "").lowercased().contains(q)
-                || (r.ing ?? []).contains { $0.lowercased().contains(q) }
-            guard match else { return false }
-            if cuisine != "Alle" && (r.cuisine ?? "Sonstige") != cuisine { return false }
+    private var list: [RecipeSummary] { matching(filter).map(\.0) }
+
+    /// Passende Rezepte mit fehlenden Zutaten (nur bei „Mit meinem Vorrat“ gefüllt)
+    private func matching(_ f: RecipeFilter) -> [(RecipeSummary, [String])] {
+        let q = query.lowercased().trimmingCharacters(in: .whitespaces)
+        let pantryKeys = f.pantry ? kitchen.pantry.map { KitchenStore.key($0.name) } : []
+        let include = f.include.map { $0.lowercased() }
+        var out: [(RecipeSummary, [String])] = []
+        for r in kitchen.recipes {
+            let ing = (r.ing ?? []).map { $0.lowercased() }
+            if !q.isEmpty && !(r.title.lowercased().contains(q) || (r.cuisine ?? "").lowercased().contains(q) || ing.contains(where: { $0.contains(q) })) { continue }
+            if category != "Alle" && r.cat != category { continue }
+            if cuisine != "Alle" && (r.cuisine ?? "Sonstige") != cuisine { continue }
             let m = kitchen.meta[r.id]
-            switch filter {
-            case "Eigene": return r.owner != nil
-            case "Airfryer": return r.airfryer == true
-            case "Schnell": return (r.minutes ?? 99) <= 30
-            case "Favoriten": return (m?.rating ?? 0) >= 4
-            case "Lange nicht": return m?.lastCookedDate.map { Date().timeIntervalSince($0) > 21 * 86400 } ?? true
-            default: return true
+            switch f.collection {
+            case "Eigene": if r.owner == nil { continue }
+            case "Airfryer": if r.airfryer != true { continue }
+            case "Favoriten": if (m?.rating ?? 0) < 4 { continue }
+            case "Lange nicht": if let d = m?.lastCookedDate, Date().timeIntervalSince(d) <= 21 * 86400 { continue }
+            default: break
             }
+            let diet = r.diet ?? DietGuess.diet(r.ing ?? [])
+            switch f.diet {
+            case "Vegetarisch": if diet != "vegetarisch" && diet != "vegan" { continue }
+            case "Vegan": if diet != "vegan" { continue }
+            case "Ohne Fleisch": if diet == "fleisch" { continue }
+            default: break
+            }
+            if f.glutenFree && r.gf != true { continue }
+            if f.maxMinutes > 0 && (r.minutes ?? 999) > f.maxMinutes { continue }
+            if f.level != "Alle" && r.level != f.level { continue }
+            if !include.allSatisfy({ z in ing.contains { $0.contains(z) } }) { continue }
+            var missing: [String] = []
+            if f.pantry {
+                missing = PantryMatch.missing(r, pantryKeys: pantryKeys)
+                if missing.count > f.maxMissing { continue }
+            }
+            out.append((r, missing))
         }
+        if f.pantry { out.sort { $0.1.count < $1.1.count } }
+        return out
     }
 
     var body: some View {
+        let results = matching(filter)   // einmal pro Zeichnen
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 HStack(spacing: 10) {
@@ -138,6 +164,14 @@ struct RecipesTab: View {
                     }
                     .padding(10)
                     .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                    Button { showFilter = true } label: {
+                        Image(systemName: filter.isActive ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease")
+                            .font(.headline).foregroundColor(filter.isActive ? .white : Theme.accent)
+                            .frame(width: 40, height: 40)
+                            .background(Circle().fill(filter.isActive ? Theme.accent : Color(UIColor.tertiarySystemFill)))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(filter.isActive ? "Filter (aktiv)" : "Filter")
                     roundButton("die.face.5.fill", "Zufallsrezept") { shuffle() }
                     roundButton("chart.bar.fill", "Koch-Statistik") { sheet = .stats }
                     Menu {
@@ -151,14 +185,18 @@ struct RecipesTab: View {
                     .accessibilityLabel("Rezept hinzufügen")
                 }
 
+                // Kategorien
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        ForEach(filters, id: \.self) { f in
-                            Button { filter = f } label: {
-                                Text(f).font(.subheadline.weight(.semibold))
-                                    .padding(.horizontal, 14).padding(.vertical, 7)
-                                    .foregroundColor(filter == f ? .white : .primary)
-                                    .background(Capsule().fill(filter == f ? Theme.accent : Theme.card))
+                        ForEach(RecipeFilter.categories, id: \.0) { c in
+                            Button { withAnimation { category = c.0; suggestion = nil } } label: {
+                                HStack(spacing: 5) {
+                                    Text(c.1)
+                                    Text(c.0 == "Alle" ? "Alle Gerichte" : c.0).font(.subheadline.weight(.semibold))
+                                }
+                                .padding(.horizontal, 14).padding(.vertical, 7)
+                                .foregroundColor(category == c.0 ? .white : .primary)
+                                .background(Capsule().fill(category == c.0 ? Theme.accent : Theme.card))
                             }
                             .buttonStyle(.plain)
                         }
@@ -184,22 +222,58 @@ struct RecipesTab: View {
                     }
                 }
 
+                // Aktive Filter – antippen entfernt sie
+                if filter.isActive {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(Array(filter.chips.enumerated()), id: \.offset) { _, c in
+                                Button { withAnimation { c.clear(&filter) } } label: {
+                                    HStack(spacing: 4) {
+                                        Text(c.label).font(.subheadline.weight(.medium))
+                                        Image(systemName: "xmark").font(.caption2.weight(.bold))
+                                    }
+                                    .foregroundColor(Theme.accent)
+                                    .padding(.horizontal, 12).padding(.vertical, 6)
+                                    .background(Capsule().fill(Theme.accent.opacity(0.14)))
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityLabel("Filter \(c.label) entfernen")
+                            }
+                            Button("Alle zurücksetzen") { withAnimation { filter = RecipeFilter() } }
+                                .font(.subheadline).buttonStyle(.borderless)
+                        }
+                    }
+                }
+
                 if let r = suggestion { suggestionCard(r) }
 
                 if kitchen.recipes.isEmpty {
                     ProgressView().frame(maxWidth: .infinity).padding(.top, 40)
-                } else if list.isEmpty {
-                    Text("Keine passenden Rezepte").foregroundColor(Theme.secondary).frame(maxWidth: .infinity).padding(.top, 40)
+                } else if results.isEmpty {
+                    VStack(spacing: 10) {
+                        Text("Keine passenden Rezepte").foregroundColor(Theme.secondary)
+                        if filter.isActive || category != "Alle" || cuisine != "Alle" {
+                            Button("Filter zurücksetzen") { withAnimation { filter = RecipeFilter(); category = "Alle"; cuisine = "Alle" } }
+                                .buttonStyle(.borderless)
+                        }
+                    }
+                    .frame(maxWidth: .infinity).padding(.top, 40)
+                } else {
+                    Text(results.count == 1 ? "1 Rezept" : "\(results.count) Rezepte")
+                        .font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
                 }
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 165), spacing: 14)], spacing: 14) {
-                    ForEach(list) { r in
-                        NavigationLink(destination: RecipeDetailView(id: r.id)) { RecipeCard(recipe: r) }
-                            .buttonStyle(.plain)
+                    ForEach(results, id: \.0.id) { item in
+                        NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
+                            RecipeCard(recipe: item.0, missing: filter.pantry ? item.1 : nil)
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
             .padding()
         }
+        .sheet(isPresented: $showFilter) { RecipeFilterSheet(filter: $filter) { matching($0).count } }
         .sheet(item: $sheet) { s in
             switch s {
             case .new: NewRecipeSheet()
@@ -221,7 +295,10 @@ struct RecipesTab: View {
         ["Deutsch": "🇩🇪", "Chinesisch": "🇨🇳", "Italienisch": "🇮🇹", "Indisch": "🇮🇳", "Japanisch": "🇯🇵",
          "Thailändisch": "🇹🇭", "Mediterran": "🫒", "Orientalisch": "🧆", "Koreanisch": "🇰🇷", "Mexikanisch": "🇲🇽",
          "Vietnamesisch": "🇻🇳", "Französisch": "🇫🇷", "Amerikanisch": "🇺🇸", "Griechisch": "🇬🇷", "Spanisch": "🇪🇸",
-         "Türkisch": "🇹🇷", "Österreichisch": "🇦🇹", "International": "🌍"][c] ?? "🍽️"
+         "Türkisch": "🇹🇷", "Österreichisch": "🇦🇹", "International": "🌍", "Britisch": "🇬🇧", "Schweizerisch": "🇨🇭",
+         "Skandinavisch": "🇸🇪", "Ungarisch": "🇭🇺", "Polnisch": "🇵🇱", "Portugiesisch": "🇵🇹", "Libanesisch": "🇱🇧",
+         "Marokkanisch": "🇲🇦", "Persisch": "🇮🇷", "Indonesisch": "🇮🇩", "Karibisch": "🌴", "Brasilianisch": "🇧🇷",
+         "Peruanisch": "🇵🇪", "Äthiopisch": "🇪🇹", "Russisch": "🇷🇺", "Tschechisch": "🇨🇿", "Israelisch": "🇮🇱"][c] ?? "🍽️"
     }
 
     /// Zufallsrezept aus den gerade gefilterten Rezepten (nicht zweimal dasselbe hintereinander)
@@ -280,6 +357,7 @@ struct RecipesTab: View {
 
 struct RecipeCard: View {
     let recipe: RecipeSummary
+    var missing: [String]? = nil      // nur bei „Mit meinem Vorrat“
     @ObservedObject private var kitchen = KitchenStore.shared
 
     var body: some View {
@@ -302,6 +380,12 @@ struct RecipeCard: View {
             Text([recipe.cuisine, recipe.time].compactMap { $0 }.joined(separator: " · "))
                 .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
             Spacer(minLength: 0)
+            if let miss = missing {
+                Label(miss.isEmpty ? "Alles da" : "Fehlt: " + miss.prefix(2).joined(separator: ", ") + (miss.count > 2 ? " +\(miss.count - 2)" : ""),
+                      systemImage: miss.isEmpty ? "checkmark.circle.fill" : "cart")
+                    .font(.caption2.weight(.semibold)).lineLimit(1)
+                    .foregroundColor(miss.isEmpty ? .green : Theme.secondary)
+            }
             if let r = m?.rating { StarRating(value: r, size: 11) }
         }
         .padding(14)

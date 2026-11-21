@@ -1,0 +1,67 @@
+{
+ "id": "nudelsalat",
+ "title": "Klassischer Nudelsalat",
+ "icon": "🥗",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 30 Min. (plus Ziehen)",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Spirelli"
+  },
+  {
+   "amount": "200 g",
+   "name": "Fleischwurst oder Kochschinken"
+  },
+  {
+   "amount": "200 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Gurkenwasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln kochen, Erbsen die letzte Minute mitkochen. Abgießen und abkühlen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Wurst, Gurken und Paprika würfeln."
+  },
+  {
+   "text": "Mayonnaise, Joghurt, Gurkenwasser und Senf verrühren, salzen und pfeffern."
+  },
+  {
+   "text": "Alles mischen und ziehen lassen. Vor dem Servieren evtl. mit Gurkenwasser nachwürzen.",
+   "minutes": 60
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

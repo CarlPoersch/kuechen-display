@@ -1,0 +1,68 @@
+{
+ "id": "chocolate-chip-cookies",
+ "title": "Chocolate Chip Cookies",
+ "icon": "🍪",
+ "cuisine": "Amerikanisch",
+ "servings": 20,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "125 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "50 g",
+   "name": "weißer Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Vanilleextrakt"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Natron"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schokoladendrops"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen."
+  },
+  {
+   "text": "Butter mit beiden Zuckersorten cremig rühren, Ei und Vanille unterrühren."
+  },
+  {
+   "text": "Mehl, Natron und Salz unterrühren, Schokodrops unterheben."
+  },
+  {
+   "text": "Walnussgroße Kugeln mit Abstand auf ein Blech setzen."
+  },
+  {
+   "text": "Backen, bis die Ränder goldbraun sind – die Mitte bleibt weich.",
+   "minutes": 11
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

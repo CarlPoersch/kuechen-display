@@ -1,0 +1,91 @@
+{
+ "id": "kaesekrainer-gulasch",
+ "title": "Fiakergulasch",
+ "icon": "🍲",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rindfleisch (Wadschinken)"
+  },
+  {
+   "amount": "1 kg",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Schweineschmalz"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel, gemahlen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Wasser"
+  },
+  {
+   "group": "Garnitur"
+  },
+  {
+   "amount": "4",
+   "name": "Wiener Würstchen"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "4",
+   "name": "Essiggurken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln fein schneiden und in Schmalz langsam goldbraun rösten. Warum so viele: Sie lösen sich auf und binden das Gulasch.",
+   "minutes": 20
+  },
+  {
+   "text": "Topf vom Herd nehmen, Paprika und Tomatenmark einrühren, sofort mit Essig und etwas Wasser ablöschen (Paprika wird sonst bitter)."
+  },
+  {
+   "text": "Fleisch in 4 cm große Würfel schneiden und zugeben. Kümmel, Majoran, gehackten Knoblauch und 1 TL Salz zugeben."
+  },
+  {
+   "text": "Mit Wasser knapp bedecken und zugedeckt schmoren, bis das Fleisch weich ist. Bei Bedarf Wasser nachgießen.",
+   "minutes": 120
+  },
+  {
+   "text": "Würstchen fächerartig einschneiden und kurz anbraten, Spiegeleier braten."
+  },
+  {
+   "text": "Gulasch mit Würstchen, Spiegelei, gefächerter Essiggurke und Semmelknödel servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 150
+}

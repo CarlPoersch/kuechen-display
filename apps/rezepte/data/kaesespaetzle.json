@@ -63,5 +63,9 @@
    "text": "Mit Röstzwiebeln und Schnittlauch servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 45,
  "airfryer": true
 }

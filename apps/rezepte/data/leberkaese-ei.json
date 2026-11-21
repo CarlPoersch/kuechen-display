@@ -1,0 +1,67 @@
+{
+ "id": "leberkaese-ei",
+ "title": "Leberkäse mit Spiegelei und Bratkartoffeln",
+ "icon": "🍳",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Scheiben",
+   "name": "Leberkäse (je ca. 1,5 cm)"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "500 g",
+   "name": "gekochte Kartoffeln vom Vortag"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "60 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "",
+   "name": "süßer Senf (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in Scheiben schneiden. In 2 EL Butterschmalz ohne Rühren goldbraun braten, erst dann wenden.",
+   "minutes": 12
+  },
+  {
+   "text": "Zwiebel und Speck zugeben und mitbraten, mit Salz, Pfeffer und Majoran würzen.",
+   "minutes": 5
+  },
+  {
+   "text": "Leberkäse in einer zweiten Pfanne in restlichem Fett beidseitig knusprig braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Eier daneben als Spiegeleier braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Leberkäse mit Ei belegen, mit Bratkartoffeln und süßem Senf servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

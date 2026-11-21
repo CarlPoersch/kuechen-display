@@ -1,0 +1,61 @@
+{
+ "id": "semmelknoedel",
+ "title": "Semmelknödel",
+ "icon": "🥯",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Knödelbrot (altbackene Semmeln, gewürfelt)"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Milch erwärmen und über das Knödelbrot gießen. Zugedeckt ziehen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zwiebel fein würfeln und in Butter glasig dünsten, Petersilie hacken."
+  },
+  {
+   "text": "Zwiebel, Petersilie, Eier, Salz, Pfeffer und Muskat zugeben und gut vermengen."
+  },
+  {
+   "text": "Mit nassen Händen 8 Knödel formen."
+  },
+  {
+   "text": "In leicht siedendem Salzwasser gar ziehen lassen, nicht sprudelnd kochen.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

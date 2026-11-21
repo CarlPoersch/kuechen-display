@@ -1,0 +1,80 @@
+{
+ "id": "cannelloni-spinat",
+ "title": "Cannelloni mit Spinat und Ricotta",
+ "icon": "🧀",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Cannelloni"
+  },
+  {
+   "amount": "450 g",
+   "name": "Blattspinat (TK, aufgetaut)"
+  },
+  {
+   "amount": "250 g",
+   "name": "Ricotta"
+  },
+  {
+   "amount": "60 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "700 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "125 g",
+   "name": "Mozzarella"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Spinat gut ausdrücken und hacken."
+  },
+  {
+   "text": "Spinat, Ricotta, die Hälfte des Parmesans, Ei, Salz, Pfeffer und Muskat verrühren."
+  },
+  {
+   "text": "Füllung in einen Gefrierbeutel geben, eine Ecke abschneiden und die Cannelloni füllen."
+  },
+  {
+   "text": "Knoblauch in Öl andünsten, Tomaten zugeben, salzen und kurz köcheln. Die Hälfte in eine Form geben.",
+   "minutes": 5
+  },
+  {
+   "text": "Cannelloni darauflegen, restliche Sauce darübergießen, mit Mozzarella und Parmesan bestreuen."
+  },
+  {
+   "text": "Backen, bis die Nudeln weich sind.",
+   "minutes": 35
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 70,
+ "gf": true
+}

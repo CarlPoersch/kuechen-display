@@ -1,0 +1,63 @@
+{
+ "id": "gefuellte-zucchini",
+ "title": "Gefüllte Zucchini mit Hack",
+ "icon": "🥒",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "400 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "100 g",
+   "name": "Feta oder Mozzarella"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Zucchini längs halbieren und aushöhlen, Fruchtfleisch hacken."
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Hack in Öl anbraten, Zucchinifleisch, die Hälfte der Tomaten und Oregano zugeben, würzen.",
+   "minutes": 8
+  },
+  {
+   "text": "Zucchinihälften füllen, in eine Form setzen und restliche Tomaten drumherum geben."
+  },
+  {
+   "text": "Mit Käse bestreuen und backen.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "gf": true
+}

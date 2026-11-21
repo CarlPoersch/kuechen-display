@@ -1,0 +1,62 @@
+{
+ "id": "croque-monsieur",
+ "title": "Croque Monsieur",
+ "icon": "🥪",
+ "cuisine": "Französisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "4 Scheiben",
+   "name": "Toastbrot"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Kochschinken"
+  },
+  {
+   "amount": "100 g",
+   "name": "Gruyère, gerieben"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und dick einkochen. Mit Muskat, Salz und der Hälfte des Käses verrühren.",
+   "minutes": 4
+  },
+  {
+   "text": "Ofengrill vorheizen. Zwei Brotscheiben mit Senf bestreichen, mit Schinken und etwas Käse belegen, zuklappen."
+  },
+  {
+   "text": "Oben mit der Sauce bestreichen und mit restlichem Käse bestreuen."
+  },
+  {
+   "text": "Unter dem Grill goldbraun überbacken.",
+   "minutes": 6
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20
+}

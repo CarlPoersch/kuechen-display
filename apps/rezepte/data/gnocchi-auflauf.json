@@ -1,0 +1,69 @@
+{
+ "id": "gnocchi-auflauf",
+ "title": "Gnocchi-Auflauf mit Tomate und Mozzarella",
+ "icon": "🍅",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Gnocchi (Kühlregal)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "800 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "2 Kugeln",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "40 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen."
+  },
+  {
+   "text": "Zwiebel und Knoblauch in Öl andünsten, Tomaten und Oregano zugeben, salzen und köcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Gnocchi roh unter die Sauce mischen und in eine Auflaufform geben. Warum roh: Sie garen in der Sauce und bleiben fluffig."
+  },
+  {
+   "text": "Mit Mozzarellascheiben und Parmesan belegen und backen, bis der Käse blubbert.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Basilikum bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

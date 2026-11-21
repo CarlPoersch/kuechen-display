@@ -1,0 +1,48 @@
+{
+ "id": "kartoffelpueree",
+ "title": "Kartoffelpüree",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen, vierteln und in Salzwasser weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Abgießen und kurz ausdampfen lassen, damit das Püree nicht wässrig wird."
+  },
+  {
+   "text": "Milch mit Butter erhitzen."
+  },
+  {
+   "text": "Kartoffeln durch die Presse drücken oder stampfen (nicht mixen, sonst wird es klebrig) und die Milch unterrühren."
+  },
+  {
+   "text": "Mit Salz und Muskat abschmecken."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

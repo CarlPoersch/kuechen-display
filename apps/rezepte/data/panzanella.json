@@ -1,0 +1,56 @@
+{
+ "id": "panzanella",
+ "title": "Panzanella (Brotsalat)",
+ "icon": "🍞",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Ciabatta vom Vortag"
+  },
+  {
+   "amount": "500 g",
+   "name": "reife Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "6 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brot in Würfel reißen und in 2 EL Öl in der Pfanne rösten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tomaten grob schneiden, salzen und Saft ziehen lassen. Gurke und Zwiebel schneiden.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Brot, Essig, restlichem Öl und Basilikum mischen, ziehen lassen, bis das Brot den Saft aufgesogen hat.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 25
+}

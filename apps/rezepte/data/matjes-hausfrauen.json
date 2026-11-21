@@ -1,0 +1,69 @@
+{
+ "id": "matjes-hausfrauen",
+ "title": "Matjes nach Hausfrauenart",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 25 Min. (plus Ziehen)",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Matjesfilets"
+  },
+  {
+   "amount": "2",
+   "name": "Äpfel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Gurkenwasser"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "800 g",
+   "name": "Pellkartoffeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Äpfel entkernen und würfeln, Zwiebel in feine Ringe, Gurken in Scheiben schneiden."
+  },
+  {
+   "text": "Saure Sahne, Joghurt und Gurkenwasser verrühren, mit Pfeffer und einer Prise Zucker würzen."
+  },
+  {
+   "text": "Äpfel, Zwiebel und Gurken unterheben, Matjes in Stücke schneiden und dazugeben."
+  },
+  {
+   "text": "Im Kühlschrank ziehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Mit Dill bestreuen und mit Pellkartoffeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

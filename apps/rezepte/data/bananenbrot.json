@@ -1,0 +1,69 @@
+{
+ "id": "bananenbrot",
+ "title": "Bananenbrot",
+ "icon": "🍌",
+ "cuisine": "Amerikanisch",
+ "servings": 10,
+ "time": "ca. 1 Std. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "sehr reife Bananen"
+  },
+  {
+   "amount": "80 g",
+   "name": "geschmolzene Butter"
+  },
+  {
+   "amount": "120 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Vanilleextrakt"
+  },
+  {
+   "amount": "220 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Natron"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "60 g",
+   "name": "Walnüsse (optional)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 175 °C vorheizen. Kastenform mit Backpapier auslegen."
+  },
+  {
+   "text": "Bananen zerdrücken, mit Butter, Zucker, Eiern und Vanille verrühren."
+  },
+  {
+   "text": "Mehl, Natron, Salz und Zimt mischen und kurz unterrühren. Nüsse unterheben."
+  },
+  {
+   "text": "In die Form füllen und backen. Stäbchenprobe machen.",
+   "minutes": 55
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 70
+}

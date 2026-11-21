@@ -89,5 +89,10 @@
   {
    "text": "Tadka in die Linsen rühren, mit Koriander servieren. Warum am Ende: So bleibt das Gewürzaroma frisch."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 45,
+ "gf": true
 }

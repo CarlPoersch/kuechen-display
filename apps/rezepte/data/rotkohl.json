@@ -1,0 +1,76 @@
+{
+ "id": "rotkohl",
+ "title": "Apfelrotkohl",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Rotkohl (ca. 1 kg)"
+  },
+  {
+   "amount": "2",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Schweineschmalz oder Butter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Rotwein oder Apfelsaft"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "4",
+   "name": "Nelken"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zimt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Johannisbeergelee"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rotkohl vierteln, Strunk entfernen und fein hobeln. Äpfel und Zwiebel würfeln."
+  },
+  {
+   "text": "Zwiebel in Fett glasig dünsten, Zucker darin leicht karamellisieren."
+  },
+  {
+   "text": "Kohl und Äpfel zugeben, mit Wein und Essig ablöschen. Essig hält die rote Farbe."
+  },
+  {
+   "text": "Lorbeer, Nelken, Zimt und 1 TL Salz zugeben und zugedeckt weich schmoren, gelegentlich rühren.",
+   "minutes": 60
+  },
+  {
+   "text": "Gewürze entfernen und mit Gelee, Salz und Zucker süß-sauer abschmecken."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 75
+}

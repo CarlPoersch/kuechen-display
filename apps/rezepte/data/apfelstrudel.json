@@ -1,0 +1,71 @@
+{
+ "id": "apfelstrudel",
+ "title": "Apfelstrudel",
+ "icon": "🍎",
+ "cuisine": "Österreichisch",
+ "servings": 8,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Packung",
+   "name": "Strudel- oder Filoteig"
+  },
+  {
+   "amount": "1 kg",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "60 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "50 g",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 190 °C vorheizen. Äpfel schälen, in dünne Scheiben schneiden, mit Zucker, Zimt, Rosinen und Zitronensaft mischen."
+  },
+  {
+   "text": "Brösel in 30 g Butter goldbraun rösten. Restliche Butter schmelzen."
+  },
+  {
+   "text": "Teigblätter auf einem Küchentuch überlappend auslegen und mit Butter bestreichen."
+  },
+  {
+   "text": "Brösel auf dem unteren Drittel verteilen, Äpfel daraufgeben. Mit Hilfe des Tuchs aufrollen, Enden einschlagen."
+  },
+  {
+   "text": "Mit Butter bestreichen und goldbraun backen.",
+   "minutes": 40
+  },
+  {
+   "text": "Lauwarm mit Puderzucker und Vanillesauce servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
+}

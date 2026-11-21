@@ -80,5 +80,10 @@
   {
    "text": "Dazu passen Rotkohl und Kartoffelklöße."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 135,
+ "gf": true
 }

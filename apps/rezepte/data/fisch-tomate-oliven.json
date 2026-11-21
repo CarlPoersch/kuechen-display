@@ -1,0 +1,68 @@
+{
+ "id": "fisch-tomate-oliven",
+ "title": "Kabeljau in Tomaten-Oliven-Sauce",
+ "icon": "🐟",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Kabeljaufilet"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "80 g",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Knoblauch in Öl andünsten.",
+   "minutes": 3
+  },
+  {
+   "text": "Tomaten halbieren, mit Oliven und Kapern zugeben, mit Wein ablöschen und köcheln.",
+   "minutes": 8
+  },
+  {
+   "text": "Fisch in Stücke schneiden, salzen und in die Sauce legen. Zugedeckt gar ziehen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Petersilie und Brot oder Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

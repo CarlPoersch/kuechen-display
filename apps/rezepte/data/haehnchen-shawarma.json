@@ -74,5 +74,9 @@
    "text": "In warmen Fladenbroten mit Salat, Gurken und Knoblauchsauce servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
  "airfryer": true
 }

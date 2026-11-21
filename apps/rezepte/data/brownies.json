@@ -1,0 +1,64 @@
+{
+ "id": "brownies",
+ "title": "Schoko-Brownies",
+ "icon": "🍫",
+ "cuisine": "Amerikanisch",
+ "servings": 16,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Zartbitterschokolade"
+  },
+  {
+   "amount": "150 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kakaopulver"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "100 g",
+   "name": "Walnüsse oder Schokodrops"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Eine Form (20 × 20 cm) mit Backpapier auslegen."
+  },
+  {
+   "text": "Schokolade mit Butter schmelzen."
+  },
+  {
+   "text": "Zucker und Eier verrühren, Schokobutter einrühren."
+  },
+  {
+   "text": "Mehl, Kakao und Salz unterheben, Nüsse zugeben."
+  },
+  {
+   "text": "Backen, bis die Oberfläche glänzt, innen aber noch feucht ist. Warum nicht länger: Sonst werden sie trocken statt fudgy.",
+   "minutes": 22
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

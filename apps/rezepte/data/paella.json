@@ -87,5 +87,10 @@
    "text": "Mit einem Tuch abgedeckt ruhen lassen und mit Zitrone servieren.",
    "minutes": 5
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
+ "gf": true
 }

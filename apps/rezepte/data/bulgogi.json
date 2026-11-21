@@ -70,5 +70,9 @@
   {
    "text": "Mit Frühlingszwiebeln und Sesam bestreuen, mit Reis und Salatblättern servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40
 }

@@ -1,0 +1,70 @@
+{
+ "id": "thai-rindfleischsalat",
+ "title": "Thai-Rindfleischsalat (Yam Nua)",
+ "icon": "🥗",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Rumpsteak"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "150 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chili"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Steak salzen und in einer heißen Pfanne pro Seite braten, ruhen lassen.",
+   "minutes": 3
+  },
+  {
+   "text": "Fischsauce, Limettensaft, Zucker und gehackte Chili verrühren."
+  },
+  {
+   "text": "Gurke, Tomaten und Zwiebel schneiden, Kräuter zupfen."
+  },
+  {
+   "text": "Steak dünn aufschneiden und mit Gemüse, Kräutern und Dressing mischen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

@@ -1,0 +1,57 @@
+{
+ "id": "bratkartoffeln",
+ "title": "Bratkartoffeln mit Speck und Zwiebeln",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln, am Vortag gekocht"
+  },
+  {
+   "amount": "150 g",
+   "name": "durchwachsener Speck"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln pellen und in 5 mm dicke Scheiben schneiden. Zwiebeln in Streifen, Speck in Würfel schneiden."
+  },
+  {
+   "text": "Butterschmalz in einer großen Pfanne heiß werden lassen. Kartoffeln in einer Lage hineingeben."
+  },
+  {
+   "text": "Ohne Rühren goldbraun braten, dann wenden. Warum nicht ständig rühren: Nur so entsteht die Kruste.",
+   "minutes": 12
+  },
+  {
+   "text": "Speck und Zwiebeln zugeben und mitbraten, bis alles knusprig ist.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Salz, Pfeffer und Majoran würzen und mit Schnittlauch bestreuen."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

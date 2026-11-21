@@ -70,5 +70,10 @@
   {
    "text": "Mit Chilis und Koriander servieren."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 25,
+ "gf": true
 }

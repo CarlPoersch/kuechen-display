@@ -73,5 +73,10 @@
   {
    "text": "Mit Chili und Koriander servieren. Galgant und Zitronengras werden nicht mitgegessen."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 25,
+ "gf": true
 }

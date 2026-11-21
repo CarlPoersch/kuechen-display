@@ -46,6 +46,10 @@
    "text": "Mit Basilikum servieren, zweite Pizza genauso."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 15,
  "airfryer": true,
  "tab": "airfryer"
 }

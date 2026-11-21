@@ -87,6 +87,10 @@
    "text": "Mit Fladenbrot, Tomate, Gurke und Sauce servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35,
  "airfryer": true,
  "tab": "airfryer"
 }

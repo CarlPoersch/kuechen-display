@@ -81,5 +81,9 @@
   {
    "text": "Schnitzel in Streifen schneiden und mit Reis und Currysauce servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45
 }

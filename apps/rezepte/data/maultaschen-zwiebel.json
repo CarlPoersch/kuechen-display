@@ -1,0 +1,58 @@
+{
+ "id": "maultaschen-zwiebel",
+ "title": "Geschmälzte Maultaschen",
+ "icon": "🥟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Maultaschen (Kühlregal)"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "",
+   "name": "Kartoffelsalat (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Maultaschen in Streifen schneiden. Zwiebeln in Ringe schneiden."
+  },
+  {
+   "text": "Zwiebeln in Butter goldbraun schmelzen.",
+   "minutes": 6
+  },
+  {
+   "text": "Maultaschenstreifen zugeben und anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Eier verquirlen, salzen, darübergießen und unter Wenden stocken lassen.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Schnittlauch bestreuen und mit Kartoffelsalat servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

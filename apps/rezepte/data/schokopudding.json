@@ -1,0 +1,55 @@
+{
+ "id": "schokopudding",
+ "title": "Schokoladenpudding",
+ "icon": "🍫",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min. (plus Kühlen)",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zartbitterschokolade"
+  },
+  {
+   "amount": "40 g",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Kakaopulver"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Stärke, Zucker, Kakao und Salz mit 100 ml Milch glatt rühren."
+  },
+  {
+   "text": "Restliche Milch mit gehackter Schokolade aufkochen, bis sie geschmolzen ist."
+  },
+  {
+   "text": "Angerührte Stärke einrühren und unter Rühren 1 Minute kochen lassen.",
+   "minutes": 1
+  },
+  {
+   "text": "In Schälchen füllen und kalt stellen.",
+   "minutes": 120
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
+}

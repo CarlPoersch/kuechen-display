@@ -1,0 +1,70 @@
+{
+ "id": "ramen-miso",
+ "title": "Miso-Ramen mit Ei",
+ "icon": "🍜",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Portionen",
+   "name": "Ramen-Nudeln"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Misopaste"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mais"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "1 Blatt",
+   "name": "Nori"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier genau 6,5 Minuten kochen, in Eiswasser abschrecken und pellen.",
+   "minutes": 7
+  },
+  {
+   "text": "Brühe erhitzen, Miso und Sojasauce einrühren. Nicht mehr kochen lassen, sonst verliert Miso das Aroma."
+  },
+  {
+   "text": "Nudeln nach Packung kochen und in Schalen verteilen.",
+   "minutes": 4
+  },
+  {
+   "text": "Brühe darübergießen, Spinat, Mais, halbierte Eier, Frühlingszwiebeln und Nori daraufgeben, mit Sesamöl beträufeln."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

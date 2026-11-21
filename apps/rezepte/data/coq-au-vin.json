@@ -74,5 +74,9 @@
   {
    "text": "Sauce bei Bedarf einkochen und mit der Butter verfeinern. Dazu Baguette oder Kartoffeln."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 120
 }

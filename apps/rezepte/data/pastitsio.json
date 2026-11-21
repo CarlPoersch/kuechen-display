@@ -1,0 +1,79 @@
+{
+ "id": "pastitsio",
+ "title": "Pastitsio",
+ "icon": "🍝",
+ "cuisine": "Griechisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Makkaroni (lange, dicke)"
+  },
+  {
+   "amount": "500 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "400 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kefalotyri oder Parmesan"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "60 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "750 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Hack anbraten, Tomaten und Zimt zugeben, salzen und einkochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Nudeln bissfest kochen und mit 1 Ei und der Hälfte des Käses mischen.",
+   "minutes": 8
+  },
+  {
+   "text": "Béchamel kochen, vom Herd nehmen und das zweite Ei einrühren. Mit Muskat würzen.",
+   "minutes": 6
+  },
+  {
+   "text": "Ofen auf 180 °C vorheizen. Die Hälfte der Nudeln in eine Form, darauf die Hacksauce, dann restliche Nudeln."
+  },
+  {
+   "text": "Béchamel darübergießen, mit restlichem Käse bestreuen und goldbraun backen.",
+   "minutes": 45
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 90
+}

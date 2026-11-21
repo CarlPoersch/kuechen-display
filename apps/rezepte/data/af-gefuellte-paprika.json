@@ -59,6 +59,10 @@
    "minutes": 15
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
  "airfryer": true,
  "tab": "airfryer"
 }

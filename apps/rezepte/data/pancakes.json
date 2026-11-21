@@ -1,0 +1,68 @@
+{
+ "id": "pancakes",
+ "title": "Fluffige Pancakes",
+ "icon": "🥞",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Buttermilch"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "40 g",
+   "name": "geschmolzene Butter"
+  },
+  {
+   "amount": "",
+   "name": "Ahornsirup (zum Servieren)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Heidelbeeren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Backpulver, Zucker und Salz mischen."
+  },
+  {
+   "text": "Buttermilch, Eier und Butter verquirlen und kurz unter das Mehl rühren. Klümpchen sind gut – zu viel Rühren macht sie zäh."
+  },
+  {
+   "text": "Pfanne bei mittlerer Hitze leicht fetten, je 3 EL Teig hineingeben."
+  },
+  {
+   "text": "Wenden, sobald sich Bläschen bilden, und fertig backen.",
+   "minutes": 15
+  },
+  {
+   "text": "Mit Ahornsirup und Heidelbeeren servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

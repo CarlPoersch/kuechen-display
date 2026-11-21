@@ -1,0 +1,71 @@
+{
+ "id": "linsensuppe-rot",
+ "title": "Rote Linsensuppe (Mercimek)",
+ "icon": "🥣",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pul Biber (Chiliflocken)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Karotte würfeln und in 2 EL Öl andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Tomatenmark und Gewürze kurz mitrösten, Linsen und Brühe zugeben und weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Fein pürieren und mit Salz abschmecken."
+  },
+  {
+   "text": "Restliches Öl mit Pul Biber erhitzen und über die Suppe träufeln. Mit Zitronenspalten servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

@@ -1,0 +1,54 @@
+{
+ "id": "pfannkuchen",
+ "title": "Pfannkuchen",
+ "icon": "🥞",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter zum Braten"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Milch, Eier, Salz und Zucker glatt rühren und ruhen lassen. Warum: Das Mehl quillt, die Pfannkuchen reißen nicht.",
+   "minutes": 10
+  },
+  {
+   "text": "Wenig Butter in einer Pfanne erhitzen, eine Kelle Teig dünn verteilen."
+  },
+  {
+   "text": "Goldbraun backen, wenden und fertig backen. So weiter, bis der Teig aufgebraucht ist.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Apfelmus, Marmelade oder Zimt und Zucker servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

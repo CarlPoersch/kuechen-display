@@ -1,0 +1,62 @@
+{
+ "id": "kartoffel-lauch-suppe",
+ "title": "Kartoffel-Lauch-Suppe",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Lauchstangen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und würfeln, Lauch in Ringe schneiden."
+  },
+  {
+   "text": "Zwiebel und Lauch in Butter andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Kartoffeln und Brühe zugeben und weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Grob pürieren, Sahne zugeben und mit Salz, Pfeffer und Muskat abschmecken. Mit Schnittlauch servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

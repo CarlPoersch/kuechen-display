@@ -78,5 +78,10 @@
   {
    "text": "Mit Fischsauce, Tamarinde und Zucker abschmecken: mild-süß und leicht säuerlich."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 120,
+ "gf": true
 }

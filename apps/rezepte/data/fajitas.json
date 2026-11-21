@@ -65,5 +65,9 @@
   {
    "text": "Tortillas erwärmen und alles am Tisch selbst füllen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
 }

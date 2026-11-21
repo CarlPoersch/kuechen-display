@@ -64,6 +64,10 @@
    "text": "Etwas abkühlen lassen und mit Puderzucker bestäuben."
   }
  ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 35,
  "airfryer": true,
  "tab": "airfryer"
 }

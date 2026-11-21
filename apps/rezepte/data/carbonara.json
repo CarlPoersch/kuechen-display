@@ -52,5 +52,9 @@
   {
    "text": "Mit Pecorino und Pfeffer servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
 }

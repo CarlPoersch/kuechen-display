@@ -77,5 +77,10 @@
   {
    "text": "Mit Koriander bestreuen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
 }

@@ -1,0 +1,54 @@
+{
+ "id": "waldorfsalat",
+ "title": "Waldorfsalat",
+ "icon": "🍏",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Äpfel"
+  },
+  {
+   "amount": "3 Stangen",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "60 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "100 g",
+   "name": "Weintrauben"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "100 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Äpfel würfeln und sofort mit Zitronensaft mischen. Sellerie in feine Scheiben schneiden, Trauben halbieren."
+  },
+  {
+   "text": "Mayonnaise und Joghurt verrühren, salzen und pfeffern."
+  },
+  {
+   "text": "Alles mischen und mit grob gehackten Walnüssen bestreuen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

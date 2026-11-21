@@ -66,5 +66,10 @@
   {
    "text": "Mit Salz, Pfeffer und Basilikum abschmecken."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 60,
+ "gf": true
 }

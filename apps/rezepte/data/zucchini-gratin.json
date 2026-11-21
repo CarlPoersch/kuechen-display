@@ -1,0 +1,58 @@
+{
+ "id": "zucchini-gratin",
+ "title": "Zucchini-Tomaten-Gratin",
+ "icon": "🥒",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Thymian"
+  },
+  {
+   "amount": "80 g",
+   "name": "Parmesan oder Bergkäse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Zwiebel und Knoblauch fein würfeln und in 1 EL Öl andünsten, in einer Form verteilen."
+  },
+  {
+   "text": "Zucchini und Tomaten in Scheiben schneiden und abwechselnd aufrecht in die Form stellen."
+  },
+  {
+   "text": "Mit restlichem Öl beträufeln, mit Thymian, Salz und Pfeffer würzen."
+  },
+  {
+   "text": "Backen, mit Käse bestreuen und goldbraun fertig backen.",
+   "minutes": 35
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

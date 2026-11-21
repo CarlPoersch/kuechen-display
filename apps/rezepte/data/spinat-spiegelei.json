@@ -1,0 +1,71 @@
+{
+ "id": "spinat-spiegelei",
+ "title": "Rahmspinat mit Spiegelei und Salzkartoffeln",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Blattspinat (TK oder frisch)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "600 g",
+   "name": "Kartoffeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und in Salzwasser garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zwiebel und Knoblauch fein würfeln und in Butter glasig dünsten.",
+   "minutes": 3
+  },
+  {
+   "text": "Spinat zugeben und zusammenfallen lassen bzw. auftauen. Sahne zugeben und cremig einkochen.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Salz, Pfeffer und Muskat abschmecken. Wer es feiner mag, kurz pürieren."
+  },
+  {
+   "text": "Eier als Spiegeleier braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Spinat und Kartoffeln anrichten."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

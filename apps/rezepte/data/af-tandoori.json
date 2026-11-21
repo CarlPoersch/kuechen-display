@@ -74,6 +74,11 @@
    "text": "Mit Zwiebelringen, Zitrone und Koriander servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true,
  "airfryer": true,
  "tab": "airfryer"
 }

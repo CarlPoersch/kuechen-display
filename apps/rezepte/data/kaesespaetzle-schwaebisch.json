@@ -1,0 +1,78 @@
+{
+ "id": "kaesespaetzle-schwaebisch",
+ "title": "Spätzle mit Linsen und Saitenwürstle",
+ "icon": "🍲",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Tellerlinsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "750 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "8",
+   "name": "Saitenwürstle (Wiener)"
+  },
+  {
+   "amount": "500 g",
+   "name": "Spätzle (Kühlregal)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Karotte fein würfeln. Speck in einem Topf auslassen, Gemüse zugeben und andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mehl darüberstäuben und kurz anschwitzen. Linsen und Brühe zugeben und weich kochen.",
+   "minutes": 35
+  },
+  {
+   "text": "Mit Essig, Zucker, Salz und Pfeffer kräftig süß-sauer abschmecken."
+  },
+  {
+   "text": "Würstchen in den letzten 10 Minuten in den Linsen erhitzen.",
+   "minutes": 10
+  },
+  {
+   "text": "Spätzle in Butter schwenken und mit Linsen und Würstchen servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60
+}

@@ -1,0 +1,61 @@
+{
+ "id": "muffins-blaubeer",
+ "title": "Blaubeer-Muffins",
+ "icon": "🧁",
+ "cuisine": "Amerikanisch",
+ "servings": 12,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Buttermilch"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Heidelbeeren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen, Muffinblech mit Förmchen auslegen."
+  },
+  {
+   "text": "Mehl, Backpulver, Zucker und Salz mischen."
+  },
+  {
+   "text": "Eier, Buttermilch und Öl verquirlen und kurz unter die trockenen Zutaten rühren."
+  },
+  {
+   "text": "Heidelbeeren unterheben, Teig verteilen und backen.",
+   "minutes": 22
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

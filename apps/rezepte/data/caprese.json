@@ -1,0 +1,43 @@
+{
+ "id": "caprese",
+ "title": "Insalata Caprese",
+ "icon": "🍅",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "reife Tomaten"
+  },
+  {
+   "amount": "2 Kugeln",
+   "name": "Büffelmozzarella"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Balsamico (optional)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tomaten und Mozzarella in Scheiben schneiden und abwechselnd auf einer Platte anrichten."
+  },
+  {
+   "text": "Mit Basilikum belegen, mit Salz und Pfeffer würzen und mit Olivenöl beträufeln."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10,
+ "gf": true
+}

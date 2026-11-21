@@ -62,5 +62,9 @@
   {
    "text": "Auf Reis verteilen, etwas Sud darübergeben, mit Frühlingszwiebeln und Ingwer servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
 }

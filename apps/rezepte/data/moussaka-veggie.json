@@ -1,0 +1,91 @@
+{
+ "id": "moussaka-veggie",
+ "title": "Linsen-Moussaka",
+ "icon": "🍆",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Auberginen"
+  },
+  {
+   "amount": "500 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "150 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "60 g",
+   "name": "Feta"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen. Auberginen und Kartoffeln in Scheiben schneiden, mit Öl bestreichen, salzen und auf Blechen vorbacken.",
+   "minutes": 20
+  },
+  {
+   "text": "Zwiebel und Knoblauch andünsten, Linsen, Tomaten, 300 ml Wasser, Zimt und Oregano zugeben und weich köcheln.",
+   "minutes": 15
+  },
+  {
+   "text": "Béchamel kochen, vom Herd nehmen und Ei sowie zerbröselten Feta einrühren.",
+   "minutes": 6
+  },
+  {
+   "text": "Ofen auf 180 °C stellen. Kartoffeln, Linsen und Auberginen in eine Form schichten, mit Béchamel abschließen."
+  },
+  {
+   "text": "Goldbraun backen und vor dem Schneiden ruhen lassen.",
+   "minutes": 40
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

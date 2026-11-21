@@ -1,0 +1,56 @@
+{
+ "id": "kartoffelkloesse",
+ "title": "Kartoffelklöße (halb und halb)",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1,5 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kartoffelstärke"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1",
+   "name": "Brötchen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Die Hälfte der Kartoffeln schälen, weich kochen und heiß durch die Presse drücken.",
+   "minutes": 20
+  },
+  {
+   "text": "Restliche Kartoffeln roh schälen, fein reiben und in einem Tuch kräftig auspressen. Die abgesetzte Stärke aus dem Saft zurückgeben."
+  },
+  {
+   "text": "Beides mit Stärke und Salz zu einem glatten Teig verkneten."
+  },
+  {
+   "text": "Brötchen würfeln und in Butter rösten (Croutons)."
+  },
+  {
+   "text": "12 Klöße formen, je ein paar Croutons in die Mitte drücken."
+  },
+  {
+   "text": "In siedendem Salzwasser gar ziehen lassen, bis sie oben schwimmen.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60
+}

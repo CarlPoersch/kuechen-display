@@ -74,5 +74,10 @@
   {
    "text": "Dip verrühren und mit Erdnüssen bestreuen."
   }
- ]
+ ],
+ "cat": "Snack",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 35,
+ "gf": true
 }

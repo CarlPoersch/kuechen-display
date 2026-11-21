@@ -71,5 +71,9 @@
   {
    "text": "Mit Fischsauce, Zucker und Limettensaft abschmecken, Basilikum unterheben."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35
 }

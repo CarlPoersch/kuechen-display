@@ -1,0 +1,65 @@
+{
+ "id": "rhabarberkuchen",
+ "title": "Rhabarberkuchen mit Baiser",
+ "icon": "🍰",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "125 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "125 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3",
+   "name": "Eier (getrennt)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Milch"
+  },
+  {
+   "amount": "600 g",
+   "name": "Rhabarber"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker (für das Baiser)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Rhabarber putzen und in 2 cm Stücke schneiden."
+  },
+  {
+   "text": "Butter und Zucker cremig rühren, Eigelbe unterrühren. Mehl, Backpulver und Milch unterrühren."
+  },
+  {
+   "text": "Teig in eine Springform streichen, Rhabarber darauf verteilen und backen.",
+   "minutes": 25
+  },
+  {
+   "text": "Eiweiß steif schlagen, dabei den Zucker einrieseln lassen, bis die Masse glänzt."
+  },
+  {
+   "text": "Auf den Kuchen streichen und weiterbacken, bis das Baiser goldbraun ist.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
+}

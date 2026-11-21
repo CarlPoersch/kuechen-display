@@ -1,0 +1,61 @@
+{
+ "id": "granola",
+ "title": "Knuspermüsli (Granola)",
+ "icon": "🥣",
+ "cuisine": "International",
+ "servings": 8,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Haferflocken"
+  },
+  {
+   "amount": "100 g",
+   "name": "Nüsse, grob gehackt"
+  },
+  {
+   "amount": "50 g",
+   "name": "Sonnenblumenkerne"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Ahornsirup oder Honig"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Kokosöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "80 g",
+   "name": "Rosinen oder Cranberries"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 160 °C vorheizen."
+  },
+  {
+   "text": "Kokosöl mit Sirup schmelzen, mit Haferflocken, Nüssen, Kernen, Zimt und Salz mischen."
+  },
+  {
+   "text": "Auf einem Blech verteilen und goldbraun backen, nach der Hälfte wenden.",
+   "minutes": 25
+  },
+  {
+   "text": "Abkühlen lassen (wird erst dann knusprig) und Trockenfrüchte untermischen. Luftdicht aufbewahren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

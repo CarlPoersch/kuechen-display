@@ -1,0 +1,60 @@
+{
+ "id": "gemuese-frittata",
+ "title": "Gemüse-Frittata",
+ "icon": "🍳",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "60 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofengrill vorheizen. Gemüse würfeln und in einer ofenfesten Pfanne in Öl weich braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Spinat zugeben und zusammenfallen lassen."
+  },
+  {
+   "text": "Eier mit Parmesan, Salz und Pfeffer verquirlen und darübergießen. Bei kleiner Hitze stocken lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Unter dem Grill die Oberseite fest werden lassen.",
+   "minutes": 4
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

@@ -1,0 +1,65 @@
+{
+ "id": "pasta-tuna",
+ "title": "Spaghetti mit Thunfisch und Kapern",
+ "icon": "🐟",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "2 Dosen",
+   "name": "Thunfisch in Öl"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "50 g",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Chiliflocken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spaghetti kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Knoblauch im Öl des Thunfischs andünsten, Chili, Kapern und Oliven zugeben."
+  },
+  {
+   "text": "Tomaten zugeben und kurz einkochen.",
+   "minutes": 8
+  },
+  {
+   "text": "Thunfisch zerpflücken und unterheben, nur erwärmen."
+  },
+  {
+   "text": "Mit den Nudeln mischen und mit Petersilie bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 25
+}

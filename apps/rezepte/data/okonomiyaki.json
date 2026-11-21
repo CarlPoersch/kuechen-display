@@ -71,5 +71,9 @@
   {
    "text": "Mit Sauce und Mayonnaise bestreichen, mit Bonito und Aonori bestreuen. Zweiten Fladen genauso backen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 35
 }

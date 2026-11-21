@@ -80,5 +80,9 @@
   {
    "text": "Mit Salat, Tomaten und Tahinsauce im Fladenbrot servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 60
 }

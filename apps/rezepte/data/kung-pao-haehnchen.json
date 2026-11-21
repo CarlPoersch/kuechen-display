@@ -105,5 +105,9 @@
   {
    "text": "Sauce einrühren, kurz aufkochen lassen, bis sie glänzt. Erdnüsse unterheben und mit Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 30
 }

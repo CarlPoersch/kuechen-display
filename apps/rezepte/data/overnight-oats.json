@@ -1,0 +1,53 @@
+{
+ "id": "overnight-oats",
+ "title": "Overnight Oats",
+ "icon": "🥣",
+ "cuisine": "International",
+ "servings": 1,
+ "time": "ca. 5 Min. (plus Nacht im Kühlschrank)",
+ "ingredients": [
+  {
+   "amount": "50 g",
+   "name": "Haferflocken"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Milch oder Haferdrink"
+  },
+  {
+   "amount": "100 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiasamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  },
+  {
+   "amount": "100 g",
+   "name": "Beeren"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Nüsse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Haferflocken, Milch, Joghurt, Chiasamen und Honig in einem Glas verrühren."
+  },
+  {
+   "text": "Abgedeckt über Nacht in den Kühlschrank stellen."
+  },
+  {
+   "text": "Morgens mit Beeren und Nüssen toppen."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 5
+}

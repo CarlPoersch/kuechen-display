@@ -1,0 +1,75 @@
+{
+ "id": "kartoffel-gemuese-curry",
+ "title": "Kartoffel-Erbsen-Curry",
+ "icon": "🥔",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln würfeln. Kreuzkümmel in Öl anrösten, bis er duftet."
+  },
+  {
+   "text": "Zwiebel und Ingwer zugeben und goldbraun braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Tomaten, Kurkuma und Garam Masala zugeben, Kartoffeln und 300 ml Wasser zugeben, salzen und weich köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Erbsen zugeben und kurz mitgaren.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Koriander und Naan oder Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

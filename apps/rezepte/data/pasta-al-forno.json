@@ -1,0 +1,75 @@
+{
+ "id": "pasta-al-forno",
+ "title": "Pasta al Forno",
+ "icon": "🍝",
+ "cuisine": "Italienisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Rigatoni"
+  },
+  {
+   "amount": "500 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "800 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "250 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "80 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Knoblauch würfeln und in Öl andünsten. Hack zugeben und krümelig braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomatenmark anrösten, Tomaten und Oregano zugeben, salzen und köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Ofen auf 200 °C vorheizen. Rigatoni sehr bissfest kochen.",
+   "minutes": 8
+  },
+  {
+   "text": "Nudeln mit der Sauce und der Hälfte des gewürfelten Mozzarellas mischen."
+  },
+  {
+   "text": "In eine Form geben, mit restlichem Mozzarella und Parmesan bestreuen und backen.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75
+}

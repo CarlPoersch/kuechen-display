@@ -1,0 +1,67 @@
+{
+ "id": "tomatensuppe",
+ "title": "Tomatensuppe",
+ "icon": "🍅",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "800 g",
+   "name": "geschälte Tomaten (Dose)"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Basilikum"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Knoblauch würfeln und in Öl glasig dünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Tomatenmark kurz anrösten, Tomaten, Brühe und Zucker zugeben und köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Fein pürieren, Sahne einrühren und mit Salz und Pfeffer abschmecken."
+  },
+  {
+   "text": "Mit Basilikum servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

@@ -58,6 +58,11 @@
    "text": "Mit Senf servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true,
  "airfryer": true,
  "tab": "airfryer"
 }

@@ -1,0 +1,79 @@
+{
+ "id": "gemuesesuppe-eintopf",
+ "title": "Gemüseeintopf mit Mettenden",
+ "icon": "🍲",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "3",
+   "name": "Karotten"
+  },
+  {
+   "amount": "1",
+   "name": "Lauchstange"
+  },
+  {
+   "amount": "200 g",
+   "name": "Wirsing"
+  },
+  {
+   "amount": "150 g",
+   "name": "grüne Bohnen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "4",
+   "name": "Mettenden"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse putzen und mundgerecht schneiden."
+  },
+  {
+   "text": "Zwiebel in Butter andünsten, Karotten und Lauch kurz mitdünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Kartoffeln, Bohnen, Wirsing und Brühe zugeben, aufkochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mettenden in Scheiben schneiden, zugeben und alles köcheln, bis das Gemüse weich ist.",
+   "minutes": 25
+  },
+  {
+   "text": "Mit Majoran, Salz und Pfeffer abschmecken und mit Petersilie servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 50,
+ "gf": true
+}

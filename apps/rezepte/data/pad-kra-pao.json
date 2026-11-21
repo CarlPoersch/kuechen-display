@@ -72,5 +72,9 @@
   {
    "text": "Restliches Öl in einer Pfanne stark erhitzen und die Eier knusprig braten (Spiegelei mit krossem Rand). Alles auf Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 20
 }

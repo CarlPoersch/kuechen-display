@@ -65,5 +65,9 @@
   {
    "text": "Auf Reis gleiten lassen und mit Frühlingszwiebeln bestreuen."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
 }

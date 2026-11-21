@@ -59,5 +59,9 @@
   {
    "text": "Vor dem Servieren mit Kakao bestäuben."
   }
- ]
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 30
 }

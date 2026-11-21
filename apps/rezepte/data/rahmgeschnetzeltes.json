@@ -1,0 +1,89 @@
+{
+ "id": "rahmgeschnetzeltes",
+ "title": "Zürcher Geschnetzeltes mit Rösti",
+ "icon": "🥘",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Kalbs- oder Schweinefilet"
+  },
+  {
+   "amount": "250 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Kalbs- oder Gemüsefond"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "group": "Rösti"
+  },
+  {
+   "amount": "800 g",
+   "name": "festkochende Kartoffeln, am Vortag gekocht"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Für die Rösti Kartoffeln schälen, grob reiben und salzen."
+  },
+  {
+   "text": "Butterschmalz in einer Pfanne erhitzen, Kartoffeln flach hineindrücken und goldbraun braten. Wenden (mit Teller) und fertig braten.",
+   "minutes": 20
+  },
+  {
+   "text": "Fleisch in feine Streifen schneiden, mit Mehl bestäuben und portionsweise in Butterschmalz scharf anbraten. Herausnehmen.",
+   "minutes": 4
+  },
+  {
+   "text": "Zwiebel und Pilze in Scheiben im Bratfett anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Wein ablöschen, Fond und Sahne zugeben und sämig einkochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Fleisch zurück in die Sauce geben, nur noch erwärmen, mit Zitronensaft, Salz und Pfeffer abschmecken. Mit Petersilie und Rösti servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45
+}

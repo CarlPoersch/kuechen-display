@@ -81,6 +81,10 @@
    "text": "Blumenkohl darin schwenken, mit Sesam und Frühlingszwiebeln bestreuen."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 35,
  "airfryer": true,
  "tab": "airfryer"
 }

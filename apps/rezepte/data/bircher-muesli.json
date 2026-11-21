@@ -1,0 +1,57 @@
+{
+ "id": "bircher-muesli",
+ "title": "Bircher Müsli",
+ "icon": "🍏",
+ "cuisine": "Schweizerisch",
+ "servings": 2,
+ "time": "ca. 10 Min. (plus Quellen)",
+ "ingredients": [
+  {
+   "amount": "80 g",
+   "name": "Haferflocken"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Apfel"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Haselnüsse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Haferflocken mit Milch einweichen.",
+   "minutes": 30
+  },
+  {
+   "text": "Apfel mit Schale grob reiben und sofort mit Zitronensaft mischen."
+  },
+  {
+   "text": "Apfel, Joghurt und Honig unter die Flocken rühren."
+  },
+  {
+   "text": "Mit gehackten Haselnüssen servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10
+}

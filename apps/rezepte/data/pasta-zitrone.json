@@ -1,0 +1,52 @@
+{
+ "id": "pasta-zitrone",
+ "title": "Spaghetti al Limone",
+ "icon": "🍋",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "2",
+   "name": "Bio-Zitronen"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "80 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Basilikum"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spaghetti kochen, 1 Tasse Nudelwasser aufheben.",
+   "minutes": 10
+  },
+  {
+   "text": "Zitronenschale abreiben, Saft auspressen."
+  },
+  {
+   "text": "Butter in einer Pfanne schmelzen, Zitronenabrieb und die Hälfte des Safts zugeben."
+  },
+  {
+   "text": "Nudeln mit Nudelwasser und Parmesan zugeben und schwenken, bis eine cremige Sauce entsteht."
+  },
+  {
+   "text": "Mit restlichem Saft, Pfeffer und Basilikum abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

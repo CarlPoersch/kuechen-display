@@ -1,0 +1,74 @@
+{
+ "id": "spaghetti-bolognese-schnell",
+ "title": "Schnelle Spaghetti Bolognese",
+ "icon": "🍝",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "400 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "800 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "",
+   "name": "Parmesan (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Knoblauch fein würfeln."
+  },
+  {
+   "text": "Hack in Öl scharf und krümelig braten, Gemüse zugeben und mitbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomatenmark kurz anrösten, Tomaten und Oregano zugeben, salzen und köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Spaghetti kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit der Sauce und Parmesan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35
+}

@@ -1,0 +1,72 @@
+{
+ "id": "laugenbrezeln",
+ "title": "Laugenbrezeln",
+ "icon": "🥨",
+ "cuisine": "Deutsch",
+ "servings": 8,
+ "time": "ca. 1 Std. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Weizenmehl (Type 550)"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "300 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "40 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Lauge"
+  },
+  {
+   "amount": "1 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Natron"
+  },
+  {
+   "amount": "",
+   "name": "grobes Salz (zum Bestreuen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe im Wasser auflösen, mit Mehl, Butter und Salz 10 Minuten kneten. Gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "In 8 Stücke teilen, zu langen Strängen (ca. 50 cm) rollen, Enden dünner. Zu Brezeln schlingen."
+  },
+  {
+   "text": "Unabgedeckt im Kühlschrank ruhen lassen – so bekommen sie eine Haut.",
+   "minutes": 20
+  },
+  {
+   "text": "Ofen auf 220 °C vorheizen. Wasser mit Natron aufkochen (Achtung, schäumt)."
+  },
+  {
+   "text": "Brezeln einzeln 30 Sekunden in die Lauge tauchen, auf Backpapier legen, mit Salz bestreuen und dick einschneiden."
+  },
+  {
+   "text": "Dunkelbraun backen.",
+   "minutes": 18
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "anspruchsvoll",
+ "min": 105
+}

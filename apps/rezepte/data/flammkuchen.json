@@ -1,0 +1,71 @@
+{
+ "id": "flammkuchen",
+ "title": "Elsässer Flammkuchen",
+ "icon": "🍕",
+ "cuisine": "Französisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "120 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "150 g",
+   "name": "Crème fraîche"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen mit Blech auf höchster Stufe (mind. 250 °C) vorheizen."
+  },
+  {
+   "text": "Mehl, Wasser, Öl und Salz zu einem glatten Teig kneten. Ruhen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Teig auf Backpapier hauchdünn ausrollen."
+  },
+  {
+   "text": "Crème fraîche mit Salz, Pfeffer und Muskat verrühren und dünn aufstreichen. Mit Zwiebelringen und Speck belegen."
+  },
+  {
+   "text": "Mit dem Papier auf das heiße Blech ziehen und knusprig backen.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

@@ -1,0 +1,58 @@
+{
+ "id": "tortellini-sahne",
+ "title": "Tortellini alla Panna mit Schinken",
+ "icon": "🥟",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Tortellini (Kühlregal)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Kochschinken"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schinken würfeln und in Butter kurz anbraten."
+  },
+  {
+   "text": "Erbsen und Sahne zugeben und leicht einkochen.",
+   "minutes": 4
+  },
+  {
+   "text": "Tortellini nach Packung kochen.",
+   "minutes": 4
+  },
+  {
+   "text": "In der Sauce schwenken, Parmesan unterrühren und mit Pfeffer und Muskat abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20
+}

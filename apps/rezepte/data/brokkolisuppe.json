@@ -1,0 +1,55 @@
+{
+ "id": "brokkolisuppe",
+ "title": "Brokkoli-Cremesuppe",
+ "icon": "🥦",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Brokkoli"
+  },
+  {
+   "amount": "1",
+   "name": "Kartoffel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "50 g",
+   "name": "Bergkäse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brokkoli in Röschen teilen, Stiel schälen und würfeln. Kartoffel und Zwiebel würfeln."
+  },
+  {
+   "text": "Zwiebel in Butter andünsten, Gemüse und Brühe zugeben und weich kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Pürieren, Sahne und geriebenen Käse einrühren, abschmecken."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

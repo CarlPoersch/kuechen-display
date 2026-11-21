@@ -1,0 +1,68 @@
+{
+ "id": "shakshuka-feta",
+ "title": "Eier im Tomaten-Paprika-Sugo mit Feta",
+ "icon": "🍳",
+ "cuisine": "Orientalisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "80 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Paprika in Streifen schneiden und in Öl weich dünsten.",
+   "minutes": 6
+  },
+  {
+   "text": "Knoblauch und Kreuzkümmel kurz mitbraten, Tomaten zugeben, salzen und einkochen.",
+   "minutes": 8
+  },
+  {
+   "text": "Vier Mulden formen, Eier hineinschlagen, zudecken und stocken lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Feta und Petersilie servieren, dazu Fladenbrot."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

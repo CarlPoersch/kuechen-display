@@ -69,5 +69,10 @@
   {
    "text": "Mit Frühlingszwiebeln und Chili bestreuen und mit Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
 }

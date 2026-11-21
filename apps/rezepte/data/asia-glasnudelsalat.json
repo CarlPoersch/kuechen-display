@@ -1,0 +1,73 @@
+{
+ "id": "asia-glasnudelsalat",
+ "title": "Glasnudelsalat mit Erdnüssen",
+ "icon": "🥗",
+ "cuisine": "Vietnamesisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Glasnudeln"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "50 g",
+   "name": "geröstete Erdnüsse"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Limettensaft"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Glasnudeln mit kochendem Wasser übergießen, 5 Minuten ziehen lassen, abschrecken und kürzer schneiden.",
+   "minutes": 5
+  },
+  {
+   "text": "Gemüse in feine Streifen schneiden."
+  },
+  {
+   "text": "Sojasauce, Limettensaft, Sesamöl, Zucker und Knoblauch verrühren."
+  },
+  {
+   "text": "Alles mischen und mit Koriander und Erdnüssen bestreuen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 20
+}

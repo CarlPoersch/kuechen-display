@@ -79,6 +79,10 @@
    "text": "Schnitzel in Streifen schneiden und mit Reis, Kohl und Sauce servieren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 30,
  "airfryer": true,
  "tab": "airfryer"
 }

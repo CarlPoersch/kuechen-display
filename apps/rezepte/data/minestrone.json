@@ -78,5 +78,9 @@
   {
    "text": "Rinde entfernen, mit Salz und Pfeffer abschmecken, mit Parmesan, Basilikum und einem Schuss Olivenöl servieren."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
 }

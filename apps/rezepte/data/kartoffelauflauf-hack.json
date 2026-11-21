@@ -1,0 +1,74 @@
+{
+ "id": "kartoffelauflauf-hack",
+ "title": "Kartoffel-Hack-Auflauf",
+ "icon": "🥔",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "150 g",
+   "name": "Gouda, gerieben"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Kartoffeln schälen, in dünne Scheiben schneiden."
+  },
+  {
+   "text": "Zwiebel und Paprika würfeln. Hack in Öl krümelig braten, Gemüse zugeben.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomaten und Paprikapulver zugeben, salzen, pfeffern und kurz köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Kartoffeln und Hacksauce abwechselnd in eine Form schichten, mit Kartoffeln abschließen."
+  },
+  {
+   "text": "Sahne salzen und darübergießen, mit Käse bestreuen."
+  },
+  {
+   "text": "Abgedeckt backen, dann offen goldbraun backen.",
+   "minutes": 45
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 70,
+ "gf": true
+}

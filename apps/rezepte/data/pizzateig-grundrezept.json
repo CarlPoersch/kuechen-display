@@ -1,0 +1,71 @@
+{
+ "id": "pizzateig-grundrezept",
+ "title": "Pizzabrötchen",
+ "icon": "🍕",
+ "cuisine": "Italienisch",
+ "servings": 12,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Trockenhefe"
+  },
+  {
+   "amount": "300 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "100 g",
+   "name": "Salami oder Kochschinken"
+  },
+  {
+   "amount": "100 g",
+   "name": "Gouda, gerieben"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Hefe, Wasser, Öl und Salz zu einem glatten Teig kneten und gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "Salami, Paprika und Käse fein würfeln, mit Tomatenmark und Oregano mischen."
+  },
+  {
+   "text": "Füllung unter den Teig kneten, 12 Brötchen formen und auf ein Blech setzen. Nochmals gehen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Bei 200 °C goldbraun backen.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 90
+}

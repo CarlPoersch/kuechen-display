@@ -1,0 +1,54 @@
+{
+ "id": "minestrone-kalt",
+ "title": "Gurkenkaltschale mit Dill",
+ "icon": "🥒",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min. (plus Kühlen)",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Salatgurken"
+  },
+  {
+   "amount": "500 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Spritzer",
+   "name": "Zitronensaft"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gurken schälen, entkernen und grob schneiden."
+  },
+  {
+   "text": "Mit Joghurt, Knoblauch, Dill (etwas zurückbehalten), Öl und Zitronensaft fein pürieren."
+  },
+  {
+   "text": "Mit Salz und Pfeffer abschmecken und kalt stellen.",
+   "minutes": 60
+  },
+  {
+   "text": "Mit Dill und einem Schuss Olivenöl servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
+}

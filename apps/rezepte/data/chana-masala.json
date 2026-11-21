@@ -89,5 +89,10 @@
   {
    "text": "Mit Zitronensaft und Koriander abschmecken."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
 }

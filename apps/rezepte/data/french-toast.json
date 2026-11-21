@@ -1,0 +1,61 @@
+{
+ "id": "french-toast",
+ "title": "French Toast mit Beeren",
+ "icon": "🍞",
+ "cuisine": "Amerikanisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4 Scheiben",
+   "name": "Brioche oder Toast"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "150 g",
+   "name": "gemischte Beeren"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier, Milch, Zimt und Zucker verquirlen."
+  },
+  {
+   "text": "Brotscheiben kurz darin einweichen."
+  },
+  {
+   "text": "In Butter bei mittlerer Hitze pro Seite goldbraun braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Beeren und Puderzucker servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15
+}

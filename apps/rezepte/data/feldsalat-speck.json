@@ -1,0 +1,61 @@
+{
+ "id": "feldsalat-speck",
+ "title": "Feldsalat mit Speck und Croutons",
+ "icon": "🥗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Feldsalat"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "2 Scheiben",
+   "name": "Toastbrot"
+  },
+  {
+   "amount": "1",
+   "name": "Schalotte"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Balsamico"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Feldsalat waschen und trocken schleudern."
+  },
+  {
+   "text": "Speck knusprig braten, Brotwürfel im Speckfett rösten.",
+   "minutes": 6
+  },
+  {
+   "text": "Schalotte fein würfeln, mit Balsamico, Senf, Honig und Öl verrühren, salzen und pfeffern."
+  },
+  {
+   "text": "Salat mit Dressing mischen und mit Speck und Croutons bestreuen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 15
+}

@@ -61,5 +61,10 @@
   {
    "text": "In Salatblättern servieren."
   }
- ]
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
 }

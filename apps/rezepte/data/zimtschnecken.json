@@ -1,0 +1,91 @@
+{
+ "id": "zimtschnecken",
+ "title": "Zimtschnecken",
+ "icon": "🌀",
+ "cuisine": "Skandinavisch",
+ "servings": 12,
+ "time": "ca. 2 Std. (inkl. Gehzeit)",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "250 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "70 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "80 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "group": "Füllung"
+  },
+  {
+   "amount": "100 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zimt"
+  },
+  {
+   "group": "Guss"
+  },
+  {
+   "amount": "100 g",
+   "name": "Frischkäse"
+  },
+  {
+   "amount": "60 g",
+   "name": "Puderzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe in Milch auflösen, mit Mehl, Zucker, Butter, Ei und Salz zu einem glatten Teig kneten. Abgedeckt gehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Teig zu einem Rechteck (ca. 40 × 30 cm) ausrollen. Butter darauf verstreichen, mit Zucker und Zimt bestreuen."
+  },
+  {
+   "text": "Von der langen Seite aufrollen und in 12 Scheiben schneiden. In eine gefettete Form setzen."
+  },
+  {
+   "text": "Nochmals gehen lassen. Ofen auf 180 °C vorheizen.",
+   "minutes": 20
+  },
+  {
+   "text": "Goldbraun backen.",
+   "minutes": 22
+  },
+  {
+   "text": "Frischkäse mit Puderzucker verrühren und auf den warmen Schnecken verstreichen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 120
+}

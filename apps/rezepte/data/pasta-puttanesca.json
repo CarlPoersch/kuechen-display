@@ -1,0 +1,66 @@
+{
+ "id": "pasta-puttanesca",
+ "title": "Spaghetti alla Puttanesca",
+ "icon": "🫒",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Spaghetti"
+  },
+  {
+   "amount": "4",
+   "name": "Sardellenfilets"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "800 g",
+   "name": "geschälte Tomaten"
+  },
+  {
+   "amount": "100 g",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Knoblauch, Sardellen und Chili in Öl anschwitzen, bis die Sardellen zerfallen."
+  },
+  {
+   "text": "Tomaten zugeben und zerdrücken, Oliven und Kapern zugeben und köcheln.",
+   "minutes": 12
+  },
+  {
+   "text": "Spaghetti kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Nudeln in der Sauce schwenken und mit Petersilie servieren. Kaum salzen – Sardellen und Kapern sind salzig."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 25
+}

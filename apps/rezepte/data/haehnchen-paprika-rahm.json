@@ -1,0 +1,72 @@
+{
+ "id": "haehnchen-paprika-rahm",
+ "title": "Paprika-Rahm-Hähnchen",
+ "icon": "🍗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrustfilet"
+  },
+  {
+   "amount": "2",
+   "name": "rote Paprikaschoten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis nach Packung garen.",
+   "minutes": 18
+  },
+  {
+   "text": "Hähnchen in Streifen schneiden, salzen und in Öl rundum anbraten. Herausnehmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Zwiebel und Paprika in Streifen im Bratfett anbraten. Tomatenmark und Paprikapulver kurz mitrösten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Brühe und Sahne ablöschen und sämig einkochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Hähnchen zurückgeben, kurz ziehen lassen und mit Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

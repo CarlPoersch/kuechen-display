@@ -1,0 +1,49 @@
+{
+ "id": "ruehrei",
+ "title": "Cremiges Rührei mit Schnittlauch",
+ "icon": "🍳",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "5",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Milch oder Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "2 Scheiben",
+   "name": "Brot"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier mit Milch, Salz und Pfeffer verquirlen."
+  },
+  {
+   "text": "Butter bei kleiner Hitze schmelzen, Eier zugeben."
+  },
+  {
+   "text": "Mit einem Pfannenwender langsam von außen nach innen schieben, bis das Ei gerade gestockt, aber noch glänzend ist.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Schnittlauch bestreuen und mit Brot servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10
+}

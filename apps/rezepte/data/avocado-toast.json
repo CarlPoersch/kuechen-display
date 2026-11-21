@@ -1,0 +1,53 @@
+{
+ "id": "avocado-toast",
+ "title": "Avocado-Toast mit Ei",
+ "icon": "🥑",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Scheiben",
+   "name": "Sauerteigbrot"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "1 Spritzer",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "",
+   "name": "Kresse (zum Garnieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brot rösten."
+  },
+  {
+   "text": "Avocado mit Zitronensaft, Salz und Pfeffer zerdrücken."
+  },
+  {
+   "text": "Eier als Spiegeleier braten oder 7 Minuten kochen.",
+   "minutes": 6
+  },
+  {
+   "text": "Brot mit Avocado bestreichen, Ei darauflegen und mit Chili und Kresse bestreuen."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15
+}

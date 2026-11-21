@@ -1,0 +1,76 @@
+{
+ "id": "gemuesecurry-kichererbsen",
+ "title": "Kichererbsen-Spinat-Curry",
+ "icon": "🍛",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Kichererbsen (je 400 g)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer (2 cm)"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "200 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl andünsten, Gewürze kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Tomaten, Kokosmilch und abgespülte Kichererbsen zugeben und köcheln.",
+   "minutes": 15
+  },
+  {
+   "text": "Spinat unterrühren, salzen und mit Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

@@ -1,0 +1,66 @@
+{
+ "id": "haehnchen-ofen-gemuese",
+ "title": "Ofenhähnchen mit Zitrone und Gemüse",
+ "icon": "🍗",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Hähnchenschenkel (mit Haut)"
+  },
+  {
+   "amount": "800 g",
+   "name": "kleine Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "rote Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "3 Zweige",
+   "name": "Thymian"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen."
+  },
+  {
+   "text": "Kartoffeln halbieren, Zwiebeln und Zucchini in Spalten schneiden, Zitrone in Scheiben."
+  },
+  {
+   "text": "Alles mit Knoblauch, Öl, Oregano, Thymian, Salz und Pfeffer auf einem Blech mischen."
+  },
+  {
+   "text": "Hähnchen salzen, mit der Haut nach oben darauflegen und knusprig backen.",
+   "minutes": 45
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60,
+ "gf": true
+}

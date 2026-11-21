@@ -85,5 +85,10 @@
    "text": "Basmatireis kochen und dazu servieren.",
    "minutes": 15
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 120,
+ "gf": true
 }

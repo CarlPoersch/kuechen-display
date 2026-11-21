@@ -1,0 +1,70 @@
+{
+ "id": "labskaus",
+ "title": "Labskaus",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "Corned Beef"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Rote-Bete-Saft (aus dem Glas)"
+  },
+  {
+   "amount": "1 Glas",
+   "name": "Rote Bete"
+  },
+  {
+   "amount": "4",
+   "name": "Rollmöpse"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürzgurken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zwiebel fein würfeln und in Butter glasig dünsten. Corned Beef zerpflücken und kurz mitbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Kartoffeln zugeben und grob stampfen. Mit Rote-Bete-Saft, Salz und Pfeffer abschmecken."
+  },
+  {
+   "text": "Spiegeleier braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Labskaus mit Spiegelei, Rote Bete, Rollmops und Gewürzgurke anrichten."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50
+}

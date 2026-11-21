@@ -1,0 +1,78 @@
+{
+ "id": "gruenkohl-pinkel",
+ "title": "Grünkohl mit Pinkel und Kassler",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Grünkohl (frisch oder 800 g TK)"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Schweineschmalz"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Haferflocken (kernig)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Senf"
+  },
+  {
+   "amount": "4",
+   "name": "Pinkelwürste"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Kasslerkotelett"
+  },
+  {
+   "amount": "800 g",
+   "name": "kleine Kartoffeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Frischen Grünkohl von den Stielen zupfen, waschen, 2 Minuten blanchieren und grob hacken."
+  },
+  {
+   "text": "Zwiebeln würfeln, in Schmalz glasig dünsten, Grünkohl und Brühe zugeben und zugedeckt schmoren.",
+   "minutes": 60
+  },
+  {
+   "text": "Haferflocken und Senf unterrühren, Kassler und Pinkel auf den Kohl legen und weiter schmoren.",
+   "minutes": 30
+  },
+  {
+   "text": "Kartoffeln kochen, pellen und in Butter mit Zucker karamellisieren.",
+   "minutes": 25
+  },
+  {
+   "text": "Grünkohl mit Salz und Pfeffer abschmecken und mit Fleisch und Kartoffeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 120
+}

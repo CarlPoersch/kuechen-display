@@ -1,0 +1,46 @@
+{
+ "id": "heisse-schokolade",
+ "title": "Heiße Schokolade",
+ "icon": "☕",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zartbitterschokolade"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zimt"
+  },
+  {
+   "amount": "",
+   "name": "Sahne (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Milch erhitzen, gehackte Schokolade darin unter Rühren schmelzen."
+  },
+  {
+   "text": "Mit Zucker und Zimt abschmecken und aufschäumen."
+  },
+  {
+   "text": "Mit Sahne servieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10,
+ "gf": true
+}

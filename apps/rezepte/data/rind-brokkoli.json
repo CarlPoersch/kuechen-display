@@ -88,5 +88,9 @@
   {
    "text": "Sauce einrühren, aufkochen lassen, Fleisch zurückgeben und 1 Minute schwenken."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 30
 }

@@ -60,5 +60,9 @@
   {
    "text": "Mit warmem Fladenbrot servieren."
   }
- ]
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 15
 }

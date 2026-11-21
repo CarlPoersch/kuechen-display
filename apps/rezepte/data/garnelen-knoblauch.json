@@ -1,0 +1,54 @@
+{
+ "id": "garnelen-knoblauch",
+ "title": "Gambas al Ajillo",
+ "icon": "🦐",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Garnelen, geschält"
+  },
+  {
+   "amount": "6",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "getrocknete Chili"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Baguette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Knoblauch in Scheiben schneiden, Chili zerbröseln."
+  },
+  {
+   "text": "Öl in einer flachen Pfanne erhitzen, Knoblauch und Chili sanft anbraten, bis der Knoblauch duftet.",
+   "minutes": 2
+  },
+  {
+   "text": "Garnelen zugeben und braten, bis sie rosa sind.",
+   "minutes": 3
+  },
+  {
+   "text": "Salzen, mit Petersilie bestreuen und im Öl mit Brot zum Tunken servieren."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 15
+}

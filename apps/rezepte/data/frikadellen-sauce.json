@@ -1,0 +1,69 @@
+{
+ "id": "frikadellen-sauce",
+ "title": "Hähnchen-Frikadellen mit Gurkensalat",
+ "icon": "🧆",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel fein würfeln, mit Hack, Ei, Bröseln, Senf, Petersilie, Salz und Pfeffer verkneten."
+  },
+  {
+   "text": "8 flache Frikadellen formen und in Öl pro Seite braten.",
+   "minutes": 12
+  },
+  {
+   "text": "Gurke hobeln, mit Joghurt, Dill, Salz und Pfeffer mischen."
+  },
+  {
+   "text": "Frikadellen mit Gurkensalat und Brot oder Kartoffeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35
+}

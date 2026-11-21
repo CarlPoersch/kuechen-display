@@ -50,6 +50,11 @@
    "text": "Sofort salzen (und mit Paprika würzen)."
   }
  ],
+ "cat": "Beilage",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 45,
+ "gf": true,
  "airfryer": true,
  "tab": "airfryer"
 }

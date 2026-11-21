@@ -85,5 +85,9 @@
    "text": "Tagliatelle kochen, mit dem Ragù mischen und mit Parmesan servieren.",
    "minutes": 8
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 150
 }

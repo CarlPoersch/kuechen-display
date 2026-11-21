@@ -95,5 +95,10 @@
    "text": "Kasuri Methi zwischen den Fingern zerreiben und unterrühren."
   }
  ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
+ "gf": true,
  "airfryer": true
 }

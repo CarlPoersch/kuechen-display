@@ -25,13 +25,25 @@ struct RecipeSummary: Decodable, Identifiable, Hashable {
     let ing: [String]?
     /// Herkunft bei eigenen Rezepten: "Eigenes" oder Name des Haushalts (Familien-Kochbuch)
     var owner: String? = nil
+    /// Einordnung für die Filter (aus der Sammlung; bei eigenen Rezepten leer)
+    var cat: String? = nil        // Hauptgericht, Suppe, Salat, Beilage, Snack, Frühstück, Dessert, Backen, Getränk
+    var diet: String? = nil       // vegan, vegetarisch, fisch, fleisch
+    var level: String? = nil      // einfach, mittel, anspruchsvoll
+    var min: Int? = nil           // Gesamtzeit in Minuten
+    var gf: Bool? = nil           // ohne Gluten-Zutaten
 
-    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, airfryer, ing }
+    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, airfryer, ing, cat, diet, level, min, gf }
 
-    /// Minuten aus "ca. 30 Min." (für den Filter "Schnell")
+    /// Gesamtzeit in Minuten: aus der Sammlung, sonst aus "ca. 1 Std. 30 Min." gelesen
     var minutes: Int? {
-        guard let t = time, let m = t.range(of: #"\d+"#, options: .regularExpression) else { return nil }
-        return Int(t[m])
+        if let m = min { return m }
+        guard let t = time?.components(separatedBy: "(").first else { return nil }
+        func num(_ unit: String) -> Int {
+            guard let r = t.range(of: #"(\d+)\s*"# + unit, options: .regularExpression) else { return 0 }
+            return Int(t[r].filter(\.isNumber)) ?? 0
+        }
+        let total = num("Std") * 60 + num("Min")
+        return total > 0 ? total : nil
     }
 }
 

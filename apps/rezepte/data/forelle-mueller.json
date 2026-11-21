@@ -1,0 +1,61 @@
+{
+ "id": "forelle-mueller",
+ "title": "Forelle Müllerin Art",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "küchenfertige Forellen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "500 g",
+   "name": "kleine Kartoffeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Forellen innen und außen trocken tupfen, salzen, pfeffern und innen mit Zitronensaft beträufeln."
+  },
+  {
+   "text": "In Mehl wenden und überschüssiges Mehl abklopfen."
+  },
+  {
+   "text": "Öl und 20 g Butter erhitzen, Forellen pro Seite goldbraun braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Fisch herausnehmen. Restliche Butter in der Pfanne aufschäumen lassen, Petersilie und Zitronensaft zugeben und über den Fisch gießen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30
+}

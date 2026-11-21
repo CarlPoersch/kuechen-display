@@ -41,5 +41,10 @@
   {
    "text": "Mit Kardamom bestäubt sofort servieren."
   }
- ]
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 5,
+ "gf": true
 }

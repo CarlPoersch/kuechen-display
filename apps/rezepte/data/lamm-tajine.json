@@ -83,5 +83,9 @@
   {
    "text": "Tajine mit Mandeln und Koriander bestreut auf dem Couscous servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 135
 }

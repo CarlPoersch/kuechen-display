@@ -1,0 +1,79 @@
+{
+ "id": "bohnensuppe",
+ "title": "Toskanische Bohnensuppe (Ribollita)",
+ "icon": "🫘",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "weiße Bohnen (je 400 g)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "2 Stangen",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "300 g",
+   "name": "Schwarzkohl oder Wirsing"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "altbackenes Brot"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Zweig",
+   "name": "Rosmarin"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse würfeln und in 3 EL Öl langsam andünsten.",
+   "minutes": 10
+  },
+  {
+   "text": "Tomaten, Brühe, Rosmarin und Kohlstreifen zugeben und köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Bohnen zugeben, ein Drittel davon mit etwas Brühe pürieren und zurückgeben.",
+   "minutes": 10
+  },
+  {
+   "text": "Brot in Stücke reißen und in der Suppe weich ziehen lassen. Warum: Das Brot bindet die Suppe – typisch toskanisch.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Salz, Pfeffer und restlichem Olivenöl servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 60
+}

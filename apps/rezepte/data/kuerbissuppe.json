@@ -1,0 +1,70 @@
+{
+ "id": "kuerbissuppe",
+ "title": "Kürbissuppe mit Ingwer",
+ "icon": "🎃",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Hokkaido-Kürbis (ca. 1 kg)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer (2 cm)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kürbiskerne"
+  },
+  {
+   "amount": "",
+   "name": "Kürbiskernöl (zum Beträufeln)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kürbis waschen, entkernen und mit Schale würfeln. Hokkaido muss nicht geschält werden."
+  },
+  {
+   "text": "Zwiebel und Ingwer würfeln und in Butter andünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Kürbis zugeben, mit Brühe aufgießen und weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Kokosmilch zugeben und fein pürieren. Mit Salz, Pfeffer und Muskat abschmecken."
+  },
+  {
+   "text": "Kürbiskerne ohne Fett rösten und mit Kernöl über die Suppe geben."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

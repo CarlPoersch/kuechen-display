@@ -1,0 +1,70 @@
+{
+ "id": "mac-and-cheese",
+ "title": "Mac and Cheese",
+ "icon": "🧀",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "350 g",
+   "name": "Makkaroni"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "200 g",
+   "name": "Cheddar, gerieben"
+  },
+  {
+   "amount": "50 g",
+   "name": "Gouda, gerieben"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "40 g",
+   "name": "Paniermehl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Makkaroni sehr bissfest kochen.",
+   "minutes": 6
+  },
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und köcheln, bis die Sauce andickt.",
+   "minutes": 5
+  },
+  {
+   "text": "Vom Herd nehmen, Käse (eine Handvoll aufheben), Senf und Paprika einrühren, salzen."
+  },
+  {
+   "text": "Nudeln unterheben, in eine Form füllen, mit restlichem Käse und Paniermehl bestreuen."
+  },
+  {
+   "text": "Goldbraun überbacken.",
+   "minutes": 15
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40
+}

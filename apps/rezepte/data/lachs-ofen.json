@@ -1,0 +1,64 @@
+{
+ "id": "lachs-ofen",
+ "title": "Lachs aus dem Ofen mit Kräuterkruste",
+ "icon": "🐟",
+ "cuisine": "International",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Lachsfilets (je 150 g)"
+  },
+  {
+   "amount": "50 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "30 g",
+   "name": "Paniermehl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "500 g",
+   "name": "grüner Spargel oder Brokkoli"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen."
+  },
+  {
+   "text": "Butter mit Paniermehl, gehackter Petersilie, Zitronenabrieb und Knoblauch verkneten, salzen."
+  },
+  {
+   "text": "Lachs auf ein Blech legen, salzen und die Kruste daraufdrücken. Gemüse mit Öl und Salz daneben verteilen."
+  },
+  {
+   "text": "Backen, bis der Lachs innen noch leicht glasig ist.",
+   "minutes": 14
+  },
+  {
+   "text": "Mit Zitronenspalten servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30
+}

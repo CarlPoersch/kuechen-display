@@ -1,0 +1,53 @@
+{
+ "id": "krautsalat",
+ "title": "Bayerischer Krautsalat",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 20 Min. (plus Ziehen)",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "kleiner Weißkohl"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel (optional)"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kohl sehr fein hobeln, mit 1 TL Salz kräftig durchkneten, bis er weich wird."
+  },
+  {
+   "text": "Essig mit Zucker, Kümmel und 100 ml heißem Wasser aufkochen und über den Kohl gießen."
+  },
+  {
+   "text": "Speck knusprig braten und mit dem Öl unterheben."
+  },
+  {
+   "text": "Ziehen lassen.",
+   "minutes": 60
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20
+}

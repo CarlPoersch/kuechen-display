@@ -84,5 +84,9 @@
   {
    "text": "Sojasprossen unterheben und sofort servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 25
 }

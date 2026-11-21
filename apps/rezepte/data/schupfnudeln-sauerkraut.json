@@ -1,0 +1,66 @@
+{
+ "id": "schupfnudeln-sauerkraut",
+ "title": "Schupfnudeln mit Sauerkraut und Speck",
+ "icon": "🥟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Schupfnudeln (Kühlregal)"
+  },
+  {
+   "amount": "500 g",
+   "name": "Sauerkraut"
+  },
+  {
+   "amount": "150 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel in Streifen schneiden. Sauerkraut abtropfen lassen."
+  },
+  {
+   "text": "Speck in einer großen Pfanne knusprig braten, Zwiebel zugeben und glasig dünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Sauerkraut, Kümmel, Zucker und Brühe zugeben und zugedeckt schmoren.",
+   "minutes": 10
+  },
+  {
+   "text": "Schupfnudeln in einer zweiten Pfanne in Butterschmalz rundum goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Alles mischen und mit Salz und Pfeffer abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

@@ -1,0 +1,71 @@
+{
+ "id": "linsen-bolognese",
+ "title": "Linsen-Bolognese",
+ "icon": "🍝",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "800 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "400 g",
+   "name": "Spaghetti"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Knoblauch fein würfeln und in Öl andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Tomatenmark anrösten, Linsen, Tomaten, Brühe und Oregano zugeben und köcheln, bis die Linsen weich sind.",
+   "minutes": 20
+  },
+  {
+   "text": "Spaghetti kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Sauce abschmecken und mit den Nudeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 40
+}

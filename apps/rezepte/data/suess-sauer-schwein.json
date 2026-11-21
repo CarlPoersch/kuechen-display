@@ -95,5 +95,9 @@
   {
    "text": "Fleisch kurz in der Sauce schwenken und sofort mit Reis servieren, damit es knusprig bleibt."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40
 }

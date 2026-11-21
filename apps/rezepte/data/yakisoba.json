@@ -83,5 +83,9 @@
   {
    "text": "Mit Ingwer und Aonori servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 25
 }

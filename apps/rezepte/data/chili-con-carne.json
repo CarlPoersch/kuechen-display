@@ -86,5 +86,10 @@
   {
    "text": "Abschmecken und mit saurer Sahne und Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75,
+ "gf": true
 }

@@ -1,0 +1,75 @@
+{
+ "id": "hackfleisch-reispfanne",
+ "title": "Hackfleisch-Reispfanne",
+ "icon": "🍚",
+ "cuisine": "International",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "250 g",
+   "name": "Langkornreis"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mais"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Cheddar"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack in Öl krümelig braten, Zwiebel und Paprika zugeben.",
+   "minutes": 6
+  },
+  {
+   "text": "Reis und Gewürze kurz mitrösten."
+  },
+  {
+   "text": "Tomaten und Brühe zugeben, aufkochen und zugedeckt garen, bis der Reis weich ist.",
+   "minutes": 20
+  },
+  {
+   "text": "Mais unterheben, mit Käse bestreuen und zugedeckt schmelzen lassen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

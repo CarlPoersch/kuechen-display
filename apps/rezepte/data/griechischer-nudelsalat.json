@@ -1,0 +1,61 @@
+{
+ "id": "griechischer-nudelsalat",
+ "title": "Orzo-Salat mit Gemüse",
+ "icon": "🥗",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Orzo (Kritharaki)"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kalamata-Oliven"
+  },
+  {
+   "amount": "150 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Orzo kochen, abgießen und mit 1 EL Öl mischen.",
+   "minutes": 9
+  },
+  {
+   "text": "Gemüse würfeln, Oliven halbieren."
+  },
+  {
+   "text": "Mit Zitronensaft, restlichem Öl, Oregano, Salz und Pfeffer mischen."
+  },
+  {
+   "text": "Feta darüberbröseln."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

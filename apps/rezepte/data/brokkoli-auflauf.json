@@ -1,0 +1,67 @@
+{
+ "id": "brokkoli-auflauf",
+ "title": "Brokkoli-Kartoffel-Auflauf",
+ "icon": "🥦",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "500 g",
+   "name": "Brokkoli"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "150 g",
+   "name": "Emmentaler, gerieben"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C Umluft vorheizen. Kartoffeln schälen, in Scheiben schneiden und in Salzwasser vorgaren.",
+   "minutes": 8
+  },
+  {
+   "text": "Brokkoli in Röschen teilen und die letzten 3 Minuten mitgaren. Abgießen.",
+   "minutes": 3
+  },
+  {
+   "text": "Sahne, Brühe, Eier und zerdrückten Knoblauch verquirlen, mit Salz, Pfeffer und Muskat würzen."
+  },
+  {
+   "text": "Gemüse in eine Form schichten, Guss darübergießen und mit Käse bestreuen."
+  },
+  {
+   "text": "Backen, bis der Guss gestockt und der Käse goldbraun ist.",
+   "minutes": 30
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 60,
+ "gf": true
+}

@@ -1,0 +1,70 @@
+{
+ "id": "garnelen-pasta",
+ "title": "Linguine mit Garnelen und Zitrone",
+ "icon": "🦐",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Linguine"
+  },
+  {
+   "amount": "400 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "Chilischote"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linguine kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Knoblauch und Chili in Öl anbraten, Garnelen zugeben und kurz braten.",
+   "minutes": 2
+  },
+  {
+   "text": "Tomaten halbieren, zugeben, mit Wein ablöschen.",
+   "minutes": 3
+  },
+  {
+   "text": "Nudeln mit etwas Nudelwasser zugeben, Zitronenabrieb und -saft unterschwenken."
+  },
+  {
+   "text": "Mit Petersilie servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 25
+}

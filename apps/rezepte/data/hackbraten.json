@@ -1,0 +1,79 @@
+{
+ "id": "hackbraten",
+ "title": "Hackbraten mit Bratensauce",
+ "icon": "🍖",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "750 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "altbackenes Brötchen"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 EL",
+   "name": "mittelscharfer Senf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Frühstücksspeck"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen."
+  },
+  {
+   "text": "Brötchen einweichen und ausdrücken. 1 Zwiebel fein würfeln."
+  },
+  {
+   "text": "Hack, Brötchen, Zwiebel, Eier, Senf, Paprika und Majoran verkneten, mit 1 TL Salz und Pfeffer würzen."
+  },
+  {
+   "text": "Zu einem Laib formen, in eine Form setzen und mit Speck belegen. Zweite Zwiebel grob würfeln und daneben verteilen."
+  },
+  {
+   "text": "Im Ofen backen, nach 20 Minuten die Brühe angießen.",
+   "minutes": 60
+  },
+  {
+   "text": "Bratensaft abgießen, mit Sahne aufkochen und mit Stärke binden. Hackbraten in Scheiben mit Sauce und Kartoffelpüree servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 80
+}

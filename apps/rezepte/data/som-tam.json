@@ -66,5 +66,10 @@
   {
    "text": "Mit Erdnüssen bestreut sofort servieren."
   }
- ]
+ ],
+ "cat": "Salat",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
 }

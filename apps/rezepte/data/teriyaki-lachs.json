@@ -76,5 +76,9 @@
   {
    "text": "Mit Reis, Brokkoli und Sesam servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 25
 }

@@ -1,0 +1,73 @@
+{
+ "id": "gaensebraten",
+ "title": "Gänsekeulen mit Rotkohl und Klößen",
+ "icon": "🍗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Gänsekeulen"
+  },
+  {
+   "amount": "2",
+   "name": "Äpfel"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Beifuß, getrocknet"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Geflügelfond"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "group": "Beilage"
+  },
+  {
+   "amount": "1 Glas",
+   "name": "Rotkohl (ca. 700 g)"
+  },
+  {
+   "amount": "1 Packung",
+   "name": "Kartoffelklöße (halb und halb)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 160 °C Umluft vorheizen. Keulen salzen, pfeffern und mit Beifuß einreiben."
+  },
+  {
+   "text": "Äpfel und Zwiebeln grob würfeln und in einen Bräter geben. Keulen mit der Hautseite nach oben darauflegen, 200 ml Fond angießen."
+  },
+  {
+   "text": "Im Ofen garen, dabei alle 30 Minuten mit Bratensaft übergießen.",
+   "minutes": 120
+  },
+  {
+   "text": "Für knusprige Haut Ofen auf 220 °C stellen und weitergaren.",
+   "minutes": 15
+  },
+  {
+   "text": "Keulen warm halten. Bratensatz mit restlichem Fond lösen, durch ein Sieb gießen, entfetten und mit Stärke binden.",
+   "minutes": 5
+  },
+  {
+   "text": "Rotkohl erhitzen, Klöße nach Packung garen und alles mit der Sauce servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 150,
+ "gf": true
+}

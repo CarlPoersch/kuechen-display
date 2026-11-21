@@ -1,0 +1,78 @@
+{
+ "id": "chicken-nuggets",
+ "title": "Hähnchen-Nuggets aus dem Ofen",
+ "icon": "🍗",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Cornflakes"
+  },
+  {
+   "amount": "50 g",
+   "name": "Panko"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Knoblauchpulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Ketchup"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C Umluft vorheizen."
+  },
+  {
+   "text": "Hähnchen in mundgerechte Stücke schneiden, salzen."
+  },
+  {
+   "text": "Cornflakes zerbröseln und mit Panko, Paprika, Knoblauch und Öl mischen."
+  },
+  {
+   "text": "Stücke durch verquirltes Ei ziehen, in der Panade wenden und auf ein Blech legen."
+  },
+  {
+   "text": "Knusprig backen, nach der Hälfte wenden.",
+   "minutes": 18
+  },
+  {
+   "text": "Joghurt, Ketchup und Senf zu einem Dip verrühren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35
+}

@@ -1,0 +1,76 @@
+{
+ "id": "haehnchen-gyros-pfanne",
+ "title": "Gyros-Pfanne mit Tzatziki",
+ "icon": "🥙",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 30 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "700 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Gyrosgewürz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "group": "Tzatziki"
+  },
+  {
+   "amount": "500 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "4",
+   "name": "Pitabrote"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in dünne Streifen schneiden, mit Öl, Gyrosgewürz und Oregano marinieren.",
+   "minutes": 30
+  },
+  {
+   "text": "Gurke raspeln, gut ausdrücken, mit Joghurt, Knoblauch, Öl und Salz verrühren."
+  },
+  {
+   "text": "Fleisch in einer sehr heißen Pfanne portionsweise knusprig braten, Zwiebelstreifen mitbraten.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Tzatziki und warmen Pitabroten servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

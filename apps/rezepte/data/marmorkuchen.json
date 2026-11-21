@@ -1,0 +1,75 @@
+{
+ "id": "marmorkuchen",
+ "title": "Marmorkuchen",
+ "icon": "🍰",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 1 Std. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "220 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "375 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kakaopulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Milch (für den dunklen Teig)"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 175 °C Ober-/Unterhitze vorheizen. Gugelhupfform fetten und bemehlen."
+  },
+  {
+   "text": "Butter, Zucker und Vanillezucker cremig schlagen, Eier einzeln unterrühren."
+  },
+  {
+   "text": "Mehl und Backpulver abwechselnd mit der Milch unterrühren."
+  },
+  {
+   "text": "Zwei Drittel des Teigs in die Form füllen. Restlichen Teig mit Kakao und 2 EL Milch verrühren und daraufgeben."
+  },
+  {
+   "text": "Mit einer Gabel spiralförmig durchziehen und backen. Stäbchenprobe machen.",
+   "minutes": 55
+  },
+  {
+   "text": "Abkühlen lassen, stürzen und mit Puderzucker bestäuben."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 80
+}

@@ -1,0 +1,42 @@
+{
+ "id": "smoothie-beeren",
+ "title": "Beeren-Bananen-Smoothie",
+ "icon": "🥤",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 5 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Banane"
+  },
+  {
+   "amount": "200 g",
+   "name": "Beeren (TK)"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Milch oder Haferdrink"
+  },
+  {
+   "amount": "100 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Alles im Mixer cremig pürieren."
+  },
+  {
+   "text": "Sofort servieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 5
+}

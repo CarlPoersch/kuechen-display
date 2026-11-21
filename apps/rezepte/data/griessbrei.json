@@ -1,0 +1,50 @@
+{
+ "id": "griessbrei",
+ "title": "Grießbrei",
+ "icon": "🥣",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "50 g",
+   "name": "Weichweizengrieß"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Butter"
+  },
+  {
+   "amount": "",
+   "name": "Zimt (zum Bestreuen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Milch mit Zucker und Salz aufkochen."
+  },
+  {
+   "text": "Grieß unter Rühren einrieseln lassen und unter Rühren quellen lassen, bis er andickt.",
+   "minutes": 5
+  },
+  {
+   "text": "Butter einrühren und mit Zimt oder Obst servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10
+}

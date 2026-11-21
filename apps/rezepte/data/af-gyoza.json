@@ -46,6 +46,10 @@
    "text": "Dip verrühren, Frühlingszwiebel hineinschneiden und dazu servieren."
   }
  ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20,
  "airfryer": true,
  "tab": "airfryer"
 }

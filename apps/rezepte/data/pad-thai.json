@@ -87,5 +87,9 @@
   {
    "text": "Sprossen und Frühlingszwiebeln unterheben. Mit Erdnüssen, Chili und Limettenspalten servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 30
 }

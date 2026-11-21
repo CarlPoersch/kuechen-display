@@ -93,5 +93,9 @@
   {
    "text": "Dip verrühren und dazu servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75
 }

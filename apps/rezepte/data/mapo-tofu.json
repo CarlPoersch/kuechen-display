@@ -82,5 +82,9 @@
   {
    "text": "Mit Stärke binden, mit Sichuanpfeffer und Frühlingszwiebeln bestreuen und mit Reis servieren."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 25
 }

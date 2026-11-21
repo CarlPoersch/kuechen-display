@@ -1,0 +1,50 @@
+{
+ "id": "pasta-alfredo",
+ "title": "Fettuccine Alfredo",
+ "icon": "🧈",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Fettuccine"
+  },
+  {
+   "amount": "80 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "Parmesan, fein gerieben"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fettuccine kochen, 200 ml Nudelwasser aufheben.",
+   "minutes": 9
+  },
+  {
+   "text": "Butter in einer großen Pfanne schmelzen, Sahne zugeben."
+  },
+  {
+   "text": "Nudeln mit etwas Nudelwasser zugeben, Parmesan nach und nach unterschwenken, bis eine glänzende Sauce entsteht."
+  },
+  {
+   "text": "Mit Pfeffer und Muskat abschmecken und sofort servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

@@ -90,5 +90,10 @@
   {
    "text": "Vor dem Servieren vorsichtig auflockern."
   }
- ]
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 90,
+ "gf": true
 }

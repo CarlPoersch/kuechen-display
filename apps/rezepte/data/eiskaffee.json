@@ -1,0 +1,42 @@
+{
+ "id": "eiskaffee",
+ "title": "Eiskaffee",
+ "icon": "☕",
+ "cuisine": "Deutsch",
+ "servings": 2,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "300 ml",
+   "name": "kalter starker Kaffee"
+  },
+  {
+   "amount": "4 Kugeln",
+   "name": "Vanilleeis"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Schokoraspel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Sahne steif schlagen."
+  },
+  {
+   "text": "Je 2 Kugeln Eis in ein Glas geben, mit kaltem Kaffee auffüllen."
+  },
+  {
+   "text": "Mit Sahne und Schokoraspeln garnieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10,
+ "gf": true
+}

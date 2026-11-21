@@ -60,5 +60,9 @@
   {
    "text": "Mit fein gewürfeltem Gemüse und einem Schuss Olivenöl servieren."
   }
- ]
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 20
 }

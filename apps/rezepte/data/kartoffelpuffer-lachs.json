@@ -1,0 +1,68 @@
+{
+ "id": "kartoffelpuffer-lachs",
+ "title": "Kartoffelpuffer mit Räucherlachs",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "6 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Räucherlachs"
+  },
+  {
+   "amount": "200 g",
+   "name": "Schmand"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und mit der Zwiebel fein reiben. In einem Tuch kräftig ausdrücken."
+  },
+  {
+   "text": "Mit Eiern, Mehl und 1 TL Salz vermengen."
+  },
+  {
+   "text": "Schmand mit gehacktem Dill, Zitronenabrieb, Salz und Pfeffer verrühren."
+  },
+  {
+   "text": "Öl in einer Pfanne erhitzen, je 2 EL Teig flach drücken und beidseitig goldbraun backen. Auf Küchenpapier abtropfen.",
+   "minutes": 20
+  },
+  {
+   "text": "Puffer mit Lachs und Dill-Schmand servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 40
+}

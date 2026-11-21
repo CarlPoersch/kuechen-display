@@ -1,0 +1,87 @@
+{
+ "id": "pulled-pork",
+ "title": "Pulled Pork Burger",
+ "icon": "🍔",
+ "cuisine": "Amerikanisch",
+ "servings": 8,
+ "time": "ca. 6 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2 kg",
+   "name": "Schweinenacken ohne Knochen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Knoblauchpulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senfpulver"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Salz"
+  },
+  {
+   "amount": "300 ml",
+   "name": "BBQ-Sauce"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Apfelsaft"
+  },
+  {
+   "amount": "8",
+   "name": "Burgerbrötchen"
+  },
+  {
+   "group": "Coleslaw"
+  },
+  {
+   "amount": "½",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Apfelessig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zucker, Gewürze und Salz mischen und das Fleisch rundum damit einreiben."
+  },
+  {
+   "text": "In einen Bräter legen, Apfelsaft angießen, zugedeckt bei 140 °C im Ofen garen, bis es zerfällt.",
+   "minutes": 360
+  },
+  {
+   "text": "Für den Coleslaw Kohl und Karotte fein raspeln und mit Mayo, Essig, Salz und Pfeffer mischen."
+  },
+  {
+   "text": "Fleisch mit zwei Gabeln zerzupfen und mit BBQ-Sauce und etwas Bratensaft mischen."
+  },
+  {
+   "text": "In Brötchen mit Coleslaw servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 390
+}

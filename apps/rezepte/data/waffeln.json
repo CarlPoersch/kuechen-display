@@ -1,0 +1,61 @@
+{
+ "id": "waffeln",
+ "title": "Waffeln",
+ "icon": "🧇",
+ "cuisine": "Deutsch",
+ "servings": 8,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "125 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "75 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Butter, Zucker und Vanillezucker cremig rühren, Eier unterrühren."
+  },
+  {
+   "text": "Mehl und Backpulver abwechselnd mit Milch unterrühren."
+  },
+  {
+   "text": "Waffeleisen fetten und Waffeln goldbraun backen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Puderzucker, Kirschen oder Sahne servieren."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

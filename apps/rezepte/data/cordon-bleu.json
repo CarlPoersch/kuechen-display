@@ -1,0 +1,64 @@
+{
+ "id": "cordon-bleu",
+ "title": "Cordon bleu",
+ "icon": "🧀",
+ "cuisine": "Schweizerisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "dünne Schweine- oder Kalbsschnitzel (doppelt geschnitten)"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Kochschinken"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Emmentaler"
+  },
+  {
+   "amount": "60 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "120 g",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schnitzel zu einer Tasche aufschneiden und flach klopfen."
+  },
+  {
+   "text": "Mit je einer Scheibe Schinken und Käse füllen, Ränder fest andrücken. Außen salzen und pfeffern."
+  },
+  {
+   "text": "In Mehl, verquirltem Ei und Bröseln wenden."
+  },
+  {
+   "text": "In reichlich Öl bei mittlerer Hitze pro Seite goldbraun braten, damit der Käse schmilzt.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit Zitrone und Pommes oder Kartoffelsalat servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40
+}
