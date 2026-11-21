@@ -252,7 +252,8 @@
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Hubert Neu";
+				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Hubert scannt Barcodes und Kassenzettel, um sie in den Vorrat zu übernehmen.";
@@ -300,7 +301,8 @@
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Hubert Neu";
+				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Hubert scannt Barcodes und Kassenzettel, um sie in den Vorrat zu übernehmen.";

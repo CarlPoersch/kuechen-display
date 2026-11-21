@@ -10,6 +10,10 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var showAdd = false
     @State private var confirmSignOut = false
+    @State private var confirmDelete = false
+    @State private var lastMember = false
+    @State private var deleting = false
+    @State private var deleteError: String?
     @State private var householdName = ""
     @State private var copied = false
 
@@ -67,9 +71,18 @@ struct SettingsView: View {
                     }
                 }
 
-                Section("Konto") {
+                Section {
                     if let name = store.profile?.name { Text(name) }
                     Button("Abmelden", role: .destructive) { confirmSignOut = true }
+                    Button(role: .destructive) {
+                        Task { lastMember = await store.isLastMember(); confirmDelete = true }
+                    } label: {
+                        HStack { Text("Konto löschen"); if deleting { Spacer(); ProgressView() } }
+                    }
+                    .disabled(deleting)
+                    if let e = deleteError { Text(e).font(.footnote).foregroundColor(.red) }
+                } header: { Text("Konto") } footer: {
+                    Text("Löschen entfernt dein Konto, deine Startseite und deine Einstellungen endgültig. Bist du das letzte Mitglied deines Haushalts, wird auch dessen Küche gelöscht.")
                 }
             }
             .listStyle(.insetGrouped)
@@ -82,6 +95,21 @@ struct SettingsView: View {
             .sheet(isPresented: $showAdd) { AddBucketView().environmentObject(store) }
             .confirmationDialog("Wirklich abmelden?", isPresented: $confirmSignOut, titleVisibility: .visible) {
                 Button("Abmelden", role: .destructive) { store.signOut(); dismiss() }
+            }
+            .alert("Konto endgültig löschen?", isPresented: $confirmDelete) {
+                Button("Abbrechen", role: .cancel) {}
+                Button("Löschen", role: .destructive) {
+                    Task {
+                        deleting = true; deleteError = nil
+                        do { try await store.deleteAccount(); dismiss() }
+                        catch { deleteError = "Löschen hat nicht geklappt: " + error.localizedDescription }
+                        deleting = false
+                    }
+                }
+            } message: {
+                Text(lastMember
+                     ? "Du bist das letzte Mitglied von „\(store.household?.name ?? "deinem Haushalt")“. Konto, Haushalt und die ganze Küche (Einkauf, Vorrat, Rezepte) werden gelöscht. Das lässt sich nicht rückgängig machen."
+                     : "Dein Konto und deine Startseite werden gelöscht. Der Haushalt mit Küche bleibt für die anderen Mitglieder bestehen. Das lässt sich nicht rückgängig machen.")
             }
             .onAppear { householdName = store.household?.name ?? "" }
         }

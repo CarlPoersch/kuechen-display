@@ -665,6 +665,13 @@ final class KitchenStore: ObservableObject {
         }
     }
 
+    /// Beim Abmelden/Löschen: alles vom Haushalt vergessen (Rezeptsammlung bleibt zwischengespeichert)
+    func reset() {
+        items = []; plan = []; meta = [:]; own = []; followed = []; cooked = []; aliases = [:]
+        household = nil; synced = nil
+        try? FileManager.default.removeItem(at: cacheFile("snapshot.json"))
+    }
+
     private struct Snapshot: Codable {
         var items: [KitchenItem]; var plan: [PlanEntry]; var meta: [RecipeMeta]; var household: String?
         var own: [OwnRecipe]? = nil

@@ -58,7 +58,23 @@ final class AppStore: ObservableObject {
         api.signOut()
         UserDefaults.standard.removeObject(forKey: cacheKey)
         profile = nil; household = nil; buckets = []
+        KitchenStore.shared.reset()   // Küchendaten des Haushalts nicht auf dem Gerät lassen
         phase = .signedOut
+    }
+
+    /// Konto endgültig löschen (Server), danach abmelden.
+    /// Ist man das letzte Mitglied eines Haushalts, wird auch dessen Küche gelöscht.
+    func deleteAccount() async throws {
+        _ = try await api.raw("POST", "/rest/v1/rpc/delete_my_account", body: Data("{}".utf8))
+        signOut()
+    }
+
+    /// Ist man das einzige Mitglied im Haushalt? (für den Hinweis beim Löschen)
+    func isLastMember() async -> Bool {
+        guard let h = household else { return true }
+        struct M: Decodable { let user_id: String }
+        let members: [M] = (try? await api.select("household_members", ["household_id": "eq." + h.id])) ?? []
+        return members.count <= 1
     }
 
     // MARK: Haushalt
