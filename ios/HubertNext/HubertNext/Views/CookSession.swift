@@ -11,6 +11,20 @@ final class CookSession: ObservableObject {
     @Published var page = 0
     @Published var presented = false
 
+    /// Haushalt für den Live-Abgleich (nil = nur auf diesem Gerät)
+    var household: String?
+    private var lastSynced: (recipe: String, portions: Int, page: Int)?
+    private var pushedAt = Date.distantPast   // eigene Änderung unterwegs → älteren Serverstand kurz ignorieren
+    private var bag = Set<AnyCancellable>()
+
+    init() {
+        // Schritt geändert → kurz warten, dann an die anderen Geräte melden
+        $page.dropFirst().removeDuplicates()
+            .debounce(for: .milliseconds(400), scheduler: RunLoop.main)
+            .sink { [weak self] _ in self?.push() }
+            .store(in: &bag)
+    }
+
     /// Startet (oder setzt fort, wenn es dasselbe Rezept ist) und öffnet den Kochmodus.
     func start(_ r: Recipe, portions p: Int) {
         if recipe?.id != r.id || portions != p {
@@ -19,17 +33,52 @@ final class CookSession: ObservableObject {
             portions = p
         }
         presented = true
+        push()
     }
 
     func minimize() { withAnimation(.easeOut(duration: 0.2)) { presented = false } }
     func resume() { if recipe != nil { presented = true } }
 
-    func end() {
+    /// Beenden – `local` = kam vom Server (anderes Gerät hat beendet), dann nichts zurückmelden
+    func end(local: Bool = false) {
         withAnimation(.easeOut(duration: 0.2)) {
             presented = false
             recipe = nil
         }
         page = 0
+        lastSynced = nil
+        if !local, let h = household {
+            pushedAt = Date()
+            Task { try? await SupabaseClient.shared.delete("kitchen_cooking", ["household_id": "eq." + h]) }
+        }
+    }
+
+    // MARK: Live-Abgleich
+
+    private func push() {
+        guard let h = household, let r = recipe else { return }
+        if let l = lastSynced, l.recipe == r.id, l.portions == portions, l.page == page { return }
+        lastSynced = (r.id, portions, page)
+        pushedAt = Date()
+        let row = LiveCookingRow(household_id: h, recipe_id: r.id, portions: portions, page: page, device: Device.id)
+        Task { try? await SupabaseClient.shared.upsert("kitchen_cooking", [row]) }
+    }
+
+    /// Stand vom Server übernehmen (nil = niemand kocht gerade)
+    func apply(remote row: LiveCookingRow?) async {
+        if Date().timeIntervalSince(pushedAt) < 4 { return }
+        guard let row = row else {
+            if recipe != nil, lastSynced != nil { end(local: true) }
+            return
+        }
+        lastSynced = (row.recipe_id, row.portions, row.page)
+        if recipe?.id != row.recipe_id {
+            guard let r = await KitchenStore.shared.recipe(row.recipe_id) else { return }
+            presented = false
+            recipe = r
+        }
+        if portions != row.portions { portions = row.portions }
+        if page != row.page { page = row.page }   // folgt dem anderen Gerät Schritt für Schritt
     }
 
     /// Laufende Timer, die aus diesem Rezept gestartet wurden

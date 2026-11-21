@@ -70,6 +70,12 @@ final class SupabaseClient {
 
     func signOut() { session = nil }
 
+    /// Gültiger Zugangsschlüssel (frischt bei Bedarf auf) – z. B. für die Live-Verbindung
+    func currentToken() async -> String? {
+        if let s = session, s.expiresAt < Date().addingTimeInterval(60) { try? await refresh() }
+        return session?.accessToken
+    }
+
     // MARK: Anfragen
 
     /// Grundfunktion für alle Anfragen. Erneuert die Anmeldung bei Bedarf einmal automatisch.

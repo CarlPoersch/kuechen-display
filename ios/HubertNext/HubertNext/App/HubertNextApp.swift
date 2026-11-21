@@ -22,6 +22,9 @@ struct HubertNextApp: App {
             // Display bleibt an, solange Hubert offen ist (Wand-iPad)
             UIApplication.shared.isIdleTimerDisabled = (phase == .active)
             if phase == .active, store.phase == .ready { Task { await store.reload() } }
+            // Live-Abgleich (Timer, Kochen, Einkauf) nur im Vordergrund – beim Öffnen sofort nachziehen
+            if phase == .active { LiveSync.shared.start(household: store.household?.id) }
+            if phase == .background { LiveSync.shared.pause() }
         }
     }
 }
@@ -36,6 +39,8 @@ struct RootView: View {
             // Farbthema: Knöpfe, Schalter und Zurück-Pfeile (accentColor braucht iOS 15 für die Navigationsleiste)
             .tint(look.current.accent)
             .accentColor(look.current.accent)
+            // Haushalt bekannt (Start, Beitritt, Wechsel) → Live-Abgleich starten
+            .task(id: store.household?.id) { LiveSync.shared.start(household: store.household?.id) }
     }
 
     @ViewBuilder private var content: some View {

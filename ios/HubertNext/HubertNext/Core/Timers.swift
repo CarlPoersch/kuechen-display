@@ -11,7 +11,7 @@ import UserNotifications
 // ============================================================
 
 struct KitchenTimer: Identifiable, Equatable {
-    let id = UUID()
+    var id = UUID()
     var name: String
     var total: TimeInterval
     var end: Date
@@ -25,6 +25,10 @@ struct KitchenTimer: Identifiable, Equatable {
 
 final class TimerCenter: ObservableObject {
     static let shared = TimerCenter()
+    /// Haushalt für den Live-Abgleich (nil = nur auf diesem Gerät)
+    var household: String?
+    /// Hier mit „OK“ beendet – nicht durch einen älteren Abgleich wieder klingeln lassen
+    private var dismissedIds: [UUID: Date] = [:]
     @Published private(set) var timers: [KitchenTimer] = []
     @Published private(set) var ringing: [KitchenTimer] = []
     @Published private(set) var tick = Date()
@@ -52,6 +56,7 @@ final class TimerCenter: ObservableObject {
         timers.append(t)
         if source == nil { remember(Recent(name: name, secs: Int(secs))) }
         notify(t)
+        push(t)
         run()
     }
 
@@ -65,6 +70,7 @@ final class TimerCenter: ObservableObject {
             if timers[i].pausedLeft != nil { timers[i].pausedLeft = secs } else { timers[i].end = Date().addingTimeInterval(secs) }
         }
         if timers[i].pausedLeft == nil { notify(timers[i]) }
+        push(timers[i])
     }
 
     func restart(_ t: KitchenTimer) {
@@ -72,6 +78,7 @@ final class TimerCenter: ObservableObject {
         timers[i].pausedLeft = nil
         timers[i].end = Date().addingTimeInterval(timers[i].total)
         notify(timers[i])
+        push(timers[i])
     }
 
     func forget(_ r: Recent) {
@@ -92,6 +99,8 @@ final class TimerCenter: ObservableObject {
     func cancel(_ t: KitchenTimer) {
         timers.removeAll { $0.id == t.id }
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [t.id.uuidString])
+        dismissedIds[t.id] = Date()
+        removeRemote(t.id)
     }
 
     func pause(_ t: KitchenTimer) {
@@ -102,18 +111,69 @@ final class TimerCenter: ObservableObject {
             timers[i].pausedLeft = timers[i].left
             UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [t.id.uuidString])
         }
+        push(timers[i])
     }
 
     func add(_ t: KitchenTimer, minutes: Double) {
         guard let i = timers.firstIndex(where: { $0.id == t.id }) else { return }
-        timers[i].end.addTimeInterval(minutes * 60); timers[i].total += minutes * 60
-        notify(timers[i])
+        if timers[i].pausedLeft != nil { timers[i].pausedLeft! += minutes * 60 } else { timers[i].end.addTimeInterval(minutes * 60) }
+        timers[i].total += minutes * 60
+        if timers[i].pausedLeft == nil { notify(timers[i]) }
+        push(timers[i])
     }
 
     /// Klingeln beenden (optional: noch 1 Minute)
     func dismiss(_ t: KitchenTimer, snooze: Bool = false) {
         ringing.removeAll { $0.id == t.id }
+        dismissedIds[t.id] = Date()
+        removeRemote(t.id)   // „OK“ auf einem Gerät beendet das Klingeln überall
         if snooze { start(t.name, seconds: 60, source: t.source, icon: t.icon) }
+    }
+
+    // MARK: Live-Abgleich im Haushalt
+
+    private func push(_ t: KitchenTimer) {
+        guard let h = household else { return }
+        let row = LiveTimerRow(t, household: h)
+        Task { try? await SupabaseClient.shared.upsert("kitchen_timers", [row]) }
+    }
+
+    private func removeRemote(_ id: UUID) {
+        guard household != nil else { return }
+        Task { try? await SupabaseClient.shared.delete("kitchen_timers", ["id": "eq." + id.uuidString.lowercased()]) }
+    }
+
+    /// Stand vom Server übernehmen: neue Timer dazu, geänderte anpassen, anderswo beendete entfernen.
+    /// Abgelaufene klingeln auf jedem Gerät, bis irgendwo „OK“ gedrückt wird.
+    func apply(remote rows: [LiveTimerRow]) {
+        let now = Date()
+        dismissedIds = dismissedIds.filter { now.timeIntervalSince($0.value) < 120 }
+        var next: [KitchenTimer] = []
+        var ring = ringing
+        var seen = Set<UUID>()
+        for r in rows {
+            guard let t = r.timer, dismissedIds[t.id] == nil else { continue }
+            seen.insert(t.id)
+            if t.pausedLeft == nil && t.end <= now {
+                if now.timeIntervalSince(t.end) > 3 * 3600 { removeRemote(t.id); continue }   // vergessen, aufräumen
+                if !ring.contains(where: { $0.id == t.id }) { ring.append(t) }
+            } else {
+                if timers.first(where: { $0.id == t.id }) != t { notify(t) }
+                next.append(t)
+            }
+        }
+        // Gerade hier gestartete Timer, die der Server noch nicht kennt, behalten
+        for t in timers where !seen.contains(t.id) && now.timeIntervalSince(t.end.addingTimeInterval(-t.total)) < 10 && t.pausedLeft == nil {
+            next.append(t)
+        }
+        let gone = timers.filter { t in !next.contains { $0.id == t.id } && !ring.contains { $0.id == t.id } }
+        if !gone.isEmpty {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: gone.map { $0.id.uuidString })
+        }
+        ring.removeAll { r in !seen.contains(r.id) }   // anderswo mit „OK“ beendet
+        if next != timers { timers = next }
+        if ring != ringing { ringing = ring }
+        if !timers.isEmpty || !ringing.isEmpty { run() }
     }
 
     private func run() {
@@ -143,6 +203,7 @@ final class TimerCenter: ObservableObject {
         let c = UNUserNotificationCenter.current()
         Task { _ = try? await c.requestAuthorization(options: [.alert, .sound]) }   // async statt Rückruf (Hintergrund-Thread)
         c.removePendingNotificationRequests(withIdentifiers: [t.id.uuidString])
+        guard t.pausedLeft == nil else { return }
         let content = UNMutableNotificationContent()
         content.title = "⏰ " + t.name
         content.body = "Timer ist abgelaufen."
