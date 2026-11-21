@@ -58,7 +58,7 @@ final class AppStore: ObservableObject {
         api.signOut()
         UserDefaults.standard.removeObject(forKey: cacheKey)
         profile = nil; household = nil; buckets = []
-        KitchenStore.shared.reset()   // Küchendaten des Haushalts nicht auf dem Gerät lassen
+        KitchenStore.shared.reset(); CookSession.shared.end()   // Küchendaten des Haushalts nicht auf dem Gerät lassen
         phase = .signedOut
     }
 

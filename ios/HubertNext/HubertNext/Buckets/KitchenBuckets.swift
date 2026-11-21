@@ -152,7 +152,6 @@ struct RunningTimersPill: View {
             .padding(.leading, 16).padding(.trailing, 8).padding(.vertical, 8)
             .background(Capsule().fill(.regularMaterial))
             .shadow(color: .black.opacity(0.12), radius: 8, y: 3)
-            .padding(.bottom, 12)
             .transition(.move(edge: .bottom).combined(with: .opacity))
             .sheet(isPresented: $showAll) { RunningTimersSheet() }
         }

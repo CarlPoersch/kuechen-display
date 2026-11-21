@@ -320,7 +320,8 @@ struct RecipeDetailView: View {
     @Environment(\.horizontalSizeClass) private var hSize
     @State private var recipe: Recipe?
     @State private var portions = 2
-    @State private var cooking = false
+    @ObservedObject private var session = CookSession.shared
+    @State private var replaceCooking = false
     @State private var planning = false
     @State private var note = ""
     @State private var toast: String?
@@ -366,8 +367,11 @@ struct RecipeDetailView: View {
             note = kitchen.metaFor(id).note
         }
         .onDisappear { if note != kitchen.metaFor(id).note { kitchen.setNote(id, note) } }
-        .fullScreenCover(isPresented: $cooking) {
-            if let r = recipe { CookModeView(recipe: r, portions: portions) }
+        .alert("Anderes Rezept wird gekocht", isPresented: $replaceCooking) {
+            Button("Abbrechen", role: .cancel) {}
+            Button("Wechseln") { if let r = recipe { session.start(r, portions: portions) } }
+        } message: {
+            Text("„\(session.recipe?.title ?? "")“ ist noch offen. Stattdessen dieses Rezept kochen?")
         }
         .sheet(isPresented: $planning) {
             if let r = recipe { PlanSheet(recipeId: r.id, title: r.title, portions: portions) }
@@ -410,7 +414,10 @@ struct RecipeDetailView: View {
                 }
             }
             HStack(spacing: 10) {
-                SoftButton(title: "Kochen", symbol: "play.fill", primary: true) { cooking = true }
+                SoftButton(title: session.recipe?.id == r.id ? "Weiterkochen" : "Kochen", symbol: "play.fill", primary: true) {
+                    if session.recipe == nil || session.recipe?.id == r.id { session.start(r, portions: portions) }
+                    else { replaceCooking = true }
+                }
                 SoftButton(title: "Planen", symbol: "calendar.badge.plus") { planning = true }
                 SoftButton(title: "Einkaufen", symbol: "cart.badge.plus") {
                     let n = kitchen.addMissing(r, portions: portions)
@@ -563,7 +570,11 @@ struct CookModeView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var kitchen = KitchenStore.shared
     @ObservedObject private var timers = TimerCenter.shared
-    @State private var page = 0
+    @ObservedObject private var session = CookSession.shared
+    private var page: Int {
+        get { session.page }
+        nonmutating set { session.page = newValue }
+    }
     @State private var showIngredients = false
     @StateObject private var voice = SpeechControl()
 
@@ -587,10 +598,12 @@ struct CookModeView: View {
         VStack(spacing: 0) {
             // Kopf: Schließen, Fortschritt, Zutaten
             HStack {
-                Button { dismiss() } label: {
-                    Image(systemName: "xmark").font(.headline).frame(width: 44, height: 44)
+                // Minimieren: Kochen läuft als Kapsel unten weiter
+                Button { session.minimize() } label: {
+                    Image(systemName: "chevron.down").font(.headline).frame(width: 44, height: 44)
                         .background(Circle().fill(Color(UIColor.tertiarySystemFill)))
                 }
+                .accessibilityLabel("Kochansicht verlassen")
                 Spacer()
                 VStack(spacing: 4) {
                     Text(recipe.title).font(.headline).lineLimit(1)
@@ -630,7 +643,7 @@ struct CookModeView: View {
                     .padding(.horizontal).padding(.top, 10)
             }
 
-            TabView(selection: $page) {
+            TabView(selection: $session.page) {
                 ForEach(Array(recipe.steps.enumerated()), id: \.offset) { i, s in
                     stepPage(i, s).tag(i)
                 }
@@ -692,7 +705,7 @@ struct CookModeView: View {
             Text("Wie war's?").foregroundColor(Theme.secondary)
             StarRating(value: kitchen.metaFor(recipe.id).rating, size: 34) { kitchen.setRating(recipe.id, $0) }
             SoftButton(title: "Gekocht – fertig", symbol: "checkmark", primary: true) {
-                kitchen.markCooked(recipe.id); dismiss()
+                kitchen.markCooked(recipe.id); session.end()
             }
             .frame(maxWidth: 360)
         }
