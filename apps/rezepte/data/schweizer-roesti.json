@@ -1,0 +1,47 @@
+{
+ "id": "schweizer-roesti",
+ "title": "Rösti mit Spiegelei",
+ "icon": "🥔",
+ "cuisine": "Schweizerisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln, am Vortag gekocht"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Schnittlauch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen, grob reiben und salzen."
+  },
+  {
+   "text": "In 2 EL Butterschmalz flach in die Pfanne drücken und bei mittlerer Hitze goldbraun braten.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit einem Teller wenden, restliches Fett zugeben und die zweite Seite braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Spiegeleier braten und mit Schnittlauch auf die Rösti geben.",
+   "minutes": 4
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

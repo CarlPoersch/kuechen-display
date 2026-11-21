@@ -1,0 +1,64 @@
+{
+ "id": "miesmuscheln",
+ "title": "Miesmuscheln in Weißwein",
+ "icon": "🦪",
+ "cuisine": "Französisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1,5 kg",
+   "name": "Miesmuscheln"
+  },
+  {
+   "amount": "2",
+   "name": "Schalotten"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Baguette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Muscheln waschen, Bärte entfernen. Geöffnete, die sich beim Antippen nicht schließen, wegwerfen."
+  },
+  {
+   "text": "Schalotten und Knoblauch in Butter glasig dünsten, mit Wein ablöschen und aufkochen."
+  },
+  {
+   "text": "Muscheln zugeben und zugedeckt garen, bis sie sich öffnen, dabei einmal schütteln.",
+   "minutes": 6
+  },
+  {
+   "text": "Sahne und Petersilie zugeben. Geschlossene Muscheln aussortieren."
+  },
+  {
+   "text": "Mit Baguette servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30
+}

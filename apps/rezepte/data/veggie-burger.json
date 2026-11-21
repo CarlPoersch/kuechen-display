@@ -1,0 +1,82 @@
+{
+ "id": "veggie-burger",
+ "title": "Bohnen-Burger",
+ "icon": "🍔",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Kidneybohnen (Dose)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "60 g",
+   "name": "Haferflocken"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "4",
+   "name": "Burgerbrötchen"
+  },
+  {
+   "amount": "4 Scheiben",
+   "name": "Cheddar"
+  },
+  {
+   "amount": "1",
+   "name": "Tomate"
+  },
+  {
+   "amount": "",
+   "name": "Salat (zum Belegen)"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Burgersauce"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bohnen abspülen, gut trocken tupfen und grob zerdrücken."
+  },
+  {
+   "text": "Zwiebel und Knoblauch fein hacken, mit Bohnen, Haferflocken, Ei, Gewürzen und Salz verkneten. Kurz ruhen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "4 Patties formen und in Öl pro Seite knusprig braten, Käse zum Schluss darauf schmelzen.",
+   "minutes": 8
+  },
+  {
+   "text": "Brötchen rösten und mit Sauce, Salat, Tomate und Patty belegen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40
+}

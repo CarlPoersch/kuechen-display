@@ -1,0 +1,74 @@
+{
+ "id": "germknoedel",
+ "title": "Germknödel mit Mohn",
+ "icon": "🥟",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 45 Min. (inkl. Gehzeit)",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "½ Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "40 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "40 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Powidl (Pflaumenmus)"
+  },
+  {
+   "amount": "80 g",
+   "name": "Butter (zum Übergießen)"
+  },
+  {
+   "amount": "50 g",
+   "name": "gemahlener Mohn"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Puderzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefeteig aus Mehl, Hefe, Milch, Zucker, Butter, Ei und einer Prise Salz kneten und gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "In 4 Stücke teilen, flach drücken, je 1 EL Powidl in die Mitte geben und gut verschließen."
+  },
+  {
+   "text": "Mit dem Verschluss nach unten nochmals gehen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "In einem Topf mit Dampfeinsatz zugedeckt dämpfen, Deckel nicht öffnen.",
+   "minutes": 15
+  },
+  {
+   "text": "Mit geschmolzener Butter übergießen und mit Mohn-Puderzucker bestreuen."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 105
+}

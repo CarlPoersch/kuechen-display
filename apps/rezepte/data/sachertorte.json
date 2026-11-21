@@ -1,0 +1,75 @@
+{
+ "id": "sachertorte",
+ "title": "Schokoladentorte nach Sacher-Art",
+ "icon": "🍫",
+ "cuisine": "Österreichisch",
+ "servings": 12,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "140 g",
+   "name": "Zartbitterschokolade"
+  },
+  {
+   "amount": "140 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "110 g",
+   "name": "Puderzucker"
+  },
+  {
+   "amount": "6",
+   "name": "Eier (getrennt)"
+  },
+  {
+   "amount": "110 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "140 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Aprikosenkonfitüre"
+  },
+  {
+   "group": "Glasur"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zartbitterkuvertüre"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 170 °C vorheizen, Springform (24 cm) mit Backpapier auslegen. Schokolade schmelzen."
+  },
+  {
+   "text": "Butter mit Puderzucker schaumig rühren, Eigelbe einzeln, dann die Schokolade unterrühren."
+  },
+  {
+   "text": "Eiweiß mit Zucker steif schlagen, abwechselnd mit dem Mehl unterheben."
+  },
+  {
+   "text": "In die Form füllen und backen. Stäbchenprobe.",
+   "minutes": 55
+  },
+  {
+   "text": "Abkühlen lassen, waagerecht halbieren, mit erwärmter Konfitüre füllen und rundum bestreichen."
+  },
+  {
+   "text": "Kuvertüre mit Öl schmelzen und die Torte damit überziehen. Fest werden lassen.",
+   "minutes": 60
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "anspruchsvoll",
+ "min": 120
+}

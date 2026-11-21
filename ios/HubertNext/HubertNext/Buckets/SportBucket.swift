@@ -1,72 +1,175 @@
 import SwiftUI
 
 // ============================================================
-// Sport-Bucket: Fußball und Tennis live.
-// Einstellungen: fb / tn (an/aus).
-// Welche Vereine und Turniere kommen, legt vorerst der Server fest
-// (Bayern, Champions League, DFB-Team, ATP ab 250 mit Deutschen …).
+// Sport-Bucket – personalisierbar wie Apple Sports:
+// Ligen und Turniere wählen, je Liga „alle Spiele“ oder nur Favoriten
+// (Vereine, Spieler, Fahrer). Sportarten: Fußball, Tennis, Basketball,
+// Eishockey (NHL, DEL), American Football, Baseball, Formel 1.
+// Einstellungen: leagues = [{ id, mode, fav: [IDs], names: [Namen] }]
+// (ältere Karten mit fb/tn werden beim Lesen umgerechnet).
 // ============================================================
+
+/// Eine gewählte Liga mit Anzeige-Modus und Favoriten
+struct SportPick: Hashable, Identifiable {
+    var id: String                // Liga, z. B. "soccer/ger.1", "tennis/atp", "f1"
+    var mode: String = "all"      // all · fav (nur Favoriten) · de (deutsche Vereine bzw. Deutsche & Endspiele)
+    var fav: [String] = []        // Team-, Spieler- oder Fahrer-IDs
+    var names: [String] = []      // Namen (Tennis, Nationalteams)
+
+    var json: JSON {
+        .object(["id": .string(id), "mode": .string(mode),
+                 "fav": .array(fav.map { .string($0) }), "names": .array(names.map { .string($0) })])
+    }
+
+    init(id: String, mode: String = "all", fav: [String] = [], names: [String] = []) {
+        self.id = id; self.mode = mode; self.fav = fav; self.names = names
+    }
+
+    init?(_ j: JSON) {
+        guard let o = j.object, let id = o["id"]?.string else { return nil }
+        self.id = id
+        mode = o["mode"]?.string ?? "all"
+        fav = (o["fav"]?.array ?? []).compactMap(\.string)
+        names = (o["names"]?.array ?? []).compactMap(\.string)
+    }
+
+    var sport: String { SportBucket.sport(of: id) }
+
+    /// Ist diese Seite ein Favorit?
+    func isFav(_ s: Match.Side) -> Bool {
+        if let i = s.id, fav.contains(i) { return true }
+        let n = (s.full ?? s.n).lowercased(), short = s.n.lowercased()
+        return names.contains { let q = $0.lowercased(); return n.contains(q) || short == q }
+    }
+
+    func hasFav(_ m: Match) -> Bool {
+        if m.isRace { return (m.field ?? []).contains { d in d.id.map { fav.contains($0) } ?? false } }
+        return isFav(m.a) || isFav(m.b)
+    }
+
+    /// Soll das Spiel gezeigt werden?
+    func shows(_ m: Match) -> Bool {
+        if m.isRace { return true }
+        switch mode {
+        case "fav": return hasFav(m)
+        case "de": return m.sport == "tn" ? (m.a.c == "GER" || m.b.c == "GER" || m.late == true || hasFav(m)) : (m.de == true || hasFav(m))
+        default: return true
+        }
+    }
+}
+
 enum SportBucket {
     static let kind = BucketKind(
         id: "sport", name: "Sport", symbol: "sportscourt", tint: .green, art: .glance,
-        interests: ["sport"], blurb: "Live-Ticker für Fußball und Tennis.",
-        glance: { inst, size in AnyView(SportGlance(sports: chosen(inst.config), size: size)) },
-        detail: { inst in AnyView(SportDetail(sports: chosen(inst.config))) },
+        interests: ["sport"], blurb: "Live-Ergebnisse deiner Ligen, Vereine und Spieler.",
+        glance: { inst, size in AnyView(SportGlance(picks: picks(inst.config), size: size)) },
+        detail: { inst in AnyView(SportDetail(picks: picks(inst.config))) },
         itemLinks: true,
         settings: { binding in AnyView(SportSettings(config: binding)) }
     )
 
-    static func chosen(_ c: [String: JSON]) -> Set<String> {
-        var s = Set<String>()
-        if c["fb"]?.bool ?? true { s.insert("fb") }
-        if c["tn"]?.bool ?? true { s.insert("tn") }
-        return s
+    static let emoji = ["fb": "⚽️", "tn": "🎾", "bb": "🏀", "ih": "🏒", "af": "🏈", "bs": "⚾️", "f1": "🏎️"]
+    static let sportName = ["fb": "Fußball", "tn": "Tennis", "bb": "Basketball", "ih": "Eishockey", "af": "Football", "bs": "Baseball", "f1": "Formel 1"]
+
+    static func sport(of league: String) -> String {
+        if league == "f1" { return "f1" }
+        if league == "del" { return "ih" }
+        switch league.split(separator: "/").first ?? "" {
+        case "soccer": return "fb"
+        case "tennis": return "tn"
+        case "basketball": return "bb"
+        case "hockey": return "ih"
+        case "football": return "af"
+        case "baseball": return "bs"
+        default: return "fb"
+        }
     }
 
-    /// Startseite: erst das wichtigste Spiel jeder Sportart, dann der Rest
-    static func pick(_ all: [Match], count: Int) -> [Match] {
+    /// Gewählte Ligen. Fehlt die Liste (ältere Karte), gilt die bisherige feste Auswahl.
+    static func picks(_ c: [String: JSON]) -> [SportPick] {
+        if let list = c["leagues"]?.array { return list.compactMap { SportPick($0) } }
+        var out: [SportPick] = []
+        if c["fb"]?.bool ?? true {
+            out += [SportPick(id: "soccer/ger.1", mode: "fav", fav: ["132"]),
+                    SportPick(id: "soccer/ger.dfb_pokal"), SportPick(id: "soccer/uefa.champions"),
+                    SportPick(id: "soccer/uefa.europa", mode: "de"), SportPick(id: "soccer/uefa.europa.conf", mode: "de")]
+            out += ["soccer/fifa.world", "soccer/fifa.worldq.uefa", "soccer/uefa.euro", "soccer/uefa.euroq", "soccer/uefa.nations", "soccer/fifa.friendly"]
+                .map { SportPick(id: $0, mode: "fav", names: ["Deutschland"]) }
+        }
+        if c["tn"]?.bool ?? true {
+            out += [SportPick(id: "tennis/atp", mode: "de"), SportPick(id: "tennis/wta", mode: "de")]
+        }
+        return out
+    }
+
+    static func store(_ picks: [SportPick], in c: inout [String: JSON]) {
+        c["leagues"] = .array(picks.map(\.json))
+        c["fb"] = nil; c["tn"] = nil
+    }
+
+    /// Gefilterte Spiele: nur die gewählten Ligen, je nach Modus nur Favoriten
+    static func filter(_ all: [Match], _ picks: [SportPick]) -> [Match] {
+        let byId = Dictionary(picks.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        return all.filter { m in byId[m.L ?? ""].map { $0.shows(m) } ?? false }
+    }
+
+    static func isFav(_ m: Match, _ picks: [SportPick]) -> Bool {
+        picks.first { $0.id == m.L }?.hasFav(m) ?? false
+    }
+
+    /// Startseite: Live zuerst, dann Favoriten, dann der Rest; Ergebnisse höchstens 20 Std. alt
+    static func pick(_ all: [Match], _ picks: [SportPick]) -> [Match] {
         let now = Date()
-        let relevant = all.filter { $0.state != "post" || now.timeIntervalSince($0.start) < 20 * 3600 }
-        var out: [Match] = []
-        for sp in ["fb", "tn"] { if let m = relevant.first(where: { $0.sport == sp }) { out.append(m) } }
-        for m in relevant where !out.contains(where: { $0.id == m.id }) { out.append(m) }
         let order = ["in": 0, "pre": 1, "post": 2]
-        return Array(out.prefix(count)).sorted { (order[$0.state] ?? 3) < (order[$1.state] ?? 3) }
+        return all.filter { $0.state != "post" || now.timeIntervalSince($0.start) < 20 * 3600 }
+            .sorted { a, b in
+                let oa = order[a.state] ?? 3, ob = order[b.state] ?? 3
+                if oa != ob { return oa < ob }
+                let fa = isFav(a, picks), fb = isFav(b, picks)
+                if fa != fb && a.state != "pre" { return fa }
+                return a.state == "post" ? a.start > b.start : a.start < b.start
+            }
     }
 }
 
 struct SportGlance: View {
-    let sports: Set<String>
+    let picks: [SportPick]
     let size: BucketSize
     @ObservedObject private var feed = FeedService.shared
     @Environment(\.glanceSpace) private var space
 
+    private var key: String { FeedService.key(picks.map(\.id)) }
+
     var body: some View {
-        content.refreshing(every: { FeedService.shared.sportInterval }) { await FeedService.shared.loadSport() }
+        content.refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) {
+            await FeedService.shared.loadSport(leagues: picks.map(\.id))
+        }
     }
 
     @ViewBuilder private var content: some View {
-        if let f = feed.sport {
-            let list = SportBucket.pick(f.matches.filter { sports.contains($0.sport) }, count: 40)
+        if picks.isEmpty {
+            Text("Wähle Ligen und Favoriten über den Regler oben rechts").foregroundColor(Theme.secondary)
+        } else if let f = feed.sportFeeds[key] {
+            let list = SportBucket.pick(SportBucket.filter(f.matches, picks), picks)
             if list.isEmpty {
                 Text("Gerade keine Spiele").foregroundColor(Theme.secondary)
             } else {
                 GlancePager(pages: Pages.split(list, height: space.height, row: 54)) { page in
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(Array(page.enumerated()), id: \.element.id) { i, m in
-                        if i > 0 { Divider() }
-                        // Jedes Spiel einzeln antippbar
-                        NavigationLink(destination: MatchDetailView(match: m)) {
-                            HStack(spacing: 6) {
-                                MatchRow(match: m, compact: true)
-                                Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
-                                    .foregroundColor(Color(UIColor.tertiaryLabel))
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(Array(page.enumerated()), id: \.element.id) { i, m in
+                            if i > 0 { Divider() }
+                            // Jedes Spiel einzeln antippbar
+                            NavigationLink(destination: MatchDetailView(match: m, picks: picks)) {
+                                HStack(spacing: 6) {
+                                    MatchRow(match: m, compact: true, picks: picks)
+                                    Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
+                                        .foregroundColor(Color(UIColor.tertiaryLabel))
+                                }
+                                .padding(.vertical, 6).contentShape(Rectangle())
                             }
-                            .padding(.vertical, 6).contentShape(Rectangle())
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
-                }
                 }
             }
         } else {
@@ -75,20 +178,23 @@ struct SportGlance: View {
     }
 }
 
-/// Eine Zeile: Status links, zwei Teams/Spieler, Stand rechts
+/// Eine Zeile: Status links, zwei Teams/Spieler (oder Rennen), Stand rechts
 struct MatchRow: View {
     let match: Match
     var compact = false
+    var picks: [SportPick] = []
+
+    private var pick: SportPick? { picks.first { $0.id == match.L } }
 
     private var status: some View {
         Group {
             if match.isLive {
-                Text(match.sport == "fb" ? match.detail : "LIVE")
+                Text(match.sport == "tn" ? "LIVE" : match.detailDE)
                     .font(.caption.weight(.bold).monospacedDigit()).foregroundColor(.red)
             } else if match.state == "pre" {
                 Text(Fmt.when(match.start)).font(.caption.monospacedDigit()).foregroundColor(Theme.secondary)
             } else {
-                Text(match.detail.isEmpty ? "Ende" : match.detail).font(.caption).foregroundColor(Theme.secondary)
+                Text(match.detail.isEmpty ? "Ende" : match.detailDE).font(.caption).foregroundColor(Theme.secondary)
             }
         }
         .lineLimit(2).multilineTextAlignment(.leading)
@@ -96,8 +202,10 @@ struct MatchRow: View {
     }
 
     private func line(_ s: Match.Side, _ o: Match.Side) -> some View {
-        HStack(spacing: 6) {
-            Text(s.n + s.flag).fontWeight(s.win == true ? .semibold : .regular).lineLimit(1)
+        let fav = pick?.isFav(s) ?? false
+        return HStack(spacing: 6) {
+            Text(s.n + s.flag).fontWeight(s.win == true || fav ? .semibold : .regular).lineLimit(1)
+            if fav { Image(systemName: "star.fill").font(.system(size: 9)).foregroundColor(.yellow) }
             if let r = s.r, !compact { Text("\(r)").font(.caption2).foregroundColor(Theme.secondary) }
             Spacer(minLength: 4)
             if match.sport == "tn", let sets = s.sets, !sets.isEmpty {
@@ -115,83 +223,122 @@ struct MatchRow: View {
         .font(compact ? .subheadline : .body)
     }
 
+    /// Formel 1: Rennen statt zwei Seiten
+    private var race: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            HStack(spacing: 4) {
+                Text("🏎️ " + match.a.n).fontWeight(.semibold).lineLimit(1)
+                Spacer(minLength: 4)
+            }
+            if let field = match.field, !field.isEmpty {
+                let favs = field.filter { d in d.id.map { (pick?.fav ?? []).contains($0) } ?? false }
+                let show = field.prefix(3).map { "\($0.pos). \($0.n)" } + favs.filter { $0.pos > 3 }.map { "⭐ \($0.pos). \($0.n)" }
+                Text(show.joined(separator: " · ")).font(.caption).foregroundColor(Theme.secondary).lineLimit(compact ? 1 : 2)
+            } else if let next = match.sessions?.first {
+                Text(next.n + " · " + Fmt.when(next.date)).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+            }
+        }
+        .font(compact ? .subheadline : .body)
+    }
+
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             status
-            VStack(alignment: .leading, spacing: 2) {
-                if !compact {
-                    Text(([match.comp, match.round].compactMap { $0 }).joined(separator: " · "))
-                        .font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary).textCase(.uppercase)
+            if match.isRace {
+                race
+            } else {
+                VStack(alignment: .leading, spacing: 2) {
+                    if !compact {
+                        Text(([match.comp, match.round].compactMap { $0 }).joined(separator: " · "))
+                            .font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary).textCase(.uppercase)
+                    }
+                    line(match.a, match.b)
+                    line(match.b, match.a)
                 }
-                line(match.a, match.b)
-                line(match.b, match.a)
             }
         }
     }
 }
 
 struct SportDetail: View {
-    let sports: Set<String>
+    let picks: [SportPick]
     @State private var only = "alle"
     @ObservedObject private var feed = FeedService.shared
 
+    private var key: String { FeedService.key(picks.map(\.id)) }
+    /// Sportarten in der Auswahl, in fester Reihenfolge
+    private var sports: [String] {
+        let have = Set(picks.map(\.sport))
+        return ["fb", "tn", "bb", "ih", "af", "bs", "f1"].filter(have.contains)
+    }
+
     var body: some View {
-        let all = (feed.sport?.matches ?? []).filter { sports.contains($0.sport) && (only == "alle" || $0.sport == only) }
+        let all = SportBucket.filter(feed.sportFeeds[key]?.matches ?? [], picks).filter { only == "alle" || $0.sport == only }
         List {
-            // Ausgewählte Sportarten als Umschalter
+            // Sportarten als Kapseln (bei vielen Sportarten passt kein Segment mehr)
             if sports.count > 1 {
-                Picker("Sportart", selection: $only) {
-                    Text("Alle").tag("alle")
-                    if sports.contains("fb") { Text("⚽️ Fußball").tag("fb") }
-                    if sports.contains("tn") { Text("🎾 Tennis").tag("tn") }
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        chip("alle", "Alle")
+                        ForEach(sports, id: \.self) { s in chip(s, (SportBucket.emoji[s] ?? "") + " " + (SportBucket.sportName[s] ?? s)) }
+                    }
+                    .padding(.vertical, 2)
                 }
-                .pickerStyle(.segmented)
                 .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
             }
-            if feed.sport == nil { ProgressView() }
+            if picks.isEmpty { Text("Noch keine Ligen gewählt – oben rechts über den Regler einstellen.").foregroundColor(Theme.secondary) }
+            else if feed.sportFeeds[key] == nil { ProgressView() }
             else if all.isEmpty { Text("Gerade keine Spiele").foregroundColor(Theme.secondary) }
             section("Live", all.filter { $0.isLive })
-            section("Demnächst", all.filter { $0.state == "pre" })
+            section("Meine Favoriten", all.filter { !$0.isLive && $0.state == "pre" && SportBucket.isFav($0, picks) })
+            section("Demnächst", all.filter { $0.state == "pre" && !SportBucket.isFav($0, picks) })
             section("Ergebnisse", all.filter { $0.state == "post" })
         }
         .listStyle(.insetGrouped)
-        .refreshing(every: { FeedService.shared.sportInterval }) { await FeedService.shared.loadSport() }
+        .refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) { await FeedService.shared.loadSport(leagues: picks.map(\.id)) }
+    }
+
+    private func chip(_ id: String, _ title: String) -> some View {
+        Button { withAnimation { only = id } } label: {
+            Text(title).font(.subheadline.weight(.semibold))
+                .padding(.horizontal, 14).padding(.vertical, 7)
+                .foregroundColor(only == id ? .white : .primary)
+                .background(Capsule().fill(only == id ? Theme.accent : Theme.card))
+        }
+        .buttonStyle(.plain)
     }
 
     @ViewBuilder private func section(_ title: String, _ list: [Match]) -> some View {
         if !list.isEmpty {
             Section(header: Text(title)) {
                 ForEach(list) { m in
-                    NavigationLink(destination: MatchDetailView(match: m)) { MatchRow(match: m).padding(.vertical, 4) }
+                    NavigationLink(destination: MatchDetailView(match: m, picks: picks)) { MatchRow(match: m, picks: picks).padding(.vertical, 4) }
                 }
             }
         }
     }
 }
 
-struct SportSettings: View {
-    @Binding var config: [String: JSON]
-    var body: some View {
-        Toggle("Fußball", isOn: $config.flag("fb"))
-        Toggle("Tennis", isOn: $config.flag("tn"))
-    }
-}
-
-// MARK: Spieldetails
-
 struct MatchDetailView: View {
     let match: Match
+    var picks: [SportPick] = []
     @State private var detail: MatchDetail?
     @State private var tab = 0
     @ObservedObject private var feed = FeedService.shared
 
     /// Aktueller Stand aus der Liste (Tennis hat keine eigenen Details)
-    private var live: Match { feed.sport?.matches.first { $0.id == match.id } ?? match }
+    private var live: Match { feed.current(match.id) ?? match }
 
     var body: some View {
         List {
-            Section { header.listRowBackground(Color.clear) }
-            if live.sport == "tn" {
+            Section { (live.isRace ? AnyView(raceHeader) : AnyView(header)).listRowBackground(Color.clear) }
+            if live.isRace {
+                raceSections
+            } else if live.sport != "fb" && live.sport != "tn" {
+                // Basketball, Eishockey, Football, Baseball: Stand oben, dazu Ort
+                if let v = live.venue { Section(header: Text("Ort")) { Label(v, systemImage: "mappin.and.ellipse") } }
+                Section { Text(live.comp + (live.round.map { " · " + $0 } ?? "")).foregroundColor(Theme.secondary) }
+            } else if live.sport == "tn" {
                 Section(header: Text("Sätze")) { MatchRow(match: live).padding(.vertical, 6) }
                 if let v = live.venue { Section(header: Text("Ort")) { Text(v) } }
                 if let n = live.note { Section { Text(n).foregroundColor(Theme.secondary) } }
@@ -218,9 +365,58 @@ struct MatchDetailView: View {
     }
 
     private func load() async {
-        await feed.loadSport()
+        if !picks.isEmpty { await feed.loadSport(leagues: picks.map(\.id)) }
         guard live.sport == "fb", let lg = live.lg, let id = live.eid else { return }
         if let d = try? await feed.match(lg: lg, id: id) { detail = d }
+    }
+
+    private var pick: SportPick? { picks.first { $0.id == live.L } }
+
+    private var raceHeader: some View {
+        VStack(spacing: 6) {
+            Text("🏎️").font(.system(size: 44))
+            Text(live.a.n).font(.title2.weight(.bold))
+            Text([live.venue, live.b.n.isEmpty ? nil : live.b.n].compactMap { $0 }.joined(separator: " · "))
+                .font(.subheadline).foregroundColor(Theme.secondary).multilineTextAlignment(.center)
+            Text(live.isLive ? "Rennen läuft" : live.state == "pre" ? "Rennen " + Fmt.dayLabel(live.start) + " " + Fmt.hhmm(live.start) : "Ergebnis")
+                .font(.subheadline.weight(live.isLive ? .bold : .regular))
+                .foregroundColor(live.isLive ? .red : Theme.secondary)
+        }
+        .frame(maxWidth: .infinity).padding(.vertical, 8)
+    }
+
+    @ViewBuilder private var raceSections: some View {
+        if let field = live.field, !field.isEmpty {
+            Section(header: Text("Ergebnis")) {
+                ForEach(field, id: \.self) { d in
+                    let fav = d.id.map { (pick?.fav ?? []).contains($0) } ?? false
+                    HStack(spacing: 12) {
+                        Text("\(d.pos)").font(.headline.monospacedDigit()).frame(width: 28, alignment: .leading)
+                            .foregroundColor(d.pos <= 3 ? Theme.accent : .primary)
+                        VStack(alignment: .leading, spacing: 1) {
+                            HStack(spacing: 4) {
+                                Text(d.n).fontWeight(fav ? .semibold : .regular)
+                                if fav { Image(systemName: "star.fill").font(.caption2).foregroundColor(.yellow) }
+                            }
+                            if let t = d.t { Text(t).font(.caption).foregroundColor(Theme.secondary) }
+                        }
+                        Spacer()
+                        if let c = d.c { Text(c).font(.caption.monospaced()).foregroundColor(Theme.secondary) }
+                    }
+                }
+            }
+        }
+        if let ss = live.sessions, !ss.isEmpty {
+            Section(header: Text("Zeitplan")) {
+                ForEach(ss, id: \.self) { x in
+                    HStack {
+                        Text(x.n)
+                        Spacer()
+                        Text(Fmt.dayLabel(x.date) + " " + Fmt.hhmm(x.date)).foregroundColor(Theme.secondary).monospacedDigit()
+                    }
+                }
+            }
+        }
     }
 
     private var header: some View {
@@ -229,14 +425,14 @@ struct MatchDetailView: View {
             HStack(alignment: .center) {
                 Text(live.a.n + live.a.flag).font(.title3.weight(.semibold)).multilineTextAlignment(.center).frame(maxWidth: .infinity)
                 VStack(spacing: 2) {
-                    if live.sport == "fb" && live.state != "pre" {
+                    if live.hasScore && live.state != "pre" {
                         Text("\(live.a.score ?? "-") : \(live.b.score ?? "-")").font(.system(size: 44, weight: .bold).monospacedDigit())
                     } else if live.state == "pre" {
                         Text(Fmt.hhmm(live.start)).font(.system(size: 34, weight: .semibold).monospacedDigit())
                     } else {
                         Text("vs").font(.title2).foregroundColor(Theme.secondary)
                     }
-                    Text(live.isLive ? (live.sport == "fb" ? live.detail : "LIVE") : live.state == "pre" ? Fmt.dayLabel(live.start) : (live.detail.isEmpty ? "Ende" : live.detail))
+                    Text(live.isLive ? (live.sport == "tn" ? "LIVE" : live.detailDE) : live.state == "pre" ? Fmt.dayLabel(live.start) : (live.detail.isEmpty ? "Ende" : live.detailDE))
                         .font(.subheadline.weight(live.isLive ? .bold : .regular))
                         .foregroundColor(live.isLive ? .red : Theme.secondary)
                     if let ht = detail?.h.ht, let at = detail?.a.ht, live.state != "pre" {

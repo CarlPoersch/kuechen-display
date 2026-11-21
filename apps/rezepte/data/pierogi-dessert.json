@@ -1,0 +1,69 @@
+{
+ "id": "pierogi-dessert",
+ "title": "Quarkkeulchen",
+ "icon": "🥞",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "mehligkochende Kartoffeln, gekocht"
+  },
+  {
+   "amount": "250 g",
+   "name": "Quark"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone (Abrieb)"
+  },
+  {
+   "amount": "50 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "",
+   "name": "Apfelmus (zum Servieren)"
+  },
+  {
+   "amount": "",
+   "name": "Zimt und Zucker (zum Bestreuen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln durch die Presse drücken und abkühlen lassen."
+  },
+  {
+   "text": "Mit Quark, Ei, Zucker, Mehl, Zitronenabrieb und Rosinen zu einem Teig verkneten."
+  },
+  {
+   "text": "Kleine Taler formen und in Butterschmalz pro Seite goldbraun braten.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit Zimt-Zucker und Apfelmus servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40
+}

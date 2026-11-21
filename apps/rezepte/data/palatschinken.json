@@ -1,0 +1,59 @@
+{
+ "id": "palatschinken",
+ "title": "Palatschinken mit Marillenmarmelade",
+ "icon": "🥞",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 g",
+   "name": "Marillenmarmelade"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Milch, Eier, Salz und Zucker glatt rühren und ruhen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "In wenig Butter dünne Pfannkuchen backen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Marmelade bestreichen, einrollen und mit Puderzucker bestäuben."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

@@ -1,0 +1,74 @@
+{
+ "id": "buchteln",
+ "title": "Buchteln mit Vanillesauce",
+ "icon": "🥐",
+ "cuisine": "Österreichisch",
+ "servings": 12,
+ "time": "ca. 1 Std. 45 Min. (inkl. Gehzeit)",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "250 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "80 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "2",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "200 g",
+   "name": "Pflaumenmus"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter (zum Bestreichen)"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefeteig kneten und gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "In 12 Stücke teilen, flach drücken, mit Pflaumenmus füllen und zu Kugeln verschließen."
+  },
+  {
+   "text": "In flüssige Butter tauchen und dicht an dicht in eine Form setzen. Nochmals gehen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Bei 180 °C goldbraun backen.",
+   "minutes": 30
+  },
+  {
+   "text": "Mit Puderzucker bestäuben und mit Vanillesauce servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 105
+}

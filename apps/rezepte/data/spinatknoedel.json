@@ -1,0 +1,58 @@
+{
+ "id": "spinatknoedel",
+ "title": "Spinatknödel mit brauner Butter",
+ "icon": "🥬",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Knödelbrot"
+  },
+  {
+   "amount": "300 g",
+   "name": "Blattspinat (TK)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "60 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "80 g",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spinat auftauen, ausdrücken und hacken. Zwiebel würfeln und in etwas Butter dünsten."
+  },
+  {
+   "text": "Knödelbrot mit Milch, Eiern, Spinat, Zwiebel, Salz, Pfeffer und Muskat verkneten und ziehen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "8 Knödel formen und in siedendem Salzwasser gar ziehen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Restliche Butter aufschäumen, bis sie nussig riecht. Knödel damit beträufeln und mit Parmesan bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

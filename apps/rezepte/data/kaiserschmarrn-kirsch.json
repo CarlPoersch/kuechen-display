@@ -1,0 +1,68 @@
+{
+ "id": "kaiserschmarrn-kirsch",
+ "title": "Topfenstrudel",
+ "icon": "🥮",
+ "cuisine": "Österreichisch",
+ "servings": 8,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Packung",
+   "name": "Strudel- oder Filoteig"
+  },
+  {
+   "amount": "500 g",
+   "name": "Quark (Topfen)"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone (Abrieb)"
+  },
+  {
+   "amount": "50 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "80 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Quark mit Zucker, Eiern, Vanillezucker, Zitronenabrieb und Rosinen glatt rühren."
+  },
+  {
+   "text": "Teigblätter auf einem Tuch auslegen und mit geschmolzener Butter bestreichen."
+  },
+  {
+   "text": "Füllung auf dem unteren Drittel verteilen, mit dem Tuch aufrollen und auf ein Blech legen."
+  },
+  {
+   "text": "Mit Butter bestreichen und goldbraun backen.",
+   "minutes": 40
+  },
+  {
+   "text": "Lauwarm mit Puderzucker servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
+}

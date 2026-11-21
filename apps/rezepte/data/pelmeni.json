@@ -1,0 +1,78 @@
+{
+ "id": "pelmeni",
+ "title": "Pelmeni mit Schmand",
+ "icon": "🥟",
+ "cuisine": "Russisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "350 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Füllung"
+  },
+  {
+   "amount": "400 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "200 g",
+   "name": "Schmand"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Teig kneten und abgedeckt ruhen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zwiebel fein reiben, mit Hack, 3 EL Wasser, Salz und Pfeffer verkneten."
+  },
+  {
+   "text": "Teig dünn ausrollen, kleine Kreise ausstechen, je 1 TL Füllung daraufgeben, zu Halbmonden falten und die Enden zusammendrücken."
+  },
+  {
+   "text": "In siedendem Salzwasser garen, bis sie oben schwimmen.",
+   "minutes": 6
+  },
+  {
+   "text": "In Butter schwenken, mit Schmand und Dill servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

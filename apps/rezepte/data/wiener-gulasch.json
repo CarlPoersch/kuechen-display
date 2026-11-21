@@ -1,0 +1,73 @@
+{
+ "id": "wiener-gulasch",
+ "title": "Wiener Saftgulasch",
+ "icon": "🍲",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rindswade"
+  },
+  {
+   "amount": "800 g",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Schmalz"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone (Abrieb)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln fein schneiden und in Schmalz langsam goldbraun rösten.",
+   "minutes": 20
+  },
+  {
+   "text": "Vom Herd nehmen, Paprika einrühren und sofort mit Essig und 200 ml Wasser ablöschen."
+  },
+  {
+   "text": "Fleisch in großen Würfeln, Tomatenmark, Kümmel und 1 TL Salz zugeben, knapp mit Wasser bedecken."
+  },
+  {
+   "text": "Zugedeckt weich schmoren, bei Bedarf Wasser nachgießen.",
+   "minutes": 120
+  },
+  {
+   "text": "Knoblauch, Majoran und Zitronenabrieb fein hacken, unterrühren. Mit Semmel oder Nockerln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 150
+}

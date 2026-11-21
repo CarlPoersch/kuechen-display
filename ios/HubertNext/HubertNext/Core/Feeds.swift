@@ -70,6 +70,8 @@ struct SportFeed: Decodable { let matches: [Match] }
 struct Match: Decodable, Identifiable {
     struct Side: Decodable {
         let n: String
+        let id: String?            // Team-/Spieler-ID (für Favoriten)
+        let full: String?          // voller Name (Tennis)
         let c: String?
         let score: String?
         let win: Bool?
@@ -78,8 +80,12 @@ struct Match: Decodable, Identifiable {
         let r: Int?
         var flag: String { c == "GER" ? " 🇩🇪" : "" }
     }
+    /// Formel 1: Platzierung im Rennen
+    struct Driver: Decodable, Hashable { let id: String?; let n: String; let pos: Int; let t: String?; let c: String? }
+    struct Session: Decodable, Hashable { let n: String; let t: String; var date: Date { Fmt.date(t) ?? .distantPast } }
+
     let id: String
-    let sport: String          // "fb" Fußball, "tn" Tennis
+    let sport: String          // fb Fußball, tn Tennis, bb Basketball, ih Eishockey, af American Football, bs Baseball, f1 Formel 1
     let comp: String
     let round: String?
     let date: String
@@ -87,15 +93,43 @@ struct Match: Decodable, Identifiable {
     let detail: String
     let a: Side
     let b: Side
-    let prio: Int              // 1 = Favorit
+    let prio: Int?
     let lg: String?
     let eid: String?
     let venue: String?
     let note: String?
+    let L: String?             // Liga wie im Katalog (z. B. "soccer/ger.1")
+    let de: Bool?              // deutscher Verein beteiligt
+    let late: Bool?            // Tennis: ab Halbfinale bzw. Finals
+    let field: [Driver]?
+    let sessions: [Session]?
 
     var start: Date { Fmt.date(date) ?? .distantPast }
     var isLive: Bool { state == "in" }
+    var isRace: Bool { sport == "f1" }
+    /// Mannschaftssport mit Spielstand (alles außer Tennis und Formel 1)
+    var hasScore: Bool { !["tn", "f1"].contains(sport) }
+
+    /// Live-Anzeige auf Deutsch („1:42 - 4th“ → „1:42 · 4.“, „Halftime“ → „Halbzeit“)
+    var detailDE: String {
+        var d = detail
+        for (en, deu) in [("Halftime", "Halbzeit"), ("End of ", "Ende "), ("1st", "1."), ("2nd", "2."), ("3rd", "3."), ("4th", "4."),
+                          ("Top ", "▲ "), ("Bot ", "▼ "), ("Mid ", "Mitte "), (" - ", " · "), ("OT", "Verl."), ("Final", "Ende")] {
+            d = d.replacingOccurrences(of: en, with: deu)
+        }
+        return d
+    }
 }
+
+struct SportCatalog: Codable, Identifiable, Hashable {
+    struct League: Codable, Hashable, Identifiable { let id: String; let name: String; let kind: String? }
+    let id: String
+    let name: String
+    let emoji: String
+    let leagues: [League]
+}
+
+struct TeamRef: Decodable, Hashable, Identifiable { let id: String; let n: String }
 
 struct NewsFeed: Decodable {
     let breaking: [NewsItem]
@@ -172,6 +206,59 @@ final class FeedService: ObservableObject {
     func loadSport() async {
         if let t = sportAt, Date().timeIntervalSince(t) < sportInterval - 2 { return }
         do { sport = try await get("sport"); sportAt = Date() } catch { print("Sport:", error) }
+    }
+
+    // MARK: Sport, personalisiert
+
+    /// Spiele je Liga-Auswahl (Schlüssel = sortierte Liga-IDs), damit mehrere Sport-Karten sich nicht stören
+    @Published private(set) var sportFeeds: [String: SportFeed] = [:]
+    private var sportFeedAt: [String: Date] = [:]
+
+    static func key(_ leagues: [String]) -> String { Array(Set(leagues)).sorted().joined(separator: ",") }
+
+    /// Alle 30 s, solange etwas live ist oder gleich beginnt, sonst alle 10 min
+    func sportInterval(_ key: String) -> TimeInterval {
+        let now = Date()
+        let hot = sportFeeds[key]?.matches.contains { $0.isLive || ($0.state == "pre" && $0.start < now.addingTimeInterval(300) && $0.start > now.addingTimeInterval(-3 * 3600)) } ?? false
+        return hot ? 30 : 600
+    }
+
+    func loadSport(leagues: [String]) async {
+        let k = Self.key(leagues)
+        guard !k.isEmpty else { return }
+        if let t = sportFeedAt[k], Date().timeIntervalSince(t) < sportInterval(k) - 2 { return }
+        do {
+            sportFeeds[k] = try await get("sport2", [URLQueryItem(name: "l", value: k)])
+            sportFeedAt[k] = Date()
+        } catch { print("Sport:", error) }
+    }
+
+    /// Aktueller Stand eines Spiels aus irgendeiner geladenen Auswahl
+    func current(_ id: String) -> Match? {
+        for f in sportFeeds.values { if let m = f.matches.first(where: { $0.id == id }) { return m } }
+        return sport?.matches.first { $0.id == id }
+    }
+
+    /// Katalog der Sportarten und Ligen (vom Server, damit neue Ligen ohne App-Update dazukommen)
+    @Published private(set) var catalog: [SportCatalog] = {
+        guard let d = UserDefaults.standard.data(forKey: "sport.catalog"),
+              let c = try? JSONDecoder().decode([SportCatalog].self, from: d) else { return [] }
+        return c
+    }()
+
+    func loadCatalog() async {
+        guard let data = try? await SupabaseClient.shared.raw("GET", "/functions/v1/feeds/sports"),
+              let c = try? JSONDecoder().decode([SportCatalog].self, from: data) else { return }
+        catalog = c
+        UserDefaults.standard.set(data, forKey: "sport.catalog")
+    }
+
+    private var teamCache: [String: [TeamRef]] = [:]
+    func teams(_ league: String) async -> [TeamRef] {
+        if let t = teamCache[league] { return t }
+        let t: [TeamRef] = (try? await get("teams", [URLQueryItem(name: "l", value: league)])) ?? []
+        if !t.isEmpty { teamCache[league] = t }
+        return t
     }
 
     func loadNews() async {

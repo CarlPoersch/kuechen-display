@@ -1,0 +1,75 @@
+{
+ "id": "kartoffel-gulasch",
+ "title": "Kartoffelgulasch",
+ "icon": "🥔",
+ "cuisine": "Ungarisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "4",
+   "name": "Wiener Würstchen (oder vegetarisch)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "100 g",
+   "name": "saure Sahne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln würfeln und in Öl goldbraun braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tomatenmark und Paprika kurz einrühren, mit Brühe ablöschen."
+  },
+  {
+   "text": "Kartoffeln und Paprika würfeln, mit Kümmel und Majoran zugeben und weich köcheln.",
+   "minutes": 25
+  },
+  {
+   "text": "Würstchen in Scheiben darin erwärmen, mit saurer Sahne servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

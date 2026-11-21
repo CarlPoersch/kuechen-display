@@ -1,0 +1,84 @@
+{
+ "id": "bigos",
+ "title": "Bigos (Jägereintopf)",
+ "icon": "🍲",
+ "cuisine": "Polnisch",
+ "servings": 6,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Sauerkraut"
+  },
+  {
+   "amount": "300 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "400 g",
+   "name": "Schweineschulter"
+  },
+  {
+   "amount": "250 g",
+   "name": "Krakauer oder Kabanos"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speck"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "30 g",
+   "name": "getrocknete Steinpilze"
+  },
+  {
+   "amount": "8",
+   "name": "Backpflaumen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "5",
+   "name": "Pimentkörner"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Rotwein"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pilze in 300 ml heißem Wasser einweichen.",
+   "minutes": 20
+  },
+  {
+   "text": "Speck und Fleischwürfel anbraten, Zwiebel zugeben.",
+   "minutes": 8
+  },
+  {
+   "text": "Sauerkraut, geschnittenen Kohl, Pilze mit Einweichwasser, Wein, Tomatenmark und Gewürze zugeben."
+  },
+  {
+   "text": "Zugedeckt bei kleiner Hitze schmoren.",
+   "minutes": 60
+  },
+  {
+   "text": "Wurst in Scheiben und Backpflaumen zugeben und weiter schmoren. Schmeckt aufgewärmt noch besser.",
+   "minutes": 30
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 120,
+ "gf": true
+}

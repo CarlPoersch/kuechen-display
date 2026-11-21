@@ -1,0 +1,68 @@
+{
+ "id": "kichererbsen-shakshuka",
+ "title": "Grüne Shakshuka",
+ "icon": "🍳",
+ "cuisine": "Israelisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Lauchstange"
+  },
+  {
+   "amount": "200 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "80 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Lauch in feine Ringe schneiden und in Öl weich dünsten.",
+   "minutes": 6
+  },
+  {
+   "text": "Knoblauch, Kreuzkümmel, Spinat und Erbsen zugeben, bis der Spinat zusammenfällt, salzen.",
+   "minutes": 3
+  },
+  {
+   "text": "Mulden formen, Eier hineingeben, zudecken und stocken lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Feta und Dill servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

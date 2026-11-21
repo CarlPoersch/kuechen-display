@@ -1,0 +1,71 @@
+{
+ "id": "kabeljau-senfsauce",
+ "title": "Kabeljau in Senfsauce",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Kabeljaufilet"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Schalotte"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Fischfond"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "mittelscharfer Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "körniger Senf"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Schalotte in Butter andünsten, mit Fond und Sahne aufkochen, Senf einrühren und mit Stärke binden."
+  },
+  {
+   "text": "Fisch in Stücken salzen, in die Sauce legen und zugedeckt gar ziehen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Dill bestreuen und mit Kartoffeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

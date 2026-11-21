@@ -1,0 +1,85 @@
+{
+ "id": "apfelkuchen-blech",
+ "title": "Apfel-Streusel-Blechkuchen",
+ "icon": "🍏",
+ "cuisine": "Deutsch",
+ "servings": 20,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "group": "Rührteig"
+  },
+  {
+   "amount": "250 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Päckchen",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Milch"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "1,5 kg",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "group": "Streusel"
+  },
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "150 g",
+   "name": "kalte Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Äpfel schälen, in Spalten schneiden und mit Zimt mischen."
+  },
+  {
+   "text": "Butter und Zucker schaumig rühren, Eier unterrühren, Mehl und Backpulver abwechselnd mit Milch unterrühren."
+  },
+  {
+   "text": "Teig auf ein gefettetes Blech streichen und mit Äpfeln belegen."
+  },
+  {
+   "text": "Streusel-Zutaten zu Krümeln reiben und darüber verteilen."
+  },
+  {
+   "text": "Goldbraun backen.",
+   "minutes": 40
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 75
+}

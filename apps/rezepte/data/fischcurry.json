@@ -1,0 +1,84 @@
+{
+ "id": "fischcurry",
+ "title": "Kokos-Fischcurry",
+ "icon": "🐟",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "festes weißes Fischfilet (Kabeljau, Seelachs)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl andünsten, Gewürze kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Kokosmilch und Tomaten zugeben und köcheln.",
+   "minutes": 6
+  },
+  {
+   "text": "Fisch in Stücken einlegen und zugedeckt gar ziehen lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Limette und Salz abschmecken, mit Koriander servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

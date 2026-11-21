@@ -8,7 +8,9 @@
 //  - Quellen lassen sich später austauschen, ohne die App zu ändern.
 //
 // Aufrufe mit Header "x-kueche-key" (Web) oder "Authorization: Bearer <Login>" (native App):
-//   GET <supabase-url>/functions/v1/feeds/sport
+//   GET <supabase-url>/functions/v1/feeds/sport          (alte App-Versionen: feste Auswahl)
+//   GET <supabase-url>/functions/v1/feeds/sport2?l=…     (personalisiert, siehe unten)
+//   GET <supabase-url>/functions/v1/feeds/sports | teams?l=…
 //   GET <supabase-url>/functions/v1/feeds/news
 //   GET <supabase-url>/functions/v1/feeds/match?lg=<liga>&id=<spiel>
 //   GET <supabase-url>/functions/v1/feeds/article?u=<artikel-link>
@@ -125,12 +127,14 @@ const ROUNDS: Record<string, string> = {
 };
 const de = (n: string) => NAMES[n] ?? n;
 
-type Side = { n: string; c?: string; score?: string; win?: boolean; sets?: (number | string)[];
+type Side = { n: string; id?: string; full?: string; c?: string; score?: string; win?: boolean; sets?: (number | string)[];
   tb?: (number | null)[]; r?: number };
 type Match = {
-  id: string; sport: "fb" | "tn"; comp: string; round?: string; date: string;
+  id: string; sport: "fb" | "tn" | "bb" | "ih" | "af" | "bs" | "f1"; comp: string; round?: string; date: string;
   state: "pre" | "in" | "post"; detail: string; a: Side; b: Side; prio: number;
   lg?: string; eid?: string; venue?: string; note?: string;
+  de?: boolean; late?: boolean; field?: { id: string; n: string; pos: number; t?: string; c?: string }[];
+  sessions?: { n: string; t: string }[]; L?: string;
 };
 
 function inWindow(iso: string) {
@@ -252,6 +256,234 @@ async function sport() {
     order[x.state] - order[y.state] ||
     (x.state === "post" ? Date.parse(y.date) - Date.parse(x.date) : Date.parse(x.date) - Date.parse(y.date)));
   return { at: new Date().toISOString(), matches: all };
+}
+
+// ============================================================
+// SPORT, PERSONALISIERT (ab App-Version mit Sport-Einstellungen)
+//   GET .../feeds/sports            Katalog: Sportarten und Ligen
+//   GET .../feeds/teams?l=<liga>    Teams/Fahrer einer Liga (für Favoriten)
+//   GET .../feeds/sport2?l=a,b,c    Spiele der gewählten Ligen (gestern bis +7 Tage)
+// Gefiltert nach Favoriten wird in der App – so teilen sich alle Nutzer den
+// Zwischenspeicher je Liga und der Server bleibt einfach.
+// ============================================================
+type SportId = "fb" | "tn" | "bb" | "ih" | "af" | "bs" | "f1";
+const CATALOG: { id: SportId; name: string; emoji: string; leagues: [string, string, string?][] }[] = [
+  { id: "fb", name: "Fußball", emoji: "⚽️", leagues: [
+    ["soccer/ger.1", "Bundesliga"], ["soccer/ger.2", "2. Bundesliga"], ["soccer/ger.3", "3. Liga"],
+    ["soccer/ger.dfb_pokal", "DFB-Pokal"], ["soccer/uefa.champions", "Champions League", "intl"],
+    ["soccer/uefa.europa", "Europa League", "intl"], ["soccer/uefa.europa.conf", "Conference League", "intl"],
+    ["soccer/eng.1", "Premier League"], ["soccer/esp.1", "LaLiga"], ["soccer/ita.1", "Serie A"],
+    ["soccer/fra.1", "Ligue 1"], ["soccer/ned.1", "Eredivisie"], ["soccer/aut.1", "Österr. Bundesliga"],
+    ["soccer/sui.1", "Schweizer Super League"], ["soccer/usa.1", "MLS"],
+    ["soccer/fifa.world", "WM", "nat"], ["soccer/fifa.worldq.uefa", "WM-Quali Europa", "nat"],
+    ["soccer/uefa.euro", "EM", "nat"], ["soccer/uefa.euroq", "EM-Quali", "nat"],
+    ["soccer/uefa.nations", "Nations League", "nat"], ["soccer/fifa.friendly", "Länderspiele", "nat"],
+    ["soccer/fifa.cwc", "Klub-WM", "intl"],
+  ] },
+  { id: "tn", name: "Tennis", emoji: "🎾", leagues: [["tennis/atp", "ATP (Herren)"], ["tennis/wta", "WTA (Damen)"]] },
+  { id: "bb", name: "Basketball", emoji: "🏀", leagues: [["basketball/nba", "NBA"], ["basketball/wnba", "WNBA"]] },
+  { id: "ih", name: "Eishockey", emoji: "🏒", leagues: [["del", "DEL"], ["hockey/nhl", "NHL"]] },
+  { id: "af", name: "American Football", emoji: "🏈", leagues: [["football/nfl", "NFL"]] },
+  { id: "bs", name: "Baseball", emoji: "⚾️", leagues: [["baseball/mlb", "MLB"]] },
+  { id: "f1", name: "Formel 1", emoji: "🏎️", leagues: [["f1", "Formel 1"]] },
+];
+const LEAGUE = new Map<string, { sport: SportId; name: string }>();
+for (const s of CATALOG) for (const [id, name] of s.leagues) LEAGUE.set(id, { sport: s.id, name });
+const ESPN_SPORT: Record<string, SportId> = { soccer: "fb", basketball: "bb", hockey: "ih", football: "af", baseball: "bs" };
+
+function ymd(d: Date) { return d.toISOString().slice(0, 10).replace(/-/g, ""); }
+
+/// Mannschaftssportarten bei ESPN (Fußball, NBA, NHL, NFL, MLB …)
+async function espnTeams(id: string): Promise<Match[]> {
+  const [sp] = id.split("/");
+  const sport = ESPN_SPORT[sp];
+  // Je Tag eine Abfrage (Zeiträume lehnt ESPN ab). Heute/gestern oft auffrischen, die Zukunft selten.
+  const now = Date.now();
+  const days = [-1, 0, 1, 2, 3, 4, 5, 6].map((d) => ymd(new Date(now + d * 24 * 3600_000)));
+  const today = ymd(new Date(now));
+  const pages = await Promise.all(days.map((d) =>
+    cached("s2:" + id + ":" + d, d <= today ? 20_000 : 600_000, () => getJson(ESPN + id + "/scoreboard?limit=100&dates=" + d))));
+  const seen = new Set<string>();
+  const events = pages.flatMap((p: any) => p?.events ?? []).filter((ev: any) => !seen.has(ev.id) && seen.add(ev.id));
+  const clubs = sport === "fb" ? await germanClubIds() : new Set<string>();
+  const out: Match[] = [];
+  for (const ev of events) {
+    const c = ev.competitions?.[0];
+    if (!c || !inWindow(ev.date)) continue;
+    const home = c.competitors.find((x: any) => x.homeAway === "home") ?? c.competitors[0];
+    const away = c.competitors.find((x: any) => x.homeAway === "away") ?? c.competitors[1];
+    if (!home?.team || !away?.team) continue;
+    const st = c.status ?? ev.status;
+    const state = st?.type?.state ?? "pre";
+    const side = (t: any): Side & { id: string } => ({
+      id: String(t.team.id),
+      n: sport === "fb" ? de(t.team.displayName) : (t.team.shortDisplayName || t.team.displayName),
+      win: t.winner === true, score: state === "pre" ? undefined : String(t.score ?? ""),
+    });
+    const detail = sport === "fb" ? fbDetail(st)
+      : state === "in" ? (st?.type?.shortDetail ?? "live") : state === "post" ? (/OT|SO/.test(st?.type?.shortDetail ?? "") ? "n. V." : "Ende")
+      : /Postp/i.test(st?.type?.name ?? "") ? "verschoben" : "";
+    out.push({
+      id: "s" + ev.id, sport, comp: LEAGUE.get(id)?.name ?? id, date: ev.date, state, detail,
+      lg: sport === "fb" ? id.split("/")[1] : id, eid: String(ev.id),
+      a: side(home), b: side(away), prio: 0,
+      de: [home, away].some((t: any) => clubs.has(String(t.team.id))) || undefined,
+      venue: c.venue?.fullName,
+    } as Match);
+  }
+  return out;
+}
+
+/// Tennis: alle Einzel der Woche (Herren bzw. Damen); Filter (Deutsche, Favoriten) macht die App
+async function tennisAll(id: string): Promise<Match[]> {
+  const tour = id.split("/")[1];
+  const slug = tour === "wta" ? "womens-singles" : "mens-singles";
+  const j: any = await cached("tn:" + tour, 20_000, () => getJson(ESPN + "tennis/" + tour + "/scoreboard"));
+  const out: Match[] = [];
+  for (const ev of j?.events ?? []) {
+    for (const g of ev.groupings ?? []) {
+      if (g.grouping?.slug !== slug) continue;
+      for (const c of g.competitions ?? []) {
+        if (!inWindow(c.date)) continue;
+        const [p1, p2] = c.competitors ?? [];
+        if (!p1?.athlete || !p2?.athlete) continue;
+        if (p1.athlete.displayName === "TBD" || p2.athlete.displayName === "TBD") continue;
+        const roundEn = c.round?.displayName ?? "";
+        const st = c.status?.type ?? {};
+        const side = (p: any) => ({
+          id: String(p.athlete.id ?? p.id ?? ""), n: p.athlete.shortName || p.athlete.displayName,
+          full: p.athlete.displayName, c: country(p.athlete), win: p.winner === true,
+          sets: (p.linescores ?? []).map((l: any) => l.value),
+          tb: (p.linescores ?? []).map((l: any) => l.tiebreak ?? null),
+          r: p.curatedRank?.current ?? undefined,
+        });
+        const late = /^(semi|final)/i.test(roundEn) || /ATP Finals|WTA Finals/i.test(ev.name ?? "");
+        out.push({
+          id: "tn" + c.id, sport: "tn", comp: ev.name, round: ROUNDS[roundEn] ?? roundEn, date: c.date,
+          state: st.state ?? "pre",
+          detail: st.state === "in" ? "live" : st.state === "post" ? (/Retired|RET/i.test(st.detail ?? "") ? "Aufgabe" : "Ende") : "",
+          lg: id, a: side(p1), b: side(p2), prio: 0, late: late || undefined,
+          venue: c.venue?.fullName ?? ev.venue?.fullName, note: c.notes?.[0]?.text,
+        } as Match);
+      }
+    }
+  }
+  return out;
+}
+
+/// DEL über OpenLigaDB (Community-gepflegt; Ergebnisse kommen meist kurz nach Spielende)
+async function delGames(): Promise<Match[]> {
+  const now = new Date();
+  const season = now.getUTCMonth() >= 6 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+  const all: any[] = (await cached("del:" + season, 120_000, () => getJson("https://api.openligadb.de/getmatchdata/del/" + season))) ?? [];
+  const out: Match[] = [];
+  for (const m of all) {
+    const date = m.matchDateTimeUTC;
+    if (!date || !inWindow(date)) continue;
+    const started = Date.parse(date) < Date.now();
+    const res = (m.matchResults ?? []).sort((x: any, y: any) => (y.resultOrderID ?? 0) - (x.resultOrderID ?? 0))[0];
+    const lastGoal = (m.goals ?? []).at?.(-1);
+    const s1 = res?.pointsTeam1 ?? lastGoal?.scoreTeam1, s2 = res?.pointsTeam2 ?? lastGoal?.scoreTeam2;
+    const state = m.matchIsFinished ? "post" : started && Date.now() - Date.parse(date) < 3.5 * 3600_000 ? "in" : started ? "post" : "pre";
+    const side = (t: any, score: any, win: boolean) => ({
+      id: String(t.teamId), n: t.shortName || t.teamName, score: state === "pre" || score == null ? undefined : String(score), win,
+    });
+    out.push({
+      id: "del" + m.matchID, sport: "ih", comp: "DEL", round: m.group?.groupName, date, state,
+      detail: state === "in" ? "live" : state === "post" ? (m.matchIsFinished ? "Ende" : "") : "",
+      lg: "del", a: side(m.team1, s1, m.matchIsFinished && s1 > s2), b: side(m.team2, s2, m.matchIsFinished && s2 > s1), prio: 0,
+      venue: m.location?.locationCity,
+    } as Match);
+  }
+  return out;
+}
+
+/// Formel 1 über Jolpica (Nachfolger der Ergast-API): nächstes Rennen + letztes Ergebnis
+const GP: Record<string, string> = {
+  "Australian": "Australien", "Chinese": "China", "Japanese": "Japan", "Bahrain": "Bahrain", "Saudi Arabian": "Saudi-Arabien",
+  "Miami": "Miami", "Emilia Romagna": "Emilia-Romagna", "Monaco": "Monaco", "Spanish": "Spanien", "Canadian": "Kanada",
+  "Austrian": "Österreich", "British": "Großbritannien", "Belgian": "Belgien", "Hungarian": "Ungarn", "Dutch": "Niederlande",
+  "Italian": "Italien", "Azerbaijan": "Aserbaidschan", "Singapore": "Singapur", "United States": "USA", "Mexico City": "Mexiko",
+  "São Paulo": "Brasilien", "Las Vegas": "Las Vegas", "Qatar": "Katar", "Abu Dhabi": "Abu Dhabi", "Madrid": "Madrid",
+  "Barcelona-Catalunya": "Spanien",
+};
+const gpName = (n: string) => { const m = /^(.*) Grand Prix$/.exec(n); return m ? "GP " + (GP[m[1]] ?? m[1]) : n; };
+async function f1(): Promise<Match[]> {
+  const J = "https://api.jolpi.ca/ergast/f1/current/";
+  const [next, last] = await Promise.all([
+    cached("f1:next", 600_000, () => getJson(J + "next.json")),
+    cached("f1:last", 300_000, () => getJson(J + "last/results.json")),
+  ]);
+  const out: Match[] = [];
+  const nr: any = (next as any)?.MRData?.RaceTable?.Races?.[0];
+  if (nr) {
+    const sessions: [string, any][] = [["1. Training", nr.FirstPractice], ["2. Training", nr.SecondPractice],
+      ["3. Training", nr.ThirdPractice], ["Sprint-Quali", nr.SprintQualifying ?? nr.SprintShootout], ["Sprint", nr.Sprint],
+      ["Qualifying", nr.Qualifying], ["Rennen", { date: nr.date, time: nr.time }]];
+    const upcoming = sessions.filter(([, s]) => s?.date).map(([n, s]) => ({ n, t: s.date + "T" + (s.time ?? "00:00:00Z") }))
+      .filter((s) => Date.parse(s.t) > Date.now() - 2 * 3600_000);
+    const race = nr.date + "T" + (nr.time ?? "13:00:00Z");
+    const running = Date.parse(race) < Date.now() && Date.now() - Date.parse(race) < 2.5 * 3600_000;
+    out.push({
+      id: "f1-" + nr.season + "-" + nr.round, sport: "f1", comp: "Formel 1", round: "Lauf " + nr.round, date: race,
+      state: running ? "in" : "pre", detail: running ? "Rennen läuft" : (upcoming[0] ? upcoming[0].n : ""),
+      lg: "f1", a: { n: gpName(nr.raceName) }, b: { n: nr.Circuit?.Location?.locality ?? "" }, prio: 0,
+      venue: nr.Circuit?.circuitName, sessions: upcoming,
+    } as Match);
+  }
+  const lr: any = (last as any)?.MRData?.RaceTable?.Races?.[0];
+  if (lr && (!nr || lr.round !== nr.round)) {
+    const date = lr.date + "T" + (lr.time ?? "13:00:00Z");
+    if (Date.parse(date) > Date.now() - 8 * 24 * 3600_000) {
+      out.push({
+        id: "f1-" + lr.season + "-" + lr.round, sport: "f1", comp: "Formel 1", round: "Lauf " + lr.round, date,
+        state: "post", detail: "Ergebnis", lg: "f1", a: { n: gpName(lr.raceName) }, b: { n: lr.Circuit?.Location?.locality ?? "" },
+        prio: 0, venue: lr.Circuit?.circuitName,
+        field: (lr.Results ?? []).map((r: any) => ({
+          id: r.Driver?.driverId, n: (r.Driver?.givenName?.[0] ?? "") + ". " + (r.Driver?.familyName ?? ""), pos: Number(r.position),
+          t: r.Constructor?.name, c: r.Driver?.code,
+        })),
+      } as Match);
+    }
+  }
+  return out;
+}
+
+async function sport2(ids: string[]) {
+  const known = [...new Set(ids)].filter((i) => LEAGUE.has(i)).slice(0, 40);
+  const lists = await Promise.all(known.map((id) => {
+    const load = id === "f1" ? f1() : id === "del" ? delGames() : id.startsWith("tennis/") ? tennisAll(id) : espnTeams(id);
+    // L = Liga-Kennung wie im Katalog (danach filtert die App ihre Favoriten)
+    return load.then((l) => l.map((m) => ({ ...m, L: id })))
+      .catch((e) => { console.error("Liga", id, String(e)); return [] as Match[]; });
+  }));
+  const order = { in: 0, pre: 1, post: 2 } as const;
+  const all = lists.flat().sort((x, y) =>
+    order[x.state] - order[y.state] ||
+    (x.state === "post" ? Date.parse(y.date) - Date.parse(x.date) : Date.parse(x.date) - Date.parse(y.date)));
+  return { at: new Date().toISOString(), matches: all };
+}
+
+/// Teams bzw. Fahrer einer Liga – zum Auswählen der Favoriten
+async function teams(id: string) {
+  if (!LEAGUE.has(id)) throw new Error("Liga unbekannt");
+  if (id === "f1") {
+    const j: any = await cached("f1:drivers", 24 * 3600_000, () => getJson("https://api.jolpi.ca/ergast/f1/current/drivers.json"));
+    return (j?.MRData?.DriverTable?.Drivers ?? []).map((d: any) => ({ id: d.driverId, n: d.givenName + " " + d.familyName }))
+      .sort((a: any, b: any) => a.n.localeCompare(b.n));
+  }
+  if (id === "del") {
+    const now = new Date();
+    const season = now.getUTCMonth() >= 6 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
+    const j: any = await cached("del:teams:" + season, 24 * 3600_000, () => getJson("https://api.openligadb.de/getavailableteams/del/" + season));
+    return (j ?? []).map((t: any) => ({ id: String(t.teamId), n: t.teamName })).sort((a: any, b: any) => a.n.localeCompare(b.n, "de"));
+  }
+  if (id.startsWith("tennis/")) return [];   // Spieler: freie Eingabe in der App
+  const j: any = await cached("teams:" + id, 24 * 3600_000, () => getJson(ESPN + id + "/teams?limit=500"));
+  const sport = ESPN_SPORT[id.split("/")[0]];
+  return (j?.sports?.[0]?.leagues?.[0]?.teams ?? []).map((t: any) => ({
+    id: String(t.team.id), n: sport === "fb" ? de(t.team.displayName) : t.team.displayName,
+  })).sort((a: any, b: any) => a.n.localeCompare(b.n, "de"));
 }
 
 // ============================================================
@@ -433,7 +665,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
   const reqUrl = new URL(req.url);
   const what = reqUrl.pathname.split("/").filter(Boolean).pop() ?? "";
-  if (!["sport", "news", "match", "article"].includes(what)) {
+  if (!["sport", "sport2", "sports", "teams", "news", "match", "article"].includes(what)) {
     return new Response("Unbekannte Abfrage", { status: 404, headers: cors });
   }
   if (!(await keyOk(req.headers.get("x-kueche-key"))) && !(await userOk(req.headers.get("authorization")))) {
@@ -443,6 +675,9 @@ Deno.serve(async (req) => {
   try {
     const q = reqUrl.searchParams;
     body = what === "sport" ? await sport() : what === "news" ? await news()
+      : what === "sport2" ? await sport2((q.get("l") ?? "").split(",").filter(Boolean))
+      : what === "sports" ? CATALOG.map((s) => ({ ...s, leagues: s.leagues.map(([id, name, kind]) => ({ id, name, kind })) }))
+      : what === "teams" ? await teams(q.get("l") ?? "")
       : what === "match" ? await match(q.get("lg") ?? "", q.get("id") ?? "")
       : await article(q.get("u") ?? "");
   } catch (e) {

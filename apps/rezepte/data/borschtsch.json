@@ -1,0 +1,80 @@
+{
+ "id": "borschtsch",
+ "title": "Borschtsch",
+ "icon": "🍲",
+ "cuisine": "Russisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Rindfleisch (Suppenfleisch)"
+  },
+  {
+   "amount": "3",
+   "name": "Rote Bete"
+  },
+  {
+   "amount": "300 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "3",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "150 g",
+   "name": "saure Sahne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch mit 2 l Wasser aufkochen, abschäumen und köcheln.",
+   "minutes": 60
+  },
+  {
+   "text": "Rote Bete und Karotte raspeln, Zwiebel würfeln und mit Tomatenmark und Essig in Öl anschwitzen.",
+   "minutes": 10
+  },
+  {
+   "text": "Fleisch herausnehmen und würfeln. Kartoffeln und Kohl in der Brühe garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Rote-Bete-Gemüse und Fleisch zugeben, mit Knoblauch, Salz und Pfeffer abschmecken.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Dill und saurer Sahne servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 90,
+ "gf": true
+}

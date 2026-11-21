@@ -1,0 +1,73 @@
+{
+ "id": "gemuese-pfannkuchen",
+ "title": "Zucchini-Puffer mit Joghurt-Dip",
+ "icon": "🥒",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "200 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zucchini und Karotte raspeln, salzen, 10 Minuten ziehen lassen und kräftig ausdrücken.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Frühlingszwiebeln, Feta, Eiern und Mehl mischen, pfeffern."
+  },
+  {
+   "text": "In Öl kleine Puffer pro Seite goldbraun braten.",
+   "minutes": 12
+  },
+  {
+   "text": "Joghurt mit Knoblauch, Minze und Salz verrühren und dazu servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

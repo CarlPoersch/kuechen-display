@@ -1,0 +1,65 @@
+{
+ "id": "fisch-en-papillote",
+ "title": "Fisch im Päckchen mit Gemüse",
+ "icon": "🐟",
+ "cuisine": "Französisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Fischfilets (Kabeljau oder Seelachs)"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2 Zweige",
+   "name": "Thymian"
+  },
+  {
+   "amount": "",
+   "name": "Backpapier (zum Einwickeln)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Gemüse in feine Streifen schneiden."
+  },
+  {
+   "text": "Gemüse auf zwei große Backpapierbögen verteilen, Fisch darauflegen, salzen, pfeffern, mit Zitronenscheiben, Thymian und Öl belegen."
+  },
+  {
+   "text": "Papier zu dichten Päckchen falten."
+  },
+  {
+   "text": "Im Ofen garen – der Fisch dämpft im eigenen Saft.",
+   "minutes": 15
+  },
+  {
+   "text": "Päckchen am Tisch öffnen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

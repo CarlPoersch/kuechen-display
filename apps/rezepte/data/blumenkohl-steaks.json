@@ -1,0 +1,62 @@
+{
+ "id": "blumenkohl-steaks",
+ "title": "Blumenkohl-Steaks mit Tahini",
+ "icon": "🥦",
+ "cuisine": "Orientalisch",
+ "servings": 2,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "großer Blumenkohl"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Granatapfelkerne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen. Blumenkohl in 2 cm dicke Scheiben schneiden."
+  },
+  {
+   "text": "Mit Öl, Gewürzen und Salz bestreichen und auf einem Blech backen, nach der Hälfte wenden.",
+   "minutes": 30
+  },
+  {
+   "text": "Tahin mit Zitronensaft, Salz und Wasser cremig rühren."
+  },
+  {
+   "text": "Steaks mit Sauce, Petersilie und Granatapfel servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

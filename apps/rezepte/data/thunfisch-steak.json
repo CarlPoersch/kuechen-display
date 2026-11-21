@@ -1,0 +1,61 @@
+{
+ "id": "thunfisch-steak",
+ "title": "Thunfischsteak mit Sesamkruste",
+ "icon": "🐟",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Thunfischsteaks (Sushiqualität)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sesam (hell und dunkel)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Salat"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Thunfisch mit 1 EL Sojasauce bestreichen und rundum in Sesam wälzen."
+  },
+  {
+   "text": "In einer sehr heißen Pfanne pro Seite nur kurz anbraten, innen bleibt er roh.",
+   "minutes": 1
+  },
+  {
+   "text": "Restliche Sojasauce, Sesamöl und Essig verrühren."
+  },
+  {
+   "text": "Thunfisch aufschneiden und mit Avocado, Salat und Dressing servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20
+}

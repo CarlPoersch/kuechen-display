@@ -1,0 +1,69 @@
+{
+ "id": "lachs-dill-kartoffeln",
+ "title": "Lachs mit Dill-Senf-Sauce",
+ "icon": "🐟",
+ "cuisine": "Skandinavisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Lachsfilets"
+  },
+  {
+   "amount": "800 g",
+   "name": "kleine Kartoffeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "süßer Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Senf, Honig und Essig verrühren, Öl langsam unterschlagen, viel gehackten Dill unterrühren."
+  },
+  {
+   "text": "Lachs salzen und in Butter auf der Hautseite braten, wenden und kurz fertig garen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Kartoffeln und Sauce servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30
+}

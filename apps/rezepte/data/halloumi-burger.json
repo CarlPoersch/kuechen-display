@@ -1,0 +1,59 @@
+{
+ "id": "halloumi-burger",
+ "title": "Halloumi-Wraps mit Grillgemüse",
+ "icon": "🌯",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Halloumi"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Weizentortillas"
+  },
+  {
+   "amount": "150 g",
+   "name": "Hummus"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Rucola"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse in Streifen schneiden und in einer Grillpfanne mit Öl rösten, salzen.",
+   "minutes": 8
+  },
+  {
+   "text": "Halloumi in Scheiben schneiden und ohne Öl pro Seite goldbraun braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Tortillas kurz erwärmen, mit Hummus bestreichen, mit Rucola, Gemüse und Halloumi belegen und einrollen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

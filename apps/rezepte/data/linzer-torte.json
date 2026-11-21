@@ -1,0 +1,73 @@
+{
+ "id": "linzer-torte",
+ "title": "Linzer Torte",
+ "icon": "🥧",
+ "cuisine": "Österreichisch",
+ "servings": 12,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "200 g",
+   "name": "gemahlene Haselnüsse"
+  },
+  {
+   "amount": "200 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Nelke"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kakao"
+  },
+  {
+   "amount": "300 g",
+   "name": "Johannisbeermarmelade"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb (zum Bestreichen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Nüsse, Butter, Zucker, Ei und Gewürze zu einem Mürbeteig verkneten und kalt stellen.",
+   "minutes": 30
+  },
+  {
+   "text": "Ofen auf 180 °C vorheizen. Zwei Drittel des Teigs in einer Springform als Boden mit Rand andrücken."
+  },
+  {
+   "text": "Marmelade daraufstreichen."
+  },
+  {
+   "text": "Restlichen Teig ausrollen, in Streifen schneiden, als Gitter auflegen und mit Eigelb bestreichen."
+  },
+  {
+   "text": "Backen und gut auskühlen lassen – am nächsten Tag schmeckt sie am besten.",
+   "minutes": 45
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

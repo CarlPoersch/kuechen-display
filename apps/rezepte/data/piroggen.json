@@ -1,0 +1,82 @@
+{
+ "id": "piroggen",
+ "title": "Piroggen mit Kartoffel-Quark-Füllung",
+ "icon": "🥟",
+ "cuisine": "Polnisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "200 ml",
+   "name": "warmes Wasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "group": "Füllung"
+  },
+  {
+   "amount": "500 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "250 g",
+   "name": "Quark"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "100 g",
+   "name": "saure Sahne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Wasser, Öl und Salz zu einem glatten Teig kneten und abgedeckt ruhen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Kartoffeln kochen und zerstampfen. Zwiebeln würfeln und in Butter goldbraun braten.",
+   "minutes": 20
+  },
+  {
+   "text": "Kartoffeln, Quark und die Hälfte der Zwiebeln mischen, salzen und pfeffern."
+  },
+  {
+   "text": "Teig dünn ausrollen, Kreise ausstechen, füllen, zu Halbmonden klappen und Ränder fest andrücken."
+  },
+  {
+   "text": "In siedendem Salzwasser garen, bis sie oben schwimmen.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit restlichen Zwiebeln und saurer Sahne servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
+}

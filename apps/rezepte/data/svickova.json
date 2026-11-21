@@ -1,0 +1,84 @@
+{
+ "id": "svickova",
+ "title": "Lendenbraten in Rahmsauce (Svíčková)",
+ "icon": "🥩",
+ "cuisine": "Tschechisch",
+ "servings": 6,
+ "time": "ca. 2 Std. 30 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rinderlende oder Hüfte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speck"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "¼",
+   "name": "Sellerieknolle"
+  },
+  {
+   "amount": "1",
+   "name": "Petersilienwurzel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "5",
+   "name": "Pimentkörner"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Preiselbeeren"
+  },
+  {
+   "amount": "1 Packung",
+   "name": "Semmelknödel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse würfeln, mit Essig, Gewürzen und Fleisch über Nacht marinieren."
+  },
+  {
+   "text": "Speck auslassen, Fleisch rundum anbraten, Gemüse und Marinade zugeben, 400 ml Wasser angießen."
+  },
+  {
+   "text": "Zugedeckt im Ofen bei 160 °C schmoren.",
+   "minutes": 120
+  },
+  {
+   "text": "Fleisch herausnehmen, Gemüse mit Sahne fein pürieren und mit Zitrone, Salz und Zucker abschmecken."
+  },
+  {
+   "text": "Fleisch in Scheiben mit Sauce, Knödeln, Zitronenscheibe und Preiselbeeren servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 150
+}

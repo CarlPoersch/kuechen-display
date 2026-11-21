@@ -1,0 +1,58 @@
+{
+ "id": "aelplermagronen",
+ "title": "Älplermagronen",
+ "icon": "🧀",
+ "cuisine": "Schweizerisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Makkaroni"
+  },
+  {
+   "amount": "300 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Bergkäse"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "",
+   "name": "Apfelmus (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln würfeln und mit den Nudeln in Salzwasser garen.",
+   "minutes": 12
+  },
+  {
+   "text": "Zwiebeln in Ringe schneiden und in Butter goldbraun rösten.",
+   "minutes": 10
+  },
+  {
+   "text": "Nudeln und Kartoffeln abgießen, mit Sahne und geriebenem Käse mischen und schmelzen lassen."
+  },
+  {
+   "text": "Mit Röstzwiebeln und Apfelmus servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40
+}

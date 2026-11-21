@@ -1,0 +1,73 @@
+{
+ "id": "pilz-stroganoff",
+ "title": "Pilz-Stroganoff",
+ "icon": "🍄",
+ "cuisine": "Russisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "gemischte Pilze"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Senf"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "400 g",
+   "name": "Bandnudeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln kochen.",
+   "minutes": 9
+  },
+  {
+   "text": "Pilze in Scheiben portionsweise in Butter scharf anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebel und Knoblauch zugeben, Paprika kurz mitrösten."
+  },
+  {
+   "text": "Brühe und Senf zugeben, etwas einkochen, vom Herd nehmen und saure Sahne einrühren."
+  },
+  {
+   "text": "Mit Petersilie und Nudeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

@@ -1,0 +1,62 @@
+{
+ "id": "kaspressknoedel",
+ "title": "Kaspressknödel",
+ "icon": "🧀",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Knödelbrot"
+  },
+  {
+   "amount": "150 g",
+   "name": "Bergkäse"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1 l",
+   "name": "Rinder- oder Gemüsebrühe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel fein würfeln und in etwas Butterschmalz glasig dünsten."
+  },
+  {
+   "text": "Käse grob reiben. Knödelbrot mit Zwiebel, Käse, Eiern, Milch, Schnittlauch, Salz und Pfeffer verkneten.",
+   "minutes": 10
+  },
+  {
+   "text": "8 flache Laibchen formen und in Butterschmalz pro Seite goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "In heißer Brühe servieren oder mit Krautsalat."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40
+}

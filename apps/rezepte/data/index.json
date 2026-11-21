@@ -46,6 +46,33 @@
   ]
  },
  {
+  "id": "veggie-burger",
+  "title": "Bohnen-Burger",
+  "icon": "🍔",
+  "cuisine": "Amerikanisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Kidneybohnen (Dose)",
+   "Zwiebel",
+   "Knoblauchzehe",
+   "Haferflocken",
+   "Ei",
+   "Paprika geräuchert",
+   "Kreuzkümmel",
+   "Öl",
+   "Burgerbrötchen",
+   "Cheddar",
+   "Tomate",
+   "Salat (zum Belegen)",
+   "Burgersauce"
+  ]
+ },
+ {
   "id": "af-chicken-wings",
   "title": "Buffalo Chicken Wings",
   "icon": "🍗",
@@ -896,6 +923,31 @@
   ]
  },
  {
+  "id": "apfelkuchen-blech",
+  "title": "Apfel-Streusel-Blechkuchen",
+  "icon": "🍏",
+  "cuisine": "Deutsch",
+  "servings": 20,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 75,
+  "ing": [
+   "weiche Butter",
+   "Zucker",
+   "Eier",
+   "Mehl",
+   "Backpulver",
+   "Milch",
+   "säuerliche Äpfel",
+   "Zimt",
+   "Mehl",
+   "Zucker",
+   "kalte Butter"
+  ]
+ },
+ {
   "id": "kaiserschmarrn-apfel",
   "title": "Apfelpfannkuchen",
   "icon": "🍎",
@@ -1647,6 +1699,31 @@
   ]
  },
  {
+  "id": "kabeljau-senfsauce",
+  "title": "Kabeljau in Senfsauce",
+  "icon": "🐟",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Kabeljaufilet",
+   "Kartoffeln",
+   "Schalotte",
+   "Butter",
+   "Fischfond",
+   "Sahne",
+   "mittelscharfer Senf",
+   "körniger Senf",
+   "Speisestärke",
+   "Dill"
+  ]
+ },
+ {
   "id": "kaiserschmarrn",
   "title": "Kaiserschmarrn",
   "icon": "🥞",
@@ -2160,6 +2237,28 @@
   ]
  },
  {
+  "id": "forelle-ofen",
+  "title": "Ofenforelle mit Zitrone und Kräutern",
+  "icon": "🐟",
+  "cuisine": "Deutsch",
+  "servings": 2,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "küchenfertige Forellen",
+   "Zitrone",
+   "Petersilie",
+   "Thymian",
+   "Knoblauchzehen",
+   "Olivenöl",
+   "kleine Kartoffeln"
+  ]
+ },
+ {
   "id": "haehnchen-paprika-rahm",
   "title": "Paprika-Rahm-Hähnchen",
   "icon": "🍗",
@@ -2224,6 +2323,30 @@
    "Öl",
    "Petersilie",
    "Bandnudeln"
+  ]
+ },
+ {
+  "id": "pierogi-dessert",
+  "title": "Quarkkeulchen",
+  "icon": "🥞",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Dessert",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "mehligkochende Kartoffeln, gekocht",
+   "Quark",
+   "Ei",
+   "Zucker",
+   "Mehl",
+   "Zitrone (Abrieb)",
+   "Rosinen",
+   "Butterschmalz",
+   "Apfelmus (zum Servieren)",
+   "Zimt und Zucker (zum Bestreuen)"
   ]
  },
  {
@@ -2958,6 +3081,29 @@
   ]
  },
  {
+  "id": "fisch-en-papillote",
+  "title": "Fisch im Päckchen mit Gemüse",
+  "icon": "🐟",
+  "cuisine": "Französisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Fischfilets (Kabeljau oder Seelachs)",
+   "Zucchini",
+   "Karotte",
+   "Kirschtomaten",
+   "Zitrone",
+   "Olivenöl",
+   "Thymian",
+   "Backpapier (zum Einwickeln)"
+  ]
+ },
+ {
   "id": "zwiebelsuppe",
   "title": "Französische Zwiebelsuppe",
   "icon": "🧅",
@@ -3027,6 +3173,28 @@
    "Dijonsenf",
    "Honig",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "miesmuscheln",
+  "title": "Miesmuscheln in Weißwein",
+  "icon": "🦪",
+  "cuisine": "Französisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Miesmuscheln",
+   "Schalotten",
+   "Knoblauchzehen",
+   "Weißwein",
+   "Butter",
+   "Sahne",
+   "Petersilie",
+   "Baguette"
   ]
  },
  {
@@ -3329,6 +3497,30 @@
    "Olivenöl",
    "Weißweinessig",
    "Dill"
+  ]
+ },
+ {
+  "id": "gemuese-pfannkuchen",
+  "title": "Zucchini-Puffer mit Joghurt-Dip",
+  "icon": "🥒",
+  "cuisine": "Griechisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Zucchini",
+   "Karotte",
+   "Frühlingszwiebeln",
+   "Feta",
+   "Eier",
+   "Mehl",
+   "Öl",
+   "Joghurt",
+   "Knoblauchzehe",
+   "Minze"
   ]
  },
  {
@@ -3694,6 +3886,33 @@
    "Joghurt",
    "Kurkuma",
    "Kreuzkümmel",
+   "Öl"
+  ]
+ },
+ {
+  "id": "fischcurry",
+  "title": "Kokos-Fischcurry",
+  "icon": "🐟",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "festes weißes Fischfilet (Kabeljau, Seelachs)",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Ingwer",
+   "Currypulver",
+   "Kurkuma",
+   "Kokosmilch",
+   "Kirschtomaten",
+   "Limette",
+   "Koriander",
+   "Reis",
    "Öl"
   ]
  },
@@ -4249,6 +4468,30 @@
    "Knoblauchzehe",
    "gehackte Kräuter (Petersilie, Schnittlauch)",
    "Zitronensaft"
+  ]
+ },
+ {
+  "id": "kichererbsen-shakshuka",
+  "title": "Grüne Shakshuka",
+  "icon": "🍳",
+  "cuisine": "Israelisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "Lauchstange",
+   "Babyspinat",
+   "Erbsen (TK)",
+   "Knoblauchzehe",
+   "Kreuzkümmel",
+   "Eier",
+   "Feta",
+   "Olivenöl",
+   "Dill"
   ]
  },
  {
@@ -4979,6 +5222,30 @@
   ]
  },
  {
+  "id": "gemuese-risotto",
+  "title": "Spargel-Erbsen-Risotto",
+  "icon": "🌱",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Risottoreis",
+   "grüner Spargel",
+   "Erbsen (TK)",
+   "Schalotte",
+   "Weißwein",
+   "heiße Gemüsebrühe",
+   "Butter",
+   "Parmesan",
+   "Zitrone (Abrieb)"
+  ]
+ },
+ {
   "id": "pasta-pilze-sahne",
   "title": "Tagliatelle mit Pilz-Rahmsauce",
   "icon": "🍄",
@@ -5449,6 +5716,28 @@
    "Brokkoli",
    "Sesam",
    "neutrales Öl"
+  ]
+ },
+ {
+  "id": "thunfisch-steak",
+  "title": "Thunfischsteak mit Sesamkruste",
+  "icon": "🐟",
+  "cuisine": "Japanisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "Thunfischsteaks (Sushiqualität)",
+   "Sesam (hell und dunkel)",
+   "Sojasauce",
+   "Sesamöl",
+   "Öl",
+   "Avocado",
+   "Salat",
+   "Reisessig"
   ]
  },
  {
@@ -6053,6 +6342,28 @@
   ]
  },
  {
+  "id": "halloumi-burger",
+  "title": "Halloumi-Wraps mit Grillgemüse",
+  "icon": "🌯",
+  "cuisine": "Mediterran",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Halloumi",
+   "Zucchini",
+   "rote Paprikaschote",
+   "rote Zwiebel",
+   "Weizentortillas",
+   "Hummus",
+   "Rucola",
+   "Olivenöl"
+  ]
+ },
+ {
   "id": "fisch-tomate-oliven",
   "title": "Kabeljau in Tomaten-Oliven-Sauce",
   "icon": "🐟",
@@ -6511,6 +6822,29 @@
   ]
  },
  {
+  "id": "blumenkohl-steaks",
+  "title": "Blumenkohl-Steaks mit Tahini",
+  "icon": "🥦",
+  "cuisine": "Orientalisch",
+  "servings": 2,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "großer Blumenkohl",
+   "Olivenöl",
+   "Kreuzkümmel",
+   "Paprika geräuchert",
+   "Tahin",
+   "Zitrone",
+   "Petersilie",
+   "Granatapfelkerne"
+  ]
+ },
+ {
   "id": "couscous-salat",
   "title": "Couscous-Salat mit Feta",
   "icon": "🥗",
@@ -6790,6 +7124,129 @@
   ]
  },
  {
+  "id": "bigos",
+  "title": "Bigos (Jägereintopf)",
+  "icon": "🍲",
+  "cuisine": "Polnisch",
+  "servings": 6,
+  "time": "ca. 2 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 120,
+  "gf": true,
+  "ing": [
+   "Sauerkraut",
+   "Weißkohl",
+   "Schweineschulter",
+   "Krakauer oder Kabanos",
+   "Speck",
+   "Zwiebel",
+   "getrocknete Steinpilze",
+   "Backpflaumen",
+   "Tomatenmark",
+   "Lorbeerblätter",
+   "Pimentkörner",
+   "Rotwein"
+  ]
+ },
+ {
+  "id": "piroggen",
+  "title": "Piroggen mit Kartoffel-Quark-Füllung",
+  "icon": "🥟",
+  "cuisine": "Polnisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Mehl",
+   "warmes Wasser",
+   "Öl",
+   "Salz",
+   "mehligkochende Kartoffeln",
+   "Quark",
+   "Zwiebeln",
+   "Butter",
+   "saure Sahne"
+  ]
+ },
+ {
+  "id": "borschtsch",
+  "title": "Borschtsch",
+  "icon": "🍲",
+  "cuisine": "Russisch",
+  "servings": 6,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 90,
+  "gf": true,
+  "ing": [
+   "Rindfleisch (Suppenfleisch)",
+   "Rote Bete",
+   "Weißkohl",
+   "Kartoffeln",
+   "Karotte",
+   "Zwiebel",
+   "Tomatenmark",
+   "Essig",
+   "Knoblauchzehen",
+   "Dill",
+   "saure Sahne"
+  ]
+ },
+ {
+  "id": "pelmeni",
+  "title": "Pelmeni mit Schmand",
+  "icon": "🥟",
+  "cuisine": "Russisch",
+  "servings": 4,
+  "time": "ca. 1 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Mehl",
+   "Ei",
+   "Wasser",
+   "Salz",
+   "gemischtes Hackfleisch",
+   "Zwiebel",
+   "Schmand",
+   "Dill",
+   "Butter"
+  ]
+ },
+ {
+  "id": "pilz-stroganoff",
+  "title": "Pilz-Stroganoff",
+  "icon": "🍄",
+  "cuisine": "Russisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "gemischte Pilze",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Paprika edelsüß",
+   "Senf",
+   "Gemüsebrühe",
+   "saure Sahne",
+   "Butter",
+   "Petersilie",
+   "Bandnudeln"
+  ]
+ },
+ {
   "id": "bircher-muesli",
   "title": "Bircher Müsli",
   "icon": "🍏",
@@ -6830,6 +7287,68 @@
    "Semmelbrösel",
    "Öl",
    "Zitrone"
+  ]
+ },
+ {
+  "id": "schweizer-roesti",
+  "title": "Rösti mit Spiegelei",
+  "icon": "🥔",
+  "cuisine": "Schweizerisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "festkochende Kartoffeln, am Vortag gekocht",
+   "Butterschmalz",
+   "Eier",
+   "Schnittlauch"
+  ]
+ },
+ {
+  "id": "aelplermagronen",
+  "title": "Älplermagronen",
+  "icon": "🧀",
+  "cuisine": "Schweizerisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Makkaroni",
+   "festkochende Kartoffeln",
+   "Bergkäse",
+   "Sahne",
+   "Zwiebeln",
+   "Butter",
+   "Apfelmus (zum Servieren)"
+  ]
+ },
+ {
+  "id": "lachs-dill-kartoffeln",
+  "title": "Lachs mit Dill-Senf-Sauce",
+  "icon": "🐟",
+  "cuisine": "Skandinavisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Lachsfilets",
+   "kleine Kartoffeln",
+   "Butter",
+   "süßer Senf",
+   "Dijonsenf",
+   "Honig",
+   "Weißweinessig",
+   "Öl",
+   "Dill"
   ]
  },
  {
@@ -7271,6 +7790,33 @@
   ]
  },
  {
+  "id": "svickova",
+  "title": "Lendenbraten in Rahmsauce (Svíčková)",
+  "icon": "🥩",
+  "cuisine": "Tschechisch",
+  "servings": 6,
+  "time": "ca. 2 Std. 30 Min. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "anspruchsvoll",
+  "min": 150,
+  "ing": [
+   "Rinderlende oder Hüfte",
+   "Speck",
+   "Karotten",
+   "Sellerieknolle",
+   "Petersilienwurzel",
+   "Zwiebel",
+   "Pimentkörner",
+   "Lorbeerblätter",
+   "Essig",
+   "Sahne",
+   "Zitrone",
+   "Preiselbeeren",
+   "Semmelknödel"
+  ]
+ },
+ {
   "id": "adana-kebab",
   "title": "Adana Kebap mit Bulgur",
   "icon": "🍢",
@@ -7393,6 +7939,32 @@
    "Kümmel",
    "Majoran",
    "Rinderbrühe"
+  ]
+ },
+ {
+  "id": "kartoffel-gulasch",
+  "title": "Kartoffelgulasch",
+  "icon": "🥔",
+  "cuisine": "Ungarisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "festkochende Kartoffeln",
+   "Zwiebeln",
+   "rote Paprikaschote",
+   "Wiener Würstchen (oder vegetarisch)",
+   "Paprika edelsüß",
+   "Tomatenmark",
+   "Kümmel",
+   "Majoran",
+   "Gemüsebrühe",
+   "Öl",
+   "saure Sahne"
   ]
  },
  {
@@ -7698,6 +8270,30 @@
   ]
  },
  {
+  "id": "buchteln",
+  "title": "Buchteln mit Vanillesauce",
+  "icon": "🥐",
+  "cuisine": "Österreichisch",
+  "servings": 12,
+  "time": "ca. 1 Std. 45 Min. (inkl. Gehzeit)",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 105,
+  "ing": [
+   "Mehl",
+   "frische Hefe",
+   "lauwarme Milch",
+   "Zucker",
+   "weiche Butter",
+   "Eigelb",
+   "Salz",
+   "Pflaumenmus",
+   "Butter (zum Bestreichen)",
+   "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
   "id": "kaesekrainer-gulasch",
   "title": "Fiakergulasch",
   "icon": "🍲",
@@ -7725,6 +8321,142 @@
   ]
  },
  {
+  "id": "germknoedel",
+  "title": "Germknödel mit Mohn",
+  "icon": "🥟",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 45 Min. (inkl. Gehzeit)",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 105,
+  "ing": [
+   "Mehl",
+   "frische Hefe",
+   "lauwarme Milch",
+   "Zucker",
+   "weiche Butter",
+   "Ei",
+   "Powidl (Pflaumenmus)",
+   "Butter (zum Übergießen)",
+   "gemahlener Mohn",
+   "Puderzucker"
+  ]
+ },
+ {
+  "id": "kaspressknoedel",
+  "title": "Kaspressknödel",
+  "icon": "🧀",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Knödelbrot",
+   "Bergkäse",
+   "Zwiebel",
+   "Eier",
+   "Milch",
+   "Schnittlauch",
+   "Butterschmalz",
+   "Rinder- oder Gemüsebrühe"
+  ]
+ },
+ {
+  "id": "linzer-torte",
+  "title": "Linzer Torte",
+  "icon": "🥧",
+  "cuisine": "Österreichisch",
+  "servings": 12,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 90,
+  "ing": [
+   "Mehl",
+   "gemahlene Haselnüsse",
+   "kalte Butter",
+   "Zucker",
+   "Ei",
+   "Zimt",
+   "Nelke",
+   "Kakao",
+   "Johannisbeermarmelade",
+   "Eigelb (zum Bestreichen)"
+  ]
+ },
+ {
+  "id": "palatschinken",
+  "title": "Palatschinken mit Marillenmarmelade",
+  "icon": "🥞",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Mehl",
+   "Milch",
+   "Eier",
+   "Salz",
+   "Zucker",
+   "Butter",
+   "Marillenmarmelade",
+   "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
+  "id": "sachertorte",
+  "title": "Schokoladentorte nach Sacher-Art",
+  "icon": "🍫",
+  "cuisine": "Österreichisch",
+  "servings": 12,
+  "time": "ca. 2 Std.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "anspruchsvoll",
+  "min": 120,
+  "ing": [
+   "Zartbitterschokolade",
+   "weiche Butter",
+   "Puderzucker",
+   "Eier (getrennt)",
+   "Zucker",
+   "Mehl",
+   "Aprikosenkonfitüre",
+   "Zartbitterkuvertüre",
+   "Öl"
+  ]
+ },
+ {
+  "id": "spinatknoedel",
+  "title": "Spinatknödel mit brauner Butter",
+  "icon": "🥬",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 45,
+  "ing": [
+   "Knödelbrot",
+   "Blattspinat (TK)",
+   "Zwiebel",
+   "Eier",
+   "Milch",
+   "Parmesan",
+   "Butter"
+  ]
+ },
+ {
   "id": "rindfleisch-meerrettich",
   "title": "Tafelspitz mit Meerrettich",
   "icon": "🥩",
@@ -7748,6 +8480,53 @@
    "Zitronensaft",
    "Kartoffeln",
    "Schnittlauch"
+  ]
+ },
+ {
+  "id": "kaiserschmarrn-kirsch",
+  "title": "Topfenstrudel",
+  "icon": "🥮",
+  "cuisine": "Österreichisch",
+  "servings": 8,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Strudel- oder Filoteig",
+   "Quark (Topfen)",
+   "Zucker",
+   "Eier",
+   "Vanillezucker",
+   "Zitrone (Abrieb)",
+   "Rosinen",
+   "Butter",
+   "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
+  "id": "wiener-gulasch",
+  "title": "Wiener Saftgulasch",
+  "icon": "🍲",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 2 Std. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 150,
+  "ing": [
+   "Rindswade",
+   "Zwiebeln",
+   "Schmalz",
+   "Paprika edelsüß",
+   "Tomatenmark",
+   "Essig",
+   "Kümmel",
+   "Majoran",
+   "Knoblauchzehen",
+   "Zitrone (Abrieb)"
   ]
  }
 ]
