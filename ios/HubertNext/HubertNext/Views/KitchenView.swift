@@ -562,7 +562,7 @@ struct RecipeDetailView: View {
                             Text(s.text).fixedSize(horizontal: false, vertical: true)
                             HStack(spacing: 8) {
                                 if let m = s.minutes {
-                                    Button { timers.start("\(r.title) · Schritt \(i + 1)", minutes: m) } label: {
+                                    Button { timers.start("\(r.title) · Schritt \(i + 1)", minutes: m, source: r.title, icon: r.icon) } label: {
                                         Label("\(Int(m)) Min. Timer", systemImage: "timer").font(.subheadline.weight(.semibold))
                                             .padding(.horizontal, 10).padding(.vertical, 5)
                                             .background(Capsule().fill(Theme.accent.opacity(0.12)))
@@ -673,7 +673,7 @@ struct CookModeView: View {
         case .timer:
             if page < recipe.steps.count, let m = recipe.steps[page].minutes,
                !timers.timers.contains(where: { $0.name.hasSuffix("Schritt \(page + 1)") }) {
-                timers.start("\(recipe.title) · Schritt \(page + 1)", minutes: m)
+                timers.start("\(recipe.title) · Schritt \(page + 1)", minutes: m, source: recipe.title, icon: recipe.icon)
             }
         }
     }
@@ -762,7 +762,7 @@ struct CookModeView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 if let m = s.minutes {
                     let running = timers.timers.contains { $0.name.hasSuffix("Schritt \(i + 1)") }
-                    Button { timers.start("\(recipe.title) · Schritt \(i + 1)", minutes: m) } label: {
+                    Button { timers.start("\(recipe.title) · Schritt \(i + 1)", minutes: m, source: recipe.title, icon: recipe.icon) } label: {
                         Label(running ? "Timer läuft" : "Timer \(Int(m)) Min. starten", systemImage: "timer")
                             .font(.title3.weight(.semibold))
                             .padding(.horizontal, 22).padding(.vertical, 14)

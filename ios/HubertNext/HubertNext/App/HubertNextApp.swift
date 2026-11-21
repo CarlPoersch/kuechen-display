@@ -8,10 +8,9 @@ struct HubertNextApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                // Timer klingeln über allem; laufendes Kochen und laufende Timer als Kapseln unten
+                // Timer klingeln über allem; laufendes Kochen und laufende Timer als „Inseln“ unten
                 .overlay(alignment: .bottom) {
-                    VStack(spacing: 8) { CookingPill(); RunningTimersPill() }
-                        .padding(.bottom, 12)
+                    ActivityBar().padding(.bottom, 12)
                 }
                 .modifier(CookModeHost())
                 .overlay(TimerAlarmOverlay())
