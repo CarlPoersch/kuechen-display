@@ -197,9 +197,12 @@ struct AddBucketView: View {
                     if !kinds.isEmpty {
                         Section(interest.name) {
                             ForEach(kinds) { kind in
-                                CatalogRow(kind: kind, added: store.buckets.contains { $0.bucket == kind.id }) {
-                                    store.addBucket(kind)
-                                }
+                                CatalogRow(kind: kind, count: store.buckets.filter { $0.bucket == kind.id }.count,
+                                           onAdd: { store.addBucket(kind) },
+                                           onRemove: {
+                                               // Den zuletzt hinzugefügten dieser Art entfernen
+                                               if let last = store.buckets.last(where: { $0.bucket == kind.id }) { store.removeBucket(id: last.id) }
+                                           })
                             }
                         }
                     }
@@ -217,8 +220,9 @@ struct AddBucketView: View {
 /// Eintrag im Katalog: Symbol, Name, ein Satz, Hinzufügen-Knopf oder "bald"
 struct CatalogRow: View {
     let kind: BucketKind
-    let added: Bool
+    let count: Int            // wie oft schon auf der Startseite
     let onAdd: () -> Void
+    let onRemove: () -> Void
 
     var body: some View {
         HStack(spacing: 12) {
@@ -228,16 +232,24 @@ struct CatalogRow: View {
                 Text("bald").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
                     .padding(.horizontal, 8).padding(.vertical, 3)
                     .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
-            } else if added && kind.art == .tool {
-                Image(systemName: "checkmark").foregroundColor(Theme.accent)
-            } else if added {
-                // Schon auf der Startseite – ein zweiter (z. B. anderer Ort) geht trotzdem
-                Image(systemName: "checkmark").foregroundColor(Theme.accent)
-                Button(action: onAdd) { Image(systemName: "plus.circle").font(.title2) }
-                    .buttonStyle(.borderless)
-            } else {
+            } else if count == 0 {
                 Button(action: onAdd) { Image(systemName: "plus.circle.fill").font(.title2) }
                     .buttonStyle(.borderless)
+                    .accessibilityLabel("„\(kind.name)“ hinzufügen")
+            } else {
+                // Schon auf der Startseite: − entfernt, + fügt einen weiteren hinzu (z. B. anderer Ort)
+                Button(action: onRemove) { Image(systemName: "minus.circle.fill").font(.title2).foregroundColor(.red) }
+                    .buttonStyle(.borderless)
+                    .accessibilityLabel("„\(kind.name)“ entfernen")
+                if kind.art == .tool {
+                    Image(systemName: "checkmark").foregroundColor(Theme.accent)
+                } else {
+                    Text("\(count)×").font(.subheadline.monospacedDigit().weight(.semibold)).foregroundColor(Theme.secondary)
+                        .frame(minWidth: 24)
+                    Button(action: onAdd) { Image(systemName: "plus.circle").font(.title2) }
+                        .buttonStyle(.borderless)
+                        .accessibilityLabel("Weiteren „\(kind.name)“ hinzufügen")
+                }
             }
         }
         .opacity(kind.available ? 1 : 0.55)

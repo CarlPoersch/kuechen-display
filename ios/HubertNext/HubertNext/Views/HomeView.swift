@@ -130,10 +130,12 @@ struct HomeView: View {
                             }
                             .modifier(Wiggle(on: editing))
                             .contextMenu(editing ? nil : ContextMenu {
-                                Button { withAnimation { editing = true } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
-                                Button(role: .destructive) { store.removeBucket(id: inst.id) } label: { Label("Entfernen", systemImage: "trash") }
+                                Button { afterMenu { withAnimation { editing = true } } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
+                                Button(role: .destructive) { let id = inst.id; afterMenu { withAnimation { store.removeBucket(id: id) } } } label: { Label("Entfernen", systemImage: "trash") }
                             })
-                            .onDrag { dragging = inst.id; withAnimation { editing = true }; return NSItemProvider(object: inst.id as NSString) }
+                            // Kein Wechsel in den Bearbeiten-Modus beim Ziehen: Das entfernte das Kontextmenü,
+                            // während es noch offen war → Absturz.
+                            .onDrag { dragging = inst.id; return NSItemProvider(object: inst.id as NSString) }
                             .onDrop(of: [UTType.text], delegate: BucketDrop(target: inst.id, dragging: $dragging, store: store))
                     }
                 }
@@ -254,7 +256,8 @@ struct BriefingGrid: View {
                             .frame(width: free * CGFloat(min(span(it.size), columns)) / total, height: height(row))
                             .opacity(dragging == it.id ? 0.4 : 1)
                             // Im Bearbeiten-Modus: Karte ziehen und auf einer anderen loslassen
-                            .onDrag { dragging = it.id; startEditing(); return NSItemProvider(object: it.id as NSString) }
+                            // Kein startEditing() beim Ziehen – siehe ToolIcon (Absturz mit offenem Kontextmenü)
+                            .onDrag { dragging = it.id; return NSItemProvider(object: it.id as NSString) }
                             .onDrop(of: [UTType.text], delegate: BucketDrop(target: it.id, dragging: $dragging, store: store))
                     }
                 }
@@ -306,9 +309,9 @@ struct BucketCard: View {
             }
             .modifier(Wiggle(on: homeEditing))
             .contextMenu(homeEditing ? nil : ContextMenu {
-                Button { editing = true } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
-                Button { startHomeEditing() } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
-                Button(role: .destructive) { store.removeBucket(id: instance.id) } label: { Label("Entfernen", systemImage: "trash") }
+                Button { afterMenu { editing = true } } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
+                Button { afterMenu { startHomeEditing() } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
+                Button(role: .destructive) { let id = instance.id; afterMenu { withAnimation { store.removeBucket(id: id) } } } label: { Label("Entfernen", systemImage: "trash") }
             })
             .environment(\.editBucket, { editing = true })
             .environment(\.openBucketDetail, { open = true })
@@ -450,4 +453,11 @@ struct BucketDrop: DropDelegate {
         store.saveBuckets()
         return true
     }
+}
+
+/// Aktion erst ausführen, wenn das Kontextmenü zu ist.
+/// Warum: Entfernt oder verändert man die Karte, während das Menü noch zugeht, stürzt UIKit ab
+/// (die Menü-Vorschau zeigt auf eine Ansicht, die es nicht mehr gibt).
+func afterMenu(_ action: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.45, execute: action)
 }

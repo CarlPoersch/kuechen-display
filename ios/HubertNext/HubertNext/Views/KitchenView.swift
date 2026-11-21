@@ -435,7 +435,7 @@ struct RecipeDetailView: View {
             HStack {
                 Text("ZUTATEN").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
                 Spacer()
-                Stepper("\(portions) Portionen", value: $portions, in: 1...20).font(.subheadline).fixedSize()
+                PortionControl(value: $portions)
             }
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(order, id: \.self) { g in
@@ -1093,5 +1093,36 @@ struct AirfryerTab: View {
             }
         }
         .listStyle(.insetGrouped)
+    }
+}
+
+/// Kompakte Portionen-Auswahl: − 2 Portionen +
+/// Warum kein Stepper: Der Stepper ist breit und ragte auf dem iPad in die Spalte daneben.
+struct PortionControl: View {
+    @Binding var value: Int
+    var range: ClosedRange<Int> = 1...20
+
+    var body: some View {
+        HStack(spacing: 6) {
+            step("minus", enabled: value > range.lowerBound) { value -= 1 }
+                .accessibilityLabel("Eine Portion weniger")
+            Text(value == 1 ? "1 Portion" : "\(value) Portionen")
+                .font(.subheadline.monospacedDigit().weight(.semibold))
+                .lineLimit(1).minimumScaleFactor(0.8)
+            step("plus", enabled: value < range.upperBound) { value += 1 }
+                .accessibilityLabel("Eine Portion mehr")
+        }
+    }
+
+    private func step(_ symbol: String, enabled: Bool, _ action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: symbol).font(.footnote.weight(.bold))
+                .frame(width: 30, height: 30)
+                .background(Circle().fill(Color(UIColor.tertiarySystemFill)))
+                .contentShape(Circle())
+        }
+        .buttonStyle(.borderless)
+        .disabled(!enabled)
+        .opacity(enabled ? 1 : 0.4)
     }
 }
