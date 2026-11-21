@@ -8,6 +8,10 @@ struct HubertNextApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                // Timer klingeln über allem; laufende Timer als Kapsel unten
+                .overlay(alignment: .bottom) { RunningTimersPill() }
+                .overlay(TimerAlarmOverlay())
+                .animation(.easeOut(duration: 0.2), value: TimerCenter.shared.ringing.count)
                 .environmentObject(store)
                 .tint(Theme.accent)
                 .task { await store.start() }

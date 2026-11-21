@@ -159,7 +159,8 @@ struct HomeView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 18) {
                 ForEach(tools) { inst in
                     if let kind = BucketRegistry.kind(inst.bucket) {
-                        AppIcon(kind: kind)
+                        ToolIcon(instance: inst, kind: kind)
+                            .disabled(editing)
                             .overlay(alignment: .topLeading) {
                                 if editing { RemoveBadge { store.removeBucket(id: inst.id) }.offset(x: 2, y: -6) }
                             }
@@ -208,6 +209,21 @@ struct ScrollOffsetReader: UIViewRepresentable {
                 DispatchQueue.main.async { self?.onChange?(y) }
             }
         }
+    }
+}
+
+/// App-Symbol, das seine App öffnet (unsichtbarer Link, per Knopf ausgelöst – wie bei den Karten)
+struct ToolIcon: View {
+    let instance: BucketInstance
+    let kind: BucketKind
+    @State private var open = false
+    var body: some View {
+        Button { if kind.detail != nil { open = true } } label: { AppIcon(kind: kind) }
+            .buttonStyle(.plain)
+            .background(
+                NavigationLink(isActive: $open) { BucketDetailHost(instance: instance, kind: kind) } label: { EmptyView() }
+                    .frame(width: 0, height: 0).allowsHitTesting(false).hidden()
+            )
     }
 }
 
