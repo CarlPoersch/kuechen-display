@@ -1,0 +1,71 @@
+{
+ "id": "kuerbisrisotto",
+ "title": "Kürbis-Risotto",
+ "icon": "🎃",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hokkaidokürbis"
+  },
+  {
+   "amount": "300 g",
+   "name": "Risottoreis"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "1 l",
+   "name": "heiße Gemüsebrühe"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "6",
+   "name": "Salbeiblätter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kürbis entkernen und mit Schale klein würfeln. Zwiebel fein würfeln."
+  },
+  {
+   "text": "Zwiebel in Öl glasig dünsten, Reis und Kürbis kurz mitrösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Wein ablöschen, dann nach und nach Brühe angießen und unter Rühren cremig garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Salbei in der Butter knusprig braten.",
+   "minutes": 2
+  },
+  {
+   "text": "Parmesan unter das Risotto rühren, abschmecken und mit Salbeibutter servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
+}

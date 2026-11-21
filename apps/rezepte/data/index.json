@@ -241,6 +241,31 @@
   ]
  },
  {
+  "id": "chicken-pot-pie",
+  "title": "Hähnchen-Pot-Pie",
+  "icon": "🥧",
+  "cuisine": "Amerikanisch",
+  "servings": 4,
+  "time": "ca. 1 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Hähnchenbrust",
+   "Karotten",
+   "Erbsen (TK)",
+   "Zwiebel",
+   "Butter",
+   "Mehl",
+   "Hühnerbrühe",
+   "Sahne",
+   "Thymian",
+   "Blätterteig",
+   "Eigelb"
+  ]
+ },
+ {
   "id": "kartoffelecken",
   "title": "Kartoffelspalten mit Paprika",
   "icon": "🍟",
@@ -378,6 +403,30 @@
    "Mayonnaise",
    "Joghurt",
    "Zitronensaft"
+  ]
+ },
+ {
+  "id": "irish-stew",
+  "title": "Irish Stew",
+  "icon": "🍲",
+  "cuisine": "Britisch",
+  "servings": 4,
+  "time": "ca. 2 Std.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 120,
+  "gf": true,
+  "ing": [
+   "Lammschulter",
+   "Kartoffeln",
+   "Karotten",
+   "Zwiebeln",
+   "Lauch",
+   "Lamm- oder Rinderbrühe",
+   "Thymian",
+   "Lorbeerblatt",
+   "Petersilie"
   ]
  },
  {
@@ -1020,6 +1069,29 @@
   ]
  },
  {
+  "id": "ausgezogene",
+  "title": "Ausgezogene (Knieküchla)",
+  "icon": "🍩",
+  "cuisine": "Deutsch",
+  "servings": 12,
+  "time": "ca. 2 Std.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "anspruchsvoll",
+  "min": 120,
+  "ing": [
+   "Mehl",
+   "frische Hefe",
+   "lauwarme Milch",
+   "Zucker",
+   "weiche Butter",
+   "Eier",
+   "Salz",
+   "Butterschmalz oder Frittieröl",
+   "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
   "id": "af-baked-potato",
   "title": "Baked Potato mit Kräuterquark",
   "icon": "🥔",
@@ -1198,6 +1270,30 @@
   ]
  },
  {
+  "id": "bratapfel",
+  "title": "Bratäpfel mit Vanillesauce",
+  "icon": "🍎",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "säuerliche Äpfel (z. B. Boskop)",
+   "gehackte Walnüsse",
+   "Rosinen",
+   "Honig",
+   "Zimt",
+   "Butter",
+   "Milch",
+   "Vanillesaucenpulver",
+   "Zucker"
+  ]
+ },
+ {
   "id": "brokkolisuppe",
   "title": "Brokkoli-Cremesuppe",
   "icon": "🥦",
@@ -1240,6 +1336,29 @@
    "Knoblauchzehe",
    "Emmentaler, gerieben",
    "Muskat"
+  ]
+ },
+ {
+  "id": "butterplaetzchen",
+  "title": "Butterplätzchen zum Ausstechen",
+  "icon": "🎄",
+  "cuisine": "Deutsch",
+  "servings": 50,
+  "time": "ca. 1 Std. 20 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 80,
+  "ing": [
+   "Mehl",
+   "weiche Butter",
+   "Zucker",
+   "Ei",
+   "Vanillezucker",
+   "Salz",
+   "Eigelb",
+   "Milch",
+   "bunte Streusel (nach Belieben)"
   ]
  },
  {
@@ -1329,6 +1448,30 @@
    "Vanilleeis",
    "Sahne",
    "Schokoraspel"
+  ]
+ },
+ {
+  "id": "elisenlebkuchen",
+  "title": "Elisenlebkuchen",
+  "icon": "🍪",
+  "cuisine": "Deutsch",
+  "servings": 20,
+  "time": "ca. 1 Std.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Eier",
+   "brauner Zucker",
+   "gemahlene Haselnüsse",
+   "gemahlene Mandeln",
+   "Orangeat, fein gehackt",
+   "Zitronat, fein gehackt",
+   "Lebkuchengewürz",
+   "Salz",
+   "Back-Oblaten (7 cm)",
+   "Zartbitterkuvertüre"
   ]
  },
  {
@@ -1424,6 +1567,96 @@
   ]
  },
  {
+  "id": "schaeufele",
+  "title": "Fränkisches Schäufele mit Klößen",
+  "icon": "🍖",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 3 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 180,
+  "ing": [
+   "Schweineschäufele (je 400 g, mit Schwarte)",
+   "Zwiebeln",
+   "Karotten",
+   "Knollensellerie",
+   "dunkles Bier",
+   "Fleischbrühe",
+   "Kümmel",
+   "Senf",
+   "Speisestärke"
+  ]
+ },
+ {
+  "id": "karpfen-gebacken",
+  "title": "Gebackener Karpfen",
+  "icon": "🐟",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "mittel",
+  "min": 40,
+  "ing": [
+   "Karpfen (ca. 1,5 kg), vom Fischhändler halbiert und geschröpft",
+   "Zitrone",
+   "Mehl",
+   "Eier",
+   "Semmelbrösel",
+   "Butterschmalz (zum Ausbacken)",
+   "Kartoffelsalat",
+   "Remoulade (nach Belieben)"
+  ]
+ },
+ {
+  "id": "gebrannte-mandeln",
+  "title": "Gebrannte Mandeln",
+  "icon": "🥜",
+  "cuisine": "Deutsch",
+  "servings": 6,
+  "time": "ca. 20 Min.",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 20,
+  "gf": true,
+  "ing": [
+   "Mandeln mit Haut",
+   "Zucker",
+   "Wasser",
+   "Vanillezucker",
+   "Zimt"
+  ]
+ },
+ {
+  "id": "gefuellte-paprika",
+  "title": "Gefüllte Paprika mit Hack und Reis",
+  "icon": "🫑",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 1 Std. 10 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 70,
+  "gf": true,
+  "ing": [
+   "große Paprikaschoten",
+   "gemischtes Hackfleisch",
+   "Reis",
+   "Zwiebel",
+   "Ei",
+   "Paprikapulver",
+   "passierte Tomaten",
+   "Gemüsebrühe",
+   "Zucker",
+   "Schmand"
+  ]
+ },
+ {
   "id": "gemuesesuppe-eintopf",
   "title": "Gemüseeintopf mit Mettenden",
   "icon": "🍲",
@@ -1467,6 +1700,28 @@
    "Butter",
    "Schnittlauch",
    "Kartoffelsalat (zum Servieren)"
+  ]
+ },
+ {
+  "id": "gluehwein",
+  "title": "Glühwein",
+  "icon": "🍷",
+  "cuisine": "Deutsch",
+  "servings": 6,
+  "time": "ca. 25 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "trockener Rotwein",
+   "Orangensaft",
+   "Bio-Orange in Scheiben",
+   "Zimtstangen",
+   "Gewürznelken",
+   "Sternanis",
+   "Zucker oder Honig"
   ]
  },
  {
@@ -1651,6 +1906,30 @@
    "Salatgurke",
    "Joghurt",
    "Dill"
+  ]
+ },
+ {
+  "id": "huehnerfrikassee",
+  "title": "Hühnerfrikassee mit Reis",
+  "icon": "🍗",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 50,
+  "ing": [
+   "Hähnchenbrust",
+   "Hühnerbrühe",
+   "Champignons",
+   "grüner Spargel oder Erbsen",
+   "Butter",
+   "Mehl",
+   "Sahne",
+   "Eigelb",
+   "Zitronensaft",
+   "Reis"
   ]
  },
  {
@@ -1873,6 +2152,28 @@
    "Muskat",
    "Wiener Würstchen",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "kinderpunsch",
+  "title": "Kinderpunsch",
+  "icon": "🧃",
+  "cuisine": "Deutsch",
+  "servings": 6,
+  "time": "ca. 20 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "gf": true,
+  "ing": [
+   "Früchtetee (Hagebutte-Hibiskus)",
+   "Apfelsaft",
+   "Orangensaft",
+   "Bio-Orange in Scheiben",
+   "Zimtstangen",
+   "Gewürznelken",
+   "Honig"
   ]
  },
  {
@@ -2213,6 +2514,30 @@
   ]
  },
  {
+  "id": "nuernberger-sauerkraut",
+  "title": "Nürnberger Rostbratwürste mit Sauerkraut",
+  "icon": "🌭",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Nürnberger Rostbratwürste",
+   "Sauerkraut",
+   "Zwiebel",
+   "Apfel",
+   "Schmalz",
+   "Apfelsaft",
+   "Zucker",
+   "Lorbeerblatt",
+   "Wacholderbeeren",
+   "Kartoffel"
+  ]
+ },
+ {
   "id": "obatzda",
   "title": "Obatzda mit Brezn",
   "icon": "🥨",
@@ -2333,7 +2658,7 @@
   "servings": 4,
   "time": "ca. 40 Min.",
   "cat": "Dessert",
-  "diet": "fleisch",
+  "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
   "ing": [
@@ -2347,6 +2672,33 @@
    "Butterschmalz",
    "Apfelmus (zum Servieren)",
    "Zimt und Zucker (zum Bestreuen)"
+  ]
+ },
+ {
+  "id": "quarkstollen",
+  "title": "Quarkstollen",
+  "icon": "🍞",
+  "cuisine": "Deutsch",
+  "servings": 16,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 90,
+  "ing": [
+   "Mehl",
+   "Backpulver",
+   "Magerquark",
+   "Zucker",
+   "weiche Butter",
+   "Eier",
+   "Vanillezucker",
+   "Bio-Zitrone (Abrieb)",
+   "Rosinen",
+   "gehackte Mandeln",
+   "Orangeat",
+   "flüssige Butter",
+   "Puderzucker"
   ]
  },
  {
@@ -2391,6 +2743,33 @@
    "Muskat",
    "Eier",
    "Kartoffeln"
+  ]
+ },
+ {
+  "id": "rehragout",
+  "title": "Rehragout mit Preiselbeeren",
+  "icon": "🦌",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 2 Std. 15 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 135,
+  "gf": true,
+  "ing": [
+   "Reh (Keule oder Schulter), gewürfelt",
+   "Zwiebeln",
+   "Karotte",
+   "Knollensellerie",
+   "Tomatenmark",
+   "Rotwein",
+   "Wildfond",
+   "Wacholderbeeren",
+   "Lorbeerblätter",
+   "Preiselbeeren",
+   "Sahne",
+   "Öl"
   ]
  },
  {
@@ -2519,6 +2898,27 @@
   ]
  },
  {
+  "id": "rosenkohl-maronen",
+  "title": "Rosenkohl mit Speck und Maronen",
+  "icon": "🥬",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 25 Min.",
+  "cat": "Beilage",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "Rosenkohl",
+   "Speckwürfel",
+   "vorgegarte Maronen",
+   "Butter",
+   "Honig",
+   "Muskat"
+  ]
+ },
+ {
   "id": "rote-gruetze",
   "title": "Rote Grütze mit Vanillesauce",
   "icon": "🍓",
@@ -2562,6 +2962,30 @@
    "Öl",
    "Meerrettich (Glas)",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "saure-zipfel",
+  "title": "Saure Zipfel (Blaue Zipfel)",
+  "icon": "🌭",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 35,
+  "ing": [
+   "fränkische Bratwürste (roh)",
+   "Zwiebeln",
+   "Karotte",
+   "Weißweinessig",
+   "Wasser",
+   "Zucker",
+   "Lorbeerblätter",
+   "Wacholderbeeren",
+   "Pfefferkörner",
+   "Salz"
   ]
  },
  {
@@ -2627,6 +3051,30 @@
    "Kümmel",
    "Gemüsebrühe",
    "Zucker"
+  ]
+ },
+ {
+  "id": "schweinefilet-speck",
+  "title": "Schweinefilet im Speckmantel mit Rahmsauce",
+  "icon": "🥓",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "Schweinefilet",
+   "Frühstücksspeck",
+   "Champignons",
+   "Schalotte",
+   "Sahne",
+   "Brühe",
+   "Senf",
+   "Öl",
+   "Petersilie"
   ]
  },
  {
@@ -2796,6 +3244,28 @@
   ]
  },
  {
+  "id": "spitzbuben",
+  "title": "Spitzbuben mit Johannisbeergelee",
+  "icon": "❤️",
+  "cuisine": "Deutsch",
+  "servings": 30,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 90,
+  "ing": [
+   "Mehl",
+   "kalte Butter",
+   "Puderzucker",
+   "gemahlene Mandeln",
+   "Eigelb",
+   "Vanillezucker",
+   "Johannisbeergelee",
+   "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
   "id": "kaesespaetzle-schwaebisch",
   "title": "Spätzle mit Linsen und Saitenwürstle",
   "icon": "🍲",
@@ -2941,6 +3411,27 @@
   ]
  },
  {
+  "id": "zimtsterne",
+  "title": "Zimtsterne",
+  "icon": "⭐",
+  "cuisine": "Deutsch",
+  "servings": 40,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 90,
+  "gf": true,
+  "ing": [
+   "Eiweiß",
+   "Puderzucker",
+   "Salz",
+   "gemahlene Mandeln",
+   "Zimt",
+   "Zitronensaft"
+  ]
+ },
+ {
   "id": "zwetschgendatschi",
   "title": "Zwetschgendatschi",
   "icon": "🍑",
@@ -3081,6 +3572,28 @@
   ]
  },
  {
+  "id": "entenbrust-orange",
+  "title": "Entenbrust mit Orangensauce",
+  "icon": "🦆",
+  "cuisine": "Französisch",
+  "servings": 2,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "Entenbrüste",
+   "Orangen",
+   "Geflügelfond",
+   "brauner Zucker",
+   "Butter",
+   "Speisestärke",
+   "Thymian"
+  ]
+ },
+ {
   "id": "fisch-en-papillote",
   "title": "Fisch im Päckchen mit Gemüse",
   "icon": "🐟",
@@ -3173,6 +3686,29 @@
    "Dijonsenf",
    "Honig",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "maronensuppe",
+  "title": "Maronensuppe",
+  "icon": "🌰",
+  "cuisine": "Französisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "vorgegarte Maronen",
+   "Zwiebel",
+   "Kartoffel",
+   "Butter",
+   "Gemüsebrühe",
+   "Sahne",
+   "Muskat",
+   "Kürbiskerne"
   ]
  },
  {
@@ -4495,6 +5031,23 @@
   ]
  },
  {
+  "id": "cacio-e-pepe",
+  "title": "Cacio e Pepe",
+  "icon": "🍝",
+  "cuisine": "Italienisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 20,
+  "ing": [
+   "Spaghetti oder Tonnarelli",
+   "Pecorino Romano, fein gerieben",
+   "schwarze Pfefferkörner"
+  ]
+ },
+ {
   "id": "cannelloni-spinat",
   "title": "Cannelloni mit Spinat und Ricotta",
   "icon": "🧀",
@@ -4675,6 +5228,30 @@
    "Oregano",
    "Mozzarella oder 50 g Parmesan",
    "Basilikum"
+  ]
+ },
+ {
+  "id": "kuerbisrisotto",
+  "title": "Kürbis-Risotto",
+  "icon": "🎃",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Hokkaidokürbis",
+   "Risottoreis",
+   "Zwiebel",
+   "Weißwein",
+   "heiße Gemüsebrühe",
+   "Parmesan",
+   "Butter",
+   "Olivenöl",
+   "Salbeiblätter"
   ]
  },
  {
@@ -4893,6 +5470,54 @@
   ]
  },
  {
+  "id": "pasta-e-fagioli",
+  "title": "Pasta e Fagioli",
+  "icon": "🫘",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Borlotti- oder Cannellinibohnen (je 400 g)",
+   "kleine Nudeln (Ditalini)",
+   "Zwiebel",
+   "Karotte",
+   "Staudensellerie",
+   "Knoblauchzehen",
+   "Tomatenmark",
+   "Gemüsebrühe",
+   "Rosmarin",
+   "Olivenöl",
+   "Parmesan"
+  ]
+ },
+ {
+  "id": "pasta-kuerbis-salbei",
+  "title": "Pasta mit Kürbis und Salbei",
+  "icon": "🍝",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Rigatoni",
+   "Butternut-Kürbis",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Salbeiblätter",
+   "Sahne",
+   "Parmesan",
+   "Olivenöl",
+   "Walnüsse"
+  ]
+ },
+ {
   "id": "penne-arrabbiata",
   "title": "Penne all'Arrabbiata",
   "icon": "🌶",
@@ -5051,6 +5676,30 @@
    "Parmesan",
    "Olivenöl",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "rote-bete-risotto",
+  "title": "Rote-Bete-Risotto mit Ziegenkäse",
+  "icon": "🟣",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Risottoreis",
+   "vorgegarte Rote Bete",
+   "Zwiebel",
+   "Weißwein",
+   "heiße Gemüsebrühe",
+   "Ziegenfrischkäse",
+   "Butter",
+   "Walnüsse",
+   "Olivenöl"
   ]
  },
  {
@@ -5379,6 +6028,29 @@
    "altbackenes Brot",
    "Olivenöl",
    "Rosmarin"
+  ]
+ },
+ {
+  "id": "toskana-haehnchen",
+  "title": "Toskanisches Sahne-Hähnchen",
+  "icon": "🍗",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Hähnchenbrustfilets",
+   "getrocknete Tomaten in Öl",
+   "Babyspinat",
+   "Knoblauchzehen",
+   "Sahne",
+   "Parmesan",
+   "italienische Kräuter",
+   "Öl"
   ]
  },
  {
@@ -6468,6 +7140,30 @@
   ]
  },
  {
+  "id": "ofenkuerbis",
+  "title": "Ofenkürbis mit Joghurt-Dip",
+  "icon": "🎃",
+  "cuisine": "Mediterran",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Hokkaidokürbis (ca. 1 kg)",
+   "Olivenöl",
+   "Paprika geräuchert",
+   "Kreuzkümmel",
+   "Kürbiskerne",
+   "griechischer Joghurt",
+   "Knoblauchzehe",
+   "Zitronensaft",
+   "Petersilie"
+  ]
+ },
+ {
   "id": "paella",
   "title": "Paella mit Hähnchen und Garnelen",
   "icon": "🥘",
@@ -7200,6 +7896,31 @@
   ]
  },
  {
+  "id": "beef-stroganoff",
+  "title": "Bœuf Stroganoff",
+  "icon": "🥩",
+  "cuisine": "Russisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Rinderhüfte oder Filet",
+   "Zwiebeln",
+   "Champignons",
+   "Gewürzgurken",
+   "Senf",
+   "Tomatenmark",
+   "saure Sahne",
+   "Rinderbrühe",
+   "Öl",
+   "Petersilie"
+  ]
+ },
+ {
   "id": "pelmeni",
   "title": "Pelmeni mit Schmand",
   "icon": "🥟",
@@ -7290,6 +8011,50 @@
   ]
  },
  {
+  "id": "kaesefondue",
+  "title": "Käsefondue",
+  "icon": "🫕",
+  "cuisine": "Schweizerisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Greyerzer (Gruyère)",
+   "Vacherin Fribourgeois oder Emmentaler",
+   "Knoblauchzehe",
+   "trockener Weißwein",
+   "Zitronensaft",
+   "Speisestärke",
+   "Kirschwasser",
+   "Muskat",
+   "Baguette vom Vortag"
+  ]
+ },
+ {
+  "id": "raclette-ofen",
+  "title": "Raclette aus dem Ofen",
+  "icon": "🧀",
+  "cuisine": "Schweizerisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "kleine festkochende Kartoffeln",
+   "Raclettekäse in Scheiben",
+   "Schinken oder Bündnerfleisch",
+   "Cornichons",
+   "Silberzwiebeln",
+   "Paprikapulver"
+  ]
+ },
+ {
   "id": "schweizer-roesti",
   "title": "Rösti mit Spiegelei",
   "icon": "🥔",
@@ -7297,7 +8062,7 @@
   "servings": 2,
   "time": "ca. 30 Min.",
   "cat": "Hauptgericht",
-  "diet": "fleisch",
+  "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
   "ing": [
@@ -7968,6 +8733,30 @@
   ]
  },
  {
+  "id": "langos",
+  "title": "Lángos",
+  "icon": "🫓",
+  "cuisine": "Ungarisch",
+  "servings": 6,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Snack",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 90,
+  "ing": [
+   "Mehl",
+   "frische Hefe",
+   "lauwarmes Wasser",
+   "gekochte mehlige Kartoffel",
+   "Zucker",
+   "Salz",
+   "Frittieröl",
+   "Knoblauchzehen",
+   "saure Sahne",
+   "geriebener Käse"
+  ]
+ },
+ {
   "id": "banh-mi",
   "title": "Bánh Mì mit Hähnchen",
   "icon": "🥖",
@@ -8345,6 +9134,31 @@
   ]
  },
  {
+  "id": "hirschgulasch",
+  "title": "Hirschgulasch",
+  "icon": "🦌",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 2 Std. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 150,
+  "ing": [
+   "Hirschgulasch",
+   "Zwiebeln",
+   "Tomatenmark",
+   "Paprika edelsüß",
+   "Rotwein",
+   "Wildfond",
+   "Champignons",
+   "Johannisbeergelee",
+   "Wacholderbeeren",
+   "getrockneter Thymian",
+   "Butterschmalz"
+  ]
+ },
+ {
   "id": "kaspressknoedel",
   "title": "Kaspressknödel",
   "icon": "🧀",
@@ -8503,6 +9317,28 @@
    "Rosinen",
    "Butter",
    "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
+  "id": "vanillekipferl",
+  "title": "Vanillekipferl",
+  "icon": "🌙",
+  "cuisine": "Österreichisch",
+  "servings": 60,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Mehl",
+   "kalte Butter",
+   "gemahlene Mandeln",
+   "Zucker",
+   "Eigelb",
+   "Salz",
+   "Puderzucker",
+   "Vanillezucker"
   ]
  },
  {

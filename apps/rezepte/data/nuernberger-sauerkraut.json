@@ -1,0 +1,75 @@
+{
+ "id": "nuernberger-sauerkraut",
+ "title": "Nürnberger Rostbratwürste mit Sauerkraut",
+ "icon": "🌭",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "24",
+   "name": "Nürnberger Rostbratwürste"
+  },
+  {
+   "amount": "500 g",
+   "name": "Sauerkraut"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Apfel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Schmalz"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Apfelsaft"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Lorbeerblatt"
+  },
+  {
+   "amount": "4",
+   "name": "Wacholderbeeren"
+  },
+  {
+   "amount": "1",
+   "name": "Kartoffel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel würfeln und in Schmalz glasig dünsten. Apfel in Stücken kurz mitdünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Sauerkraut, Apfelsaft, Zucker, Lorbeer und Wacholder zugeben und zugedeckt schmoren.",
+   "minutes": 25
+  },
+  {
+   "text": "Kartoffel fein reiben und unterrühren – das bindet das Kraut.",
+   "minutes": 5
+  },
+  {
+   "text": "Würstchen in einer Pfanne rundum goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Sauerkraut, Senf und Bauernbrot oder Kartoffelpüree servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40
+}

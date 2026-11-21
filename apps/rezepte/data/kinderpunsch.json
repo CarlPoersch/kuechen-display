@@ -1,0 +1,56 @@
+{
+ "id": "kinderpunsch",
+ "title": "Kinderpunsch",
+ "icon": "🧃",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "750 ml",
+   "name": "Früchtetee (Hagebutte-Hibiskus)"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Apfelsaft"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Orangensaft"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Orange in Scheiben"
+  },
+  {
+   "amount": "2",
+   "name": "Zimtstangen"
+  },
+  {
+   "amount": "3",
+   "name": "Gewürznelken"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Honig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tee aufbrühen und ziehen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Säften, Orangenscheiben und Gewürzen erhitzen, nicht kochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Honig abschmecken und heiß servieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

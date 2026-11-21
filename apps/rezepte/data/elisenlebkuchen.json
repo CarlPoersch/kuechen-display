@@ -1,0 +1,74 @@
+{
+ "id": "elisenlebkuchen",
+ "title": "Elisenlebkuchen",
+ "icon": "🍪",
+ "cuisine": "Deutsch",
+ "servings": 20,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "200 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "200 g",
+   "name": "gemahlene Haselnüsse"
+  },
+  {
+   "amount": "200 g",
+   "name": "gemahlene Mandeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Orangeat, fein gehackt"
+  },
+  {
+   "amount": "50 g",
+   "name": "Zitronat, fein gehackt"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Lebkuchengewürz"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "20",
+   "name": "Back-Oblaten (7 cm)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zartbitterkuvertüre"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier mit Zucker sehr schaumig schlagen.",
+   "minutes": 6
+  },
+  {
+   "text": "Nüsse, Mandeln, Orangeat, Zitronat, Gewürz und Salz unterheben."
+  },
+  {
+   "text": "Masse kuppelförmig auf die Oblaten streichen und auf ein Blech setzen. Antrocknen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Bei 160 °C Ober-/Unterhitze backen – innen sollen sie saftig bleiben.",
+   "minutes": 20
+  },
+  {
+   "text": "Kuvertüre schmelzen und die abgekühlten Lebkuchen damit überziehen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60
+}

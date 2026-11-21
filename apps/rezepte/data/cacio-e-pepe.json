@@ -1,0 +1,45 @@
+{
+ "id": "cacio-e-pepe",
+ "title": "Cacio e Pepe",
+ "icon": "🍝",
+ "cuisine": "Italienisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Spaghetti oder Tonnarelli"
+  },
+  {
+   "amount": "80 g",
+   "name": "Pecorino Romano, fein gerieben"
+  },
+  {
+   "amount": "1 TL",
+   "name": "schwarze Pfefferkörner"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pfefferkörner grob zerstoßen und in einer Pfanne ohne Fett rösten.",
+   "minutes": 2
+  },
+  {
+   "text": "Nudeln in wenig Salzwasser knapp al dente garen. Nudelwasser aufheben.",
+   "minutes": 9
+  },
+  {
+   "text": "Pecorino mit 4–5 EL lauwarmem Nudelwasser zu einer cremigen Paste rühren."
+  },
+  {
+   "text": "Nudeln mit einer Kelle Nudelwasser in die Pfefferpfanne geben und schwenken."
+  },
+  {
+   "text": "Pfanne vom Herd nehmen, Käsecreme unterrühren und schwenken, bis die Sauce glänzt – nicht mehr erhitzen, sonst klumpt sie."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 20
+}

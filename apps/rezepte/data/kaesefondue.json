@@ -1,0 +1,68 @@
+{
+ "id": "kaesefondue",
+ "title": "Käsefondue",
+ "icon": "🫕",
+ "cuisine": "Schweizerisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Greyerzer (Gruyère)"
+  },
+  {
+   "amount": "400 g",
+   "name": "Vacherin Fribourgeois oder Emmentaler"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "300 ml",
+   "name": "trockener Weißwein"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "2 cl",
+   "name": "Kirschwasser"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "1",
+   "name": "Baguette vom Vortag"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Käse grob reiben. Fonduetopf mit der halbierten Knoblauchzehe ausreiben."
+  },
+  {
+   "text": "Wein und Zitronensaft im Topf erhitzen, den Käse nach und nach in Achterbewegungen einrühren, bis er schmilzt.",
+   "minutes": 10
+  },
+  {
+   "text": "Stärke mit Kirschwasser glatt rühren, einrühren und kurz aufkochen. Mit Pfeffer und Muskat würzen."
+  },
+  {
+   "text": "Brot in Würfel schneiden, jedes Stück mit etwas Kruste."
+  },
+  {
+   "text": "Topf auf das Rechaud stellen – das Fondue soll nur leicht köcheln. Immer wieder umrühren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

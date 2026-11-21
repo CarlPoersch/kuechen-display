@@ -1,0 +1,76 @@
+{
+ "id": "langos",
+ "title": "Lángos",
+ "icon": "🫓",
+ "cuisine": "Ungarisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "300 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "1",
+   "name": "gekochte mehlige Kartoffel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 l",
+   "name": "Frittieröl"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "150 g",
+   "name": "geriebener Käse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe mit Zucker im Wasser auflösen. Mit Mehl, zerdrückter Kartoffel und Salz zu einem weichen Teig kneten."
+  },
+  {
+   "text": "Abgedeckt gehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Öl auf 175 °C erhitzen. Teig in 6 Stücke teilen und mit geölten Händen flach ausziehen."
+  },
+  {
+   "text": "Nacheinander goldbraun ausbacken, einmal wenden.",
+   "minutes": 3
+  },
+  {
+   "text": "Knoblauch fein hacken, mit etwas Salzwasser verrühren und aufstreichen. Mit saurer Sahne und Käse belegen."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

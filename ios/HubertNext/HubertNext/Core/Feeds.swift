@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 // ============================================================
-// Sport und News kommen über die Supabase-Funktion "feeds"
+// Sport kommt über die Supabase-Funktion "sport", News über "feeds"
 // (dieselbe Quelle wie in der Web-Version, angemeldet per Login).
 // ============================================================
 
@@ -131,6 +131,18 @@ struct SportCatalog: Codable, Identifiable, Hashable {
 
 struct TeamRef: Decodable, Hashable, Identifiable { let id: String; let n: String }
 
+/// Treffer der Sport-Suche: Verein, Nationalteam, Sportler, Fahrer, Liga oder Land
+struct SportHit: Decodable, Hashable {
+    let kind: String        // team · nat · player · driver · league · country
+    let id: String
+    let name: String
+    let sub: String
+    let emoji: String
+    let sport: String
+    let leagues: [String]
+    var uid: String { kind + ":" + sport + ":" + id }
+}
+
 struct NewsFeed: Decodable {
     let breaking: [NewsItem]
     let de: [NewsItem]
@@ -186,9 +198,7 @@ struct MatchDetail: Decodable {
 
 final class FeedService: ObservableObject {
     static let shared = FeedService()
-    @Published private(set) var sport: SportFeed?
     @Published private(set) var news: NewsFeed?
-    @Published private(set) var sportAt: Date?
     @Published private(set) var newsAt: Date?
 
     private func get<T: Decodable>(_ path: String, _ query: [URLQueryItem] = []) async throws -> T {
@@ -196,16 +206,10 @@ final class FeedService: ObservableObject {
         return try JSONDecoder().decode(T.self, from: data)
     }
 
-    /// Sport: alle 30 s, solange etwas live ist oder gleich beginnt, sonst alle 10 min
-    var sportInterval: TimeInterval {
-        let now = Date()
-        let hot = sport?.matches.contains { $0.isLive || ($0.state == "pre" && $0.start < now.addingTimeInterval(300) && $0.start > now.addingTimeInterval(-3 * 3600)) } ?? false
-        return hot ? 30 : 600
-    }
-
-    func loadSport() async {
-        if let t = sportAt, Date().timeIntervalSince(t) < sportInterval - 2 { return }
-        do { sport = try await get("sport"); sportAt = Date() } catch { print("Sport:", error) }
+    /// Eigene Funktion „sport“: Ligen, Suche, Spiele (Fußball, Tennis, Eishockey, US-Sport, Formel 1)
+    private func sportGet<T: Decodable>(_ path: String, _ query: [URLQueryItem] = []) async throws -> T {
+        let data = try await SupabaseClient.shared.raw("GET", "/functions/v1/sport/" + path, query: query)
+        return try JSONDecoder().decode(T.self, from: data)
     }
 
     // MARK: Sport, personalisiert
@@ -228,7 +232,7 @@ final class FeedService: ObservableObject {
         guard !k.isEmpty else { return }
         if let t = sportFeedAt[k], Date().timeIntervalSince(t) < sportInterval(k) - 2 { return }
         do {
-            sportFeeds[k] = try await get("sport2", [URLQueryItem(name: "l", value: k)])
+            sportFeeds[k] = try await sportGet("feed", [URLQueryItem(name: "l", value: k)])
             sportFeedAt[k] = Date()
         } catch { print("Sport:", error) }
     }
@@ -236,7 +240,7 @@ final class FeedService: ObservableObject {
     /// Aktueller Stand eines Spiels aus irgendeiner geladenen Auswahl
     func current(_ id: String) -> Match? {
         for f in sportFeeds.values { if let m = f.matches.first(where: { $0.id == id }) { return m } }
-        return sport?.matches.first { $0.id == id }
+        return nil
     }
 
     /// Katalog der Sportarten und Ligen (vom Server, damit neue Ligen ohne App-Update dazukommen)
@@ -247,7 +251,7 @@ final class FeedService: ObservableObject {
     }()
 
     func loadCatalog() async {
-        guard let data = try? await SupabaseClient.shared.raw("GET", "/functions/v1/feeds/sports"),
+        guard let data = try? await SupabaseClient.shared.raw("GET", "/functions/v1/sport/catalog"),
               let c = try? JSONDecoder().decode([SportCatalog].self, from: data) else { return }
         catalog = c
         UserDefaults.standard.set(data, forKey: "sport.catalog")
@@ -256,9 +260,20 @@ final class FeedService: ObservableObject {
     private var teamCache: [String: [TeamRef]] = [:]
     func teams(_ league: String) async -> [TeamRef] {
         if let t = teamCache[league] { return t }
-        let t: [TeamRef] = (try? await get("teams", [URLQueryItem(name: "l", value: league)])) ?? []
+        let t: [TeamRef] = (try? await sportGet("teams", [URLQueryItem(name: "l", value: league)])) ?? []
         if !t.isEmpty { teamCache[league] = t }
         return t
+    }
+
+    /// Suche nach Vereinen, Sportlern, Ligen und Ländern (offizielle Namen und IDs der Quellen)
+    private var searchCache: [String: [SportHit]] = [:]
+    func searchSport(_ text: String) async throws -> [SportHit] {
+        let q = text.trimmingCharacters(in: .whitespaces)
+        guard q.count >= 2 else { return [] }
+        if let hit = searchCache[q.lowercased()] { return hit }
+        let r: [SportHit] = try await sportGet("search", [URLQueryItem(name: "q", value: q)])
+        searchCache[q.lowercased()] = r
+        return r
     }
 
     func loadNews() async {

@@ -1,0 +1,68 @@
+{
+ "id": "toskana-haehnchen",
+ "title": "Toskanisches Sahne-Hähnchen",
+ "icon": "🍗",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenbrustfilets"
+  },
+  {
+   "amount": "100 g",
+   "name": "getrocknete Tomaten in Öl"
+  },
+  {
+   "amount": "100 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 TL",
+   "name": "italienische Kräuter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Filets flach klopfen, salzen, pfeffern und in Öl goldbraun braten, herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Knoblauch und geschnittene Tomaten im Bratfett kurz anschwitzen.",
+   "minutes": 2
+  },
+  {
+   "text": "Sahne, Kräuter und geriebenen Parmesan einrühren und sämig köcheln.",
+   "minutes": 4
+  },
+  {
+   "text": "Spinat zugeben und zusammenfallen lassen, Hähnchen zurück in die Sauce legen und durchziehen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Pasta, Reis oder Brot servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

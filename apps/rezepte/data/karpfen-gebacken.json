@@ -1,0 +1,68 @@
+{
+ "id": "karpfen-gebacken",
+ "title": "Gebackener Karpfen",
+ "icon": "🐟",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Karpfen (ca. 1,5 kg), vom Fischhändler halbiert und geschröpft"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 g",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "",
+   "name": "Butterschmalz (zum Ausbacken)"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "1 Rezept",
+   "name": "Kartoffelsalat"
+  },
+  {
+   "amount": "",
+   "name": "Remoulade (nach Belieben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Karpfenhälften in Portionsstücke teilen, mit Zitronensaft beträufeln, salzen und pfeffern.",
+   "minutes": 10
+  },
+  {
+   "text": "Stücke nacheinander in Mehl, verquirltem Ei und Bröseln wenden."
+  },
+  {
+   "text": "Butterschmalz in einer großen Pfanne fingerhoch erhitzen."
+  },
+  {
+   "text": "Karpfen darin goldbraun ausbacken, einmal wenden.",
+   "minutes": 10
+  },
+  {
+   "text": "Auf Küchenpapier abtropfen lassen und mit Zitronenspalten, Kartoffelsalat und Remoulade servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 40
+}

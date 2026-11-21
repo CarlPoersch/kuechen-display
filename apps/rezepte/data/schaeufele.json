@@ -1,0 +1,73 @@
+{
+ "id": "schaeufele",
+ "title": "Fränkisches Schäufele mit Klößen",
+ "icon": "🍖",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 3 Std.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Schweineschäufele (je 400 g, mit Schwarte)"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "100 g",
+   "name": "Knollensellerie"
+  },
+  {
+   "amount": "500 ml",
+   "name": "dunkles Bier"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Fleischbrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Schwarte rautenförmig einschneiden, Fleisch mit Salz, Pfeffer, Kümmel und Senf einreiben."
+  },
+  {
+   "text": "Gemüse grob würfeln, in einen Bräter geben, Fleisch mit der Schwarte nach unten daraufsetzen und 250 ml Brühe angießen."
+  },
+  {
+   "text": "Zugedeckt garen.",
+   "minutes": 60
+  },
+  {
+   "text": "Fleisch wenden, Bier und restliche Brühe angießen und offen weitergaren, dabei immer wieder begießen.",
+   "minutes": 90
+  },
+  {
+   "text": "Zum Schluss mit Grillfunktion die Kruste knusprig werden lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Soße abseihen, mit angerührter Stärke binden und mit Kartoffelklößen servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 180
+}

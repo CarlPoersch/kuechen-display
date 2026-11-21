@@ -1,0 +1,87 @@
+{
+ "id": "quarkstollen",
+ "title": "Quarkstollen",
+ "icon": "🍞",
+ "cuisine": "Deutsch",
+ "servings": 16,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "250 g",
+   "name": "Magerquark"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "200 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone (Abrieb)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "100 g",
+   "name": "gehackte Mandeln"
+  },
+  {
+   "amount": "50 g",
+   "name": "Orangeat"
+  },
+  {
+   "group": "Zum Bestreichen"
+  },
+  {
+   "amount": "75 g",
+   "name": "flüssige Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "Puderzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 175 °C Ober-/Unterhitze vorheizen."
+  },
+  {
+   "text": "Mehl und Backpulver mischen. Quark, Zucker, Butter, Eier, Vanillezucker und Zitronenabrieb zugeben und verkneten."
+  },
+  {
+   "text": "Rosinen, Mandeln und Orangeat unterkneten und zu einem Stollen formen."
+  },
+  {
+   "text": "Auf Backpapier backen; nach 30 Minuten eventuell mit Alufolie abdecken.",
+   "minutes": 55
+  },
+  {
+   "text": "Noch heiß mit flüssiger Butter bestreichen und dick mit Puderzucker bestäuben. Hält luftdicht verpackt etwa 2 Wochen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

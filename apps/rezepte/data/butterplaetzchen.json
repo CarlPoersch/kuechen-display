@@ -1,0 +1,72 @@
+{
+ "id": "butterplaetzchen",
+ "title": "Butterplätzchen zum Ausstechen",
+ "icon": "🎄",
+ "cuisine": "Deutsch",
+ "servings": 50,
+ "time": "ca. 1 Std. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "200 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "group": "Verzierung"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Milch"
+  },
+  {
+   "amount": "",
+   "name": "bunte Streusel (nach Belieben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Butter, Zucker, Vanillezucker, Salz und Ei verrühren, Mehl zugeben und zu einem glatten Teig verkneten."
+  },
+  {
+   "text": "In Folie gewickelt kalt stellen.",
+   "minutes": 60
+  },
+  {
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Teig 3 mm dick ausrollen und Motive ausstechen."
+  },
+  {
+   "text": "Eigelb mit Milch verquirlen, Plätzchen bestreichen und mit Streuseln bestreuen."
+  },
+  {
+   "text": "Goldgelb backen und auf dem Blech abkühlen lassen.",
+   "minutes": 9
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 80
+}

@@ -1,0 +1,55 @@
+{
+ "id": "gluehwein",
+ "title": "Glühwein",
+ "icon": "🍷",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "1 l",
+   "name": "trockener Rotwein"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Orangensaft"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Orange in Scheiben"
+  },
+  {
+   "amount": "3",
+   "name": "Zimtstangen"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürznelken"
+  },
+  {
+   "amount": "2",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker oder Honig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Alle Zutaten in einen Topf geben."
+  },
+  {
+   "text": "Langsam erhitzen, aber nicht kochen lassen – sonst verfliegt der Alkohol und es wird bitter.",
+   "minutes": 15
+  },
+  {
+   "text": "Abseihen, nach Geschmack nachsüßen und heiß servieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

@@ -1,0 +1,51 @@
+{
+ "id": "gebrannte-mandeln",
+ "title": "Gebrannte Mandeln",
+ "icon": "🥜",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Mandeln mit Haut"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zucker, Vanillezucker, Zimt und Wasser in einer beschichteten Pfanne aufkochen."
+  },
+  {
+   "text": "Mandeln zugeben und unter ständigem Rühren kochen, bis das Wasser verdampft und der Zucker trocken und krümelig wird.",
+   "minutes": 8
+  },
+  {
+   "text": "Weiter rühren, bis der Zucker wieder schmilzt und die Mandeln glänzend überzieht.",
+   "minutes": 4
+  },
+  {
+   "text": "Sofort auf Backpapier verteilen, mit zwei Gabeln trennen und abkühlen lassen."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

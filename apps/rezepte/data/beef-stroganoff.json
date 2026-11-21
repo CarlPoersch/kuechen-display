@@ -1,0 +1,75 @@
+{
+ "id": "beef-stroganoff",
+ "title": "Bœuf Stroganoff",
+ "icon": "🥩",
+ "cuisine": "Russisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rinderhüfte oder Filet"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "250 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "2",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in feine Streifen schneiden. Portionsweise in sehr heißem Öl kurz scharf anbraten und herausnehmen.",
+   "minutes": 4
+  },
+  {
+   "text": "Zwiebeln in Streifen und Pilze in Scheiben im Bratfett anbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tomatenmark und Senf einrühren, mit Brühe ablöschen und kurz köcheln.",
+   "minutes": 3
+  },
+  {
+   "text": "Saure Sahne und Gurkenstreifen einrühren, Fleisch zurückgeben und nur noch erwärmen."
+  },
+  {
+   "text": "Mit Petersilie bestreuen, dazu Bandnudeln oder Reis."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

@@ -1,0 +1,82 @@
+{
+ "id": "chicken-pot-pie",
+ "title": "Hähnchen-Pot-Pie",
+ "icon": "🥧",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen (TK)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Thymian"
+  },
+  {
+   "amount": "1 Rolle",
+   "name": "Blätterteig"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Hähnchen würfeln, salzen und in etwas Butter anbraten, herausnehmen.",
+   "minutes": 6
+  },
+  {
+   "text": "Zwiebel und Karotten würfeln und in der restlichen Butter andünsten. Mehl darüberstäuben und anschwitzen.",
+   "minutes": 5
+  },
+  {
+   "text": "Brühe und Sahne einrühren, Thymian zugeben und sämig köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Hähnchen und Erbsen unterrühren, abschmecken und in eine Auflaufform füllen."
+  },
+  {
+   "text": "Mit Blätterteig abdecken, Ränder andrücken, Eigelb aufstreichen und ein Loch für den Dampf einschneiden."
+  },
+  {
+   "text": "Goldbraun backen.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

@@ -1,0 +1,65 @@
+{
+ "id": "spitzbuben",
+ "title": "Spitzbuben mit Johannisbeergelee",
+ "icon": "❤️",
+ "cuisine": "Deutsch",
+ "servings": 30,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "175 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "80 g",
+   "name": "Puderzucker"
+  },
+  {
+   "amount": "75 g",
+   "name": "gemahlene Mandeln"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "200 g",
+   "name": "Johannisbeergelee"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Butter, Puderzucker, Mandeln, Eigelb und Vanillezucker zu einem Mürbeteig verkneten und kalt stellen.",
+   "minutes": 30
+  },
+  {
+   "text": "Ofen auf 180 °C vorheizen. Teig 2 mm dünn ausrollen, gleich viele Kreise ausstechen; bei der Hälfte ein kleines Loch in die Mitte stechen."
+  },
+  {
+   "text": "Hell backen und abkühlen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Gelee erwärmen, auf die ganzen Plätzchen streichen."
+  },
+  {
+   "text": "Die gelochten Plätzchen mit Puderzucker bestäuben und daraufsetzen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90
+}

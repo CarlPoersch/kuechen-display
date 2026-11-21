@@ -1,0 +1,68 @@
+{
+ "id": "vanillekipferl",
+ "title": "Vanillekipferl",
+ "icon": "🌙",
+ "cuisine": "Österreichisch",
+ "servings": 60,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "200 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "100 g",
+   "name": "gemahlene Mandeln"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "group": "Zum Wälzen"
+  },
+  {
+   "amount": "80 g",
+   "name": "Puderzucker"
+  },
+  {
+   "amount": "2 Pck.",
+   "name": "Vanillezucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Butter in Stücken, Mandeln, Zucker, Eigelb und Salz rasch zu einem glatten Teig verkneten."
+  },
+  {
+   "text": "Teig in Folie wickeln und kalt stellen.",
+   "minutes": 30
+  },
+  {
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Teig zu fingerdicken Rollen formen, 5 cm lange Stücke abschneiden und zu Hörnchen biegen."
+  },
+  {
+   "text": "Auf Backpapier hell backen – die Spitzen dürfen kaum Farbe nehmen.",
+   "minutes": 12
+  },
+  {
+   "text": "Puderzucker und Vanillezucker mischen und die Kipferl noch warm darin wälzen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
+}

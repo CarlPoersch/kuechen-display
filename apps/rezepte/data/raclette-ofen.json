@@ -1,0 +1,58 @@
+{
+ "id": "raclette-ofen",
+ "title": "Raclette aus dem Ofen",
+ "icon": "🧀",
+ "cuisine": "Schweizerisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "kleine festkochende Kartoffeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "Raclettekäse in Scheiben"
+  },
+  {
+   "amount": "200 g",
+   "name": "Schinken oder Bündnerfleisch"
+  },
+  {
+   "amount": "1 Glas",
+   "name": "Cornichons"
+  },
+  {
+   "amount": "1 Glas",
+   "name": "Silberzwiebeln"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprikapulver"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln mit Schale in Salzwasser garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Ofen auf 220 °C Grill vorheizen. Kartoffeln halbieren und mit der Schnittfläche nach oben in eine Form legen."
+  },
+  {
+   "text": "Mit Käse belegen, mit Paprika und Pfeffer bestreuen."
+  },
+  {
+   "text": "Überbacken, bis der Käse blubbert.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Schinken, Cornichons und Silberzwiebeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

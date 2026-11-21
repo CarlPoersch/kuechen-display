@@ -1,0 +1,66 @@
+{
+ "id": "maronensuppe",
+ "title": "Maronensuppe",
+ "icon": "🌰",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "vorgegarte Maronen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Kartoffel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kürbiskerne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Kartoffel würfeln und in Butter andünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Maronen grob hacken (einige zum Garnieren beiseitelegen) und kurz mitdünsten."
+  },
+  {
+   "text": "Brühe zugießen und köcheln, bis die Kartoffel weich ist.",
+   "minutes": 20
+  },
+  {
+   "text": "Sahne zugeben, fein pürieren und mit Salz, Pfeffer und Muskat abschmecken."
+  },
+  {
+   "text": "Mit gerösteten Kürbiskernen und den restlichen Maronen servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

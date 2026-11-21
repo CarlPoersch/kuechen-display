@@ -1,0 +1,73 @@
+{
+ "id": "ausgezogene",
+ "title": "Ausgezogene (Knieküchla)",
+ "icon": "🍩",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "60 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 l",
+   "name": "Butterschmalz oder Frittieröl"
+  },
+  {
+   "amount": "",
+   "name": "Puderzucker (zum Bestäuben)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe in der Milch mit 1 TL Zucker auflösen."
+  },
+  {
+   "text": "Mit Mehl, restlichem Zucker, Butter, Eiern und Salz zu einem glatten, weichen Teig kneten und gehen lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Teig in 12 Stücke teilen, zu Kugeln formen und nochmals gehen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Fett auf 170 °C erhitzen. Kugeln mit bemehlten Händen von der Mitte aus dünn ausziehen, der Rand bleibt dick."
+  },
+  {
+   "text": "Nacheinander ausbacken, einmal wenden – die Mitte bleibt hell.",
+   "minutes": 3
+  },
+  {
+   "text": "Abtropfen lassen und mit Puderzucker bestäuben."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "anspruchsvoll",
+ "min": 120
+}

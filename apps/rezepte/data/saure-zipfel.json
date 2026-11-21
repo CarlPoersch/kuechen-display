@@ -1,0 +1,70 @@
+{
+ "id": "saure-zipfel",
+ "title": "Saure Zipfel (Blaue Zipfel)",
+ "icon": "🌭",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "fränkische Bratwürste (roh)"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "750 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "5",
+   "name": "Wacholderbeeren"
+  },
+  {
+   "amount": "8",
+   "name": "Pfefferkörner"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln in Ringe, Karotte in Scheiben schneiden."
+  },
+  {
+   "text": "Mit Wasser, Essig, Zucker, Salz und Gewürzen aufkochen und köcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Hitze reduzieren, die Bratwürste einlegen und knapp unter dem Siedepunkt ziehen lassen – sie färben sich bläulich.",
+   "minutes": 15
+  },
+  {
+   "text": "Würste mit Sud, Zwiebeln und Karotten in tiefen Tellern servieren. Dazu frisches Bauernbrot."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35
+}

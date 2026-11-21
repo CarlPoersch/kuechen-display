@@ -1,0 +1,71 @@
+{
+ "id": "rote-bete-risotto",
+ "title": "Rote-Bete-Risotto mit Ziegenkäse",
+ "icon": "🟣",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Risottoreis"
+  },
+  {
+   "amount": "300 g",
+   "name": "vorgegarte Rote Bete"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "1 l",
+   "name": "heiße Gemüsebrühe"
+  },
+  {
+   "amount": "100 g",
+   "name": "Ziegenfrischkäse"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel fein würfeln und in Öl glasig dünsten. Reis zugeben und glasig rösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Wein ablöschen und nach und nach Brühe angießen, dabei rühren.",
+   "minutes": 10
+  },
+  {
+   "text": "Die Hälfte der Roten Bete pürieren, den Rest würfeln, beides unterrühren und fertig garen.",
+   "minutes": 10
+  },
+  {
+   "text": "Butter unterrühren und abschmecken."
+  },
+  {
+   "text": "Mit Ziegenkäse-Flocken und gerösteten Walnüssen servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
+}

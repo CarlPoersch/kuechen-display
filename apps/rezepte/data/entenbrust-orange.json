@@ -1,0 +1,64 @@
+{
+ "id": "entenbrust-orange",
+ "title": "Entenbrust mit Orangensauce",
+ "icon": "🦆",
+ "cuisine": "Französisch",
+ "servings": 2,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Entenbrüste"
+  },
+  {
+   "amount": "2",
+   "name": "Orangen"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Geflügelfond"
+  },
+  {
+   "amount": "1 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "2 Zweige",
+   "name": "Thymian"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 120 °C vorheizen. Haut der Entenbrüste rautenförmig einschneiden, ohne das Fleisch zu verletzen, salzen."
+  },
+  {
+   "text": "Mit der Hautseite nach unten in eine kalte Pfanne legen und bei mittlerer Hitze knusprig braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Wenden, kurz anbraten und im Ofen auf dem Rost rosa garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Fett aus der Pfanne bis auf 1 EL abgießen. Zucker karamellisieren, mit Saft einer Orange und Fond ablöschen und einkochen.",
+   "minutes": 6
+  },
+  {
+   "text": "Stärke mit wenig Wasser einrühren, Butter und Filets der zweiten Orange zugeben. Fleisch ruhen lassen, aufschneiden und mit Sauce servieren.",
+   "minutes": 5
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45,
+ "gf": true
+}

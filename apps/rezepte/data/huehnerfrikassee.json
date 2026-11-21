@@ -1,0 +1,75 @@
+{
+ "id": "huehnerfrikassee",
+ "title": "Hühnerfrikassee mit Reis",
+ "icon": "🍗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "1 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "250 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "200 g",
+   "name": "grüner Spargel oder Erbsen"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in der Brühe gar ziehen lassen, herausnehmen und in Stücke zupfen. Brühe aufheben.",
+   "minutes": 20
+  },
+  {
+   "text": "Reis nach Packungsangabe garen.",
+   "minutes": 18
+  },
+  {
+   "text": "Butter schmelzen, Mehl anschwitzen und nach und nach 600 ml Brühe einrühren. Köcheln lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Pilze in Scheiben und Spargel bzw. Erbsen in der Sauce garen.",
+   "minutes": 8
+  },
+  {
+   "text": "Fleisch zugeben. Sahne mit Eigelb verquirlen und einrühren (nicht mehr kochen). Mit Zitrone, Salz und Pfeffer abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 50
+}

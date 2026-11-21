@@ -1,0 +1,71 @@
+{
+ "id": "schweinefilet-speck",
+ "title": "Schweinefilet im Speckmantel mit Rahmsauce",
+ "icon": "🥓",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Schweinefilet"
+  },
+  {
+   "amount": "8 Scheiben",
+   "name": "Frühstücksspeck"
+  },
+  {
+   "amount": "250 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "1",
+   "name": "Schalotte"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 160 °C vorheizen. Filet salzen, pfeffern und mit Speck umwickeln."
+  },
+  {
+   "text": "In Öl rundum anbraten und im Ofen rosa garen (Kerntemperatur 62 °C).",
+   "minutes": 20
+  },
+  {
+   "text": "In der Pfanne Schalotte und Pilze anbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Brühe und Sahne ablöschen, Senf einrühren und sämig einkochen.",
+   "minutes": 5
+  },
+  {
+   "text": "Filet in Medaillons schneiden, mit Sauce und Petersilie servieren. Dazu Spätzle oder Kroketten."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

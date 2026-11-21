@@ -1,277 +1,444 @@
 import SwiftUI
 
 // ============================================================
-// Sport personalisieren – angelehnt an Apple Sports:
-//  1. Einstellungen der Karte → „Ligen & Favoriten“
-//  2. Oben die eigene Auswahl, darunter alle Sportarten zum Hinzufügen
-//  3. Liga antippen → was gezeigt wird + Favoriten mit Stern
+// Sport personalisieren – wie die Haltestellensuche:
+//  1. Einstellungen der Karte → „Ich folge“
+//  2. Oben suchen: Verein, Sportler, Liga oder Land → offizielle Treffer
+//     mit Stern zum Folgen
+//  3. Darunter: wem man folgt (antippen = Wettbewerbe wählen) und Stöbern
 // ============================================================
 
 /// Zeile in den Karten-Einstellungen
 struct SportSettings: View {
     @Binding var config: [String: JSON]
 
-    private var picks: [SportPick] { SportBucket.picks(config) }
+    private var follows: [SportFollow] { SportBucket.follows(config) }
 
     var body: some View {
-        NavigationLink(destination: SportPicker(config: $config)) {
+        NavigationLink(destination: SportFollowView(config: $config)) {
             HStack(spacing: 12) {
-                Text(Array(Set(picks.map(\.sport))).sorted().compactMap { SportBucket.emoji[$0] }.prefix(4).joined())
+                Text(SportBucket.order.filter { s in follows.contains { $0.sport == s } }.compactMap { SportBucket.emoji[$0] }.prefix(4).joined())
                     .frame(minWidth: 30, alignment: .leading)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Ligen & Favoriten")
-                    let favs = picks.reduce(0) { $0 + $1.fav.count + $1.names.count }
-                    Text(picks.isEmpty ? "Noch nichts gewählt"
-                         : "\(picks.count) \(picks.count == 1 ? "Liga" : "Ligen")" + (favs > 0 ? " · \(favs) \(favs == 1 ? "Favorit" : "Favoriten")" : ""))
-                        .font(.caption).foregroundColor(Theme.secondary)
+                    Text("Ich folge")
+                    Text(summary).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
                 }
             }
         }
+    }
+
+    private var summary: String {
+        if follows.isEmpty { return "Vereine, Sportler und Ligen suchen" }
+        let names = follows.map { $0.name.isEmpty ? SportBucket.leagueName($0.ref) : $0.name }
+        return names.prefix(3).joined(separator: ", ") + (names.count > 3 ? " +\(names.count - 3)" : "")
     }
 }
 
-/// Auswahl der Ligen (oben: deine, darunter: alle zum Hinzufügen)
-struct SportPicker: View {
+/// Eine Zeile: Symbol im Kreis, Name, Unterzeile, rechts optional ein Stern
+struct FollowRow: View {
+    let emoji: String
+    let name: String
+    let sub: String
+    var on: Bool? = nil
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Text(emoji).font(.system(size: 20))
+                .frame(width: 38, height: 38)
+                .background(Circle().fill(Color(UIColor.tertiarySystemFill)))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(name).foregroundColor(.primary).lineLimit(1)
+                if !sub.isEmpty { Text(sub).font(.caption).foregroundColor(Theme.secondary).lineLimit(1) }
+            }
+            Spacer(minLength: 8)
+            if let on = on {
+                Image(systemName: on ? "star.fill" : "star")
+                    .font(.title3)
+                    .foregroundColor(on ? .yellow : Color(UIColor.tertiaryLabel))
+            }
+        }
+        .padding(.vertical, 2)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+        .accessibilityValue(on == true ? "Folge ich" : "")
+    }
+}
+
+/// Suchen, folgen, verwalten
+struct SportFollowView: View {
     @Binding var config: [String: JSON]
     @ObservedObject private var feed = FeedService.shared
     @State private var query = ""
+    @State private var hits: [SportHit] = []
+    @State private var searching = false
+    @State private var failed = false
 
-    private var picks: [SportPick] { SportBucket.picks(config) }
-    private func save(_ p: [SportPick]) { SportBucket.store(p, in: &config) }
-
-    private func league(_ id: String) -> (sport: SportCatalog, league: SportCatalog.League)? {
-        for s in feed.catalog { if let l = s.leagues.first(where: { $0.id == id }) { return (s, l) } }
-        return nil
-    }
+    private var follows: [SportFollow] { SportBucket.follows(config) }
+    private func save(_ f: [SportFollow]) { SportBucket.store(f, in: &config) }
+    private var searchActive: Bool { query.trimmingCharacters(in: .whitespaces).count >= 2 }
 
     var body: some View {
         List {
-            Section {
-                if picks.isEmpty {
-                    Text("Füge unten Ligen hinzu, die dich interessieren.").foregroundColor(Theme.secondary)
+            if searchActive {
+                results
+            } else {
+                following
+                browse
+                Section {
+                    EmptyView()
+                } footer: {
+                    Text("Quellen: ESPN (Fußball, Tennis, NBA, NHL, NFL, MLB), HockeyWeb (Eishockey in Deutschland von DEL bis Bayernliga) und die Formel-1-Datenbank Jolpica. Handball, BBL und Radsport folgen, sobald es dafür eine verlässliche Quelle gibt.")
                 }
-                ForEach(picks) { p in
-                    NavigationLink(destination: LeaguePickView(config: $config, leagueId: p.id)) {
-                        HStack(spacing: 12) {
-                            Text(SportBucket.emoji[p.sport] ?? "🏆").font(.title3)
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(league(p.id)?.league.name ?? p.id)
-                                Text(LeaguePickView.summary(p)).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
-                            }
-                        }
-                    }
-                }
-                .onDelete { idx in var l = picks; l.remove(atOffsets: idx); save(l) }
-                .onMove { from, to in var l = picks; l.move(fromOffsets: from, toOffset: to); save(l) }
-            } header: { Text("Deine Auswahl") } footer: {
-                Text("Antippen: Favoriten wählen und festlegen, ob alle Spiele oder nur die deiner Favoriten erscheinen. Wischen entfernt eine Liga.")
-            }
-
-            ForEach(feed.catalog) { sport in
-                let rest = sport.leagues.filter { l in !picks.contains { $0.id == l.id } }
-                    .filter { query.isEmpty || $0.name.localizedCaseInsensitiveContains(query) || sport.name.localizedCaseInsensitiveContains(query) }
-                if !rest.isEmpty {
-                    Section(header: Text(sport.emoji + "  " + sport.name)) {
-                        ForEach(rest) { l in
-                            Button { withAnimation { add(l) } } label: {
-                                HStack {
-                                    Text(l.name).foregroundColor(.primary)
-                                    Spacer()
-                                    Image(systemName: "plus.circle.fill").font(.title3).foregroundColor(Theme.accent)
-                                }
-                                .contentShape(Rectangle())
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityLabel("\(l.name) hinzufügen")
-                        }
-                    }
-                }
-            }
-            if feed.catalog.isEmpty {
-                Section { HStack { ProgressView(); Text("Lade Sportarten …").foregroundColor(Theme.secondary) } }
-            }
-            Section {
-                EmptyView()
-            } footer: {
-                Text("Handball, BBL und Radsport folgen, sobald es dafür eine verlässliche Datenquelle gibt. Die DEL kommt aus OpenLigaDB (Ergebnisse kurz nach Spielende), die Formel 1 ohne Live-Positionen.")
             }
         }
         .listStyle(.insetGrouped)
-        .searchable(text: $query, prompt: "Liga suchen")
-        .navigationTitle("Ligen & Favoriten")
+        .searchable(text: $query, placement: .navigationBarDrawer(displayMode: .always), prompt: "Verein, Sportler, Liga oder Land")
+        .disableAutocorrection(true)
+        .navigationTitle("Ich folge")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar { ToolbarItem(placement: .navigationBarTrailing) { EditButton() } }
-        .task { await feed.loadCatalog() }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if !searchActive && !follows.isEmpty { EditButton() }
+            }
+        }
+        .task(id: query) { await search() }
+        .task {
+            if feed.catalog.isEmpty { await feed.loadCatalog() }
+            await resolveNames()
+        }
     }
 
-    private func add(_ l: SportCatalog.League) {
-        var list = picks
-        // Länderspiele: gleich Deutschland als Favorit, damit nicht alle Länder kommen
-        if l.kind == "nat" { list.append(SportPick(id: l.id, mode: "fav", names: ["Deutschland"])) }
-        else { list.append(SportPick(id: l.id)) }
+    // MARK: Suche
+
+    private func search() async {
+        let q = query.trimmingCharacters(in: .whitespaces)
+        guard q.count >= 2 else { hits = []; searching = false; failed = false; return }
+        searching = true
+        try? await Task.sleep(nanoseconds: 350_000_000)   // erst nach einer kurzen Tipp-Pause
+        guard !Task.isCancelled else { return }
+        do {
+            let r = try await feed.searchSport(q)
+            guard !Task.isCancelled else { return }
+            hits = r; failed = false
+        } catch {
+            guard !Task.isCancelled else { return }
+            hits = []; failed = true
+        }
+        searching = false
+    }
+
+    private func isFollowed(_ h: SportHit) -> Bool { follows.contains { $0.uid == h.uid } }
+
+    private func toggle(_ h: SportHit) {
+        var list = follows
+        if let i = list.firstIndex(where: { $0.uid == h.uid }) { list.remove(at: i) } else { list.append(SportFollow(h)) }
+        save(list)
+    }
+
+    @ViewBuilder private var results: some View {
+        Section {
+            if searching && hits.isEmpty {
+                HStack(spacing: 10) { ProgressView(); Text("Suche …").foregroundColor(Theme.secondary) }
+            } else if failed {
+                Text("Die Suche klappt gerade nicht – bitte gleich nochmal.").foregroundColor(Theme.secondary)
+            } else if hits.isEmpty {
+                Text("Nichts gefunden. Probier einen anderen Namen, z. B. „Selb“, „Zverev“ oder „Bundesliga“.").foregroundColor(Theme.secondary)
+            }
+            ForEach(hits, id: \.uid) { h in
+                Button { withAnimation { toggle(h) } } label: {
+                    FollowRow(emoji: h.emoji, name: h.name, sub: h.kind == "league" && h.sport == "f1" ? "Formel 1 · alle Rennen" : h.sub,
+                              on: isFollowed(h))
+                }
+                .buttonStyle(.plain)
+            }
+        } header: {
+            Text("Treffer")
+        } footer: {
+            if !hits.isEmpty { Text("Stern antippen zum Folgen. Namen und Zuordnung kommen direkt aus den offiziellen Spielplänen.") }
+        }
+    }
+
+    // MARK: Ich folge
+
+    @ViewBuilder private var following: some View {
+        Section {
+            if follows.isEmpty {
+                Text("Noch nichts – such oben nach deinem Verein, deinem Lieblingsspieler oder einer Liga.")
+                    .foregroundColor(Theme.secondary)
+            }
+            ForEach(follows, id: \.uid) { f in
+                NavigationLink(destination: FollowEditView(config: $config, uid: f.uid)) {
+                    FollowRow(emoji: f.emoji, name: f.name.isEmpty ? "Lädt …" : f.name, sub: FollowEditView.summary(f))
+                }
+            }
+            .onDelete { idx in var l = follows; l.remove(atOffsets: idx); save(l) }
+            .onMove { from, to in var l = follows; l.move(fromOffsets: from, toOffset: to); save(l) }
+        } header: {
+            Text("Ich folge")
+        } footer: {
+            if !follows.isEmpty { Text("Antippen: in welchen Wettbewerben Hubert die Spiele zeigt. Wischen entfernt.") }
+        }
+    }
+
+    @ViewBuilder private var browse: some View {
+        Section(header: Text("Stöbern")) {
+            ForEach(feed.catalog) { s in
+                NavigationLink(destination: BrowseSportView(config: $config, sport: s)) {
+                    FollowRow(emoji: s.emoji, name: s.name, sub: s.leagues.prefix(3).map(\.name).joined(separator: ", "))
+                }
+            }
+            if feed.catalog.isEmpty {
+                HStack(spacing: 10) { ProgressView(); Text("Lade Sportarten …").foregroundColor(Theme.secondary) }
+            }
+        }
+    }
+
+    /// Ältere Karten kennen nur die Team-ID – den Namen einmal nachladen
+    private func resolveNames() async {
+        var names: [String: String] = [:]
+        for f in follows where f.name.isEmpty {
+            for lg in f.leagues {
+                if let t = await feed.teams(lg).first(where: { $0.id == f.ref }) { names[f.uid] = t.n; break }
+            }
+        }
+        guard !names.isEmpty else { return }
+        var list = follows
+        for i in list.indices { if list[i].name.isEmpty, let n = names[list[i].uid] { list[i].name = n } }
         save(list)
     }
 }
 
-/// Eine Liga: was gezeigt wird + Favoriten
-struct LeaguePickView: View {
+/// Ein Favorit: Wettbewerbe bzw. was gezeigt wird
+struct FollowEditView: View {
     @Binding var config: [String: JSON]
-    let leagueId: String
+    let uid: String
     @ObservedObject private var feed = FeedService.shared
-    @State private var teams: [TeamRef] = []
-    @State private var loading = true
-    @State private var query = ""
-    @State private var newName = ""
+    @Environment(\.dismiss) private var dismiss
 
-    private var pick: SportPick { SportBucket.picks(config).first { $0.id == leagueId } ?? SportPick(id: leagueId) }
-    private var kind: String? { feed.catalog.flatMap(\.leagues).first { $0.id == leagueId }?.kind }
-    private var name: String { feed.catalog.flatMap(\.leagues).first { $0.id == leagueId }?.name ?? leagueId }
-    private var sport: String { SportBucket.sport(of: leagueId) }
+    private var follow: SportFollow? { SportBucket.follows(config).first { $0.uid == uid } }
 
-    private func update(_ change: (inout SportPick) -> Void) {
-        var list = SportBucket.picks(config)
-        guard let i = list.firstIndex(where: { $0.id == leagueId }) else { return }
+    private func update(_ change: (inout SportFollow) -> Void) {
+        var list = SportBucket.follows(config)
+        guard let i = list.firstIndex(where: { $0.uid == uid }) else { return }
         change(&list[i])
         SportBucket.store(list, in: &config)
     }
 
     /// Kurzbeschreibung für die Liste
-    static func summary(_ p: SportPick) -> String {
-        let n = p.fav.count + p.names.count
-        if p.sport == "f1" { return n == 0 ? "Alle Rennen" : "Alle Rennen · \(n) Fahrer markiert" }
-        switch p.mode {
-        case "fav": return n == 0 ? "Nur Favoriten – noch keine gewählt" : "Nur Favoriten (\(n))"
-        case "de": return p.sport == "tn" ? "Deutsche & Endspiele" : "Mit deutschen Vereinen"
-        default: return n == 0 ? "Alle Spiele" : "Alle Spiele · \(n) Favoriten"
+    static func summary(_ f: SportFollow) -> String {
+        let sport = SportBucket.sportName[f.sport] ?? ""
+        switch f.kind {
+        case "league":
+            if f.sport == "f1" { return "Alle Rennen" }
+            if f.mode == "de" { return f.sport == "tn" ? "Deutsche & Endspiele" : "Nur Spiele deutscher Vereine" }
+            return sport + " · alle Spiele"
+        case "driver": return "Formel 1 · Fahrer"
+        case "country": return f.sub
+        default:
+            let names = f.leagues.map { SportBucket.leagueName($0) }
+            if f.kind == "nat" && f.sport == "fb" { return "Fußball · alle Länderspiele" }
+            return sport + " · " + names.prefix(2).joined(separator: ", ") + (names.count > 2 ? " +\(names.count - 2)" : "")
         }
+    }
+
+    /// Wettbewerbe, aus denen man wählen kann
+    private func candidates(_ f: SportFollow) -> [SportCatalog.League] {
+        let all = feed.catalog.first { $0.id == f.sport }?.leagues ?? []
+        if f.sport == "fb" { return all.filter { f.kind == "nat" ? $0.kind == "nat" : $0.kind != "nat" } }
+        return all
     }
 
     private var modes: [(String, String)] {
-        if sport == "f1" { return [] }
-        var m = [("all", "Alle Spiele"), ("fav", sport == "tn" ? "Nur meine Spieler" : "Nur meine Favoriten")]
-        if sport == "tn" { m.insert(("de", "Deutsche & Endspiele"), at: 1) }
-        if kind == "intl" { m.insert(("de", "Mit deutschen Vereinen"), at: 1) }
-        return m
-    }
-
-    private func isFav(_ t: TeamRef) -> Bool { pick.fav.contains(t.id) || pick.names.contains { $0.caseInsensitiveCompare(t.n) == .orderedSame } }
-
-    private func toggle(_ t: TeamRef) {
-        update { p in
-            if isFav(t) {
-                p.fav.removeAll { $0 == t.id }
-                p.names.removeAll { $0.caseInsensitiveCompare(t.n) == .orderedSame }
-            } else {
-                p.fav.append(t.id)
-                // Wer einen Favoriten wählt, will meist nur dessen Spiele sehen (bei großen Ligen)
-                if p.mode == "all" && p.fav.count == 1 && p.names.isEmpty && sport != "f1" { p.mode = "fav" }
-            }
-        }
-    }
-
-    /// Spieler aus den aktuellen Spielen (Tennis) als Vorschläge
-    private var players: [String] {
-        let all = feed.sportFeeds.values.flatMap(\.matches).filter { $0.L == leagueId }
-        let names = all.flatMap { [$0.a.full ?? $0.a.n, $0.b.full ?? $0.b.n] }
-        return Array(Set(names)).filter { n in !pick.names.contains { $0.caseInsensitiveCompare(n) == .orderedSame } }.sorted()
+        guard let f = follow, f.isLeague, f.sport != "f1" else { return [] }
+        if f.sport == "tn" { return [("all", "Alle Spiele"), ("de", "Nur Deutsche & Endspiele")] }
+        if SportBucket.intlLeagues.contains(f.ref) { return [("all", "Alle Spiele"), ("de", "Nur Spiele deutscher Vereine")] }
+        return []
     }
 
     var body: some View {
         List {
-            if !modes.isEmpty {
-                Section(header: Text("Auf der Karte zeigen")) {
-                    ForEach(modes, id: \.0) { m in
-                        Button { withAnimation { update { $0.mode = m.0 } } } label: {
-                            HStack {
-                                Text(m.1).foregroundColor(.primary)
-                                Spacer()
-                                if pick.mode == m.0 { Image(systemName: "checkmark").font(.body.weight(.semibold)).foregroundColor(Theme.accent) }
-                            }
-                            .contentShape(Rectangle())
+            if let f = follow {
+                Section {
+                    VStack(spacing: 6) {
+                        Text(f.emoji).font(.system(size: 44))
+                        Text(f.name).font(.title2.weight(.bold)).multilineTextAlignment(.center)
+                        if !f.sub.isEmpty { Text(f.sub).font(.subheadline).foregroundColor(Theme.secondary).multilineTextAlignment(.center) }
+                    }
+                    .frame(maxWidth: .infinity).padding(.vertical, 6)
+                    .listRowBackground(Color.clear)
+                }
+
+                if !modes.isEmpty {
+                    Section(header: Text("Auf der Karte zeigen")) {
+                        ForEach(modes, id: \.0) { m in
+                            check(m.1, on: f.mode == m.0) { update { $0.mode = m.0 } }
                         }
-                        .buttonStyle(.plain)
                     }
                 }
+
+                if !f.isLeague && f.kind != "driver" {
+                    let list = candidates(f)
+                    if list.count > 1 {
+                        Section {
+                            ForEach(list) { l in
+                                let on = f.leagues.contains(l.id)
+                                check(l.name, on: on) {
+                                    update { x in
+                                        if on { if x.leagues.count > 1 { x.leagues.removeAll { $0 == l.id } } }
+                                        else { x.leagues.append(l.id) }
+                                    }
+                                }
+                            }
+                        } header: {
+                            Text("Wettbewerbe")
+                        } footer: {
+                            Text(f.kind == "player" || f.kind == "country"
+                                 ? "Hubert zeigt die Matches in den markierten Touren."
+                                 : "Hubert zeigt die Spiele in allen markierten Wettbewerben – auch wenn der Verein dort gerade nicht spielt, schadet ein Haken nicht.")
+                        }
+                    }
+                }
+
+                Section {
+                    Button(role: .destructive) {
+                        let list = SportBucket.follows(config).filter { $0.uid != uid }
+                        SportBucket.store(list, in: &config)
+                        dismiss()
+                    } label: {
+                        Text("Nicht mehr folgen").frame(maxWidth: .infinity)
+                    }
+                }
+            } else {
+                Text("Nicht mehr in deiner Auswahl").foregroundColor(Theme.secondary)
+            }
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle(follow?.name ?? "")
+        .navigationBarTitleDisplayMode(.inline)
+        .task { if feed.catalog.isEmpty { await feed.loadCatalog() } }
+    }
+
+    private func check(_ title: String, on: Bool, action: @escaping () -> Void) -> some View {
+        Button { withAnimation { action() } } label: {
+            HStack {
+                Text(title).foregroundColor(.primary)
+                Spacer()
+                if on { Image(systemName: "checkmark").font(.body.weight(.semibold)).foregroundColor(Theme.accent) }
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+/// Stöbern: Ligen einer Sportart
+struct BrowseSportView: View {
+    @Binding var config: [String: JSON]
+    let sport: SportCatalog
+
+    var body: some View {
+        List {
+            Section {
+                ForEach(sport.leagues) { l in
+                    NavigationLink(destination: BrowseLeagueView(config: $config, sport: sport, league: l)) {
+                        HStack {
+                            Text(l.name)
+                            Spacer()
+                            if SportBucket.follows(config).contains(where: { $0.leagues.contains(l.id) }) {
+                                Image(systemName: "star.fill").font(.caption).foregroundColor(.yellow)
+                            }
+                        }
+                    }
+                }
+            } footer: {
+                Text("Stern = du folgst dort einem Verein, Sportler oder der ganzen Liga.")
+            }
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle(sport.emoji + " " + sport.name)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+/// Stöbern: eine Liga – ganz folgen oder einzelne Vereine/Fahrer
+struct BrowseLeagueView: View {
+    @Binding var config: [String: JSON]
+    let sport: SportCatalog
+    let league: SportCatalog.League
+    @ObservedObject private var feed = FeedService.shared
+    @State private var teams: [TeamRef] = []
+    @State private var loading = true
+    @State private var query = ""
+
+    private var follows: [SportFollow] { SportBucket.follows(config) }
+    private func save(_ f: [SportFollow]) { SportBucket.store(f, in: &config) }
+    private var isNat: Bool { league.kind == "nat" }
+    private var itemKind: String { sport.id == "f1" ? "driver" : isNat ? "nat" : "team" }
+
+    private var leagueFollow: SportFollow { SportBucket.league(league.id, mode: league.kind == "intl" ? "de" : "all") }
+
+    private func follow(_ t: TeamRef) -> SportFollow {
+        SportFollow(kind: itemKind, ref: t.id, name: t.n, sport: sport.id,
+                    emoji: sport.emoji, sub: sport.id == "f1" ? "Formel 1 · Fahrer" : isNat ? sport.name + " · Nationalmannschaft" : sport.name + " · " + league.name,
+                    leagues: sport.id == "f1" ? ["f1"] : SportBucket.defaultLeagues(team: league.id, nat: isNat))
+    }
+
+    private func toggle(_ f: SportFollow) {
+        var list = follows
+        if let i = list.firstIndex(where: { $0.uid == f.uid }) { list.remove(at: i) } else { list.append(f) }
+        save(list)
+    }
+
+    private func on(_ f: SportFollow) -> Bool { follows.contains { $0.uid == f.uid } }
+
+    var body: some View {
+        List {
+            Section {
+                Button { withAnimation { toggle(leagueFollow) } } label: {
+                    FollowRow(emoji: sport.emoji, name: sport.id == "f1" ? "Alle Rennen" : "Ganze Liga folgen",
+                              sub: league.kind == "intl" ? "Erst nur Spiele deutscher Vereine – änderbar" : "Alle Spiele auf der Karte",
+                              on: on(leagueFollow))
+                }
+                .buttonStyle(.plain)
             }
 
-            if sport == "tn" {
+            if sport.id == "tn" {
                 Section {
-                    ForEach(pick.names, id: \.self) { n in
-                        HStack {
-                            Image(systemName: "star.fill").foregroundColor(.yellow)
-                            Text(n)
-                            Spacer()
-                            Button { update { $0.names.removeAll { $0 == n } } } label: {
-                                Image(systemName: "minus.circle.fill").foregroundColor(.red)
-                            }
-                            .buttonStyle(.borderless)
-                            .accessibilityLabel("\(n) entfernen")
-                        }
-                    }
-                    HStack {
-                        Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent)
-                        TextField("Spieler, z. B. Zverev", text: $newName)
-                            .submitLabel(.done).onSubmit { addName(newName) }
-                    }
-                    ForEach(players.filter { newName.isEmpty || $0.localizedCaseInsensitiveContains(newName) }.prefix(12), id: \.self) { n in
-                        Button { addName(n) } label: {
-                            HStack { Text(n).foregroundColor(.primary); Spacer(); Image(systemName: "star").foregroundColor(Theme.accent) }
-                                .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                    }
-                } header: { Text("Meine Spieler") } footer: {
-                    Text("Vorschläge sind die Spieler, die diese Woche spielen. Ein Teil des Namens reicht.")
+                    Text("Spieler findest du über die Suche – einfach den Namen eingeben, z. B. „Zverev“. Auch „Deutschland“ geht: dann siehst du alle deutschen Spieler.")
+                        .foregroundColor(Theme.secondary)
                 }
             } else {
                 Section {
-                    if loading { HStack { ProgressView(); Text("Lädt …").foregroundColor(Theme.secondary) } }
+                    if loading { HStack(spacing: 10) { ProgressView(); Text("Lädt …").foregroundColor(Theme.secondary) } }
                     let list = teams.filter { query.isEmpty || $0.n.localizedCaseInsensitiveContains(query) }
-                        .sorted { (isFav($0) ? 0 : 1, $0.n) < (isFav($1) ? 0 : 1, $1.n) }
                     ForEach(list) { t in
-                        Button { withAnimation { toggle(t) } } label: {
-                            HStack {
-                                Text(t.n).foregroundColor(.primary)
-                                Spacer()
-                                Image(systemName: isFav(t) ? "star.fill" : "star")
-                                    .foregroundColor(isFav(t) ? .yellow : Color(UIColor.tertiaryLabel))
-                            }
-                            .contentShape(Rectangle())
+                        let f = follow(t)
+                        Button { withAnimation { toggle(f) } } label: {
+                            FollowRow(emoji: sport.emoji, name: t.n, sub: "", on: on(f))
                         }
                         .buttonStyle(.plain)
-                        .accessibilityLabel(t.n + (isFav(t) ? ", Favorit" : ""))
                     }
                     if !loading && teams.isEmpty { Text("Gerade keine Teams verfügbar").foregroundColor(Theme.secondary) }
-                } header: { Text(sport == "f1" ? "Meine Fahrer" : "Meine Vereine") } footer: {
-                    Text(sport == "f1" ? "Markierte Fahrer siehst du im Ergebnis immer, auch außerhalb der Top 3."
-                         : "Stern = Favorit. Favoriten stehen auf der Karte oben und sind fett markiert.")
+                } header: {
+                    Text(sport.id == "f1" ? "Fahrer" : isNat ? "Länder" : "Vereine")
+                } footer: {
+                    Text(sport.id == "f1" ? "Markierte Fahrer siehst du im Ergebnis immer, auch außerhalb der Top 3."
+                         : "Stern = du folgst. Hubert zeigt dann deren Spiele – bei Fußballvereinen auch Pokal und Europapokal.")
                 }
             }
         }
         .listStyle(.insetGrouped)
-        .modifier(SearchIf(on: sport != "tn", text: $query, prompt: sport == "f1" ? "Fahrer suchen" : "Verein suchen"))
-        .navigationTitle(name)
+        .modifier(SearchIf(on: sport.id != "tn", text: $query, prompt: sport.id == "f1" ? "Fahrer suchen" : "In der Liga suchen"))
+        .navigationTitle(league.name)
         .navigationBarTitleDisplayMode(.inline)
         .task {
-            if feed.catalog.isEmpty { await feed.loadCatalog() }
-            if sport == "tn" { await feed.loadSport(leagues: [leagueId]) }
-            else { teams = await feed.teams(leagueId) }
+            if sport.id != "tn" { teams = await feed.teams(league.id) }
             loading = false
         }
     }
-
-    private func addName(_ raw: String) {
-        let n = raw.trimmingCharacters(in: .whitespaces)
-        guard !n.isEmpty, !pick.names.contains(where: { $0.caseInsensitiveCompare(n) == .orderedSame }) else { newName = ""; return }
-        update { p in
-            p.names.append(n)
-            if p.mode == "all" && p.names.count == 1 && p.fav.isEmpty { p.mode = "fav" }
-        }
-        newName = ""
-    }
 }
 
-/// Suchfeld nur, wo es Sinn ergibt (bei Tennis gibt es eine eigene Eingabe)
+/// Suchfeld nur, wo es Sinn ergibt
 private struct SearchIf: ViewModifier {
     let on: Bool
     @Binding var text: String

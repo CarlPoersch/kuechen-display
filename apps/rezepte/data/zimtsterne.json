@@ -1,0 +1,59 @@
+{
+ "id": "zimtsterne",
+ "title": "Zimtsterne",
+ "icon": "⭐",
+ "cuisine": "Deutsch",
+ "servings": 40,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Eiweiß"
+  },
+  {
+   "amount": "200 g",
+   "name": "Puderzucker"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "300 g",
+   "name": "gemahlene Mandeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zitronensaft"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eiweiß mit Salz steif schlagen, Puderzucker nach und nach einrieseln lassen und weiterschlagen, bis die Masse glänzt.",
+   "minutes": 6
+  },
+  {
+   "text": "4 EL Eischnee für die Glasur abnehmen und abgedeckt beiseitestellen."
+  },
+  {
+   "text": "Mandeln und Zimt unter den restlichen Eischnee kneten. Teig kalt stellen.",
+   "minutes": 30
+  },
+  {
+   "text": "Teig zwischen Backpapier 8 mm dick ausrollen, Sterne ausstechen (Form immer wieder in Wasser tauchen) und mit Glasur bestreichen."
+  },
+  {
+   "text": "Kurz antrocknen lassen, dann bei 140 °C Umluft backen – die Glasur bleibt weiß.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90,
+ "gf": true
+}

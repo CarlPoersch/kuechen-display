@@ -1,0 +1,74 @@
+{
+ "id": "gefuellte-paprika",
+ "title": "Gefüllte Paprika mit Hack und Reis",
+ "icon": "🫑",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 1 Std. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "große Paprikaschoten"
+  },
+  {
+   "amount": "400 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprikapulver"
+  },
+  {
+   "amount": "500 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Schmand"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis 10 Minuten vorkochen und abgießen.",
+   "minutes": 10
+  },
+  {
+   "text": "Paprika köpfen und entkernen. Hack mit Reis, gewürfelter Zwiebel, Ei, Paprikapulver, Salz und Pfeffer verkneten und einfüllen."
+  },
+  {
+   "text": "Passierte Tomaten mit Brühe und Zucker in einem Topf aufkochen, Paprika hineinsetzen und Deckel auflegen."
+  },
+  {
+   "text": "Bei kleiner Hitze schmoren.",
+   "minutes": 45
+  },
+  {
+   "text": "Sauce mit Schmand verfeinern und abschmecken. Dazu Reis oder Kartoffelpüree."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 70,
+ "gf": true
+}

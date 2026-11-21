@@ -1,0 +1,83 @@
+{
+ "id": "rehragout",
+ "title": "Rehragout mit Preiselbeeren",
+ "icon": "🦌",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 2 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Reh (Keule oder Schulter), gewürfelt"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "150 g",
+   "name": "Knollensellerie"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Wildfond"
+  },
+  {
+   "amount": "6",
+   "name": "Wacholderbeeren"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Preiselbeeren"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch trocken tupfen und portionsweise in Öl kräftig anbraten, herausnehmen."
+  },
+  {
+   "text": "Zwiebeln, Karotte und Sellerie würfeln und anrösten, Tomatenmark kurz mitrösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Rotwein ablöschen und einkochen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Fleisch, Fond, angedrückte Wacholderbeeren und Lorbeer zugeben und zugedeckt schmoren.",
+   "minutes": 90
+  },
+  {
+   "text": "Sahne und Preiselbeeren einrühren, mit Salz und Pfeffer abschmecken. Dazu Spätzle oder Knödel und Rotkohl."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 135,
+ "gf": true
+}

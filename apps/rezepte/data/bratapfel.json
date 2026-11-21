@@ -1,0 +1,73 @@
+{
+ "id": "bratapfel",
+ "title": "Bratäpfel mit Vanillesauce",
+ "icon": "🍎",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "säuerliche Äpfel (z. B. Boskop)"
+  },
+  {
+   "amount": "40 g",
+   "name": "gehackte Walnüsse"
+  },
+  {
+   "amount": "40 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "20 g",
+   "name": "Butter"
+  },
+  {
+   "group": "Vanillesauce"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillesaucenpulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Äpfel waschen und das Kerngehäuse großzügig ausstechen."
+  },
+  {
+   "text": "Nüsse, Rosinen, Honig und Zimt mischen und in die Äpfel füllen. Je ein Butterflöckchen daraufsetzen."
+  },
+  {
+   "text": "In einer Form backen, bis die Äpfel weich sind und leicht aufplatzen.",
+   "minutes": 25
+  },
+  {
+   "text": "Für die Sauce Pulver mit Zucker und etwas Milch glatt rühren, restliche Milch aufkochen, einrühren und kurz köcheln.",
+   "minutes": 3
+  },
+  {
+   "text": "Bratäpfel mit warmer Vanillesauce servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

@@ -1,0 +1,78 @@
+{
+ "id": "hirschgulasch",
+ "title": "Hirschgulasch",
+ "icon": "🦌",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Hirschgulasch"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Wildfond"
+  },
+  {
+   "amount": "100 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Johannisbeergelee"
+  },
+  {
+   "amount": "5",
+   "name": "Wacholderbeeren"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Thymian"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in Butterschmalz portionsweise scharf anbraten und herausnehmen."
+  },
+  {
+   "text": "Zwiebeln in Streifen glasig braten, Tomatenmark und Paprika kurz mitrösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Mit Rotwein ablöschen, Fleisch, Fond, Wacholder und Thymian zugeben."
+  },
+  {
+   "text": "Zugedeckt bei kleiner Hitze schmoren.",
+   "minutes": 105
+  },
+  {
+   "text": "Champignons in Scheiben zugeben, mit Gelee, Salz und Pfeffer abschmecken.",
+   "minutes": 15
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 150
+}

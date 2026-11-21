@@ -1,0 +1,71 @@
+{
+ "id": "irish-stew",
+ "title": "Irish Stew",
+ "icon": "🍲",
+ "cuisine": "Britisch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Lammschulter"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "3",
+   "name": "Karotten"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1 Stange",
+   "name": "Lauch"
+  },
+  {
+   "amount": "1 l",
+   "name": "Lamm- oder Rinderbrühe"
+  },
+  {
+   "amount": "2 Zweige",
+   "name": "Thymian"
+  },
+  {
+   "amount": "1",
+   "name": "Lorbeerblatt"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Lamm in große Würfel schneiden, salzen und portionsweise anbraten."
+  },
+  {
+   "text": "Zwiebeln und Lauch in Ringen kurz mitbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Brühe, Thymian und Lorbeer zugeben und zugedeckt köcheln.",
+   "minutes": 60
+  },
+  {
+   "text": "Kartoffeln und Karotten in groben Stücken zugeben und weiterkochen, bis alles weich ist. Einige Kartoffeln zerfallen und binden den Eintopf.",
+   "minutes": 35
+  },
+  {
+   "text": "Mit Salz, Pfeffer und Petersilie abschmecken."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 120,
+ "gf": true
+}

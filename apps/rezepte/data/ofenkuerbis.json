@@ -1,0 +1,73 @@
+{
+ "id": "ofenkuerbis",
+ "title": "Ofenkürbis mit Joghurt-Dip",
+ "icon": "🎃",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Hokkaidokürbis (ca. 1 kg)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kürbiskerne"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "250 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C Umluft vorheizen. Kürbis entkernen und in Spalten schneiden."
+  },
+  {
+   "text": "Mit Öl, Gewürzen und Salz mischen und auf einem Blech verteilen."
+  },
+  {
+   "text": "Backen, bis die Ränder karamellisieren; nach der Hälfte wenden.",
+   "minutes": 30
+  },
+  {
+   "text": "Joghurt mit gepresstem Knoblauch, Zitrone, gehackter Petersilie und Salz verrühren."
+  },
+  {
+   "text": "Kürbiskerne ohne Fett rösten und über die Spalten streuen.",
+   "minutes": 3
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

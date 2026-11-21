@@ -1,75 +1,77 @@
 import SwiftUI
 
 // ============================================================
-// Sport-Bucket – personalisierbar wie Apple Sports:
-// Ligen und Turniere wählen, je Liga „alle Spiele“ oder nur Favoriten
-// (Vereine, Spieler, Fahrer). Sportarten: Fußball, Tennis, Basketball,
-// Eishockey (NHL, DEL), American Football, Baseball, Formel 1.
-// Einstellungen: leagues = [{ id, mode, fav: [IDs], names: [Namen] }]
-// (ältere Karten mit fb/tn werden beim Lesen umgerechnet).
+// Sport-Bucket – man folgt Vereinen, Nationalteams, Sportlern,
+// Fahrern, Ländern oder ganzen Ligen (Suche wie bei den Haltestellen).
+// Quellen über die Supabase-Funktion „sport“: ESPN, HockeyWeb, Formel 1.
+// Einstellungen: follows = [{ kind, ref, name, sport, emoji, sub, leagues, mode }]
+// (ältere Karten mit fb/tn bzw. leagues werden beim Lesen umgerechnet).
 // ============================================================
 
-/// Eine gewählte Liga mit Anzeige-Modus und Favoriten
-struct SportPick: Hashable, Identifiable {
-    var id: String                // Liga, z. B. "soccer/ger.1", "tennis/atp", "f1"
-    var mode: String = "all"      // all · fav (nur Favoriten) · de (deutsche Vereine bzw. Deutsche & Endspiele)
-    var fav: [String] = []        // Team-, Spieler- oder Fahrer-IDs
-    var names: [String] = []      // Namen (Tennis, Nationalteams)
+/// Etwas, dem man folgt
+struct SportFollow: Hashable {
+    var kind: String          // team · nat · player · driver · country · league
+    var ref: String           // ID der Quelle (Team, Spieler, Fahrer, Ländercode, Liga)
+    var name: String
+    var sport: String         // fb tn ih bb af bs f1
+    var emoji: String
+    var sub: String
+    var leagues: [String]     // Wettbewerbe, in denen Hubert die Spiele zeigt
+    var mode = "all"          // nur Ligen: all · de (deutsche Vereine bzw. Deutsche & Endspiele)
 
-    var json: JSON {
-        .object(["id": .string(id), "mode": .string(mode),
-                 "fav": .array(fav.map { .string($0) }), "names": .array(names.map { .string($0) })])
+    var uid: String { kind + ":" + sport + ":" + ref }
+    var isLeague: Bool { kind == "league" }
+
+    init(kind: String, ref: String, name: String, sport: String, emoji: String, sub: String, leagues: [String], mode: String = "all") {
+        self.kind = kind; self.ref = ref; self.name = name; self.sport = sport
+        self.emoji = emoji; self.sub = sub; self.leagues = leagues; self.mode = mode
     }
 
-    init(id: String, mode: String = "all", fav: [String] = [], names: [String] = []) {
-        self.id = id; self.mode = mode; self.fav = fav; self.names = names
+    init(_ h: SportHit) {
+        self.init(kind: h.kind, ref: h.id, name: h.name, sport: h.sport, emoji: h.emoji, sub: h.sub, leagues: h.leagues)
     }
 
     init?(_ j: JSON) {
-        guard let o = j.object, let id = o["id"]?.string else { return nil }
-        self.id = id
-        mode = o["mode"]?.string ?? "all"
-        fav = (o["fav"]?.array ?? []).compactMap(\.string)
-        names = (o["names"]?.array ?? []).compactMap(\.string)
+        guard let o = j.object, let kind = o["kind"]?.string, let ref = o["ref"]?.string else { return nil }
+        let sport = o["sport"]?.string ?? "fb"
+        self.init(kind: kind, ref: ref, name: o["name"]?.string ?? "", sport: sport,
+                  emoji: o["emoji"]?.string ?? (SportBucket.emoji[sport] ?? "🏆"), sub: o["sub"]?.string ?? "",
+                  leagues: (o["leagues"]?.array ?? []).compactMap(\.string), mode: o["mode"]?.string ?? "all")
     }
 
-    var sport: String { SportBucket.sport(of: id) }
-
-    /// Ist diese Seite ein Favorit?
-    func isFav(_ s: Match.Side) -> Bool {
-        if let i = s.id, fav.contains(i) { return true }
-        let n = (s.full ?? s.n).lowercased(), short = s.n.lowercased()
-        return names.contains { let q = $0.lowercased(); return n.contains(q) || short == q }
+    var json: JSON {
+        .object(["kind": .string(kind), "ref": .string(ref), "name": .string(name), "sport": .string(sport),
+                 "emoji": .string(emoji), "sub": .string(sub), "leagues": .array(leagues.map { .string($0) }), "mode": .string(mode)])
     }
 
-    func hasFav(_ m: Match) -> Bool {
-        if m.isRace { return (m.field ?? []).contains { d in d.id.map { fav.contains($0) } ?? false } }
-        return isFav(m.a) || isFav(m.b)
-    }
-
-    /// Soll das Spiel gezeigt werden?
-    func shows(_ m: Match) -> Bool {
-        if m.isRace { return true }
-        switch mode {
-        case "fav": return hasFav(m)
-        case "de": return m.sport == "tn" ? (m.a.c == "GER" || m.b.c == "GER" || m.late == true || hasFav(m)) : (m.de == true || hasFav(m))
-        default: return true
-        }
+    /// Passt eine Seite (Team oder Spieler) zu diesem Favoriten?
+    func matches(_ s: Match.Side) -> Bool {
+        if kind == "country" { return s.c == ref }
+        if let i = s.id, i == ref { return true }
+        let names = [s.full, s.n].compactMap { $0 }
+        // Aus älteren Karten: Spieler nur mit Namensteil (z. B. „Zverev“)
+        if kind == "player" && ref == name { return names.contains { $0.localizedCaseInsensitiveContains(name) } }
+        return !name.isEmpty && names.contains { $0.caseInsensitiveCompare(name) == .orderedSame }
     }
 }
 
 enum SportBucket {
     static let kind = BucketKind(
         id: "sport", name: "Sport", symbol: "sportscourt", tint: .green, art: .glance,
-        interests: ["sport"], blurb: "Live-Ergebnisse deiner Ligen, Vereine und Spieler.",
-        glance: { inst, size in AnyView(SportGlance(picks: picks(inst.config), size: size)) },
-        detail: { inst in AnyView(SportDetail(picks: picks(inst.config))) },
+        interests: ["sport"], blurb: "Live-Ergebnisse deiner Vereine, Sportler und Ligen.",
+        glance: { inst, size in AnyView(SportGlance(follows: follows(inst.config), size: size)) },
+        detail: { inst in AnyView(SportDetail(follows: follows(inst.config))) },
         itemLinks: true,
         settings: { binding in AnyView(SportSettings(config: binding)) }
     )
 
     static let emoji = ["fb": "⚽️", "tn": "🎾", "bb": "🏀", "ih": "🏒", "af": "🏈", "bs": "⚾️", "f1": "🏎️"]
     static let sportName = ["fb": "Fußball", "tn": "Tennis", "bb": "Basketball", "ih": "Eishockey", "af": "Football", "bs": "Baseball", "f1": "Formel 1"]
+    static let order = ["fb", "tn", "ih", "bb", "af", "bs", "f1"]
+
+    static let natLeagues = ["soccer/fifa.world", "soccer/fifa.worldq.uefa", "soccer/uefa.euro", "soccer/uefa.euroq",
+                             "soccer/uefa.nations", "soccer/fifa.friendly"]
+    static let intlLeagues = ["soccer/uefa.champions", "soccer/uefa.europa", "soccer/uefa.europa.conf", "soccer/fifa.cwc"]
 
     static func sport(of league: String) -> String {
         if league == "f1" { return "f1" }
@@ -78,54 +80,145 @@ enum SportBucket {
         case "soccer": return "fb"
         case "tennis": return "tn"
         case "basketball": return "bb"
-        case "hockey": return "ih"
+        case "hockey", "hw": return "ih"
         case "football": return "af"
         case "baseball": return "bs"
         default: return "fb"
         }
     }
 
-    /// Gewählte Ligen. Fehlt die Liste (ältere Karte), gilt die bisherige feste Auswahl.
-    static func picks(_ c: [String: JSON]) -> [SportPick] {
-        if let list = c["leagues"]?.array { return list.compactMap { SportPick($0) } }
-        var out: [SportPick] = []
-        if c["fb"]?.bool ?? true {
-            out += [SportPick(id: "soccer/ger.1", mode: "fav", fav: ["132"]),
-                    SportPick(id: "soccer/ger.dfb_pokal"), SportPick(id: "soccer/uefa.champions"),
-                    SportPick(id: "soccer/uefa.europa", mode: "de"), SportPick(id: "soccer/uefa.europa.conf", mode: "de")]
-            out += ["soccer/fifa.world", "soccer/fifa.worldq.uefa", "soccer/uefa.euro", "soccer/uefa.euroq", "soccer/uefa.nations", "soccer/fifa.friendly"]
-                .map { SportPick(id: $0, mode: "fav", names: ["Deutschland"]) }
+    static func leagueName(_ id: String) -> String {
+        FeedService.shared.catalog.flatMap(\.leagues).first { $0.id == id }?.name ?? fallbackNames[id] ?? id
+    }
+    private static let fallbackNames = [
+        "soccer/ger.1": "Bundesliga", "soccer/ger.dfb_pokal": "DFB-Pokal", "soccer/uefa.champions": "Champions League",
+        "soccer/uefa.europa": "Europa League", "soccer/uefa.europa.conf": "Conference League", "soccer/fifa.cwc": "Klub-WM",
+        "tennis/atp": "ATP (Herren)", "tennis/wta": "WTA (Damen)", "f1": "Formel 1", "hw/oberliga": "Oberliga", "hw/del": "DEL",
+    ]
+
+    // MARK: Gespeicherte Auswahl
+
+    static func follows(_ c: [String: JSON]) -> [SportFollow] {
+        if let list = c["follows"]?.array { return list.compactMap { SportFollow($0) } }
+        return migrate(c)
+    }
+
+    static func store(_ f: [SportFollow], in c: inout [String: JSON]) {
+        c["follows"] = .array(f.map(\.json))
+        c["leagues"] = nil; c["fb"] = nil; c["tn"] = nil
+    }
+
+    /// Alle Wettbewerbe, die geladen werden müssen (ohne Doppelte, Reihenfolge bleibt)
+    static func leagues(_ f: [SportFollow]) -> [String] {
+        var seen = Set<String>()
+        return f.flatMap(\.leagues).filter { seen.insert($0).inserted }
+    }
+
+    static func league(_ id: String, mode: String = "all") -> SportFollow {
+        let sp = sport(of: id)
+        return SportFollow(kind: "league", ref: id, name: leagueName(id), sport: sp, emoji: emoji[sp] ?? "🏆",
+                           sub: (sportName[sp] ?? "") + " · Liga", leagues: [id], mode: mode)
+    }
+
+    /// Wettbewerbe, die zu einem Verein bzw. Team gehören (Liga, Pokal, Europapokal)
+    static func defaultLeagues(team league: String, nat: Bool) -> [String] {
+        if nat { return natLeagues }
+        guard sport(of: league) == "fb" else { return [league] }
+        if intlLeagues.contains(league) { return intlLeagues }
+        return [league] + (league.hasPrefix("soccer/ger.") ? ["soccer/ger.dfb_pokal"] : []) + intlLeagues
+    }
+
+    /// Frühere Karten: feste Auswahl (fb/tn) bzw. Ligen mit Favoriten
+    private static func migrate(_ c: [String: JSON]) -> [SportFollow] {
+        guard let list = c["leagues"]?.array else {
+            var out: [SportFollow] = []
+            if c["fb"]?.bool ?? true {
+                out.append(SportFollow(kind: "team", ref: "132", name: "FC Bayern", sport: "fb", emoji: "⚽️", sub: "Fußball · Bundesliga",
+                                       leagues: defaultLeagues(team: "soccer/ger.1", nat: false)))
+                out.append(SportFollow(kind: "nat", ref: "481", name: "Deutschland", sport: "fb", emoji: "🇩🇪", sub: "Fußball · Nationalmannschaft",
+                                       leagues: natLeagues))
+                out.append(league("soccer/uefa.champions"))
+                out.append(league("soccer/ger.dfb_pokal"))
+                out.append(league("soccer/uefa.europa", mode: "de"))
+                out.append(league("soccer/uefa.europa.conf", mode: "de"))
+            }
+            if c["tn"]?.bool ?? true {
+                out.append(league("tennis/atp", mode: "de"))
+                out.append(league("tennis/wta", mode: "de"))
+            }
+            return out
         }
-        if c["tn"]?.bool ?? true {
-            out += [SportPick(id: "tennis/atp", mode: "de"), SportPick(id: "tennis/wta", mode: "de")]
+        let known = ["132": "FC Bayern", "481": "Deutschland"]
+        var out: [SportFollow] = []
+        func addFav(_ f: SportFollow) {
+            if let i = out.firstIndex(where: { $0.uid == f.uid }) {
+                out[i].leagues += f.leagues.filter { !out[i].leagues.contains($0) }
+            } else { out.append(f) }
+        }
+        for j in list {
+            guard let o = j.object, let id = o["id"]?.string else { continue }
+            let lg = id == "del" ? "hw/del" : id
+            let mode = o["mode"]?.string ?? "all"
+            let sp = sport(of: lg)
+            if mode != "fav" || sp == "f1" { out.append(league(lg, mode: mode == "de" ? "de" : "all")) }
+            let nat = natLeagues.contains(lg)
+            let kind = sp == "f1" ? "driver" : sp == "tn" ? "player" : nat ? "nat" : "team"
+            let sub = (sportName[sp] ?? "") + " · " + (nat ? "Nationalmannschaft" : leagueName(lg))
+            for f in (o["fav"]?.array ?? []).compactMap(\.string) {
+                addFav(SportFollow(kind: kind, ref: f, name: known[f] ?? "", sport: sp, emoji: emoji[sp] ?? "🏆", sub: sub, leagues: [lg]))
+            }
+            for n in (o["names"]?.array ?? []).compactMap(\.string) {
+                let ref = kind == "nat" && n == "Deutschland" ? "481" : n
+                addFav(SportFollow(kind: kind, ref: ref, name: n, sport: sp, emoji: kind == "nat" && n == "Deutschland" ? "🇩🇪" : (emoji[sp] ?? "🏆"),
+                                   sub: sub, leagues: [lg]))
+            }
         }
         return out
     }
 
-    static func store(_ picks: [SportPick], in c: inout [String: JSON]) {
-        c["leagues"] = .array(picks.map(\.json))
-        c["fb"] = nil; c["tn"] = nil
+    // MARK: Filtern
+
+    /// Soll das Spiel gezeigt werden? Ligen: alle (bzw. deutsche) Spiele; sonst nur mit Favorit
+    static func shows(_ m: Match, _ f: [SportFollow]) -> Bool {
+        let L = m.L ?? ""
+        if m.isRace { return f.contains { $0.leagues.contains(L) } }
+        return f.contains { x in
+            guard x.leagues.contains(L) else { return false }
+            if x.isLeague {
+                guard x.mode == "de" else { return true }
+                return m.sport == "tn" ? (m.a.c == "GER" || m.b.c == "GER" || m.late == true) : m.de == true
+            }
+            return x.matches(m.a) || x.matches(m.b)
+        }
     }
 
-    /// Gefilterte Spiele: nur die gewählten Ligen, je nach Modus nur Favoriten
-    static func filter(_ all: [Match], _ picks: [SportPick]) -> [Match] {
-        let byId = Dictionary(picks.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
-        return all.filter { m in byId[m.L ?? ""].map { $0.shows(m) } ?? false }
+    static func filter(_ all: [Match], _ f: [SportFollow]) -> [Match] { all.filter { shows($0, f) } }
+
+    /// Favorit = Verein, Team, Sportler oder Land, dem man folgt (ganze Ligen zählen nicht)
+    static func isFav(_ s: Match.Side, in m: Match, _ f: [SportFollow]) -> Bool {
+        let L = m.L ?? ""
+        return f.contains { !$0.isLeague && $0.leagues.contains(L) && $0.matches(s) }
     }
 
-    static func isFav(_ m: Match, _ picks: [SportPick]) -> Bool {
-        picks.first { $0.id == m.L }?.hasFav(m) ?? false
+    static func favDriver(_ id: String?, _ f: [SportFollow]) -> Bool {
+        guard let id = id else { return false }
+        return f.contains { $0.kind == "driver" && $0.ref == id }
+    }
+
+    static func isFav(_ m: Match, _ f: [SportFollow]) -> Bool {
+        if m.isRace { return (m.field ?? []).contains { favDriver($0.id, f) } }
+        return isFav(m.a, in: m, f) || isFav(m.b, in: m, f)
     }
 
     /// Startseite: Live zuerst, dann Favoriten, dann der Rest; Ergebnisse höchstens 20 Std. alt
-    static func pick(_ all: [Match], _ picks: [SportPick]) -> [Match] {
+    static func pick(_ all: [Match], _ f: [SportFollow]) -> [Match] {
         let now = Date()
         let order = ["in": 0, "pre": 1, "post": 2]
         return all.filter { $0.state != "post" || now.timeIntervalSince($0.start) < 20 * 3600 }
             .sorted { a, b in
                 let oa = order[a.state] ?? 3, ob = order[b.state] ?? 3
                 if oa != ob { return oa < ob }
-                let fa = isFav(a, picks), fb = isFav(b, picks)
+                let fa = isFav(a, f), fb = isFav(b, f)
                 if fa != fb && a.state != "pre" { return fa }
                 return a.state == "post" ? a.start > b.start : a.start < b.start
             }
@@ -133,24 +226,25 @@ enum SportBucket {
 }
 
 struct SportGlance: View {
-    let picks: [SportPick]
+    let follows: [SportFollow]
     let size: BucketSize
     @ObservedObject private var feed = FeedService.shared
     @Environment(\.glanceSpace) private var space
 
-    private var key: String { FeedService.key(picks.map(\.id)) }
+    private var leagues: [String] { SportBucket.leagues(follows) }
+    private var key: String { FeedService.key(leagues) }
 
     var body: some View {
         content.refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) {
-            await FeedService.shared.loadSport(leagues: picks.map(\.id))
+            await FeedService.shared.loadSport(leagues: leagues)
         }
     }
 
     @ViewBuilder private var content: some View {
-        if picks.isEmpty {
-            Text("Wähle Ligen und Favoriten über den Regler oben rechts").foregroundColor(Theme.secondary)
+        if follows.isEmpty {
+            Text("Folge Vereinen, Sportlern oder Ligen – über den Regler oben rechts").foregroundColor(Theme.secondary)
         } else if let f = feed.sportFeeds[key] {
-            let list = SportBucket.pick(SportBucket.filter(f.matches, picks), picks)
+            let list = SportBucket.pick(SportBucket.filter(f.matches, follows), follows)
             if list.isEmpty {
                 Text("Gerade keine Spiele").foregroundColor(Theme.secondary)
             } else {
@@ -159,9 +253,9 @@ struct SportGlance: View {
                         ForEach(Array(page.enumerated()), id: \.element.id) { i, m in
                             if i > 0 { Divider() }
                             // Jedes Spiel einzeln antippbar
-                            NavigationLink(destination: MatchDetailView(match: m, picks: picks)) {
+                            NavigationLink(destination: MatchDetailView(match: m, follows: follows)) {
                                 HStack(spacing: 6) {
-                                    MatchRow(match: m, compact: true, picks: picks)
+                                    MatchRow(match: m, compact: true, follows: follows)
                                     Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
                                         .foregroundColor(Color(UIColor.tertiaryLabel))
                                 }
@@ -182,9 +276,7 @@ struct SportGlance: View {
 struct MatchRow: View {
     let match: Match
     var compact = false
-    var picks: [SportPick] = []
-
-    private var pick: SportPick? { picks.first { $0.id == match.L } }
+    var follows: [SportFollow] = []
 
     private var status: some View {
         Group {
@@ -202,7 +294,7 @@ struct MatchRow: View {
     }
 
     private func line(_ s: Match.Side, _ o: Match.Side) -> some View {
-        let fav = pick?.isFav(s) ?? false
+        let fav = SportBucket.isFav(s, in: match, follows)
         return HStack(spacing: 6) {
             Text(s.n + s.flag).fontWeight(s.win == true || fav ? .semibold : .regular).lineLimit(1)
             if fav { Image(systemName: "star.fill").font(.system(size: 9)).foregroundColor(.yellow) }
@@ -231,7 +323,7 @@ struct MatchRow: View {
                 Spacer(minLength: 4)
             }
             if let field = match.field, !field.isEmpty {
-                let favs = field.filter { d in d.id.map { (pick?.fav ?? []).contains($0) } ?? false }
+                let favs = field.filter { SportBucket.favDriver($0.id, follows) }
                 let show = field.prefix(3).map { "\($0.pos). \($0.n)" } + favs.filter { $0.pos > 3 }.map { "⭐ \($0.pos). \($0.n)" }
                 Text(show.joined(separator: " · ")).font(.caption).foregroundColor(Theme.secondary).lineLimit(compact ? 1 : 2)
             } else if let next = match.sessions?.first {
@@ -261,19 +353,20 @@ struct MatchRow: View {
 }
 
 struct SportDetail: View {
-    let picks: [SportPick]
+    let follows: [SportFollow]
     @State private var only = "alle"
     @ObservedObject private var feed = FeedService.shared
 
-    private var key: String { FeedService.key(picks.map(\.id)) }
+    private var leagues: [String] { SportBucket.leagues(follows) }
+    private var key: String { FeedService.key(leagues) }
     /// Sportarten in der Auswahl, in fester Reihenfolge
     private var sports: [String] {
-        let have = Set(picks.map(\.sport))
-        return ["fb", "tn", "bb", "ih", "af", "bs", "f1"].filter(have.contains)
+        let have = Set(follows.map(\.sport))
+        return SportBucket.order.filter(have.contains)
     }
 
     var body: some View {
-        let all = SportBucket.filter(feed.sportFeeds[key]?.matches ?? [], picks).filter { only == "alle" || $0.sport == only }
+        let all = SportBucket.filter(feed.sportFeeds[key]?.matches ?? [], follows).filter { only == "alle" || $0.sport == only }
         List {
             // Sportarten als Kapseln (bei vielen Sportarten passt kein Segment mehr)
             if sports.count > 1 {
@@ -286,16 +379,16 @@ struct SportDetail: View {
                 }
                 .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
             }
-            if picks.isEmpty { Text("Noch keine Ligen gewählt – oben rechts über den Regler einstellen.").foregroundColor(Theme.secondary) }
+            if follows.isEmpty { Text("Du folgst noch niemandem – oben rechts über den Regler einstellen.").foregroundColor(Theme.secondary) }
             else if feed.sportFeeds[key] == nil { ProgressView() }
             else if all.isEmpty { Text("Gerade keine Spiele").foregroundColor(Theme.secondary) }
             section("Live", all.filter { $0.isLive })
-            section("Meine Favoriten", all.filter { !$0.isLive && $0.state == "pre" && SportBucket.isFav($0, picks) })
-            section("Demnächst", all.filter { $0.state == "pre" && !SportBucket.isFav($0, picks) })
+            section("Meine Favoriten", all.filter { !$0.isLive && $0.state == "pre" && SportBucket.isFav($0, follows) })
+            section("Demnächst", all.filter { $0.state == "pre" && !SportBucket.isFav($0, follows) })
             section("Ergebnisse", all.filter { $0.state == "post" })
         }
         .listStyle(.insetGrouped)
-        .refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) { await FeedService.shared.loadSport(leagues: picks.map(\.id)) }
+        .refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) { await FeedService.shared.loadSport(leagues: leagues) }
     }
 
     private func chip(_ id: String, _ title: String) -> some View {
@@ -312,7 +405,7 @@ struct SportDetail: View {
         if !list.isEmpty {
             Section(header: Text(title)) {
                 ForEach(list) { m in
-                    NavigationLink(destination: MatchDetailView(match: m, picks: picks)) { MatchRow(match: m, picks: picks).padding(.vertical, 4) }
+                    NavigationLink(destination: MatchDetailView(match: m, follows: follows)) { MatchRow(match: m, follows: follows).padding(.vertical, 4) }
                 }
             }
         }
@@ -321,7 +414,7 @@ struct SportDetail: View {
 
 struct MatchDetailView: View {
     let match: Match
-    var picks: [SportPick] = []
+    var follows: [SportFollow] = []
     @State private var detail: MatchDetail?
     @State private var tab = 0
     @ObservedObject private var feed = FeedService.shared
@@ -339,7 +432,7 @@ struct MatchDetailView: View {
                 if let v = live.venue { Section(header: Text("Ort")) { Label(v, systemImage: "mappin.and.ellipse") } }
                 Section { Text(live.comp + (live.round.map { " · " + $0 } ?? "")).foregroundColor(Theme.secondary) }
             } else if live.sport == "tn" {
-                Section(header: Text("Sätze")) { MatchRow(match: live).padding(.vertical, 6) }
+                Section(header: Text("Sätze")) { MatchRow(match: live, follows: follows).padding(.vertical, 6) }
                 if let v = live.venue { Section(header: Text("Ort")) { Text(v) } }
                 if let n = live.note { Section { Text(n).foregroundColor(Theme.secondary) } }
             } else if let d = detail {
@@ -365,12 +458,10 @@ struct MatchDetailView: View {
     }
 
     private func load() async {
-        if !picks.isEmpty { await feed.loadSport(leagues: picks.map(\.id)) }
+        if !follows.isEmpty { await feed.loadSport(leagues: SportBucket.leagues(follows)) }
         guard live.sport == "fb", let lg = live.lg, let id = live.eid else { return }
         if let d = try? await feed.match(lg: lg, id: id) { detail = d }
     }
-
-    private var pick: SportPick? { picks.first { $0.id == live.L } }
 
     private var raceHeader: some View {
         VStack(spacing: 6) {
@@ -389,7 +480,7 @@ struct MatchDetailView: View {
         if let field = live.field, !field.isEmpty {
             Section(header: Text("Ergebnis")) {
                 ForEach(field, id: \.self) { d in
-                    let fav = d.id.map { (pick?.fav ?? []).contains($0) } ?? false
+                    let fav = SportBucket.favDriver(d.id, follows)
                     HStack(spacing: 12) {
                         Text("\(d.pos)").font(.headline.monospacedDigit()).frame(width: 28, alignment: .leading)
                             .foregroundColor(d.pos <= 3 ? Theme.accent : .primary)

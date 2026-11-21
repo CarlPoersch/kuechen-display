@@ -1,0 +1,78 @@
+{
+ "id": "pasta-e-fagioli",
+ "title": "Pasta e Fagioli",
+ "icon": "🫘",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Borlotti- oder Cannellinibohnen (je 400 g)"
+  },
+  {
+   "amount": "150 g",
+   "name": "kleine Nudeln (Ditalini)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1 Stange",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 Zweig",
+   "name": "Rosmarin"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "30 g",
+   "name": "Parmesan"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Sellerie fein würfeln und in Olivenöl weich dünsten.",
+   "minutes": 8
+  },
+  {
+   "text": "Knoblauch, Tomatenmark und Rosmarin kurz mitrösten."
+  },
+  {
+   "text": "Bohnen abspülen und mit der Brühe zugeben, köcheln lassen. Ein Drittel davon pürieren und zurückgeben.",
+   "minutes": 10
+  },
+  {
+   "text": "Nudeln direkt in der Suppe garen, bei Bedarf Wasser nachgießen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Olivenöl, Pfeffer und Parmesan servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40
+}
