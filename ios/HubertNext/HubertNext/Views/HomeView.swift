@@ -298,6 +298,7 @@ struct BucketCard: View {
     @Environment(\.startHomeEditing) private var startHomeEditing
     let instance: BucketInstance
     @State private var editing = false
+    @State private var open = false   // Details geöffnet
 
     var body: some View {
         if let kind = BucketRegistry.kind(instance.bucket) {
@@ -306,6 +307,12 @@ struct BucketCard: View {
                 content(kind)
             }
             .disabled(homeEditing)   // beim Bearbeiten nichts öffnen
+            // Unsichtbarer Link, nur per Knopf ausgelöst. Warum: Ein sichtbarer Link um die Karte
+            // fängt auf iOS 15 auch Tipper auf Menüs darin ab (ÖPNV-Auswahl öffnete die Details).
+            .background(
+                NavigationLink(isActive: $open) { BucketDetailHost(instance: instance, kind: kind) } label: { EmptyView() }
+                    .hidden()
+            )
             .environment(\.bucketId, instance.id)
             .padding(16)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
@@ -339,7 +346,7 @@ struct BucketCard: View {
             }
             .contentShape(Rectangle())
             if kind.detail != nil {
-                NavigationLink(destination: BucketDetailHost(instance: instance, kind: kind)) { row }.buttonStyle(.plain)
+                Button { open = true } label: { row }.buttonStyle(.plain)
             } else {
                 row
             }
@@ -363,7 +370,7 @@ struct BucketCard: View {
         .clipped()
         .contentShape(Rectangle())
         if kind.detail != nil && !kind.itemLinks {
-            NavigationLink(destination: BucketDetailHost(instance: instance, kind: kind)) { inner }.buttonStyle(.plain)
+            Button { open = true } label: { inner }.buttonStyle(.plain)
         } else {
             inner
         }
