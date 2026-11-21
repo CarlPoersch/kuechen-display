@@ -1,33 +1,37 @@
 import SwiftUI
 
 // ============================================================
-// Deals einstellen – wie die Grundliste beim Einkaufszettel:
-//  • Vorschläge antippen (mit Synonymen, z. B. Kopfhörer → AirPods, Earbuds)
-//  • eigene Stichwörter eintippen – mit Vorschau, was gerade passt
-//  • je Stichwort: Höchstpreis, „passt auch auf“, „nicht passend“
+// Deals einstellen – so einfach wie möglich:
+//  1. Bereiche antippen (Mode, Schuhe, Make-up …) → passende Suchen sind vorgewählt
+//  2. Feiner: je Bereich einzelne Suchen an/aus, eigene Wörter eintippen
+//     (mit Vorschau), je Suche Höchstpreis, „passt auch auf“, „nicht passend“
 // ============================================================
 
-/// Zeilen in den Karten-Einstellungen
+/// In den Karten-Einstellungen (auch bei der Einrichtung und „Neu in Hubert“)
 struct DealsSettings: View {
     @Binding var config: [String: JSON]
 
     private var watch: [DealWatch] { DealsBucket.watch(config) }
 
     var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Was suchst du?").font(.headline)
+            Text("Tippe Bereiche an – Hubert wählt passende Suchen vor.").font(.caption).foregroundColor(Theme.secondary)
+            DealAreaGrid(config: $config)
+        }
+        .padding(.vertical, 6)
         NavigationLink(destination: DealWatchView(config: $config)) {
-            HStack(spacing: 12) {
-                Image(systemName: "tag.fill").foregroundColor(.red).frame(width: 30)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Stichwörter")
-                    Text(watch.isEmpty ? "Noch keine gewählt" : watch.map(\.t).prefix(4).joined(separator: ", ") + (watch.count > 4 ? " +\(watch.count - 4)" : ""))
-                        .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
-                }
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Suchen, Shops & Preise")
+                Text(watch.isEmpty ? "Eigene Wörter, Marken, Höchstpreise"
+                     : watch.map(\.t).prefix(4).joined(separator: ", ") + (watch.count > 4 ? " +\(watch.count - 4)" : ""))
+                    .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
             }
         }
         Toggle(isOn: Binding(get: { DealsBucket.minTemp(config) >= 100 }, set: { config["min"] = .number($0 ? 100 : 0) })) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("Nur heiße Deals")
-                Text("Ab 100° – die Community findet sie richtig gut").font(.caption).foregroundColor(Theme.secondary)
+                Text("Nur sehr beliebte Deals")
+                Text("Ab 100° – von der mydealz-Community gefeiert").font(.caption).foregroundColor(Theme.secondary)
             }
         }
         Toggle(isOn: Binding(get: { DealsBucket.showHot(config) }, set: { config["hot"] = .bool($0) })) {
@@ -39,7 +43,58 @@ struct DealsSettings: View {
     }
 }
 
-/// Stichwörter verwalten: eigene eintippen, Vorschläge antippen
+/// Raster der Bereiche – antippen wählt die Startvorschläge des Bereichs (nochmal antippen: alle aus)
+struct DealAreaGrid: View {
+    @Binding var config: [String: JSON]
+    @ObservedObject private var service = DealService.shared
+
+    private var watch: [DealWatch] { DealsBucket.watch(config) }
+    private func count(_ a: DealCatalog) -> Int { watch.filter { DealsBucket.area(of: $0) == a.id }.count }
+
+    private func toggle(_ a: DealCatalog) {
+        var l = watch
+        if count(a) > 0 {
+            l.removeAll { DealsBucket.area(of: $0) == a.id }
+        } else {
+            for i in a.starters where !l.contains(where: { $0.t.caseInsensitiveCompare(i.t) == .orderedSame }) {
+                l.append(DealWatch(t: i.t, area: a.id))
+            }
+        }
+        DealsBucket.store(l, in: &config)
+    }
+
+    var body: some View {
+        Group {
+            if service.catalog.isEmpty {
+                HStack(spacing: 10) { ProgressView(); Text("Lädt Bereiche …").foregroundColor(Theme.secondary) }
+            } else {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 98), spacing: 10)], spacing: 10) {
+                    ForEach(service.catalog) { a in
+                        let n = count(a)
+                        Button { withAnimation(.easeOut(duration: 0.15)) { toggle(a) } } label: {
+                            VStack(spacing: 6) {
+                                DealAreaIcon(area: a.id, size: 40, filled: n > 0)
+                                Text(a.name).font(.caption.weight(.semibold)).foregroundColor(.primary)
+                                    .multilineTextAlignment(.center).lineLimit(2).minimumScaleFactor(0.85)
+                                Text(n > 0 ? "\(n) gewählt" : " ").font(.caption2).foregroundColor(Theme.secondary)
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 104)
+                            .padding(.horizontal, 4)
+                            .background(RoundedRectangle(cornerRadius: 14, style: .continuous)
+                                .fill(n > 0 ? DealArea.color(a.id).opacity(0.14) : Color(UIColor.tertiarySystemFill)))
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(a.name + (n > 0 ? ", \(n) Suchen gewählt" : ""))
+                    }
+                }
+            }
+        }
+        .task { await service.loadCatalog() }
+    }
+}
+
+/// Alle Suchen: eigene eintippen, je Bereich an/aus
 struct DealWatchView: View {
     @Binding var config: [String: JSON]
     @ObservedObject private var service = DealService.shared
@@ -50,8 +105,6 @@ struct DealWatchView: View {
     private var watch: [DealWatch] { DealsBucket.watch(config) }
     private func save(_ w: [DealWatch]) { DealsBucket.store(w, in: &config) }
     private var query: String { text.trimmingCharacters(in: .whitespaces) }
-
-    /// Schon gewählt? (Groß/klein egal)
     private func has(_ t: String) -> Bool { watch.contains { $0.t.caseInsensitiveCompare(t) == .orderedSame } }
 
     private func add(_ t: String) {
@@ -61,16 +114,12 @@ struct DealWatchView: View {
         text = ""; preview = nil
     }
 
-    private func toggle(_ t: String) {
-        if has(t) { save(watch.filter { $0.t.caseInsensitiveCompare(t) != .orderedSame }) } else { add(t) }
-    }
-
     var body: some View {
         List {
             Section {
                 HStack {
-                    Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent)
-                    TextField("Eigenes Stichwort, z. B. Airfryer", text: $text)
+                    Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
+                    TextField("Eigene Suche, z. B. Strickkleid oder Airfryer", text: $text)
                         .disableAutocorrection(true)
                         .submitLabel(.done)
                         .onSubmit { add(query) }
@@ -82,63 +131,55 @@ struct DealWatchView: View {
                     if loading && preview == nil {
                         HStack(spacing: 10) { ProgressView(); Text("Suche passende Deals …").foregroundColor(Theme.secondary) }
                     } else if let p = preview {
-                        Text(p.n == 0 ? "Gerade kein passender Deal – Hubert meldet sich, sobald einer auftaucht."
+                        Text(p.n == 0 ? "Gerade kein passender Deal – Hubert zeigt ihn, sobald einer auftaucht."
                              : "\(p.n) passende \(p.n == 1 ? "Deal" : "Deals") gerade")
                             .font(.subheadline).foregroundColor(Theme.secondary)
                         ForEach(p.deals.prefix(3)) { d in DealRow(deal: d, compact: true) }
                         if !p.std.alts.isEmpty {
-                            Text("Passt automatisch auch auf: " + p.std.alts.joined(separator: ", ")).font(.caption).foregroundColor(Theme.secondary)
+                            Text("Sucht automatisch auch: " + p.std.alts.prefix(6).joined(separator: ", ")).font(.caption).foregroundColor(Theme.secondary)
                         }
                     }
                 }
             } footer: {
-                Text("Groß/klein, Umlaute, Mehrzahl und kleine Tippfehler sind egal – „kopfhoerer“ findet auch „Kopfhörer“.")
+                Text("Groß/klein, Umlaute, Mehrzahl und kleine Tippfehler sind egal.")
             }
 
             Section {
-                if watch.isEmpty { Text("Noch keine – tipp unten auf Vorschläge oder gib oben eins ein.").foregroundColor(Theme.secondary) }
+                if watch.isEmpty { Text("Noch keine – unten Bereiche öffnen oder oben eintippen.").foregroundColor(Theme.secondary) }
                 ForEach(watch) { w in
                     NavigationLink(destination: DealTermEdit(config: $config, id: w.id)) {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(w.t)
-                            Text(w.summary).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                        HStack(spacing: 12) {
+                            DealAreaIcon(area: DealsBucket.area(of: w), size: 28)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(w.t)
+                                Text(w.summary).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                            }
                         }
                     }
                 }
                 .onDelete { idx in var l = watch; l.remove(atOffsets: idx); save(l) }
                 .onMove { from, to in var l = watch; l.move(fromOffsets: from, toOffset: to); save(l) }
-            } header: { Text("Meine Stichwörter") } footer: {
-                if !watch.isEmpty { Text("Antippen: Höchstpreis und genauere Wörter festlegen. Wischen entfernt.") }
+            } header: { Text("Meine Suchen") } footer: {
+                if !watch.isEmpty { Text("Antippen: Höchstpreis und genauere Wörter. Wischen entfernt. Die Reihenfolge gilt auch für „Alle Deals“.") }
             }
 
-            ForEach(service.catalog) { group in
-                Section(header: Text(group.emoji + "  " + group.name)) {
-                    ForEach(group.items, id: \.t) { item in
-                        Button { withAnimation { toggle(item.t) } } label: {
-                            HStack(spacing: 10) {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(item.t).foregroundColor(.primary)
-                                    if !item.alts.isEmpty {
-                                        Text("auch " + item.alts.prefix(3).joined(separator: ", ")).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
-                                    }
-                                }
-                                Spacer()
-                                Image(systemName: has(item.t) ? "checkmark.circle.fill" : "plus.circle")
-                                    .font(.title3).foregroundColor(has(item.t) ? Theme.accent : Color(UIColor.tertiaryLabel))
-                            }
-                            .contentShape(Rectangle())
+            Section(header: Text("Bereiche")) {
+                ForEach(service.catalog) { a in
+                    let n = watch.filter { DealsBucket.area(of: $0) == a.id }.count
+                    NavigationLink(destination: DealAreaView(config: $config, areaId: a.id)) {
+                        HStack(spacing: 12) {
+                            DealAreaIcon(area: a.id, size: 28)
+                            Text(a.name)
+                            Spacer()
+                            if n > 0 { Text("\(n) von \(a.items.count)").foregroundColor(Theme.secondary) }
                         }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel(item.t + (has(item.t) ? ", gewählt" : ""))
                     }
                 }
-            }
-            if service.catalog.isEmpty {
-                Section { HStack(spacing: 10) { ProgressView(); Text("Lade Vorschläge …").foregroundColor(Theme.secondary) } }
+                if service.catalog.isEmpty { HStack(spacing: 10) { ProgressView(); Text("Lädt …").foregroundColor(Theme.secondary) } }
             }
         }
         .listStyle(.insetGrouped)
-        .navigationTitle("Stichwörter")
+        .navigationTitle("Suchen")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -159,7 +200,63 @@ struct DealWatchView: View {
     }
 }
 
-/// Ein Stichwort genauer einstellen
+/// Ein Bereich: Suchen an/aus
+struct DealAreaView: View {
+    @Binding var config: [String: JSON]
+    let areaId: String
+    @ObservedObject private var service = DealService.shared
+
+    private var area: DealCatalog? { service.catalog.first { $0.id == areaId } }
+    private var watch: [DealWatch] { DealsBucket.watch(config) }
+    private func has(_ t: String) -> Bool { watch.contains { $0.t.caseInsensitiveCompare(t) == .orderedSame } }
+
+    private func toggle(_ t: String) {
+        var l = watch
+        if has(t) { l.removeAll { $0.t.caseInsensitiveCompare(t) == .orderedSame } } else { l.append(DealWatch(t: t, area: areaId)) }
+        DealsBucket.store(l, in: &config)
+    }
+
+    var body: some View {
+        List {
+            if let a = area {
+                Section {
+                    VStack(spacing: 8) {
+                        DealAreaIcon(area: a.id, size: 56)
+                        Text(a.name).font(.title2.weight(.bold))
+                    }
+                    .frame(maxWidth: .infinity).padding(.vertical, 6)
+                    .listRowBackground(Color.clear)
+                }
+                Section {
+                    ForEach(a.items, id: \.t) { i in
+                        Button { withAnimation { toggle(i.t) } } label: {
+                            HStack(spacing: 10) {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(i.t).foregroundColor(.primary)
+                                    if !i.alts.isEmpty {
+                                        Text("auch " + i.alts.prefix(4).joined(separator: ", ")).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                                    }
+                                }
+                                Spacer()
+                                Image(systemName: has(i.t) ? "checkmark.circle.fill" : "circle")
+                                    .font(.title3).foregroundColor(has(i.t) ? Theme.accent : Color(UIColor.tertiaryLabel))
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(i.t + (has(i.t) ? ", gewählt" : ""))
+                    }
+                } footer: {
+                    Text("Jede Suche findet auch verwandte Wörter – „Kleider“ zum Beispiel auch Maxikleid und Strickkleid.")
+                }
+            }
+        }
+        .listStyle(.insetGrouped)
+        .navigationTitle(area?.name ?? "")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
 struct DealTermEdit: View {
     @Binding var config: [String: JSON]
     let id: String

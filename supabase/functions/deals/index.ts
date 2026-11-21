@@ -47,54 +47,107 @@ async function userOk(auth: string | null): Promise<boolean> {
 // VORSCHLÄGE – wie die Grundliste beim Einkaufszettel: sofort nutzbar,
 // mit Synonymen (alts), Ausschlüssen (not) und passenden mydealz-Gruppen (g)
 // ============================================================
-type Preset = { t: string; alts?: string[]; not?: string[]; g?: string[] };
-const CATALOG: { name: string; emoji: string; items: Preset[] }[] = [
-  { name: "Technik", emoji: "💻", items: [
-    { t: "Kopfhörer", alts: ["AirPods", "Earbuds", "Ohrhörer", "In-Ear-Kopfhörer", "Over-Ear-Kopfhörer", "Headphones", "Headset", "True Wireless", "Bose QuietComfort"], not: ["Ersatzpolster"], g: ["kopfhoerer", "airpods"] },
+type Preset = { t: string; alts?: string[]; not?: string[]; g?: string[]; s?: boolean };   // s = Startvorschlag des Bereichs
+const CATALOG: { id: string; name: string; emoji: string; items: Preset[] }[] = [
+  { id: "mode", name: "Mode", emoji: "👗", items: [
+    { t: "Kleider", alts: ["Kleid", "Maxikleid", "Midikleid", "Strickkleid", "Abendkleid"], g: ["kleider", "kleidung"], s: true },
+    { t: "Jeans", alts: ["Mom Jeans", "Straight Jeans", "Levi's"], not: ["Jeansjacke"], g: ["jeans"], s: true },
+    { t: "Pullover", alts: ["Strickpullover", "Cardigan", "Strickjacke", "Hoodie", "Sweatshirt"], g: ["pullover"], s: true },
+    { t: "Winterjacke", alts: ["Mantel", "Wintermantel", "Daunenjacke", "Parka", "Steppjacke", "Teddyjacke"], g: ["winterjacken", "jacken"], s: true },
+    { t: "Leggings", alts: ["Sportleggings", "Yogahose", "Sport-BH", "Trainingshose"], g: ["leggings", "fitness"] },
+    { t: "Unterwäsche", alts: ["BH", "Dessous", "Slip", "Pyjama", "Schlafanzug", "Bademantel"], g: ["unterwaesche", "dessous"] },
+    { t: "Kleidung", alts: ["Fashion", "Damenmode", "Herrenmode", "Bekleidung"], g: ["kleidung", "fashion-accessoires"] },
+  ] },
+  { id: "schuhe", name: "Schuhe", emoji: "👟", items: [
+    { t: "Sneaker", alts: ["Turnschuhe", "Nike Air", "Adidas Samba", "New Balance", "Converse", "Vans"], g: ["sneaker", "schuhe"], s: true },
+    { t: "Stiefel", alts: ["Boots", "Stiefeletten", "Chelsea Boots", "Overknee", "Winterstiefel"], g: ["stiefel"], s: true },
+    { t: "UGG", alts: ["Ugg Boots", "Tasman"], g: ["ugg"] },
+    { t: "Laufschuhe", alts: ["Running", "Asics", "Hoka", "On Cloud", "Brooks"], g: ["laufschuhe"] },
+    { t: "Hausschuhe", alts: ["Pantoffeln", "Birkenstock"], g: ["schuhe"] },
+  ] },
+  { id: "makeup", name: "Make-up", emoji: "💄", items: [
+    { t: "Make-up", alts: ["Makeup", "Mascara", "Foundation", "Concealer", "Lippenstift", "Lipgloss", "Lidschatten", "Eyeliner", "Rouge", "Highlighter", "Bronzer", "Make-up Primer"], g: ["kosmetik", "beauty"], s: true },
+    { t: "Beauty-Adventskalender", alts: ["Kosmetik Adventskalender", "Douglas Adventskalender", "Rituals Adventskalender", "Lookfantastic Adventskalender", "Make-up Adventskalender", "Parfum Adventskalender", "Flaconi Adventskalender", "Notino Adventskalender"], g: ["adventskalender"], s: true },
+    { t: "Nagellack", alts: ["Gel-Nagellack", "Essie", "OPI", "Nail Polish"], g: ["kosmetik"] },
+  ] },
+  { id: "pflege", name: "Pflege & Haare", emoji: "🧴", items: [
+    { t: "Hautpflege", alts: ["Gesichtscreme", "Serum", "Feuchtigkeitscreme", "Sonnencreme", "Retinol", "Hyaluron", "The Ordinary", "La Roche-Posay", "CeraVe", "Clinique", "Augencreme"], g: ["hautpflege", "koerperpflege"], s: true },
+    { t: "Haarstyling", alts: ["Dyson Airwrap", "Airwrap", "Glätteisen", "Lockenstab", "Föhn", "Haartrockner", "ghd", "Dyson Supersonic"], not: ["Staubsauger", "Stielsauger", "Akkusauger", "Handstaubsauger", "Saugroboter"], g: ["glaetteisen", "haartrockner"], s: true },
+    { t: "Haarpflege", alts: ["Shampoo", "Haarkur", "Olaplex", "Haarmaske", "Haaröl"], g: ["haarpflege"] },
+    { t: "Körperpflege", alts: ["Duschgel", "Bodylotion", "Body Butter", "Epilierer", "Rasierer"], g: ["koerperpflege"] },
+    { t: "Elektrische Zahnbürste", alts: ["Oral-B", "Sonicare"], g: ["gesundheit"] },
+  ] },
+  { id: "parfum", name: "Parfum", emoji: "🌸", items: [
+    { t: "Parfum", alts: ["Eau de Parfum", "Eau de Toilette", "Parfüm", "Duft"], g: ["parfum"], s: true },
+    { t: "Duft-Geschenkset", alts: ["Geschenkset", "Duftset"], g: ["parfum"] },
+    { t: "Rituals", g: ["rituals"] },
+  ] },
+  { id: "accessoires", name: "Taschen & Schmuck", emoji: "👜", items: [
+    { t: "Handtaschen", alts: ["Umhängetasche", "Shopper", "Clutch", "Michael Kors", "Coach", "Longchamp"], not: ["Kühltasche", "Laptoptasche"], g: ["handtaschen", "taschen"], s: true },
+    { t: "Schmuck", alts: ["Halskette", "Kette", "Ohrringe", "Armkette", "Armreif", "Pandora", "Thomas Sabo", "Swarovski", "Silberschmuck", "Goldschmuck"], not: ["Schlüsselring", "Ringlicht", "Lichterkette", "Fahrradkette", "Schneekette", "Apple Watch", "Smartwatch"], g: ["schmuck"], s: true },
+    { t: "Sonnenbrille", alts: ["Ray-Ban"], g: ["sonnenbrillen"] },
+    { t: "Uhren", alts: ["Armbanduhr", "Fossil", "Casio"], g: ["uhren"] },
+    { t: "Rucksack", alts: ["Kånken", "Fjällräven", "Eastpak"], g: ["taschen"] },
+  ] },
+  { id: "shops", name: "Shops & Marken", emoji: "🛍️", items: [
+    { t: "Zalando" }, { t: "About You" }, { t: "H&M" }, { t: "Zara" }, { t: "Mango" }, { t: "Douglas" }, { t: "Flaconi" },
+    { t: "Sephora" }, { t: "Notino" }, { t: "Lookfantastic" }, { t: "dm" }, { t: "Rossmann" },
+    { t: "Nike", g: ["nike"] }, { t: "Adidas", g: ["adidas"] },
+  ] },
+  { id: "wohnen", name: "Wohnen & Deko", emoji: "🕯️", items: [
+    { t: "Kerzen", alts: ["Duftkerze", "Yankee Candle", "Lichterkette", "Weihnachtsdeko"], g: ["kerzen", "home-living"], s: true },
+    { t: "Bettwäsche", alts: ["Kissen", "Kuscheldecke", "Bettdecke", "Spannbettlaken"], g: ["bettwaesche"], s: true },
+    { t: "IKEA" },
+  ] },
+  { id: "technik", name: "Technik", emoji: "🎧", items: [
+    { t: "Kopfhörer", alts: ["AirPods", "Earbuds", "Ohrhörer", "In-Ear-Kopfhörer", "Over-Ear-Kopfhörer", "Headphones", "Headset", "True Wireless", "Bose QuietComfort"], not: ["Ersatzpolster"], g: ["kopfhoerer", "airpods"], s: true },
     { t: "AirPods", g: ["airpods"] },
-    { t: "Fernseher", alts: ["TV", "Smart TV", "OLED", "QLED", "Fernsehgerät"], not: ["Wandhalterung", "Halterung", "Fernbedienung", "Antenne"], g: ["fernseher"] },
-    { t: "Smartphone", alts: ["Handy", "iPhone", "Galaxy", "Pixel"], not: ["Hülle", "Panzerglas", "Schutzfolie", "Displayschutz", "Tarif", "Vertrag", "Ladekabel"], g: ["smartphone", "iphone"] },
+    { t: "Smartphone", alts: ["Handy", "iPhone", "Galaxy", "Pixel"], not: ["Hülle", "Panzerglas", "Schutzfolie", "Displayschutz", "Tarif", "Vertrag", "Ladekabel"], g: ["smartphone", "iphone"], s: true },
     { t: "iPhone", not: ["Hülle", "Panzerglas", "Schutzfolie", "Displayschutz", "Ladekabel"], g: ["iphone"] },
+    { t: "Fernseher", alts: ["TV", "Smart TV", "OLED", "QLED", "Fernsehgerät"], not: ["Wandhalterung", "Halterung", "Fernbedienung", "Antenne"], g: ["fernseher"] },
     { t: "Laptop", alts: ["Notebook", "MacBook", "Ultrabook", "Chromebook"], not: ["Tasche", "Hülle", "Ständer", "Rucksack"], g: ["laptop"] },
     { t: "Tablet", alts: ["iPad", "Galaxy Tab"], not: ["Hülle", "Panzerglas", "Schutzfolie"], g: ["tablet", "ipad"] },
     { t: "Smartwatch", alts: ["Apple Watch", "Galaxy Watch", "Garmin", "Fitnesstracker"], not: ["Armband", "Schutzfolie"], g: ["smartwatch"] },
-    { t: "Monitor", alts: ["Bildschirm"], not: ["Monitorarm", "Halterung"], g: ["monitor"] },
   ] },
-  { name: "Gaming", emoji: "🎮", items: [
+  { id: "gaming", name: "Gaming", emoji: "🎮", items: [
+    { t: "Nintendo Switch", alts: ["Switch 2", "Switch OLED"], g: ["nintendo-switch", "nintendo"], s: true },
     { t: "PlayStation 5", alts: ["PS5", "DualSense"], g: ["playstation-5", "playstation"] },
-    { t: "Nintendo Switch", alts: ["Switch 2", "Switch OLED"], g: ["nintendo-switch", "nintendo"] },
     { t: "Xbox", alts: ["Game Pass"], g: ["xbox"] },
-    { t: "Gratis-Spiele", alts: ["kostenlos Spiel", "gratis Spiel", "Epic Games", "Prime Gaming", "free to keep"], g: ["freebies", "gaming"] },
+    { t: "Gratis-Spiele", alts: ["kostenlos Spiel", "gratis Spiel", "Epic Games", "Prime Gaming", "free to keep"], g: ["freebies", "gaming"], s: true },
   ] },
-  { name: "Haushalt", emoji: "🏠", items: [
-    { t: "Staubsauger", alts: ["Saugroboter", "Akkusauger", "Wischroboter", "Dyson", "Roborock"], not: ["Staubsaugerbeutel", "Beutel", "Filter", "Ersatzteil", "Zubehör"], g: ["staubsauger", "saugroboter"] },
-    { t: "Kaffeevollautomat", alts: ["Kaffeemaschine", "Siebträger", "Espressomaschine", "Nespresso", "Dolce Gusto"], not: ["Entkalker", "Reinigungstabletten"], g: ["kaffee"] },
-    { t: "Heißluftfritteuse", alts: ["Airfryer", "Air Fryer", "Ninja Foodi"] },
+  { id: "haushalt", name: "Haushalt & Küche", emoji: "🏠", items: [
+    { t: "Staubsauger", alts: ["Saugroboter", "Akkusauger", "Stielsauger", "Handstaubsauger", "Wischroboter", "Dyson", "Roborock"], not: ["Staubsaugerbeutel", "Beutel", "Filter", "Ersatzteil", "Zubehör", "Airwrap", "Supersonic"], g: ["staubsauger"], s: true },
+    { t: "Kaffeevollautomat", alts: ["Kaffeemaschine", "Siebträger", "Espressomaschine", "Nespresso", "Dolce Gusto"], not: ["Entkalker", "Reinigungstabletten"], g: ["kaffeevollautomaten", "kaffeemaschinen"], s: true },
+    { t: "Heißluftfritteuse", alts: ["Airfryer", "Air Fryer", "Ninja Foodi"], g: ["heissluftfriteuse"] },
     { t: "Küchenmaschine", alts: ["Thermomix", "Monsieur Cuisine", "KitchenAid", "Standmixer"] },
     { t: "Werkzeug", alts: ["Akkuschrauber", "Bohrmaschine", "Makita", "Werkzeugkoffer"], g: ["werkzeug"] },
   ] },
-  { name: "Einkauf", emoji: "🛒", items: [
-    { t: "Kaffee", alts: ["Kaffeebohnen", "Espresso", "Kaffeepads", "Kaffeekapseln"], not: ["Kaffeemaschine", "Kaffeevollautomat", "Tasse", "Becher"], g: ["kaffee"] },
+  { id: "einkauf", name: "Lebensmittel & Drogerie", emoji: "🛒", items: [
+    { t: "Kaffee", alts: ["Kaffeebohnen", "Espresso", "Kaffeepads", "Kaffeekapseln"], not: ["Kaffeemaschine", "Kaffeevollautomat", "Tasse", "Becher"], g: ["kaffee"], s: true },
+    { t: "Süßigkeiten", alts: ["Schokolade", "Milka", "Lindt", "Haribo", "Ritter Sport"], g: ["lebensmittel"], s: true },
     { t: "Wein", alts: ["Rotwein", "Weißwein", "Sekt", "Champagner", "Prosecco"], not: ["Weinglas", "Weingläser", "Weinkühlschrank"], g: ["wein"] },
     { t: "Bier", alts: ["Kasten Bier", "Craft Beer"], not: ["Bierglas", "Biergläser"], g: ["bier"] },
-    { t: "Süßigkeiten", alts: ["Schokolade", "Milka", "Lindt", "Haribo", "Ritter Sport"], g: ["lebensmittel"] },
     { t: "Waschmittel", alts: ["Persil", "Ariel", "Weichspüler", "Spülmaschinentabs", "Geschirrtabs"], g: ["drogerie"] },
+    { t: "Lidl" }, { t: "Aldi" },
   ] },
-  { name: "Freizeit & Familie", emoji: "🎁", items: [
-    { t: "Lego", g: ["lego"] },
-    { t: "Spielzeug", alts: ["Playmobil", "Carrera", "Ravensburger", "Puzzle", "Brettspiel"], g: ["spielzeug"] },
-    { t: "Reisen", alts: ["Urlaub", "Hotel", "Flug", "Flüge", "Städtetrip", "Kurzurlaub"], g: ["reisen"] },
-    { t: "Kino & Streaming", alts: ["Kinoticket", "Netflix", "Disney+", "Spotify", "DAZN", "WOW"], g: ["kultur-freizeit"] },
-    { t: "Fahrrad", alts: ["E-Bike", "Ebike", "Pedelec", "Fahrradhelm"] },
+  { id: "freizeit", name: "Freizeit & Familie", emoji: "🎁", items: [
+    { t: "Lego", g: ["lego"], s: true },
+    { t: "Spielzeug", alts: ["Playmobil", "Carrera", "Ravensburger", "Puzzle", "Brettspiel", "Toniebox"], g: ["spielzeug", "spiele-brettspiele"], s: true },
+    { t: "Streaming", alts: ["Kino", "Kinoticket", "Netflix", "Disney+", "Spotify", "DAZN", "WOW"], g: ["kino", "filme-serien"] },
+    { t: "Fitness", alts: ["Fitnessstudio", "Yogamatte", "Hanteln", "Sportuhr"], g: ["fitness"] },
+    { t: "Fahrrad", alts: ["E-Bike", "Ebike", "Pedelec", "Fahrradhelm"], g: ["fahrraeder", "e-bikes"] },
   ] },
-  { name: "Mode & Beauty", emoji: "👟", items: [
-    { t: "Sneaker", alts: ["Turnschuhe", "Laufschuhe", "Nike", "Adidas", "New Balance"], g: ["sneaker", "schuhe"] },
-    { t: "Winterjacke", alts: ["Daunenjacke", "Parka", "Steppjacke"], g: ["winterjacken", "jacken"] },
-    { t: "Parfum", alts: ["Eau de Parfum", "Eau de Toilette"], g: ["parfum", "beauty"] },
+  { id: "reisen", name: "Reisen", emoji: "✈️", items: [
+    { t: "Reisen", alts: ["Urlaub", "Hotel", "Kurzurlaub", "Städtetrip"], g: ["reisen"], s: true },
+    { t: "Flüge", alts: ["Flug", "Ryanair", "Eurowings", "Lufthansa", "Condor"], g: ["fluege"], s: true },
+    { t: "Bahn", alts: ["Bahntickets", "Sparpreis", "BahnCard", "Deutschlandticket", "Flixtrain", "Flixbus"], g: ["bahntickets", "bahncard"] },
+    { t: "Wellness", alts: ["Therme", "Spa", "Wellnesshotel", "Sauna"] },
   ] },
-  { name: "Händler & Aktionen", emoji: "🏪", items: [
-    { t: "Black Friday", alts: ["Black Week", "Cyber Monday"] },
-    { t: "Lidl" }, { t: "Aldi" }, { t: "IKEA" }, { t: "dm" }, { t: "Rossmann" },
+  { id: "aktionen", name: "Aktionen", emoji: "🏷️", items: [
+    { t: "Black Friday", alts: ["Black Week", "Cyber Monday"], s: true },
+    { t: "Gratisproben", alts: ["Gratisprobe", "kostenlose Probe", "Produkttest", "Freebie"], g: ["freebies"], s: true },
+    { t: "Adventskalender", g: ["adventskalender"] },
+    { t: "Preisfehler", g: ["preisfehler"] },
   ] },
 ];
 const PRESETS = CATALOG.flatMap((c) => c.items);
@@ -139,24 +192,34 @@ function tokOk(k: string, t: string): boolean {
   if (k === t) return true;
   if (/^\d+$/.test(k) || /^\d+$/.test(t)) return false;
   if (k.length >= 4 && t.startsWith(k)) return true;              // Lego → Legosteine
-  if (k.length >= 5 && t.includes(k)) return true;                // Sauger → Akkusauger
-  if (k.length >= 6 && k[0] === t[0]) return lev(k, t, k.length >= 9 ? 2 : 1) <= (k.length >= 9 ? 2 : 1);   // Tippfehler
+  if (k.length >= 5 && t.endsWith(k)) return true;                // Sauger → Akkusauger, Kleid → Strickkleid (nicht „Bekleidung“)
+  if (k.length >= 7 && t.includes(k)) return true;                // lange Wörter auch mitten im Wort
+  if (k.length >= 7 && k.slice(0, 2) === t.slice(0, 2)) {         // Tippfehler (nicht bei kurzen Wörtern: Mantel ≠ Mandel)
+    const max = k.length >= 10 ? 2 : 1;
+    return lev(k, t, max) <= max;
+  }
   return false;
 }
-type Prepared = { words: string[]; joined: string[] };
+type Prepared = { words: string[]; joined: string[]; text: string };
 function prepare(text: string): Prepared {
   const w = toks(text).map(stem);
   const joined: string[] = [];
   for (let i = 0; i + 1 < w.length; i++) if (w[i].length >= 2 && w[i + 1].length >= 2) joined.push(stem(w[i] + w[i + 1]));   // „Air Pods“ ↔ „AirPods“
-  return { words: w, joined };
+  return { words: w, joined, text: fold(text) };
 }
 /** Passt eine Suchphrase (alle Wörter, Reihenfolge egal) auf den Text? */
 function phraseOk(phrase: string, p: Prepared): boolean {
   const raw = toks(phrase).filter((x) => !STOP.has(x));
   if (!raw.length) return false;
+  // Kurze Namen wie „H&M“, „dm“ oder „TV“ nur als ganzes Wort (sonst passt „h“ überall)
+  if (raw.every((x) => x.length <= 2)) {
+    return new RegExp("(^|[^a-z0-9])" + raw.join("[^a-z0-9]{0,3}") + "($|[^a-z0-9])").test(p.text);
+  }
   const ks = raw.map(stem);
   // Zusammengezogene Wortpaare nur für längere Suchwörter (sonst passt „ear“ auf „e aroma“)
-  const hit = (k: string) => p.words.some((t) => tokOk(k, t)) || (k.length >= 5 && p.joined.some((t) => tokOk(k, t)));
+  // Wortpaare nur genau bzw. am Anfang („Air Pods“ = „AirPods“), sonst passt „Shopper“ auf „Proshop Proshop“
+  const hit = (k: string) => p.words.some((t) => tokOk(k, t)) ||
+    (k.length >= 5 && p.joined.some((t) => t === k || (t.startsWith(k) && t.length - k.length <= 3)));
   if (ks.every(hit)) return true;
   if (raw.length > 1) {                                             // „Play Station“ ↔ „PlayStation“
     const c = stem(raw.join(""));
@@ -191,7 +254,13 @@ function rule(w: Watch): Rule {
 // ============================================================
 // FEEDS LESEN
 // ============================================================
-type Deal = { id: string; t: string; m?: string; p?: number | null; pt?: string; temp?: number; cat?: string; img?: string; u: string; x?: string; d: string };
+type Deal = { id: string; t: string; m?: string; p?: number | null; pt?: string; temp?: number; cat?: string; img?: string; u: string; x?: string; d: string;
+  off?: number; code?: boolean };
+/** „-30%“, „30 % Rabatt“, „bis zu 70%“ → 30/70 (höchster genannter Wert, 5–90 %) */
+function discount(t: string): number | undefined {
+  const all = [...t.matchAll(/(\d{1,2})\s?%/g)].map((m) => +m[1]).filter((n) => n >= 5 && n <= 90);
+  return all.length ? Math.max(...all) : undefined;
+}
 function decode(s: string): string {
   return s.replace(/<!\[CDATA\[|\]\]>/g, "").replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
     .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(+d)).replace(/&quot;/g, '"').replace(/&apos;/g, "'")
@@ -231,9 +300,9 @@ function parseRss(xml: string): Deal[] {
   return out;
 }
 
-const BASE = ["rss/hot", "rss/new", "rss/deals",
-  ...["elektronik", "gaming", "family-kids", "home-living", "lebensmittel", "supermarkt", "drogerie", "beauty",
-    "kultur-freizeit", "reisen", "auto-motorrad", "garten-baumarkt", "freebies", "sport"].map((g) => "rss/gruppe/" + g)];
+const BASE = ["rss/hot", "rss/new", "rss/deals", "rss/gutscheine",
+  ...["fashion-accessoires", "beauty", "kosmetik", "kleidung", "elektronik", "gaming", "family-kids", "home-living", "lebensmittel",
+    "drogerie", "kultur-freizeit", "reisen", "freebies", "sport", "garten-baumarkt"].map((g) => "rss/gruppe/" + g)];
 let baseAt = 0, cleanAt = 0;
 const groupOk = new Map<string, { ok: boolean; at: number }>();
 const groupAt = new Map<string, number>();
@@ -322,6 +391,8 @@ async function load() {
   const deals = rows.map((r) => {
     const d: Deal = { id: r.id, t: r.title, m: r.merchant ?? undefined, p: r.price === null ? null : Number(r.price), pt: r.price_text ?? undefined,
       temp: r.temp ?? undefined, cat: r.cat ?? undefined, img: r.img ?? undefined, u: r.url, x: r.snippet ?? undefined, d: new Date(r.pub).toISOString() };
+    d.off = discount(d.t);
+    if (d.u.includes("/gutscheine/")) d.code = true;
     return { ...d, prep: prepare([d.t, d.m ?? "", d.cat ?? ""].join(" ")), tprep: prepare(d.t) };
   });
   memo = { at: Date.now(), deals };
@@ -374,7 +445,8 @@ Deno.serve(async (req) => {
   let body: unknown;
   try {
     if (what === "catalog") {
-      body = CATALOG.map((c) => ({ name: c.name, emoji: c.emoji, items: c.items.map((i) => ({ t: i.t, alts: i.alts ?? [], not: i.not ?? [] })) }));
+      body = CATALOG.map((c) => ({ id: c.id, name: c.name, emoji: c.emoji,
+        items: c.items.map((i) => ({ t: i.t, alts: i.alts ?? [], not: i.not ?? [], s: i.s ?? false })) }));
     } else if (what === "preview") {
       const q = url.searchParams;
       body = await preview({ t: clean(q.get("t")), alts: list(q.get("alts")), not: list(q.get("not")), max: num(q.get("max")) }, Number(q.get("min") ?? 0) || 0);

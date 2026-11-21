@@ -15,9 +15,9 @@ enum NewBuckets {
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
         "deals": [
-            Highlight(symbol: "text.magnifyingglass", text: "Stichwörter wie „Kopfhörer“, „Kaffee“ oder „Lego“ – eigene und fertige Vorschläge"),
-            Highlight(symbol: "wand.and.stars", text: "Passt auch bei Tippfehlern, Mehrzahl und Synonymen (Kopfhörer → AirPods)"),
-            Highlight(symbol: "eurosign.circle", text: "Höchstpreis je Stichwort und Black-Week-Countdown"),
+            Highlight(symbol: "square.grid.2x2", text: "Bereiche antippen – Mode, Schuhe, Make-up, Pflege, Parfum, Technik und mehr"),
+            Highlight(symbol: "photo.on.rectangle", text: "Angebote mit Bild, Preis und Rabatt – je Suche eine eigene Reihe"),
+            Highlight(symbol: "wand.and.stars", text: "Findet auch verwandte Wörter und Tippfehler (Kleider → Strickkleid)"),
         ],
     ]
 
@@ -39,9 +39,15 @@ enum NewBuckets {
 /// Blatt mit den Neuheiten
 struct NewBucketsSheet: View {
     let kinds: [BucketKind]
-    let onAdd: (BucketKind) -> Void
     let onClose: () -> Void
-    @State private var added: Set<String> = []
+    @EnvironmentObject var store: AppStore
+    @State private var added: [String: String] = [:]      // Bucket-Art → ID der neuen Karte
+
+    /// Einstellungen der gerade hinzugefügten Karte direkt hier
+    private func config(_ id: String) -> Binding<[String: JSON]> {
+        Binding(get: { store.buckets.first { $0.id == id }?.config ?? [:] },
+                set: { v in if let i = store.buckets.firstIndex(where: { $0.id == id }) { store.buckets[i].config = v } })
+    }
 
     var body: some View {
         NavigationView {
@@ -67,16 +73,26 @@ struct NewBucketsSheet: View {
                                 }
                             }
                             .frame(maxWidth: 420, alignment: .leading)
-                            Button {
-                                withAnimation { _ = added.insert(k.id) }
-                                onAdd(k)
-                            } label: {
-                                Text(added.contains(k.id) ? "Hinzugefügt" : "Zur Startseite hinzufügen")
-                                    .font(.headline).frame(maxWidth: 420).padding(.vertical, 6)
+                            if let id = added[k.id] {
+                                Label("Auf deiner Startseite", systemImage: "checkmark.circle.fill")
+                                    .font(.headline).foregroundColor(Theme.accent)
+                                // Gleich einstellen (z. B. Bereiche bei Deals)
+                                if let settings = k.settings {
+                                    VStack(alignment: .leading, spacing: 14) { settings(config(id)) }
+                                        .padding(16)
+                                        .frame(maxWidth: 520)
+                                        .background(RoundedRectangle(cornerRadius: 18, style: .continuous).fill(Theme.card))
+                                }
+                            } else {
+                                Button {
+                                    store.addBucket(k)
+                                    withAnimation { added[k.id] = store.buckets.last(where: { $0.bucket == k.id })?.id ?? "" }
+                                } label: {
+                                    Text("Zur Startseite hinzufügen").font(.headline).frame(maxWidth: 420).padding(.vertical, 6)
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .tint(Theme.accent)
                             }
-                            .buttonStyle(.borderedProminent)
-                            .tint(Theme.accent)
-                            .disabled(added.contains(k.id))
                         }
                         .padding(.horizontal, 24)
                     }
@@ -88,6 +104,7 @@ struct NewBucketsSheet: View {
                 }
                 .frame(maxWidth: .infinity)
             }
+            .background(Theme.background.ignoresSafeArea())
             .navigationBarHidden(true)
         }
         .navigationViewStyle(.stack)
@@ -107,12 +124,13 @@ struct NewBucketsPrompt: ViewModifier {
                 kinds = NewBuckets.pending(store)
             }
             .sheet(isPresented: Binding(get: { !kinds.isEmpty }, set: { if !$0 { close() } })) {
-                NewBucketsSheet(kinds: kinds, onAdd: { store.addBucket($0) }, onClose: close)
+                NewBucketsSheet(kinds: kinds, onClose: close).environmentObject(store)
             }
     }
 
     private func close() {
         NewBuckets.markSeen(kinds.map(\.id))
         kinds = []
+        store.saveBuckets()     // auch beim Wegwischen: Einstellungen der neuen Karte sichern
     }
 }

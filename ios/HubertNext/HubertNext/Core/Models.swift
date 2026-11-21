@@ -55,6 +55,7 @@ struct Interest: Identifiable {
         Interest(id: "gesundheit", name: "Gesundheit & Gewohnheiten", symbol: "heart"),
         Interest(id: "lernen", name: "Uni & Arbeit", symbol: "graduationcap"),
         Interest(id: "freizeit", name: "Freizeit & Kultur", symbol: "film"),
+        Interest(id: "shopping", name: "Mode, Beauty & Shopping", symbol: "bag"),
         Interest(id: "technik", name: "Technik", symbol: "cpu"),
     ]
 }

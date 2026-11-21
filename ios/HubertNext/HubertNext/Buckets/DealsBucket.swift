@@ -3,12 +3,15 @@ import SafariServices
 import Combine   // ObservableObject und @Published (das Projekt verlangt den Import ausdrücklich)
 
 // ============================================================
-// Deals-Bucket – gute Angebote zu deinen Stichwörtern.
-// Wie beim Einkaufszettel: Vorschläge sind schon da (mit Synonymen),
-// eigene Stichwörter kommen dazu. Passt auch ungefähr: Groß/klein,
-// Umlaute, Mehrzahl, Wortteile und Tippfehler (macht der Server).
+// Deals-Bucket – gute Angebote zu dem, was man sucht.
+// Aufbau wie der App Store:
+//  • Bereiche antippen (Mode, Schuhe, Make-up, Pflege, Parfum, Taschen &
+//    Schmuck, Shops … bis Technik) → passende Suchen sind vorgewählt
+//  • Karte: Produkt-Kacheln mit Bild, Preis, Rabatt
+//  • Alle Deals: je Suche eine Reihe zum Wischen, „Alle ›“ als Raster
+// Passt auch ungefähr (Umlaute, Mehrzahl, Tippfehler, Synonyme) – macht der Server.
 // Quelle: mydealz über die Supabase-Funktion „deals“.
-// Einstellungen: watch = [{ id, t, alts, not, max }], min (Temperatur), hot (Bool)
+// Einstellungen: watch = [{ id, t, alts, not, max, a (Bereich) }], min (Temperatur), hot (Bool)
 // ============================================================
 
 // MARK: Modelle
@@ -25,20 +28,26 @@ struct Deal: Decodable, Identifiable, Hashable {
     let u: String
     let x: String?
     let d: String
+    let off: Int?          // Rabatt in % (aus dem Titel)
+    let code: Bool?        // Gutschein statt Produkt
 
     var date: Date { Fmt.date(d) ?? Date() }
     var image: URL? { img.flatMap { URL(string: $0) } }
-    /// Größeres Bild für die Detailansicht (mydealz liefert Vorschaubilder in 150 × 150)
-    var bigImage: URL? { img.flatMap { URL(string: $0.replacingOccurrences(of: "/re/150x150/", with: "/re/768x768/")) } }
+    /// Bilder liefert mydealz in festen Größen – Kacheln in 300 × 300, Details größer
+    var tileImage: URL? { sized("300x300") }
+    var bigImage: URL? { sized("768x768") }
     var link: URL? { URL(string: u) }
     var priceText: String? {
         if let p = p { return p == 0 ? "Gratis" : DealFmt.euro(p) }
         return pt
     }
+    private func sized(_ s: String) -> URL? {
+        img.flatMap { URL(string: $0.replacingOccurrences(of: "/re/150x150/", with: "/re/\(s)/")) }
+    }
 }
 
 struct DealGroup: Decodable { let t: String; let n: Int; let deals: [Deal] }
-/// Ein Treffer mit den Stichwörtern, die gepasst haben
+/// Ein Treffer mit den Suchen, die gepasst haben
 struct DealHit: Identifiable {
     let deal: Deal
     var terms: [String]
@@ -51,24 +60,28 @@ struct DealPreview: Decodable {
     let deals: [Deal]
     let std: Std
 }
+/// Ein Bereich mit Vorschlägen (vom Server)
 struct DealCatalog: Codable, Identifiable, Hashable {
-    struct Item: Codable, Hashable { let t: String; let alts: [String]; let not: [String] }
+    struct Item: Codable, Hashable { let t: String; let alts: [String]; let not: [String]; let s: Bool? }
+    let id: String
     let name: String
     let emoji: String
     let items: [Item]
-    var id: String { name }
+    /// Was beim Antippen des Bereichs vorgewählt wird
+    var starters: [Item] { let s = items.filter { $0.s == true }; return s.isEmpty ? Array(items.prefix(3)) : s }
 }
 
-/// Ein Stichwort, nach dem Hubert sucht
+/// Eine Suche (Stichwort)
 struct DealWatch: Hashable, Identifiable {
     var id = UUID().uuidString.lowercased()
     var t: String
     var alts: [String] = []
     var not: [String] = []
     var max: Double? = nil
+    var area: String? = nil
 
-    init(t: String, alts: [String] = [], not: [String] = [], max: Double? = nil) {
-        self.t = t; self.alts = alts; self.not = not; self.max = max
+    init(t: String, alts: [String] = [], not: [String] = [], max: Double? = nil, area: String? = nil) {
+        self.t = t; self.alts = alts; self.not = not; self.max = max; self.area = area
     }
 
     init?(_ j: JSON) {
@@ -78,15 +91,17 @@ struct DealWatch: Hashable, Identifiable {
         alts = (o["alts"]?.array ?? []).compactMap(\.string)
         not = (o["not"]?.array ?? []).compactMap(\.string)
         max = o["max"]?.double
+        area = o["a"]?.string
     }
 
     var json: JSON {
         var o: [String: JSON] = ["id": .string(id), "t": .string(t), "alts": .array(alts.map { .string($0) }), "not": .array(not.map { .string($0) })]
         if let m = max { o["max"] = .number(m) }
+        if let a = area { o["a"] = .string(a) }
         return .object(o)
     }
 
-    /// Was an den Server geht (ohne ID)
+    /// Was an den Server geht
     var request: [String: Any] {
         var o: [String: Any] = ["t": t, "alts": alts, "not": not]
         if let m = max { o["max"] = m }
@@ -123,15 +138,46 @@ enum DealFmt {
     static func tempColor(_ t: Int) -> Color { t >= 300 ? .red : t >= 100 ? .orange : Theme.secondary }
 }
 
+/// Symbol und Farbe je Bereich
+enum DealArea {
+    static func symbol(_ id: String?) -> String {
+        ["mode": "tshirt", "schuhe": "figure.walk", "makeup": "paintbrush.pointed", "pflege": "drop", "parfum": "sparkles",
+         "accessoires": "bag", "shops": "tag", "wohnen": "house", "technik": "headphones", "gaming": "gamecontroller",
+         "haushalt": "wrench.and.screwdriver", "einkauf": "cart", "freizeit": "gift", "reisen": "airplane",
+         "aktionen": "percent"][id ?? ""] ?? "magnifyingglass"
+    }
+    static func color(_ id: String?) -> Color {
+        ["mode": .pink, "schuhe": .orange, "makeup": .red, "pflege": .teal, "parfum": .purple, "accessoires": .brown,
+         "shops": .indigo, "wohnen": .yellow, "technik": .blue, "gaming": .green, "haushalt": .gray, "einkauf": .mint,
+         "freizeit": .cyan, "reisen": .blue, "aktionen": .orange][id ?? ""] ?? Theme.accent
+    }
+}
+
+/// Runder Kreis mit Bereichssymbol
+struct DealAreaIcon: View {
+    let area: String?
+    var size: CGFloat = 28
+    var filled = true
+    var body: some View {
+        let c = DealArea.color(area)
+        Image(systemName: DealArea.symbol(area))
+            .font(.system(size: size * 0.46, weight: .semibold))
+            .foregroundColor(filled ? .white : c)
+            .frame(width: size, height: size)
+            .background(Circle().fill(filled ? c : c.opacity(0.15)))
+            .accessibilityHidden(true)
+    }
+}
+
 // MARK: Bucket
 
 enum DealsBucket {
-    static let defaults = ["Kopfhörer", "Kaffee", "Lego", "Staubsauger", "Gratis-Spiele"].map { DealWatch(t: $0) }
-
     static let kind = BucketKind(
-        id: "deals", name: "Deals", symbol: "tag", tint: .red, art: .glance,
-        interests: ["haushalt", "technik", "freizeit"], blurb: "Gute Angebote zu deinen Stichwörtern – von Kopfhörern bis Kaffee.",
-        defaultConfig: ["watch": .array(defaults.map(\.json))],
+        id: "deals", name: "Deals", symbol: "tag", tint: .pink, art: .glance,
+        interests: ["shopping", "freizeit", "technik", "haushalt"],
+        blurb: "Angebote zu dem, was du suchst – Mode, Beauty, Technik und mehr.",
+        defaultConfig: [:],
+        needsSetup: { watch($0).isEmpty },
         glance: { inst, size in AnyView(DealsGlance(config: inst.config, size: size)) },
         detail: { inst in AnyView(DealsDetail(config: inst.config)) },
         itemLinks: true,
@@ -144,7 +190,13 @@ enum DealsBucket {
     static func minTemp(_ c: [String: JSON]) -> Int { Int(c["min"]?.double ?? 0) }
     static func showHot(_ c: [String: JSON]) -> Bool { c["hot"]?.bool ?? true }
 
-    /// Treffer aller Stichwörter, ohne Doppelte, neueste zuerst – mit den Stichwörtern, die gepasst haben
+    /// Bereich einer Suche – gespeichert oder aus den Vorschlägen erkannt (ältere Karten)
+    static func area(of w: DealWatch) -> String? {
+        if let a = w.area { return a }
+        return DealService.shared.catalog.first { c in c.items.contains { $0.t.caseInsensitiveCompare(w.t) == .orderedSame } }?.id
+    }
+
+    /// Treffer aller Suchen, ohne Doppelte, neueste zuerst
     static func merged(_ m: DealMatch) -> [DealHit] {
         var order: [String] = []
         var byId: [String: DealHit] = [:]
@@ -155,6 +207,10 @@ enum DealsBucket {
             }
         }
         return order.compactMap { byId[$0] }.sorted { $0.deal.date > $1.deal.date }
+    }
+
+    static func hits(_ m: DealMatch, for term: String) -> [DealHit] {
+        (m.groups.first { $0.t == term }?.deals ?? []).map { DealHit(deal: $0, terms: [term]) }
     }
 }
 
@@ -173,6 +229,7 @@ final class DealService: ObservableObject {
 
     /// Alle 10 Minuten neu (der Server liest mydealz ohnehin höchstens alle 5 Minuten)
     func load(_ w: [DealWatch], min: Int, force: Bool = false) async {
+        guard !w.isEmpty else { return }
         let k = Self.key(w, min: min)
         if !force, let t = loadedAt[k], Date().timeIntervalSince(t) < 598 { return }
         do {
@@ -193,18 +250,21 @@ final class DealService: ObservableObject {
         return try JSONDecoder().decode(DealPreview.self, from: data)
     }
 
-    /// Vorschläge (vom Server, damit neue ohne App-Update dazukommen)
+    /// Bereiche und Vorschläge (vom Server, damit neue ohne App-Update dazukommen)
     @Published private(set) var catalog: [DealCatalog] = {
-        guard let d = UserDefaults.standard.data(forKey: "deals.catalog"),
+        guard let d = UserDefaults.standard.data(forKey: "deals.catalog.v2"),
               let c = try? JSONDecoder().decode([DealCatalog].self, from: d) else { return [] }
         return c
     }()
+    private var catalogAt: Date?
 
     func loadCatalog() async {
+        if let t = catalogAt, Date().timeIntervalSince(t) < 600 { return }
         guard let data = try? await api.raw("GET", "/functions/v1/deals/catalog"),
               let c = try? JSONDecoder().decode([DealCatalog].self, from: data) else { return }
         catalog = c
-        UserDefaults.standard.set(data, forKey: "deals.catalog")
+        catalogAt = Date()
+        UserDefaults.standard.set(data, forKey: "deals.catalog.v2")
     }
 }
 
@@ -220,16 +280,14 @@ enum BlackWeek {
         return cal.date(from: DateComponents(year: year, month: 11, day: firstThu + 22))!
     }
 
-    /// Hinweis für die Karte: zwei Wochen vorher bis Cyber Monday
+    /// Hinweis: zwei Wochen vorher bis Cyber Monday
     static var banner: String? {
-        let cal = Calendar.current
-        let now = Date()
-        let bf = friday(cal.component(.year, from: now))
+        let bf = friday(Calendar.current.component(.year, from: Date()))
         let days = Fmt.dayDiff(bf)
         switch days {
         case 5...14: return "Black Friday in \(days) Tagen"
-        case 2...4: return "Black Week läuft · Black Friday in \(days) Tagen"
-        case 1: return "Black Week läuft · morgen ist Black Friday"
+        case 2...4: return "Black Week · Black Friday in \(days) Tagen"
+        case 1: return "Black Week · morgen ist Black Friday"
         case 0: return "Heute ist Black Friday"
         case -2 ... -1: return "Black Week · noch bis Cyber Monday"
         case -3: return "Heute ist Cyber Monday"
@@ -238,75 +296,74 @@ enum BlackWeek {
     }
 }
 
-// MARK: Karte
+// MARK: Bausteine
 
-struct DealsGlance: View {
-    let config: [String: JSON]
-    let size: BucketSize
-    @ObservedObject private var service = DealService.shared
-    @Environment(\.glanceSpace) private var space
-
-    private var watch: [DealWatch] { DealsBucket.watch(config) }
-    private var minTemp: Int { DealsBucket.minTemp(config) }
-    private var key: String { DealService.key(watch, min: minTemp) }
+/// Produkt-Kachel: Bild (quadratisch, weißer Grund), Rabatt, Preis, Titel
+struct DealTile: View {
+    let deal: Deal
+    var label: String? = nil
+    var width: CGFloat? = nil
 
     var body: some View {
-        content.refreshing(id: key, every: { 600 }) { await DealService.shared.load(watch, min: minTemp) }
-    }
-
-    @ViewBuilder private var content: some View {
-        if watch.isEmpty {
-            Text("Füge Stichwörter hinzu – über den Regler oben rechts").foregroundColor(Theme.secondary)
-        } else if let m = service.results[key] {
-            let hits = DealsBucket.merged(m)
-            let showHot = hits.isEmpty && DealsBucket.showHot(config)
-            let list = showHot ? m.hot.map { DealHit(deal: $0, terms: []) } : hits
-            VStack(alignment: .leading, spacing: 4) {
-                if let b = BlackWeek.banner {
-                    Label(b, systemImage: "tag.fill").font(.caption.weight(.semibold)).foregroundColor(Theme.accent).lineLimit(1)
-                }
-                if list.isEmpty {
-                    Text("Gerade nichts Passendes – Hubert schaut alle 10 Minuten nach.").foregroundColor(Theme.secondary)
-                } else {
-                    if showHot { Text("Nichts zu deinen Stichwörtern – heiß gerade:").font(.caption).foregroundColor(Theme.secondary) }
-                    GlancePager(pages: Pages.split(list, height: space.height - (BlackWeek.banner == nil ? 0 : 22) - (showHot ? 18 : 0), row: 60)) { page in
-                        VStack(alignment: .leading, spacing: 0) {
-                            ForEach(Array(page.enumerated()), id: \.element.id) { i, e in
-                                if i > 0 { Divider() }
-                                NavigationLink(destination: DealDetailView(deal: e.deal, terms: e.terms)) {
-                                    HStack(spacing: 6) {
-                                        DealRow(deal: e.deal, compact: true)
-                                        Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
-                                            .foregroundColor(Color(UIColor.tertiaryLabel))
-                                    }
-                                    .padding(.vertical, 6).contentShape(Rectangle())
-                                }
-                                .buttonStyle(.plain)
-                            }
-                        }
+        VStack(alignment: .leading, spacing: 4) {
+            Color.white
+                .aspectRatio(1, contentMode: .fit)
+                .overlay(
+                    AsyncImage(url: deal.tileImage ?? deal.image) { img in img.resizable().scaledToFit() } placeholder: {
+                        Image(systemName: "tag").font(.title2).foregroundColor(Color(UIColor.tertiaryLabel))
                     }
+                    .padding(8)
+                )
+                .overlay(badges, alignment: .topLeading)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Color.black.opacity(0.05), lineWidth: 0.5))
+            HStack(spacing: 6) {
+                if let p = deal.priceText { Text(p).font(.subheadline.weight(.bold)).foregroundColor(.primary) }
+                if let t = deal.temp, t >= 100 {
+                    Text("\(t)°").font(.caption.weight(.semibold)).foregroundColor(DealFmt.tempColor(t))
                 }
             }
-        } else {
-            Text("Lädt …").foregroundColor(Theme.secondary)
+            .lineLimit(1)
+            Text(deal.t).font(.caption).foregroundColor(.primary).lineLimit(2).fixedSize(horizontal: false, vertical: true)
+            Text([label, deal.m].compactMap { $0 }.joined(separator: " · "))
+                .font(.caption2).foregroundColor(Theme.secondary).lineLimit(1)
         }
+        .frame(width: width, alignment: .leading)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+    }
+
+    @ViewBuilder private var badges: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if let o = deal.off {
+                Text("−\(o) %").font(.caption.weight(.bold)).foregroundColor(.white)
+                    .padding(.horizontal, 7).padding(.vertical, 3)
+                    .background(Capsule().fill(Theme.accent))
+            }
+            if deal.code == true {
+                Text("Gutschein").font(.caption2.weight(.semibold)).foregroundColor(.primary)
+                    .padding(.horizontal, 7).padding(.vertical, 3)
+                    .background(Capsule().fill(.regularMaterial))
+            }
+        }
+        .padding(6)
     }
 }
 
-/// Eine Zeile: Bild, Titel, Preis · Händler · Temperatur
+/// Listenzeile (für schmale Karten und Vorschauen): Bild, Titel, Preis · Händler
 struct DealRow: View {
     let deal: Deal
     var compact = false
 
     var body: some View {
         HStack(spacing: 10) {
-            DealThumb(url: deal.image, size: compact ? 44 : 52)
+            DealThumb(url: deal.tileImage ?? deal.image, size: compact ? 44 : 52)
             VStack(alignment: .leading, spacing: 3) {
                 Text(deal.t).font(compact ? .subheadline : .body).lineLimit(2).foregroundColor(.primary)
                 HStack(spacing: 6) {
-                    if let p = deal.priceText { Text(p).fontWeight(.semibold).foregroundColor(Theme.accent) }
+                    if let p = deal.priceText { Text(p).fontWeight(.semibold).foregroundColor(.primary) }
+                    if let o = deal.off { Text("−\(o) %").fontWeight(.semibold).foregroundColor(Theme.accent) }
                     if let m = deal.m { Text(m).foregroundColor(Theme.secondary).lineLimit(1) }
-                    if let t = deal.temp { Text("\(t)°").fontWeight(.semibold).foregroundColor(DealFmt.tempColor(t)) }
                     Spacer(minLength: 4)
                     Text(Fmt.ago(deal.date)).foregroundColor(Theme.secondary).lineLimit(1)
                 }
@@ -321,112 +378,237 @@ struct DealThumb: View {
     let url: URL?
     let size: CGFloat
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill))
-            if let u = url {
-                AsyncImage(url: u) { img in img.resizable().aspectRatio(contentMode: .fill) } placeholder: {
+        Color.white
+            .overlay(
+                AsyncImage(url: url) { img in img.resizable().scaledToFit() } placeholder: {
                     Image(systemName: "tag").foregroundColor(Theme.secondary)
                 }
-            } else {
-                Image(systemName: "tag").foregroundColor(Theme.secondary)
-            }
-        }
-        .frame(width: size, height: size)
-        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .padding(3)
+            )
+            .frame(width: size, height: size)
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }
 
-// MARK: Alle Deals
+/// Black-Week-Hinweis als ruhige Zeile
+struct BlackWeekBanner: View {
+    let text: String
+    var body: some View {
+        Label(text, systemImage: "tag.fill")
+            .font(.subheadline.weight(.semibold))
+            .foregroundColor(Theme.accent)
+            .lineLimit(1)
+    }
+}
 
-struct DealsDetail: View {
+// MARK: Karte
+
+struct DealsGlance: View {
     let config: [String: JSON]
+    let size: BucketSize
     @ObservedObject private var service = DealService.shared
+    @Environment(\.glanceSpace) private var space
     @Environment(\.editBucket) private var editBucket
-    @State private var only = ""          // "" = alle Stichwörter
-    @State private var sort = 0           // 0 neueste, 1 günstigste, 2 heißeste
 
     private var watch: [DealWatch] { DealsBucket.watch(config) }
     private var minTemp: Int { DealsBucket.minTemp(config) }
     private var key: String { DealService.key(watch, min: minTemp) }
 
-    private func sorted(_ l: [DealHit]) -> [DealHit] {
+    var body: some View {
+        content.refreshing(id: key, every: { 600 }) { await DealService.shared.load(watch, min: minTemp) }
+    }
+
+    @ViewBuilder private var content: some View {
+        if watch.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Was suchst du?").font(.headline)
+                Text("Mode, Schuhe, Make-up, Technik … – such dir Bereiche aus.").font(.subheadline).foregroundColor(Theme.secondary)
+                Button("Einrichten") { editBucket() }
+                    .buttonStyle(.borderedProminent).tint(Theme.accent)
+            }
+        } else if let m = service.results[key] {
+            let hits = DealsBucket.merged(m)
+            let fallback = hits.isEmpty && DealsBucket.showHot(config)
+            let list = fallback ? m.hot.map { DealHit(deal: $0, terms: []) } : hits
+            let banner = BlackWeek.banner
+            VStack(alignment: .leading, spacing: 8) {
+                if let b = banner { BlackWeekBanner(text: b) }
+                if list.isEmpty {
+                    Text("Gerade nichts Neues – Hubert schaut alle 10 Minuten nach.").foregroundColor(Theme.secondary)
+                } else {
+                    if fallback { Text("Zu deinen Suchen gerade nichts – heiß bei allen:").font(.caption).foregroundColor(Theme.secondary) }
+                    let h = space.height - (banner == nil ? 0 : 28) - (fallback ? 22 : 0)
+                    // Kacheln nur, wenn mindestens eine ganze Reihe hineinpasst – sonst Liste
+                    if space.width >= 280 && h >= layout.tileH + Pages.dots { tiles(list, height: h) } else { rows(list, height: h) }
+                }
+            }
+        } else {
+            Text("Lädt …").foregroundColor(Theme.secondary)
+        }
+    }
+
+    /// Kacheln: so viele Spalten, wie mit ca. 120 pt Breite hineinpassen
+    private struct TileLayout { let cols: Int; let w: CGFloat; let tileH: CGFloat }
+    private static let gap: CGFloat = 12
+    private var layout: TileLayout {
+        let gap = Self.gap
+        let cols = max(2, Int((space.width + gap) / (120 + gap)))
+        let w = floor((space.width - gap * CGFloat(cols - 1)) / CGFloat(cols))
+        return TileLayout(cols: cols, w: w, tileH: w + 84)      // Bild + Preis + 2 Zeilen Titel + Händler
+    }
+
+    @ViewBuilder private func tiles(_ list: [DealHit], height: CGFloat) -> some View {
+        let gap = Self.gap
+        let cols = layout.cols
+        let w = layout.w
+        let tileH = layout.tileH
+        let rowsPerPage = max(1, Int((height - Pages.dots + gap) / (tileH + gap)))
+        let per = cols * rowsPerPage
+        let pages = stride(from: 0, to: min(list.count, per * 6), by: per).map { Array(list[$0 ..< min($0 + per, list.count)]) }
+        GlancePager(pages: pages) { page in
+            LazyVGrid(columns: Array(repeating: GridItem(.fixed(w), spacing: gap, alignment: .top), count: cols), alignment: .leading, spacing: gap) {
+                ForEach(page) { e in
+                    NavigationLink(destination: DealDetailView(deal: e.deal, terms: e.terms)) {
+                        DealTile(deal: e.deal, label: e.terms.first, width: w)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
+    /// Schmale Karte: Liste
+    @ViewBuilder private func rows(_ list: [DealHit], height: CGFloat) -> some View {
+        GlancePager(pages: Pages.split(list, height: height, row: 60)) { page in
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(Array(page.enumerated()), id: \.element.id) { i, e in
+                    if i > 0 { Divider() }
+                    NavigationLink(destination: DealDetailView(deal: e.deal, terms: e.terms)) {
+                        DealRow(deal: e.deal, compact: true).padding(.vertical, 6).contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+}
+
+// MARK: Alle Deals – je Suche eine Reihe
+
+struct DealsDetail: View {
+    let config: [String: JSON]
+    @ObservedObject private var service = DealService.shared
+    @Environment(\.editBucket) private var editBucket
+
+    private var watch: [DealWatch] { DealsBucket.watch(config) }
+    private var minTemp: Int { DealsBucket.minTemp(config) }
+    private var key: String { DealService.key(watch, min: minTemp) }
+
+    var body: some View {
+        let m = service.results[key]
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                if let b = BlackWeek.banner { BlackWeekBanner(text: b).padding(.horizontal, 20) }
+                if watch.isEmpty {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Was suchst du?").font(.title2.weight(.bold))
+                        Text("Wähle Bereiche wie Mode, Make-up oder Technik – Hubert sucht dann passende Angebote.")
+                            .foregroundColor(Theme.secondary)
+                        Button("Einrichten") { editBucket() }.buttonStyle(.borderedProminent).tint(Theme.accent)
+                    }
+                    .padding(.horizontal, 20)
+                } else if let m = m {
+                    let empty = watch.filter { w in (m.groups.first { $0.t == w.t }?.n ?? 0) == 0 }
+                    ForEach(watch.filter { w in !empty.contains(w) }) { w in
+                        shelf(title: w.t, area: DealsBucket.area(of: w), count: m.groups.first { $0.t == w.t }?.n ?? 0,
+                              hits: DealsBucket.hits(m, for: w.t), showLabel: false)
+                    }
+                    if !empty.isEmpty {
+                        Text("Gerade nichts zu: " + empty.map(\.t).joined(separator: ", "))
+                            .font(.footnote).foregroundColor(Theme.secondary).padding(.horizontal, 20)
+                    }
+                    if !m.hot.isEmpty {
+                        shelf(title: "Heiß gerade", area: "aktionen", count: m.hot.count,
+                              hits: m.hot.map { DealHit(deal: $0, terms: []) }, showLabel: false)
+                    }
+                } else {
+                    ProgressView().frame(maxWidth: .infinity).padding(.top, 40)
+                }
+                Text("Quelle: mydealz. Preise und Verfügbarkeit ändern sich schnell – im Deal steht, wo und wie lange.")
+                    .font(.footnote).foregroundColor(Theme.secondary).padding(.horizontal, 20)
+            }
+            .padding(.vertical, 16)
+        }
+        .background(Theme.background.ignoresSafeArea())
+        .refreshing(id: key, every: { 600 }) { await DealService.shared.load(watch, min: minTemp) }
+        .task { await DealService.shared.loadCatalog() }
+    }
+
+    /// Eine Reihe: Kopf mit „Alle ›“, darunter Kacheln zum Wischen
+    private func shelf(title: String, area: String?, count: Int, hits: [DealHit], showLabel: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            NavigationLink(destination: DealSearchView(title: title, area: area, hits: hits)) {
+                HStack(spacing: 10) {
+                    DealAreaIcon(area: area, size: 28)
+                    Text(title).font(.title3.weight(.bold)).foregroundColor(.primary).lineLimit(1)
+                    Text("\(count)").font(.subheadline.monospacedDigit()).foregroundColor(Theme.secondary)
+                    Spacer()
+                    Text("Alle").foregroundColor(Theme.accent)
+                    Image(systemName: "chevron.right").font(.footnote.weight(.semibold)).foregroundColor(Theme.accent)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, 20)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(alignment: .top, spacing: 12) {
+                    ForEach(hits.prefix(12)) { e in
+                        NavigationLink(destination: DealDetailView(deal: e.deal, terms: e.terms)) {
+                            DealTile(deal: e.deal, label: showLabel ? e.terms.first : nil, width: 150)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .padding(.horizontal, 20)
+            }
+        }
+    }
+}
+
+/// Alle Deals einer Suche als Raster
+struct DealSearchView: View {
+    let title: String
+    let area: String?
+    let hits: [DealHit]
+    @State private var sort = 0          // 0 neueste, 1 günstigste, 2 höchster Rabatt
+
+    private var sorted: [DealHit] {
         switch sort {
-        case 1: return l.sorted { ($0.deal.p ?? .greatestFiniteMagnitude) < ($1.deal.p ?? .greatestFiniteMagnitude) }
-        case 2: return l.sorted { ($0.deal.temp ?? -1) > ($1.deal.temp ?? -1) }
-        default: return l
+        case 1: return hits.sorted { ($0.deal.p ?? .greatestFiniteMagnitude) < ($1.deal.p ?? .greatestFiniteMagnitude) }
+        case 2: return hits.sorted { ($0.deal.off ?? -1) > ($1.deal.off ?? -1) }
+        default: return hits
         }
     }
 
     var body: some View {
-        let m = service.results[key]
-        let all = m.map(DealsBucket.merged) ?? []
-        let list = sorted(all.filter { only.isEmpty || $0.terms.contains(only) })
-        List {
-            if let b = BlackWeek.banner {
-                Section {
-                    Label(b, systemImage: "tag.fill").font(.headline).foregroundColor(Theme.accent)
-                }
-            }
-            if !watch.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        chip("", "Alle", all.count)
-                        ForEach(watch) { w in chip(w.t, w.t, m?.groups.first { $0.t == w.t }?.n ?? 0) }
-                    }
-                    .padding(.vertical, 2)
-                }
-                .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
                 Picker("Sortieren", selection: $sort) {
-                    Text("Neueste").tag(0); Text("Günstigste").tag(1); Text("Heißeste").tag(2)
+                    Text("Neueste").tag(0); Text("Günstigste").tag(1); Text("Rabatt").tag(2)
                 }
-                .pickerStyle(.segmented).listRowBackground(Color.clear).listRowInsets(EdgeInsets())
-            }
-            if watch.isEmpty {
-                Section {
-                    Text("Noch keine Stichwörter.").foregroundColor(Theme.secondary)
-                    Button("Stichwörter wählen") { editBucket() }
-                }
-            } else if m == nil {
-                ProgressView()
-            } else if list.isEmpty {
-                Text(only.isEmpty ? "Gerade nichts Passendes." : "Zu „\(only)“ gerade nichts.").foregroundColor(Theme.secondary)
-            } else {
-                Section(header: Text(only.isEmpty ? "Passend zu deinen Stichwörtern" : only)) {
-                    ForEach(list) { e in
-                        NavigationLink(destination: DealDetailView(deal: e.deal, terms: e.terms)) { DealRow(deal: e.deal).padding(.vertical, 3) }
+                .pickerStyle(.segmented)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 14, alignment: .top)], alignment: .leading, spacing: 18) {
+                    ForEach(sorted) { e in
+                        NavigationLink(destination: DealDetailView(deal: e.deal, terms: e.terms)) { DealTile(deal: e.deal) }
+                            .buttonStyle(.plain)
                     }
                 }
             }
-            if only.isEmpty, let hot = m?.hot, !hot.isEmpty {
-                Section(header: Text("Heiß gerade")) {
-                    ForEach(hot) { d in
-                        NavigationLink(destination: DealDetailView(deal: d, terms: [])) { DealRow(deal: d).padding(.vertical, 3) }
-                    }
-                }
-            }
-            Section {
-                EmptyView()
-            } footer: {
-                Text("Quelle: mydealz – Preise und Verfügbarkeit können sich schnell ändern. Die Temperatur (°) zeigt, wie gut die Community einen Deal findet.")
-            }
+            .padding(20)
         }
-        .listStyle(.insetGrouped)
-        .refreshable { await DealService.shared.load(watch, min: minTemp, force: true) }
-        .refreshing(id: key, every: { 600 }) { await DealService.shared.load(watch, min: minTemp) }
-    }
-
-    private func chip(_ id: String, _ title: String, _ n: Int) -> some View {
-        Button { withAnimation { only = id } } label: {
-            HStack(spacing: 4) {
-                Text(title)
-                Text("\(n)").foregroundColor(only == id ? Color.white.opacity(0.8) : Theme.secondary)
-            }
-            .font(.subheadline.weight(.semibold))
-            .padding(.horizontal, 14).padding(.vertical, 7)
-            .foregroundColor(only == id ? .white : .primary)
-            .background(Capsule().fill(only == id ? Theme.accent : Theme.card))
-        }
-        .buttonStyle(.plain)
+        .background(Theme.background.ignoresSafeArea())
+        .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -441,49 +623,48 @@ struct DealDetailView: View {
         List {
             Section {
                 VStack(alignment: .leading, spacing: 12) {
-                    if let u = deal.bigImage ?? deal.image {
-                        AsyncImage(url: u) { img in img.resizable().aspectRatio(contentMode: .fit) } placeholder: {
-                            ProgressView().frame(maxWidth: .infinity, minHeight: 160)
-                        }
-                        .frame(maxWidth: .infinity, maxHeight: 260)
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                    }
+                    Color.white
+                        .aspectRatio(1, contentMode: .fit)
+                        .frame(maxWidth: 360)
+                        .overlay(
+                            AsyncImage(url: deal.bigImage ?? deal.image) { img in img.resizable().scaledToFit() } placeholder: { ProgressView() }
+                                .padding(12)
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        .frame(maxWidth: .infinity)
                     Text(deal.t).font(.title3.weight(.semibold))
                     HStack(alignment: .firstTextBaseline, spacing: 10) {
-                        if let p = deal.priceText { Text(p).font(.title.weight(.bold)).foregroundColor(Theme.accent) }
-                        if let m = deal.m { Text(m).font(.headline).foregroundColor(Theme.secondary) }
+                        if let p = deal.priceText { Text(p).font(.title.weight(.bold)) }
+                        if let o = deal.off {
+                            Text("−\(o) %").font(.headline).foregroundColor(.white)
+                                .padding(.horizontal, 9).padding(.vertical, 3)
+                                .background(Capsule().fill(Theme.accent))
+                        }
                         Spacer()
                         if let t = deal.temp {
                             Text("\(t)°").font(.headline.monospacedDigit()).foregroundColor(DealFmt.tempColor(t))
-                                .padding(.horizontal, 10).padding(.vertical, 4)
-                                .background(Capsule().fill(DealFmt.tempColor(t).opacity(0.12)))
                                 .accessibilityLabel("\(t) Grad")
                         }
                     }
+                    if let m = deal.m { Text("bei " + m + (deal.code == true ? " · Gutschein" : "")).foregroundColor(Theme.secondary) }
                 }
                 .padding(.vertical, 6)
-            }
-            Section {
-                if let x = deal.x, !x.isEmpty { Text(x).foregroundColor(.primary) }
-                HStack {
-                    Text("Eingestellt")
-                    Spacer()
-                    Text(Fmt.ago(deal.date)).foregroundColor(Theme.secondary)
-                }
-                if let c = deal.cat {
-                    HStack { Text("Kategorie"); Spacer(); Text(c).foregroundColor(Theme.secondary) }
-                }
-                if !terms.isEmpty {
-                    HStack { Text("Passt zu"); Spacer(); Text(terms.joined(separator: ", ")).foregroundColor(Theme.secondary) }
-                }
+                .listRowBackground(Color.clear)
             }
             Section {
                 Button { web = deal.link } label: {
-                    Label("Zum Deal", systemImage: "arrow.up.forward.square").font(.headline).frame(maxWidth: .infinity)
+                    Text("Zum Angebot").font(.headline).frame(maxWidth: .infinity).padding(.vertical, 4)
                 }
+                .buttonStyle(.borderedProminent).tint(Theme.accent)
+                .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
+            }
+            Section {
+                if let x = deal.x, !x.isEmpty { Text(x) }
+                HStack { Text("Eingestellt"); Spacer(); Text(Fmt.ago(deal.date)).foregroundColor(Theme.secondary) }
+                if !terms.isEmpty { HStack { Text("Passt zu"); Spacer(); Text(terms.joined(separator: ", ")).foregroundColor(Theme.secondary) } }
+                if let c = deal.cat { HStack { Text("Kategorie"); Spacer(); Text(c).foregroundColor(Theme.secondary) } }
             } footer: {
-                Text("Öffnet den Deal bei mydealz – innerhalb von Hubert.")
+                Text("„Zum Angebot“ öffnet den Deal bei mydealz – innerhalb von Hubert.")
             }
         }
         .listStyle(.insetGrouped)
