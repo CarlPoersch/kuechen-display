@@ -41,7 +41,10 @@ struct BarcodeScanView: View {
     @State private var place = "Vorrat"
     @State private var lastCode = ""
 
-    struct Product: Identifiable, Equatable { let id: String; var name: String; var detail: String; var added = false }
+    struct Product: Identifiable, Equatable {
+        let id: String; var name: String; var detail: String; var added = false
+        var suggested = ""   // Hubert's Vorschlag – weicht der Name ab, wird gelernt
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -66,6 +69,7 @@ struct BarcodeScanView: View {
                                 }
                                 Spacer()
                                 Button {
+                                    if p.name != p.suggested { kitchen.learn(key: "EAN " + p.id, name: p.name) }
                                     kitchen.add("pantry", name: p.name, place: place); p.added = true
                                 } label: {
                                     Image(systemName: p.added ? "checkmark.circle.fill" : "plus.circle.fill")
@@ -93,11 +97,13 @@ struct BarcodeScanView: View {
            let p = obj["product"] as? [String: Any] {
             let n = (p["product_name_de"] as? String).flatMap { $0.isEmpty ? nil : $0 } ?? (p["product_name"] as? String) ?? ""
             if !n.isEmpty {
-                name = n
-                detail = [p["brands"] as? String, p["quantity"] as? String].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
+                // Marke/Zusätze weg: "Gut & Günstig Haferflocken zart" → "Haferflocken"
+                name = FoodNames.clean(n)
+                detail = [n, p["brands"] as? String, p["quantity"] as? String].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
             }
         }
-        withAnimation { found.insert(Product(id: code, name: name, detail: detail), at: 0) }
+        if let learned = kitchen.pantryName(barcode: code) { name = learned }
+        withAnimation { found.insert(Product(id: code, name: name, detail: detail, suggested: name), at: 0) }
     }
 }
 
@@ -195,7 +201,13 @@ struct ReceiptScanView: View {
     @State private var showLibrary = false
     @State private var done: Int?
 
-    struct Line: Identifiable { let id = UUID(); var name: String; var on = true }
+    struct Line: Identifiable {
+        let id = UUID()
+        let raw: String          // so stand es auf dem Kassenzettel
+        let suggested: String    // Hubert's Vorschlag
+        var name: String
+        var on = true
+    }
 
     var body: some View {
         List {
@@ -213,7 +225,7 @@ struct ReceiptScanView: View {
             if busy { Section { HStack { ProgressView(); Text("Lese Kassenzettel …").padding(.leading, 8) } } }
             if !lines.isEmpty {
                 Section(header: Text("Gefundene Artikel · \(lines.filter { $0.on }.count) ausgewählt"),
-                        footer: Text("Namen antippen zum Ändern. Kassenzettel kürzen oft ab – „BIO VOLLM.“ einfach zu „Bio-Vollmilch“ machen.")) {
+                        footer: Text("Oben steht, was auf dem Kassenzettel steht, darunter Huberts Vorschlag. Änderst du einen Namen, merkt sich Hubert das für den ganzen Haushalt.")) {
                     ForEach($lines) { $l in
                         HStack {
                             Button { l.on.toggle() } label: {
@@ -221,12 +233,18 @@ struct ReceiptScanView: View {
                                     .foregroundColor(l.on ? Theme.accent : Color(UIColor.tertiaryLabel))
                             }
                             .buttonStyle(.borderless)
-                            TextField("Name", text: $l.name).foregroundColor(l.on ? .primary : Theme.secondary)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(l.raw.uppercased() + "  →").font(.caption.monospaced()).foregroundColor(Theme.secondary).lineLimit(1)
+                                TextField("Name", text: $l.name).font(.headline).foregroundColor(l.on ? .primary : Theme.secondary)
+                            }
                         }
                     }
                     Picker("Ablegen in", selection: $place) { ForEach(KitchenStore.places, id: \.self) { Text($0) } }
                     Button {
-                        let chosen = lines.filter { $0.on }.map { $0.name }
+                        let picked = lines.filter { $0.on }
+                        // Korrekturen lernen
+                        for l in picked where l.name != l.suggested { kitchen.learn(key: FoodNames.key(l.raw), name: l.name) }
+                        let chosen = picked.map { $0.name }
                         for n in chosen {
                             if !kitchen.inPantry(n) { kitchen.add("pantry", name: n, place: place) }
                             // Passendes auf der Einkaufsliste gleich abhaken
@@ -255,9 +273,15 @@ struct ReceiptScanView: View {
 
     private func read(_ img: UIImage) {
         image = img; busy = true; done = nil; lines = []
-        Receipt.recognize(img) { names in
+        Receipt.recognize(img) { raws in
             busy = false
-            lines = names.map { Line(name: $0) }
+            var seen = Set<String>()
+            lines = raws.compactMap { raw in
+                let n = kitchen.pantryName(receipt: raw)
+                guard !seen.contains(n.lowercased()) else { return nil }   // dieselbe Sache nur einmal
+                seen.insert(n.lowercased())
+                return Line(raw: raw, suggested: n, name: n)
+            }
         }
     }
 }
@@ -319,8 +343,7 @@ enum Receipt {
             name = name.replacingOccurrences(of: #"\s\d+[,.]?\d*\s*$"#, with: "", options: .regularExpression)
             name = name.trimmingCharacters(in: .whitespacesAndNewlines.union(.punctuationCharacters))
             guard name.count >= 3, name.rangeOfCharacter(from: .letters) != nil else { continue }
-            let nice = name.lowercased().split(separator: " ").map { $0.prefix(1).uppercased() + $0.dropFirst() }.joined(separator: " ")
-            if !out.contains(nice) { out.append(nice) }
+            if !out.contains(name) { out.append(name) }   // Rohtext; Bereinigung macht FoodNames
         }
         return out
     }

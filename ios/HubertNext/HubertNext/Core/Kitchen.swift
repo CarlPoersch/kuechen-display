@@ -51,6 +51,40 @@ struct Recipe: Codable, Identifiable {
 
     var isOwn: Bool { id.hasPrefix("u-") }
 
+    init(id: String, title: String, icon: String, cuisine: String?, servings: Int?, time: String?,
+         ingredients: [Ingredient], steps: [Step], airfryer: Bool?, source: String? = nil) {
+        self.id = id; self.title = title; self.icon = icon; self.cuisine = cuisine; self.servings = servings
+        self.time = time; self.ingredients = ingredients; self.steps = steps; self.airfryer = airfryer; self.source = source
+    }
+
+    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, ingredients, steps, airfryer, source }
+
+    /// In den Rezeptdateien stehen Gruppen als eigene Einträge ({"group": "Dip"}) vor ihren Zutaten.
+    /// Beim Lesen wird daraus: jede Zutat kennt ihre Gruppe, die Überschrift-Einträge fallen weg.
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decode(String.self, forKey: .id)
+        title = try c.decode(String.self, forKey: .title)
+        icon = (try? c.decode(String.self, forKey: .icon)) ?? "🍽️"
+        cuisine = try c.decodeIfPresent(String.self, forKey: .cuisine)
+        servings = try c.decodeIfPresent(Int.self, forKey: .servings)
+        time = try c.decodeIfPresent(String.self, forKey: .time)
+        steps = (try? c.decode([Step].self, forKey: .steps)) ?? []
+        airfryer = try c.decodeIfPresent(Bool.self, forKey: .airfryer)
+        source = try c.decodeIfPresent(String.self, forKey: .source)
+        struct Raw: Decodable { let amount: String?; let name: String?; let group: String? }
+        var group: String?
+        var out: [Ingredient] = []
+        for r in (try? c.decode([Raw].self, forKey: .ingredients)) ?? [] {
+            if let n = r.name, !n.isEmpty {
+                out.append(Ingredient(amount: r.amount, name: n, group: r.group ?? group))
+            } else if let g = r.group {
+                group = g
+            }
+        }
+        ingredients = out
+    }
+
     var baseServings: Int { max(1, servings ?? 2) }
 }
 
@@ -221,6 +255,13 @@ struct OwnRecipe: Codable, Equatable {
     static func == (a: OwnRecipe, b: OwnRecipe) -> Bool { a.id == b.id && a.data.title == b.data.title }
 }
 
+struct Alias: Codable {
+    var householdId: String
+    var key: String
+    var name: String
+    enum CodingKeys: String, CodingKey { case key, name, householdId = "household_id" }
+}
+
 struct Cookbook: Decodable, Equatable {
     let sourceId: String
     let name: String
@@ -250,6 +291,7 @@ final class KitchenStore: ObservableObject {
     @Published private(set) var own: [OwnRecipe] = []               // eigene + aus Familien-Kochbüchern
     @Published private(set) var followed: [Cookbook] = []
     @Published private(set) var cooked: [CookedEvent] = []           // für die Statistik
+    @Published private(set) var aliases: [String: String] = [:]      // gelernte Vorratsnamen (Kassenzettel, Barcode)
     @Published private(set) var details: [String: Recipe] = [:]
     @Published private(set) var items: [KitchenItem] = []
     @Published private(set) var plan: [PlanEntry] = []
@@ -331,8 +373,10 @@ final class KitchenStore: ObservableObject {
                 async let o: [OwnRecipe] = api.select("kitchen_recipes", ["order": "created_at"])
                 async let c: [CookedEvent] = api.select("kitchen_cooked", ["household_id": hid, "cooked_at": "gte." + year])
                 async let f: [Cookbook] = api.rpc("followed_cookbooks", ["p_household": h])
-                let (oo, cc, ff) = try await (o, c, f)
+                async let a: [Alias] = api.select("kitchen_aliases", ["household_id": hid])
+                let (oo, cc, ff, aa) = try await (o, c, f, a)
                 own = oo; cooked = cc; followed = ff
+                aliases = Dictionary(aa.map { ($0.key, $0.name) }, uniquingKeysWith: { a, _ in a })
             } catch { print("Küche Runde 2:", error) }
             synced = Date(); failed = false
             save()
@@ -536,6 +580,40 @@ final class KitchenStore: ObservableObject {
         }
         return try JSONDecoder().decode(Recipe.self, from: data)
     }
+
+    // MARK: Saubere Vorratsnamen (gelernt + Regeln)
+
+    /// Name für eine Kassenzettel-Zeile: Gelerntes zuerst, sonst Regel-Bereinigung
+    func pantryName(receipt raw: String) -> String {
+        aliases[FoodNames.key(raw)] ?? FoodNames.clean(raw, extra: ingredientNames)
+    }
+
+    /// Gelernter Name für einen Barcode (falls schon einmal umbenannt)
+    func pantryName(barcode code: String) -> String? { aliases["EAN " + code] }
+
+    /// Korrektur merken – gilt ab sofort für den ganzen Haushalt
+    func learn(key: String, name: String) {
+        guard let h = household, !key.isEmpty else { return }
+        let clean = name.trimmingCharacters(in: .whitespaces)
+        guard !clean.isEmpty, aliases[key] != clean else { return }
+        aliases[key] = clean
+        let row = Alias(householdId: h, key: key, name: clean)
+        write { try await self.api.upsert("kitchen_aliases", [row]) }
+    }
+
+    /// Kurze Zutatennamen aus den Rezepten ("Knoblauchzehen", "Kokosmilch" …) als zusätzliche Lebensmittelliste
+    private var ingredientNames: [String] {
+        if let c = ingredientCache, c.0 == catalog.count { return c.1 }
+        var seen = Set<String>(), out: [String] = []
+        for r in catalog { for n in r.ing ?? [] {
+            let k = Self.key(n)
+            guard k.count >= 4, k.split(separator: " ").count <= 2, !seen.contains(k) else { continue }
+            seen.insert(k); out.append(k.prefix(1).uppercased() + k.dropFirst())
+        } }
+        ingredientCache = (catalog.count, out)
+        return out
+    }
+    private var ingredientCache: (Int, [String])?
 
     // MARK: Siri-Kurzbefehl
 
