@@ -1,0 +1,69 @@
+{
+ "id": "enchiladas-verdes",
+ "title": "Enchiladas verdes mit Bohnen und Käse",
+ "icon": "🫔",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Maistortillas"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mais"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "300 g",
+   "name": "Salsa verde (Glas)"
+  },
+  {
+   "amount": "150 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "150 g",
+   "name": "geriebener Käse"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Zwiebel würfeln, mit Bohnen, Mais und Kreuzkümmel kurz anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Salsa verde mit saurer Sahne verrühren, ein Drittel in eine Form streichen."
+  },
+  {
+   "text": "Tortillas kurz erwärmen, füllen, aufrollen und nebeneinander in die Form legen."
+  },
+  {
+   "text": "Mit restlicher Sauce und Käse bedecken und goldbraun backen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Koriander servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

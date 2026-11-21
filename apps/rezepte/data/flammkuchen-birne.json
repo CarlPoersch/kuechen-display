@@ -1,0 +1,57 @@
+{
+ "id": "flammkuchen-birne",
+ "title": "Flammkuchen mit Birne, Gorgonzola und Walnuss",
+ "icon": "🍐",
+ "cuisine": "Französisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Rolle",
+   "name": "Flammkuchenteig"
+  },
+  {
+   "amount": "150 g",
+   "name": "Crème fraîche"
+  },
+  {
+   "amount": "1",
+   "name": "Birne"
+  },
+  {
+   "amount": "100 g",
+   "name": "Gorgonzola"
+  },
+  {
+   "amount": "30 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 Zweig",
+   "name": "Thymian"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 250 °C vorheizen. Teig auf dem Blech ausrollen und mit Crème fraîche bestreichen, salzen und pfeffern."
+  },
+  {
+   "text": "Birne in dünne Spalten schneiden und mit Gorgonzola und Walnüssen verteilen."
+  },
+  {
+   "text": "Knusprig backen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Honig beträufeln und mit Thymian bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
+}

@@ -1,0 +1,67 @@
+{
+ "id": "pasta-norma",
+ "title": "Pasta alla Norma",
+ "icon": "🍆",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Rigatoni"
+  },
+  {
+   "amount": "2",
+   "name": "Auberginen"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "800 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "100 g",
+   "name": "Ricotta salata oder Pecorino"
+  },
+  {
+   "amount": "6 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Chiliflocken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Auberginen würfeln, salzen und abtropfen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Trocken tupfen und portionsweise in Olivenöl goldbraun braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Knoblauch und Chili im restlichen Öl kurz anbraten, Tomaten zugeben und einkochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Nudeln garen, mit Sauce, Auberginen und Basilikum mischen.",
+   "minutes": 11
+  },
+  {
+   "text": "Mit geriebenem Käse servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40
+}

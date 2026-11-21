@@ -446,7 +446,7 @@ async function teams(id: string) {
 // ============================================================
 type Hit = { kind: "team" | "player" | "driver" | "league" | "country" | "nat"; id: string; name: string; sub: string;
   emoji: string; sport: SportId; leagues: string[] };
-const fold = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/ß/g, "ss").trim();
+const fold = (s: string) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ß/g, "ss").trim();
 
 async function espnSearch(q: string, type: "team" | "player"): Promise<any[]> {
   const j: any = await cached("q:" + type + ":" + q, 3600_000, () =>

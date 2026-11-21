@@ -1,0 +1,66 @@
+{
+ "id": "shakshuka-feta-spinat",
+ "title": "Spinat-Feta-Eier aus der Pfanne",
+ "icon": "🍳",
+ "cuisine": "Orientalisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "80 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Fladenbrot"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Knoblauch fein würfeln und in Öl glasig dünsten, Kreuzkümmel kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Spinat zugeben und zusammenfallen lassen, salzen und pfeffern.",
+   "minutes": 2
+  },
+  {
+   "text": "Vier Mulden formen, Eier hineingleiten lassen, Feta darüberbröseln."
+  },
+  {
+   "text": "Zugedeckt stocken lassen, bis das Eiweiß fest ist.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit warmem Fladenbrot servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

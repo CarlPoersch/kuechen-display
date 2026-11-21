@@ -406,6 +406,29 @@
   ]
  },
  {
+  "id": "apfel-crumble",
+  "title": "Apple Crumble",
+  "icon": "🍏",
+  "cuisine": "Britisch",
+  "servings": 6,
+  "time": "ca. 50 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 50,
+  "ing": [
+   "säuerliche Äpfel",
+   "Zitronensaft",
+   "Zucker",
+   "Zimt",
+   "Mehl",
+   "kalte Butter",
+   "brauner Zucker",
+   "Haferflocken",
+   "Salz"
+  ]
+ },
+ {
   "id": "irish-stew",
   "title": "Irish Stew",
   "icon": "🍲",
@@ -427,6 +450,27 @@
    "Thymian",
    "Lorbeerblatt",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "porridge-apfel-zimt",
+  "title": "Porridge mit Apfel und Zimt",
+  "icon": "🥣",
+  "cuisine": "Britisch",
+  "servings": 2,
+  "time": "ca. 15 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 15,
+  "ing": [
+   "zarte Haferflocken",
+   "Milch oder Haferdrink",
+   "Apfel",
+   "Zimt",
+   "Ahornsirup",
+   "gehackte Walnüsse",
+   "Salz"
   ]
  },
  {
@@ -2562,6 +2606,29 @@
   ]
  },
  {
+  "id": "milchreis-zimt-pflaume",
+  "title": "Ofen-Pflaumen mit Zimt-Milchreis",
+  "icon": "🍮",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "Milchreis",
+   "Milch",
+   "Zucker",
+   "Vanillezucker",
+   "Salz",
+   "Pflaumen (TK oder frisch)",
+   "brauner Zucker",
+   "Zimt"
+  ]
+ },
+ {
   "id": "forelle-ofen",
   "title": "Ofenforelle mit Zitrone und Kräutern",
   "icon": "🐟",
@@ -3011,6 +3078,29 @@
   ]
  },
  {
+  "id": "schoko-lebkuchen-muffins",
+  "title": "Schoko-Lebkuchen-Muffins",
+  "icon": "🧁",
+  "cuisine": "Deutsch",
+  "servings": 12,
+  "time": "ca. 40 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Mehl",
+   "Kakao",
+   "Backpulver",
+   "Lebkuchengewürz",
+   "Zucker",
+   "Eier",
+   "Öl",
+   "Milch",
+   "Zartbitterschokolade, gehackt"
+  ]
+ },
+ {
   "id": "schokopudding",
   "title": "Schokoladenpudding",
   "icon": "🍫",
@@ -3029,6 +3119,27 @@
    "Zucker",
    "Kakaopulver",
    "Salz"
+  ]
+ },
+ {
+  "id": "schupfnudel-pfanne-rosenkohl",
+  "title": "Schupfnudel-Pfanne mit Rosenkohl",
+  "icon": "🥬",
+  "cuisine": "Deutsch",
+  "servings": 3,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Schupfnudeln",
+   "Rosenkohl",
+   "Speckwürfel",
+   "Zwiebel",
+   "Sahne",
+   "Butterschmalz",
+   "Muskat"
   ]
  },
  {
@@ -3617,6 +3728,27 @@
   ]
  },
  {
+  "id": "flammkuchen-birne",
+  "title": "Flammkuchen mit Birne, Gorgonzola und Walnuss",
+  "icon": "🍐",
+  "cuisine": "Französisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Flammkuchenteig",
+   "Crème fraîche",
+   "Birne",
+   "Gorgonzola",
+   "Walnüsse",
+   "Honig",
+   "Thymian"
+  ]
+ },
+ {
   "id": "zwiebelsuppe",
   "title": "Französische Zwiebelsuppe",
   "icon": "🧅",
@@ -4200,6 +4332,31 @@
   ]
  },
  {
+  "id": "palak-dal",
+  "title": "Dal Palak (Linsen mit Spinat)",
+  "icon": "🍛",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "gelbe Linsen (Toor oder Mung)",
+   "Spinat",
+   "Zwiebel",
+   "Tomaten",
+   "Knoblauchzehen",
+   "Ingwer",
+   "Kurkuma",
+   "Kreuzkümmelsamen",
+   "Garam Masala",
+   "Ghee oder Öl"
+  ]
+ },
+ {
   "id": "dal-tadka",
   "title": "Dal Tadka (gelbe Linsen)",
   "icon": "🍲",
@@ -4527,6 +4684,29 @@
   ]
  },
  {
+  "id": "paneer-tikka-blech",
+  "title": "Paneer Tikka vom Blech",
+  "icon": "🧀",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 40 Min. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Paneer",
+   "Paprika",
+   "rote Zwiebel",
+   "Joghurt",
+   "Tikka-Masala-Gewürz",
+   "Kurkuma",
+   "Zitrone",
+   "Öl"
+  ]
+ },
+ {
   "id": "rogan-josh",
   "title": "Rogan Josh (Lammcurry)",
   "icon": "🍖",
@@ -4780,6 +4960,29 @@
   ]
  },
  {
+  "id": "chicken-adobo",
+  "title": "Chicken Adobo",
+  "icon": "🍗",
+  "cuisine": "International",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 50,
+  "ing": [
+   "Hähnchenschenkel",
+   "Sojasauce",
+   "Reisessig",
+   "Knoblauchzehen",
+   "Lorbeerblätter",
+   "schwarze Pfefferkörner",
+   "brauner Zucker",
+   "Öl",
+   "Reis"
+  ]
+ },
+ {
   "id": "gemuesepfanne-reis",
   "title": "Gemüse-Reispfanne mit Ei",
   "icon": "🍳",
@@ -4896,6 +5099,32 @@
   ]
  },
  {
+  "id": "jerk-chicken",
+  "title": "Jerk Chicken mit Reis und Bohnen",
+  "icon": "🌶️",
+  "cuisine": "International",
+  "servings": 4,
+  "time": "ca. 1 Std. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Hähnchenschenkel",
+   "Frühlingszwiebeln",
+   "Chili (Scotch Bonnet oder milder)",
+   "Knoblauchzehen",
+   "Sojasauce",
+   "Piment, gemahlen",
+   "Thymian",
+   "brauner Zucker",
+   "Limette",
+   "Reis",
+   "Kidneybohnen",
+   "Kokosmilch"
+  ]
+ },
+ {
   "id": "granola",
   "title": "Knuspermüsli (Granola)",
   "icon": "🥣",
@@ -5004,6 +5233,31 @@
    "Knoblauchzehe",
    "gehackte Kräuter (Petersilie, Schnittlauch)",
    "Zitronensaft"
+  ]
+ },
+ {
+  "id": "poke-tofu",
+  "title": "Tofu-Poke-Bowl",
+  "icon": "🥗",
+  "cuisine": "International",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Sushireis",
+   "fester Tofu",
+   "Sojasauce",
+   "Sesamöl",
+   "Avocado",
+   "Gurke",
+   "Edamame (TK)",
+   "Karotte",
+   "Mayonnaise (vegan)",
+   "Sriracha",
+   "Sesam"
   ]
  },
  {
@@ -5163,6 +5417,28 @@
    "Parmesan",
    "Basilikum",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "gnocchi-pfanne-kuerbis",
+  "title": "Gnocchi-Pfanne mit Kürbis und Salbei",
+  "icon": "🎃",
+  "cuisine": "Italienisch",
+  "servings": 3,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Gnocchi (Kühlregal)",
+   "Hokkaidokürbis",
+   "rote Zwiebel",
+   "Salbeiblätter",
+   "Butter",
+   "Olivenöl",
+   "Parmesan",
+   "Haselnüsse"
   ]
  },
  {
@@ -5467,6 +5743,28 @@
    "Parmesan",
    "Oregano",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "pasta-norma",
+  "title": "Pasta alla Norma",
+  "icon": "🍆",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Rigatoni",
+   "Auberginen",
+   "Knoblauchzehen",
+   "stückige Tomaten",
+   "Basilikum",
+   "Ricotta salata oder Pecorino",
+   "Olivenöl",
+   "Chiliflocken"
   ]
  },
  {
@@ -6368,6 +6666,26 @@
   ]
  },
  {
+  "id": "tamagoyaki",
+  "title": "Tamagoyaki (japanisches Omelett)",
+  "icon": "🍳",
+  "cuisine": "Japanisch",
+  "servings": 2,
+  "time": "ca. 15 Min.",
+  "cat": "Frühstück",
+  "diet": "fisch",
+  "level": "mittel",
+  "min": 15,
+  "ing": [
+   "Eier",
+   "Dashi oder Wasser",
+   "Zucker",
+   "Sojasauce",
+   "Mirin",
+   "Öl"
+  ]
+ },
+ {
   "id": "teriyaki-lachs",
   "title": "Teriyaki-Lachs",
   "icon": "🐟",
@@ -6432,6 +6750,28 @@
    "Weißkohl",
    "Tonkatsu-Sauce (oder Ketchup + Worcestershire)",
    "Reis"
+  ]
+ },
+ {
+  "id": "udon-suppe",
+  "title": "Udon-Nudelsuppe mit Pilzen",
+  "icon": "🍜",
+  "cuisine": "Japanisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Suppe",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Udon-Nudeln (vorgegart)",
+   "Dashi oder Gemüsebrühe",
+   "Sojasauce",
+   "Mirin",
+   "Shiitake",
+   "Frühlingszwiebeln",
+   "Pak Choi",
+   "Eier"
   ]
  },
  {
@@ -6693,6 +7033,30 @@
   ]
  },
  {
+  "id": "kimchi-pancake",
+  "title": "Kimchi-Pfannkuchen (Kimchijeon)",
+  "icon": "🥞",
+  "cuisine": "Koreanisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Snack",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Kimchi (vegan oder klassisch)",
+   "Mehl",
+   "Speisestärke",
+   "kaltes Wasser",
+   "Kimchi-Saft",
+   "Frühlingszwiebeln",
+   "Öl",
+   "Sojasauce",
+   "Reisessig",
+   "Sesam"
+  ]
+ },
+ {
   "id": "korean-fried-chicken",
   "title": "Korean Fried Chicken",
   "icon": "🍗",
@@ -6790,6 +7154,30 @@
   ]
  },
  {
+  "id": "linsensuppe-zitrone",
+  "title": "Libanesische Linsensuppe mit Zitrone",
+  "icon": "🍋",
+  "cuisine": "Libanesisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Suppe",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "rote Linsen",
+   "Zwiebel",
+   "Karotte",
+   "Knoblauchzehen",
+   "Kreuzkümmel",
+   "Gemüsebrühe",
+   "Zitrone",
+   "Olivenöl",
+   "Petersilie"
+  ]
+ },
+ {
   "id": "mujaddara",
   "title": "Mujaddara (Linsen-Reis mit Röstzwiebeln)",
   "icon": "🍚",
@@ -6836,6 +7224,30 @@
    "Limette",
    "Koriander",
    "Öl"
+  ]
+ },
+ {
+  "id": "couscous-merguez",
+  "title": "Couscous mit Merguez und Gemüse",
+  "icon": "🌭",
+  "cuisine": "Marokkanisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 35,
+  "ing": [
+   "Merguez",
+   "Couscous",
+   "Zucchini",
+   "Paprika",
+   "rote Zwiebel",
+   "Kichererbsen",
+   "Ras el-Hanout",
+   "Gemüsebrühe",
+   "Olivenöl",
+   "Minze"
   ]
  },
  {
@@ -6961,6 +7373,30 @@
    "Oregano",
    "Feta oder Mozzarella",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "tomatensuppe-geroestet",
+  "title": "Geröstete Tomatensuppe",
+  "icon": "🍅",
+  "cuisine": "Mediterran",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "Tomaten",
+   "rote Paprika",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Olivenöl",
+   "Gemüsebrühe",
+   "Zucker",
+   "Basilikum",
+   "Sahne"
   ]
  },
  {
@@ -7264,6 +7700,28 @@
   ]
  },
  {
+  "id": "breakfast-burrito",
+  "title": "Breakfast Burrito",
+  "icon": "🌯",
+  "cuisine": "Mexikanisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "große Weizentortillas",
+   "Eier",
+   "Paprika",
+   "schwarze Bohnen (klein)",
+   "geriebener Cheddar",
+   "Avocado",
+   "Salsa",
+   "Butter"
+  ]
+ },
+ {
   "id": "burrito-bowl",
   "title": "Burrito Bowl",
   "icon": "🥗",
@@ -7345,6 +7803,29 @@
    "Chilipulver",
    "Kakaopulver",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "enchiladas-verdes",
+  "title": "Enchiladas verdes mit Bohnen und Käse",
+  "icon": "🫔",
+  "cuisine": "Mexikanisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 45,
+  "ing": [
+   "Maistortillas",
+   "schwarze Bohnen",
+   "Mais",
+   "Zwiebel",
+   "Salsa verde (Glas)",
+   "saure Sahne",
+   "geriebener Käse",
+   "Kreuzkümmel",
+   "Koriander"
   ]
  },
  {
@@ -7795,6 +8276,28 @@
    "Petersilie",
    "Olivenöl",
    "Brot (zum Servieren)"
+  ]
+ },
+ {
+  "id": "shakshuka-feta-spinat",
+  "title": "Spinat-Feta-Eier aus der Pfanne",
+  "icon": "🍳",
+  "cuisine": "Orientalisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "Babyspinat",
+   "Zwiebel",
+   "Knoblauchzehe",
+   "Eier",
+   "Feta",
+   "Kreuzkümmel",
+   "Olivenöl",
+   "Fladenbrot"
   ]
  },
  {
@@ -8474,6 +8977,30 @@
    "Limetten",
    "Palmzucker",
    "geröstete Erdnüsse"
+  ]
+ },
+ {
+  "id": "kartoffel-kokos-suppe",
+  "title": "Süßkartoffel-Kokos-Suppe",
+  "icon": "🥥",
+  "cuisine": "Thailändisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Suppe",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Süßkartoffeln",
+   "Zwiebel",
+   "Ingwer",
+   "rote Currypaste",
+   "Kokosmilch",
+   "Gemüsebrühe",
+   "Limette",
+   "Erdnüsse",
+   "Koriander"
   ]
  },
  {

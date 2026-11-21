@@ -1,0 +1,72 @@
+{
+ "id": "kimchi-pancake",
+ "title": "Kimchi-Pfannkuchen (Kimchijeon)",
+ "icon": "🥞",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Kimchi (vegan oder klassisch)"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "150 ml",
+   "name": "kaltes Wasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kimchi-Saft"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kimchi klein schneiden. Mit Mehl, Stärke, Wasser, Kimchi-Saft und Frühlingszwiebeln zu einem dickflüssigen Teig rühren."
+  },
+  {
+   "text": "Öl in einer Pfanne stark erhitzen und den Teig dünn verstreichen."
+  },
+  {
+   "text": "Knusprig braten, wenden und auch die zweite Seite bräunen.",
+   "minutes": 8
+  },
+  {
+   "text": "Für den Dip Sojasauce, Essig und Sesam mischen. Pfannkuchen in Stücke schneiden."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

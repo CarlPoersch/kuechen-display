@@ -1,0 +1,67 @@
+{
+ "id": "linsensuppe-zitrone",
+ "title": "Libanesische Linsensuppe mit Zitrone",
+ "icon": "🍋",
+ "cuisine": "Libanesisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Knoblauch würfeln und in Öl weich dünsten, Kreuzkümmel kurz mitrösten.",
+   "minutes": 6
+  },
+  {
+   "text": "Linsen abspülen, mit Brühe zugeben und köcheln, bis sie zerfallen.",
+   "minutes": 20
+  },
+  {
+   "text": "Fein pürieren und mit Zitronensaft, Salz und Pfeffer kräftig abschmecken."
+  },
+  {
+   "text": "Mit Olivenöl und gehackter Petersilie servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

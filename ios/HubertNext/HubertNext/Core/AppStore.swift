@@ -118,6 +118,7 @@ final class AppStore: ObservableObject {
         guard let uid = api.userId else { return }
         try await api.update("profiles", ["id": "eq." + uid], ["onboarded": true])
         profile?.onboarded = true
+        NewBuckets.markSeen(NewBuckets.ids)   // neue Nutzer kennen den Katalog schon
         saveCache()
         phase = .ready
     }

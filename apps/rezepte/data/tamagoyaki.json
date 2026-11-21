@@ -1,0 +1,57 @@
+{
+ "id": "tamagoyaki",
+ "title": "Tamagoyaki (japanisches Omelett)",
+ "icon": "🍳",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Dashi oder Wasser"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier mit Dashi, Zucker, Sojasauce und Mirin verquirlen, ohne viel Schaum zu schlagen."
+  },
+  {
+   "text": "Eckige Pfanne dünn ölen, ein Viertel der Masse hineingießen und fast stocken lassen.",
+   "minutes": 1
+  },
+  {
+   "text": "Von einer Seite her aufrollen, Rolle zur Seite schieben, nachölen und die nächste Schicht darunterlaufen lassen."
+  },
+  {
+   "text": "Wiederholen, bis die Masse aufgebraucht ist.",
+   "minutes": 5
+  },
+  {
+   "text": "In ein Tuch wickeln, kurz in Form drücken und in Scheiben schneiden."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 15
+}

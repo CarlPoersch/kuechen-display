@@ -1,0 +1,71 @@
+{
+ "id": "apfel-crumble",
+ "title": "Apple Crumble",
+ "icon": "🍏",
+ "cuisine": "Britisch",
+ "servings": 6,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "50 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "group": "Streusel"
+  },
+  {
+   "amount": "150 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "100 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "80 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "50 g",
+   "name": "Haferflocken"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 190 °C vorheizen. Äpfel schälen, würfeln und mit Zitrone, Zucker und Zimt in eine Form geben."
+  },
+  {
+   "text": "Mehl, Butter, braunen Zucker, Haferflocken und Salz zu groben Streuseln reiben."
+  },
+  {
+   "text": "Streusel über die Äpfel verteilen."
+  },
+  {
+   "text": "Goldbraun backen, bis der Saft am Rand blubbert.",
+   "minutes": 35
+  },
+  {
+   "text": "Warm mit Vanilleeis oder Vanillesauce servieren."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 50
+}

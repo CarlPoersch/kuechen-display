@@ -1,0 +1,60 @@
+{
+ "id": "schupfnudel-pfanne-rosenkohl",
+ "title": "Schupfnudel-Pfanne mit Rosenkohl",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 3,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Schupfnudeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "Rosenkohl"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rosenkohl halbieren und in Salzwasser bissfest kochen.",
+   "minutes": 6
+  },
+  {
+   "text": "Speck und Zwiebel in Butterschmalz anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Schupfnudeln zugeben und goldbraun braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Rosenkohl und Sahne unterrühren, kurz einkochen und mit Muskat und Pfeffer würzen.",
+   "minutes": 3
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
+}

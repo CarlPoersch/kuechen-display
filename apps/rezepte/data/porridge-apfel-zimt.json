@@ -1,0 +1,55 @@
+{
+ "id": "porridge-apfel-zimt",
+ "title": "Porridge mit Apfel und Zimt",
+ "icon": "🥣",
+ "cuisine": "Britisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "100 g",
+   "name": "zarte Haferflocken"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Milch oder Haferdrink"
+  },
+  {
+   "amount": "1",
+   "name": "Apfel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ahornsirup"
+  },
+  {
+   "amount": "2 EL",
+   "name": "gehackte Walnüsse"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Haferflocken mit Milch und Salz aufkochen und unter Rühren cremig köcheln.",
+   "minutes": 5
+  },
+  {
+   "text": "Apfel würfeln und mit Zimt und Sirup in einer kleinen Pfanne weich dünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Porridge in Schalen füllen, Äpfel und Walnüsse darauf verteilen."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15
+}

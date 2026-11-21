@@ -1,0 +1,76 @@
+{
+ "id": "palak-dal",
+ "title": "Dal Palak (Linsen mit Spinat)",
+ "icon": "🍛",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "gelbe Linsen (Toor oder Mung)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "20 g",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Ghee oder Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen mit Kurkuma und 900 ml Wasser weich kochen.",
+   "minutes": 25
+  },
+  {
+   "text": "Kreuzkümmel in Ghee anrösten, Zwiebel, Knoblauch und Ingwer goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomaten zugeben und einkochen, Garam Masala unterrühren.",
+   "minutes": 5
+  },
+  {
+   "text": "Linsen und gehackten Spinat zugeben und kurz köcheln. Mit Salz abschmecken.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Reis oder Naan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

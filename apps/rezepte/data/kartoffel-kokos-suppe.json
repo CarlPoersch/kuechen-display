@@ -1,0 +1,67 @@
+{
+ "id": "kartoffel-kokos-suppe",
+ "title": "Süßkartoffel-Kokos-Suppe",
+ "icon": "🥥",
+ "cuisine": "Thailändisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Süßkartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "20 g",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "1 EL",
+   "name": "rote Currypaste"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Erdnüsse"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Ingwer fein hacken und in etwas Öl andünsten, Currypaste kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Süßkartoffeln würfeln, mit Brühe und Kokosmilch zugeben und weich kochen.",
+   "minutes": 20
+  },
+  {
+   "text": "Pürieren und mit Limettensaft und Salz abschmecken."
+  },
+  {
+   "text": "Mit gehackten Erdnüssen und Koriander servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

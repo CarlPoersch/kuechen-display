@@ -1,0 +1,82 @@
+{
+ "id": "jerk-chicken",
+ "title": "Jerk Chicken mit Reis und Bohnen",
+ "icon": "🌶️",
+ "cuisine": "International",
+ "servings": 4,
+ "time": "ca. 1 Std. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "4",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Chili (Scotch Bonnet oder milder)"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Piment, gemahlen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Thymian"
+  },
+  {
+   "amount": "1 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kokosmilch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Frühlingszwiebeln, Chili, Knoblauch, Sojasauce, Piment, Thymian, Zucker und Limettensaft zu einer Paste pürieren."
+  },
+  {
+   "text": "Hähnchen damit einreiben und kalt stellen, am besten über Nacht.",
+   "minutes": 60
+  },
+  {
+   "text": "Im Ofen bei 200 °C knusprig garen.",
+   "minutes": 40
+  },
+  {
+   "text": "Reis mit Kokosmilch, abgetropften Bohnen und Wasser nach Packung garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Zusammen servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

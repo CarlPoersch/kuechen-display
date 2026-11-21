@@ -1,0 +1,65 @@
+{
+ "id": "schoko-lebkuchen-muffins",
+ "title": "Schoko-Lebkuchen-Muffins",
+ "icon": "🧁",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kakao"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Lebkuchengewürz"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zartbitterschokolade, gehackt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen und ein Muffinblech mit Förmchen auslegen."
+  },
+  {
+   "text": "Mehl, Kakao, Backpulver, Gewürz und Zucker mischen."
+  },
+  {
+   "text": "Eier, Öl und Milch verquirlen, kurz unter die trockenen Zutaten rühren und Schokolade unterheben."
+  },
+  {
+   "text": "Teig in die Förmchen füllen und backen (Stäbchenprobe).",
+   "minutes": 22
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40
+}

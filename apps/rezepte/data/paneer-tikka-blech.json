@@ -1,0 +1,66 @@
+{
+ "id": "paneer-tikka-blech",
+ "title": "Paneer Tikka vom Blech",
+ "icon": "🧀",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 40 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Paneer"
+  },
+  {
+   "amount": "2",
+   "name": "Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "200 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Tikka-Masala-Gewürz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Joghurt mit Gewürzen, Zitronensaft, Öl und Salz verrühren."
+  },
+  {
+   "text": "Paneer, Paprika und Zwiebel in große Stücke schneiden und in der Marinade ziehen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Ofen auf 230 °C Grill vorheizen und alles auf einem Blech verteilen."
+  },
+  {
+   "text": "Grillen, bis die Ränder schwarze Stellen bekommen; einmal wenden.",
+   "minutes": 15
+  },
+  {
+   "text": "Mit Minz-Joghurt und Naan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

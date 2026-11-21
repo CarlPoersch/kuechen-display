@@ -57,6 +57,7 @@ struct HomeView: View {
             }
             .background(Theme.background.ignoresSafeArea())
             .navigationBarHidden(true)
+            .modifier(NewBucketsPrompt())   // „Neu in Hubert“ – einmal je neuem Bucket
         }
         .navigationViewStyle(.stack)
         .sheet(isPresented: $showSettings) { SettingsView().environmentObject(store) }

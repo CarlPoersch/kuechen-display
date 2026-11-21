@@ -1,0 +1,74 @@
+{
+ "id": "couscous-merguez",
+ "title": "Couscous mit Merguez und Gemüse",
+ "icon": "🌭",
+ "cuisine": "Marokkanisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Merguez"
+  },
+  {
+   "amount": "250 g",
+   "name": "Couscous"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ras el-Hanout"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Würstchen in einer Pfanne rundum braten und herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Gemüse würfeln und im Bratfett mit Ras el-Hanout anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Abgetropfte Kichererbsen zugeben und warm werden lassen."
+  },
+  {
+   "text": "Couscous mit kochender Brühe übergießen, quellen lassen und auflockern.",
+   "minutes": 5
+  },
+  {
+   "text": "Alles mischen, Würstchen daraufsetzen und mit Minze bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35
+}

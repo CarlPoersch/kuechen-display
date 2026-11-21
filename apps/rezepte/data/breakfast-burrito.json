@@ -1,0 +1,63 @@
+{
+ "id": "breakfast-burrito",
+ "title": "Breakfast Burrito",
+ "icon": "🌯",
+ "cuisine": "Mexikanisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "große Weizentortillas"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Paprika"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "schwarze Bohnen (klein)"
+  },
+  {
+   "amount": "60 g",
+   "name": "geriebener Cheddar"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Salsa"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Paprika würfeln und in Butter anbraten, abgetropfte Bohnen kurz mitwärmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Eier verquirlen, salzen und in der Pfanne zu cremigem Rührei stocken lassen.",
+   "minutes": 3
+  },
+  {
+   "text": "Tortillas kurz ohne Fett erwärmen.",
+   "minutes": 1
+  },
+  {
+   "text": "Rührei, Gemüse, Käse, Avocadoscheiben und Salsa daraufgeben, einrollen und halbieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

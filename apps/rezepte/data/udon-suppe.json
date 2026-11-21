@@ -1,0 +1,63 @@
+{
+ "id": "udon-suppe",
+ "title": "Udon-Nudelsuppe mit Pilzen",
+ "icon": "🍜",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Pck.",
+   "name": "Udon-Nudeln (vorgegart)"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Dashi oder Gemüsebrühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "150 g",
+   "name": "Shiitake"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Pak Choi"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier wachsweich kochen und abschrecken.",
+   "minutes": 7
+  },
+  {
+   "text": "Brühe mit Sojasauce und Mirin aufkochen, Pilze in Scheiben darin garen.",
+   "minutes": 5
+  },
+  {
+   "text": "Pak Choi und Nudeln zugeben und erhitzen.",
+   "minutes": 3
+  },
+  {
+   "text": "In Schalen füllen, mit halbierten Eiern und Frühlingszwiebelringen servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 25
+}

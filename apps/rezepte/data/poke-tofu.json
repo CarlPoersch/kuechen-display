@@ -1,0 +1,78 @@
+{
+ "id": "poke-tofu",
+ "title": "Tofu-Poke-Bowl",
+ "icon": "🥗",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Sushireis"
+  },
+  {
+   "amount": "200 g",
+   "name": "fester Tofu"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "½",
+   "name": "Gurke"
+  },
+  {
+   "amount": "100 g",
+   "name": "Edamame (TK)"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mayonnaise (vegan)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sriracha"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis nach Packung garen und mit etwas Reisessig würzen.",
+   "minutes": 20
+  },
+  {
+   "text": "Tofu würfeln, mit 2 EL Sojasauce und Sesamöl marinieren und in der Pfanne knusprig braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Edamame kurz kochen, Gurke, Karotte und Avocado schneiden.",
+   "minutes": 3
+  },
+  {
+   "text": "Mayonnaise mit Sriracha verrühren."
+  },
+  {
+   "text": "Reis in Schalen füllen, alles darauf anrichten, mit Sauce, Sesam und restlicher Sojasauce servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 30
+}

@@ -32,7 +32,7 @@ struct BucketKind: Identifiable {
 
 /// Alle Buckets, die es gibt
 enum BucketRegistry {
-    static let all: [BucketKind] = [WeatherBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, TransitBucket.kind, CountdownBucket.kind,
+    static let all: [BucketKind] = [WeatherBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, DealsBucket.kind, TransitBucket.kind, CountdownBucket.kind,
                                          KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
                                          KitchenBuckets.kitchen, KitchenBuckets.timer] + comingSoon
 

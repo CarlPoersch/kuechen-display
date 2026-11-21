@@ -1,0 +1,67 @@
+{
+ "id": "tomatensuppe-geroestet",
+ "title": "Geröstete Tomatensuppe",
+ "icon": "🍅",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen. Tomaten halbieren, Paprika und Zwiebel grob schneiden, mit Knoblauch und Öl auf ein Blech geben."
+  },
+  {
+   "text": "Rösten, bis die Ränder dunkel werden.",
+   "minutes": 30
+  },
+  {
+   "text": "Mit Brühe in einen Topf geben, kurz aufkochen und fein pürieren.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Salz, Pfeffer und Zucker abschmecken, Sahne einrühren und mit Basilikum servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 50,
+ "gf": true
+}
