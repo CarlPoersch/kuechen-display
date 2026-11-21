@@ -33,17 +33,18 @@ final class SpeechControl: ObservableObject {
     func toggle() { listening ? stop() : start() }
 
     func start() {
-        SFSpeechRecognizer.requestAuthorization { status in
-            DispatchQueue.main.async {
-                guard status == .authorized else {
-                    self.problem = "Spracherkennung ist nicht erlaubt (Einstellungen → Hubert)."; return
-                }
-                AVAudioSession.sharedInstance().requestRecordPermission { ok in
-                    DispatchQueue.main.async {
-                        if ok { self.begin() } else { self.problem = "Mikrofon ist nicht erlaubt (Einstellungen → Hubert)." }
-                    }
-                }
+        Task { @MainActor in
+            // Erlaubnisse abfragen. Die Rückrufe kommen auf Hintergrund-Threads an → nur über
+            // @Sendable-Rückrufe mit Continuation, sonst beendet iOS die App (Absturz beim Antippen).
+            let speech = await withCheckedContinuation { (c: CheckedContinuation<SFSpeechRecognizerAuthorizationStatus, Never>) in
+                SFSpeechRecognizer.requestAuthorization { @Sendable s in c.resume(returning: s) }
             }
+            guard speech == .authorized else { problem = "Spracherkennung ist nicht erlaubt (Einstellungen → Hubert)."; return }
+            let mic = await withCheckedContinuation { (c: CheckedContinuation<Bool, Never>) in
+                AVAudioSession.sharedInstance().requestRecordPermission { @Sendable ok in c.resume(returning: ok) }
+            }
+            guard mic else { problem = "Mikrofon ist nicht erlaubt (Einstellungen → Hubert)."; return }
+            begin()
         }
     }
 
@@ -84,16 +85,16 @@ final class SpeechControl: ObservableObject {
                 guard let self = self else { return }
                 if let r = result {
                     let words = r.bestTranscription.formattedString.lowercased().split(separator: " ").map(String.init)
-                    DispatchQueue.main.async { self.handle(words) }
+                    Task { @MainActor in self.handle(words) }
                 }
                 if error != nil || result?.isFinal == true {
-                    DispatchQueue.main.async { if self.listening { self.begin() } }   // weiter zuhören
+                    Task { @MainActor in if self.listening { self.begin() } }   // weiter zuhören
                 }
             }
             listening = true; problem = nil
             // Apple begrenzt eine Erkennung auf etwa 1 Minute → regelmäßig neu starten
-            restartTimer = Timer.scheduledTimer(withTimeInterval: 50, repeats: false) { [weak self] _ in
-                DispatchQueue.main.async { if self?.listening == true { self?.begin() } }
+            restartTimer = Timer.scheduledTimer(withTimeInterval: 50, repeats: false) { @Sendable [weak self] _ in
+                Task { @MainActor in if self?.listening == true { self?.begin() } }
             }
         } catch {
             problem = "Mikrofon konnte nicht starten."

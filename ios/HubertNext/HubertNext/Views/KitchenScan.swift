@@ -119,8 +119,11 @@ struct CameraScanner: UIViewControllerRepresentable {
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = .black
-            AVCaptureDevice.requestAccess(for: .video) { ok in
-                DispatchQueue.main.async { ok ? self.setup() : self.denied() }
+            // async-Variante statt Rückruf: Der Rückruf käme auf einem Hintergrund-Thread an,
+            // was bei standardmäßiger MainActor-Zuordnung die App beendet (Absturz beim Antippen).
+            Task { @MainActor in
+                let ok = await AVCaptureDevice.requestAccess(for: .video)
+                ok ? self.setup() : self.denied()
             }
         }
 
@@ -139,7 +142,7 @@ struct CameraScanner: UIViewControllerRepresentable {
             view.layer.addSublayer(layer)
             preview = layer
             let s = session
-            DispatchQueue.global(qos: .userInitiated).async { s.startRunning() }
+            DispatchQueue.global(qos: .userInitiated).async { @Sendable in s.startRunning() }
         }
 
         private func denied() {
@@ -166,7 +169,7 @@ struct CameraScanner: UIViewControllerRepresentable {
         override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
             let s = session
-            DispatchQueue.global(qos: .userInitiated).async { s.stopRunning() }
+            DispatchQueue.global(qos: .userInitiated).async { @Sendable in s.stopRunning() }
         }
 
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput objects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -267,13 +270,13 @@ enum Receipt {
         let req = VNRecognizeTextRequest { @Sendable req, _ in
             let obs = (req.results as? [VNRecognizedTextObservation]) ?? []
             let names = parse(rows(obs))
-            DispatchQueue.main.async { done(names) }
+            Task { @MainActor in done(names) }
         }
         req.recognitionLevel = .accurate
         req.usesLanguageCorrection = true
         if let langs = try? req.supportedRecognitionLanguages(), langs.contains("de-DE") { req.recognitionLanguages = ["de-DE"] }
         let orientation = CGImagePropertyOrientation(image.imageOrientation)
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInitiated).async { @Sendable in
             try? VNImageRequestHandler(cgImage: cg, orientation: orientation).perform([req])
         }
     }
@@ -379,8 +382,9 @@ struct LibraryPicker: UIViewControllerRepresentable {
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             parent.dismiss()
             guard let item = results.first?.itemProvider, item.canLoadObject(ofClass: UIImage.self) else { return }
-            item.loadObject(ofClass: UIImage.self) { obj, _ in
-                if let img = obj as? UIImage { DispatchQueue.main.async { self.parent.onImage(img) } }
+            let deliver = parent.onImage
+            item.loadObject(ofClass: UIImage.self) { @Sendable obj, _ in
+                if let img = obj as? UIImage { Task { @MainActor in deliver(img) } }
             }
         }
     }

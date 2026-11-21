@@ -53,7 +53,7 @@ final class CalendarService: ObservableObject {
         if !watching {
             watching = true
             // Neu laden, sobald sich im Kalender etwas ändert
-            NotificationCenter.default.addObserver(forName: .EKEventStoreChanged, object: store, queue: .main) { _ in
+            NotificationCenter.default.addObserver(forName: .EKEventStoreChanged, object: store, queue: .main) { @Sendable _ in
                 Task { @MainActor in CalendarService.shared.reload() }
             }
         }

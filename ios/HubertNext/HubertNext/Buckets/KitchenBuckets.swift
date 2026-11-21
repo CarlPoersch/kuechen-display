@@ -120,23 +120,58 @@ struct RecipeOfDayDetail: View {
     }
 }
 
-/// Laufende Timer als kleine Kapsel unten – überall sichtbar
+/// Laufende Timer als kleine Kapsel unten – überall sichtbar.
+/// Antippen öffnet die laufenden Timer (stoppen, pausieren, +1 Min.), ✕ stoppt den nächsten direkt.
 struct RunningTimersPill: View {
     @ObservedObject private var center = TimerCenter.shared
+    @State private var showAll = false
+
     var body: some View {
         if let t = center.timers.sorted(by: { $0.left < $1.left }).first {
-            HStack(spacing: 8) {
-                Image(systemName: "timer").foregroundColor(Theme.accent)
-                Text(t.name).font(.subheadline.weight(.semibold)).lineLimit(1)
-                Text(TimerCenter.format(t.left)).font(.subheadline.monospacedDigit().weight(.bold))
-                if center.timers.count > 1 { Text("+\(center.timers.count - 1)").font(.caption).foregroundColor(Theme.secondary) }
+            HStack(spacing: 10) {
+                Button { showAll = true } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "timer").foregroundColor(Theme.accent)
+                        Text(t.name).font(.subheadline.weight(.semibold)).lineLimit(1)
+                        Text(TimerCenter.format(t.left)).font(.subheadline.monospacedDigit().weight(.bold))
+                        if center.timers.count > 1 { Text("+\(center.timers.count - 1)").font(.caption).foregroundColor(Theme.secondary) }
+                    }
+                    .foregroundColor(.primary)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Laufende Timer anzeigen")
+                Button { center.cancel(t) } label: {
+                    Image(systemName: "xmark").font(.caption.weight(.bold)).foregroundColor(.red)
+                        .frame(width: 26, height: 26).background(Circle().fill(Color.red.opacity(0.12)))
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Timer „\(t.name)“ stoppen")
             }
-            .id(center.tick)
-            .padding(.horizontal, 16).padding(.vertical, 10)
+            .padding(.leading, 16).padding(.trailing, 8).padding(.vertical, 8)
             .background(Capsule().fill(.regularMaterial))
             .shadow(color: .black.opacity(0.12), radius: 8, y: 3)
             .padding(.bottom, 12)
             .transition(.move(edge: .bottom).combined(with: .opacity))
+            .sheet(isPresented: $showAll) { RunningTimersSheet() }
         }
+    }
+}
+
+/// Alle laufenden Timer mit Stopp, Pause und +1 Min.
+struct RunningTimersSheet: View {
+    @ObservedObject private var center = TimerCenter.shared
+    @Environment(\.dismiss) private var dismiss
+    var body: some View {
+        NavigationView {
+            List {
+                if center.timers.isEmpty { Text("Kein Timer läuft").foregroundColor(Theme.secondary) }
+                ForEach(center.timers) { TimerRow(timer: $0).padding(.vertical, 4) }
+            }
+            .listStyle(.insetGrouped)
+            .navigationTitle("Laufende Timer").navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fertig") { dismiss() } } }
+            .onChange(of: center.timers.count) { n in if n == 0 { dismiss() } }
+        }
+        .navigationViewStyle(.stack)
     }
 }

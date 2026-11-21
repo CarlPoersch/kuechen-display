@@ -89,7 +89,7 @@ final class TimerCenter: ObservableObject {
     /// Mitteilung, falls die App gerade nicht offen ist
     private func notify(_ t: KitchenTimer) {
         let c = UNUserNotificationCenter.current()
-        c.requestAuthorization(options: [.alert, .sound]) { _, _ in }
+        Task { _ = try? await c.requestAuthorization(options: [.alert, .sound]) }   // async statt Rückruf (Hintergrund-Thread)
         c.removePendingNotificationRequests(withIdentifiers: [t.id.uuidString])
         let content = UNMutableNotificationContent()
         content.title = "⏰ " + t.name
@@ -164,7 +164,21 @@ struct TimerRow: View {
             Spacer(minLength: 4)
             Text(TimerCenter.format(timer.left)).font((compact ? Font.headline : .title2).monospacedDigit().weight(.semibold))
                 .foregroundColor(timer.left < 60 ? Theme.accent : .primary)
-            if !compact {
+            if compact {
+                // Auch in der kompakten Zeile (Kochmodus) direkt stoppen
+                Button { center.pause(timer) } label: {
+                    Image(systemName: timer.pausedLeft == nil ? "pause.fill" : "play.fill").font(.subheadline)
+                        .frame(width: 32, height: 32).background(Circle().fill(Color(UIColor.tertiarySystemFill)))
+                }
+                .buttonStyle(.borderless)
+                .accessibilityLabel(timer.pausedLeft == nil ? "Pausieren" : "Fortsetzen")
+                Button { center.cancel(timer) } label: {
+                    Image(systemName: "xmark").font(.subheadline.weight(.semibold)).foregroundColor(.red)
+                        .frame(width: 32, height: 32).background(Circle().fill(Color.red.opacity(0.12)))
+                }
+                .buttonStyle(.borderless)
+                .accessibilityLabel("Timer stoppen")
+            } else {
                 Button { center.add(timer, minutes: 1) } label: { Text("+1").font(.subheadline.weight(.semibold)).frame(width: 40, height: 34) }
                     .buttonStyle(.borderless)
                 Button { center.pause(timer) } label: {
@@ -175,7 +189,7 @@ struct TimerRow: View {
                     .buttonStyle(.borderless)
             }
         }
-        .id(center.tick)   // jede Sekunde neu zeichnen
+        // Kein .id(tick): die Zeile zeichnet sich über center.tick jede Sekunde neu, ohne die Knöpfe neu anzulegen (sonst gingen Tipper verloren)
     }
 }
 
