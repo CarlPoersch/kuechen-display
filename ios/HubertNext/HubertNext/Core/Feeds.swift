@@ -243,9 +243,10 @@ final class FeedService: ObservableObject {
         return nil
     }
 
-    /// Katalog der Sportarten und Ligen (vom Server, damit neue Ligen ohne App-Update dazukommen)
+    /// Katalog der Sportarten und Ligen (vom Server, damit neue Ligen ohne App-Update dazukommen).
+    /// Eigener Schlüssel „v2“: der alte Katalog (aus „feeds“) kannte HockeyWeb noch nicht.
     @Published private(set) var catalog: [SportCatalog] = {
-        guard let d = UserDefaults.standard.data(forKey: "sport.catalog"),
+        guard let d = UserDefaults.standard.data(forKey: "sport.catalog.v2"),
               let c = try? JSONDecoder().decode([SportCatalog].self, from: d) else { return [] }
         return c
     }()
@@ -254,7 +255,7 @@ final class FeedService: ObservableObject {
         guard let data = try? await SupabaseClient.shared.raw("GET", "/functions/v1/sport/catalog"),
               let c = try? JSONDecoder().decode([SportCatalog].self, from: data) else { return }
         catalog = c
-        UserDefaults.standard.set(data, forKey: "sport.catalog")
+        UserDefaults.standard.set(data, forKey: "sport.catalog.v2")
     }
 
     private var teamCache: [String: [TeamRef]] = [:]

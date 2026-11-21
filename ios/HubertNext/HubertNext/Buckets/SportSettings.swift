@@ -103,7 +103,7 @@ struct SportFollowView: View {
         }
         .task(id: query) { await search() }
         .task {
-            if feed.catalog.isEmpty { await feed.loadCatalog() }
+            await feed.loadCatalog()   // immer frisch – neue Ligen kommen vom Server
             await resolveNames()
         }
     }
