@@ -551,13 +551,37 @@ struct TransitGlance: View {
     @ViewBuilder private var content: some View {
         if let r = route {
             let wide = space.width > 420
-            let n = fitRows(space.height - 60, row: 44, max: 8)
-            let rows = Array(svc.rows(r).prefix(n))
+            let rows = Array(svc.rows(r).prefix(40))
             VStack(alignment: .leading, spacing: 4) {
                 TransitPicker(config: config)
-                // Fahrten antippen → ÖPNV-Übersicht
-                Button(action: openDetail) { table(r, rows, wide: wide).contentShape(Rectangle()) }
-                    .buttonStyle(.plain)
+                if space.width < 260 {
+                    // Kleine Karte: nur die nächste Fahrt, groß (antippen → Übersicht)
+                    if let x = rows.first {
+                        VStack(alignment: .leading, spacing: 4) {
+                            HStack { LineBadge(line: x.line); Text(x.title).font(.subheadline).lineLimit(1) }.padding(.top, 4)
+                            Text(los(x.leave).0).font(.system(size: 28, weight: .bold).monospacedDigit()).foregroundColor(los(x.leave).1)
+                            Text("ab " + Fmt.hhmm(x.depart) + " · " + x.detail.replacingOccurrences(of: "ab ", with: ""))
+                                .font(.caption).foregroundColor(Theme.secondary).lineLimit(2)
+                        }
+                        .contentShape(Rectangle()).onTapGesture(perform: openDetail)
+                    } else { status(r) }
+                } else {
+                    TransitHead(showArrival: wide && r.to != nil).padding(.top, 2)
+                    if rows.isEmpty {
+                        status(r)
+                    } else {
+                        // Weitere Fahrten: waagerecht blättern. Antippen einer Seite → ÖPNV-Übersicht.
+                        GlancePager(pages: Pages.split(rows, height: space.height - 62, row: 44)) { page in
+                            VStack(alignment: .leading, spacing: 4) {
+                                ForEach(Array(page.enumerated()), id: \.element.id) { i, row in
+                                    TransitRowView(row: row, showArrival: wide && r.to != nil, best: i == 0 && row.id == rows.first?.id)
+                                }
+                            }
+                            .contentShape(Rectangle())
+                            .onTapGesture(perform: openDetail)
+                        }
+                    }
+                }
                 Spacer(minLength: 0)
             }
         } else {
@@ -566,26 +590,9 @@ struct TransitGlance: View {
         }
     }
 
-    @ViewBuilder private func table(_ r: TransitBucket.Route, _ rows: [TransitRow], wide: Bool) -> some View {
-            VStack(alignment: .leading, spacing: 4) {
-                if space.width < 260, let x = rows.first {
-                    // Kleine Karte: nur die nächste Fahrt, groß
-                    HStack { LineBadge(line: x.line); Text(x.title).font(.subheadline).lineLimit(1) }.padding(.top, 4)
-                    Text(los(x.leave).0).font(.system(size: 28, weight: .bold).monospacedDigit()).foregroundColor(los(x.leave).1)
-                    Text("ab " + Fmt.hhmm(x.depart) + " · " + x.detail.replacingOccurrences(of: "ab ", with: ""))
-                        .font(.caption).foregroundColor(Theme.secondary).lineLimit(2)
-                } else {
-                    TransitHead(showArrival: wide && r.to != nil).padding(.top, 2)
-                    if rows.isEmpty {
-                        Text(svc.failed(r) ? "Fahrplan nicht erreichbar" : svc.loaded(r) ? "Gerade keine Fahrt" : "Lädt …")
-                            .font(.subheadline).foregroundColor(Theme.secondary).frame(height: 36)
-                    }
-                    ForEach(Array(rows.enumerated()), id: \.element.id) { i, row in
-                        TransitRowView(row: row, showArrival: wide && r.to != nil, best: i == 0)
-                    }
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
+    private func status(_ r: TransitBucket.Route) -> some View {
+        Text(svc.failed(r) ? "Fahrplan nicht erreichbar" : svc.loaded(r) ? "Gerade keine Fahrt" : "Lädt …")
+            .font(.subheadline).foregroundColor(Theme.secondary).frame(height: 36)
     }
 }
 

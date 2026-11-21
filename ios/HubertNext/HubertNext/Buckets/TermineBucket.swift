@@ -115,13 +115,18 @@ struct TermineGlance: View {
                 if let l = e.location, !l.isEmpty { Text(l).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1) }
             }
         } else {
-            let l = list
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(Array(l.enumerated()), id: \.element.id) { i, e in
-                    if i == 0 || Fmt.dayDiff(l[i - 1].start) != Fmt.dayDiff(e.start) {
-                        Text(Fmt.dayLabel(e.start).uppercased()).font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
+            // Seiten nach Höhe füllen: Tagesüberschrift kostet extra Platz
+            let pages = Pages.split(Array(cal.events.prefix(60)), height: space.height) { e, first, prev in
+                28 + ((first || prev.map { Fmt.dayDiff($0.start) != Fmt.dayDiff(e.start) } ?? true) ? 20 : 0)
+            }
+            GlancePager(pages: pages) { l in
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(Array(l.enumerated()), id: \.element.id) { i, e in
+                        if i == 0 || Fmt.dayDiff(l[i - 1].start) != Fmt.dayDiff(e.start) {
+                            Text(Fmt.dayLabel(e.start).uppercased()).font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
+                        }
+                        EventRow(event: e)
                     }
-                    EventRow(event: e)
                 }
             }
         }

@@ -46,19 +46,21 @@ struct ShoppingGlance: View {
     var body: some View {
         let open = kitchen.shop.filter { !$0.done }
         let canAdd = space.height > 110
-        let rows = fitRows(space.height - (canAdd ? 44 : 0), row: 34, max: 12)
         VStack(alignment: .leading, spacing: 0) {
             if open.isEmpty {
                 Label("Alles eingekauft", systemImage: "checkmark.circle").foregroundColor(Theme.secondary).padding(.vertical, 6)
+                Spacer(minLength: 0)
+            } else {
+                GlancePager(pages: Pages.split(open, height: space.height - (canAdd ? 52 : 0), row: 34)) { page in
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(Array(page.enumerated()), id: \.element.id) { i, it in
+                            if i > 0 { Divider() }
+                            ShopRow(item: it, compact: true).padding(.vertical, 6)
+                        }
+                    }
+                }
+                Spacer(minLength: 0)
             }
-            ForEach(Array(open.prefix(rows).enumerated()), id: \.element.id) { i, it in
-                if i > 0 { Divider() }
-                ShopRow(item: it, compact: true).padding(.vertical, 6)
-            }
-            if open.count > rows {
-                Text("+ \(open.count - rows) weitere").font(.caption).foregroundColor(Theme.secondary).padding(.top, 4)
-            }
-            Spacer(minLength: 0)
             if canAdd {
                 HStack {
                     Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent)

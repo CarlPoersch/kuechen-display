@@ -47,12 +47,13 @@ struct SportGlance: View {
 
     @ViewBuilder private var content: some View {
         if let f = feed.sport {
-            let list = SportBucket.pick(f.matches.filter { sports.contains($0.sport) }, count: fitRows(space.height, row: 54))
+            let list = SportBucket.pick(f.matches.filter { sports.contains($0.sport) }, count: 40)
             if list.isEmpty {
                 Text("Gerade keine Spiele").foregroundColor(Theme.secondary)
             } else {
+                GlancePager(pages: Pages.split(list, height: space.height, row: 54)) { page in
                 VStack(alignment: .leading, spacing: 0) {
-                    ForEach(Array(list.enumerated()), id: \.element.id) { i, m in
+                    ForEach(Array(page.enumerated()), id: \.element.id) { i, m in
                         if i > 0 { Divider() }
                         // Jedes Spiel einzeln antippbar
                         NavigationLink(destination: MatchDetailView(match: m)) {
@@ -65,6 +66,7 @@ struct SportGlance: View {
                         }
                         .buttonStyle(.plain)
                     }
+                }
                 }
             }
         } else {

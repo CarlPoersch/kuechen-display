@@ -59,7 +59,7 @@ struct NewsGlance: View {
         if let n = feed.news {
             let breaking = n.breaking.first
             let room = space.height - (breaking == nil ? 0 : (twoLines ? 58 : 40))
-            let items = pick(n, count: room < rowHeight - 6 ? 0 : fitRows(room, row: rowHeight))
+            let pages = room < rowHeight - 6 ? [] : Pages.split(pick(n, count: 30), height: room, row: rowHeight)
             VStack(alignment: .leading, spacing: 0) {
                 if let b = breaking {
                     NavigationLink(destination: ArticleView(item: b)) {
@@ -74,21 +74,27 @@ struct NewsGlance: View {
                     }
                     .buttonStyle(.plain)
                 }
-                ForEach(Array(items.enumerated()), id: \.element.item.u) { i, x in
-                    if i > 0 || breaking != nil { Divider() }
-                    NavigationLink(destination: ArticleView(item: x.item)) {
-                        HStack(spacing: 6) {
-                            VStack(alignment: .leading, spacing: 1) {
-                                Text((NewsBucket.name(x.topic) + " · " + Fmt.ago(x.item.date)).uppercased())
-                                    .font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
-                                Text(x.item.t).font(.subheadline).lineLimit(twoLines ? 2 : 1)
+                if breaking != nil && !pages.isEmpty { Divider() }
+                // Weitere Meldungen: waagerecht blättern
+                GlancePager(pages: pages) { page in
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(Array(page.enumerated()), id: \.element.item.u) { i, x in
+                            if i > 0 { Divider() }
+                            NavigationLink(destination: ArticleView(item: x.item)) {
+                                HStack(spacing: 6) {
+                                    VStack(alignment: .leading, spacing: 1) {
+                                        Text((NewsBucket.name(x.topic) + " · " + Fmt.ago(x.item.date)).uppercased())
+                                            .font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
+                                        Text(x.item.t).font(.subheadline).lineLimit(twoLines ? 2 : 1)
+                                    }
+                                    Spacer(minLength: 0)
+                                    Image(systemName: "chevron.right").font(.caption2.weight(.semibold)).foregroundColor(Color(UIColor.tertiaryLabel))
+                                }
+                                .padding(.vertical, 6).contentShape(Rectangle())
                             }
-                            Spacer(minLength: 0)
-                            Image(systemName: "chevron.right").font(.caption2.weight(.semibold)).foregroundColor(Color(UIColor.tertiaryLabel))
+                            .buttonStyle(.plain)
                         }
-                        .padding(.vertical, 6).contentShape(Rectangle())
                     }
-                    .buttonStyle(.plain)
                 }
             }
         } else {

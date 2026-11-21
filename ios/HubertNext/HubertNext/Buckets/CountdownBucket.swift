@@ -71,8 +71,10 @@ struct CountdownGlance: View {
                 }
             }
         } else {
-            let list = Array(all.prefix(rows))
-            let rowH = min(space.height / CGFloat(list.count), 60)
+            let pages = Pages.split(all, height: space.height, row: 38)
+            // Eine Seite: Zeilen wachsen mit dem Platz. Mehrere Seiten: feste Zeilenhöhe.
+            let rowH = pages.count == 1 ? min(space.height / CGFloat(all.count), 60) : 38
+            GlancePager(pages: pages) { list in
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(Array(list.enumerated()), id: \.element.id) { i, e in
                     if i > 0 { Divider() }
@@ -86,6 +88,7 @@ struct CountdownGlance: View {
                     }
                     .frame(height: max(0, rowH - 1))
                 }
+            }
             }
         }
     }
