@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import CryptoKit
 
 // ============================================================
 // Küche: Daten und Logik.
@@ -22,6 +23,10 @@ struct RecipeSummary: Decodable, Identifiable, Hashable {
     let time: String?
     let airfryer: Bool?
     let ing: [String]?
+    /// Herkunft bei eigenen Rezepten: "Eigenes" oder Name des Haushalts (Familien-Kochbuch)
+    var owner: String? = nil
+
+    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, airfryer, ing }
 
     /// Minuten aus "ca. 30 Min." (für den Filter "Schnell")
     var minutes: Int? {
@@ -30,18 +35,21 @@ struct RecipeSummary: Decodable, Identifiable, Hashable {
     }
 }
 
-struct Recipe: Decodable, Identifiable {
-    struct Ingredient: Decodable, Hashable { let amount: String?; let name: String; let group: String? }
-    struct Step: Decodable, Hashable { let text: String; let minutes: Double? }
-    let id: String
-    let title: String
-    let icon: String
-    let cuisine: String?
-    let servings: Int?
-    let time: String?
-    let ingredients: [Ingredient]
-    let steps: [Step]
-    let airfryer: Bool?
+struct Recipe: Codable, Identifiable {
+    struct Ingredient: Codable, Hashable { var amount: String?; var name: String; var group: String? = nil }
+    struct Step: Codable, Hashable { var text: String; var minutes: Double? = nil }
+    var id: String
+    var title: String
+    var icon: String
+    var cuisine: String?
+    var servings: Int?
+    var time: String?
+    var ingredients: [Ingredient]
+    var steps: [Step]
+    var airfryer: Bool?
+    var source: String? = nil     // Link, falls importiert
+
+    var isOwn: Bool { id.hasPrefix("u-") }
 
     var baseServings: Int { max(1, servings ?? 2) }
 }
@@ -205,6 +213,29 @@ struct RecipeMeta: Codable, Equatable {
     var lastCookedDate: Date? { Fmt.date(lastCooked) }
 }
 
+struct OwnRecipe: Codable, Equatable {
+    var id: String            // uuid in der Datenbank
+    var householdId: String
+    var data: Recipe
+    enum CodingKeys: String, CodingKey { case id, data, householdId = "household_id" }
+    static func == (a: OwnRecipe, b: OwnRecipe) -> Bool { a.id == b.id && a.data.title == b.data.title }
+}
+
+struct Cookbook: Decodable, Equatable {
+    let sourceId: String
+    let name: String
+    enum CodingKeys: String, CodingKey { case name, sourceId = "source_id" }
+}
+
+struct CookedEvent: Codable, Equatable {
+    var id: String
+    var householdId: String
+    var recipeId: String
+    var cookedAt: String
+    enum CodingKeys: String, CodingKey { case id, householdId = "household_id", recipeId = "recipe_id", cookedAt = "cooked_at" }
+    var date: Date { Fmt.date(cookedAt) ?? Date.distantPast }
+}
+
 // MARK: Speicher
 
 final class KitchenStore: ObservableObject {
@@ -215,7 +246,10 @@ final class KitchenStore: ObservableObject {
         let f = DateFormatter(); f.locale = Locale(identifier: "en_US_POSIX"); f.dateFormat = "yyyy-MM-dd"; return f
     }()
 
-    @Published private(set) var recipes: [RecipeSummary] = []
+    @Published private(set) var catalog: [RecipeSummary] = []      // Rezepte aus dem Repo
+    @Published private(set) var own: [OwnRecipe] = []               // eigene + aus Familien-Kochbüchern
+    @Published private(set) var followed: [Cookbook] = []
+    @Published private(set) var cooked: [CookedEvent] = []           // für die Statistik
     @Published private(set) var details: [String: Recipe] = [:]
     @Published private(set) var items: [KitchenItem] = []
     @Published private(set) var plan: [PlanEntry] = []
@@ -233,17 +267,28 @@ final class KitchenStore: ObservableObject {
 
     /// Rezepte (Übersicht) laden – zuerst aus dem Zwischenspeicher, dann frisch
     func loadRecipes() async {
-        if recipes.isEmpty, let d = try? Data(contentsOf: cacheFile("index.json")),
-           let list = try? JSONDecoder().decode([RecipeSummary].self, from: d) { recipes = list }
+        if catalog.isEmpty, let d = try? Data(contentsOf: cacheFile("index.json")),
+           let list = try? JSONDecoder().decode([RecipeSummary].self, from: d) { catalog = list }
         guard let (data, resp) = try? await URLSession.shared.data(from: Self.recipeBase.appendingPathComponent("index.json")),
               (resp as? HTTPURLResponse)?.statusCode == 200,
               let list = try? JSONDecoder().decode([RecipeSummary].self, from: data) else { return }
-        recipes = list.sorted { $0.title.localizedCompare($1.title) == .orderedAscending }
+        catalog = list.sorted { $0.title.localizedCompare($1.title) == .orderedAscending }
         try? data.write(to: cacheFile("index.json"))
+    }
+
+    /// Alle Rezepte: eigene und Familien-Kochbuch zuerst, dann die Sammlung
+    var recipes: [RecipeSummary] {
+        own.map { o in
+            RecipeSummary(id: o.data.id, title: o.data.title, icon: o.data.icon, cuisine: o.data.cuisine,
+                          servings: o.data.servings, time: o.data.time, airfryer: o.data.airfryer,
+                          ing: o.data.ingredients.map { $0.name },
+                          owner: o.householdId == household ? "Eigenes" : (followed.first { $0.sourceId == o.householdId }?.name ?? "Familie"))
+        }.sorted { $0.title.localizedCompare($1.title) == .orderedAscending } + catalog
     }
 
     /// Ein ganzes Rezept (mit Mengen und Schritten)
     func recipe(_ id: String) async -> Recipe? {
+        if let o = own.first(where: { $0.data.id == id }) { return o.data }
         if let r = details[id] { return r }
         let file = cacheFile("r-" + id + ".json")
         if let d = try? Data(contentsOf: file), let r = try? JSONDecoder().decode(Recipe.self, from: d) {
@@ -280,6 +325,15 @@ final class KitchenStore: ObservableObject {
             async let m: [RecipeMeta] = api.select("kitchen_meta", ["household_id": hid])
             let (ii, pp, mm) = try await (i, p, m)
             items = ii; plan = pp; meta = Dictionary(uniqueKeysWithValues: mm.map { ($0.recipeId, $0) })
+            // Runde 2 (eigene Rezepte, Kochbuch, Statistik) – eigener Block: fehlt etwas, läuft der Rest weiter
+            do {
+                let year = ISO8601DateFormatter().string(from: Date().addingTimeInterval(-400 * 86400))
+                async let o: [OwnRecipe] = api.select("kitchen_recipes", ["order": "created_at"])
+                async let c: [CookedEvent] = api.select("kitchen_cooked", ["household_id": hid, "cooked_at": "gte." + year])
+                async let f: [Cookbook] = api.rpc("followed_cookbooks", ["p_household": h])
+                let (oo, cc, ff) = try await (o, c, f)
+                own = oo; cooked = cc; followed = ff
+            } catch { print("Küche Runde 2:", error) }
             synced = Date(); failed = false
             save()
         } catch {
@@ -410,7 +464,83 @@ final class KitchenStore: ObservableObject {
     func setNote(_ id: String, _ note: String) { changeMeta(id) { $0.note = note } }
     func markCooked(_ id: String) {
         changeMeta(id) { $0.cookedCount += 1; $0.lastCooked = ISO8601DateFormatter().string(from: Date()) }
+        guard let h = household else { return }
+        let e = CookedEvent(id: UUID().uuidString.lowercased(), householdId: h, recipeId: id,
+                            cookedAt: ISO8601DateFormatter().string(from: Date()))
+        cooked.append(e)
+        write { try await self.api.upsert("kitchen_cooked", [e]) }
     }
+
+    // MARK: Eigene Rezepte und Familien-Kochbuch
+
+    /// Speichern (neu oder geändert). Rückgabe: die Rezept-ID ("u-…")
+    @discardableResult
+    func saveOwn(_ r: Recipe) -> String? {
+        guard let h = household else { return nil }
+        var r = r
+        let uuid = r.isOwn ? String(r.id.dropFirst(2)) : UUID().uuidString.lowercased()
+        r.id = "u-" + uuid
+        let o = OwnRecipe(id: uuid, householdId: h, data: r)
+        if let i = own.firstIndex(where: { $0.id == uuid }) { own[i] = o } else { own.append(o) }
+        write { try await self.api.upsert("kitchen_recipes", [o]) }
+        return r.id
+    }
+
+    func deleteOwn(_ recipeId: String) {
+        let uuid = String(recipeId.dropFirst(2))
+        own.removeAll { $0.id == uuid }
+        write { try await self.api.delete("kitchen_recipes", ["id": "eq." + uuid]) }
+    }
+
+    /// Darf man dieses Rezept bearbeiten? (eigenes, nicht aus einem fremden Kochbuch)
+    func isMine(_ recipeId: String) -> Bool {
+        own.contains { $0.data.id == recipeId && $0.householdId == household }
+    }
+
+    func cookbookCode() async -> String? {
+        guard let h = household else { return nil }
+        return try? await api.rpc("my_cookbook_code", ["p_household": h])
+    }
+
+    /// Einem anderen Kochbuch folgen. Rückgabe: Name des Haushalts
+    func follow(code: String) async throws -> String {
+        guard let h = household else { throw APIError(status: 0, message: "Kein Haushalt") }
+        let name: String = try await api.rpc("follow_cookbook", ["p_household": h, "p_code": code])
+        await sync(household: h, force: true)
+        return name
+    }
+
+    func unfollow(_ c: Cookbook) {
+        guard let h = household else { return }
+        followed.removeAll { $0.sourceId == c.sourceId }
+        own.removeAll { $0.householdId == c.sourceId }
+        write { try await self.api.delete("kitchen_follows", ["household_id": "eq." + h, "source_id": "eq." + c.sourceId]) }
+    }
+
+    /// Rezept von einer Webseite lesen (Server liest die Rezeptdaten der Seite)
+    func importRecipe(from link: String) async throws -> Recipe {
+        let data = try await api.raw("GET", "/functions/v1/kitchen/import", query: [URLQueryItem(name: "u", value: link)])
+        if let err = try? JSONDecoder().decode([String: String].self, from: data), let e = err["error"] {
+            throw APIError(status: 400, message: e)
+        }
+        return try JSONDecoder().decode(Recipe.self, from: data)
+    }
+
+    // MARK: Siri-Kurzbefehl
+
+    /// Neuer Schlüssel für den Kurzbefehl. Alte Schlüssel des Haushalts werden ungültig.
+    func newShortcutToken() async throws -> String {
+        guard let h = household else { throw APIError(status: 0, message: "Kein Haushalt") }
+        let chars = Array("abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789")
+        let token = String((0..<32).map { _ in chars.randomElement()! })
+        let hash = SHA256.hash(data: Data(token.utf8)).map { String(format: "%02x", $0) }.joined()
+        try await api.delete("kitchen_tokens", ["household_id": "eq." + h])
+        struct Row: Encodable { let token_hash: String; let household_id: String }
+        try await api.upsert("kitchen_tokens", [Row(token_hash: hash, household_id: h)])
+        return token
+    }
+
+    static var shortcutURL: String { Config.supabaseURL.absoluteString + "/functions/v1/kitchen/add" }
 
     private func changeMeta(_ id: String, _ change: (inout RecipeMeta) -> Void) {
         guard let h = household else { return }
@@ -446,7 +576,10 @@ final class KitchenStore: ObservableObject {
         }
     }
 
-    private struct Snapshot: Codable { var items: [KitchenItem]; var plan: [PlanEntry]; var meta: [RecipeMeta]; var household: String? }
+    private struct Snapshot: Codable {
+        var items: [KitchenItem]; var plan: [PlanEntry]; var meta: [RecipeMeta]; var household: String?
+        var own: [OwnRecipe]? = nil
+    }
 
     private func cacheFile(_ name: String) -> URL {
         let dir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0].appendingPathComponent("kitchen", isDirectory: true)
@@ -455,18 +588,18 @@ final class KitchenStore: ObservableObject {
     }
 
     private func save() {
-        let s = Snapshot(items: items, plan: plan, meta: Array(meta.values), household: household)
+        let s = Snapshot(items: items, plan: plan, meta: Array(meta.values), household: household, own: own)
         if let d = try? JSONEncoder().encode(s) { try? d.write(to: cacheFile("snapshot.json")) }
     }
 
     private func restore() {
         guard let d = try? Data(contentsOf: cacheFile("snapshot.json")),
               let s = try? JSONDecoder().decode(Snapshot.self, from: d) else { return }
-        items = s.items; plan = s.plan; household = s.household
+        items = s.items; plan = s.plan; household = s.household; own = s.own ?? []
         meta = Dictionary(uniqueKeysWithValues: s.meta.map { ($0.recipeId, $0) })
         if let d2 = try? Data(contentsOf: cacheFile("index.json")),
            let list = try? JSONDecoder().decode([RecipeSummary].self, from: d2) {
-            recipes = list.sorted { $0.title.localizedCompare($1.title) == .orderedAscending }
+            catalog = list.sorted { $0.title.localizedCompare($1.title) == .orderedAscending }
         }
     }
 }

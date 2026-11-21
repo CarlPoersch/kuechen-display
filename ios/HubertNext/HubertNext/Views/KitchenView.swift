@@ -98,7 +98,10 @@ struct RecipesTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
     @State private var query = ""
     @State private var filter = "Alle"
-    private let filters = ["Alle", "Airfryer", "Schnell", "Favoriten", "Lange nicht"]
+    @State private var sheet: Sheet?
+    private let filters = ["Alle", "Eigene", "Airfryer", "Schnell", "Favoriten", "Lange nicht"]
+
+    enum Sheet: String, Identifiable { case new, link, cookbook, stats; var id: String { rawValue } }
 
     private var list: [RecipeSummary] {
         kitchen.recipes.filter { r in
@@ -108,6 +111,7 @@ struct RecipesTab: View {
             guard match else { return false }
             let m = kitchen.meta[r.id]
             switch filter {
+            case "Eigene": return r.owner != nil
             case "Airfryer": return r.airfryer == true
             case "Schnell": return (r.minutes ?? 99) <= 30
             case "Favoriten": return (m?.rating ?? 0) >= 4
@@ -120,16 +124,28 @@ struct RecipesTab: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                HStack {
-                    Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
-                    TextField("Rezept oder Zutat suchen", text: $query).disableAutocorrection(true)
-                    if !query.isEmpty {
-                        Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundColor(Theme.secondary) }
-                            .buttonStyle(.borderless)
+                HStack(spacing: 10) {
+                    HStack {
+                        Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
+                        TextField("Rezept oder Zutat suchen", text: $query).disableAutocorrection(true)
+                        if !query.isEmpty {
+                            Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundColor(Theme.secondary) }
+                                .buttonStyle(.borderless)
+                        }
                     }
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                    roundButton("chart.bar.fill", "Koch-Statistik") { sheet = .stats }
+                    Menu {
+                        Button { sheet = .new } label: { Label("Neues Rezept", systemImage: "square.and.pencil") }
+                        Button { sheet = .link } label: { Label("Rezept aus Link", systemImage: "link") }
+                        Button { sheet = .cookbook } label: { Label("Familien-Kochbuch", systemImage: "book.closed") }
+                    } label: {
+                        Image(systemName: "plus").font(.headline).foregroundColor(.white)
+                            .frame(width: 40, height: 40).background(Circle().fill(Theme.accent))
+                    }
+                    .accessibilityLabel("Rezept hinzufügen")
                 }
-                .padding(10)
-                .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
@@ -159,6 +175,22 @@ struct RecipesTab: View {
             }
             .padding()
         }
+        .sheet(item: $sheet) { s in
+            switch s {
+            case .new: NewRecipeSheet()
+            case .link: ImportLinkSheet()
+            case .cookbook: CookbookSheet()
+            case .stats: KitchenStatsView()
+            }
+        }
+    }
+
+    private func roundButton(_ symbol: String, _ label: String, _ action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: symbol).font(.headline).foregroundColor(Theme.accent)
+                .frame(width: 40, height: 40).background(Circle().fill(Color(UIColor.tertiarySystemFill)))
+        }
+        .buttonStyle(.plain).accessibilityLabel(label)
     }
 }
 
@@ -179,6 +211,10 @@ struct RecipeCard: View {
                 }
             }
             Text(recipe.title).font(.headline).lineLimit(2).multilineTextAlignment(.leading)
+            if let o = recipe.owner {
+                Label(o, systemImage: o == "Eigenes" ? "person.fill" : "book.closed").font(.caption2.weight(.semibold))
+                    .foregroundColor(Theme.accent)
+            }
             Text([recipe.cuisine, recipe.time].compactMap { $0 }.joined(separator: " · "))
                 .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
             Spacer(minLength: 0)
@@ -204,6 +240,7 @@ struct RecipeDetailView: View {
     @State private var planning = false
     @State private var note = ""
     @State private var toast: String?
+    @State private var editing = false
 
     var body: some View {
         ScrollView {
@@ -251,6 +288,19 @@ struct RecipeDetailView: View {
         .sheet(isPresented: $planning) {
             if let r = recipe { PlanSheet(recipeId: r.id, title: r.title, portions: portions) }
         }
+        .sheet(isPresented: $editing, onDismiss: { Task { recipe = await kitchen.recipe(id) } }) {
+            if let r = recipe { NewRecipeSheet(recipe: r) }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if kitchen.isMine(id) {
+                    Button("Bearbeiten") { editing = true }
+                } else if let r = recipe, r.isOwn {
+                    // Aus einem fremden Kochbuch: als eigenes Rezept übernehmen
+                    Button("Kopieren") { var c = r; c.id = ""; kitchen.saveOwn(c); show("In euer Kochbuch kopiert") }
+                }
+            }
+        }
     }
 
     private func show(_ text: String) {
@@ -266,6 +316,9 @@ struct RecipeDetailView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(r.title).font(.system(size: 28, weight: .bold))
                     Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · ")).foregroundColor(Theme.secondary)
+                    if let src = r.source, let host = URL(string: src)?.host {
+                        Label(host.replacingOccurrences(of: "www.", with: ""), systemImage: "link").font(.caption).foregroundColor(Theme.secondary)
+                    }
                     HStack(spacing: 10) {
                         StarRating(value: m.rating) { kitchen.setRating(r.id, $0) }
                         if let c = cookedText(m) { Text(c).font(.caption).foregroundColor(Theme.secondary) }
@@ -428,8 +481,23 @@ struct CookModeView: View {
     @ObservedObject private var timers = TimerCenter.shared
     @State private var page = 0
     @State private var showIngredients = false
+    @StateObject private var voice = SpeechControl()
 
     private var count: Int { recipe.steps.count + 1 }   // + Fertig-Seite
+
+    /// Sprachbefehl ausführen
+    private func run(_ c: CookCommand) {
+        switch c {
+        case .next: withAnimation { page = min(recipe.steps.count, page + 1) }
+        case .back: withAnimation { page = max(0, page - 1) }
+        case .ingredients: showIngredients = true
+        case .timer:
+            if page < recipe.steps.count, let m = recipe.steps[page].minutes,
+               !timers.timers.contains(where: { $0.name.hasSuffix("Schritt \(page + 1)") }) {
+                timers.start("\(recipe.title) · Schritt \(page + 1)", minutes: m)
+            }
+        }
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -446,6 +514,13 @@ struct CookModeView: View {
                         .font(.subheadline).foregroundColor(Theme.secondary)
                 }
                 Spacer()
+                Button { voice.toggle() } label: {
+                    Image(systemName: voice.listening ? "mic.fill" : "mic.slash").font(.headline)
+                        .foregroundColor(voice.listening ? .white : .primary)
+                        .frame(width: 44, height: 44)
+                        .background(Circle().fill(voice.listening ? Theme.accent : Color(UIColor.tertiarySystemFill)))
+                }
+                .accessibilityLabel(voice.listening ? "Sprachsteuerung aus" : "Sprachsteuerung an")
                 Button { showIngredients = true } label: {
                     Image(systemName: "list.bullet").font(.headline).frame(width: 44, height: 44)
                         .background(Circle().fill(Color(UIColor.tertiarySystemFill)))
@@ -456,6 +531,12 @@ struct CookModeView: View {
             .padding(.horizontal).padding(.top, 10)
             ProgressView(value: Double(min(page + 1, recipe.steps.count)), total: Double(max(1, recipe.steps.count)))
                 .tint(Theme.accent).padding(.horizontal).padding(.top, 10)
+            if voice.listening || voice.problem != nil {
+                Label(voice.problem ?? "Sag „weiter“, „zurück“, „Timer“ oder „Zutaten“" + (voice.heard.isEmpty ? "" : " · erkannt: „\(voice.heard)“"),
+                      systemImage: voice.problem == nil ? "waveform" : "exclamationmark.triangle")
+                    .font(.subheadline).foregroundColor(voice.problem == nil ? Theme.secondary : .orange)
+                    .padding(.horizontal).padding(.top, 8)
+            }
 
             // Laufende Timer
             if !timers.timers.isEmpty {
@@ -484,7 +565,11 @@ struct CookModeView: View {
             .padding()
         }
         .background(Theme.background.ignoresSafeArea())
-        .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
+            voice.onCommand = { c in run(c) }
+        }
+        .onDisappear { voice.stop() }
         .sheet(isPresented: $showIngredients) { ingredientSheet }
         .overlay(TimerAlarmOverlay())
     }
@@ -647,6 +732,7 @@ struct RecipePicker: View {
 struct ShopTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
     @State private var newItem = ""
+    @State private var siri = false
     @FocusState private var typing: Bool
 
     var body: some View {
@@ -672,12 +758,16 @@ struct ShopTab: View {
                     }
                 }
             }
+            Section {
+                Button { siri = true } label: { Label("Mit Siri hinzufügen …", systemImage: "mic.fill") }
+            }
             if kitchen.failed {
                 Section { Label("Gerade keine Verbindung – Änderungen werden nachgeholt", systemImage: "wifi.slash")
                     .font(.footnote).foregroundColor(Theme.secondary) }
             }
         }
         .listStyle(.insetGrouped)
+        .sheet(isPresented: $siri) { SiriSetupSheet() }
     }
 }
 
@@ -721,10 +811,14 @@ struct PantryTab: View {
     @State private var newItem = ""
     @State private var place = "Vorrat"
     @State private var editing: KitchenItem?
+    @State private var scanning = false
 
     var body: some View {
         List {
             Section {
+                Button { scanning = true } label: {
+                    Label("Barcode oder Kassenzettel scannen", systemImage: "barcode.viewfinder").font(.headline)
+                }
                 HStack {
                     Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent).font(.title3)
                     TextField("Hinzufügen, z. B. Reis", text: $newItem)
@@ -747,6 +841,7 @@ struct PantryTab: View {
         }
         .listStyle(.insetGrouped)
         .sheet(item: $editing) { PantryEditSheet(item: $0) }
+        .sheet(isPresented: $scanning) { ScanSheet() }
     }
 
     private func row(_ it: KitchenItem) -> some View {

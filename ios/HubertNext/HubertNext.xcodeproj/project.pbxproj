@@ -246,15 +246,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HubertNext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Hubert Neu";
-				CODE_SIGN_ENTITLEMENTS = HubertNext.entitlements;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Hubert scannt Barcodes und Kassenzettel, um sie in den Vorrat zu übernehmen.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Im Kochmodus hört Hubert auf „weiter“ und „zurück“, damit du mit vollen Händen umblättern kannst.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Im Kochmodus erkennt Hubert „weiter“, „zurück“ und „Timer“. Die Erkennung läuft wenn möglich auf dem Gerät.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -291,15 +294,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HubertNext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Hubert Neu";
-				CODE_SIGN_ENTITLEMENTS = HubertNext.entitlements;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Hubert scannt Barcodes und Kassenzettel, um sie in den Vorrat zu übernehmen.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Im Kochmodus hört Hubert auf „weiter“ und „zurück“, damit du mit vollen Händen umblättern kannst.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Im Kochmodus erkennt Hubert „weiter“, „zurück“ und „Timer“. Die Erkennung läuft wenn möglich auf dem Gerät.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
