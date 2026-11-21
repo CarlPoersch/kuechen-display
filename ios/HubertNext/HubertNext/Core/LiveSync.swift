@@ -7,7 +7,7 @@ import Combine
 //
 // Wie: Supabase Realtime (WebSocket). Ändert ein Gerät etwas, meldet der
 // Server es sofort allen anderen; die holen dann den aktuellen Stand.
-// Zusätzlich: Abgleich beim Öffnen der App und alle 30 s – falls der
+// Zusätzlich: Abgleich beim Öffnen der App und alle 15 s – falls der
 // WebSocket mal hängt, bleibt es trotzdem synchron.
 // ============================================================
 
@@ -41,10 +41,23 @@ struct LiveTimerRow: Codable {
     let source: String?
     let icon: String?
     let device: String?
+    var done_at: String? = nil   // gesetzt = beendet (gestoppt oder „OK“ gedrückt)
 
     init(_ t: KitchenTimer, household: String) {
         id = t.id.uuidString.lowercased(); household_id = household; name = t.name; total_secs = t.total
         end_at = ISO.string(t.end); paused_left = t.pausedLeft; source = t.source; icon = t.icon; device = Device.id
+    }
+
+    enum CodingKeys: String, CodingKey { case id, household_id, name, total_secs, end_at, paused_left, source, icon, device, done_at }
+
+    /// Beim Senden: paused_left immer mitschicken (auch leer – sonst bliebe „pausiert“ nach dem Fortsetzen
+    /// auf dem Server stehen); done_at nie (Beenden geht nur über `finish`, damit nichts wiederaufersteht).
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.container(keyedBy: CodingKeys.self)
+        try c.encode(id, forKey: .id); try c.encode(household_id, forKey: .household_id); try c.encode(name, forKey: .name)
+        try c.encode(total_secs, forKey: .total_secs); try c.encode(end_at, forKey: .end_at)
+        try c.encode(paused_left, forKey: .paused_left)
+        try c.encodeIfPresent(source, forKey: .source); try c.encodeIfPresent(icon, forKey: .icon); try c.encodeIfPresent(device, forKey: .device)
     }
 
     var timer: KitchenTimer? {
@@ -59,6 +72,7 @@ struct LiveCookingRow: Codable {
     let portions: Int
     let page: Int
     let device: String?
+    var active: Bool? = true     // false = beendet (statt Löschen, siehe Migration 007)
 }
 
 final class LiveSync {
@@ -84,7 +98,7 @@ final class LiveSync {
             connect()
         }
         Task { await pull() }
-        poll = Timer.publish(every: 30, on: .main, in: .common).autoconnect().sink { _ in
+        poll = Timer.publish(every: 15, on: .main, in: .common).autoconnect().sink { _ in
             Task { @MainActor in await LiveSync.shared.pull() }
         }
     }
@@ -117,7 +131,7 @@ final class LiveSync {
                 async let c: [LiveCookingRow] = api.select("kitchen_cooking", ["household_id": "eq." + h])
                 let (timers, cooking) = try await (t, c)
                 TimerCenter.shared.apply(remote: timers)
-                await CookSession.shared.apply(remote: cooking.first)
+                await CookSession.shared.apply(remote: cooking.first.flatMap { $0.active == false ? nil : $0 })
             } catch {
                 print("Live-Abgleich:", error)
             }

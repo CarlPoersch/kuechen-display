@@ -1,0 +1,85 @@
+{
+ "id": "satay",
+ "title": "Hähnchen-Satay mit Erdnusssauce",
+ "icon": "🍢",
+ "cuisine": "Indonesisch",
+ "servings": 4,
+ "time": "ca. 40 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Koriander, gemahlen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "group": "Erdnusssauce"
+  },
+  {
+   "amount": "100 g",
+   "name": "Erdnussbutter"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sambal Oelek"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "12",
+   "name": "Holzspieße"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spieße wässern. Hähnchen in Streifen schneiden, mit Kokosmilch, Gewürzen und Sojasauce marinieren.",
+   "minutes": 30
+  },
+  {
+   "text": "Fleisch wellenförmig auf die Spieße stecken."
+  },
+  {
+   "text": "In einer Grillpfanne oder unter dem Ofengrill rundum goldbraun braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Erdnussbutter mit Kokosmilch, Sojasauce, Zucker und Sambal erwärmen und glatt rühren, mit Limette abschmecken.",
+   "minutes": 3
+  },
+  {
+   "text": "Spieße mit Sauce servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40
+}

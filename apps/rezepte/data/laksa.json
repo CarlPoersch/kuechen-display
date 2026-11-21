@@ -1,0 +1,83 @@
+{
+ "id": "laksa",
+ "title": "Curry-Laksa",
+ "icon": "🍜",
+ "cuisine": "Malaysisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "3 EL",
+   "name": "Laksa- oder rote Currypaste"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "400 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reisnudeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Paste in Öl anrösten, Kokosmilch und Brühe zugeben, aufkochen.",
+   "minutes": 3
+  },
+  {
+   "text": "Hähnchen in dünnen Scheiben darin gar ziehen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Garnelen zugeben, mit Fischsauce, Zucker und Limette abschmecken.",
+   "minutes": 3
+  },
+  {
+   "text": "Reisnudeln nach Packung einweichen und in Schalen verteilen."
+  },
+  {
+   "text": "Suppe darübergießen und mit Sprossen und Koriander servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
+}

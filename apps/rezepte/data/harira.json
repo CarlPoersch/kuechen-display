@@ -1,0 +1,87 @@
+{
+ "id": "harira",
+ "title": "Harira (marokkanische Suppe)",
+ "icon": "🥣",
+ "cuisine": "Marokkanisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Lammfleisch, gewürfelt"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 Stangen",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "100 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kichererbsen (Dose)"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer, gemahlen"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "50 g",
+   "name": "Fadennudeln"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch mit Zwiebel und Sellerie in Öl anbraten, Gewürze kurz mitrösten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tomaten, Linsen und Wasser zugeben und köcheln.",
+   "minutes": 45
+  },
+  {
+   "text": "Kichererbsen und Nudeln zugeben und garen.",
+   "minutes": 8
+  },
+  {
+   "text": "Gehackte Kräuter unterrühren, salzen, pfeffern und mit Zitronenspalten servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75
+}

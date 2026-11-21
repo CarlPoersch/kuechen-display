@@ -1,0 +1,78 @@
+{
+ "id": "dakgalbi",
+ "title": "Dakgalbi (scharfes Hähnchen mit Gemüse)",
+ "icon": "🌶️",
+ "cuisine": "Koreanisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Gochujang"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Gochugaru (Chiliflocken)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "1",
+   "name": "Süßkartoffel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mozzarella (optional)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Stücke schneiden und mit Gochujang, Gochugaru, Sojasauce, Zucker und Knoblauch marinieren.",
+   "minutes": 15
+  },
+  {
+   "text": "Kohl, Süßkartoffel und Zwiebel in mundgerechte Stücke schneiden."
+  },
+  {
+   "text": "Alles in einer großen Pfanne mit Öl unter Rühren garen, bis Fleisch und Süßkartoffel durch sind.",
+   "minutes": 15
+  },
+  {
+   "text": "Frühlingszwiebeln unterheben, nach Wunsch Mozzarella darauf schmelzen lassen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40
+}

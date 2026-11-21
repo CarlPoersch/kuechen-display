@@ -1,0 +1,65 @@
+{
+ "id": "tonkatsu",
+ "title": "Tonkatsu mit Krautsalat",
+ "icon": "🐷",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Schweinekoteletts ohne Knochen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "80 g",
+   "name": "Panko"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Öl zum Ausbacken"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Tonkatsu-Sauce (oder Ketchup + Worcestershire)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen. Kohl sehr fein hobeln und in Eiswasser knackig werden lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Fleisch an den Rändern einschneiden, salzen und pfeffern."
+  },
+  {
+   "text": "In Mehl, Ei und Panko wenden."
+  },
+  {
+   "text": "In 170 °C heißem Öl goldbraun ausbacken.",
+   "minutes": 6
+  },
+  {
+   "text": "Kurz abtropfen lassen, in Streifen schneiden, mit Kohl, Sauce und Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

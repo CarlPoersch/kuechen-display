@@ -1,0 +1,58 @@
+{
+ "id": "baba-ganoush",
+ "title": "Baba Ghanoush",
+ "icon": "🍆",
+ "cuisine": "Libanesisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Auberginen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Paprika geräuchert"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Auberginen mehrmals einstechen und unter dem Ofengrill oder auf dem Gasherd rundum schwarz rösten, bis sie zusammenfallen.",
+   "minutes": 30
+  },
+  {
+   "text": "Etwas abkühlen lassen, Fruchtfleisch herauslöffeln und abtropfen lassen."
+  },
+  {
+   "text": "Mit Tahin, Knoblauch, Zitronensaft und Salz grob zerdrücken."
+  },
+  {
+   "text": "Mit Olivenöl, Petersilie und Paprika servieren."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

@@ -1,0 +1,77 @@
+{
+ "id": "fattoush",
+ "title": "Fattoush",
+ "icon": "🥗",
+ "cuisine": "Libanesisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "1",
+   "name": "Romanasalat"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "4",
+   "name": "Radieschen"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sumach"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Granatapfelsirup"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brot in Stücke reißen und in 2 EL Öl in der Pfanne knusprig rösten.",
+   "minutes": 5
+  },
+  {
+   "text": "Gemüse würfeln, Kräuter grob hacken."
+  },
+  {
+   "text": "Zitronensaft, Granatapfelsirup, restliches Öl, Sumach und Salz verrühren."
+  },
+  {
+   "text": "Alles mischen und sofort servieren, damit das Brot knusprig bleibt."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

@@ -1,0 +1,75 @@
+{
+ "id": "pad-see-ew",
+ "title": "Pad See Ew",
+ "icon": "🍜",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "breite Reisnudeln"
+  },
+  {
+   "amount": "250 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "200 g",
+   "name": "Brokkoli oder Pak Choi"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "dunkle Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "helle Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln in warmem Wasser einweichen.",
+   "minutes": 15
+  },
+  {
+   "text": "Hähnchen in dünne Scheiben schneiden und mit Knoblauch in Öl im Wok anbraten.",
+   "minutes": 3
+  },
+  {
+   "text": "Gemüse zugeben und kurz mitbraten.",
+   "minutes": 2
+  },
+  {
+   "text": "Zur Seite schieben, Eier hineinschlagen und stocken lassen."
+  },
+  {
+   "text": "Nudeln und Saucen zugeben und braten, bis die Nudeln leicht karamellisieren.",
+   "minutes": 3
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
+}

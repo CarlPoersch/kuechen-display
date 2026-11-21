@@ -1,0 +1,71 @@
+{
+ "id": "gyros-teller",
+ "title": "Gyros mit Pommes und Krautsalat",
+ "icon": "🥙",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 40 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Schweinenacken"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Gyrosgewürz"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Oregano"
+  },
+  {
+   "amount": "800 g",
+   "name": "Pommes (TK)"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "300 g",
+   "name": "Tzatziki"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in dünne Streifen schneiden, mit Zwiebel, Öl und Gewürzen marinieren.",
+   "minutes": 60
+  },
+  {
+   "text": "Pommes im Ofen backen.",
+   "minutes": 25
+  },
+  {
+   "text": "Kohl fein hobeln, mit Essig, Öl und Salz kräftig durchkneten."
+  },
+  {
+   "text": "Fleisch in einer sehr heißen Pfanne portionsweise knusprig braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Pommes, Krautsalat und Tzatziki servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
+}

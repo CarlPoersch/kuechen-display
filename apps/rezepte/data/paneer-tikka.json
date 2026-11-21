@@ -1,0 +1,83 @@
+{
+ "id": "paneer-tikka",
+ "title": "Paneer Butter Masala",
+ "icon": "🧀",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Paneer"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "50 g",
+   "name": "Cashewkerne"
+  },
+  {
+   "amount": "400 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kashmiri-Chili"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrocknete Bockshornkleeblätter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Paneer würfeln und in 1 EL Butter goldbraun braten. Herausnehmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Zwiebel, Knoblauch, Ingwer und Cashews in Butter anbraten, Tomaten zugeben und köcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Fein pürieren und zurück in den Topf geben. Gewürze und Zucker zugeben."
+  },
+  {
+   "text": "Sahne einrühren, Paneer zugeben und kurz ziehen lassen.",
+   "minutes": 4
+  },
+  {
+   "text": "Bockshornklee zwischen den Fingern zerreiben und darüberstreuen. Mit Naan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

@@ -1,0 +1,88 @@
+{
+ "id": "gyoza-selbst",
+ "title": "Gyoza selbst gemacht",
+ "icon": "🥟",
+ "cuisine": "Japanisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "30",
+   "name": "Gyoza-Teigblätter"
+  },
+  {
+   "amount": "250 g",
+   "name": "Schweinehack"
+  },
+  {
+   "amount": "150 g",
+   "name": "Chinakohl"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer, gerieben"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kohl fein hacken, salzen, 10 Minuten ziehen lassen und kräftig ausdrücken.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Hack, Frühlingszwiebeln, Knoblauch, Ingwer, Sojasauce und Sesamöl verkneten."
+  },
+  {
+   "text": "Je 1 TL Füllung auf ein Blatt, Rand befeuchten, zusammenklappen und Falten legen."
+  },
+  {
+   "text": "Gyoza in Öl auf der Unterseite goldbraun braten.",
+   "minutes": 3
+  },
+  {
+   "text": "100 ml Wasser angießen, Deckel drauf und dämpfen, bis das Wasser verdampft ist.",
+   "minutes": 5
+  },
+  {
+   "text": "Dip-Zutaten verrühren und dazu servieren."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

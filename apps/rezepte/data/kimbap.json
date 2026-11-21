@@ -1,0 +1,70 @@
+{
+ "id": "kimbap",
+ "title": "Kimbap",
+ "icon": "🍙",
+ "cuisine": "Koreanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Sushireis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "4 Blatt",
+   "name": "Nori"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "4",
+   "name": "Surimi-Sticks oder Schinkenstreifen"
+  },
+  {
+   "amount": "4 Streifen",
+   "name": "eingelegter Rettich (Danmuji)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen, mit Sesamöl und Salz würzen und abkühlen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Eier zu einem dünnen Omelett braten und in Streifen schneiden. Karotte in Stifte schneiden und kurz anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Spinat blanchieren, ausdrücken und mit Sesamöl und Salz würzen."
+  },
+  {
+   "text": "Nori auf eine Bambusmatte legen, dünn mit Reis belegen (oben 2 cm frei), Füllung in einer Reihe darauflegen."
+  },
+  {
+   "text": "Fest aufrollen, mit Sesamöl bestreichen, mit Sesam bestreuen und mit einem nassen Messer in Scheiben schneiden."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "gf": true
+}

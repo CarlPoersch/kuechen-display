@@ -1,0 +1,60 @@
+{
+ "id": "mujaddara",
+ "title": "Mujaddara (Linsen-Reis mit Röstzwiebeln)",
+ "icon": "🍚",
+ "cuisine": "Libanesisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "braune Linsen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Langkornreis"
+  },
+  {
+   "amount": "4",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "200 g",
+   "name": "Joghurt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen in Wasser halb gar kochen.",
+   "minutes": 12
+  },
+  {
+   "text": "Zwiebeln in feine Ringe schneiden und in Öl langsam tief goldbraun und knusprig braten.",
+   "minutes": 25
+  },
+  {
+   "text": "Reis, Gewürze, Salz und so viel Wasser zu den Linsen geben, dass alles knapp bedeckt ist. Zugedeckt garen.",
+   "minutes": 18
+  },
+  {
+   "text": "Die Hälfte der Zwiebeln unterheben, den Rest darüberstreuen. Mit Joghurt servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 50,
+ "gf": true
+}

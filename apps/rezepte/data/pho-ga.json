@@ -1,0 +1,92 @@
+{
+ "id": "pho-ga",
+ "title": "Phở Gà (Hühnernudelsuppe)",
+ "icon": "🍜",
+ "cuisine": "Vietnamesisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer (5 cm)"
+  },
+  {
+   "amount": "2",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reisbandnudeln"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Thai-Basilikum"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "200 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1",
+   "name": "Chili"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Ingwer halbieren und in einer trockenen Pfanne schwarz rösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Sternanis und Zimt kurz anrösten."
+  },
+  {
+   "text": "Hähnchen mit Wasser, Zwiebel, Ingwer und Gewürzen aufkochen, abschäumen und leise köcheln.",
+   "minutes": 60
+  },
+  {
+   "text": "Hähnchen herausnehmen und zerzupfen. Brühe abseihen und mit Fischsauce, Zucker und Salz abschmecken."
+  },
+  {
+   "text": "Nudeln garen, in Schalen mit Fleisch verteilen, heiße Brühe darübergießen."
+  },
+  {
+   "text": "Mit Kräutern, Sprossen, Limette und Chili servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 90
+}

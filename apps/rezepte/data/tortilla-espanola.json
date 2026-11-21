@@ -1,0 +1,52 @@
+{
+ "id": "tortilla-espanola",
+ "title": "Tortilla de Patatas",
+ "icon": "🍳",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "6",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in dünne Scheiben, Zwiebel in Streifen schneiden."
+  },
+  {
+   "text": "In reichlich Öl bei mittlerer Hitze weich schmoren, nicht bräunen.",
+   "minutes": 20
+  },
+  {
+   "text": "Abgießen (Öl aufheben), mit verquirlten Eiern und Salz mischen und 10 Minuten ziehen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "2 EL Öl in einer Pfanne erhitzen, Masse hineingeben und bei kleiner Hitze stocken lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit einem Teller wenden und die zweite Seite fertig braten.",
+   "minutes": 4
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 45,
+ "gf": true
+}

@@ -1,0 +1,39 @@
+{
+ "id": "raita",
+ "title": "Gurken-Raita",
+ "icon": "🥒",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel, geröstet und gemahlen"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Minze"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gurke raspeln und ausdrücken."
+  },
+  {
+   "text": "Mit Joghurt, Kreuzkümmel, gehackter Minze und Salz verrühren."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10,
+ "gf": true
+}

@@ -1,0 +1,69 @@
+{
+ "id": "wan-tan-suppe",
+ "title": "Wan-Tan-Suppe",
+ "icon": "🥟",
+ "cuisine": "Chinesisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "24",
+   "name": "Wan-Tan-Blätter"
+  },
+  {
+   "amount": "250 g",
+   "name": "Schweinehack"
+  },
+  {
+   "amount": "100 g",
+   "name": "Garnelen, gehackt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwer, gerieben"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2",
+   "name": "Pak Choi"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack, Garnelen, Ingwer, Sojasauce und Sesamöl verkneten."
+  },
+  {
+   "text": "Je 1 TL Füllung in die Mitte eines Blatts geben, Ränder befeuchten und zu Säckchen formen."
+  },
+  {
+   "text": "Brühe aufkochen und mit Sojasauce abschmecken. Pak Choi halbieren und 2 Minuten darin garen.",
+   "minutes": 2
+  },
+  {
+   "text": "Wan Tans in leicht siedendem Wasser garen, bis sie oben schwimmen.",
+   "minutes": 4
+  },
+  {
+   "text": "In Schalen mit Brühe, Pak Choi und Frühlingszwiebeln servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50
+}

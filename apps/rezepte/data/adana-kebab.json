@@ -1,0 +1,87 @@
+{
+ "id": "adana-kebab",
+ "title": "Adana Kebap mit Bulgur",
+ "icon": "🍢",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Lammhack"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Pul Biber"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "group": "Bulgur"
+  },
+  {
+   "amount": "250 g",
+   "name": "Bulgur"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "200 g",
+   "name": "Joghurt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Paprika und Zwiebel sehr fein hacken und ausdrücken. Mit Hack und Gewürzen kräftig verkneten, salzen."
+  },
+  {
+   "text": "Um flache Spieße oder zu länglichen Würsten formen."
+  },
+  {
+   "text": "Tomatenmark in Butter anrösten, Bulgur und Brühe zugeben und zugedeckt quellen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Kebap in der Grillpfanne rundum braten, Tomaten halbiert mitgrillen.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit Bulgur, Tomaten und Joghurt servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45
+}

@@ -1,0 +1,58 @@
+{
+ "id": "menemen",
+ "title": "Menemen",
+ "icon": "🍳",
+ "cuisine": "Türkisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "grüne Spitzpaprika"
+  },
+  {
+   "amount": "3",
+   "name": "reife Tomaten"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pul Biber"
+  },
+  {
+   "amount": "",
+   "name": "Fladenbrot (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Paprika in Ringe schneiden und in Butter und Öl weich braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Tomaten würfeln, zugeben und einkochen, bis die Flüssigkeit fast verdampft ist.",
+   "minutes": 8
+  },
+  {
+   "text": "Eier hineinschlagen und vorsichtig rühren, bis sie gerade gestockt sind."
+  },
+  {
+   "text": "Mit Pul Biber und Salz würzen und mit Brot servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

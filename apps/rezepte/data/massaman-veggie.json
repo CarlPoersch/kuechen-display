@@ -1,0 +1,79 @@
+{
+ "id": "massaman-veggie",
+ "title": "Gelbes Curry mit Kartoffeln",
+ "icon": "🍛",
+ "cuisine": "Thailändisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "2 EL",
+   "name": "gelbe Currypaste"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zuckerschoten"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen. Kartoffeln würfeln.",
+   "minutes": 15
+  },
+  {
+   "text": "Currypaste in Öl anrösten, die Hälfte der Kokosmilch zugeben und einkochen, bis sich das Fett absetzt.",
+   "minutes": 3
+  },
+  {
+   "text": "Kartoffeln, Zwiebel, restliche Kokosmilch und 200 ml Wasser zugeben und weich köcheln.",
+   "minutes": 15
+  },
+  {
+   "text": "Paprika und Zuckerschoten kurz mitgaren.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Sojasauce, Zucker und Limette abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 35
+}

@@ -1,0 +1,77 @@
+{
+ "id": "ma-po-aubergine",
+ "title": "Yu Xiang Qiezi (Fischduft-Aubergine)",
+ "icon": "🍆",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Auberginen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Doubanjiang (Bohnen-Chilipaste)"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Chinkiang-Essig"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen. Auberginen in fingerdicke Stifte schneiden, salzen und 10 Minuten ziehen lassen, trocken tupfen.",
+   "minutes": 15
+  },
+  {
+   "text": "In Öl portionsweise weich und goldbraun braten. Herausnehmen.",
+   "minutes": 8
+  },
+  {
+   "text": "Doubanjiang, Knoblauch und Ingwer im Öl anbraten."
+  },
+  {
+   "text": "Essig, Sojasauce, Zucker und 100 ml Wasser mit Stärke verrühren, zugeben und andicken lassen."
+  },
+  {
+   "text": "Auberginen in der Sauce schwenken, mit Frühlingszwiebeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 30
+}

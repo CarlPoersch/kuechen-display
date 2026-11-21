@@ -1,0 +1,66 @@
+{
+ "id": "sesam-nudeln",
+ "title": "Kalte Sesamnudeln",
+ "icon": "🍜",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Weizen- oder Mie-Nudeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Tahin oder Erdnussbutter"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliöl"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln kochen, kalt abschrecken.",
+   "minutes": 5
+  },
+  {
+   "text": "Tahin, Sojasauce, Essig, Zucker, Chiliöl, Knoblauch und 3 EL warmes Wasser glatt rühren."
+  },
+  {
+   "text": "Nudeln mit Sauce mischen, mit Gurkenstreifen, Frühlingszwiebeln und Sesam servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 15
+}

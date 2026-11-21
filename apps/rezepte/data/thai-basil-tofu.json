@@ -1,0 +1,69 @@
+{
+ "id": "thai-basil-tofu",
+ "title": "Pad Kra Pao mit Tofu",
+ "icon": "🌿",
+ "cuisine": "Thailändisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "fester Tofu"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Thai-Chilis"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "vegetarische Austernsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Thai-Basilikum"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen. Tofu zerbröseln und gut ausdrücken.",
+   "minutes": 15
+  },
+  {
+   "text": "Knoblauch und Chili im Mörser zerstoßen und in Öl anbraten."
+  },
+  {
+   "text": "Tofu zugeben und braten, bis er goldbraun ist.",
+   "minutes": 8
+  },
+  {
+   "text": "Saucen und Zucker zugeben, Basilikum unterheben, bis es zusammenfällt."
+  },
+  {
+   "text": "Mit Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 20
+}

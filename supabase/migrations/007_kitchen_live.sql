@@ -49,3 +49,9 @@ begin
     end if;
   end loop;
 end $$;
+
+-- Nachtrag: Beenden als Markierung statt Löschen.
+-- Warum: Realtime meldet Lösch-Ereignisse nicht zuverlässig an die anderen Geräte,
+-- Änderungen (UPDATE) dagegen schon. Alte Einträge räumen die Geräte selbst auf.
+alter table public.kitchen_timers add column if not exists done_at timestamptz;
+alter table public.kitchen_cooking add column if not exists active boolean not null default true;

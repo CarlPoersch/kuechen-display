@@ -1,0 +1,86 @@
+{
+ "id": "kofta-curry",
+ "title": "Kofta-Curry (Hackbällchen in Currysauce)",
+ "icon": "🧆",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Lammhack oder Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel (für die Bällchen)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "group": "Sauce"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit fein geriebener Zwiebel, Garam Masala, Koriander und Salz verkneten und 20 Bällchen formen."
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl goldbraun braten, Gewürze kurz mitrösten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomaten zugeben und köcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Joghurt einrühren, Bällchen einlegen und zugedeckt gar ziehen lassen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit Reis oder Naan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "gf": true
+}

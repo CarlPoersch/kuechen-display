@@ -1,0 +1,76 @@
+{
+ "id": "dal-makhani",
+ "title": "Dal Makhani",
+ "icon": "🫘",
+ "cuisine": "Indisch",
+ "servings": 6,
+ "time": "ca. 2 Std. (plus Einweichen)",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "schwarze Linsen (Urad)"
+  },
+  {
+   "amount": "50 g",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "200 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen und Bohnen über Nacht einweichen, dann in frischem Wasser weich kochen.",
+   "minutes": 60
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in der Hälfte der Butter goldbraun braten.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomaten und Gewürze zugeben und einkochen.",
+   "minutes": 10
+  },
+  {
+   "text": "Linsen mit etwas Kochwasser zugeben und bei kleiner Hitze cremig köcheln, oft rühren.",
+   "minutes": 40
+  },
+  {
+   "text": "Restliche Butter und Sahne einrühren und salzen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 120,
+ "gf": true
+}

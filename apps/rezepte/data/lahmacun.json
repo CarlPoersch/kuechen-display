@@ -1,0 +1,98 @@
+{
+ "id": "lahmacun",
+ "title": "Lahmacun",
+ "icon": "🍕",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "300 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "½ Päckchen",
+   "name": "Trockenhefe"
+  },
+  {
+   "amount": "180 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "250 g",
+   "name": "Rinderhack"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Tomate"
+  },
+  {
+   "amount": "½",
+   "name": "rote Paprikaschote"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pul Biber"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "group": "Dazu"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Salat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Teig kneten und gehen lassen.",
+   "minutes": 45
+  },
+  {
+   "text": "Zwiebel, Tomate, Paprika und Petersilie sehr fein hacken und mit Hack, Tomatenmark, Pul Biber und Salz verkneten."
+  },
+  {
+   "text": "Ofen mit Blech auf höchster Stufe vorheizen. Teig in 4 Stücke teilen und hauchdünn oval ausrollen."
+  },
+  {
+   "text": "Belag dünn verstreichen und auf dem heißen Blech knusprig backen.",
+   "minutes": 7
+  },
+  {
+   "text": "Mit Zitrone und Salat belegen und einrollen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75
+}

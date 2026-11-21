@@ -1,0 +1,73 @@
+{
+ "id": "patatas-bravas",
+ "title": "Patatas Bravas",
+ "icon": "🥔",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "group": "Salsa brava"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika geräuchert"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Cayennepfeffer"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "group": "Alioli"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 220 °C vorheizen. Kartoffeln würfeln, mit Öl und Salz mischen und knusprig backen.",
+   "minutes": 35
+  },
+  {
+   "text": "Zwiebel und Knoblauch andünsten, Gewürze und Tomaten zugeben, einkochen und pürieren.",
+   "minutes": 15
+  },
+  {
+   "text": "Mayonnaise mit gepresstem Knoblauch verrühren."
+  },
+  {
+   "text": "Kartoffeln mit beiden Saucen servieren."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

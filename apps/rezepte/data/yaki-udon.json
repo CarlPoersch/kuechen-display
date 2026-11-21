@@ -1,0 +1,70 @@
+{
+ "id": "yaki-udon",
+ "title": "Yaki Udon mit Gemüse",
+ "icon": "🍜",
+ "cuisine": "Japanisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Udon-Nudeln (vorgegart)"
+  },
+  {
+   "amount": "1",
+   "name": "Paprikaschote"
+  },
+  {
+   "amount": "150 g",
+   "name": "Shiitake"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "100 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Udon kurz in heißem Wasser lockern und abtropfen lassen."
+  },
+  {
+   "text": "Gemüse in Streifen schneiden und in Öl im Wok scharf anbraten.",
+   "minutes": 4
+  },
+  {
+   "text": "Nudeln zugeben und mitbraten.",
+   "minutes": 2
+  },
+  {
+   "text": "Sojasauce, Austernsauce und Zucker zugeben und schwenken, mit Sesamöl abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 20
+}

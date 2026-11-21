@@ -1,0 +1,81 @@
+{
+ "id": "korean-fried-chicken",
+ "title": "Korean Fried Chicken",
+ "icon": "🍗",
+ "cuisine": "Koreanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Hähnchenflügel oder -schenkel"
+  },
+  {
+   "amount": "60 g",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "30 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Öl zum Frittieren"
+  },
+  {
+   "group": "Glasur"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Gochujang"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen trocken tupfen und salzen. Stärke, Mehl und Backpulver mischen und das Fleisch darin wenden."
+  },
+  {
+   "text": "Bei 160 °C frittieren, herausnehmen und ruhen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Bei 180 °C ein zweites Mal frittieren – das macht sie extra knusprig.",
+   "minutes": 4
+  },
+  {
+   "text": "Glasur-Zutaten in einer Pfanne aufkochen, bis sie sirupartig ist.",
+   "minutes": 2
+  },
+  {
+   "text": "Hähnchen darin schwenken und mit Sesam bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50
+}

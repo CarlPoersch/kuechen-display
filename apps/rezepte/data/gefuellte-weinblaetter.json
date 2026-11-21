@@ -1,0 +1,70 @@
+{
+ "id": "gefuellte-weinblaetter",
+ "title": "Gefüllte Weinblätter (Dolmades)",
+ "icon": "🍃",
+ "cuisine": "Griechisch",
+ "servings": 6,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "40",
+   "name": "Weinblätter (Glas)"
+  },
+  {
+   "amount": "200 g",
+   "name": "Rundkornreis"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "40 g",
+   "name": "Pinienkerne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2",
+   "name": "Zitronen"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Wasser"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Weinblätter abspülen. Zwiebeln fein hacken und in der Hälfte des Öls weich dünsten.",
+   "minutes": 6
+  },
+  {
+   "text": "Reis, Pinienkerne, gehackte Kräuter, Saft einer Zitrone, Salz und Pfeffer untermischen."
+  },
+  {
+   "text": "Je 1 TL Füllung auf ein Blatt geben, Seiten einschlagen und fest aufrollen."
+  },
+  {
+   "text": "Dicht an dicht in einen Topf schichten, mit restlichem Öl, Zitronensaft und Wasser übergießen und mit einem Teller beschweren."
+  },
+  {
+   "text": "Zugedeckt bei kleiner Hitze garen. Abkühlen lassen und kalt servieren.",
+   "minutes": 50
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "anspruchsvoll",
+ "min": 90,
+ "gf": true
+}

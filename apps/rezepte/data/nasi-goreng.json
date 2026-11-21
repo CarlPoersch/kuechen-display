@@ -1,0 +1,80 @@
+{
+ "id": "nasi-goreng",
+ "title": "Nasi Goreng",
+ "icon": "🍳",
+ "cuisine": "Indonesisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gekochter Reis vom Vortag"
+  },
+  {
+   "amount": "200 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "100 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sambal Oelek"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Ketjap Manis"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "",
+   "name": "Röstzwiebeln (zum Bestreuen)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen würfeln und mit Zwiebel und Knoblauch in Öl anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Garnelen und Sambal zugeben.",
+   "minutes": 2
+  },
+  {
+   "text": "Reis zugeben und kräftig braten. Mit Ketjap Manis würzen.",
+   "minutes": 5
+  },
+  {
+   "text": "Spiegeleier braten.",
+   "minutes": 4
+  },
+  {
+   "text": "Reis mit Spiegelei, Gurkenscheiben und Röstzwiebeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

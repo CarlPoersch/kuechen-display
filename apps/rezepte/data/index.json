@@ -408,6 +408,29 @@
   ]
  },
  {
+  "id": "char-siu",
+  "title": "Char Siu (chinesischer BBQ-Schweinebauch)",
+  "icon": "🍖",
+  "cuisine": "Chinesisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 15 Min. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Schweinenacken",
+   "Hoisinsauce",
+   "Sojasauce",
+   "Honig",
+   "Shaoxing-Wein",
+   "Fünf-Gewürze-Pulver",
+   "Knoblauchzehen",
+   "Honig (zum Glasieren)",
+   "Reis"
+  ]
+ },
+ {
   "id": "chow-mein",
   "title": "Chow Mein mit Gemüse",
   "icon": "🍜",
@@ -537,6 +560,30 @@
    "schwarzer Reisessig",
    "Sojasauce",
    "Chiliöl"
+  ]
+ },
+ {
+  "id": "sesam-nudeln",
+  "title": "Kalte Sesamnudeln",
+  "icon": "🍜",
+  "cuisine": "Chinesisch",
+  "servings": 2,
+  "time": "ca. 15 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 15,
+  "ing": [
+   "Weizen- oder Mie-Nudeln",
+   "Tahin oder Erdnussbutter",
+   "Sojasauce",
+   "Reisessig",
+   "Zucker",
+   "Chiliöl",
+   "Knoblauchzehe",
+   "Salatgurke",
+   "Frühlingszwiebeln",
+   "Sesam"
   ]
  },
  {
@@ -775,6 +822,54 @@
    "Salz",
    "neutrales Öl",
    "Reis zum Servieren"
+  ]
+ },
+ {
+  "id": "wan-tan-suppe",
+  "title": "Wan-Tan-Suppe",
+  "icon": "🥟",
+  "cuisine": "Chinesisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "ing": [
+   "Wan-Tan-Blätter",
+   "Schweinehack",
+   "Garnelen, gehackt",
+   "Ingwer, gerieben",
+   "Sojasauce",
+   "Sesamöl",
+   "Hühnerbrühe",
+   "Pak Choi",
+   "Frühlingszwiebeln"
+  ]
+ },
+ {
+  "id": "ma-po-aubergine",
+  "title": "Yu Xiang Qiezi (Fischduft-Aubergine)",
+  "icon": "🍆",
+  "cuisine": "Chinesisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "mittel",
+  "min": 30,
+  "ing": [
+   "Auberginen",
+   "Öl",
+   "Doubanjiang (Bohnen-Chilipaste)",
+   "Knoblauchzehen",
+   "Ingwer",
+   "Chinkiang-Essig",
+   "Sojasauce",
+   "Zucker",
+   "Speisestärke",
+   "Frühlingszwiebeln",
+   "Reis"
   ]
  },
  {
@@ -3048,6 +3143,54 @@
   ]
  },
  {
+  "id": "gefuellte-weinblaetter",
+  "title": "Gefüllte Weinblätter (Dolmades)",
+  "icon": "🍃",
+  "cuisine": "Griechisch",
+  "servings": 6,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "anspruchsvoll",
+  "min": 90,
+  "gf": true,
+  "ing": [
+   "Weinblätter (Glas)",
+   "Rundkornreis",
+   "Zwiebeln",
+   "Dill",
+   "Minze",
+   "Pinienkerne",
+   "Olivenöl",
+   "Zitronen",
+   "Wasser"
+  ]
+ },
+ {
+  "id": "gyros-teller",
+  "title": "Gyros mit Pommes und Krautsalat",
+  "icon": "🥙",
+  "cuisine": "Griechisch",
+  "servings": 4,
+  "time": "ca. 40 Min. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Schweinenacken",
+   "Zwiebel",
+   "Olivenöl",
+   "Gyrosgewürz",
+   "Oregano",
+   "Pommes (TK)",
+   "Weißkohl",
+   "Essig",
+   "Tzatziki"
+  ]
+ },
+ {
   "id": "haehnchen-gyros-pfanne",
   "title": "Gyros-Pfanne mit Tzatziki",
   "icon": "🥙",
@@ -3169,6 +3312,26 @@
   ]
  },
  {
+  "id": "tzatziki",
+  "title": "Tzatziki",
+  "icon": "🥒",
+  "cuisine": "Griechisch",
+  "servings": 4,
+  "time": "ca. 10 Min.",
+  "cat": "Snack",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 10,
+  "ing": [
+   "griechischer Joghurt",
+   "Salatgurke",
+   "Knoblauchzehen",
+   "Olivenöl",
+   "Weißweinessig",
+   "Dill"
+  ]
+ },
+ {
   "id": "aloo-gobi",
   "title": "Aloo Gobi (Kartoffel-Blumenkohl)",
   "icon": "🥔",
@@ -3255,6 +3418,60 @@
   ]
  },
  {
+  "id": "tikka-masala",
+  "title": "Chicken Tikka Masala",
+  "icon": "🍛",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 50 Min. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "Hähnchenbrust",
+   "Joghurt",
+   "Garam Masala",
+   "Kurkuma",
+   "Paprika edelsüß",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Ingwer",
+   "passierte Tomaten",
+   "Sahne",
+   "Kreuzkümmel",
+   "Butter",
+   "Koriander",
+   "Basmatireis"
+  ]
+ },
+ {
+  "id": "dal-makhani",
+  "title": "Dal Makhani",
+  "icon": "🫘",
+  "cuisine": "Indisch",
+  "servings": 6,
+  "time": "ca. 2 Std. (plus Einweichen)",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 120,
+  "gf": true,
+  "ing": [
+   "schwarze Linsen (Urad)",
+   "Kidneybohnen",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Ingwer",
+   "passierte Tomaten",
+   "Butter",
+   "Sahne",
+   "Garam Masala",
+   "Chilipulver"
+  ]
+ },
+ {
   "id": "dal-tadka",
   "title": "Dal Tadka (gelbe Linsen)",
   "icon": "🍲",
@@ -3311,6 +3528,25 @@
   ]
  },
  {
+  "id": "raita",
+  "title": "Gurken-Raita",
+  "icon": "🥒",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 10 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 10,
+  "gf": true,
+  "ing": [
+   "Joghurt",
+   "Salatgurke",
+   "Kreuzkümmel, geröstet und gemahlen",
+   "Minze"
+  ]
+ },
+ {
   "id": "haehnchen-biryani",
   "title": "Hähnchen-Biryani",
   "icon": "🍚",
@@ -3336,6 +3572,27 @@
    "Zimtstange",
    "Minze",
    "Koriander"
+  ]
+ },
+ {
+  "id": "jeera-rice",
+  "title": "Jeera-Reis (Kreuzkümmelreis)",
+  "icon": "🍚",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 25 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "Basmatireis",
+   "Ghee",
+   "Kreuzkümmelsamen",
+   "Lorbeerblatt",
+   "Kardamomkapseln",
+   "Wasser"
   ]
  },
  {
@@ -3414,6 +3671,33 @@
   ]
  },
  {
+  "id": "kofta-curry",
+  "title": "Kofta-Curry (Hackbällchen in Currysauce)",
+  "icon": "🧆",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "Lammhack oder Rinderhack",
+   "Zwiebel (für die Bällchen)",
+   "Garam Masala",
+   "Koriander",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Ingwer",
+   "stückige Tomaten",
+   "Joghurt",
+   "Kurkuma",
+   "Kreuzkümmel",
+   "Öl"
+  ]
+ },
+ {
   "id": "mango-lassi",
   "title": "Mango Lassi",
   "icon": "🥭",
@@ -3458,6 +3742,33 @@
    "Sahne",
    "Ghee",
    "Basmatireis"
+  ]
+ },
+ {
+  "id": "paneer-tikka",
+  "title": "Paneer Butter Masala",
+  "icon": "🧀",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Paneer",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Ingwer",
+   "Cashewkerne",
+   "passierte Tomaten",
+   "Butter",
+   "Garam Masala",
+   "Kashmiri-Chili",
+   "Sahne",
+   "getrocknete Bockshornkleeblätter",
+   "Zucker"
   ]
  },
  {
@@ -3568,6 +3879,110 @@
    "rote Zwiebel, in Ringen",
    "Zitrone",
    "Koriander"
+  ]
+ },
+ {
+  "id": "bami-goreng",
+  "title": "Bami Goreng",
+  "icon": "🍜",
+  "cuisine": "Indonesisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Mie-Nudeln",
+   "Schweine- oder Hähnchenfleisch",
+   "Karotte",
+   "Weißkohl",
+   "Sojasprossen",
+   "Knoblauchzehen",
+   "Ketjap Manis",
+   "Sojasauce",
+   "Sambal Oelek",
+   "Öl"
+  ]
+ },
+ {
+  "id": "rendang",
+  "title": "Beef Rendang",
+  "icon": "🍛",
+  "cuisine": "Indonesisch",
+  "servings": 4,
+  "time": "ca. 3 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "anspruchsvoll",
+  "min": 180,
+  "gf": true,
+  "ing": [
+   "Rindergulasch",
+   "Kokosmilch",
+   "Zitronengras",
+   "Kaffirlimettenblätter",
+   "Kurkuma",
+   "Kokosraspel",
+   "brauner Zucker",
+   "Schalotten",
+   "Knoblauchzehen",
+   "Ingwer (4 cm)",
+   "Galgant (3 cm)",
+   "getrocknete Chilis",
+   "Öl"
+  ]
+ },
+ {
+  "id": "satay",
+  "title": "Hähnchen-Satay mit Erdnusssauce",
+  "icon": "🍢",
+  "cuisine": "Indonesisch",
+  "servings": 4,
+  "time": "ca. 40 Min. (plus Marinieren)",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 40,
+  "ing": [
+   "Hähnchenbrust",
+   "Kokosmilch",
+   "Kurkuma",
+   "Koriander, gemahlen",
+   "Sojasauce",
+   "Erdnussbutter",
+   "Kokosmilch",
+   "Sojasauce",
+   "brauner Zucker",
+   "Sambal Oelek",
+   "Limette",
+   "Holzspieße"
+  ]
+ },
+ {
+  "id": "nasi-goreng",
+  "title": "Nasi Goreng",
+  "icon": "🍳",
+  "cuisine": "Indonesisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "gekochter Reis vom Vortag",
+   "Hähnchenbrust",
+   "Garnelen",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Sambal Oelek",
+   "Ketjap Manis",
+   "Eier",
+   "Salatgurke",
+   "Öl",
+   "Röstzwiebeln (zum Bestreuen)"
   ]
  },
  {
@@ -4748,6 +5163,56 @@
   ]
  },
  {
+  "id": "chicken-teriyaki",
+  "title": "Chicken Teriyaki mit Reis",
+  "icon": "🍗",
+  "cuisine": "Japanisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Hähnchenschenkel ohne Knochen",
+   "Sojasauce",
+   "Mirin",
+   "Sake oder Wasser",
+   "Zucker",
+   "Öl",
+   "Sesam",
+   "Frühlingszwiebeln",
+   "Sushireis oder Jasminreis",
+   "Brokkoli"
+  ]
+ },
+ {
+  "id": "gyoza-selbst",
+  "title": "Gyoza selbst gemacht",
+  "icon": "🥟",
+  "cuisine": "Japanisch",
+  "servings": 4,
+  "time": "ca. 1 Std.",
+  "cat": "Snack",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Gyoza-Teigblätter",
+   "Schweinehack",
+   "Chinakohl",
+   "Frühlingszwiebeln",
+   "Knoblauchzehe",
+   "Ingwer, gerieben",
+   "Sojasauce",
+   "Sesamöl",
+   "Öl",
+   "Sojasauce",
+   "Reisessig",
+   "Chiliöl"
+  ]
+ },
+ {
   "id": "gyudon",
   "title": "Gyudon (Rindfleisch-Reisschale)",
   "icon": "🍚",
@@ -4817,6 +5282,33 @@
    "Reisessig",
    "Chiliöl",
    "Frühlingszwiebel"
+  ]
+ },
+ {
+  "id": "donburi-lachs",
+  "title": "Lachs-Poke-Bowl",
+  "icon": "🐟",
+  "cuisine": "Japanisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Lachs in Sushiqualität",
+   "Sushireis",
+   "Reisessig",
+   "Zucker",
+   "Avocado",
+   "Salatgurke",
+   "Edamame (TK)",
+   "Karotte",
+   "Sojasauce",
+   "Sesamöl",
+   "Sesam",
+   "Mayonnaise",
+   "Sriracha"
   ]
  },
  {
@@ -4960,6 +5452,52 @@
   ]
  },
  {
+  "id": "tonkatsu",
+  "title": "Tonkatsu mit Krautsalat",
+  "icon": "🐷",
+  "cuisine": "Japanisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Schweinekoteletts ohne Knochen",
+   "Mehl",
+   "Ei",
+   "Panko",
+   "Öl zum Ausbacken",
+   "Weißkohl",
+   "Tonkatsu-Sauce (oder Ketchup + Worcestershire)",
+   "Reis"
+  ]
+ },
+ {
+  "id": "yaki-udon",
+  "title": "Yaki Udon mit Gemüse",
+  "icon": "🍜",
+  "cuisine": "Japanisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "Udon-Nudeln (vorgegart)",
+   "Paprikaschote",
+   "Shiitake",
+   "Frühlingszwiebeln",
+   "Weißkohl",
+   "Sojasauce",
+   "Austernsauce",
+   "Zucker",
+   "Öl",
+   "Sesamöl"
+  ]
+ },
+ {
   "id": "yakisoba",
   "title": "Yakisoba",
   "icon": "🍝",
@@ -5042,6 +5580,32 @@
   ]
  },
  {
+  "id": "dakgalbi",
+  "title": "Dakgalbi (scharfes Hähnchen mit Gemüse)",
+  "icon": "🌶️",
+  "cuisine": "Koreanisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 40,
+  "ing": [
+   "Hähnchenschenkel",
+   "Gochujang",
+   "Gochugaru (Chiliflocken)",
+   "Sojasauce",
+   "Zucker",
+   "Knoblauchzehen",
+   "Weißkohl",
+   "Süßkartoffel",
+   "Zwiebel",
+   "Frühlingszwiebeln",
+   "Mozzarella (optional)",
+   "Öl"
+  ]
+ },
+ {
   "id": "af-gochujang-blumenkohl",
   "title": "Gochujang-Blumenkohl",
   "icon": "🥦",
@@ -5096,6 +5660,30 @@
   ]
  },
  {
+  "id": "kimbap",
+  "title": "Kimbap",
+  "icon": "🍙",
+  "cuisine": "Koreanisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Snack",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "Sushireis",
+   "Sesamöl",
+   "Nori",
+   "Eier",
+   "Karotte",
+   "Spinat",
+   "Surimi-Sticks oder Schinkenstreifen",
+   "eingelegter Rettich (Danmuji)",
+   "Sesam"
+  ]
+ },
+ {
   "id": "kimchi-bokkeumbap",
   "title": "Kimchi-Bratreis",
   "icon": "🍳",
@@ -5144,6 +5732,31 @@
   ]
  },
  {
+  "id": "korean-fried-chicken",
+  "title": "Korean Fried Chicken",
+  "icon": "🍗",
+  "cuisine": "Koreanisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "ing": [
+   "Hähnchenflügel oder -schenkel",
+   "Speisestärke",
+   "Mehl",
+   "Backpulver",
+   "Öl zum Frittieren",
+   "Gochujang",
+   "Honig",
+   "Sojasauce",
+   "Knoblauchzehen",
+   "Reisessig",
+   "Sesam"
+  ]
+ },
+ {
   "id": "tteokbokki",
   "title": "Tteokbokki (scharfe Reiskuchen)",
   "icon": "🌶",
@@ -5165,6 +5778,158 @@
    "Fischfrikadellen (Eomuk), optional",
    "Frühlingszwiebeln",
    "gekochte Eier"
+  ]
+ },
+ {
+  "id": "baba-ganoush",
+  "title": "Baba Ghanoush",
+  "icon": "🍆",
+  "cuisine": "Libanesisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "Auberginen",
+   "Tahin",
+   "Knoblauchzehe",
+   "Zitrone",
+   "Olivenöl",
+   "Petersilie",
+   "Paprika geräuchert"
+  ]
+ },
+ {
+  "id": "fattoush",
+  "title": "Fattoush",
+  "icon": "🥗",
+  "cuisine": "Libanesisch",
+  "servings": 4,
+  "time": "ca. 20 Min.",
+  "cat": "Salat",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "Fladenbrote",
+   "Romanasalat",
+   "Tomaten",
+   "Salatgurke",
+   "Paprikaschote",
+   "Radieschen",
+   "Petersilie",
+   "Minze",
+   "Sumach",
+   "Zitrone",
+   "Olivenöl",
+   "Granatapfelsirup"
+  ]
+ },
+ {
+  "id": "mujaddara",
+  "title": "Mujaddara (Linsen-Reis mit Röstzwiebeln)",
+  "icon": "🍚",
+  "cuisine": "Libanesisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "braune Linsen",
+   "Langkornreis",
+   "Zwiebeln",
+   "Olivenöl",
+   "Kreuzkümmel",
+   "Zimt",
+   "Joghurt"
+  ]
+ },
+ {
+  "id": "laksa",
+  "title": "Curry-Laksa",
+  "icon": "🍜",
+  "cuisine": "Malaysisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Laksa- oder rote Currypaste",
+   "Kokosmilch",
+   "Hühnerbrühe",
+   "Hähnchenbrust",
+   "Garnelen",
+   "Reisnudeln",
+   "Sojasprossen",
+   "Fischsauce",
+   "Zucker",
+   "Limette",
+   "Koriander",
+   "Öl"
+  ]
+ },
+ {
+  "id": "tajine-gemuese",
+  "title": "Gemüse-Tajine mit Kichererbsen",
+  "icon": "🫕",
+  "cuisine": "Marokkanisch",
+  "servings": 4,
+  "time": "ca. 1 Std.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 60,
+  "ing": [
+   "Zwiebel",
+   "Karotten",
+   "Zucchini",
+   "Süßkartoffel",
+   "Kichererbsen (Dose)",
+   "stückige Tomaten",
+   "getrocknete Aprikosen",
+   "Ras el Hanout",
+   "Zimt",
+   "Gemüsebrühe",
+   "Olivenöl",
+   "Couscous",
+   "Koriander"
+  ]
+ },
+ {
+  "id": "harira",
+  "title": "Harira (marokkanische Suppe)",
+  "icon": "🥣",
+  "cuisine": "Marokkanisch",
+  "servings": 6,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Lammfleisch, gewürfelt",
+   "Zwiebel",
+   "Staudensellerie",
+   "rote Linsen",
+   "Kichererbsen (Dose)",
+   "stückige Tomaten",
+   "Zimt",
+   "Kurkuma",
+   "Ingwer, gemahlen",
+   "Wasser",
+   "Fadennudeln",
+   "Koriander",
+   "Petersilie",
+   "Zitrone"
   ]
  },
  {
@@ -5848,6 +6613,29 @@
   ]
  },
  {
+  "id": "shawarma-bowl",
+  "title": "Falafel-Bowl mit Tahinsauce",
+  "icon": "🥙",
+  "cuisine": "Orientalisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Falafel (fertig oder selbst gemacht)",
+   "Bulgur",
+   "Salatgurke",
+   "Kirschtomaten",
+   "rote Zwiebel",
+   "Hummus",
+   "Tahin",
+   "Zitrone",
+   "Petersilie"
+  ]
+ },
+ {
   "id": "hummus",
   "title": "Hummus",
   "icon": "🫘",
@@ -6091,6 +6879,74 @@
   ]
  },
  {
+  "id": "patatas-bravas",
+  "title": "Patatas Bravas",
+  "icon": "🥔",
+  "cuisine": "Spanisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "festkochende Kartoffeln",
+   "Olivenöl",
+   "Zwiebel",
+   "Knoblauchzehe",
+   "Paprika geräuchert",
+   "Cayennepfeffer",
+   "stückige Tomaten",
+   "Mayonnaise",
+   "Knoblauchzehe"
+  ]
+ },
+ {
+  "id": "tortilla-espanola",
+  "title": "Tortilla de Patatas",
+  "icon": "🍳",
+  "cuisine": "Spanisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "festkochende Kartoffeln",
+   "Zwiebel",
+   "Eier",
+   "Olivenöl"
+  ]
+ },
+ {
+  "id": "massaman-veggie",
+  "title": "Gelbes Curry mit Kartoffeln",
+  "icon": "🍛",
+  "cuisine": "Thailändisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 35,
+  "ing": [
+   "gelbe Currypaste",
+   "Kokosmilch",
+   "festkochende Kartoffeln",
+   "Zwiebel",
+   "rote Paprikaschote",
+   "Zuckerschoten",
+   "Sojasauce",
+   "Zucker",
+   "Limette",
+   "Öl",
+   "Jasminreis"
+  ]
+ },
+ {
   "id": "gruenes-curry",
   "title": "Grünes Curry mit Hähnchen",
   "icon": "🍛",
@@ -6210,6 +7066,53 @@
    "Eier",
    "Jasminreis",
    "neutrales Öl"
+  ]
+ },
+ {
+  "id": "thai-basil-tofu",
+  "title": "Pad Kra Pao mit Tofu",
+  "icon": "🌿",
+  "cuisine": "Thailändisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "fester Tofu",
+   "Knoblauchzehen",
+   "Thai-Chilis",
+   "Sojasauce",
+   "vegetarische Austernsauce",
+   "Zucker",
+   "Thai-Basilikum",
+   "Öl",
+   "Jasminreis"
+  ]
+ },
+ {
+  "id": "pad-see-ew",
+  "title": "Pad See Ew",
+  "icon": "🍜",
+  "cuisine": "Thailändisch",
+  "servings": 2,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "breite Reisnudeln",
+   "Hähnchenbrust",
+   "Eier",
+   "Brokkoli oder Pak Choi",
+   "Knoblauchzehen",
+   "dunkle Sojasauce",
+   "helle Sojasauce",
+   "Austernsauce",
+   "Zucker",
+   "Öl"
   ]
  },
  {
@@ -6368,6 +7271,81 @@
   ]
  },
  {
+  "id": "adana-kebab",
+  "title": "Adana Kebap mit Bulgur",
+  "icon": "🍢",
+  "cuisine": "Türkisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 45,
+  "ing": [
+   "Lammhack",
+   "rote Paprikaschote",
+   "Zwiebel",
+   "Pul Biber",
+   "Kreuzkümmel",
+   "Paprika edelsüß",
+   "Bulgur",
+   "Tomatenmark",
+   "Butter",
+   "Brühe",
+   "Tomaten",
+   "Joghurt"
+  ]
+ },
+ {
+  "id": "lahmacun",
+  "title": "Lahmacun",
+  "icon": "🍕",
+  "cuisine": "Türkisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Mehl",
+   "Trockenhefe",
+   "lauwarmes Wasser",
+   "Salz",
+   "Olivenöl",
+   "Rinderhack",
+   "Zwiebel",
+   "Tomate",
+   "rote Paprikaschote",
+   "Tomatenmark",
+   "Pul Biber",
+   "Petersilie",
+   "Zitrone",
+   "Salat"
+  ]
+ },
+ {
+  "id": "menemen",
+  "title": "Menemen",
+  "icon": "🍳",
+  "cuisine": "Türkisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "grüne Spitzpaprika",
+   "reife Tomaten",
+   "Eier",
+   "Butter",
+   "Olivenöl",
+   "Pul Biber",
+   "Fladenbrot (zum Servieren)"
+  ]
+ },
+ {
   "id": "linsensuppe-rot",
   "title": "Rote Linsensuppe (Mercimek)",
   "icon": "🥣",
@@ -6445,6 +7423,35 @@
    "Koriander",
    "Chili",
    "Sojasauce"
+  ]
+ },
+ {
+  "id": "bun-bo-nam-bo",
+  "title": "Bún Bò Nam Bộ (Rindfleisch-Nudelsalat)",
+  "icon": "🥗",
+  "cuisine": "Vietnamesisch",
+  "servings": 2,
+  "time": "ca. 30 Min.",
+  "cat": "Salat",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Rinderhüfte",
+   "Zitronengras",
+   "Knoblauchzehe",
+   "Fischsauce",
+   "Reisnudeln (Vermicelli)",
+   "Salatgurke",
+   "Salat",
+   "Minze",
+   "geröstete Erdnüsse",
+   "Fischsauce",
+   "Zucker",
+   "Limettensaft",
+   "Wasser",
+   "Chili"
   ]
  },
  {
@@ -6584,6 +7591,34 @@
    "Limetten",
    "Chilis",
    "Hoisin- und Sriracha (nach Geschmack)"
+  ]
+ },
+ {
+  "id": "pho-ga",
+  "title": "Phở Gà (Hühnernudelsuppe)",
+  "icon": "🍜",
+  "cuisine": "Vietnamesisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 90,
+  "ing": [
+   "Hähnchenschenkel",
+   "Zwiebel",
+   "Ingwer (5 cm)",
+   "Sternanis",
+   "Zimtstange",
+   "Fischsauce",
+   "Zucker",
+   "Wasser",
+   "Reisbandnudeln",
+   "Thai-Basilikum",
+   "Koriander",
+   "Sojasprossen",
+   "Limetten",
+   "Chili"
   ]
  },
  {

@@ -1,0 +1,66 @@
+{
+ "id": "shawarma-bowl",
+ "title": "Falafel-Bowl mit Tahinsauce",
+ "icon": "🥙",
+ "cuisine": "Orientalisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "12",
+   "name": "Falafel (fertig oder selbst gemacht)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Bulgur"
+  },
+  {
+   "amount": "½",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "150 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "100 g",
+   "name": "Hummus"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 Handvoll",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bulgur mit 300 ml heißem Wasser und Salz quellen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Falafel im Ofen oder in der Pfanne erhitzen.",
+   "minutes": 10
+  },
+  {
+   "text": "Gemüse würfeln. Tahin mit Zitronensaft, Wasser und Salz cremig rühren."
+  },
+  {
+   "text": "Alles in Schalen anrichten, mit Hummus, Tahinsauce und Petersilie servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 30
+}

@@ -298,7 +298,7 @@ struct RecipesTab: View {
          "Türkisch": "🇹🇷", "Österreichisch": "🇦🇹", "International": "🌍", "Britisch": "🇬🇧", "Schweizerisch": "🇨🇭",
          "Skandinavisch": "🇸🇪", "Ungarisch": "🇭🇺", "Polnisch": "🇵🇱", "Portugiesisch": "🇵🇹", "Libanesisch": "🇱🇧",
          "Marokkanisch": "🇲🇦", "Persisch": "🇮🇷", "Indonesisch": "🇮🇩", "Karibisch": "🌴", "Brasilianisch": "🇧🇷",
-         "Peruanisch": "🇵🇪", "Äthiopisch": "🇪🇹", "Russisch": "🇷🇺", "Tschechisch": "🇨🇿", "Israelisch": "🇮🇱"][c] ?? "🍽️"
+         "Peruanisch": "🇵🇪", "Äthiopisch": "🇪🇹", "Russisch": "🇷🇺", "Tschechisch": "🇨🇿", "Israelisch": "🇮🇱", "Malaysisch": "🇲🇾"][c] ?? "🍽️"
     }
 
     /// Zufallsrezept aus den gerade gefilterten Rezepten (nicht zweimal dasselbe hintereinander)

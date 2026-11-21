@@ -1,0 +1,72 @@
+{
+ "id": "bami-goreng",
+ "title": "Bami Goreng",
+ "icon": "🍜",
+ "cuisine": "Indonesisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mie-Nudeln"
+  },
+  {
+   "amount": "250 g",
+   "name": "Schweine- oder Hähnchenfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "100 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Ketjap Manis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sambal Oelek"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln kochen und abtropfen lassen.",
+   "minutes": 4
+  },
+  {
+   "text": "Fleisch in Streifen schneiden und in Öl scharf anbraten.",
+   "minutes": 4
+  },
+  {
+   "text": "Gemüse und Knoblauch zugeben und kurz mitbraten.",
+   "minutes": 3
+  },
+  {
+   "text": "Nudeln, Ketjap, Sojasauce und Sambal zugeben und alles gut durchbraten.",
+   "minutes": 3
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25
+}

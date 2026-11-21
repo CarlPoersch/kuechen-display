@@ -1,0 +1,74 @@
+{
+ "id": "chicken-teriyaki",
+ "title": "Chicken Teriyaki mit Reis",
+ "icon": "🍗",
+ "cuisine": "Japanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sake oder Wasser"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesam"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "300 g",
+   "name": "Sushireis oder Jasminreis"
+  },
+  {
+   "amount": "1",
+   "name": "Brokkoli"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis garen. Brokkoli in Röschen die letzten Minuten dämpfen.",
+   "minutes": 15
+  },
+  {
+   "text": "Sojasauce, Mirin, Sake und Zucker verrühren."
+  },
+  {
+   "text": "Hähnchen mit der Hautseite nach unten in Öl knusprig braten, wenden und fertig braten.",
+   "minutes": 12
+  },
+  {
+   "text": "Fett abgießen, Sauce zugeben und einkochen, bis sie glänzt und das Fleisch überzieht.",
+   "minutes": 3
+  },
+  {
+   "text": "In Streifen schneiden, mit Sesam und Frühlingszwiebeln auf Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

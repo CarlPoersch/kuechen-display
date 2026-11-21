@@ -1,0 +1,55 @@
+{
+ "id": "jeera-rice",
+ "title": "Jeera-Reis (Kreuzkümmelreis)",
+ "icon": "🍚",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ghee"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1",
+   "name": "Lorbeerblatt"
+  },
+  {
+   "amount": "2",
+   "name": "Kardamomkapseln"
+  },
+  {
+   "amount": "450 ml",
+   "name": "Wasser"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis waschen, bis das Wasser klar ist, und 15 Minuten einweichen.",
+   "minutes": 15
+  },
+  {
+   "text": "Ghee erhitzen, Gewürze anrösten, bis der Kreuzkümmel knistert."
+  },
+  {
+   "text": "Abgetropften Reis kurz mitrösten, Wasser und Salz zugeben, aufkochen."
+  },
+  {
+   "text": "Zugedeckt bei kleinster Hitze garen und anschließend ruhen lassen.",
+   "minutes": 12
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

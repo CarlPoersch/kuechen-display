@@ -1,0 +1,93 @@
+{
+ "id": "tikka-masala",
+ "title": "Chicken Tikka Masala",
+ "icon": "🍛",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 50 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "700 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprika edelsüß"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "400 g",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen würfeln, mit Joghurt, 1 TL Garam Masala, Kurkuma, Paprika und Salz marinieren.",
+   "minutes": 30
+  },
+  {
+   "text": "Fleisch unter dem Ofengrill oder in der Pfanne kräftig anbräunen.",
+   "minutes": 10
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Butter goldbraun braten, Kreuzkümmel und restliches Garam Masala zugeben.",
+   "minutes": 8
+  },
+  {
+   "text": "Tomaten zugeben und köcheln, dann Sahne einrühren.",
+   "minutes": 10
+  },
+  {
+   "text": "Hähnchen in der Sauce ziehen lassen, mit Koriander und Reis servieren.",
+   "minutes": 5
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "gf": true
+}

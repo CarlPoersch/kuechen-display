@@ -49,7 +49,9 @@ final class CookSession: ObservableObject {
         lastSynced = nil
         if !local, let h = household {
             pushedAt = Date()
-            Task { try? await SupabaseClient.shared.delete("kitchen_cooking", ["household_id": "eq." + h]) }
+            // Als beendet markieren statt löschen – das melden die anderen Geräte zuverlässig
+            struct Off: Encodable { let active = false }
+            Task { try? await SupabaseClient.shared.update("kitchen_cooking", ["household_id": "eq." + h], Off()) }
         }
     }
 

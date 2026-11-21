@@ -1,0 +1,85 @@
+{
+ "id": "tajine-gemuese",
+ "title": "Gemüse-Tajine mit Kichererbsen",
+ "icon": "🫕",
+ "cuisine": "Marokkanisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Süßkartoffel"
+  },
+  {
+   "amount": "400 g",
+   "name": "Kichererbsen (Dose)"
+  },
+  {
+   "amount": "400 g",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "80 g",
+   "name": "getrocknete Aprikosen"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Ras el Hanout"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Couscous"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gemüse in große Stücke schneiden."
+  },
+  {
+   "text": "Zwiebel in Öl andünsten, Gewürze kurz mitrösten."
+  },
+  {
+   "text": "Gemüse, Tomaten, Kichererbsen, Aprikosen und Brühe zugeben und zugedeckt köcheln.",
+   "minutes": 35
+  },
+  {
+   "text": "Couscous mit heißem Wasser und Salz quellen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Tajine abschmecken und mit Couscous und Koriander servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 60
+}

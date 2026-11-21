@@ -1,0 +1,70 @@
+{
+ "id": "char-siu",
+ "title": "Char Siu (chinesischer BBQ-Schweinebauch)",
+ "icon": "🍖",
+ "cuisine": "Chinesisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min. (plus Marinieren)",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Schweinenacken"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Hoisinsauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Shaoxing-Wein"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Fünf-Gewürze-Pulver"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig (zum Glasieren)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in 4 cm dicke Streifen schneiden. Mit allen Zutaten außer dem Glasier-Honig marinieren.",
+   "minutes": 120
+  },
+  {
+   "text": "Ofen auf 200 °C vorheizen. Fleisch auf ein Gitter über einem Blech mit etwas Wasser legen."
+  },
+  {
+   "text": "Braten, nach der Hälfte wenden und mit Marinade bestreichen.",
+   "minutes": 35
+  },
+  {
+   "text": "Mit Honig bestreichen und unter dem Grill karamellisieren lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "In Scheiben schneiden und mit Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75
+}

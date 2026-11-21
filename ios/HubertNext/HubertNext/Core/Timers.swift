@@ -138,8 +138,14 @@ final class TimerCenter: ObservableObject {
         Task { try? await SupabaseClient.shared.upsert("kitchen_timers", [row]) }
     }
 
+    /// Beenden auf allen Geräten: als erledigt markieren (UPDATE kommt per Realtime sicher an, DELETE nicht)
     private func removeRemote(_ id: UUID) {
         guard household != nil else { return }
+        struct Done: Encodable { let done_at: String }
+        Task { try? await SupabaseClient.shared.update("kitchen_timers", ["id": "eq." + id.uuidString.lowercased()], Done(done_at: ISO.string(Date()))) }
+    }
+
+    private func purge(_ id: UUID) {
         Task { try? await SupabaseClient.shared.delete("kitchen_timers", ["id": "eq." + id.uuidString.lowercased()]) }
     }
 
@@ -152,10 +158,15 @@ final class TimerCenter: ObservableObject {
         var ring = ringing
         var seen = Set<UUID>()
         for r in rows {
+            // Beendete Einträge: ignorieren, nach 10 Minuten ganz löschen (aufräumen)
+            if let d = r.done_at.flatMap(ISO.date) {
+                if now.timeIntervalSince(d) > 600, let u = UUID(uuidString: r.id) { purge(u) }
+                continue
+            }
             guard let t = r.timer, dismissedIds[t.id] == nil else { continue }
             seen.insert(t.id)
             if t.pausedLeft == nil && t.end <= now {
-                if now.timeIntervalSince(t.end) > 3 * 3600 { removeRemote(t.id); continue }   // vergessen, aufräumen
+                if now.timeIntervalSince(t.end) > 3 * 3600 { purge(t.id); continue }   // vergessen, aufräumen
                 if !ring.contains(where: { $0.id == t.id }) { ring.append(t) }
             } else {
                 if timers.first(where: { $0.id == t.id }) != t { notify(t) }
