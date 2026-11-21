@@ -1,5 +1,6 @@
 import SwiftUI
 import SafariServices
+import Combine   // ObservableObject und @Published (das Projekt verlangt den Import ausdrücklich)
 
 // ============================================================
 // Deals-Bucket – gute Angebote zu deinen Stichwörtern.
