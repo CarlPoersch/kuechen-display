@@ -98,6 +98,8 @@ struct RecipesTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
     @State private var query = ""
     @State private var filter = "Alle"
+    @State private var cuisine = "Alle"
+    @State private var suggestion: RecipeSummary?
     @State private var sheet: Sheet?
     private let filters = ["Alle", "Eigene", "Airfryer", "Schnell", "Favoriten", "Lange nicht"]
 
@@ -109,6 +111,7 @@ struct RecipesTab: View {
             let match = q.isEmpty || r.title.lowercased().contains(q) || (r.cuisine ?? "").lowercased().contains(q)
                 || (r.ing ?? []).contains { $0.lowercased().contains(q) }
             guard match else { return false }
+            if cuisine != "Alle" && (r.cuisine ?? "Sonstige") != cuisine { return false }
             let m = kitchen.meta[r.id]
             switch filter {
             case "Eigene": return r.owner != nil
@@ -135,6 +138,7 @@ struct RecipesTab: View {
                     }
                     .padding(10)
                     .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                    roundButton("die.face.5.fill", "Zufallsrezept") { shuffle() }
                     roundButton("chart.bar.fill", "Koch-Statistik") { sheet = .stats }
                     Menu {
                         Button { sheet = .new } label: { Label("Neues Rezept", systemImage: "square.and.pencil") }
@@ -161,6 +165,27 @@ struct RecipesTab: View {
                     }
                 }
 
+                // Länder / Küchen
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach([("Alle", kitchen.recipes.count)] + cuisines, id: \.0) { c in
+                            Button { withAnimation { cuisine = c.0; suggestion = nil } } label: {
+                                HStack(spacing: 5) {
+                                    Text(c.0 == "Alle" ? "🌍" : Self.flag(c.0))
+                                    Text(c.0 == "Alle" ? "Alle Länder" : c.0).font(.subheadline.weight(.medium))
+                                    Text("\(c.1)").font(.caption).foregroundColor(cuisine == c.0 ? .white.opacity(0.8) : Theme.secondary)
+                                }
+                                .padding(.horizontal, 12).padding(.vertical, 6)
+                                .foregroundColor(cuisine == c.0 ? .white : .primary)
+                                .background(Capsule().fill(cuisine == c.0 ? Theme.accent : Theme.card))
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+
+                if let r = suggestion { suggestionCard(r) }
+
                 if kitchen.recipes.isEmpty {
                     ProgressView().frame(maxWidth: .infinity).padding(.top, 40)
                 } else if list.isEmpty {
@@ -183,6 +208,65 @@ struct RecipesTab: View {
             case .stats: KitchenStatsView()
             }
         }
+    }
+
+    /// Küchen mit Anzahl, die häufigsten zuerst
+    private var cuisines: [(String, Int)] {
+        Dictionary(grouping: kitchen.recipes) { $0.cuisine ?? "Sonstige" }
+            .map { ($0.key, $0.value.count) }
+            .sorted { $0.1 != $1.1 ? $0.1 > $1.1 : $0.0 < $1.0 }
+    }
+
+    static func flag(_ c: String) -> String {
+        ["Deutsch": "🇩🇪", "Chinesisch": "🇨🇳", "Italienisch": "🇮🇹", "Indisch": "🇮🇳", "Japanisch": "🇯🇵",
+         "Thailändisch": "🇹🇭", "Mediterran": "🫒", "Orientalisch": "🧆", "Koreanisch": "🇰🇷", "Mexikanisch": "🇲🇽",
+         "Vietnamesisch": "🇻🇳", "Französisch": "🇫🇷", "Amerikanisch": "🇺🇸", "Griechisch": "🇬🇷", "Spanisch": "🇪🇸",
+         "Türkisch": "🇹🇷", "Österreichisch": "🇦🇹", "International": "🌍"][c] ?? "🍽️"
+    }
+
+    /// Zufallsrezept aus den gerade gefilterten Rezepten (nicht zweimal dasselbe hintereinander)
+    private func shuffle() {
+        let pool = list.isEmpty ? kitchen.recipes : list
+        guard !pool.isEmpty else { return }
+        var pick = pool.randomElement()!
+        if pool.count > 1 { while pick.id == suggestion?.id { pick = pool.randomElement()! } }
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) { suggestion = pick }
+    }
+
+    private func suggestionCard(_ r: RecipeSummary) -> some View {
+        HStack(spacing: 16) {
+            Text(r.icon).font(.system(size: 54))
+            VStack(alignment: .leading, spacing: 4) {
+                Text("🎲 ZUFALLSREZEPT" + (cuisine == "Alle" ? "" : " · " + cuisine.uppercased()))
+                    .font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                Text(r.title).font(.title3.weight(.bold)).lineLimit(2)
+                Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundColor(Theme.secondary)
+                if let c = kitchen.meta[r.id].flatMap(cookedText) { Text(c).font(.caption).foregroundColor(Theme.secondary) }
+                HStack(spacing: 10) {
+                    NavigationLink(destination: RecipeDetailView(id: r.id)) {
+                        Text("Ansehen").font(.subheadline.weight(.semibold)).foregroundColor(.white)
+                            .padding(.horizontal, 16).padding(.vertical, 8).background(Capsule().fill(Theme.accent))
+                    }
+                    Button { shuffle() } label: {
+                        Label("Anderes", systemImage: "arrow.triangle.2.circlepath").font(.subheadline.weight(.semibold))
+                            .padding(.horizontal, 14).padding(.vertical, 8)
+                            .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
+                    }
+                    Button { withAnimation { suggestion = nil } } label: {
+                        Image(systemName: "xmark").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
+                            .frame(width: 34, height: 34)
+                    }
+                    .accessibilityLabel("Vorschlag schließen")
+                }
+                .buttonStyle(.plain)
+                .padding(.top, 4)
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(18)
+        .background(RoundedRectangle(cornerRadius: 22, style: .continuous).fill(Theme.card))
+        .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(Theme.accent.opacity(0.35), lineWidth: 1.5))
+        .transition(.scale(scale: 0.95).combined(with: .opacity))
     }
 
     private func roundButton(_ symbol: String, _ label: String, _ action: @escaping () -> Void) -> some View {
