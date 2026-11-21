@@ -406,6 +406,7 @@ struct RecipeDetailView: View {
     @State private var portions = 2
     @ObservedObject private var session = CookSession.shared
     @State private var replaceCooking = false
+    @State private var confirmCancel = false
     @State private var planning = false
     @State private var note = ""
     @State private var toast: String?
@@ -451,6 +452,7 @@ struct RecipeDetailView: View {
             note = kitchen.metaFor(id).note
         }
         .onDisappear { if note != kitchen.metaFor(id).note { kitchen.setNote(id, note) } }
+        .cancelCookingAlert($confirmCancel)
         .alert("Anderes Rezept wird gekocht", isPresented: $replaceCooking) {
             Button("Abbrechen", role: .cancel) {}
             Button("Wechseln") { if let r = recipe { session.start(r, portions: portions) } }
@@ -496,6 +498,18 @@ struct RecipeDetailView: View {
                         if let c = cookedText(m) { Text(c).font(.caption).foregroundColor(Theme.secondary) }
                     }
                 }
+            }
+            if session.recipe?.id == r.id {
+                // Läuft gerade: Hinweis mit Abbrechen
+                HStack(spacing: 10) {
+                    Image(systemName: "flame.fill").foregroundColor(Theme.accent)
+                    Text("Wird gerade gekocht · \(session.stepText)").font(.subheadline.weight(.medium))
+                    Spacer()
+                    Button("Abbrechen", role: .destructive) { confirmCancel = true }
+                        .font(.subheadline.weight(.semibold)).buttonStyle(.borderless)
+                }
+                .padding(.horizontal, 14).padding(.vertical, 10)
+                .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.accent.opacity(0.1)))
             }
             HStack(spacing: 10) {
                 SoftButton(title: session.recipe?.id == r.id ? "Weiterkochen" : "Kochen", symbol: "play.fill", primary: true) {
@@ -660,6 +674,7 @@ struct CookModeView: View {
         nonmutating set { session.page = newValue }
     }
     @State private var showIngredients = false
+    @State private var confirmCancel = false
     @StateObject private var voice = SpeechControl()
 
     private var count: Int { recipe.steps.count + 1 }   // + Fertig-Seite
@@ -707,6 +722,15 @@ struct CookModeView: View {
                         .background(Circle().fill(Color(UIColor.tertiarySystemFill)))
                 }
                 .accessibilityLabel("Zutaten")
+                // Mehr: minimieren oder abbrechen (mit Rückfrage)
+                Menu {
+                    Button { session.minimize() } label: { Label("Minimieren", systemImage: "chevron.down") }
+                    Button(role: .destructive) { afterMenu { confirmCancel = true } } label: { Label("Kochen abbrechen", systemImage: "xmark.circle") }
+                } label: {
+                    Image(systemName: "ellipsis").font(.headline).foregroundColor(.primary).frame(width: 44, height: 44)
+                        .background(Circle().fill(Color(UIColor.tertiarySystemFill)))
+                }
+                .accessibilityLabel("Mehr")
             }
             .buttonStyle(.plain)
             .padding(.horizontal).padding(.top, 10)
@@ -752,6 +776,7 @@ struct CookModeView: View {
         }
         .onDisappear { voice.stop() }
         .sheet(isPresented: $showIngredients) { ingredientSheet }
+        .cancelCookingAlert($confirmCancel)
         .overlay(TimerAlarmOverlay())
     }
 

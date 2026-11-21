@@ -14,6 +14,7 @@ struct ActivityBar: View {
     @ObservedObject private var center = TimerCenter.shared
     @State private var showTimers = false
     @State private var cookActions = false
+    @State private var confirmCancel = false
     @State private var timerActions = false
 
     private var cooking: Recipe? { session.presented ? nil : session.recipe }
@@ -61,13 +62,14 @@ struct ActivityBar: View {
         .onLongPressGesture { cookActions = true }
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(r.title) kochen, \(session.stepText)")
-        .accessibilityHint("Tippen zum Weiterkochen, lange drücken zum Beenden")
+        .accessibilityHint("Tippen zum Weiterkochen, lange drücken zum Abbrechen")
         .accessibilityAddTraits(.isButton)
         .confirmationDialog(r.title, isPresented: $cookActions, titleVisibility: .visible) {
             Button("Weiterkochen") { session.resume() }
-            Button("Kochen beenden", role: .destructive) { session.end() }
-            Button("Abbrechen", role: .cancel) {}
+            Button("Kochen abbrechen …", role: .destructive) { afterMenu { confirmCancel = true } }
+            Button("Schließen", role: .cancel) {}
         }
+        .cancelCookingAlert($confirmCancel)
         .transition(.scale(scale: 0.6).combined(with: .opacity))
     }
 

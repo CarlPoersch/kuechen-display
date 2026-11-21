@@ -32,6 +32,18 @@ final class CookSession: ObservableObject {
         page = 0
     }
 
+    /// Laufende Timer, die aus diesem Rezept gestartet wurden
+    var recipeTimers: [KitchenTimer] {
+        guard let r = recipe else { return [] }
+        return TimerCenter.shared.timers.filter { $0.source == r.title }
+    }
+
+    /// Abbrechen: Kochen beenden und die Timer dieses Rezepts stoppen (nicht als „gekocht“ zählen)
+    func cancel() {
+        recipeTimers.forEach { TimerCenter.shared.cancel($0) }
+        end()
+    }
+
     var stepText: String {
         guard let r = recipe else { return "" }
         return page < r.steps.count ? "Schritt \(page + 1) von \(r.steps.count)" : "Fertig"
@@ -46,4 +58,25 @@ struct CookModeHost: ViewModifier {
             if let r = session.recipe { CookModeView(recipe: r, portions: session.portions) }
         }
     }
+}
+
+/// Rückfrage vor dem Abbrechen – überall gleich (Kochmodus, Rezept, Insel unten)
+struct CancelCookingAlert: ViewModifier {
+    @Binding var isPresented: Bool
+    @ObservedObject private var session = CookSession.shared
+
+    func body(content: Content) -> some View {
+        content.alert("Kochen abbrechen?", isPresented: $isPresented) {
+            Button("Weiterkochen", role: .cancel) {}
+            Button("Abbrechen", role: .destructive) { session.cancel() }
+        } message: {
+            let n = session.recipeTimers.count
+            Text("Dein Fortschritt bei „\(session.recipe?.title ?? "")“ geht verloren."
+                 + (n == 0 ? "" : n == 1 ? " Der laufende Timer wird gestoppt." : " \(n) laufende Timer werden gestoppt."))
+        }
+    }
+}
+
+extension View {
+    func cancelCookingAlert(_ isPresented: Binding<Bool>) -> some View { modifier(CancelCookingAlert(isPresented: isPresented)) }
 }
