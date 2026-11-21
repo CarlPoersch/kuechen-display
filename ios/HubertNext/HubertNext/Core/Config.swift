@@ -10,7 +10,8 @@ enum Config {
 
 /// Farben im Apple-Look. Systemfarben passen sich hell/dunkel automatisch an.
 enum Theme {
-    static let accent = Color("AccentColor")
+    /// Akzentfarbe des gewählten Farbthemas (Einstellungen → Darstellung)
+    static var accent: Color { ThemeStore.shared.current.accent }
     static let background = Color(UIColor.systemGroupedBackground)
     static let card = Color(UIColor.secondarySystemGroupedBackground)
     static let secondary = Color(UIColor.secondaryLabel)

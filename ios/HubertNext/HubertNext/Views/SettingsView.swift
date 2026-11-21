@@ -6,6 +6,7 @@ import SwiftUI
 // ============================================================
 struct SettingsView: View {
     @EnvironmentObject var store: AppStore
+    @ObservedObject private var look = ThemeStore.shared   // färbt sich bei Themawechsel sofort um
     @Environment(\.dismiss) private var dismiss
     @State private var showAdd = false
     @State private var confirmSignOut = false
@@ -27,6 +28,18 @@ struct SettingsView: View {
                     .onDelete { idx in idx.map { store.buckets[$0].id }.forEach { store.removeBucket(id: $0) } }
                     Button { showAdd = true } label: { Label("Bucket hinzufügen", systemImage: "plus.circle.fill") }
                 } header: { Text("Startseite") } footer: { Text("Zum Sortieren oben auf „Bearbeiten“ tippen.") }
+
+                Section("Darstellung") {
+                    NavigationLink(destination: AppearanceView()) {
+                        HStack(spacing: 12) {
+                            Circle().fill(ThemeStore.shared.current.gradient).frame(width: 30, height: 30)
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text("Farbthema & Kopfbereich")
+                                Text(ThemeStore.shared.current.name).font(.caption).foregroundColor(Theme.secondary)
+                            }
+                        }
+                    }
+                }
 
                 Section("Interessen") {
                     NavigationLink(destination: InterestsEditView()) {

@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var collapsed = false        // große Kopfkarte weggescrollt → schmale Leiste
     @State private var editing = false          // Startseite bearbeiten (wackeln, verschieben)
     @State private var dragging: String?        // Bucket, der gerade gezogen wird
+    @ObservedObject private var look = ThemeStore.shared
 
     private var glances: [BucketInstance] {
         store.buckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
@@ -32,12 +33,14 @@ struct HomeView: View {
                         }
                         toolsSection
                     }
+                    // Neues Farbthema → alle Karten neu zeichnen (sie lesen die Akzentfarbe beim Zeichnen)
+                    .id(look.refreshKey)
                     .padding(.horizontal, pad(geo.size.width))
                     .padding(.vertical, 12)
                     // Liest die Scroll-Position direkt aus UIKit (die SwiftUI-Messung
                     // hat auf dem iPad mit iOS 15 nicht zuverlässig ausgelöst)
                     .background(ScrollOffsetReader { y in
-                        let c = y > 130
+                        let c = y > (look.compactHeader ? 95 : 130)
                         if c != collapsed { collapsed = c }
                     })
                 }
@@ -61,42 +64,9 @@ struct HomeView: View {
 
     private func pad(_ w: CGFloat) -> CGFloat { w < 600 ? 16 : 24 }
 
-    // Kopf: orange Karte mit Begrüßung, großer Uhr und Datum; Einstellungen oben rechts
+    // Kopf: farbige Karte (Thema aus Einstellungen → Darstellung)
     private var header: some View {
-        TimelineView(.periodic(from: .now, by: 1)) { ctx in
-            ZStack(alignment: .topTrailing) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(greeting(ctx.date) + (store.profile?.name.map { ", " + firstName($0) } ?? ""))
-                        .font(.headline).foregroundColor(.white.opacity(0.9))
-                    Text(ctx.date, format: .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits))
-                        .font(.system(size: 76, weight: .thin, design: .default))
-                        .monospacedDigit()
-                        .foregroundColor(.white)
-                        .minimumScaleFactor(0.6)
-                        .lineLimit(1)
-                    Text(ctx.date.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: "de_DE"))))
-                        .font(.title3.weight(.medium)).foregroundColor(.white.opacity(0.9))
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-                Button { showSettings = true } label: {
-                    Image(systemName: "gearshape.fill").font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
-                        .background(Circle().fill(Color.white.opacity(0.22)))
-                }
-                .accessibilityLabel("Einstellungen")
-            }
-            .padding(.horizontal, 22).padding(.vertical, 20)
-            .background(
-                RoundedRectangle(cornerRadius: 26, style: .continuous)
-                    .fill(LinearGradient(colors: [Color(red: 0.97, green: 0.64, blue: 0.36),
-                                                  Color(red: 0.92, green: 0.42, blue: 0.12),
-                                                  Color(red: 0.76, green: 0.25, blue: 0.05)],
-                                         startPoint: .topLeading, endPoint: .bottomTrailing))
-            )
-            .shadow(color: Color(red: 0.76, green: 0.25, blue: 0.05).opacity(0.25), radius: 14, y: 6)
-        }
+        HeroHeader(name: store.profile?.name.map { firstName($0) }, onSettings: { showSettings = true })
     }
 
     /// Leiste im Bearbeiten-Modus, wie auf dem iPhone-Home-Bildschirm
@@ -134,15 +104,9 @@ struct HomeView: View {
             }
             .foregroundColor(.white)
             .padding(.horizontal, pad + 6).padding(.vertical, 10)
-            .background(heroGradient.ignoresSafeArea(edges: .top))
+            .background(look.current.gradient.ignoresSafeArea(edges: .top))
             .shadow(color: .black.opacity(0.12), radius: 6, y: 2)
         }
-    }
-
-    private var heroGradient: LinearGradient {
-        LinearGradient(colors: [Color(red: 0.97, green: 0.64, blue: 0.36), Color(red: 0.92, green: 0.42, blue: 0.12),
-                                Color(red: 0.76, green: 0.25, blue: 0.05)],
-                       startPoint: .topLeading, endPoint: .bottomTrailing)
     }
 
     private var emptyHint: some View {
