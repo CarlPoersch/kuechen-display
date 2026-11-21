@@ -130,3 +130,31 @@ Glance = anschauen, Tool = benutzen. Etappe = wann gebaut.
 - Ordner- und Dateistruktur, Namensgebung, genaue Tabellen-Spalten.
 - Konkrete Rastermaße, Animationen (sparsam).
 - Cache-Zeiten pro Quelle.
+
+## Küche – Funktionsauswahl (21.11.2026)
+
+Carl hat aus dem Küchen-Brainstorm gewählt. Erst die einfach umsetzbaren, der Rest folgt, wenn die übrigen Buckets stehen.
+
+**Runde 1 (jetzt):**
+- Grundlage: Rezepte (bestehende Rezept-JSONs), Wochenplan, Einkaufsliste, Vorrat – geteilt im Haushalt; Daten aus `kueche_store` übernehmen (20 Vorrat, 4 Einkauf)
+- 1 Kochmodus (große Schrift, Schritt für Schritt, Bildschirm bleibt an)
+- 2 Timer im Rezept (Zeitangabe im Schritt antippen)
+- 3 Portionen umrechnen
+- 4 Airfryer-Umrechner – einfache Regel (Backofen → Airfryer: −20 °C, −20 % Zeit), anzeigen statt umschreiben
+- 7 Bewertung und Notizen je Rezept
+- 8 Kochverlauf („zuletzt gekocht“, Knopf „Gekocht“ im Kochmodus)
+- 15 Einkaufsliste aus dem Wochenplan (ohne, was im Vorrat ist)
+- 16 Einkaufsliste geteilt im Haushalt (Abgleich beim Öffnen und alle 15 s; Echtzeit später)
+- 26 Bucket „Einkauf“ (offene Artikel, abhakbar)
+- 28 Bucket „Rezept des Tages“
+
+**Später (vorgemerkt):**
+- 5 Rezept aus Foto
+- 6 Rezept per Link teilen (Teilen-Erweiterung, eigenes Ziel in Xcode)
+- 17 Siri / Kurzbefehl („Milch auf die Liste“)
+- 21 Barcode scannen, auch Einkaufs-/Kassenzettel abscannen → Vorrat
+- 29 Sprachsteuerung beim Kochen
+- 30 KI-Rezept aus dem Vorrat
+- 31 Nährwerte
+- 32 Koch-Statistik (baut auf dem Kochverlauf auf)
+- 33 Familien-Kochbuch (Rezepte zwischen Haushalten teilen)
