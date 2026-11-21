@@ -98,52 +98,92 @@ struct CountdownGlance: View {
 
 struct CountdownEditor: View {
     @Binding var config: [String: JSON]
-    @State private var title = ""
-    @State private var emoji = "✈️"
-    @State private var date = Calendar.current.date(byAdding: .day, value: 30, to: Date()) ?? Date()
+    /// Index des Eintrags, der gerade bearbeitet wird (Einträge haben beim Lesen neue IDs → Index ist stabil)
+    @State private var editing: Int?
+    @State private var draft = CountdownBucket.Entry(title: "", date: Calendar.current.date(byAdding: .day, value: 30, to: Date()) ?? Date(), emoji: "✈️")
+
+    var body: some View {
+        let list = CountdownBucket.entries(config)
+        VStack(alignment: .leading, spacing: 12) {
+            ForEach(Array(list.enumerated()), id: \.offset) { i, e in
+                if editing == i {
+                    CountdownForm(entry: e, saveTitle: "Sichern",
+                                  onSave: { new in var l = list; l[i] = new; CountdownBucket.store(l, in: &config); editing = nil },
+                                  onCancel: { editing = nil },
+                                  onDelete: { var l = list; l.remove(at: i); CountdownBucket.store(l, in: &config); editing = nil })
+                        .padding(12)
+                        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                } else {
+                    // Antippen öffnet die Bearbeitung direkt an Ort und Stelle
+                    Button { withAnimation { editing = i } } label: {
+                        HStack {
+                            Text(e.emoji)
+                            VStack(alignment: .leading) {
+                                Text(e.title).foregroundColor(.primary)
+                                Text(e.date, style: .date).font(.caption).foregroundColor(Theme.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "pencil").foregroundColor(Theme.accent)
+                        }
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.borderless)
+                    .accessibilityLabel("„\(e.title)“ bearbeiten")
+                }
+            }
+            if editing == nil {
+                if !list.isEmpty { Divider() }
+                CountdownForm(entry: draft, saveTitle: "Countdown hinzufügen", onSave: { new in
+                    var l = list; l.append(new); CountdownBucket.store(l, in: &config)
+                    draft.title = ""
+                })
+                .id(list.count)   // Formular nach dem Hinzufügen leeren
+            }
+        }
+    }
+}
+
+/// Titel, Symbol und Datum eines Countdowns – zum Anlegen und Bearbeiten.
+struct CountdownForm: View {
+    @State var entry: CountdownBucket.Entry
+    let saveTitle: String
+    let onSave: (CountdownBucket.Entry) -> Void
+    var onCancel: (() -> Void)? = nil
+    var onDelete: (() -> Void)? = nil
 
     private let emojis = ["✈️", "🎂", "🎓", "🎄", "🏖️", "🎉", "⚽️", "🎾", "❤️", "⏳"]
+    private var valid: Bool { !entry.title.trimmingCharacters(in: .whitespaces).isEmpty }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            ForEach(CountdownBucket.entries(config)) { e in
-                HStack {
-                    Text(e.emoji)
-                    VStack(alignment: .leading) {
-                        Text(e.title)
-                        Text(e.date, style: .date).font(.caption).foregroundColor(Theme.secondary)
-                    }
-                    Spacer()
-                    Button(role: .destructive) { remove(e) } label: { Image(systemName: "minus.circle.fill") }
-                        .buttonStyle(.borderless)
-                }
-            }
-            Divider()
-            TextField("Wofür? z. B. Wien-Trip", text: $title).textFieldStyle(.roundedBorder)
+            TextField("Wofür? z. B. Wien-Trip", text: $entry.title).textFieldStyle(.roundedBorder)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(emojis, id: \.self) { em in
                         Text(em).font(.title2).padding(6)
-                            .background(Circle().fill(em == emoji ? Theme.accent.opacity(0.2) : Color.clear))
-                            .onTapGesture { emoji = em }
+                            .background(Circle().fill(em == entry.emoji ? Theme.accent.opacity(0.2) : Color.clear))
+                            .onTapGesture { entry.emoji = em }
                     }
                 }
             }
-            DatePicker("Datum", selection: $date, in: Date()..., displayedComponents: .date)
+            DatePicker("Datum", selection: $entry.date, in: Calendar.current.startOfDay(for: Date())..., displayedComponents: .date)
                 .environment(\.locale, Locale(identifier: "de_DE"))
-            Button {
-                var list = CountdownBucket.entries(config)
-                list.append(.init(title: title.trimmingCharacters(in: .whitespaces), date: date, emoji: emoji))
-                CountdownBucket.store(list, in: &config)
-                title = ""
-            } label: { Label("Countdown hinzufügen", systemImage: "plus.circle.fill") }
-            .disabled(title.trimmingCharacters(in: .whitespaces).isEmpty)
+            HStack {
+                if let onDelete {
+                    Button(role: .destructive, action: onDelete) { Label("Löschen", systemImage: "trash") }
+                        .buttonStyle(.borderless)
+                }
+                Spacer()
+                if let onCancel { Button("Abbrechen", action: onCancel).buttonStyle(.borderless) }
+                Button {
+                    var e = entry; e.title = e.title.trimmingCharacters(in: .whitespaces); onSave(e)
+                } label: {
+                    if onCancel == nil { Label(saveTitle, systemImage: "plus.circle.fill") }
+                    else { Text(saveTitle).fontWeight(.semibold) }
+                }
+                .buttonStyle(.borderless)
+                .disabled(!valid)
+            }
         }
-    }
-
-    private func remove(_ e: CountdownBucket.Entry) {
-        // Einträge haben beim Lesen neue IDs → über Titel + Datum vergleichen
-        let list = CountdownBucket.entries(config).filter { !($0.title == e.title && $0.date == e.date) }
-        CountdownBucket.store(list, in: &config)
     }
 }

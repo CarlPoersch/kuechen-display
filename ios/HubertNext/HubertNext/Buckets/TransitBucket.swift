@@ -702,6 +702,7 @@ struct PlaceSearch: View {
 struct TransitSettings: View {
     @Binding var config: [String: JSON]
     @State private var changingHome = false
+    @State private var relocating: String?   // Ziel, dessen Adresse gerade geändert wird
 
     private var places: [TransitBucket.Saved] { TransitBucket.saved(config) }
 
@@ -744,12 +745,24 @@ struct TransitSettings: View {
                         .font(.headline)
                     Text(p.loc.name).font(.footnote).foregroundColor(Theme.secondary)
                 }
+                // Adresse ändern, Name bleibt
+                Button { withAnimation { relocating = relocating == p.key ? nil : p.key } } label: {
+                    Image(systemName: relocating == p.key ? "xmark.circle.fill" : "mappin.and.ellipse")
+                }
+                .buttonStyle(.borderless)
+                .accessibilityLabel(relocating == p.key ? "Adresse ändern abbrechen" : "Adresse von „\(p.label)“ ändern")
                 Button(role: .destructive) {
                     var l = places; l.removeAll { $0.key == p.key }; TransitBucket.store(l, in: &config)
                 } label: { Image(systemName: "trash") }
                 .buttonStyle(.borderless)
             }
             .padding(.vertical, 2)
+            if relocating == p.key {
+                PlaceSearch(prompt: "Neue Adresse oder Haltestelle") { loc in
+                    update(p.key) { $0.loc = loc }
+                    relocating = nil
+                }
+            }
         }
         VStack(alignment: .leading, spacing: 4) {
             Text("Ziel hinzufügen").font(.subheadline.weight(.semibold))

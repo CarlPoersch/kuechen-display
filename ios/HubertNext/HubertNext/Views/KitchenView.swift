@@ -776,6 +776,11 @@ struct WeekTab: View {
                             .contextMenu {
                                 Button { kitchen.setPortions(e, e.portions + 1) } label: { Label("Portion mehr", systemImage: "plus") }
                                 Button { kitchen.setPortions(e, e.portions - 1) } label: { Label("Portion weniger", systemImage: "minus") }
+                                Menu {
+                                    ForEach(days.filter { KitchenStore.day.string(from: $0) != e.day }, id: \.self) { t in
+                                        Button(Fmt.dayLabel(t)) { withAnimation { kitchen.movePlan(e, to: t) } }
+                                    }
+                                } label: { Label("Auf anderen Tag", systemImage: "calendar") }
                                 Button(role: .destructive) { kitchen.removeFromPlan(e) } label: { Label("Entfernen", systemImage: "trash") }
                             }
                         }
@@ -872,6 +877,20 @@ struct ShopRow: View {
     let item: KitchenItem
     var compact = false
     @ObservedObject private var kitchen = KitchenStore.shared
+    @State private var editing = false
+
+    private var nameLabel: some View {
+        HStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 1) {
+                Text(item.name).font(compact ? .subheadline : .body).strikethrough(item.done).foregroundColor(item.done ? Theme.secondary : .primary)
+                    .lineLimit(1)
+                let sub = [item.amount, item.recipe].filter { !$0.isEmpty && !$0.hasPrefix("shop:") }.joined(separator: " · ")
+                if !sub.isEmpty && !compact { Text(sub).font(.caption).foregroundColor(Theme.secondary).lineLimit(1) }
+            }
+            Spacer(minLength: 0)
+        }
+        .contentShape(Rectangle())
+    }
 
     var body: some View {
         HStack(spacing: 12) {
@@ -882,19 +901,48 @@ struct ShopRow: View {
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(item.done ? "Erledigt" : "Abhaken")
-            VStack(alignment: .leading, spacing: 1) {
-                Text(item.name).font(compact ? .subheadline : .body).strikethrough(item.done).foregroundColor(item.done ? Theme.secondary : .primary)
-                    .lineLimit(1)
-                let sub = [item.amount, item.recipe].filter { !$0.isEmpty }.joined(separator: " · ")
-                if !sub.isEmpty && !compact { Text(sub).font(.caption).foregroundColor(Theme.secondary).lineLimit(1) }
-            }
-            Spacer(minLength: 0)
+            // Antippen des Namens öffnet die Bearbeitung (Name, Menge) – nur in der Küche, nicht in der kleinen Kachel
+            if compact { nameLabel }
+            else { Button { editing = true } label: { nameLabel }.buttonStyle(.borderless) }
             if compact && !item.amount.isEmpty { Text(item.amount).font(.caption).foregroundColor(Theme.secondary) }
         }
         .padding(.vertical, compact ? 0 : 2)
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) { kitchen.delete(item) } label: { Label("Löschen", systemImage: "trash") }
         }
+        .sheet(isPresented: $editing) { ShopEditSheet(item: item) }
+    }
+}
+
+/// Artikel der Einkaufsliste bearbeiten: Name und Menge.
+struct ShopEditSheet: View {
+    @State var item: KitchenItem
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var kitchen = KitchenStore.shared
+
+    var body: some View {
+        NavigationView {
+            Form {
+                TextField("Name", text: $item.name)
+                TextField("Menge, z. B. 500 g oder 2 Stück", text: $item.amount)
+                Section {
+                    Button(role: .destructive) { kitchen.delete(item); dismiss() } label: { Label("Von der Liste löschen", systemImage: "trash") }
+                }
+            }
+            .navigationTitle("Artikel").navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) { Button("Abbrechen") { dismiss() } }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Sichern") {
+                        item.name = item.name.trimmingCharacters(in: .whitespaces)
+                        item.amount = item.amount.trimmingCharacters(in: .whitespaces)
+                        kitchen.update(item); dismiss()
+                    }
+                    .disabled(item.name.trimmingCharacters(in: .whitespaces).isEmpty)
+                }
+            }
+        }
+        .navigationViewStyle(.stack)
     }
 }
 

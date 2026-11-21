@@ -502,6 +502,13 @@ final class KitchenStore: ObservableObject {
         write { try await self.api.delete("kitchen_plan", ["id": "eq." + e.id]) }
     }
 
+    func movePlan(_ e: PlanEntry, to date: Date) {
+        guard let i = plan.firstIndex(where: { $0.id == e.id }) else { return }
+        plan[i].day = Self.day.string(from: date)
+        let c = plan[i]
+        write { try await self.api.upsert("kitchen_plan", [c]) }
+    }
+
     func setPortions(_ e: PlanEntry, _ p: Int) {
         guard let i = plan.firstIndex(where: { $0.id == e.id }) else { return }
         plan[i].portions = max(1, min(20, p))
