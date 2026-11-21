@@ -311,6 +311,8 @@ struct BucketCard: View {
             // fängt auf iOS 15 auch Tipper auf Menüs darin ab (ÖPNV-Auswahl öffnete die Details).
             .background(
                 NavigationLink(isActive: $open) { BucketDetailHost(instance: instance, kind: kind) } label: { EmptyView() }
+                    .frame(width: 0, height: 0)      // ohne Fläche: kein Tipper kann ihn treffen
+                    .allowsHitTesting(false)
                     .hidden()
             )
             .environment(\.bucketId, instance.id)
@@ -329,6 +331,7 @@ struct BucketCard: View {
                 Button(role: .destructive) { store.removeBucket(id: instance.id) } label: { Label("Entfernen", systemImage: "trash") }
             })
             .environment(\.editBucket, { editing = true })
+            .environment(\.openBucketDetail, { open = true })
             .sheet(isPresented: $editing) { BucketEditSheet(bucketId: instance.id).environmentObject(store) }
         }
     }

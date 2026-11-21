@@ -96,6 +96,15 @@ extension EnvironmentValues {
     }
 }
 
+/// Öffnet die Detailansicht der Karte (für Buckets mit eigenen Bedienelementen im Inhalt)
+private struct OpenDetailKey: EnvironmentKey { static let defaultValue: () -> Void = {} }
+extension EnvironmentValues {
+    var openBucketDetail: () -> Void {
+        get { self[OpenDetailKey.self] }
+        set { self[OpenDetailKey.self] = newValue }
+    }
+}
+
 /// Welcher Bucket gerade gezeichnet wird (für Änderungen direkt in der Karte)
 private struct BucketIdKey: EnvironmentKey { static let defaultValue = "" }
 /// Startseite im Bearbeiten-Modus (wackelnde Karten, verschieben, entfernen)

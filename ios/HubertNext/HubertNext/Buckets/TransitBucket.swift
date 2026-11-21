@@ -466,43 +466,50 @@ struct TransitRowView: View {
     }
 }
 
-/// "Von ▾ → Nach ▾" – Auswahl direkt in der Karte, wird sofort gespeichert
+/// "Von ▾ → Nach ▾" – Auswahl direkt in der Karte, wird sofort gespeichert.
+/// Bewusst Knöpfe mit Auswahlblatt statt "Menu": Ein Menu hat auf iOS 15 in der Karte
+/// die Detailansicht ausgelöst. Ein Knopf löst nur seine eigene Aktion aus.
 struct TransitPicker: View {
     let config: [String: JSON]
     @EnvironmentObject var store: AppStore
     @Environment(\.bucketId) private var bucketId
     @Environment(\.editBucket) private var edit
+    @State private var pickFrom = false
+    @State private var pickTo = false
 
     var body: some View {
         let sel = TransitBucket.selection(config)
         HStack(spacing: 6) {
-            Menu {
+            Button { pickFrom = true } label: {
+                chip(sel.from?.label ?? "Start", icon: sel.from?.isHome == true ? "house.fill" : "mappin")
+            }
+            .buttonStyle(.borderless)
+            .confirmationDialog("Von", isPresented: $pickFrom, titleVisibility: .visible) {
                 ForEach(TransitBucket.starts(config)) { p in
-                    Button { set("from", p.key) } label: { item(p.label, on: p.key == sel.from?.key) }
+                    Button(mark(p.label, p.key == sel.from?.key)) { set("from", p.key) }
                 }
-                Divider()
-                Button(action: edit) { Label("Zuhause & Ziele bearbeiten …", systemImage: "slider.horizontal.3") }
-            } label: { chip(sel.from?.label ?? "Start", icon: sel.from?.isHome == true ? "house.fill" : "mappin") }
+                Button("Zuhause & Ziele bearbeiten …") { edit() }
+            }
             Image(systemName: "arrow.right").font(.caption.weight(.bold)).foregroundColor(Theme.secondary)
-            Menu {
+            Button { pickTo = true } label: {
+                chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : "flag.checkered")
+            }
+            .buttonStyle(.borderless)
+            .confirmationDialog("Nach", isPresented: $pickTo, titleVisibility: .visible) {
                 if sel.from?.isHome == true || sel.from?.loc.stop == true {
-                    Button { set("to", "") } label: { item(abfahrten(sel.from), on: sel.to == nil) }
+                    Button(mark(abfahrten(sel.from), sel.to == nil)) { set("to", "") }
                 }
                 ForEach(TransitBucket.saved(config).filter { $0.key != sel.from?.key }) { p in
-                    Button { set("to", p.key) } label: { item(p.label, on: p.key == sel.to?.key) }
+                    Button(mark(p.label, p.key == sel.to?.key)) { set("to", p.key) }
                 }
-                Divider()
-                Button(action: edit) { Label("Ziel hinzufügen …", systemImage: "plus") }
-            } label: { chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : "flag.checkered") }
+                Button("Ziel hinzufügen …") { edit() }
+            }
             Spacer(minLength: 0)
         }
     }
 
     private func abfahrten(_ from: TransitBucket.Saved?) -> String { from?.isHome == true ? "Abfahrten in der Nähe" : "Abfahrten" }
-
-    @ViewBuilder private func item(_ text: String, on: Bool) -> some View {
-        if on { Label(text, systemImage: "checkmark") } else { Text(text) }
-    }
+    private func mark(_ text: String, _ on: Bool) -> String { on ? "✓ " + text : text }
 
     private func chip(_ text: String, icon: String) -> some View {
         HStack(spacing: 5) {
@@ -511,8 +518,9 @@ struct TransitPicker: View {
             Image(systemName: "chevron.down").font(.caption2.weight(.bold))
         }
         .foregroundColor(Theme.accent)
-        .padding(.horizontal, 10).padding(.vertical, 5)
+        .padding(.horizontal, 10).padding(.vertical, 6)
         .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
+        .contentShape(Capsule())
     }
 
     private func set(_ key: String, _ value: String) {
@@ -527,6 +535,7 @@ struct TransitGlance: View {
     let config: [String: JSON]
     @ObservedObject private var svc = TransitService.shared
     @Environment(\.glanceSpace) private var space
+    @Environment(\.openBucketDetail) private var openDetail
 
     private var route: TransitBucket.Route? {
         let sel = TransitBucket.selection(config)
@@ -546,6 +555,19 @@ struct TransitGlance: View {
             let rows = Array(svc.rows(r).prefix(n))
             VStack(alignment: .leading, spacing: 4) {
                 TransitPicker(config: config)
+                // Fahrten antippen → ÖPNV-Übersicht
+                Button(action: openDetail) { table(r, rows, wide: wide).contentShape(Rectangle()) }
+                    .buttonStyle(.plain)
+                Spacer(minLength: 0)
+            }
+        } else {
+            Label("Zuhause über den Regler oben festlegen", systemImage: "house.fill")
+                .font(.headline).foregroundColor(Theme.accent)
+        }
+    }
+
+    @ViewBuilder private func table(_ r: TransitBucket.Route, _ rows: [TransitRow], wide: Bool) -> some View {
+            VStack(alignment: .leading, spacing: 4) {
                 if space.width < 260, let x = rows.first {
                     // Kleine Karte: nur die nächste Fahrt, groß
                     HStack { LineBadge(line: x.line); Text(x.title).font(.subheadline).lineLimit(1) }.padding(.top, 4)
@@ -563,10 +585,7 @@ struct TransitGlance: View {
                     }
                 }
             }
-        } else {
-            Label("Zuhause über den Regler oben festlegen", systemImage: "house.fill")
-                .font(.headline).foregroundColor(Theme.accent)
-        }
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
