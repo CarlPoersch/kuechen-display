@@ -766,8 +766,9 @@ struct GenreChips: View {
                     Button {
                         if let i = selected.firstIndex(of: g.id) { selected.remove(at: i) } else { selected.append(g.id) }
                     } label: {
-                        Text(g.name).font(.subheadline.weight(on ? .semibold : .regular)).lineLimit(1).minimumScaleFactor(0.75)
-                            .strikethrough(on && crossed)
+                        // strikethrough direkt am Text (die View-Variante gibt es erst ab iOS 16)
+                        Text(g.name).font(.subheadline.weight(on ? .semibold : .regular)).strikethrough(on && crossed)
+                            .lineLimit(1).minimumScaleFactor(0.75)
                             .foregroundColor(on ? .white : .primary)
                             .frame(maxWidth: .infinity, minHeight: 34)
                             .padding(.horizontal, 6)
