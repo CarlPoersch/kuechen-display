@@ -17,6 +17,17 @@ struct RecipeFilter: Equatable {
 
     static let collections = ["Alle", "Eigene", "Airfryer", "Favoriten", "Lange nicht"]
     static let diets = ["Alle", "Vegetarisch", "Vegan", "Ohne Fleisch"]
+
+    /// Passt das Rezept zur Ernährung? (erkannt an den Zutaten, wenn nicht angegeben)
+    static func fits(_ r: RecipeSummary, diet: String) -> Bool {
+        let d = r.diet ?? DietGuess.diet(r.ing ?? [])
+        switch diet {
+        case "Vegetarisch": return d == "vegetarisch" || d == "vegan"
+        case "Vegan": return d == "vegan"
+        case "Ohne Fleisch": return d != "fleisch"
+        default: return true
+        }
+    }
     static let times = [0, 20, 30, 60]
     static let levels = ["Alle", "einfach", "mittel", "anspruchsvoll"]
 
@@ -102,7 +113,8 @@ struct RecipeFilterSheet: View {
                     .pickerStyle(.segmented)
                     Toggle("Glutenfrei", isOn: $filter.glutenFree)
                 } header: { Text("Ernährung") } footer: {
-                    Text("Erkannt an den Zutaten. Bei Unverträglichkeiten bitte die Verpackungen prüfen.")
+                    Text((DietPreference.kitchen == "Alle" ? "" : "Voreingestellt: \(DietPreference.kitchen) – dauerhaft änderbar in den Einstellungen der Küche. ")
+                         + "Erkannt an den Zutaten. Bei Unverträglichkeiten bitte die Verpackungen prüfen.")
                 }
 
                 Section("Zeit") {

@@ -524,6 +524,10 @@ enum DietPreference {
         get { UserDefaults.standard.string(forKey: key) ?? "Alle" }
         set { UserDefaults.standard.set(newValue, forKey: key) }
     }
+    /// Die Voreinstellung steht auch in der Küchen-App (config „diet“), damit sie auf allen Geräten gilt
+    static func adopt(from buckets: [BucketInstance]) {
+        if let d = buckets.first(where: { $0.bucket == "kueche" })?.config["diet"]?.string { kitchen = d }
+    }
     static func kitchenValue(_ mensaDiet: String) -> String {
         mensaDiet == "vegan" ? "Vegan" : mensaDiet == "vegetarisch" ? "Vegetarisch" : "Alle"
     }

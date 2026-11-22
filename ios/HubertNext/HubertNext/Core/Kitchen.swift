@@ -674,7 +674,11 @@ final class KitchenStore: ObservableObject {
             guard let last = meta[r.id]?.lastCookedDate else { return true }
             return Date().timeIntervalSince(last) > 14 * 86400
         }
-        let pool = fresh.isEmpty ? recipes : fresh
+        // Voreinstellung (z. B. vegetarisch) gilt auch hier
+        let diet = DietPreference.kitchen
+        let allFitting = recipes.filter { RecipeFilter.fits($0, diet: diet) }
+        let freshFitting = fresh.filter { RecipeFilter.fits($0, diet: diet) }
+        let pool = !freshFitting.isEmpty ? freshFitting : (!allFitting.isEmpty ? allFitting : recipes)
         return pool[abs(dayNo &* 7919) % pool.count]
     }
 

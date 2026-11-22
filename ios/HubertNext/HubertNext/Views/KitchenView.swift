@@ -98,7 +98,8 @@ struct RecipesTab: View {
     @State private var query = ""
     @State private var category = "Alle"
     @State private var cuisine = "Alle"
-    @State private var filter = RecipeFilter(diet: DietPreference.kitchen)   // aus Mensa übernommen, sonst „Alle“
+    @State private var filter = RecipeFilter(diet: DietPreference.kitchen)   // Voreinstellung der Küche, sonst „Alle“
+    @AppStorage("hubert.diet.kitchen") private var dietPref = "Alle"
     @State private var showFilter = false
     @State private var suggestion: RecipeSummary?
     @State private var sheet: Sheet?
@@ -126,13 +127,7 @@ struct RecipesTab: View {
             case "Lange nicht": if let d = m?.lastCookedDate, Date().timeIntervalSince(d) <= 21 * 86400 { continue }
             default: break
             }
-            let diet = r.diet ?? DietGuess.diet(r.ing ?? [])
-            switch f.diet {
-            case "Vegetarisch": if diet != "vegetarisch" && diet != "vegan" { continue }
-            case "Vegan": if diet != "vegan" { continue }
-            case "Ohne Fleisch": if diet == "fleisch" { continue }
-            default: break
-            }
+            if !RecipeFilter.fits(r, diet: f.diet) { continue }
             if f.glutenFree && r.gf != true { continue }
             if f.maxMinutes > 0 && (r.minutes ?? 999) > f.maxMinutes { continue }
             if f.level != "Alle" && r.level != f.level { continue }
@@ -174,7 +169,7 @@ struct RecipesTab: View {
                 }
 
                 // Rezept des Tages (früher eigener Bucket) – nur ohne Suche/Filter, damit die Liste oben bleibt
-                if query.isEmpty && !filter.isActive, let r = kitchen.recipeOfTheDay() {
+                if query.isEmpty && filter == RecipeFilter(diet: dietPref), let r = kitchen.recipeOfTheDay() {
                     NavigationLink(destination: RecipeDetailView(id: r.id)) {
                         HStack(spacing: 14) {
                             Text(r.icon).font(.system(size: 44))
@@ -194,7 +189,7 @@ struct RecipesTab: View {
                 }
 
                 // Favoriten: schnell wiederfinden, ohne den Namen zu wissen
-                if query.isEmpty && !filter.isActive && !kitchen.favorites.isEmpty { favoritesRow }
+                if query.isEmpty && filter == RecipeFilter(diet: dietPref) && !kitchen.favorites.isEmpty { favoritesRow }
 
                 // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
                 HStack(spacing: 10) {
@@ -327,6 +322,7 @@ struct RecipesTab: View {
                     .accessibilityLabel("Koch-Statistik")
             }
         }
+        .onChange(of: dietPref) { filter.diet = $0; suggestion = nil }
         .sheet(isPresented: $showFilter) { RecipeFilterSheet(filter: $filter) { matching($0).count } }
         .sheet(item: $sheet) { s in
             switch s {

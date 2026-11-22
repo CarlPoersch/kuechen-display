@@ -149,6 +149,7 @@ final class AppStore: ObservableObject {
             loadLayout()
             let fresh = layout == nil
             buckets = applyLayout(fromServer)
+            DietPreference.adopt(from: buckets)     // Küchen-Voreinstellung von anderen Geräten
             if fresh {
                 // Erster Start auf diesem Gerät: so, wie es gerade aussieht – jeder Bucket mit App-Symbol und Widget
                 giveApps(buckets)

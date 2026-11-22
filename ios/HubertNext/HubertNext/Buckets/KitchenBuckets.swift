@@ -11,7 +11,8 @@ enum KitchenBuckets {
     static let kitchen = BucketKind(
         id: "kueche", name: "Küche", symbol: "fork.knife", tint: .orange, art: .tool,
         interests: ["haushalt"], blurb: "Rezepte, Kochmodus, Wochenplan, Einkauf, Vorrat – gemeinsam im Haushalt.",
-        detail: { _ in AnyView(KitchenView()) }
+        detail: { _ in AnyView(KitchenView()) },
+        settings: { binding in AnyView(KitchenSettings(config: binding)) }
     )
 
     static let timer = BucketKind(
@@ -122,5 +123,25 @@ struct RecipeOfDayDetail: View {
     var body: some View {
         if let r = kitchen.recipeOfTheDay() { RecipeDetailView(id: r.id) }
         else { ProgressView().task { await KitchenStore.shared.loadRecipes() } }
+    }
+}
+
+/// Einstellungen der Küche: Ernährung voreinstellen (gilt für Rezepte, Rezept des Tages, Zufall)
+struct KitchenSettings: View {
+    @Binding var config: [String: JSON]
+    @AppStorage("hubert.diet.kitchen") private var diet = "Alle"
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("ERNÄHRUNG").font(.footnote).foregroundColor(Theme.secondary)
+            Picker("Ernährung", selection: Binding(get: { diet }, set: { v in diet = v; config["diet"] = .string(v) })) {
+                ForEach(RecipeFilter.diets, id: \.self) { Text($0 == "Alle" ? "Alles" : $0).tag($0) }
+            }
+            .pickerStyle(.segmented)
+            Text(diet == "Alle"
+                 ? "Rezepte zeigen alles. Wählst du Vegetarisch oder Vegan, siehst du nur noch passende Rezepte – auf allen deinen Geräten."
+                 : "Die Küche zeigt nur noch passende Rezepte (\(diet)). Für zwischendurch alles: in Rezepte beim Filter auf „Alle“ stellen.")
+                .font(.footnote).foregroundColor(Theme.secondary)
+        }
     }
 }
