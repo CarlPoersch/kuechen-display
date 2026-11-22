@@ -31,7 +31,10 @@ struct SettingsView: View {
                     ForEach(store.buckets) { inst in
                         if let kind = BucketRegistry.kind(inst.bucket) {
                             NavigationLink(destination: BucketEditView(bucketId: inst.id)) {
-                                BucketRow(kind: kind, detail: inst.size.label + (kind.art == .tool ? " · App" : ""))
+                                BucketRow(kind: kind, detail: store.hiddenHere.contains(inst.id)
+                                          ? "Auf diesem " + AppStore.deviceName + " ausgeblendet"
+                                          : inst.size.label + (kind.art == .tool ? " · App" : ""))
+                                    .opacity(store.hiddenHere.contains(inst.id) ? 0.5 : 1)
                             }
                         }
                     }
@@ -185,6 +188,13 @@ struct BucketEditView: View {
                     } footer: {
                         Text("Größe und Reihenfolge gelten nur für dieses Gerät. Inhalte und Einstellungen sind überall gleich.")
                     }
+                }
+                Section {
+                    Toggle("Auf diesem " + AppStore.deviceName + " zeigen",
+                           isOn: Binding(get: { !store.hiddenHere.contains(bucketId) }, set: { store.setHidden(bucketId, !$0) }))
+                        .tint(Theme.accent)
+                } footer: {
+                    Text("Ausgeblendet heißt nur auf diesem Gerät – auf deinen anderen Geräten bleibt der Bucket sichtbar.")
                 }
                 if let settings = kind.settings {
                     Section("Einstellungen") { settings(configBinding(i)) }

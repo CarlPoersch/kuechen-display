@@ -20,21 +20,36 @@ final class AppStore: ObservableObject {
     // Reihenfolge und Größe der Karten gelten nur für dieses Gerät – iPhone und iPad
     // haben so jedes seine eigene Startseite. Der Server behält die Werte von vor dieser
     // Trennung; ein neues Gerät startet mit ihnen.
-    private struct Layout: Codable { var order: [String] = []; var sizes: [String: BucketSize] = [:] }
+    // Dazu: welche Buckets auf diesem Gerät ausgeblendet sind (z. B. Sport nur auf dem iPhone).
+    private struct Layout: Codable { var order: [String] = []; var sizes: [String: BucketSize] = [:]; var hidden: [String]? }
     private struct ServerSpot { let position: Int; let size: BucketSize }
     private let layoutKey = "hubert.layout.v1"
     private var layout: Layout?
     private var serverSpots: [String: ServerSpot] = [:]
 
+    /// Auf diesem Gerät ausgeblendete Buckets – auf den anderen Geräten weiter sichtbar
+    @Published private(set) var hiddenHere: Set<String> = []
+    var visibleBuckets: [BucketInstance] { buckets.filter { !hiddenHere.contains($0.id) } }
+    static var deviceName: String { UIDevice.current.userInterfaceIdiom == .pad ? "iPad" : "iPhone" }
+
+    func setHidden(_ id: String, _ hide: Bool) {
+        if hide { hiddenHere.insert(id) } else { hiddenHere.remove(id) }
+        storeLayout()
+    }
+
     private func loadLayout() {
         guard layout == nil, let d = UserDefaults.standard.data(forKey: layoutKey) else { return }
         layout = try? JSONDecoder().decode(Layout.self, from: d)
+        hiddenHere = Set(layout?.hidden ?? [])
     }
 
     /// Ansicht dieses Geräts merken (Reihenfolge und Größen wie gerade angezeigt)
     private func storeLayout() {
         var l = Layout()
         for b in buckets { l.order.append(b.id); l.sizes[b.id] = b.size }
+        let ids = Set(buckets.map { $0.id })
+        let hidden = hiddenHere.filter { ids.contains($0) || buckets.isEmpty }
+        l.hidden = hidden.isEmpty ? nil : Array(hidden)
         layout = l
         if let d = try? JSONEncoder().encode(l) { UserDefaults.standard.set(d, forKey: layoutKey) }
     }
@@ -103,7 +118,7 @@ final class AppStore: ObservableObject {
         api.signOut()
         UserDefaults.standard.removeObject(forKey: cacheKey)
         UserDefaults.standard.removeObject(forKey: layoutKey)
-        layout = nil; serverSpots = [:]
+        layout = nil; serverSpots = [:]; hiddenHere = []
         profile = nil; household = nil; buckets = []
         KitchenStore.shared.reset(); CookSession.shared.end(local: true); LiveSync.shared.stop()   // Küchendaten des Haushalts nicht auf dem Gerät lassen
         phase = .signedOut

@@ -16,10 +16,10 @@ struct HomeView: View {
     @ObservedObject private var look = ThemeStore.shared
 
     private var glances: [BucketInstance] {
-        store.buckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
+        store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
     }
     private var tools: [BucketInstance] {
-        store.buckets.filter { BucketRegistry.kind($0.bucket)?.art == .tool }
+        store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .tool }
     }
 
     var body: some View {
@@ -141,6 +141,7 @@ struct HomeView: View {
                             .modifier(Wiggle(on: editing))
                             .contextMenu(editing ? nil : ContextMenu {
                                 Button { afterMenu { withAnimation { editing = true } } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
+                                Button { let id = inst.id; afterMenu { withAnimation { store.setHidden(id, true) } } } label: { Label("Auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash") }
                                 Button(role: .destructive) { let id = inst.id; afterMenu { withAnimation { store.removeBucket(id: id) } } } label: { Label("Entfernen", systemImage: "trash") }
                             })
                             // Kein Wechsel in den Bearbeiten-Modus beim Ziehen: Das entfernte das Kontextmenü,
@@ -321,6 +322,7 @@ struct BucketCard: View {
             .contextMenu(homeEditing ? nil : ContextMenu {
                 Button { afterMenu { editing = true } } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
                 Button { afterMenu { startHomeEditing() } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
+                Button { let id = instance.id; afterMenu { withAnimation { store.setHidden(id, true) } } } label: { Label("Auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash") }
                 Button(role: .destructive) { let id = instance.id; afterMenu { withAnimation { store.removeBucket(id: id) } } } label: { Label("Entfernen", systemImage: "trash") }
             })
             .environment(\.editBucket, { editing = true })

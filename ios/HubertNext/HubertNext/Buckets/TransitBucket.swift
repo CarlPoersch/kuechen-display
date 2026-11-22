@@ -144,9 +144,13 @@ enum TransitBucket {
 
     /// Höchstens so viele Minuten zu Fuß ab „Mein Standort“ (Einstellungen, 2–20, Standard 10)
     static func walk(_ c: [String: JSON]) -> Int { min(20, max(2, Int(c["walk"]?.double ?? 10))) }
+    /// Höchstens so viele Minuten zu Fuß ab „Zuhause“ (Standard 12 ≈ die bisherigen 700 m Umkreis)
+    static func homeWalk(_ c: [String: JSON]) -> Int { min(20, max(2, Int(c["walkHome"]?.double ?? 12))) }
+    /// Fußweg-Grenze für einen Start: Zuhause und Mein Standort haben je einen eigenen Regler
+    static func walk(_ c: [String: JSON], from s: Saved) -> Int? { s.isHere ? walk(c) : s.isHome ? homeWalk(c) : nil }
 
     static func route(_ from: Saved, _ to: Saved?, walk: Int? = nil) -> Route {
-        if from.isHere, let w = walk {
+        if from.isHere || from.isHome, let w = walk {
             var r = route(from, to)
             r.key += "~\(w)"; r.maxWalk = w
             return r
@@ -427,7 +431,7 @@ final class TransitService: ObservableObject {
     func rows(_ r: TransitBucket.Route) -> [TransitRow] {
         let now = Date().addingTimeInterval(-30)
         if r.to != nil {
-            // Ab Mein Standort: nur Verbindungen mit höchstens so viel Fußweg wie eingestellt
+            // Ab Zuhause / Mein Standort: nur Verbindungen mit höchstens so viel Fußweg wie eingestellt
             return (trips[r.key] ?? []).filter { $0.leave > now && $0.footMinutes <= (r.maxWalk ?? 999) }.map { j in
                 let first = j.rides[0]
                 var detail = "ab " + shortStop(first.from)
@@ -681,7 +685,7 @@ struct TransitGlance: View {
 
     private var route: TransitBucket.Route? {
         let sel = TransitBucket.selection(config, bucket: bucketId)
-        return sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config)) }
+        return sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config, from: $0)) }
     }
 
     var body: some View {
@@ -752,11 +756,11 @@ struct TransitDetail: View {
     @State private var ride: RideRef?
 
     private var sel: (from: TransitBucket.Saved?, to: TransitBucket.Saved?) { TransitBucket.selection(config, bucket: bucketId) }
-    private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config)) } }
+    private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config, from: $0)) } }
     /// Zusätzlich: die anderen Ziele (mehr Überblick)
     private var others: [(TransitBucket.Saved, TransitBucket.Route)] {
         guard let f = sel.from else { return [] }
-        return TransitBucket.saved(config).filter { $0.key != f.key && $0.key != sel.to?.key }.map { ($0, TransitBucket.route(f, $0, walk: TransitBucket.walk(config))) }
+        return TransitBucket.saved(config).filter { $0.key != f.key && $0.key != sel.to?.key }.map { ($0, TransitBucket.route(f, $0, walk: TransitBucket.walk(config, from: f))) }
     }
 
     var body: some View {
@@ -879,6 +883,29 @@ struct TransitSettings: View {
         TransitBucket.store(list, in: &config)
     }
 
+    /// Regler „höchstens N min zu Fuß“ (2–20 min)
+    private func walkSlider(_ title: String, icon: String, key: String, value: Int) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Label(title, systemImage: icon).font(.subheadline.weight(.semibold))
+                Spacer()
+                Text("höchstens \(value) min").font(.subheadline.monospacedDigit()).foregroundColor(Theme.accent)
+            }
+            Slider(value: Binding(get: { Double(value) }, set: { config[key] = .number($0.rounded()) }),
+                   in: 2...20, step: 1) {
+                Text(title)
+            } minimumValueLabel: {
+                Text("2").font(.caption).foregroundColor(Theme.secondary)
+            } maximumValueLabel: {
+                Text("20").font(.caption).foregroundColor(Theme.secondary)
+            }
+            .tint(Theme.accent)
+            Text("Etwa \(Int(Double(value - 1) * 80 / 1.3 / 10) * 10) m Luftlinie. Hubert zeigt nur Haltestellen und Verbindungen, zu denen du höchstens so lange läufst.")
+                .font(.caption).foregroundColor(Theme.secondary)
+        }
+        .padding(.vertical, 4)
+    }
+
     var body: some View {
         // Zuhause
         VStack(alignment: .leading, spacing: 6) {
@@ -931,27 +958,9 @@ struct TransitSettings: View {
                 }
             }
         }
-        // Mein Standort: wie weit zu Fuß
-        VStack(alignment: .leading, spacing: 6) {
-            HStack {
-                Label("Fußweg ab Mein Standort", systemImage: "figure.walk").font(.subheadline.weight(.semibold))
-                Spacer()
-                Text("höchstens \(TransitBucket.walk(config)) min").font(.subheadline.monospacedDigit()).foregroundColor(Theme.accent)
-            }
-            Slider(value: Binding(get: { Double(TransitBucket.walk(config)) },
-                                  set: { config["walk"] = .number(($0).rounded()) }),
-                   in: 2...20, step: 1) {
-                Text("Maximaler Fußweg")
-            } minimumValueLabel: {
-                Text("2").font(.caption).foregroundColor(Theme.secondary)
-            } maximumValueLabel: {
-                Text("20").font(.caption).foregroundColor(Theme.secondary)
-            }
-            .tint(Theme.accent)
-            Text("Etwa \(Int(Double(TransitBucket.walk(config) - 1) * 80 / 1.3 / 10) * 10) m Luftlinie. Hubert zeigt nur Haltestellen und Verbindungen, zu denen du höchstens so lange läufst.")
-                .font(.caption).foregroundColor(Theme.secondary)
-        }
-        .padding(.vertical, 4)
+        // Wie weit zu Fuß – getrennt für Zuhause und Mein Standort
+        walkSlider("Fußweg ab Zuhause", icon: "house.fill", key: "walkHome", value: TransitBucket.homeWalk(config))
+        walkSlider("Fußweg ab Mein Standort", icon: "location.fill", key: "walk", value: TransitBucket.walk(config))
 
         VStack(alignment: .leading, spacing: 4) {
             Text("Ziel hinzufügen").font(.subheadline.weight(.semibold))

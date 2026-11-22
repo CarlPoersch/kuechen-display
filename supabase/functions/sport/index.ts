@@ -509,8 +509,16 @@ async function search(raw: string): Promise<Hit[]> {
   const c = COUNTRIES[q.toLowerCase()];
   if (c) add({ kind: "country", id: c[0], name: c[2] + " im Tennis", sub: "Tennis · alle Spieler aus " + c[2], emoji: c[1], sport: "tn", leagues: ["tennis/atp", "tennis/wta"] });
 
-  // Beste Treffer zuerst: Name beginnt mit der Suche, dann Vereine/Sportler, dann Ligen
-  const rank = (h: Hit) => (fold(h.name).startsWith(fq) ? 0 : fold(h.name).includes(fq) ? 1 : 2) * 10 +
+  // Beste Treffer zuerst: Suche als ganzes Wort im Namen („Bayern“ → FC Bayern), dann Wortanfang
+  // („Bayernliga“), dann irgendwo enthalten; bei Gleichstand Vereine/Sportler vor Ligen
+  const words = (s: string) => fold(s).split(/[^a-z0-9]+/).filter(Boolean);
+  const match = (h: Hit) => {
+    const n = fold(h.name), w = words(h.name);
+    if (n === fq || w.includes(fq) || n.startsWith(fq + " ")) return 0;
+    if (n.startsWith(fq) || w.some((x) => x.startsWith(fq))) return 1;
+    return n.includes(fq) ? 2 : 3;
+  };
+  const rank = (h: Hit) => match(h) * 10 +
     ({ team: 0, nat: 0, player: 1, driver: 1, country: 2, league: 3 } as const)[h.kind];
   return hits.sort((a, b) => rank(a) - rank(b)).slice(0, 25);
 }
