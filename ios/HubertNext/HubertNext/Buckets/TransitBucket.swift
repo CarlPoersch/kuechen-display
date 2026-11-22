@@ -750,6 +750,7 @@ struct PlaceSearch: View {
     @State private var query = ""
     @State private var results: [TransitBucket.Place] = []
     @State private var searching = false
+    @State private var showMap = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -757,7 +758,12 @@ struct PlaceSearch: View {
                 TextField(prompt, text: $query).onSubmit { Task { await search() } }
                 if searching { ProgressView() }
                 else { Button("Suchen") { Task { await search() } }.buttonStyle(.borderless).disabled(query.count < 3) }
+                // Adresse unbekannt → auf der Karte zeigen
+                Button { showMap = true } label: { Image(systemName: "map") }
+                    .buttonStyle(.borderless)
+                    .accessibilityLabel("Auf der Karte wählen")
             }
+            .sheet(isPresented: $showMap) { MapPickerSheet { p in onPick(p) } }
             ForEach(results, id: \.self) { p in
                 Button {
                     onPick(p); results = []; query = ""
