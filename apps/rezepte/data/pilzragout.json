@@ -1,0 +1,71 @@
+{
+ "id": "pilzragout",
+ "title": "Rahm-Pilzragout mit Petersilie",
+ "icon": "🍄",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "gemischte Pilze"
+  },
+  {
+   "amount": "2",
+   "name": "Schalotten"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pilze putzen und in Scheiben schneiden, Schalotten fein würfeln."
+  },
+  {
+   "text": "Pilze portionsweise in heißem Öl scharf anbraten, bis sie Farbe haben.",
+   "minutes": 8
+  },
+  {
+   "text": "Butter, Schalotten und Knoblauch zugeben und kurz dünsten.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit Brühe und Sahne ablöschen, Senf einrühren und sämig einköcheln.",
+   "minutes": 6
+  },
+  {
+   "text": "Salzen, pfeffern und mit Petersilie bestreuen – dazu Semmelknödel oder Bandnudeln."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

@@ -1,0 +1,62 @@
+{
+ "id": "spekulatius",
+ "title": "Gewürz-Spekulatius",
+ "icon": "🍪",
+ "cuisine": "Deutsch",
+ "servings": 40,
+ "time": "ca. 1 Std. (plus 2 Std. Kühlzeit)",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "125 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "125 g",
+   "name": "kalte Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Spekulatiusgewürz"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "50 g",
+   "name": "Mandelblättchen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Zucker, Gewürz, Backpulver und Salz mischen, Butter in Stücken und Ei zugeben und rasch verkneten."
+  },
+  {
+   "text": "Teig in Folie wickeln und kalt stellen.",
+   "minutes": 120
+  },
+  {
+   "text": "Ofen auf 180 °C vorheizen. Teig dünn ausrollen, Formen ausstechen und auf Mandelblättchen drücken."
+  },
+  {
+   "text": "Goldbraun backen und auf dem Blech abkühlen lassen.",
+   "minutes": 11
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60
+}

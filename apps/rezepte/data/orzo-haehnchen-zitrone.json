@@ -1,0 +1,75 @@
+{
+ "id": "orzo-haehnchen-zitrone",
+ "title": "One-Pot-Orzo mit Hähnchen und Zitrone",
+ "icon": "🍋",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenbrustfilet"
+  },
+  {
+   "amount": "300 g",
+   "name": "Orzo"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone"
+  },
+  {
+   "amount": "100 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Oregano"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Würfel schneiden, salzen und in Öl rundum anbraten, herausnehmen.",
+   "minutes": 6
+  },
+  {
+   "text": "Zwiebel und Knoblauch im Bratfett andünsten, Orzo kurz mitrösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Brühe, Oregano und abgeriebene Zitronenschale zugeben, unter gelegentlichem Rühren köcheln.",
+   "minutes": 10
+  },
+  {
+   "text": "Hähnchen und Spinat unterheben, bis der Spinat zusammenfällt.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit Zitronensaft, Parmesan, Salz und Pfeffer abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35
+}

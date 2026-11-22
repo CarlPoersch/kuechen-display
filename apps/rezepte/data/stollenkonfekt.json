@@ -1,0 +1,76 @@
+{
+ "id": "stollenkonfekt",
+ "title": "Quark-Stollenkonfekt",
+ "icon": "🎄",
+ "cuisine": "Deutsch",
+ "servings": 40,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "125 g",
+   "name": "Magerquark"
+  },
+  {
+   "amount": "75 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "100 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "50 g",
+   "name": "gehackte Mandeln"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Lebkuchengewürz"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter (zum Bestreichen)"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Puderzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen. Mehl, Backpulver, Quark, Zucker, Butter, Ei und Gewürz zu einem glatten Teig kneten."
+  },
+  {
+   "text": "Rosinen und Mandeln unterkneten."
+  },
+  {
+   "text": "Teig zu zwei Rollen formen, in 2 cm dicke Stücke schneiden und auf ein Blech setzen."
+  },
+  {
+   "text": "Goldgelb backen.",
+   "minutes": 15
+  },
+  {
+   "text": "Noch warm mit flüssiger Butter bestreichen und dick in Puderzucker wälzen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45
+}

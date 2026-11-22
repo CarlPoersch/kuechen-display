@@ -1,0 +1,55 @@
+{
+ "id": "apfelpunsch",
+ "title": "Apfel-Zimt-Punsch (alkoholfrei)",
+ "icon": "🍎",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 l",
+   "name": "naturtrüber Apfelsaft"
+  },
+  {
+   "amount": "250 ml",
+   "name": "schwarzer Tee"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Orange"
+  },
+  {
+   "amount": "2",
+   "name": "Zimtstangen"
+  },
+  {
+   "amount": "3",
+   "name": "Nelken"
+  },
+  {
+   "amount": "1",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Orange in Scheiben schneiden."
+  },
+  {
+   "text": "Apfelsaft, Tee, Orangenscheiben und Gewürze langsam erhitzen, nicht kochen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Honig abschmecken und heiß in Tassen servieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
+}

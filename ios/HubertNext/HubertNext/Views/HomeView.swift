@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 import UniformTypeIdentifiers
 
 // ============================================================
@@ -50,6 +51,14 @@ struct HomeView: View {
                     if editing { editBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
                     else if collapsed { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
                 }
+                // Loslassen irgendwo auf der Startseite (zwischen Karten, auf Leisten) beendet das Ziehen.
+                // Warum: iOS meldet ein Loslassen ohne Ziel nicht – die Karte blieb sonst ausgegraut.
+                .onDrop(of: [UTType.text], delegate: EndDrag(dragging: $dragging, store: store))
+                .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+                    // Sicherheitsnetz: länger als 5 Sek. keine Bewegung über der Startseite → Ziehen ist vorbei
+                    if dragging != nil && DragWatch.idle > 5 { dragging = nil; store.saveBuckets() }
+                }
+                .onChange(of: editing) { _ in dragging = nil }
                 .animation(.easeOut(duration: 0.2), value: collapsed)
                 .animation(.easeOut(duration: 0.2), value: editing)
                 .environment(\.homeEditing, editing)
@@ -136,7 +145,7 @@ struct HomeView: View {
                             })
                             // Kein Wechsel in den Bearbeiten-Modus beim Ziehen: Das entfernte das Kontextmenü,
                             // während es noch offen war → Absturz.
-                            .onDrag { dragging = inst.id; return NSItemProvider(object: inst.id as NSString) }
+                            .onDrag { dragging = inst.id; DragWatch.ping(); return NSItemProvider(object: inst.id as NSString) }
                             .onDrop(of: [UTType.text], delegate: BucketDrop(target: inst.id, dragging: $dragging, store: store))
                     }
                 }
@@ -258,7 +267,7 @@ struct BriefingGrid: View {
                             .opacity(dragging == it.id ? 0.4 : 1)
                             // Im Bearbeiten-Modus: Karte ziehen und auf einer anderen loslassen
                             // Kein startEditing() beim Ziehen – siehe ToolIcon (Absturz mit offenem Kontextmenü)
-                            .onDrag { dragging = it.id; return NSItemProvider(object: it.id as NSString) }
+                            .onDrag { dragging = it.id; DragWatch.ping(); return NSItemProvider(object: it.id as NSString) }
                             .onDrop(of: [UTType.text], delegate: BucketDrop(target: it.id, dragging: $dragging, store: store))
                     }
                 }
@@ -447,15 +456,37 @@ struct BucketDrop: DropDelegate {
     let store: AppStore
 
     func dropEntered(info: DropInfo) {
+        DragWatch.ping()
         guard let id = dragging, id != target else { return }
         withAnimation(.easeInOut(duration: 0.2)) { store.moveBucket(id, to: target) }
     }
-    func dropUpdated(info: DropInfo) -> DropProposal? { DropProposal(operation: .move) }
+    func dropUpdated(info: DropInfo) -> DropProposal? { DragWatch.ping(); return DropProposal(operation: .move) }
     func performDrop(info: DropInfo) -> Bool {
         dragging = nil
         store.saveBuckets()
         return true
     }
+}
+
+/// Loslassen neben den Karten: Ziehen beenden und die neue Reihenfolge sichern
+struct EndDrag: DropDelegate {
+    @Binding var dragging: String?
+    let store: AppStore
+
+    func dropUpdated(info: DropInfo) -> DropProposal? { DragWatch.ping(); return DropProposal(operation: .move) }
+    func performDrop(info: DropInfo) -> Bool {
+        guard dragging != nil else { return false }
+        dragging = nil
+        store.saveBuckets()
+        return true
+    }
+}
+
+/// Merkt sich, wann zuletzt über der Startseite gezogen wurde
+enum DragWatch {
+    private static var last = Date.distantPast
+    static func ping() { last = Date() }
+    static var idle: TimeInterval { Date().timeIntervalSince(last) }
 }
 
 /// Aktion erst ausführen, wenn das Kontextmenü zu ist.

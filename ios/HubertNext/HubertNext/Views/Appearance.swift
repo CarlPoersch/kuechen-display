@@ -15,21 +15,31 @@ struct HeroHeader: View {
         let t = look.current
         let compact = look.compactHeader
         TimelineView(.periodic(from: .now, by: 1)) { ctx in
-            ZStack(alignment: .topTrailing) {
+            // Zahnrad in eigener Spalte rechts: Uhr und Datum weichen ihm aus, statt darunter zu liegen
+            HStack(alignment: compact && !look.showGreeting ? .center : .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: compact ? 2 : 4) {
                     if look.showGreeting {
                         Text(Self.greeting(ctx.date) + (name.map { ", " + $0 } ?? ""))
                             .font(compact ? .subheadline.weight(.semibold) : .headline).foregroundColor(.white.opacity(0.9))
+                            .lineLimit(1).minimumScaleFactor(0.8)
                     }
-                    HStack(alignment: .lastTextBaseline, spacing: 14) {
+                    HStack(alignment: .center, spacing: 14) {
                         Text(ctx.date, format: look.showSeconds
                              ? .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits).second(.twoDigits)
                              : .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits))
                             .font(.system(size: compact ? 46 : 76, weight: .thin))
                             .monospacedDigit().foregroundColor(.white)
                             .minimumScaleFactor(0.6).lineLimit(1)
-                        // Kompakt: Datum neben der Uhr statt darunter
-                        if compact && look.showDate { dateText(ctx.date).font(.headline.weight(.medium)) }
+                        // Kompakt: Datum zweizeilig neben der Uhr (Wochentag / Tag und Monat) – passt auch aufs iPhone
+                        if compact && look.showDate {
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text(ctx.date.formatted(.dateTime.weekday(.wide).locale(Locale(identifier: "de_DE"))))
+                                Text(ctx.date.formatted(.dateTime.day().month(.wide).locale(Locale(identifier: "de_DE"))))
+                            }
+                            .font(.headline.weight(.medium)).foregroundColor(.white.opacity(0.9))
+                            .lineLimit(1).minimumScaleFactor(0.7)
+                            .layoutPriority(1)
+                        }
                     }
                     if !compact && look.showDate { dateText(ctx.date).font(.title3.weight(.medium)) }
                 }

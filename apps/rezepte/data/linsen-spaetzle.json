@@ -1,0 +1,78 @@
+{
+ "id": "linsen-spaetzle",
+ "title": "Linsen mit Spätzle und Saitenwürstchen",
+ "icon": "🥘",
+ "cuisine": "Schwäbisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Tellerlinsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Knollensellerie"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "500 g",
+   "name": "Spätzle"
+  },
+  {
+   "amount": "4 Paar",
+   "name": "Saitenwürstchen"
+  },
+  {
+   "amount": "1",
+   "name": "Lorbeerblatt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotte und Sellerie fein würfeln und in Butter andünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Mehl darüberstäuben, kurz anschwitzen und mit Brühe ablöschen."
+  },
+  {
+   "text": "Linsen und Lorbeer zugeben und weich köcheln.",
+   "minutes": 35
+  },
+  {
+   "text": "Würstchen im heißen, nicht kochenden Wasser ziehen lassen, Spätzle erwärmen.",
+   "minutes": 8
+  },
+  {
+   "text": "Linsen mit Essig, Salz und Pfeffer kräftig abschmecken und mit Spätzle und Würstchen servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50
+}

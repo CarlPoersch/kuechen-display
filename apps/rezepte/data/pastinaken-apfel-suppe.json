@@ -1,0 +1,66 @@
+{
+ "id": "pastinaken-apfel-suppe",
+ "title": "Pastinaken-Apfel-Suppe",
+ "icon": "🥣",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Pastinaken"
+  },
+  {
+   "amount": "1",
+   "name": "säuerlicher Apfel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "geröstete Kürbiskerne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pastinaken schälen und würfeln, Apfel und Zwiebel klein schneiden."
+  },
+  {
+   "text": "Zwiebel in Öl andünsten, Pastinaken und Apfel kurz mitdünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Brühe auffüllen und weich köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Kokosmilch zugeben, fein pürieren und mit Salz, Pfeffer und Muskat abschmecken."
+  },
+  {
+   "text": "Mit Kürbiskernen bestreuen."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

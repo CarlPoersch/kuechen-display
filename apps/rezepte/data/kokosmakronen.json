@@ -1,0 +1,55 @@
+{
+ "id": "kokosmakronen",
+ "title": "Kokosmakronen",
+ "icon": "🥥",
+ "cuisine": "Deutsch",
+ "servings": 30,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "Eiweiß"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kokosraspel"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "30",
+   "name": "Backoblaten (Ø 4 cm)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 150 °C vorheizen. Eiweiß mit Salz steif schlagen, Zucker und Vanillezucker einrieseln lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Kokosraspel vorsichtig unterheben."
+  },
+  {
+   "text": "Mit zwei Teelöffeln kleine Häufchen auf die Oblaten setzen."
+  },
+  {
+   "text": "Backen, bis sie leicht goldene Spitzen haben.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

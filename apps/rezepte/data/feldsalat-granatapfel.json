@@ -1,0 +1,62 @@
+{
+ "id": "feldsalat-granatapfel",
+ "title": "Feldsalat mit Granatapfel und Walnüssen",
+ "icon": "🥗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Feldsalat"
+  },
+  {
+   "amount": "1",
+   "name": "Granatapfel"
+  },
+  {
+   "amount": "60 g",
+   "name": "Walnusskerne"
+  },
+  {
+   "amount": "1",
+   "name": "Birne"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Balsamico"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ahornsirup"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Senf"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Walnüsse in einer Pfanne ohne Fett rösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Feldsalat waschen, Birne in dünne Spalten schneiden, Granatapfelkerne auslösen."
+  },
+  {
+   "text": "Öl, Balsamico, Ahornsirup und Senf verrühren, salzen und pfeffern."
+  },
+  {
+   "text": "Alles vermengen und sofort servieren."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
+}

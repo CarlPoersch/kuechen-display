@@ -1,0 +1,79 @@
+{
+ "id": "szegediner-gulasch",
+ "title": "Szegediner Gulasch",
+ "icon": "🍲",
+ "cuisine": "Ungarisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Schweinegulasch"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "500 g",
+   "name": "Sauerkraut"
+  },
+  {
+   "amount": "2 EL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schmand"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in heißem Öl portionsweise kräftig anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebeln in Streifen schneiden und mitbraten, Knoblauch und Tomatenmark kurz mitrösten.",
+   "minutes": 6
+  },
+  {
+   "text": "Paprikapulver und Kümmel einrühren, sofort mit Brühe ablöschen."
+  },
+  {
+   "text": "Zugedeckt schmoren lassen.",
+   "minutes": 60
+  },
+  {
+   "text": "Sauerkraut abtropfen lassen, untermischen und weiterschmoren.",
+   "minutes": 30
+  },
+  {
+   "text": "Abschmecken und mit einem Klecks Schmand servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 105,
+ "gf": true
+}

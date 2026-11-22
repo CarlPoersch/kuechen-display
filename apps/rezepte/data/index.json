@@ -1041,6 +1041,28 @@
   ]
  },
  {
+  "id": "apfelpunsch",
+  "title": "Apfel-Zimt-Punsch (alkoholfrei)",
+  "icon": "🍎",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 15 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 15,
+  "gf": true,
+  "ing": [
+   "naturtrüber Apfelsaft",
+   "schwarzer Tee",
+   "Bio-Orange",
+   "Zimtstangen",
+   "Nelken",
+   "Sternanis",
+   "Honig"
+  ]
+ },
+ {
   "id": "kaiserschmarrn-apfel",
   "title": "Apfelpfannkuchen",
   "icon": "🍎",
@@ -1544,6 +1566,29 @@
   ]
  },
  {
+  "id": "feldsalat-granatapfel",
+  "title": "Feldsalat mit Granatapfel und Walnüssen",
+  "icon": "🥗",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 15 Min.",
+  "cat": "Salat",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 15,
+  "gf": true,
+  "ing": [
+   "Feldsalat",
+   "Granatapfel",
+   "Walnusskerne",
+   "Birne",
+   "Olivenöl",
+   "Balsamico",
+   "Ahornsirup",
+   "Senf"
+  ]
+ },
+ {
   "id": "feldsalat-speck",
   "title": "Feldsalat mit Speck und Croutons",
   "icon": "🥗",
@@ -1744,6 +1789,28 @@
    "Butter",
    "Schnittlauch",
    "Kartoffelsalat (zum Servieren)"
+  ]
+ },
+ {
+  "id": "spekulatius",
+  "title": "Gewürz-Spekulatius",
+  "icon": "🍪",
+  "cuisine": "Deutsch",
+  "servings": 40,
+  "time": "ca. 1 Std. (plus 2 Std. Kühlzeit)",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Mehl",
+   "brauner Zucker",
+   "kalte Butter",
+   "Ei",
+   "Spekulatiusgewürz",
+   "Backpulver",
+   "Salz",
+   "Mandelblättchen"
   ]
  },
  {
@@ -2295,6 +2362,27 @@
   ]
  },
  {
+  "id": "kokosmakronen",
+  "title": "Kokosmakronen",
+  "icon": "🥥",
+  "cuisine": "Deutsch",
+  "servings": 30,
+  "time": "ca. 40 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Eiweiß",
+   "Zucker",
+   "Kokosraspel",
+   "Salz",
+   "Vanillezucker",
+   "Backoblaten (Ø 4 cm)"
+  ]
+ },
+ {
   "id": "kaesekuchen",
   "title": "Käsekuchen",
   "icon": "🍰",
@@ -2675,6 +2763,29 @@
   ]
  },
  {
+  "id": "pastinaken-apfel-suppe",
+  "title": "Pastinaken-Apfel-Suppe",
+  "icon": "🥣",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Suppe",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Pastinaken",
+   "säuerlicher Apfel",
+   "Zwiebel",
+   "Gemüsebrühe",
+   "Kokosmilch",
+   "Öl",
+   "Muskat",
+   "geröstete Kürbiskerne"
+  ]
+ },
+ {
   "id": "pfannkuchen",
   "title": "Pfannkuchen",
   "icon": "🥞",
@@ -2715,6 +2826,31 @@
    "Öl",
    "Petersilie",
    "Bandnudeln"
+  ]
+ },
+ {
+  "id": "stollenkonfekt",
+  "title": "Quark-Stollenkonfekt",
+  "icon": "🎄",
+  "cuisine": "Deutsch",
+  "servings": 40,
+  "time": "ca. 45 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 45,
+  "ing": [
+   "Mehl",
+   "Backpulver",
+   "Magerquark",
+   "Zucker",
+   "weiche Butter",
+   "Ei",
+   "Rosinen",
+   "gehackte Mandeln",
+   "Lebkuchengewürz",
+   "Butter (zum Bestreichen)",
+   "Puderzucker"
   ]
  },
  {
@@ -2766,6 +2902,30 @@
    "Orangeat",
    "flüssige Butter",
    "Puderzucker"
+  ]
+ },
+ {
+  "id": "pilzragout",
+  "title": "Rahm-Pilzragout mit Petersilie",
+  "icon": "🍄",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "gemischte Pilze",
+   "Schalotten",
+   "Knoblauchzehe",
+   "Sahne",
+   "Gemüsebrühe",
+   "Butter",
+   "Öl",
+   "Senf",
+   "Petersilie"
   ]
  },
  {
@@ -4249,6 +4409,29 @@
   ]
  },
  {
+  "id": "chai-latte",
+  "title": "Chai Latte",
+  "icon": "☕",
+  "cuisine": "Indisch",
+  "servings": 2,
+  "time": "ca. 15 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 15,
+  "gf": true,
+  "ing": [
+   "Milch",
+   "Wasser",
+   "schwarzer Tee (Assam)",
+   "Zimtstange",
+   "Kardamomkapseln",
+   "Nelken",
+   "Ingwer",
+   "Zucker"
+  ]
+ },
+ {
   "id": "chana-masala",
   "title": "Chana Masala (Kichererbsencurry)",
   "icon": "🫘",
@@ -4607,6 +4790,32 @@
    "Koriander",
    "Reis",
    "Öl"
+  ]
+ },
+ {
+  "id": "kuerbis-kokos-curry",
+  "title": "Kürbis-Kokos-Curry mit Kichererbsen",
+  "icon": "🎃",
+  "cuisine": "Indisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Butternut-Kürbis",
+   "Kichererbsen",
+   "Kokosmilch",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Ingwer (2 cm)",
+   "rote Currypaste",
+   "Babyspinat",
+   "Limette",
+   "Kokosöl",
+   "Basmatireis"
   ]
  },
  {
@@ -5813,6 +6022,29 @@
    "Parmesan",
    "Olivenöl",
    "Walnüsse"
+  ]
+ },
+ {
+  "id": "pasta-rosenkohl-speck",
+  "title": "Pasta mit Rosenkohl und Speck",
+  "icon": "🥬",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "Orecchiette",
+   "Rosenkohl",
+   "Speckwürfel",
+   "Knoblauchzehen",
+   "Bio-Zitrone",
+   "Parmesan",
+   "Olivenöl",
+   "Chiliflocken"
   ]
  },
  {
@@ -7600,6 +7832,30 @@
   ]
  },
  {
+  "id": "orzo-haehnchen-zitrone",
+  "title": "One-Pot-Orzo mit Hähnchen und Zitrone",
+  "icon": "🍋",
+  "cuisine": "Mediterran",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 35,
+  "ing": [
+   "Hähnchenbrustfilet",
+   "Orzo",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Hühnerbrühe",
+   "Bio-Zitrone",
+   "Babyspinat",
+   "Parmesan",
+   "Olivenöl",
+   "getrockneter Oregano"
+  ]
+ },
+ {
   "id": "paella",
   "title": "Paella mit Hähnchen und Garnelen",
   "icon": "🥘",
@@ -7922,6 +8178,33 @@
    "Cheddar",
    "saure Sahne",
    "Öl"
+  ]
+ },
+ {
+  "id": "kuerbis-bohnen-chili",
+  "title": "Kürbis-Bohnen-Chili",
+  "icon": "🌶️",
+  "cuisine": "Mexikanisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "Hokkaido-Kürbis",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Kidneybohnen",
+   "schwarze Bohnen",
+   "stückige Tomaten",
+   "Kreuzkümmel",
+   "geräuchertes Paprikapulver",
+   "Chiliflocken",
+   "Gemüsebrühe",
+   "Olivenöl",
+   "Limette"
   ]
  },
  {
@@ -8594,6 +8877,52 @@
    "Zwiebeln",
    "Butter",
    "Apfelmus (zum Servieren)"
+  ]
+ },
+ {
+  "id": "flaedlesuppe",
+  "title": "Flädlesuppe",
+  "icon": "🍜",
+  "cuisine": "Schwäbisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Mehl",
+   "Eier",
+   "Milch",
+   "kräftige Rinderbrühe",
+   "Schnittlauch",
+   "Butter",
+   "Salz"
+  ]
+ },
+ {
+  "id": "linsen-spaetzle",
+  "title": "Linsen mit Spätzle und Saitenwürstchen",
+  "icon": "🥘",
+  "cuisine": "Schwäbisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "ing": [
+   "Tellerlinsen",
+   "Zwiebel",
+   "Karotte",
+   "Knollensellerie",
+   "Mehl",
+   "Gemüsebrühe",
+   "Rotweinessig",
+   "Butter",
+   "Spätzle",
+   "Saitenwürstchen",
+   "Lorbeerblatt"
   ]
  },
  {
@@ -9281,6 +9610,31 @@
    "Knoblauchzehen",
    "saure Sahne",
    "geriebener Käse"
+  ]
+ },
+ {
+  "id": "szegediner-gulasch",
+  "title": "Szegediner Gulasch",
+  "icon": "🍲",
+  "cuisine": "Ungarisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 105,
+  "gf": true,
+  "ing": [
+   "Schweinegulasch",
+   "Zwiebeln",
+   "Knoblauchzehen",
+   "Sauerkraut",
+   "edelsüßes Paprikapulver",
+   "Tomatenmark",
+   "Kümmel",
+   "Brühe",
+   "Schmand",
+   "Öl"
   ]
  },
  {

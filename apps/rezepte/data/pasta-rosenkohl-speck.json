@@ -1,0 +1,67 @@
+{
+ "id": "pasta-rosenkohl-speck",
+ "title": "Pasta mit Rosenkohl und Speck",
+ "icon": "🥬",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Orecchiette"
+  },
+  {
+   "amount": "400 g",
+   "name": "Rosenkohl"
+  },
+  {
+   "amount": "120 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone"
+  },
+  {
+   "amount": "60 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Chiliflocken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pasta in Salzwasser bissfest garen, eine Tasse Nudelwasser aufheben.",
+   "minutes": 10
+  },
+  {
+   "text": "Rosenkohl putzen und vierteln, Speck in Öl knusprig braten.",
+   "minutes": 5
+  },
+  {
+   "text": "Rosenkohl und Knoblauch zugeben und braten, bis die Ränder bräunen.",
+   "minutes": 6
+  },
+  {
+   "text": "Pasta, etwas Nudelwasser, Zitronenschale und Parmesan unterschwenken, bis es cremig ist."
+  },
+  {
+   "text": "Mit Chili, Pfeffer und Zitronensaft abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

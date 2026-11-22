@@ -1,0 +1,83 @@
+{
+ "id": "kuerbis-bohnen-chili",
+ "title": "Kürbis-Bohnen-Chili",
+ "icon": "🌶️",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hokkaido-Kürbis"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "geräuchertes Paprikapulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kürbis mit Schale in 2 cm große Würfel schneiden, Zwiebel und Knoblauch fein hacken."
+  },
+  {
+   "text": "Zwiebel in Öl glasig dünsten, Knoblauch und Gewürze kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Kürbis, Tomaten und Brühe zugeben und zugedeckt köcheln, bis der Kürbis fast weich ist.",
+   "minutes": 20
+  },
+  {
+   "text": "Bohnen abspülen, zugeben und offen weiterköcheln, bis das Chili sämig ist.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Salz und Limettensaft abschmecken."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

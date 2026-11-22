@@ -15,12 +15,52 @@ final class AppStore: ObservableObject {
     private let api = SupabaseClient.shared
     private let cacheKey = "hubert.cache.v1"
 
+    // MARK: Ansicht pro Gerät
+    // Welche Buckets es gibt und wie sie eingestellt sind, ist auf allen Geräten gleich (Server).
+    // Reihenfolge und Größe der Karten gelten nur für dieses Gerät – iPhone und iPad
+    // haben so jedes seine eigene Startseite. Der Server behält die Werte von vor dieser
+    // Trennung; ein neues Gerät startet mit ihnen.
+    private struct Layout: Codable { var order: [String] = []; var sizes: [String: BucketSize] = [:] }
+    private struct ServerSpot { let position: Int; let size: BucketSize }
+    private let layoutKey = "hubert.layout.v1"
+    private var layout: Layout?
+    private var serverSpots: [String: ServerSpot] = [:]
+
+    private func loadLayout() {
+        guard layout == nil, let d = UserDefaults.standard.data(forKey: layoutKey) else { return }
+        layout = try? JSONDecoder().decode(Layout.self, from: d)
+    }
+
+    /// Ansicht dieses Geräts merken (Reihenfolge und Größen wie gerade angezeigt)
+    private func storeLayout() {
+        var l = Layout()
+        for b in buckets { l.order.append(b.id); l.sizes[b.id] = b.size }
+        layout = l
+        if let d = try? JSONEncoder().encode(l) { UserDefaults.standard.set(d, forKey: layoutKey) }
+    }
+
+    /// Server-Liste in der Ansicht dieses Geräts: eigene Reihenfolge und Größen;
+    /// auf einem anderen Gerät neu hinzugefügte Buckets kommen hinten dazu.
+    private func applyLayout(_ list: [BucketInstance]) -> [BucketInstance] {
+        guard let l = layout else { return list }
+        var rank: [String: Int] = [:]
+        for (i, id) in l.order.enumerated() where rank[id] == nil { rank[id] = i }
+        var known: [BucketInstance] = [], added: [BucketInstance] = []
+        for var b in list {
+            if let s = l.sizes[b.id] { b.size = s }
+            if rank[b.id] != nil { known.append(b) } else { added.append(b) }
+        }
+        known.sort { (rank[$0.id] ?? 0) < (rank[$1.id] ?? 0) }
+        return known + added
+    }
+
     private struct Cache: Codable { var profile: Profile?; var household: Household?; var buckets: [BucketInstance] }
 
     // MARK: Start
 
     func start() async {
         guard api.session != nil else { phase = .signedOut; return }
+        loadLayout()
         restoreCache()
         await reload()
     }
@@ -33,7 +73,12 @@ final class AppStore: ObservableObject {
             profile = profiles.first ?? Profile(id: uid, name: nil, interests: [], onboarded: false)
             let homes: [Household] = try await api.rpc("my_household")
             household = homes.first
-            buckets = try await api.select("user_buckets", ["order": "position"])
+            let fromServer: [BucketInstance] = try await api.select("user_buckets", ["order": "position"])
+            serverSpots = [:]
+            for b in fromServer { serverSpots[b.id] = ServerSpot(position: b.position, size: b.size) }
+            loadLayout()
+            buckets = applyLayout(fromServer)
+            if layout == nil { storeLayout() }   // erster Start mit eigener Ansicht: so, wie es gerade aussieht
             saveCache()
             phase = (profile?.onboarded == true && household != nil) ? .ready : .onboarding
         } catch let e as APIError where e.isAuth {
@@ -57,6 +102,8 @@ final class AppStore: ObservableObject {
     func signOut() {
         api.signOut()
         UserDefaults.standard.removeObject(forKey: cacheKey)
+        UserDefaults.standard.removeObject(forKey: layoutKey)
+        layout = nil; serverSpots = [:]
         profile = nil; household = nil; buckets = []
         KitchenStore.shared.reset(); CookSession.shared.end(local: true); LiveSync.shared.stop()   // Küchendaten des Haushalts nicht auf dem Gerät lassen
         phase = .signedOut
@@ -114,6 +161,7 @@ final class AppStore: ObservableObject {
 
     func finishOnboarding(with chosen: [BucketInstance]) async throws {
         buckets = chosen.enumerated().map { pair in var b = pair.element; b.position = pair.offset; return b }
+        storeLayout()
         try await saveBucketsThrowing()
         guard let uid = api.userId else { return }
         try await api.update("profiles", ["id": "eq." + uid], ["onboarded": true])
@@ -159,6 +207,7 @@ final class AppStore: ObservableObject {
 
     /// Speichern im Hintergrund (Änderungen sind lokal sofort sichtbar)
     func saveBuckets() {
+        storeLayout()
         saveCache()
         Task { do { try await saveBucketsThrowing() } catch { errorMessage = "Speichern fehlgeschlagen: \(error.localizedDescription)" } }
     }
@@ -170,8 +219,17 @@ final class AppStore: ObservableObject {
     private func saveBucketsThrowing() async throws {
         guard let uid = api.userId else { return }
         for i in buckets.indices { buckets[i].position = i }
-        let rows = buckets.map { BucketRow(id: $0.id, bucket: $0.bucket, position: $0.position, size: $0.size.rawValue, config: $0.config) }
+        // Reihenfolge und Größe bleiben auf dem Server, wie sie waren (Ansicht ist Sache des Geräts);
+        // neue Buckets kommen dort hinten dazu
+        var next = (serverSpots.values.map { $0.position }.max() ?? -1) + 1
+        var rows: [BucketRow] = []
+        for b in buckets {
+            let spot: ServerSpot
+            if let s = serverSpots[b.id] { spot = s } else { spot = ServerSpot(position: next, size: b.size); next += 1 }
+            rows.append(BucketRow(id: b.id, bucket: b.bucket, position: spot.position, size: spot.size.rawValue, config: b.config))
+        }
         if !rows.isEmpty { try await api.upsert("user_buckets", rows) }
+        for r in rows { serverSpots[r.id] = ServerSpot(position: r.position, size: BucketSize(rawValue: r.size) ?? .m) }
         // Entfernte Buckets auch auf dem Server löschen
         var filter = ["user_id": "eq." + uid]
         if !rows.isEmpty { filter["id"] = "not.in.(" + rows.map { $0.id }.joined(separator: ",") + ")" }

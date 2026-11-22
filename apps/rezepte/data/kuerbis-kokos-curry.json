@@ -1,0 +1,79 @@
+{
+ "id": "kuerbis-kokos-curry",
+ "title": "Kürbis-Kokos-Curry mit Kichererbsen",
+ "icon": "🎃",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "700 g",
+   "name": "Butternut-Kürbis"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer (2 cm)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "rote Currypaste"
+  },
+  {
+   "amount": "100 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Kokosöl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis nach Packungsangabe garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Kürbis schälen und würfeln, Zwiebel, Knoblauch und Ingwer fein hacken."
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Kokosöl andünsten, Currypaste kurz mitrösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Kürbis und Kokosmilch zugeben und köcheln, bis der Kürbis weich ist.",
+   "minutes": 15
+  },
+  {
+   "text": "Kichererbsen und Spinat unterheben, mit Limettensaft und Salz abschmecken und mit Reis servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

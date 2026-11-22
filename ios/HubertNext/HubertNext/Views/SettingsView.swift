@@ -175,11 +175,15 @@ struct BucketEditView: View {
         Form {
             if let i = index, let kind = BucketRegistry.kind(store.buckets[i].bucket) {
                 if kind.art == .glance {
-                    Section("Größe auf der Startseite") {
+                    Section {
                         Picker("Größe", selection: sizeBinding(i)) {
                             ForEach(kind.sizes) { Text($0.label).tag($0) }
                         }
                         .pickerStyle(.segmented)
+                    } header: {
+                        Text("Größe auf diesem " + (UIDevice.current.userInterfaceIdiom == .pad ? "iPad" : "iPhone"))
+                    } footer: {
+                        Text("Größe und Reihenfolge gelten nur für dieses Gerät. Inhalte und Einstellungen sind überall gleich.")
                     }
                 }
                 if let settings = kind.settings {

@@ -1,0 +1,64 @@
+{
+ "id": "chai-latte",
+ "title": "Chai Latte",
+ "icon": "☕",
+ "cuisine": "Indisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "300 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "2 TL",
+   "name": "schwarzer Tee (Assam)"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "4",
+   "name": "Kardamomkapseln"
+  },
+  {
+   "amount": "2",
+   "name": "Nelken"
+  },
+  {
+   "amount": "1 Scheibe",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kardamom leicht andrücken. Wasser mit allen Gewürzen aufkochen und ziehen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Tee zugeben und kurz mitköcheln.",
+   "minutes": 2
+  },
+  {
+   "text": "Milch und Zucker zugeben, erhitzen und durch ein Sieb in Tassen gießen.",
+   "minutes": 3
+  },
+  {
+   "text": "Nach Belieben mit Milchschaum und einer Prise Zimt servieren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "gf": true
+}

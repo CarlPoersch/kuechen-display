@@ -938,6 +938,44 @@ struct RecipePicker: View {
     }
 }
 
+// MARK: Hinzufügen (Einkauf und Vorrat)
+
+/// Plus vor dem Eingabefeld – antippbar, grau solange nichts eingetippt ist
+struct AddButton: View {
+    let enabled: Bool
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: "plus.circle.fill").font(.title3)
+                .foregroundColor(enabled ? Theme.accent : Color(UIColor.tertiaryLabel))
+        }
+        .buttonStyle(.borderless)
+        .disabled(!enabled)
+        .accessibilityLabel("Hinzufügen")
+    }
+}
+
+/// Zeile unter dem Eingabefeld: „„Eier" hinzufügen · in Kühlschrank"
+struct AddRow: View {
+    let text: String
+    let target: String
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 10) {
+                Image(systemName: "arrow.turn.down.left").font(.subheadline.weight(.semibold))
+                Text("„\(text)“ hinzufügen").fontWeight(.semibold).lineLimit(1)
+                Spacer(minLength: 8)
+                Text(target).foregroundColor(Theme.secondary).lineLimit(1)
+            }
+            .foregroundColor(Theme.accent)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.borderless)
+        .transition(.opacity)
+    }
+}
+
 // MARK: Einkauf
 
 struct ShopTab: View {
@@ -946,17 +984,25 @@ struct ShopTab: View {
     @State private var siri = false
     @FocusState private var typing: Bool
 
+    private var query: String { newItem.trimmingCharacters(in: .whitespaces) }
+    private func add() {
+        guard !query.isEmpty else { return }
+        withAnimation { kitchen.add("shop", name: query) }
+        newItem = ""; typing = true          // Tastatur bleibt offen für den nächsten Artikel
+    }
+
     var body: some View {
         let open = kitchen.shop.filter { !$0.done }
         let done = kitchen.shop.filter { $0.done }
         List {
             Section {
                 HStack {
-                    Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent).font(.title3)
+                    AddButton(enabled: !query.isEmpty, action: add)
                     TextField("Artikel hinzufügen, z. B. Milch", text: $newItem)
                         .focused($typing).submitLabel(.done)
-                        .onSubmit { kitchen.add("shop", name: newItem); newItem = ""; typing = true }
+                        .onSubmit(add)
                 }
+                if !query.isEmpty { AddRow(text: query, target: "Einkaufsliste", action: add) }
             }
             Section(header: Text(open.isEmpty ? "Alles eingekauft" : "Noch zu kaufen · \(open.count)")) {
                 ForEach(open) { ShopRow(item: $0) }
@@ -1063,6 +1109,14 @@ struct PantryTab: View {
     @State private var place = "Vorrat"
     @State private var editing: KitchenItem?
     @State private var scanning = false
+    @FocusState private var typing: Bool
+
+    private var query: String { newItem.trimmingCharacters(in: .whitespaces) }
+    private func add() {
+        guard !query.isEmpty else { return }
+        withAnimation { kitchen.add("pantry", name: query, place: place) }
+        newItem = ""; typing = true          // Tastatur bleibt offen für das nächste
+    }
 
     var body: some View {
         List {
@@ -1071,12 +1125,15 @@ struct PantryTab: View {
                     Label("Barcode oder Kassenzettel scannen", systemImage: "barcode.viewfinder").font(.headline)
                 }
                 HStack {
-                    Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent).font(.title3)
+                    AddButton(enabled: !query.isEmpty, action: add)
                     TextField("Hinzufügen, z. B. Reis", text: $newItem)
-                        .onSubmit { kitchen.add("pantry", name: newItem, place: place); newItem = "" }
+                        .focused($typing).submitLabel(.done)
+                        .onSubmit(add)
                     Picker("Ort", selection: $place) { ForEach(KitchenStore.places, id: \.self) { Text($0) } }
                         .pickerStyle(.menu).labelsHidden()
                 }
+                // Sobald etwas eingetippt ist: deutliche Zeile zum Hinzufügen (Enter geht weiterhin)
+                if !query.isEmpty { AddRow(text: query, target: place, action: add) }
             }
             let soon = kitchen.pantry.filter { ($0.daysLeft ?? 99) <= 3 }
             if !soon.isEmpty {

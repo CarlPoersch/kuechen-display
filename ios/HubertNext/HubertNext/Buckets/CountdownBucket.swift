@@ -73,17 +73,19 @@ struct CountdownGlance: View {
         } else {
             let pages = Pages.split(all, height: space.height, row: 38)
             // Eine Seite: Zeilen wachsen mit dem Platz. Mehrere Seiten: feste Zeilenhöhe.
-            let rowH = pages.count == 1 ? min(space.height / CGFloat(all.count), 60) : 38
+            // Wenige Einträge füllen die Karte ganz aus (kein leerer Streifen unten)
+            let rowH = pages.count == 1 ? min(space.height / CGFloat(all.count), 96) : 38
             GlancePager(pages: pages) { list in
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(Array(list.enumerated()), id: \.element.id) { i, e in
                     if i > 0 { Divider() }
                     HStack(spacing: 10) {
-                        Text(e.emoji).font(.system(size: rowH * 0.45))
-                        Text(e.title).font(rowH > 44 ? .title3 : .body).lineLimit(1)
+                        Text(e.emoji).font(.system(size: min(rowH * 0.45, 34)))
+                        Text(e.title).font(rowH > 70 ? .title2 : rowH > 44 ? .title3 : .body).lineLimit(1)
                         Spacer()
                         Text(label(CountdownBucket.daysLeft(e.date)))
-                            .font((rowH > 44 ? Font.title3 : .headline).weight(.semibold).monospacedDigit())
+                            .font((rowH > 70 ? Font.title : rowH > 44 ? .title3 : .headline).weight(.semibold).monospacedDigit())
+                            .lineLimit(1).minimumScaleFactor(0.7)
                             .foregroundColor(CountdownBucket.daysLeft(e.date) <= 7 ? Theme.accent : .primary)
                     }
                     .frame(height: max(0, rowH - 1))

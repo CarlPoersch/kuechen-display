@@ -1,0 +1,58 @@
+{
+ "id": "flaedlesuppe",
+ "title": "Flädlesuppe",
+ "icon": "🍜",
+ "cuisine": "Schwäbisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 l",
+   "name": "kräftige Rinderbrühe"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Eier, Milch und Salz zu einem glatten Teig verrühren und kurz quellen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "In wenig Butter dünne Pfannkuchen backen und abkühlen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Pfannkuchen aufrollen und in feine Streifen schneiden."
+  },
+  {
+   "text": "Brühe erhitzen, Flädle in Teller geben, mit heißer Brühe übergießen und mit Schnittlauch bestreuen."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}
