@@ -233,6 +233,9 @@ struct BucketEditView: View {
 struct AddBucketView: View {
     @EnvironmentObject var store: AppStore
     @Environment(\.dismiss) private var dismiss
+    /// Gerade hinzugefügter Bucket, der erst eingerichtet werden muss (z. B. Mensa wählen)
+    @State private var setup: SetupItem?
+    private struct SetupItem: Identifiable { let id: String }
 
     var body: some View {
         NavigationView {
@@ -243,7 +246,14 @@ struct AddBucketView: View {
                         Section(interest.name) {
                             ForEach(kinds) { kind in
                                 CatalogRow(kind: kind, count: store.buckets.filter { $0.bucket == kind.id }.count,
-                                           onAdd: { store.addBucket(kind) },
+                                           onAdd: {
+                                               store.addBucket(kind)
+                                               // Muss erst etwas gewählt werden? Dann gleich die Einstellungen öffnen
+                                               if kind.settings != nil, kind.needsSetup(kind.defaultConfig),
+                                                  let new = store.buckets.last(where: { $0.bucket == kind.id }) {
+                                                   setup = SetupItem(id: new.id)
+                                               }
+                                           },
                                            onRemove: {
                                                // Den zuletzt hinzugefügten dieser Art entfernen
                                                if let last = store.buckets.last(where: { $0.bucket == kind.id }) { store.removeBucket(id: last.id) }
@@ -256,6 +266,7 @@ struct AddBucketView: View {
             .listStyle(.insetGrouped)
             .navigationTitle("Bucket hinzufügen")
             .navigationBarTitleDisplayMode(.inline)
+            .sheet(item: $setup) { s in BucketEditSheet(bucketId: s.id).environmentObject(store) }
             .toolbar { ToolbarItem(placement: .navigationBarTrailing) { Button("Fertig") { dismiss() } } }
         }
         .navigationViewStyle(.stack)

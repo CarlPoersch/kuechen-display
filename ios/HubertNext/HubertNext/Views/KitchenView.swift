@@ -98,7 +98,7 @@ struct RecipesTab: View {
     @State private var query = ""
     @State private var category = "Alle"
     @State private var cuisine = "Alle"
-    @State private var filter = RecipeFilter()
+    @State private var filter = RecipeFilter(diet: DietPreference.kitchen)   // aus Mensa übernommen, sonst „Alle“
     @State private var showFilter = false
     @State private var suggestion: RecipeSummary?
     @State private var sheet: Sheet?

@@ -35,7 +35,7 @@ struct BucketKind: Identifiable {
 enum BucketRegistry {
     static let all: [BucketKind] = [WeatherBucket.kind, SunBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, DealsBucket.kind, TransitBucket.kind, CountdownBucket.kind,
                                          KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
-                                         KitchenBuckets.kitchen, KitchenBuckets.timer, GuestWifiBucket.kind] + comingSoon
+                                         KitchenBuckets.kitchen, KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
 
@@ -54,7 +54,6 @@ enum BucketRegistry {
         soon("medikamente", "Medikamente", "pills", .red, .tool, ["gesundheit"], "Erinnern und abhaken."),
         soon("stundenplan", "Stundenplan", "graduationcap", .blue, .glance, ["lernen"], "Nächste Vorlesung und Raum."),
         soon("pruefungen", "Prüfungen", "pencil.and.list.clipboard", .purple, .tool, ["lernen"], "Countdown und Lernplan."),
-        soon("mensa", "Mensa", "takeoutbag.and.cup.and.straw", .orange, .glance, ["lernen"], "Was es heute gibt."),
         soon("fokus", "Fokus-Timer", "brain.head.profile", .mint, .tool, ["lernen"], "Pomodoro mit Statistik."),
         soon("ziele", "Wochenziele", "checkmark.seal", .green, .tool, ["lernen", "gesundheit"], "Drei Ziele pro Woche."),
         soon("events", "Events", "ticket", .purple, .glance, ["freizeit"], "Konzerte und Veranstaltungen in der Nähe."),
