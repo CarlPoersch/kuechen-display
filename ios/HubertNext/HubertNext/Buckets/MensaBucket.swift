@@ -66,6 +66,22 @@ struct MensaMeal: Decodable, Identifiable {
     var vegan: Bool { lowNotes.contains { $0.contains("vegan") } }
     var vegetarian: Bool { vegan || lowNotes.contains { $0.contains("vegetari") } }
 
+    /// Fleisch/Fisch aus den Kennzeichnungen, z. B. [("🐷", "Schwein"), ("🐮", "Rind")];
+    /// nicht vegetarisch ohne genaue Angabe → 🍖 Fleisch
+    var animals: [(emoji: String, label: String)] {
+        guard !vegetarian else { return [] }
+        let kinds: [(String, String, [String])] = [
+            ("🐔", "Geflügel", ["geflügel", "huhn", "hähnchen", "pute"]),
+            ("🐷", "Schwein", ["schwein"]),
+            ("🐮", "Rind", ["rind", "kalb"]),
+            ("🐑", "Lamm", ["lamm", "schaf"]),
+            ("🦌", "Wild", ["wild"]),
+            ("🐟", "Fisch", ["fisch", "weichtier", "krebstier", "meeresfrücht"]),
+        ]
+        let out = kinds.filter { k in lowNotes.contains { n in k.2.contains { n.contains($0) } } }.map { (emoji: $0.0, label: $0.1) }
+        return out.isEmpty ? [(emoji: "🍖", label: "Fleisch")] : out
+    }
+
     /// Zusatzstoffe und Allergene (ohne die Ernährungs-Kennzeichen)
     var info: [String] {
         (notes ?? []).filter { n in
@@ -357,7 +373,7 @@ struct MensaBadge: View {
         if fav { Image(systemName: "star.fill").foregroundColor(.yellow).font(.caption) }
         else if meal.vegan { Image(systemName: "leaf.fill").foregroundColor(.green).font(.caption) }
         else if meal.vegetarian { Image(systemName: "leaf").foregroundColor(.green).font(.caption) }
-        else { Color.clear.frame(width: 1, height: 1) }
+        else { Text(meal.animals.first?.emoji ?? "🍖").font(.caption) }
     }
 }
 
@@ -470,6 +486,7 @@ struct MensaDetail: View {
                 HStack(spacing: 8) {
                     if m.vegan { Label("vegan", systemImage: "leaf.fill").foregroundColor(.green) }
                     else if m.vegetarian { Label("vegetarisch", systemImage: "leaf").foregroundColor(.green) }
+                    else { Text(m.animals.map { $0.emoji + " " + $0.label }.joined(separator: " · ")).foregroundColor(Theme.secondary) }
                     if !m.info.isEmpty {
                         Text(expanded ? "weniger" : "Allergene & Zusätze").foregroundColor(Theme.accent)
                     }
