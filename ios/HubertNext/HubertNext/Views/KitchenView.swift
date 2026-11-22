@@ -122,7 +122,7 @@ struct RecipesTab: View {
             switch f.collection {
             case "Eigene": if r.owner == nil { continue }
             case "Airfryer": if r.airfryer != true { continue }
-            case "Favoriten": if (m?.rating ?? 0) < 4 { continue }
+            case "Favoriten": if m?.favorite != true { continue }
             case "Lange nicht": if let d = m?.lastCookedDate, Date().timeIntervalSince(d) <= 21 * 86400 { continue }
             default: break
             }
@@ -192,6 +192,9 @@ struct RecipesTab: View {
                     }
                     .buttonStyle(.plain)
                 }
+
+                // Favoriten: schnell wiederfinden, ohne den Namen zu wissen
+                if query.isEmpty && !filter.isActive && !kitchen.favorites.isEmpty { favoritesRow }
 
                 // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
                 HStack(spacing: 10) {
@@ -290,6 +293,7 @@ struct RecipesTab: View {
                 } else if results.isEmpty {
                     VStack(spacing: 10) {
                         Text(filter.pantry && kitchen.pantry.isEmpty ? "Trag im Vorrat ein, was du da hast – dann zeigt Hubert, was sich damit kochen lässt."
+                             : filter.collection == "Favoriten" && kitchen.favorites.isEmpty ? "Noch keine Favoriten – tipp bei einem Rezept auf das Herz."
                              : "Keine passenden Rezepte").foregroundColor(Theme.secondary).multilineTextAlignment(.center)
                         if filter.isActive || category != "Alle" || cuisine != "Alle" {
                             Button("Filter zurücksetzen") { withAnimation { filter = RecipeFilter(); category = "Alle"; cuisine = "Alle" } }
@@ -441,6 +445,60 @@ struct RecipesTab: View {
 }
 
 /// Große Umschalt-Kachel (Schnellwahl über den Kategorien)
+extension RecipesTab {
+    /// Waagrechte Reihe mit den Favoriten, „Alle ›“ zeigt sie als Liste
+    var favoritesRow: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Label("FAVORITEN", systemImage: "heart.fill").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
+                Spacer()
+                Button { withAnimation { filter.collection = "Favoriten"; suggestion = nil } } label: {
+                    HStack(spacing: 3) { Text("Alle"); Image(systemName: "chevron.right").font(.caption.weight(.semibold)) }
+                        .font(.subheadline).foregroundColor(Theme.accent)
+                }
+                .buttonStyle(.plain)
+            }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(kitchen.favorites.prefix(20), id: \.id) { r in
+                        NavigationLink(destination: RecipeDetailView(id: r.id)) {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(r.icon).font(.system(size: 34))
+                                Text(r.title).font(.subheadline.weight(.semibold)).foregroundColor(.primary)
+                                    .lineLimit(2).multilineTextAlignment(.leading)
+                                Spacer(minLength: 0)
+                            }
+                            .padding(12)
+                            .frame(width: 130, height: 110, alignment: .topLeading)
+                            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// Herz zum Merken. Eigener Knopf, damit er in Karten nicht das Rezept öffnet.
+struct FavoriteButton: View {
+    let id: String
+    var size: CGFloat = 15
+    @ObservedObject private var kitchen = KitchenStore.shared
+    var body: some View {
+        let on = kitchen.isFavorite(id)
+        Button { withAnimation(.easeOut(duration: 0.15)) { kitchen.toggleFavorite(id) } } label: {
+            Image(systemName: on ? "heart.fill" : "heart")
+                .font(.system(size: size, weight: .semibold))
+                .foregroundColor(on ? Theme.accent : Theme.secondary)
+                .frame(width: max(36, size * 2.4), height: max(36, size * 2.4))
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.borderless)
+        .accessibilityLabel(on ? "Aus Favoriten entfernen" : "Zu Favoriten")
+    }
+}
+
 struct QuickTile: View {
     let emoji: String
     let title: String
@@ -485,6 +543,7 @@ struct RecipeCard: View {
                         .padding(6).background(Circle().fill(Color.orange))
                         .accessibilityLabel("Airfryer")
                 }
+                FavoriteButton(id: recipe.id).padding(.top, -8).padding(.trailing, -10)
             }
             Text(recipe.title).font(.headline).lineLimit(2).multilineTextAlignment(.leading)
             if let o = recipe.owner {
@@ -506,6 +565,12 @@ struct RecipeCard: View {
         .frame(maxWidth: .infinity, minHeight: 150, alignment: .topLeading)
         .background(RoundedRectangle(cornerRadius: 20, style: .continuous).fill(Theme.card))
         .contentShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .contextMenu {
+            Button { kitchen.toggleFavorite(recipe.id) } label: {
+                kitchen.isFavorite(recipe.id) ? Label("Aus Favoriten entfernen", systemImage: "heart.slash")
+                                              : Label("Zu Favoriten", systemImage: "heart")
+            }
+        }
     }
 }
 
@@ -580,6 +645,14 @@ struct RecipeDetailView: View {
             if let r = recipe { NewRecipeSheet(recipe: r) }
         }
         .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    let on = !kitchen.isFavorite(id)
+                    kitchen.toggleFavorite(id)
+                    show(on ? "Zu Favoriten hinzugefügt" : "Aus Favoriten entfernt")
+                } label: { Image(systemName: kitchen.isFavorite(id) ? "heart.fill" : "heart") }
+                .accessibilityLabel(kitchen.isFavorite(id) ? "Aus Favoriten entfernen" : "Zu Favoriten")
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 if kitchen.isMine(id) {
                     Button("Bearbeiten") { editing = true }
@@ -1011,6 +1084,14 @@ struct CookModeView: View {
             Text("Guten Appetit!").font(.system(size: 34, weight: .bold))
             Text("Wie war's?").foregroundColor(Theme.secondary)
             StarRating(value: kitchen.metaFor(recipe.id).rating, size: 34) { kitchen.setRating(recipe.id, $0) }
+            Button { kitchen.toggleFavorite(recipe.id) } label: {
+                Label(kitchen.isFavorite(recipe.id) ? "In deinen Favoriten" : "Zu Favoriten",
+                      systemImage: kitchen.isFavorite(recipe.id) ? "heart.fill" : "heart")
+                    .font(.headline).foregroundColor(Theme.accent)
+                    .padding(.horizontal, 18).frame(minHeight: 44)
+                    .background(Capsule().fill(Theme.accent.opacity(0.12)))
+            }
+            .buttonStyle(.plain)
             SoftButton(title: "Gekocht – fertig", symbol: "checkmark", primary: true) {
                 kitchen.markCooked(recipe.id); session.end()
             }

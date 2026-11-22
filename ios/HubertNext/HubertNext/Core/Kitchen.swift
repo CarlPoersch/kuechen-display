@@ -252,8 +252,9 @@ struct RecipeMeta: Codable, Equatable {
     var note: String = ""
     var cookedCount: Int = 0
     var lastCooked: String?
+    var favorite: Bool?            // ❤️ Favorit (fehlt bei alten Zeilen)
     enum CodingKeys: String, CodingKey {
-        case rating, note
+        case rating, note, favorite
         case householdId = "household_id", recipeId = "recipe_id", cookedCount = "cooked_count", lastCooked = "last_cooked"
     }
     var lastCookedDate: Date? { Fmt.date(lastCooked) }
@@ -536,6 +537,13 @@ final class KitchenStore: ObservableObject {
 
     func setRating(_ id: String, _ stars: Int?) { changeMeta(id) { $0.rating = stars } }
     func setNote(_ id: String, _ note: String) { changeMeta(id) { $0.note = note } }
+    func isFavorite(_ id: String) -> Bool { meta[id]?.favorite == true }
+    func toggleFavorite(_ id: String) { changeMeta(id) { $0.favorite = !($0.favorite ?? false) } }
+    /// Favoriten, zuletzt gekochte zuerst
+    var favorites: [RecipeSummary] {
+        recipes.filter { isFavorite($0.id) }
+            .sorted { (meta[$0.id]?.lastCooked ?? "") > (meta[$1.id]?.lastCooked ?? "") }
+    }
     func markCooked(_ id: String) {
         changeMeta(id) { $0.cookedCount += 1; $0.lastCooked = ISO8601DateFormatter().string(from: Date()) }
         guard let h = household else { return }
