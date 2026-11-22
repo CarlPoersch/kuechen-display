@@ -8,12 +8,17 @@ import SwiftUI
 
 enum NewBuckets {
     /// Komplett neue Buckets (neueste zuerst)
-    static let ids = ["gaeste", "deals"]
+    static let ids = ["sonne", "gaeste", "deals"]
 
     struct Highlight: Hashable { let symbol: String; let text: String }
 
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
+        "sonne": [
+            Highlight(symbol: "sunrise.fill", text: "Auf- und Untergang, dazu die Sonnenbahn über den Tag – der Punkt zeigt, wo die Sonne gerade steht"),
+            Highlight(symbol: "arrow.up.right", text: "Wie viel Licht dazukommt – und wie lange es noch bis zur Wintersonnenwende ist"),
+            Highlight(symbol: "moonphase.waxing.gibbous", text: "Antippen: Goldene und Blaue Stunde, Mond und die Tageslänge übers Jahr"),
+        ],
         "gaeste": [
             Highlight(symbol: "qrcode", text: "Runder Knopf unten rechts – Besuch tippt drauf und scannt den QR-Code"),
             Highlight(symbol: "camera", text: "Kamera aufs Handy, „Mit WLAN verbinden“ – kein Passwort abtippen"),
