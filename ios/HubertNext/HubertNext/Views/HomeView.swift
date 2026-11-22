@@ -21,6 +21,10 @@ struct HomeView: View {
     private var tools: [BucketInstance] {
         store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .tool }
     }
+    /// Runde Knöpfe unten rechts (z. B. Gäste-WLAN), auf diesem Gerät eingeblendet
+    private var buttons: [BucketInstance] {
+        store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .button }
+    }
 
     var body: some View {
         NavigationView {
@@ -38,6 +42,7 @@ struct HomeView: View {
                     .id(look.refreshKey)
                     .padding(.horizontal, pad(geo.size.width))
                     .padding(.vertical, 12)
+                    .padding(.bottom, buttons.isEmpty ? 0 : 72)   // Platz für den Knopf unten rechts
                     // Liest die Scroll-Position direkt aus UIKit (die SwiftUI-Messung
                     // hat auf dem iPad mit iOS 15 nicht zuverlässig ausgelöst)
                     .background(ScrollOffsetReader { y in
@@ -50,6 +55,14 @@ struct HomeView: View {
                 .overlay(alignment: .top) {
                     if editing { editBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
                     else if collapsed { compactBar(pad(geo.size.width)).transition(.move(edge: .top).combined(with: .opacity)) }
+                }
+                // Runde Knöpfe unten rechts (Gäste-WLAN) – im Bearbeiten-Modus ausgeblendet
+                .overlay(alignment: .bottomTrailing) {
+                    if !editing && !buttons.isEmpty {
+                        FloatingBucketButtons(buttons: buttons)
+                            .padding(.trailing, pad(geo.size.width) + 4)
+                            .transition(.scale.combined(with: .opacity))
+                    }
                 }
                 // Loslassen irgendwo auf der Startseite (zwischen Karten, auf Leisten) beendet das Ziehen.
                 // Warum: iOS meldet ein Loslassen ohne Ziel nicht – die Karte blieb sonst ausgegraut.
@@ -496,4 +509,27 @@ enum DragWatch {
 /// (die Menü-Vorschau zeigt auf eine Ansicht, die es nicht mehr gibt).
 func afterMenu(_ action: @escaping () -> Void) {
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.45, execute: action)
+}
+
+/// Runde Knöpfe unten rechts. Eigene Ansicht, damit nur sie (nicht die ganze Startseite)
+/// auf laufende Timer/Kochen reagiert: Auf dem iPhone rutschen sie dann über die Kapseln.
+struct FloatingBucketButtons: View {
+    let buttons: [BucketInstance]
+    @ObservedObject private var session = CookSession.shared
+    @ObservedObject private var center = TimerCenter.shared
+
+    private var lift: CGFloat {
+        let active = (session.recipe != nil && !session.presented) || !center.timers.isEmpty
+        return UIDevice.current.userInterfaceIdiom == .phone && active ? 64 : 0
+    }
+
+    var body: some View {
+        VStack(spacing: 14) {
+            ForEach(buttons) { inst in
+                if inst.bucket == GuestWifiBucket.kind.id { GuestWifiButton(instance: inst) }
+            }
+        }
+        .padding(.bottom, 16 + lift)
+        .animation(.easeOut(duration: 0.2), value: lift)
+    }
 }

@@ -24,6 +24,16 @@ struct SettingsView: View {
         return "Hubert \(i?["CFBundleShortVersionString"] as? String ?? "?") (Build \(i?["CFBundleVersion"] as? String ?? "?"))"
     }
 
+    /// Zeile unter dem Namen: ausgeblendet / Knopf / Größe
+    private func rowDetail(_ inst: BucketInstance, _ kind: BucketKind) -> String {
+        if store.hiddenHere.contains(inst.id) { return "Auf diesem " + AppStore.deviceName + " ausgeblendet" }
+        switch kind.art {
+        case .button: return "Knopf unten rechts"
+        case .tool: return inst.size.label + " · App"
+        case .glance: return inst.size.label
+        }
+    }
+
     var body: some View {
         NavigationView {
             List {
@@ -31,9 +41,7 @@ struct SettingsView: View {
                     ForEach(store.buckets) { inst in
                         if let kind = BucketRegistry.kind(inst.bucket) {
                             NavigationLink(destination: BucketEditView(bucketId: inst.id)) {
-                                BucketRow(kind: kind, detail: store.hiddenHere.contains(inst.id)
-                                          ? "Auf diesem " + AppStore.deviceName + " ausgeblendet"
-                                          : inst.size.label + (kind.art == .tool ? " · App" : ""))
+                                BucketRow(kind: kind, detail: rowDetail(inst, kind))
                                     .opacity(store.hiddenHere.contains(inst.id) ? 0.5 : 1)
                             }
                         }
@@ -278,7 +286,7 @@ struct CatalogRow: View {
                 Button(action: onRemove) { Image(systemName: "minus.circle.fill").font(.title2).foregroundColor(.red) }
                     .buttonStyle(.borderless)
                     .accessibilityLabel("„\(kind.name)“ entfernen")
-                if kind.art == .tool {
+                if kind.art != .glance {
                     Image(systemName: "checkmark").foregroundColor(Theme.accent)
                 } else {
                     Text("\(count)×").font(.subheadline.monospacedDigit().weight(.semibold)).foregroundColor(Theme.secondary)

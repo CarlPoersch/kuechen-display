@@ -8,12 +8,17 @@ import SwiftUI
 
 enum NewBuckets {
     /// Komplett neue Buckets (neueste zuerst)
-    static let ids = ["deals"]
+    static let ids = ["gaeste", "deals"]
 
     struct Highlight: Hashable { let symbol: String; let text: String }
 
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
+        "gaeste": [
+            Highlight(symbol: "qrcode", text: "Runder Knopf unten rechts – Besuch tippt drauf und scannt den QR-Code"),
+            Highlight(symbol: "camera", text: "Kamera aufs Handy, „Mit WLAN verbinden“ – kein Passwort abtippen"),
+            Highlight(symbol: "ipad.and.iphone", text: "Pro Gerät ein- oder ausblenden, z. B. nur am Wand-iPad"),
+        ],
         "deals": [
             Highlight(symbol: "square.grid.2x2", text: "Bereiche antippen – Mode, Streetwear, Schuhe, Make-up, Pflege, Parfum, Technik und mehr"),
             Highlight(symbol: "photo.on.rectangle", text: "Angebote mit Bild, Preis und Rabatt – je Suche eine eigene Reihe"),

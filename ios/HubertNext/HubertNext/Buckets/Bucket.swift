@@ -1,7 +1,8 @@
 import SwiftUI
 
-/// Glance = anschauen (Briefing oben), Tool = benutzen (App-Symbole unten)
-enum BucketArt { case glance, tool }
+/// Glance = anschauen (Briefing oben), Tool = benutzen (App-Symbole unten),
+/// Button = runder Knopf unten rechts (z. B. Gäste-WLAN)
+enum BucketArt { case glance, tool, button }
 
 /// Beschreibung einer Bucket-Art im Katalog.
 /// Ein neuer Bucket = eine neue Datei, die so eine Beschreibung liefert, + Eintrag in BucketRegistry.
@@ -34,7 +35,7 @@ struct BucketKind: Identifiable {
 enum BucketRegistry {
     static let all: [BucketKind] = [WeatherBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, DealsBucket.kind, TransitBucket.kind, CountdownBucket.kind,
                                          KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
-                                         KitchenBuckets.kitchen, KitchenBuckets.timer] + comingSoon
+                                         KitchenBuckets.kitchen, KitchenBuckets.timer, GuestWifiBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
 
@@ -65,7 +66,6 @@ enum BucketRegistry {
         soon("quiz", "Tagesfrage", "questionmark.bubble", .orange, .glance, ["freizeit"], "Eine Frage pro Tag, Punkte im Haushalt."),
         soon("kochen-heute", "Was koche ich heute?", "frying.pan", .orange, .glance, ["haushalt"], "Passend zu Vorrat, Wetter und Zeit."),
         soon("smarthome", "Smart Home", "lightbulb", .yellow, .tool, ["haushalt", "technik"], "Licht und Geräte steuern."),
-        soon("gaeste", "Gäste-WLAN", "wifi", .blue, .tool, ["haushalt"], "WLAN als QR-Code für Besuch."),
     ]
 
     private static func soon(_ id: String, _ name: String, _ symbol: String, _ tint: Color, _ art: BucketArt,
