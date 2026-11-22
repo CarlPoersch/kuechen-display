@@ -272,14 +272,18 @@ struct TimerRing: View {
     let timer: KitchenTimer
     var line: CGFloat = 4
     var color: Color = Theme.accent
+    // Warum: Der Timer selbst ändert sich beim Ablaufen nicht (nur die Uhr läuft weiter).
+    // SwiftUI zeichnet den Ring dann nicht neu – erst der Sekundentakt hier hält ihn in Bewegung.
+    @ObservedObject private var center = TimerCenter.shared
 
     var body: some View {
+        let progress = center.tick > .distantPast ? timer.progress : 0
         ZStack {
             Circle().stroke(Color(UIColor.tertiarySystemFill), lineWidth: line)
-            Circle().trim(from: 0, to: max(0.001, 1 - timer.progress))
+            Circle().trim(from: 0, to: max(0.001, 1 - progress))
                 .stroke(timer.pausedLeft == nil ? color : Color.gray, style: StrokeStyle(lineWidth: line, lineCap: .round))
                 .rotationEffect(.degrees(-90))
-                .animation(.linear(duration: 1), value: timer.progress)
+                .animation(.linear(duration: 1), value: progress)
         }
     }
 }
