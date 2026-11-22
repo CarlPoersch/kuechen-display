@@ -178,6 +178,8 @@ struct Journey: Identifiable {
     struct Ride: Hashable {
         let line: String; let from: String; let to: String; let dep: Date; let arr: Date
         var lineId: String? = nil; var trip: String? = nil; var stop: String? = nil; var planned: Date? = nil
+        var exit: String? = nil       // Haltestelle, an der man aussteigt
+        var walkBefore = 0            // Fußweg vom vorigen Fahrzeug hierher (Umstieg)
     }
     let id: String
     let leave: Date        // wann man losgeht (inkl. Fußweg)
@@ -212,7 +214,26 @@ struct RideRef: Identifiable, Hashable {
     let stopName: String
     let planned: Date         // geplante Abfahrt dort
     let toward: String        // Richtung / Ziel
+    var exit: String? = nil       // Haltestelle, an der man aussteigt (bei Verbindungen)
+    var exitName: String? = nil
+    var exitTime: Date? = nil     // Ankunft dort laut Verbindung (bis der Verlauf geladen ist)
+    var walkBefore = 0            // Fußweg vom vorigen Fahrzeug (Umstieg)
+    var next: [RideRef] = []      // Anschlussfahrten bei Umstiegen
     var id: String { lineId + trip + "\(Int(planned.timeIntervalSince1970))" }
+
+    /// Alle Fahrten einer Verbindung – nur wenn jede verfolgt werden kann
+    static func chain(_ rides: [Journey.Ride]) -> RideRef? {
+        var refs: [RideRef] = []
+        for x in rides {
+            guard var r = make(line: x.line, lineId: x.lineId, trip: x.trip, stop: x.stop, stopName: x.from,
+                               planned: x.planned ?? x.dep, toward: x.to) else { break }
+            r.exit = x.exit; r.exitName = x.to; r.exitTime = x.arr; r.walkBefore = x.walkBefore
+            refs.append(r)
+        }
+        guard var first = refs.first else { return nil }
+        if refs.count == rides.count { first.next = Array(refs.dropFirst()) }
+        return first
+    }
 
     /// Nur wenn die Auskunft Linie, Fahrtnummer und Haltestelle geliefert hat
     static func make(line: String, lineId: String?, trip: String?, stop: String?, stopName: String, planned: Date, toward: String) -> RideRef? {
@@ -354,12 +375,21 @@ final class TransitService: ObservableObject {
             let resp = try JSONDecoder().decode(TripResponse.self, from: data)
             var out: [Journey] = []
             for j in resp.journeys ?? [] {
-                let rides = j.legs.filter { $0.isRide }.compactMap { l -> Journey.Ride? in
-                    guard let dep = l.origin.dep, let arr = l.destination.arr else { return nil }
-                    return Journey.Ride(line: l.transportation?.number ?? "?", from: l.origin.name ?? "",
-                                        to: l.destination.name ?? "", dep: dep, arr: arr,
-                                        lineId: l.transportation?.id, trip: l.transportation?.properties?.tripCode.map { String($0) },
-                                        stop: l.origin.stopId, planned: l.origin.depPlanned)
+                // Fahrten der Verbindung; Fußwege dazwischen zählen als Umstiegsweg
+                var rides: [Journey.Ride] = []
+                var walk = 0
+                for l in j.legs {
+                    if l.isRide {
+                        guard let dep = l.origin.dep, let arr = l.destination.arr else { walk = 0; continue }
+                        rides.append(Journey.Ride(line: l.transportation?.number ?? "?", from: l.origin.name ?? "",
+                                                  to: l.destination.name ?? "", dep: dep, arr: arr,
+                                                  lineId: l.transportation?.id, trip: l.transportation?.properties?.tripCode.map { String($0) },
+                                                  stop: l.origin.stopId, planned: l.origin.depPlanned,
+                                                  exit: l.destination.stopId, walkBefore: rides.isEmpty ? 0 : walk))
+                        walk = 0
+                    } else if let a = l.origin.dep, let b = l.destination.arr {
+                        walk += max(0, Int((b.timeIntervalSince(a) / 60).rounded()))
+                    }
                 }
                 guard let first = rides.first, let firstLeg = j.legs.first, let arrive = j.legs.last?.destination.arr,
                       let rideLeg = j.legs.first(where: { $0.isRide }) else { continue }
@@ -413,8 +443,7 @@ final class TransitService: ObservableObject {
                 }
                 return TransitRow(id: r.key + j.id, line: first.line, title: title, detail: detail, leave: j.leave,
                                   depart: j.depart, arrive: j.arrive, delay: j.delay, transferLine: transfer,
-                                  ref: RideRef.make(line: first.line, lineId: first.lineId, trip: first.trip, stop: first.stop,
-                                                    stopName: first.from, planned: first.planned ?? first.dep, toward: first.to))
+                                  ref: RideRef.chain(j.rides))
             }
         }
         if r.nearby {
@@ -482,24 +511,28 @@ private func los(_ leave: Date) -> (String, Color) {
 }
 
 /// Linienfarben wie am Display: Stadtbusse farbig, sonst Blau
-func lineColor(_ l: String) -> Color {
-    switch l {
-    case "3": return Color(red: 0.91, green: 0.51, blue: 0.05)
-    case "5": return Color(red: 0.18, green: 0.62, blue: 0.27)
-    case "6": return Color(red: 0.84, green: 0.15, blue: 0.18)
-    case "C6": return Color(red: 0.56, green: 0.11, blue: 0.24)
-    default: return Color(red: 0.24, green: 0.44, blue: 0.71)
-    }
+private let linePalette: [Color] = [
+    Color(red: 0.24, green: 0.44, blue: 0.71),   // Standard (blau)
+    Color(red: 0.91, green: 0.51, blue: 0.05),   // 3
+    Color(red: 0.18, green: 0.62, blue: 0.27),   // 5
+    Color(red: 0.84, green: 0.15, blue: 0.18),   // 6
+    Color(red: 0.56, green: 0.11, blue: 0.24),   // C6
+]
+/// Farbgruppe einer Linie (gleiche Zahl = gleiche Farbe)
+func lineColorIndex(_ l: String) -> Int {
+    switch l { case "3": return 1; case "5": return 2; case "6": return 3; case "C6": return 4; default: return 0 }
 }
+func lineColor(_ l: String) -> Color { linePalette[lineColorIndex(l)] }
 
 let transitNavy = Color(red: 0.11, green: 0.21, blue: 0.31)
 
 struct LineBadge: View {
     let line: String
+    var color: Color? = nil     // abweichende Farbe (z. B. Anschluss in gleicher Linienfarbe)
     var body: some View {
         Text(line).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(.white).lineLimit(1)
             .frame(minWidth: 34).padding(.horizontal, 6).padding(.vertical, 4)
-            .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(lineColor(line)))
+            .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(color ?? lineColor(line)))
     }
 }
 
@@ -524,7 +557,6 @@ struct TransitHead: View {
 struct TransitRowView: View {
     let row: TransitRow
     let showArrival: Bool
-    var best = false
     var col: CGFloat = 52       // Spaltenbreite Los/Ab/An – schmaler auf dem iPhone
     var body: some View {
         let l = los(row.leave)
@@ -549,8 +581,6 @@ struct TransitRowView: View {
             }
         }
         .padding(.vertical, 5)
-        // Markierung der besten Fahrt ragt seitlich über – die Spalten bleiben bündig mit der Kopfzeile
-        .background(RoundedRectangle(cornerRadius: 8).fill(best ? Color.blue.opacity(0.13) : .clear).padding(.horizontal, -6))
         .contentShape(Rectangle())
     }
 }
@@ -691,8 +721,8 @@ struct TransitGlance: View {
                         GlancePager(pages: Pages.split(rows, height: space.height - 62, row: 44)) { page in
                             VStack(alignment: .leading, spacing: 4) {
                                 TransitHead(showArrival: r.to != nil, col: col).padding(.top, 2)
-                                ForEach(Array(page.enumerated()), id: \.element.id) { i, row in
-                                    TransitRowView(row: row, showArrival: r.to != nil, best: i == 0 && row.id == rows.first?.id, col: col)
+                                ForEach(page) { row in
+                                    TransitRowView(row: row, showArrival: r.to != nil, col: col)
                                         .onTapGesture { if let ref = row.ref { ride = ref } else { openDetail() } }
                                 }
                             }
@@ -783,8 +813,8 @@ struct TransitDetail: View {
         if list.isEmpty {
             if let r = route { status(r) } else { Text("Gerade keine Abfahrt").foregroundColor(Theme.secondary) }
         }
-        ForEach(Array(list.enumerated()), id: \.element.id) { i, row in
-            TransitRowView(row: row, showArrival: arrival, best: i == 0)
+        ForEach(list) { row in
+            TransitRowView(row: row, showArrival: arrival)
                 .onTapGesture { if let ref = row.ref { ride = ref } }
         }
     }
