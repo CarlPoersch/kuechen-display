@@ -216,6 +216,17 @@ enum FilmFmt {
         }
     }
     static func episode(_ e: FilmEpisode) -> String { "S\(e.s) E\(e.e)" }
+    /// Immer mit Datum: „Heute“, „Morgen“, „Do 27.11.“, „Mo 5.1.27“
+    static func day(_ s: String?) -> String {
+        guard let d = date(s), let n = days(s) else { return "" }
+        if n == 0 { return "Heute" }
+        if n == 1 { return "Morgen" }
+        if n == -1 { return "Gestern" }
+        let f = DateFormatter(); f.locale = Locale(identifier: "de_DE"); f.dateFormat = "EE"
+        let g = DateFormatter(); g.locale = Locale(identifier: "de_DE")
+        g.dateFormat = Calendar.current.isDate(d, equalTo: Date(), toGranularity: .year) || n < 120 ? "d.M." : "d.M.yy"
+        return f.string(from: d).replacingOccurrences(of: ".", with: "") + " " + g.string(from: d)
+    }
     static func rating(_ r: Double?) -> String? {
         guard let r = r, r > 0 else { return nil }
         return String(format: "%.1f", r).replacingOccurrences(of: ".", with: ",")
@@ -269,7 +280,7 @@ struct FilmTile: View {
                 }
             Text(item.title).font(.caption.weight(.semibold)).lineLimit(1)
             HStack(spacing: 4) {
-                if item.kino == true { Image(systemName: "popcorn").font(.caption2).foregroundColor(Theme.secondary) }
+                if item.kino == true { Image(systemName: "ticket").font(.caption2).foregroundColor(Theme.secondary) }
                 else if let p = (item.providers ?? []).first(where: { mine.contains($0.id) }) ?? item.providers?.first { ProviderLogo(p: p, size: 14) }
                 Text(item.next.map { FilmFmt.episode($0) + " · " + FilmFmt.when($0.date, past: "neu") } ?? FilmFmt.when(item.date, past: "neu"))
                     .font(.caption2).foregroundColor(Theme.secondary).lineLimit(1)
@@ -345,38 +356,66 @@ struct FilmGlance: View {
         let mine = Set(FilmBucket.providers(c))
         if list.isEmpty {
             Text("Diese Woche nichts Neues auf deinen Diensten").foregroundColor(Theme.secondary)
-        } else if space.height >= 150 {
-            // Poster-Reihe, so hoch wie die Karte es zulässt
-            let w = min(120, max(72, (space.height - 44) / 1.5))
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(alignment: .top, spacing: 12) {
-                    ForEach(list) { e in
+        } else {
+            // Liste mit Mini-Poster: so viele Zeilen, wie in die Karte passen, Rest zum Blättern
+            GlancePager(pages: Pages.split(list, height: space.height, row: FilmRow.height)) { page in
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(Array(page.enumerated()), id: \.element.id) { i, e in
+                        if i > 0 { Divider().padding(.leading, 52) }
                         Button { open = FilmRef(id: e.item.id, t: e.item.t) } label: {
-                            FilmTile(item: e.item, mine: mine, width: w, badge: e.badge)
+                            FilmRow(item: e.item, fav: e.badge != nil, mine: mine)
                         }
                         .buttonStyle(.plain)
                     }
                 }
             }
-        } else {
-            // Wenig Platz: Textzeilen
-            VStack(alignment: .leading, spacing: 6) {
-                ForEach(Array(list.prefix(fitRows(space.height, row: 26)))) { e in
-                    let it = e.item
-                    Button { open = FilmRef(id: it.id, t: it.t) } label: {
-                        HStack(spacing: 8) {
-                            if e.badge != nil { Image(systemName: "star.fill").foregroundColor(.yellow).font(.caption) }
-                            else { Image(systemName: it.kino == true ? "popcorn" : it.t == "tv" ? "tv" : "film").font(.caption).foregroundColor(Theme.secondary) }
-                            Text(it.title).font(.subheadline).lineLimit(1)
-                            Spacer(minLength: 4)
-                            Text(it.next.map { FilmFmt.episode($0) + " · " + FilmFmt.when($0.date) } ?? FilmFmt.when(it.date))
-                                .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
-                        }
-                    }
-                    .buttonStyle(.plain)
-                }
-            }
         }
+    }
+}
+
+/// Zeile der Karte: Mini-Poster · Titel · gut lesbarer Termin · Dienst
+struct FilmRow: View {
+    static let height: CGFloat = 70
+    let item: FilmItem
+    let fav: Bool
+    let mine: Set<Int>
+
+    private var provider: FilmProvider? { (item.providers ?? []).first { mine.contains($0.id) } ?? item.providers?.first }
+
+    /// Was wann kommt – z. B. „S2 E4 · Heute“, „Kino ab Do 27.11.“, „Neu bei Netflix“
+    private var when: (text: String, hot: Bool) {
+        let d = FilmFmt.days(item.date)
+        let day = FilmFmt.day(item.date)
+        let hot = d.map { $0 >= 0 && $0 <= 1 } ?? false
+        if let n = item.next { return (FilmFmt.episode(n) + " · " + day, hot) }
+        guard let d = d else { return ("", false) }
+        if item.kino == true || (fav && item.t == "movie" && provider == nil) {
+            return (d > 0 ? "Kino ab " + day : d == 0 ? "Kino-Start heute" : "Jetzt im Kino", hot)
+        }
+        if d > 0 { return ("Ab " + day + (provider.map { " bei " + $0.name } ?? ""), hot) }
+        if d == 0 { return ("Heute neu" + (provider.map { " bei " + $0.name } ?? ""), true) }
+        return ("Neu" + (provider.map { " bei " + $0.name } ?? ""), false)
+    }
+
+    var body: some View {
+        let w = when
+        HStack(spacing: 12) {
+            FilmPoster(url: item.poster, width: 40)
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 5) {
+                    if fav { Image(systemName: "star.fill").font(.caption).foregroundColor(.yellow) }
+                    Text(item.title).font(.subheadline.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
+                }
+                Text(w.text).font(.subheadline.weight(w.hot ? .semibold : .regular).monospacedDigit())
+                    .foregroundColor(w.hot ? Theme.accent : Theme.secondary).lineLimit(1).minimumScaleFactor(0.85)
+            }
+            Spacer(minLength: 6)
+            if item.kino == true { Image(systemName: "ticket.fill").font(.body).foregroundColor(Theme.secondary).frame(width: 26) }
+            else if let p = provider { ProviderLogo(p: p, size: 26) }
+        }
+        .frame(height: FilmRow.height)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
     }
 }
 
