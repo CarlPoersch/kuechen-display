@@ -1,13 +1,13 @@
 import SwiftUI
 
 // ============================================================
-// Küche: Rezepte · Woche · Einkauf · Vorrat · Airfryer
+// Küche: Rezepte · Woche · Einkauf · Vorrat (Airfryer ist ein Filter bei den Rezepten)
 // Oben eine Segment-Steuerung wie in Apple-Apps. Alles gemeinsam im
 // Haushalt; Abgleich alle 15 s, solange die Küche offen ist.
 // ============================================================
 
 enum KitchenTab: String, CaseIterable, Identifiable {
-    case recipes = "Rezepte", week = "Woche", shop = "Einkauf", pantry = "Vorrat", airfryer = "Airfryer"
+    case recipes = "Rezepte", week = "Woche", shop = "Einkauf", pantry = "Vorrat"
     var id: String { rawValue }
 }
 
@@ -30,7 +30,6 @@ struct KitchenView: View {
             case .week: WeekTab()
             case .shop: ShopTab()
             case .pantry: PantryTab()
-            case .airfryer: AirfryerTab()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -185,6 +184,35 @@ struct RecipesTab: View {
                     .accessibilityLabel("Rezept hinzufügen")
                 }
 
+                // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
+                HStack(spacing: 10) {
+                    QuickTile(emoji: "🧺", title: "Mit meinem Vorrat", detail: pantryDetail, on: filter.pantry) {
+                        withAnimation { filter.pantry.toggle(); suggestion = nil }
+                    }
+                    QuickTile(emoji: "🔥", title: "Airfryer", detail: "\(kitchen.recipes.filter { $0.airfryer == true }.count) Rezepte",
+                              on: filter.collection == "Airfryer") {
+                        withAnimation { filter.collection = filter.collection == "Airfryer" ? "Alle" : "Airfryer"; suggestion = nil }
+                    }
+                }
+                if filter.collection == "Airfryer" {
+                    NavigationLink(destination: AirfryerTab().navigationTitle("Airfryer").navigationBarTitleDisplayMode(.inline)) {
+                        HStack(spacing: 12) {
+                            Image(systemName: "thermometer").font(.headline).foregroundColor(.orange)
+                                .frame(width: 32, height: 32).background(Circle().fill(Color.orange.opacity(0.15)))
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text("Backofen umrechnen & Garzeiten").font(.subheadline.weight(.semibold)).foregroundColor(.primary)
+                                Text("Temperatur, Zeit und Spickzettel für den Airfryer").font(.caption).foregroundColor(Theme.secondary)
+                            }
+                            Spacer(minLength: 0)
+                            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                        }
+                        .padding(12)
+                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.card))
+                    }
+                    .buttonStyle(.plain)
+                    .transition(.opacity)
+                }
+
                 // Kategorien
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
@@ -223,10 +251,11 @@ struct RecipesTab: View {
                 }
 
                 // Aktive Filter – antippen entfernt sie
-                if filter.isActive {
+                let chips = otherChips
+                if !chips.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 8) {
-                            ForEach(Array(filter.chips.enumerated()), id: \.offset) { _, c in
+                            ForEach(Array(chips.enumerated()), id: \.offset) { _, c in
                                 Button { withAnimation { c.clear(&filter) } } label: {
                                     HStack(spacing: 4) {
                                         Text(c.label).font(.subheadline.weight(.medium))
@@ -251,7 +280,8 @@ struct RecipesTab: View {
                     ProgressView().frame(maxWidth: .infinity).padding(.top, 40)
                 } else if results.isEmpty {
                     VStack(spacing: 10) {
-                        Text("Keine passenden Rezepte").foregroundColor(Theme.secondary)
+                        Text(filter.pantry && kitchen.pantry.isEmpty ? "Trag im Vorrat ein, was du da hast – dann zeigt Hubert, was sich damit kochen lässt."
+                             : "Keine passenden Rezepte").foregroundColor(Theme.secondary).multilineTextAlignment(.center)
                         if filter.isActive || category != "Alle" || cuisine != "Alle" {
                             Button("Filter zurücksetzen") { withAnimation { filter = RecipeFilter(); category = "Alle"; cuisine = "Alle" } }
                                 .buttonStyle(.borderless)
@@ -282,6 +312,22 @@ struct RecipesTab: View {
             case .stats: KitchenStatsView()
             }
         }
+    }
+
+    /// Untertitel der Vorrat-Kachel: wie viele Rezepte mit dem Vorrat gehen
+    private var pantryDetail: String {
+        if kitchen.pantry.isEmpty { return "Vorrat ist noch leer" }
+        var f = filter; f.pantry = true
+        let n = matching(f).count
+        return n == 1 ? "1 Rezept möglich" : "\(n) Rezepte möglich"
+    }
+
+    /// Aktive Filter außer den beiden Schnellwahlen (die zeigen ihren Zustand selbst)
+    private var otherChips: [(label: String, clear: (inout RecipeFilter) -> Void)] {
+        var f = filter
+        f.pantry = false
+        if f.collection == "Airfryer" { f.collection = "Alle" }
+        return f.chips
     }
 
     /// Küchen mit Anzahl, die häufigsten zuerst
@@ -352,6 +398,35 @@ struct RecipesTab: View {
                 .frame(width: 40, height: 40).background(Circle().fill(Color(UIColor.tertiarySystemFill)))
         }
         .buttonStyle(.plain).accessibilityLabel(label)
+    }
+}
+
+/// Große Umschalt-Kachel (Schnellwahl über den Kategorien)
+struct QuickTile: View {
+    let emoji: String
+    let title: String
+    let detail: String
+    let on: Bool
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 10) {
+                Text(emoji).font(.title2)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title).font(.subheadline.weight(.semibold)).lineLimit(1).minimumScaleFactor(0.8)
+                    Text(detail).font(.caption).lineLimit(1).minimumScaleFactor(0.8)
+                        .foregroundColor(on ? .white.opacity(0.85) : Theme.secondary)
+                }
+                Spacer(minLength: 0)
+                if on { Image(systemName: "checkmark").font(.caption.weight(.bold)) }
+            }
+            .foregroundColor(on ? .white : .primary)
+            .padding(.horizontal, 12).padding(.vertical, 10)
+            .frame(maxWidth: .infinity, minHeight: 54)
+            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(on ? Theme.accent : Theme.card))
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(title + ", " + detail + (on ? ", eingeschaltet" : ""))
     }
 }
 
