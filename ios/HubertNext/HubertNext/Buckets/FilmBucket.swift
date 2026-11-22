@@ -15,7 +15,7 @@ import Combine
 
 enum FilmBucket {
     static let kind = BucketKind(
-        id: "filme", name: "Film & Serien", symbol: "film.stack", tint: .indigo, art: .glance,
+        id: "filme", name: "Film & Serien", symbol: "film.fill", tint: .indigo, art: .glance,
         interests: ["freizeit"], blurb: "Neu auf deinen Streamingdiensten und im Kino, deine Serien – und ein Würfel für den Filmabend.",
         defaultConfig: ["kino": .bool(true), "stream": .bool(true), "tv": .bool(true)],
         needsSetup: { providers($0).isEmpty },
@@ -40,12 +40,13 @@ enum FilmBucket {
             self.init(id: Int(id), t: o["t"]?.string ?? "tv", title: title, poster: o["poster"]?.string)
         }
     }
-    static func follow(_ c: [String: JSON]) -> [Saved] { (c["follow"]?.array ?? []).compactMap(Saved.init) }
-    static func watch(_ c: [String: JSON]) -> [Saved] { (c["watch"]?.array ?? []).compactMap(Saved.init) }
+    // Als Closure statt „Saved.init“: sonst warnt Swift (Initialisierer gehört zum Haupt-Thread)
+    static func follow(_ c: [String: JSON]) -> [Saved] { (c["follow"]?.array ?? []).compactMap { Saved($0) } }
+    static func watch(_ c: [String: JSON]) -> [Saved] { (c["watch"]?.array ?? []).compactMap { Saved($0) } }
 
     /// Eintrag in Liste „follow“ oder „watch“ an- oder abhaken
     static func toggle(_ list: String, _ s: Saved, in c: inout [String: JSON]) {
-        var l = (c[list]?.array ?? []).compactMap(Saved.init)
+        var l = (c[list]?.array ?? []).compactMap { Saved($0) }
         if let i = l.firstIndex(where: { $0.key == s.key }) { l.remove(at: i) } else { l.insert(s, at: 0) }
         c[list] = .array(l.map(\.json))
     }

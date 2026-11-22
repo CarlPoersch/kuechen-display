@@ -70,14 +70,14 @@ enum BucketRegistry {
         soon("schlaf", "Schlaf", "bed.double", .indigo, .glance, ["gesundheit"], "Letzte Nacht, aus Apple Health."),
         soon("medikamente", "Medikamente", "pills", .red, .tool, ["gesundheit"], "Erinnern und abhaken."),
         soon("stundenplan", "Stundenplan", "graduationcap", .blue, .glance, ["lernen"], "Nächste Vorlesung und Raum."),
-        soon("pruefungen", "Prüfungen", "pencil.and.list.clipboard", .purple, .tool, ["lernen"], "Countdown und Lernplan."),
+        soon("pruefungen", "Prüfungen", "doc.text", .purple, .tool, ["lernen"], "Countdown und Lernplan."),
         soon("ziele", "Wochenziele", "checkmark.seal", .green, .tool, ["lernen", "gesundheit"], "Drei Ziele pro Woche."),
         soon("events", "Events", "ticket", .purple, .glance, ["freizeit"], "Konzerte und Veranstaltungen in der Nähe."),
-        soon("kicktipp", "Kicktipp", "soccerball", .green, .glance, ["sport"], "Deine Tipps und dein Platz."),
+        soon("kicktipp", "Kicktipp", "sportscourt", .green, .glance, ["sport"], "Deine Tipps und dein Platz."),
         soon("lesen", "Buch & Serie", "book", .brown, .tool, ["freizeit"], "Fortschritt im Blick."),
         soon("foto", "Foto des Tages", "photo", .teal, .glance, ["freizeit"], "Erinnerungen oder Bilder aus dem All."),
         soon("quiz", "Tagesfrage", "questionmark.bubble", .orange, .glance, ["freizeit"], "Eine Frage pro Tag, Punkte im Haushalt."),
-        soon("kochen-heute", "Was koche ich heute?", "frying.pan", .orange, .glance, ["haushalt"], "Passend zu Vorrat, Wetter und Zeit."),
+        soon("kochen-heute", "Was koche ich heute?", "flame", .orange, .glance, ["haushalt"], "Passend zu Vorrat, Wetter und Zeit."),
         soon("smarthome", "Smart Home", "lightbulb", .yellow, .tool, ["haushalt", "technik"], "Licht und Geräte steuern."),
     ]
 

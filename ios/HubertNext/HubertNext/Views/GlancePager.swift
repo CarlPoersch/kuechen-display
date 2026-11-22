@@ -123,7 +123,7 @@ private struct PagingHelper: UIViewRepresentable {
                 let w = sv.bounds.width
                 guard w > 0 else { return }
                 let page = Int((sv.contentOffset.x / w).rounded())
-                Task { @MainActor in
+                Task { @MainActor [weak self] in
                     guard let self = self, page != self.last else { return }
                     self.last = page
                     self.onPage?(page)

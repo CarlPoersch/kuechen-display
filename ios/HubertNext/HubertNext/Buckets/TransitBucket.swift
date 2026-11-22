@@ -621,7 +621,7 @@ struct TransitPicker: View {
             }
             Image(systemName: "arrow.right").font(.caption.weight(.bold)).foregroundColor(Theme.secondary)
             Button { pickTo = true } label: {
-                chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : sel.to?.isAdHoc == true ? "magnifyingglass" : "flag.checkered")
+                chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : sel.to?.isAdHoc == true ? "magnifyingglass" : "flag.fill")
             }
             .buttonStyle(.borderless)
             .confirmationDialog("Nach", isPresented: $pickTo, titleVisibility: .visible) {
@@ -933,7 +933,7 @@ struct TransitSettings: View {
         // Ziele
         ForEach(places) { p in
             HStack {
-                Image(systemName: p.loc.stop ? "bus" : "flag.checkered").foregroundColor(Theme.accent).frame(width: 22)
+                Image(systemName: p.loc.stop ? "bus" : "flag.fill").foregroundColor(Theme.accent).frame(width: 22)
                 VStack(alignment: .leading, spacing: 2) {
                     TextField("Name, z. B. Uni", text: Binding(get: { p.label }, set: { v in update(p.key) { $0.label = v } }))
                         .font(.headline)

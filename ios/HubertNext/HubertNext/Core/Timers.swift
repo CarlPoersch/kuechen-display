@@ -159,7 +159,7 @@ final class TimerCenter: ObservableObject {
         var seen = Set<UUID>()
         for r in rows {
             // Beendete Einträge: ignorieren, nach 10 Minuten ganz löschen (aufräumen)
-            if let d = r.done_at.flatMap(ISO.date) {
+            if let d = r.done_at.flatMap({ ISO.date($0) }) {
                 if now.timeIntervalSince(d) > 600, let u = UUID(uuidString: r.id) { purge(u) }
                 continue
             }

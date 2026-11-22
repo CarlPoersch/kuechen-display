@@ -94,7 +94,8 @@ final class SpeechControl: ObservableObject {
             listening = true; problem = nil
             // Apple begrenzt eine Erkennung auf etwa 1 Minute → regelmäßig neu starten
             restartTimer = Timer.scheduledTimer(withTimeInterval: 50, repeats: false) { @Sendable [weak self] _ in
-                Task { @MainActor in if self?.listening == true { self?.begin() } }
+                // [weak self] auch im Task: sonst greift der Task auf die äußere (veränderliche) Variable zu
+                Task { @MainActor [weak self] in if self?.listening == true { self?.begin() } }
             }
         } catch {
             problem = "Mikrofon konnte nicht starten."

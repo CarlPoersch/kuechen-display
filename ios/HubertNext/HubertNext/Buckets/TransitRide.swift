@@ -270,7 +270,7 @@ struct RideSheet: View {
                         .frame(width: 22, height: 22).background(Circle().fill(Color.white))
                         .overlay(Circle().stroke(Theme.accent, lineWidth: 2.5))
                 case .goal:
-                    Image(systemName: "flag.checkered").font(.system(size: 10, weight: .bold)).foregroundColor(.white)
+                    Image(systemName: "flag.fill").font(.system(size: 10, weight: .bold)).foregroundColor(.white)
                         .frame(width: 22, height: 22).background(Circle().fill(transitNavy))
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                 case .stop:
