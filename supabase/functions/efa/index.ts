@@ -10,7 +10,7 @@
 // Aufruf: GET <supabase-url>/functions/v1/efa/XML_DM_REQUEST?...
 // ============================================================
 const EFA_BASE = "https://mobile.defas-fgi.de/beg/";
-const ALLOWED = new Set(["XML_DM_REQUEST", "XML_TRIP_REQUEST2", "XML_STOPFINDER_REQUEST", "XML_COORD_REQUEST"]);
+const ALLOWED = new Set(["XML_DM_REQUEST", "XML_TRIP_REQUEST2", "XML_STOPFINDER_REQUEST", "XML_COORD_REQUEST", "XML_STOPSEQCOORD_REQUEST"]);   // STOPSEQCOORD: Linienverlauf einer Fahrt (wo ist der Bus)
 const CACHE_MS = 30_000; // gleiche Abfrage innerhalb von 30 s nicht erneut senden
 
 const cors = {

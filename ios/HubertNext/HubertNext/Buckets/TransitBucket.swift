@@ -168,11 +168,17 @@ struct Departure: Identifiable {
     let actual: Date
     let realtime: Bool
     let platform: String
+    var lineId: String? = nil     // EFA-Linienkennung (für „Wo ist der Bus?“)
+    var trip: String? = nil       // Fahrtnummer der Linie
+    var stop: String = ""         // Haltestelle der Abfahrt
     var delay: Int { Int(actual.timeIntervalSince(planned) / 60) }
 }
 
 struct Journey: Identifiable {
-    struct Ride: Hashable { let line: String; let from: String; let to: String; let dep: Date; let arr: Date }
+    struct Ride: Hashable {
+        let line: String; let from: String; let to: String; let dep: Date; let arr: Date
+        var lineId: String? = nil; var trip: String? = nil; var stop: String? = nil; var planned: Date? = nil
+    }
     let id: String
     let leave: Date        // wann man losgeht (inkl. Fußweg)
     let depart: Date       // Abfahrt des ersten Fahrzeugs
@@ -194,6 +200,25 @@ struct TransitRow: Identifiable {
     let arrive: Date?      // An (nur mit Ziel)
     let delay: Int
     let transferLine: String?
+    var ref: RideRef? = nil   // zum Antippen: Fahrt verfolgen
+}
+
+/// Eine bestimmte Fahrt einer Linie – genug, um ihren Verlauf live abzufragen
+struct RideRef: Identifiable, Hashable {
+    let line: String
+    let lineId: String
+    let trip: String
+    let stop: String          // Haltestelle, an der man einsteigt
+    let stopName: String
+    let planned: Date         // geplante Abfahrt dort
+    let toward: String        // Richtung / Ziel
+    var id: String { lineId + trip + "\(Int(planned.timeIntervalSince1970))" }
+
+    /// Nur wenn die Auskunft Linie, Fahrtnummer und Haltestelle geliefert hat
+    static func make(line: String, lineId: String?, trip: String?, stop: String?, stopName: String, planned: Date, toward: String) -> RideRef? {
+        guard let l = lineId, !l.isEmpty, let t = trip, !t.isEmpty, let s = stop, !s.isEmpty else { return nil }
+        return RideRef(line: line, lineId: l, trip: t, stop: s, stopName: stopName, planned: planned, toward: toward)
+    }
 }
 
 private struct DMResponse: Decodable {
@@ -203,21 +228,29 @@ private struct DMResponse: Decodable {
             return Calendar.current.date(from: c)
         }
     }
-    struct Line: Decodable { let number: String?; let direction: String?; let key: String? }
+    struct Line: Decodable { let number: String?; let direction: String?; let key: String?; let stateless: String? }
     struct D: Decodable { let dateTime: T?; let realDateTime: T?; let servingLine: Line?; let platform: String?; let platformName: String? }
     let departureList: [D]?
 }
 
 private struct TripResponse: Decodable {
     struct Point: Decodable {
+        struct Props: Decodable { let stopId: String? }
+        struct Parent: Decodable { let properties: Props? }
         let name: String?
+        let properties: Props?
+        let parent: Parent?
+        var stopId: String? { parent?.properties?.stopId ?? properties?.stopId }
         let departureTimePlanned: String?; let departureTimeEstimated: String?
         let arrivalTimePlanned: String?; let arrivalTimeEstimated: String?
         var dep: Date? { Fmt.date(departureTimeEstimated) ?? Fmt.date(departureTimePlanned) }
         var depPlanned: Date? { Fmt.date(departureTimePlanned) }
         var arr: Date? { Fmt.date(arrivalTimeEstimated) ?? Fmt.date(arrivalTimePlanned) }
     }
-    struct Transport: Decodable { let number: String? }
+    struct Transport: Decodable {
+        struct P: Decodable { let tripCode: Int? }
+        let number: String?; let id: String?; let properties: P?
+    }
     struct Leg: Decodable { let origin: Point; let destination: Point; let transportation: Transport?
         var isRide: Bool { !(transportation?.number ?? "").isEmpty }
     }
@@ -299,7 +332,8 @@ final class TransitService: ObservableObject {
                 return Departure(id: id + (d.servingLine?.key ?? "") + "\(p.timeIntervalSince1970)",
                                  line: d.servingLine?.number ?? "?", dest: d.servingLine?.direction ?? "",
                                  planned: p, actual: a ?? p, realtime: a != nil,
-                                 platform: (d.platformName?.isEmpty == false ? d.platformName : d.platform) ?? "")
+                                 platform: (d.platformName?.isEmpty == false ? d.platformName : d.platform) ?? "",
+                                 lineId: d.servingLine?.stateless, trip: d.servingLine?.key, stop: id)
             }.sorted { $0.actual < $1.actual }
             loadedAt["b:" + id] = Date(); failed.remove(id)
         } catch { failed.insert(id); print("ÖPNV:", error) }
@@ -323,7 +357,9 @@ final class TransitService: ObservableObject {
                 let rides = j.legs.filter { $0.isRide }.compactMap { l -> Journey.Ride? in
                     guard let dep = l.origin.dep, let arr = l.destination.arr else { return nil }
                     return Journey.Ride(line: l.transportation?.number ?? "?", from: l.origin.name ?? "",
-                                        to: l.destination.name ?? "", dep: dep, arr: arr)
+                                        to: l.destination.name ?? "", dep: dep, arr: arr,
+                                        lineId: l.transportation?.id, trip: l.transportation?.properties?.tripCode.map { String($0) },
+                                        stop: l.origin.stopId, planned: l.origin.depPlanned)
                 }
                 guard let first = rides.first, let firstLeg = j.legs.first, let arrive = j.legs.last?.destination.arr,
                       let rideLeg = j.legs.first(where: { $0.isRide }) else { continue }
@@ -376,7 +412,9 @@ final class TransitService: ObservableObject {
                     if j.rides.count > 2 { detail += " · +\(j.rides.count - 2) Umstieg" }
                 }
                 return TransitRow(id: r.key + j.id, line: first.line, title: title, detail: detail, leave: j.leave,
-                                  depart: j.depart, arrive: j.arrive, delay: j.delay, transferLine: transfer)
+                                  depart: j.depart, arrive: j.arrive, delay: j.delay, transferLine: transfer,
+                                  ref: RideRef.make(line: first.line, lineId: first.lineId, trip: first.trip, stop: first.stop,
+                                                    stopName: first.from, planned: first.planned ?? first.dep, toward: first.to))
             }
         }
         if r.nearby {
@@ -404,7 +442,9 @@ final class TransitService: ObservableObject {
             if walk > 0 { detail += " · \(walk) min zu Fuß" }
             if !d.platform.isEmpty { detail += " · Steig " + d.platform }
             return TransitRow(id: key + d.id, line: d.line, title: shortStop(d.dest), detail: detail,
-                              leave: leave, depart: d.actual, arrive: nil, delay: d.delay, transferLine: nil)
+                              leave: leave, depart: d.actual, arrive: nil, delay: d.delay, transferLine: nil,
+                              ref: RideRef.make(line: d.line, lineId: d.lineId, trip: d.trip, stop: d.stop,
+                                                stopName: name, planned: d.planned, toward: d.dest))
         }
     }
 
@@ -467,6 +507,7 @@ struct LineBadge: View {
 struct TransitHead: View {
     var title: String = ""
     let showArrival: Bool
+    var col: CGFloat = 52
     var body: some View {
         HStack(alignment: .lastTextBaseline, spacing: 0) {
             Text(title).font(.subheadline.weight(.bold)).foregroundColor(.primary).lineLimit(1)
@@ -475,7 +516,7 @@ struct TransitHead: View {
         }
     }
     private func col(_ t: String) -> some View {
-        Text(t).font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary).frame(width: 52, alignment: .trailing)
+        Text(t).font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary).frame(width: col, alignment: .trailing)
     }
 }
 
@@ -484,6 +525,7 @@ struct TransitRowView: View {
     let row: TransitRow
     let showArrival: Bool
     var best = false
+    var col: CGFloat = 52       // Spaltenbreite Los/Ab/An – schmaler auf dem iPhone
     var body: some View {
         let l = los(row.leave)
         HStack(spacing: 8) {
@@ -497,15 +539,19 @@ struct TransitRowView: View {
             }
             Spacer(minLength: 2)
             if row.delay > 0 { Text("+\(row.delay)").font(.caption.weight(.semibold)).foregroundColor(.red) }
-            Text(l.0).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(l.1).frame(width: 52, alignment: .trailing)
+            Text(l.0).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(l.1)
+                .lineLimit(1).minimumScaleFactor(0.8).frame(width: col, alignment: .trailing)
             Text(Fmt.hhmm(row.depart)).font(.subheadline.monospacedDigit()).foregroundColor(row.delay > 0 ? .red : .primary)
-                .frame(width: 52, alignment: .trailing)
+                .lineLimit(1).minimumScaleFactor(0.8).frame(width: col, alignment: .trailing)
             if showArrival {
-                Text(row.arrive.map { Fmt.hhmm($0) } ?? "–").font(.subheadline.monospacedDigit()).frame(width: 52, alignment: .trailing)
+                Text(row.arrive.map { Fmt.hhmm($0) } ?? "–").font(.subheadline.monospacedDigit())
+                    .lineLimit(1).minimumScaleFactor(0.8).frame(width: col, alignment: .trailing)
             }
         }
-        .padding(.vertical, 5).padding(.horizontal, best ? 6 : 0)
-        .background(RoundedRectangle(cornerRadius: 8).fill(best ? Color.blue.opacity(0.13) : .clear))
+        .padding(.vertical, 5)
+        // Markierung der besten Fahrt ragt seitlich über – die Spalten bleiben bündig mit der Kopfzeile
+        .background(RoundedRectangle(cornerRadius: 8).fill(best ? Color.blue.opacity(0.13) : .clear).padding(.horizontal, -6))
+        .contentShape(Rectangle())
     }
 }
 
@@ -601,6 +647,7 @@ struct TransitGlance: View {
     @Environment(\.glanceSpace) private var space
     @Environment(\.openBucketDetail) private var openDetail
     @Environment(\.bucketId) private var bucketId
+    @State private var ride: RideRef?        // angetippte Fahrt → „Wo ist der Bus?“
 
     private var route: TransitBucket.Route? {
         let sel = TransitBucket.selection(config, bucket: bucketId)
@@ -612,6 +659,7 @@ struct TransitGlance: View {
             await adhoc.refreshHere(bucket: bucketId)
             if let r = route { await TransitService.shared.load([r]) }
         }
+        .sheet(item: $ride) { RideSheet(ref: $0) }
     }
 
     @ViewBuilder private var content: some View {
@@ -632,19 +680,22 @@ struct TransitGlance: View {
                         .contentShape(Rectangle()).onTapGesture(perform: openDetail)
                     } else { status(r) }
                 } else {
-                    TransitHead(showArrival: wide && r.to != nil).padding(.top, 2)
+                    // Los · Ab · An auch auf dem iPhone – mit schmaleren Spalten
+                    let col: CGFloat = wide ? 52 : 44
                     if rows.isEmpty {
+                        TransitHead(showArrival: r.to != nil, col: col).padding(.top, 2)
                         status(r)
                     } else {
-                        // Weitere Fahrten: waagerecht blättern. Antippen einer Seite → ÖPNV-Übersicht.
+                        // Weitere Fahrten: waagerecht blättern. Kopfzeile je Seite → Spalten genau über den Zeiten.
+                        // Antippen einer Fahrt → wo ist der Bus gerade?
                         GlancePager(pages: Pages.split(rows, height: space.height - 62, row: 44)) { page in
                             VStack(alignment: .leading, spacing: 4) {
+                                TransitHead(showArrival: r.to != nil, col: col).padding(.top, 2)
                                 ForEach(Array(page.enumerated()), id: \.element.id) { i, row in
-                                    TransitRowView(row: row, showArrival: wide && r.to != nil, best: i == 0 && row.id == rows.first?.id)
+                                    TransitRowView(row: row, showArrival: r.to != nil, best: i == 0 && row.id == rows.first?.id, col: col)
+                                        .onTapGesture { if let ref = row.ref { ride = ref } else { openDetail() } }
                                 }
                             }
-                            .contentShape(Rectangle())
-                            .onTapGesture(perform: openDetail)
                         }
                     }
                 }
@@ -668,6 +719,7 @@ struct TransitDetail: View {
     @ObservedObject private var adhoc = TransitAdHoc.shared
     @Environment(\.editBucket) private var edit
     @Environment(\.bucketId) private var bucketId
+    @State private var ride: RideRef?
 
     private var sel: (from: TransitBucket.Saved?, to: TransitBucket.Saved?) { TransitBucket.selection(config, bucket: bucketId) }
     private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config)) } }
@@ -719,6 +771,7 @@ struct TransitDetail: View {
             }
         }
         .listStyle(.insetGrouped)
+        .sheet(item: $ride) { RideSheet(ref: $0) }
         .refreshing(id: (main?.key ?? "") + others.map { $0.1.key }.joined(), every: { 60 }) {
             await adhoc.refreshHere(bucket: bucketId)
             await svc.load([main].compactMap { $0 } + others.map { $0.1 })
@@ -732,6 +785,7 @@ struct TransitDetail: View {
         }
         ForEach(Array(list.enumerated()), id: \.element.id) { i, row in
             TransitRowView(row: row, showArrival: arrival, best: i == 0)
+                .onTapGesture { if let ref = row.ref { ride = ref } }
         }
     }
 
