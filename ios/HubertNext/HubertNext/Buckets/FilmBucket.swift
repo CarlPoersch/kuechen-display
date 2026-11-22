@@ -54,7 +54,7 @@ enum FilmBucket {
     /// Zufalls-Filter (gemerkt)
     struct RandomFilter: Equatable {
         var type = "any"          // any, movie, tv
-        var exclude: [Int] = []
+        var include: [Int] = []   // Wunsch-Genres (eins davon), leer = alle
         var minRating = 0.0
         var maxLength = 0         // Minuten, 0 = egal
         var fromList = false
@@ -62,13 +62,13 @@ enum FilmBucket {
         init(_ c: [String: JSON]) {
             guard let o = c["rnd"]?.object else { return }
             type = o["t"]?.string ?? "any"
-            exclude = (o["x"]?.array ?? []).compactMap { $0.double.map { Int($0) } }
+            include = (o["g"]?.array ?? []).compactMap { $0.double.map { Int($0) } }   // früher „x“ = ausschließen, bewusst nicht übernommen
             minRating = o["min"]?.double ?? 0
             maxLength = Int(o["len"]?.double ?? 0)
             fromList = o["list"]?.bool ?? false
         }
         var json: JSON {
-            .object(["t": .string(type), "x": .array(exclude.map { .number(Double($0)) }), "min": .number(minRating),
+            .object(["t": .string(type), "g": .array(include.map { .number(Double($0)) }), "min": .number(minRating),
                      "len": .number(Double(maxLength)), "list": .bool(fromList)])
         }
     }
@@ -134,7 +134,11 @@ struct FilmFav: Codable {
         return ("Noch kein Termin in Deutschland", false)
     }
 }
-struct FilmGenre: Codable, Identifiable, Hashable { let id: Int; let name: String }
+struct FilmGenre: Codable, Identifiable, Hashable {
+    let id: Int; let name: String
+    var m: Bool? = nil     // gibt es bei Filmen
+    var t: Bool? = nil     // gibt es bei Serien
+}
 
 /// Ein Titel zum Öffnen (Blatt)
 struct FilmRef: Identifiable, Hashable { let id: Int; let t: String; var key: String { t + "\(id)" } }
@@ -190,7 +194,7 @@ final class FilmService: ObservableObject {
     }
     func random(_ f: FilmBucket.RandomFilter, providers: [Int]) async -> FilmTitle? {
         try? await get("random", [("t", f.type), ("p", providers.map(String.init).joined(separator: ",")),
-                                  ("x", f.exclude.map(String.init).joined(separator: ",")),
+                                  ("g", f.include.map { String($0) }.joined(separator: ",")),
                                   ("min", String(f.minRating)), ("len", String(f.maxLength))], FilmTitle.self)
     }
 }
@@ -821,12 +825,36 @@ struct FilmRandomSheet: View {
                     .pickerStyle(.segmented)
                 }
             }
-            Section {
-                GenreChips(genres: service.genres, selected: $filter.exclude, crossed: true)
-                    .listRowInsets(EdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12))
-            } header: { Text("Diese Genres nicht") } footer: {
-                Text(empty ? "Nichts gefunden – lockere die Filter etwas." : "Hubert schlägt nur vor, was auf deinen Diensten läuft.")
+            if !filter.fromList {
+                Section {
+                    GenreChips(genres: genresForType, selected: $filter.include)
+                        .listRowInsets(EdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12))
+                } header: {
+                    HStack {
+                        Text("Worauf hast du Lust?")
+                        Spacer()
+                        if !filter.include.isEmpty {
+                            Button("Alle Genres") { withAnimation { filter.include = [] } }.font(.footnote).textCase(nil)
+                        }
+                    }
+                } footer: {
+                    Text(empty ? "Nichts gefunden – nimm ein Genre mehr dazu oder lockere die Bewertung."
+                         : filter.include.isEmpty ? "Nichts gewählt = alle Genres. Hubert schlägt nur vor, was auf deinen Diensten läuft."
+                         : "Hubert würfelt aus \(filter.include.count == 1 ? "diesem Genre" : "einem dieser Genres") – nur, was auf deinen Diensten läuft.")
+                }
+            } else if empty {
+                Section { Text("Deine Merkliste ist leer – merk dir Titel mit dem Lesezeichen.").foregroundColor(Theme.secondary) }
             }
+        }
+    }
+
+    /// Genres passend zur Art. Bei „Egal“ ohne die Serien-Doppel (Action & Adventure = Action/Abenteuer)
+    private var genresForType: [FilmGenre] {
+        let aliases: Set<Int> = [10759, 10765, 10768]
+        switch filter.type {
+        case "movie": return service.genres.filter { $0.m ?? true }
+        case "tv": return service.genres.filter { $0.t ?? true }
+        default: return service.genres.filter { !aliases.contains($0.id) }
         }
     }
 

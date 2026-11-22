@@ -7,7 +7,7 @@
 //   GET .../filme/search?q=…&t=tv|multi     Suche
 //   GET .../filme/shows?ids=1,2             Gefolgte Serien: nächste Folge
 //   GET .../filme/favs?ids=tv:1,movie:2     Favoriten: Serien mit nächster Folge, Filme mit Kino-/Streaming-Start (DE)
-//   GET .../filme/random?t=movie|tv|any&p=…&x=…&min=7&len=120   Zufallsvorschlag
+//   GET .../filme/random?t=movie|tv|any&p=…&g=…&x=…&min=7&len=120   Zufallsvorschlag (g = Wunsch-Genres, eins davon)
 // Der TMDB-Schlüssel liegt im Supabase Vault (app_tmdb_key), nicht im Code.
 // ============================================================
 
@@ -133,9 +133,11 @@ async function providers() {
 
 async function genres() {
   const [m, t] = await Promise.all([tmdb("genre/movie/list", {}, 7 * 86_400_000), tmdb("genre/tv/list", {}, 7 * 86_400_000)]);
-  const out = new Map<number, string>();
-  for (const g of [...(m.genres ?? []), ...(t.genres ?? [])]) out.set(g.id, g.name);
-  return [...out.entries()].map(([id, name]) => ({ id, name })).sort((a, b) => a.name.localeCompare(b.name, "de"));
+  // m/t: gibt es das Genre bei Filmen / Serien?
+  const out = new Map<number, { id: number; name: string; m: boolean; t: boolean }>();
+  for (const g of m.genres ?? []) out.set(g.id, { id: g.id, name: g.name, m: true, t: false });
+  for (const g of t.genres ?? []) { const o = out.get(g.id); if (o) o.t = true; else out.set(g.id, { id: g.id, name: g.name, m: false, t: true }); }
+  return [...out.values()].sort((a, b) => a.name.localeCompare(b.name, "de"));
 }
 
 async function feed(p: string, x: string) {
@@ -253,9 +255,33 @@ async function favs(ids: string) {
   }));
 }
 
-async function random(t: string, p: string, x: string, min: number, len: number) {
-  const type: "movie" | "tv" = t === "tv" ? "tv" : t === "movie" ? "movie" : (Math.random() < 0.5 ? "movie" : "tv");
+// Film- und Serien-Genres heißen bei TMDB teils anders (Action ↔ Action & Adventure)
+const GENRE_MAP: Record<"movie" | "tv", Record<number, number[]>> = {
+  tv: { 28: [10759], 12: [10759], 878: [10765], 14: [10765], 10752: [10768] },
+  movie: { 10759: [28, 12], 10765: [878, 14], 10768: [10752] },
+};
+const MOVIE_ONLY = new Set([28, 12, 878, 14, 10752, 27, 53, 36, 10402, 10749, 10770]);
+const TV_ONLY = new Set([10759, 10765, 10768, 10762, 10763, 10764, 10766, 10767]);
+function genresFor(type: "movie" | "tv", ids: number[]): number[] {
+  const own = type === "movie" ? TV_ONLY : MOVIE_ONLY;
+  const out = new Set<number>();
+  for (const id of ids) {
+    if (!own.has(id)) out.add(id);
+    for (const m of GENRE_MAP[type][id] ?? []) out.add(m);
+  }
+  return [...out];
+}
+
+async function random(t: string, p: string, x: string, min: number, len: number, g = "") {
+  const want = g.split(",").map(Number).filter((n) => n > 0);
+  // Mit Wunsch-Genres nur die Art nehmen, für die es passende Genres gibt
+  const types: ("movie" | "tv")[] = (t === "tv" ? ["tv"] : t === "movie" ? ["movie"] : ["movie", "tv"])
+    .filter((ty) => !want.length || genresFor(ty as "movie" | "tv", want).length > 0) as ("movie" | "tv")[];
+  if (!types.length) return null;
+  const type = types[Math.floor(Math.random() * types.length)];
+  const withG = want.length ? genresFor(type, want).join("|") : undefined;
   const params: Record<string, string | number | undefined> = {
+    with_genres: withG,
     watch_region: "DE", with_watch_providers: p.split(",").filter(Boolean).join("|") || undefined,
     with_watch_monetization_types: p ? "flatrate|free|ads" : undefined,
     without_genres: x.split(",").filter(Boolean).join(",") || undefined,
@@ -292,7 +318,7 @@ Deno.serve(async (req) => {
       : what === "search" ? await search(q.get("q") ?? "", q.get("t") ?? "multi")
       : what === "shows" ? await shows(q.get("ids") ?? "")
       : what === "favs" ? await favs(q.get("ids") ?? "")
-      : await random(q.get("t") ?? "any", q.get("p") ?? "", q.get("x") ?? "", Number(q.get("min") ?? 0), Number(q.get("len") ?? 0));
+      : await random(q.get("t") ?? "any", q.get("p") ?? "", q.get("x") ?? "", Number(q.get("min") ?? 0), Number(q.get("len") ?? 0), q.get("g") ?? "");
   } catch (e) {
     return new Response(JSON.stringify({ error: String(e) }), { status: 400, headers: { ...cors, "Content-Type": "application/json" } });
   }
