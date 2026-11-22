@@ -171,17 +171,6 @@ struct RecipesTab: View {
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel(filter.isActive ? "Filter (aktiv)" : "Filter")
-                    roundButton("die.face.5.fill", "Zufallsrezept") { shuffle() }
-                    roundButton("chart.bar.fill", "Koch-Statistik") { sheet = .stats }
-                    Menu {
-                        Button { sheet = .new } label: { Label("Neues Rezept", systemImage: "square.and.pencil") }
-                        Button { sheet = .link } label: { Label("Rezept aus Link", systemImage: "link") }
-                        Button { sheet = .cookbook } label: { Label("Familien-Kochbuch", systemImage: "book.closed") }
-                    } label: {
-                        Image(systemName: "plus").font(.headline).foregroundColor(.white)
-                            .frame(width: 40, height: 40).background(Circle().fill(Theme.accent))
-                    }
-                    .accessibilityLabel("Rezept hinzufügen")
                 }
 
                 // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
@@ -302,6 +291,17 @@ struct RecipesTab: View {
                 }
             }
             .padding()
+            .padding(.bottom, 84)       // Platz für die schwebenden Knöpfe unten rechts
+        }
+        // Hinzufügen und Zufall schweben unten rechts – gut mit dem Daumen erreichbar,
+        // die Suchzeile oben bleibt frei
+        .overlay(alignment: .bottomTrailing) { floatingButtons }
+        // Statistik braucht man selten → oben in der Leiste
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button { sheet = .stats } label: { Image(systemName: "chart.bar") }
+                    .accessibilityLabel("Koch-Statistik")
+            }
         }
         .sheet(isPresented: $showFilter) { RecipeFilterSheet(filter: $filter) { matching($0).count } }
         .sheet(item: $sheet) { s in
@@ -392,12 +392,31 @@ struct RecipesTab: View {
         .transition(.scale(scale: 0.95).combined(with: .opacity))
     }
 
-    private func roundButton(_ symbol: String, _ label: String, _ action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Image(systemName: symbol).font(.headline).foregroundColor(Theme.accent)
-                .frame(width: 40, height: 40).background(Circle().fill(Color(UIColor.tertiarySystemFill)))
+    /// Zufall (klein) über Hinzufügen (groß, Tint) – unten rechts
+    private var floatingButtons: some View {
+        VStack(spacing: 14) {
+            Button { shuffle() } label: {
+                Image(systemName: "die.face.5").font(.system(size: 20, weight: .semibold)).foregroundColor(Theme.accent)
+                    .frame(width: 48, height: 48)
+                    .background(Circle().fill(Theme.card))
+                    .shadow(color: .black.opacity(0.16), radius: 8, y: 3)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Zufallsrezept")
+
+            Menu {
+                Button { sheet = .new } label: { Label("Neues Rezept", systemImage: "square.and.pencil") }
+                Button { sheet = .link } label: { Label("Rezept aus Link", systemImage: "link") }
+                Button { sheet = .cookbook } label: { Label("Familien-Kochbuch", systemImage: "book.closed") }
+            } label: {
+                Image(systemName: "plus").font(.system(size: 24, weight: .semibold)).foregroundColor(.white)
+                    .frame(width: 58, height: 58)
+                    .background(Circle().fill(Theme.accent))
+                    .shadow(color: Theme.accent.opacity(0.35), radius: 10, y: 4)
+            }
+            .accessibilityLabel("Rezept hinzufügen")
         }
-        .buttonStyle(.plain).accessibilityLabel(label)
+        .padding(.trailing, 20).padding(.bottom, 20)
     }
 }
 
