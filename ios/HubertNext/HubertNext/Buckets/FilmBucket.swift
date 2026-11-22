@@ -5,8 +5,9 @@ import Combine
 // Film & Serien (Daten: TMDB über die Server-Funktion „filme“)
 //  - Beim Hinzufügen: eigene Streamingdienste wählen → alles darauf zugeschnitten
 //  - Karte: Poster-Reihe „Neu diese Woche“ – gefolgte Serien mit neuer Folge zuerst
-//  - Detail: Streaming · Serien · Kino · Meine (gefolgte Serien + Merkliste)
-//  - Serien folgen (z. B. Dexter): nächste Folge mit Datum
+//  - Suche über alles (Filme, Serien, Reality, Shows) → als Favorit ⭐ merken
+//  - Favoriten auf der Karte: Serien mit nächster Folge, Filme mit Kino-/Streaming-Start
+//  - Detail: Streaming · Serien · Kino · Meine (Favoriten + Merkliste)
 //  - Zufall „Was schauen wir heute?“ mit Filtern (Art, Genres raus, Bewertung, Länge, nur Merkliste)
 // Alles gilt für den eigenen Account (Bucket-Einstellungen), auf allen eigenen Geräten.
 // Einstellungen: providers, kino/stream/tv, hide, follow, watch, rnd
@@ -90,9 +91,47 @@ struct FilmTitle: Codable {
     let seasons: Int?; let ended: Bool?; let next: FilmEpisode?; let last: FilmEpisode?; let networks: [String]?
     var saved: FilmBucket.Saved { .init(id: id, t: t, title: title, poster: poster) }
 }
-struct FilmShow: Codable {
-    let id: Int; let title: String; let poster: String?; let providers: [FilmProvider]?
+/// Favorit mit Terminen: Serie → nächste Folge, Film → Kino-/Streaming-Start in Deutschland
+struct FilmFav: Codable {
+    let id: Int; let t: String?; let title: String; let poster: String?; let providers: [FilmProvider]?
     let ended: Bool?; let seasons: Int?; let next: FilmEpisode?; let last: FilmEpisode?
+    let kino: String?; let digital: String?; let date: String?
+    var type: String { t ?? "tv" }
+
+    /// Nächster Termin (Datum, Kurztext): Serie = nächste Folge; Film = Kino- oder Streaming-Start (bis 7 Tage zurück)
+    var upcoming: (date: String, label: String)? {
+        if type == "tv" {
+            guard let n = next, let d = n.date else { return nil }
+            return (date: d, label: FilmFmt.episode(n))
+        }
+        var best: (date: String, label: String)?
+        for c in [(kino, "Kino"), (digital, "Streaming")] {
+            guard let d = c.0, let n = FilmFmt.days(d), n >= -7 else { continue }
+            if best == nil || d < best!.date { best = (date: d, label: c.1) }
+        }
+        return best
+    }
+
+    /// Statuszeile für Listen; hot = heute/morgen bzw. gerade gestartet
+    func status(mine: Set<Int>) -> (text: String, hot: Bool) {
+        if let u = upcoming, let d = FilmFmt.days(u.date) {
+            if type == "tv" {
+                let when: String
+                if d == 0 { when = "heute" } else if d == 1 { when = "morgen" }
+                else if d < 0 { when = FilmFmt.when(u.date) } else { when = "in \(d) Tagen, " + FilmFmt.when(u.date) }
+                return (u.label + " · " + when, d <= 1)
+            }
+            if d > 0 { return (u.label + " ab " + FilmFmt.when(u.date), d <= 1) }
+            return (d == 0 ? u.label + "-Start heute" : "Neu " + (u.label == "Kino" ? "im Kino" : "im Streaming"), true)
+        }
+        if type == "tv" {
+            if ended == true { return ("Serie beendet" + (seasons.map { " · \($0) Staffeln" } ?? ""), false) }
+            return ("Noch kein Termin für die nächste Folge", false)
+        }
+        if let p = (providers ?? []).first(where: { mine.contains($0.id) }) { return ("Läuft bei " + p.name, false) }
+        if let p = providers?.first { return ("Bei " + p.name, false) }
+        return ("Noch kein Termin in Deutschland", false)
+    }
 }
 struct FilmGenre: Codable, Identifiable, Hashable { let id: Int; let name: String }
 
@@ -104,7 +143,7 @@ final class FilmService: ObservableObject {
     @Published private(set) var providers: [FilmProvider] = []
     @Published private(set) var genres: [FilmGenre] = []
     @Published private(set) var feeds: [String: FilmFeed] = [:]
-    @Published private(set) var shows: [Int: FilmShow] = [:]
+    @Published private(set) var favs: [String: FilmFav] = [:]     // "tv123" / "movie456"
     @Published private(set) var failed = false
     private var loadedAt: [String: Date] = [:]
 
@@ -133,12 +172,13 @@ final class FilmService: ObservableObject {
         } catch { if feeds[k] == nil { failed = true }; print("Filme:", error) }
     }
 
-    func loadShows(_ ids: [Int], force: Bool = false) async {
-        guard !ids.isEmpty else { return }
-        let k = "shows:" + ids.map(String.init).joined(separator: ",")
+    func loadFavs(_ saved: [FilmBucket.Saved], force: Bool = false) async {
+        guard !saved.isEmpty else { return }
+        let ids = saved.map { $0.t + ":\($0.id)" }.joined(separator: ",")
+        let k = "favs:" + ids
         if !force, let t = loadedAt[k], Date().timeIntervalSince(t) < 3 * 3600 { return }
-        if let list = try? await get("shows", [("ids", ids.map(String.init).joined(separator: ","))], [FilmShow].self) {
-            for s in list { shows[s.id] = s }
+        if let list = try? await get("favs", [("ids", ids)], [FilmFav].self) {
+            for f in list { favs[f.type + "\(f.id)"] = f }
             loadedAt[k] = Date()
         }
     }
@@ -269,27 +309,33 @@ struct FilmGlance: View {
         .task(id: FilmService.feedKey(c)) {
             guard !FilmBucket.providers(c).isEmpty else { return }
             await service.loadFeed(c)
-            await service.loadShows(FilmBucket.follow(c).map(\.id))
+            await service.loadFavs(FilmBucket.follow(c))
         }
         .sheet(item: $open) { FilmTitleSheet(ref: $0, bucketId: instance.id).environmentObject(store) }
     }
 
-    /// Ein Eintrag der Karte; star = gefolgte Serie mit neuer Folge
-    private struct Entry: Identifiable { let item: FilmItem; let star: Bool; var id: String { item.key } }
+    /// Ein Eintrag der Karte; badge = Favorit mit Termin („⭐ S2 E4“, „⭐ Kino“)
+    private struct Entry: Identifiable { let item: FilmItem; let badge: String?; var id: String { item.key } }
 
-    /// Gefolgte Serien mit Folge in den nächsten 7 Tagen (oder heute) zuerst, dann Neues gemischt
+    /// Favoriten mit Termin (nächste Folge, Kino-/Streaming-Start in den nächsten 60 Tagen) zuerst, dann Neues gemischt
     private func items(_ c: [String: JSON], _ f: FilmFeed) -> [Entry] {
         var out: [Entry] = []
         var seen = Set<String>()
+        var favs: [(FilmFav, String, String)] = []
         for s in FilmBucket.follow(c) {
-            guard let sh = service.shows[s.id], let n = sh.next, let d = FilmFmt.days(n.date), d >= 0, d <= 7 else { continue }
-            let it = FilmItem(id: sh.id, t: "tv", title: sh.title, poster: sh.poster, date: n.date, rating: nil, genres: nil,
-                              providers: sh.providers, next: n, kino: nil)
-            out.append(Entry(item: it, star: true)); seen.insert(it.key)
+            guard let fv = service.favs[s.key], let u = fv.upcoming, let d = FilmFmt.days(u.date), d <= 60,
+                  d >= (fv.type == "tv" ? 0 : -7) else { continue }
+            favs.append((fv, u.date, u.label))
+        }
+        for x in favs.sorted(by: { $0.1 < $1.1 }) {
+            let fv = x.0
+            let it = FilmItem(id: fv.id, t: fv.type, title: fv.title, poster: fv.poster, date: x.1, rating: nil, genres: nil,
+                              providers: fv.providers, next: fv.type == "tv" ? fv.next : nil, kino: nil)
+            out.append(Entry(item: it, badge: "⭐ " + x.2)); seen.insert(it.key)
         }
         let lists = [FilmBucket.on(c, "stream") ? f.stream : [], FilmBucket.on(c, "tv") ? f.tv : [], FilmBucket.on(c, "kino") ? f.kino : []]
         for i in 0..<20 {
-            for l in lists where i < l.count && !seen.contains(l[i].key) { out.append(Entry(item: l[i], star: false)); seen.insert(l[i].key) }
+            for l in lists where i < l.count && !seen.contains(l[i].key) { out.append(Entry(item: l[i], badge: nil)); seen.insert(l[i].key) }
         }
         return out
     }
@@ -306,7 +352,7 @@ struct FilmGlance: View {
                 HStack(alignment: .top, spacing: 12) {
                     ForEach(list) { e in
                         Button { open = FilmRef(id: e.item.id, t: e.item.t) } label: {
-                            FilmTile(item: e.item, mine: mine, width: w, badge: e.star ? "⭐ " + (e.item.next.map(FilmFmt.episode) ?? "") : nil)
+                            FilmTile(item: e.item, mine: mine, width: w, badge: e.badge)
                         }
                         .buttonStyle(.plain)
                     }
@@ -319,7 +365,7 @@ struct FilmGlance: View {
                     let it = e.item
                     Button { open = FilmRef(id: it.id, t: it.t) } label: {
                         HStack(spacing: 8) {
-                            if e.star { Image(systemName: "star.fill").foregroundColor(.yellow).font(.caption) }
+                            if e.badge != nil { Image(systemName: "star.fill").foregroundColor(.yellow).font(.caption) }
                             else { Image(systemName: it.kino == true ? "popcorn" : it.t == "tv" ? "tv" : "film").font(.caption).foregroundColor(Theme.secondary) }
                             Text(it.title).font(.subheadline).lineLimit(1)
                             Spacer(minLength: 4)
@@ -353,6 +399,19 @@ struct FilmDetail: View {
         let mine = Set(FilmBucket.providers(c))
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
+                // Suche über alles – Treffer als Favorit merken
+                Button { adding = true } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "magnifyingglass")
+                        Text("Filme, Serien, Shows suchen")
+                        Spacer()
+                    }
+                    .foregroundColor(Theme.secondary)
+                    .padding(.horizontal, 12).frame(height: 40)
+                    .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                }
+                .buttonStyle(.plain)
+
                 // Würfel
                 Button { dice = true } label: {
                     HStack(spacing: 12) {
@@ -400,11 +459,11 @@ struct FilmDetail: View {
         .task {
             await service.loadBasics()
             await service.loadFeed(c)
-            await service.loadShows(FilmBucket.follow(c).map(\.id), force: true)
+            await service.loadFavs(FilmBucket.follow(c), force: true)
         }
         .refreshable {
             await service.loadFeed(c, force: true)
-            await service.loadShows(FilmBucket.follow(c).map(\.id), force: true)
+            await service.loadFavs(FilmBucket.follow(c), force: true)
         }
         .sheet(item: $open) { FilmTitleSheet(ref: $0, bucketId: bucketId).environmentObject(store) }
         .sheet(isPresented: $dice) { FilmRandomSheet(bucketId: bucketId).environmentObject(store) }
@@ -425,22 +484,22 @@ struct FilmDetail: View {
     @ViewBuilder private func mineSection(_ c: [String: JSON], _ mine: Set<Int>) -> some View {
         let follow = FilmBucket.follow(c)
         HStack {
-            Text("Meine Serien").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary).textCase(.uppercase)
+            Text("Favoriten").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary).textCase(.uppercase)
             Spacer()
-            Button { adding = true } label: { Label("Serie hinzufügen", systemImage: "plus") }.font(.subheadline)
+            Button { adding = true } label: { Label("Hinzufügen", systemImage: "plus") }.font(.subheadline)
         }
         if follow.isEmpty {
-            Text("Folge einer Serie (z. B. Dexter) – dann siehst du hier, wann die nächste Folge kommt.")
+            Text("Suche Filme, Serien oder Shows und tippe auf ⭐ – dann siehst du hier und auf der Karte, wann es weitergeht.")
                 .font(.subheadline).foregroundColor(Theme.secondary)
         } else {
             VStack(spacing: 0) {
-                // Nächste Folge zuerst, Serien ohne Termin danach
+                // Nächster Termin zuerst, ohne Termin danach
                 let sorted = follow.sorted { a, b in
-                    (FilmFmt.days(service.shows[a.id]?.next?.date) ?? 9999) < (FilmFmt.days(service.shows[b.id]?.next?.date) ?? 9999)
+                    (service.favs[a.key]?.upcoming?.date ?? "9999") < (service.favs[b.key]?.upcoming?.date ?? "9999")
                 }
                 ForEach(Array(sorted.enumerated()), id: \.element.key) { i, s in
                     if i > 0 { Divider().padding(.leading, 66) }
-                    Button { open = FilmRef(id: s.id, t: "tv") } label: { showRow(s, mine) }.buttonStyle(.plain)
+                    Button { open = FilmRef(id: s.id, t: s.t) } label: { showRow(s, mine) }.buttonStyle(.plain)
                 }
             }
             .padding(.vertical, 4)
@@ -450,7 +509,7 @@ struct FilmDetail: View {
         let watch = FilmBucket.watch(c)
         Text("Merkliste").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary).textCase(.uppercase).padding(.top, 6)
         if watch.isEmpty {
-            Text("Tippe bei einem Film oder einer Serie auf „Merken“.").font(.subheadline).foregroundColor(Theme.secondary)
+            Text("Was du schauen willst: im Titel auf „Merkliste“ tippen. Der Würfel kann daraus wählen.").font(.subheadline).foregroundColor(Theme.secondary)
         } else {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 140), spacing: 14, alignment: .top)], alignment: .leading, spacing: 18) {
                 ForEach(watch) { s in
@@ -468,20 +527,18 @@ struct FilmDetail: View {
     }
 
     private func showRow(_ s: FilmBucket.Saved, _ mine: Set<Int>) -> some View {
-        let sh = service.shows[s.id]
+        let sh = service.favs[s.key]
         var line = "Lädt …", tone = Theme.secondary
         if let sh = sh {
-            if let n = sh.next {
-                let d = FilmFmt.days(n.date) ?? 0
-                line = FilmFmt.episode(n) + " · " + (d == 0 ? "heute" : d == 1 ? "morgen" : d < 0 ? FilmFmt.when(n.date) : "in \(d) Tagen, " + FilmFmt.when(n.date))
-                if d <= 1 { tone = Theme.accent }
-            } else if sh.ended == true { line = "Serie beendet" + (sh.seasons.map { " · \($0) Staffeln" } ?? "") }
-            else { line = "Noch kein Termin für die nächste Folge" }
+            let st = sh.status(mine: mine)
+            line = st.text
+            if st.hot { tone = Theme.accent }
         }
         return HStack(spacing: 12) {
             FilmPoster(url: s.poster ?? sh?.poster, width: 42)
             VStack(alignment: .leading, spacing: 3) {
                 Text(s.title).font(.body.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
+                Text(s.t == "tv" ? "Serie" : "Film").font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
                 Text(line).font(.subheadline).foregroundColor(tone).lineLimit(1)
             }
             Spacer(minLength: 6)
@@ -524,7 +581,7 @@ struct FilmTitleSheet: View {
 
     private func toggle(_ list: String, _ s: FilmBucket.Saved) {
         store.updateConfig(bucketId) { FilmBucket.toggle(list, s, in: &$0) }
-        if list == "follow" { Task { await FilmService.shared.loadShows([s.id], force: true) } }
+        if list == "follow" { Task { await FilmService.shared.loadFavs([s], force: true) } }
     }
 }
 
@@ -537,7 +594,7 @@ struct FilmTitleView: View {
     var body: some View {
         let mine = Set(FilmBucket.providers(config))
         let watched = FilmBucket.watch(config).contains { $0.key == t.saved.key }
-        let followed = FilmBucket.follow(config).contains { $0.id == t.id && t.t == "tv" }
+        let followed = FilmBucket.follow(config).contains { $0.key == t.saved.key }
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 // Hintergrundbild mit Poster
@@ -560,10 +617,8 @@ struct FilmTitleView: View {
 
                 // Merken / Folgen
                 HStack(spacing: 10) {
-                    actionButton(watched ? "Gemerkt" : "Merken", watched ? "star.fill" : "star", on: watched) { onToggle("watch", t.saved) }
-                    if t.t == "tv" {
-                        actionButton(followed ? "Gefolgt" : "Folgen", followed ? "bell.fill" : "bell", on: followed) { onToggle("follow", t.saved) }
-                    }
+                    actionButton("Favorit", followed ? "star.fill" : "star", on: followed) { onToggle("follow", t.saved) }
+                    actionButton("Merkliste", watched ? "bookmark.fill" : "bookmark", on: watched) { onToggle("watch", t.saved) }
                 }
 
                 if t.t == "tv" { episodeCard }
@@ -781,7 +836,7 @@ struct GenreChips: View {
     }
 }
 
-// MARK: Serie suchen
+// MARK: Suche (Filme, Serien, Shows)
 
 struct FilmSearchSheet: View {
     let bucketId: String
@@ -790,8 +845,9 @@ struct FilmSearchSheet: View {
     @State private var query = ""
     @State private var results: [FilmItem] = []
     @State private var searching = false
+    @State private var open: FilmRef?
 
-    private var followed: Set<Int> { Set(FilmBucket.follow(store.buckets.first { $0.id == bucketId }?.config ?? [:]).map(\.id)) }
+    private var favKeys: Set<String> { Set(FilmBucket.follow(store.buckets.first { $0.id == bucketId }?.config ?? [:]).map(\.key)) }
 
     var body: some View {
         NavigationView {
@@ -799,32 +855,20 @@ struct FilmSearchSheet: View {
                 Section {
                     HStack {
                         Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
-                        TextField("Serie suchen, z. B. Dexter", text: $query).disableAutocorrection(true)
+                        TextField("Filme, Serien, Shows – z. B. Dexter, Bachelor", text: $query).disableAutocorrection(true)
                         if searching { ProgressView() }
                     }
+                } footer: {
+                    if results.isEmpty { Text("⭐ = Favorit: Hubert zeigt dir dann die nächste Folge oder den Kino- bzw. Streaming-Start.") }
                 }
-                Section {
-                    ForEach(results, id: \.key) { it in
-                        let on = followed.contains(it.id)
-                        Button {
-                            store.updateConfig(bucketId) { FilmBucket.toggle("follow", it.saved, in: &$0) }
-                            if !on { Task { await FilmService.shared.loadShows([it.id], force: true) } }
-                        } label: {
-                            HStack(spacing: 12) {
-                                FilmPoster(url: it.poster, width: 40)
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(it.title).foregroundColor(.primary)
-                                    if let y = it.date?.prefix(4), !y.isEmpty { Text("seit " + y).font(.caption).foregroundColor(Theme.secondary) }
-                                }
-                                Spacer()
-                                Image(systemName: on ? "checkmark.circle.fill" : "plus.circle").font(.title3).foregroundColor(Theme.accent)
-                            }
-                        }
+                if !results.isEmpty {
+                    Section {
+                        ForEach(results, id: \.key) { it in row(it) }
                     }
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Serie folgen")
+            .navigationTitle("Suchen")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Fertig") { dismiss() } } }
             .task(id: query) {
@@ -833,12 +877,43 @@ struct FilmSearchSheet: View {
                 try? await Task.sleep(nanoseconds: 400_000_000)
                 if Task.isCancelled { return }
                 searching = true
-                let r = await FilmService.shared.search(q, tvOnly: true)
+                let r = await FilmService.shared.search(q, tvOnly: false)
                 if !Task.isCancelled { results = r }
                 searching = false
             }
+            .sheet(item: $open) { FilmTitleSheet(ref: $0, bucketId: bucketId).environmentObject(store) }
         }
         .navigationViewStyle(.stack)
+    }
+
+    private func row(_ it: FilmItem) -> some View {
+        let on = favKeys.contains(it.key)
+        let year = it.date.map { String($0.prefix(4)) } ?? ""
+        return HStack(spacing: 12) {
+            Button { open = FilmRef(id: it.id, t: it.t) } label: {
+                HStack(spacing: 12) {
+                    FilmPoster(url: it.poster, width: 40)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(it.title).foregroundColor(.primary).lineLimit(2)
+                        Text((it.t == "tv" ? "Serie" : "Film") + (year.isEmpty ? "" : (it.t == "tv" ? " · seit " : " · ") + year))
+                            .font(.caption).foregroundColor(Theme.secondary)
+                    }
+                    Spacer(minLength: 4)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            Button {
+                store.updateConfig(bucketId) { FilmBucket.toggle("follow", it.saved, in: &$0) }
+                if !on { Task { await FilmService.shared.loadFavs([it.saved], force: true) } }
+            } label: {
+                Image(systemName: on ? "star.fill" : "star").font(.title3)
+                    .foregroundColor(on ? .yellow : Theme.accent)
+                    .frame(width: 44, height: 44)
+            }
+            .buttonStyle(.borderless)
+            .accessibilityLabel(on ? "Aus Favoriten entfernen" : "Als Favorit merken")
+        }
     }
 }
 

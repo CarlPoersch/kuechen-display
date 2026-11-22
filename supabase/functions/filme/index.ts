@@ -6,6 +6,7 @@
 //   GET .../filme/title?t=movie|tv&id=…     Details eines Titels
 //   GET .../filme/search?q=…&t=tv|multi     Suche
 //   GET .../filme/shows?ids=1,2             Gefolgte Serien: nächste Folge
+//   GET .../filme/favs?ids=tv:1,movie:2     Favoriten: Serien mit nächster Folge, Filme mit Kino-/Streaming-Start (DE)
 //   GET .../filme/random?t=movie|tv|any&p=…&x=…&min=7&len=120   Zufallsvorschlag
 // Der TMDB-Schlüssel liegt im Supabase Vault (app_tmdb_key), nicht im Code.
 // ============================================================
@@ -230,6 +231,28 @@ async function shows(ids: string) {
   }));
 }
 
+async function favs(ids: string) {
+  const list = ids.split(",").map((x) => x.split(":")).filter(([t, id]) => (t === "tv" || t === "movie") && Number(id) > 0).slice(0, 60);
+  return await Promise.all(list.map(async ([t, idS]) => {
+    const id = Number(idS), type = t as "movie" | "tv";
+    const d = await details(type, id).catch(() => null);
+    if (!d) return { id, t: type, title: "?" };
+    const base = { id, t: type, title: type === "movie" ? d.title : d.name, poster: img(d.poster_path), providers: providersDE(d["watch/providers"]) };
+    if (type === "tv") {
+      const n = d.next_episode_to_air, l = d.last_episode_to_air;
+      return {
+        ...base, ended: ["Ended", "Canceled"].includes(d.status), seasons: d.number_of_seasons,
+        next: n ? { s: n.season_number, e: n.episode_number, date: n.air_date, name: n.name } : undefined,
+        last: l ? { s: l.season_number, e: l.episode_number, date: l.air_date, name: l.name } : undefined,
+      };
+    }
+    // Film: Starttermine in Deutschland (Kino = Typ 2/3, digital = Typ 4)
+    const rel = (d.release_dates?.results ?? []).find((x: any) => x.iso_3166_1 === "DE")?.release_dates ?? [];
+    const first = (types: number[]) => rel.filter((x: any) => types.includes(x.type)).map((x: any) => String(x.release_date ?? "").slice(0, 10)).filter(Boolean).sort()[0];
+    return { ...base, kino: first([2, 3]), digital: first([4]), date: d.release_date || undefined };
+  }));
+}
+
 async function random(t: string, p: string, x: string, min: number, len: number) {
   const type: "movie" | "tv" = t === "tv" ? "tv" : t === "movie" ? "movie" : (Math.random() < 0.5 ? "movie" : "tv");
   const params: Record<string, string | number | undefined> = {
@@ -253,7 +276,7 @@ Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: cors });
   const url = new URL(req.url);
   const what = url.pathname.split("/").filter(Boolean).pop() ?? "";
-  const routes = ["providers", "genres", "feed", "title", "search", "shows", "random"];
+  const routes = ["providers", "genres", "feed", "title", "search", "shows", "favs", "random"];
   if (!routes.includes(what)) return new Response("Unbekannte Abfrage", { status: 404, headers: cors });
   if (!(await keyOk(req.headers.get("x-kueche-key"))) && !(await userOk(req.headers.get("authorization")))) {
     return new Response("Kein Zugang", { status: 401, headers: cors });
@@ -268,6 +291,7 @@ Deno.serve(async (req) => {
       : what === "title" ? await title(t, Number(q.get("id")))
       : what === "search" ? await search(q.get("q") ?? "", q.get("t") ?? "multi")
       : what === "shows" ? await shows(q.get("ids") ?? "")
+      : what === "favs" ? await favs(q.get("ids") ?? "")
       : await random(q.get("t") ?? "any", q.get("p") ?? "", q.get("x") ?? "", Number(q.get("min") ?? 0), Number(q.get("len") ?? 0));
   } catch (e) {
     return new Response(JSON.stringify({ error: String(e) }), { status: 400, headers: { ...cors, "Content-Type": "application/json" } });
