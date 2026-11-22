@@ -117,12 +117,14 @@ final class PollenModel: ObservableObject {
             let hour = Calendar.current.component(.hour, from: d)
             let uvList = h.uv_index ?? []
             let uv = i < uvList.count ? (uvList[i] ?? 0) : 0
-            out[dayKey]?.uvMax = max(out[dayKey]?.uvMax ?? 0, uv)
-            out[dayKey]?.uvHours.append(UVHour(hour: hour, uv: uv))
+            // Erst lokal ändern, dann zurückschreiben (sonst doppelter Zugriff auf „out“)
+            guard var entry = out[dayKey] else { continue }
+            entry.uvMax = max(entry.uvMax, uv)
+            entry.uvHours.append(UVHour(hour: hour, uv: uv))
             for (k, list) in series where i < list.count {
-                let v = list[i] ?? 0
-                out[dayKey]?.levels[k] = max(out[dayKey]?.levels[k] ?? 0, v)
+                entry.levels[k] = max(entry.levels[k] ?? 0, list[i] ?? 0)
             }
+            out[dayKey] = entry
         }
         days = order.compactMap { out[$0] }
         failed = days.isEmpty
