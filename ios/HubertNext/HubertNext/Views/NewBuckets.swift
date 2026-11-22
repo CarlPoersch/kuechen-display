@@ -8,12 +8,17 @@ import SwiftUI
 
 enum NewBuckets {
     /// Komplett neue Buckets (neueste zuerst)
-    static let ids = ["mensa", "sonne", "gaeste", "deals"]
+    static let ids = ["filme", "mensa", "sonne", "gaeste", "deals"]
 
     struct Highlight: Hashable { let symbol: String; let text: String }
 
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
+        "filme": [
+            Highlight(symbol: "play.tv", text: "Neu auf deinen Streamingdiensten und im Kino – als Poster-Reihe"),
+            Highlight(symbol: "bell.fill", text: "Serien folgen: Hubert zeigt, wann die nächste Folge kommt"),
+            Highlight(symbol: "die.face.5.fill", text: "Was schauen wir heute? Würfeln – mit Genre-, Bewertungs- und Längenfilter"),
+        ],
         "mensa": [
             Highlight(symbol: "magnifyingglass", text: "Jede Mensa in Deutschland – suchen oder „in der Nähe“"),
             Highlight(symbol: "eurosign.circle", text: "Dein Preis (Studierende, Bedienstete, Gäste) und auf Wunsch nur vegetarisch oder vegan"),
