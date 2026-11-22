@@ -25,14 +25,16 @@ enum KitchenBuckets {
         interests: ["haushalt"], blurb: "Die Einkaufsliste des Haushalts – abhaken und hinzufügen direkt auf der Startseite.",
         glance: { _, _ in AnyView(ShoppingGlance()) },
         detail: { _ in AnyView(KitchenView(tab: .shop)) },
-        itemLinks: true
+        itemLinks: true,
+        parent: "kueche"          // Widget der Küche
     )
 
     static let recipeOfDay = BucketKind(
         id: "rezept-tag", name: "Rezept des Tages", symbol: "sparkles", tint: .orange, art: .glance,
         interests: ["haushalt"], blurb: "Jeden Tag ein Rezept – bevorzugt eins, das ihr länger nicht gekocht habt.",
         glance: { _, _ in AnyView(RecipeOfDayGlance()) },
-        detail: { _ in AnyView(RecipeOfDayDetail()) }
+        detail: { _ in AnyView(RecipeOfDayDetail()) },
+        parent: "kueche"
     )
 }
 

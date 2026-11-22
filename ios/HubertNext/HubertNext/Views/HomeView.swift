@@ -3,8 +3,10 @@ import Combine
 import UniformTypeIdentifiers
 
 // ============================================================
-// Startseite: oben das Briefing (Glance-Buckets im Raster),
-// darunter die Tools als App-Symbole, immer 4 pro Zeile.
+// Startseite: oben das Briefing (Widgets im Raster),
+// darunter die Apps als App-Symbole, immer 4 pro Zeile.
+// Jeder Bucket ist eine App; Widget und App-Symbol sind pro Gerät einzeln ein-/ausblendbar.
+// Ein Tipp aufs Widget öffnet die App.
 // Das Raster passt sich der Breite an: iPhone 2 Spalten, iPad hoch 4, iPad quer 6.
 // ============================================================
 struct HomeView: View {
@@ -18,9 +20,8 @@ struct HomeView: View {
     private var glances: [BucketInstance] {
         store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
     }
-    private var tools: [BucketInstance] {
-        store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .tool }
-    }
+    /// App-Symbole auf diesem Gerät
+    private var tools: [BucketInstance] { store.appBuckets }
     /// Runde Knöpfe unten rechts (z. B. Gäste-WLAN), auf diesem Gerät eingeblendet
     private var buttons: [BucketInstance] {
         store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .button }
@@ -149,12 +150,21 @@ struct HomeView: View {
                         ToolIcon(instance: inst, kind: kind)
                             .disabled(editing)
                             .overlay(alignment: .topLeading) {
-                                if editing { RemoveBadge { store.removeBucket(id: inst.id) }.offset(x: 2, y: -6) }
+                                // Minus: Hat der Bucket ein Widget, verschwindet nur das Symbol hier; sonst ganz entfernen
+                                if editing {
+                                    RemoveBadge {
+                                        if kind.hasWidget { store.setApp(inst.id, false) } else { store.removeBucket(id: inst.id) }
+                                    }
+                                    .offset(x: 2, y: -6)
+                                }
                             }
                             .modifier(Wiggle(on: editing))
                             .contextMenu(editing ? nil : ContextMenu {
                                 Button { afterMenu { withAnimation { editing = true } } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
-                                Button { let id = inst.id; afterMenu { withAnimation { store.setHidden(id, true) } } } label: { Label("Auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash") }
+                                if kind.hasWidget && store.hiddenHere.contains(inst.id) {
+                                    Button { let id = inst.id; afterMenu { withAnimation { store.setHidden(id, false) } } } label: { Label("Widget zeigen", systemImage: "rectangle.on.rectangle") }
+                                }
+                                Button { let id = inst.id; afterMenu { withAnimation { store.setApp(id, false) } } } label: { Label("Symbol auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash") }
                                 Button(role: .destructive) { let id = inst.id; afterMenu { withAnimation { store.removeBucket(id: id) } } } label: { Label("Entfernen", systemImage: "trash") }
                             })
                             // Kein Wechsel in den Bearbeiten-Modus beim Ziehen: Das entfernte das Kontextmenü,
@@ -208,7 +218,9 @@ struct ToolIcon: View {
     let kind: BucketKind
     @State private var open = false
     var body: some View {
-        Button { if kind.detail != nil { open = true } } label: { AppIcon(kind: kind) }
+        Button { if kind.detail != nil { open = true } } label: {
+            AppIcon(kind: kind, title: instance.config["title"]?.string.flatMap { $0.isEmpty ? nil : $0 })
+        }
             .buttonStyle(.plain)
             .background(
                 NavigationLink(isActive: $open) { BucketDetailHost(instance: instance, kind: kind) } label: { EmptyView() }
@@ -220,6 +232,7 @@ struct ToolIcon: View {
 /// App-Symbol im Stil des Home-Bildschirms
 struct AppIcon: View {
     let kind: BucketKind
+    var title: String? = nil      // eigener Name aus den Einstellungen
     var body: some View {
         VStack(spacing: 6) {
             Image(systemName: kind.symbol)
@@ -228,7 +241,7 @@ struct AppIcon: View {
                 .background(RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(LinearGradient(colors: [kind.tint.opacity(0.85), kind.tint], startPoint: .top, endPoint: .bottom)))
                 .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
-            Text(kind.name).font(.caption).lineLimit(1)
+            Text(title ?? kind.name).font(.caption).lineLimit(1)
         }
     }
 }
@@ -296,8 +309,10 @@ struct BriefingGrid: View {
     }
 }
 
-/// Karte mit Kopfzeile. Der Kopf ("Alle ›") öffnet die Details.
-/// Der Inhalt öffnet sie auch – außer der Bucket hat eigene antippbare Einträge.
+/// Widget mit Kopfzeile. Ein Tipp öffnet die App (Detailansicht).
+/// Hat das Widget eigene antippbare Einträge (Fahrten, Filme, Einkaufsliste …), öffnen die ihr Ziel
+/// direkt und der Kopf („Alle ›“) die App. Warum nicht die ganze Fläche: Ein Tipp-Erkenner um die
+/// Karte fängt auf iOS 15 auch Tipper auf Menüs und Eingabefelder darin ab.
 /// Der Regler-Knopf (oder lange drücken) öffnet die Einstellungen direkt hier.
 struct BucketCard: View {
     @EnvironmentObject var store: AppStore
@@ -335,7 +350,10 @@ struct BucketCard: View {
             .contextMenu(homeEditing ? nil : ContextMenu {
                 Button { afterMenu { editing = true } } label: { Label("Anpassen", systemImage: "slider.horizontal.3") }
                 Button { afterMenu { startHomeEditing() } } label: { Label("Startseite bearbeiten", systemImage: "square.grid.2x2") }
-                Button { let id = instance.id; afterMenu { withAnimation { store.setHidden(id, true) } } } label: { Label("Auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash") }
+                if kind.hasApp && !store.appsHere.contains(instance.id) {
+                    Button { let id = instance.id; afterMenu { withAnimation { store.setApp(id, true) } } } label: { Label("Als App-Symbol zeigen", systemImage: "app.badge") }
+                }
+                Button { let id = instance.id; afterMenu { withAnimation { store.setHidden(id, true) } } } label: { Label("Widget auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash") }
                 Button(role: .destructive) { let id = instance.id; afterMenu { withAnimation { store.removeBucket(id: id) } } } label: { Label("Entfernen", systemImage: "trash") }
             })
             .environment(\.editBucket, { editing = true })

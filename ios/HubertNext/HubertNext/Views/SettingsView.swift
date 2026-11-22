@@ -24,14 +24,20 @@ struct SettingsView: View {
         return "Hubert \(i?["CFBundleShortVersionString"] as? String ?? "?") (Build \(i?["CFBundleVersion"] as? String ?? "?"))"
     }
 
-    /// Zeile unter dem Namen: ausgeblendet / Knopf / Größe
+    /// Zeile unter dem Namen: was auf diesem Gerät zu sehen ist (Widget, App-Symbol, Knopf)
     private func rowDetail(_ inst: BucketInstance, _ kind: BucketKind) -> String {
-        if store.hiddenHere.contains(inst.id) { return "Auf diesem " + AppStore.deviceName + " ausgeblendet" }
-        switch kind.art {
-        case .button: return "Knopf unten rechts"
-        case .tool: return inst.size.label + " · App"
-        case .glance: return inst.size.label
+        if kind.art == .button {
+            return store.hiddenHere.contains(inst.id) ? "Auf diesem " + AppStore.deviceName + " ausgeblendet" : "Knopf unten rechts"
         }
+        var parts: [String] = []
+        if kind.hasWidget && !store.hiddenHere.contains(inst.id) { parts.append("Widget " + inst.size.label) }
+        if kind.hasApp && store.appsHere.contains(inst.id) { parts.append("App-Symbol") }
+        if let p = kind.parentName { parts.append("gehört zur " + p) }
+        return parts.isEmpty ? "Auf diesem " + AppStore.deviceName + " ausgeblendet" : parts.joined(separator: " · ")
+    }
+    /// Nichts davon auf diesem Gerät sichtbar → blasser
+    private func shownHere(_ inst: BucketInstance, _ kind: BucketKind) -> Bool {
+        ((kind.hasWidget || kind.art == .button) && !store.hiddenHere.contains(inst.id)) || (kind.hasApp && store.appsHere.contains(inst.id))
     }
 
     var body: some View {
@@ -42,14 +48,14 @@ struct SettingsView: View {
                         if let kind = BucketRegistry.kind(inst.bucket) {
                             NavigationLink(destination: BucketEditView(bucketId: inst.id)) {
                                 BucketRow(kind: kind, detail: rowDetail(inst, kind))
-                                    .opacity(store.hiddenHere.contains(inst.id) ? 0.5 : 1)
+                                    .opacity(shownHere(inst, kind) ? 1 : 0.5)
                             }
                         }
                     }
                     .onMove { store.moveBuckets(from: $0, to: $1) }
                     .onDelete { idx in idx.map { store.buckets[$0].id }.forEach { store.removeBucket(id: $0) } }
                     Button { showAdd = true } label: { Label("Bucket hinzufügen", systemImage: "plus.circle.fill") }
-                } header: { Text("Startseite") } footer: { Text("Zum Sortieren oben auf „Bearbeiten“ tippen.") }
+                } header: { Text("Apps & Widgets") } footer: { Text("Jeder Bucket ist eine App mit Widget. Antippen, um einzustellen, was auf diesem " + AppStore.deviceName + " zu sehen ist.") }
 
                 Section("Darstellung") {
                     NavigationLink(destination: AppearanceView()) {
@@ -198,17 +204,28 @@ struct BucketEditView: View {
                     }
                 }
                 Section {
-                    Toggle("Auf diesem " + AppStore.deviceName + " zeigen",
-                           isOn: Binding(get: { !store.hiddenHere.contains(bucketId) }, set: { store.setHidden(bucketId, !$0) }))
-                        .tint(Theme.accent)
+                    if kind.hasWidget || kind.art == .button {
+                        Toggle(kind.art == .button ? "Knopf auf diesem " + AppStore.deviceName : "Widget auf diesem " + AppStore.deviceName,
+                               isOn: Binding(get: { !store.hiddenHere.contains(bucketId) }, set: { store.setHidden(bucketId, !$0) }))
+                            .tint(Theme.accent)
+                    }
+                    if kind.hasApp {
+                        Toggle("App-Symbol auf diesem " + AppStore.deviceName,
+                               isOn: Binding(get: { store.appsHere.contains(bucketId) }, set: { store.setApp(bucketId, $0) }))
+                            .tint(Theme.accent)
+                    }
+                } header: {
+                    Text("Auf diesem " + AppStore.deviceName)
                 } footer: {
-                    Text("Ausgeblendet heißt nur auf diesem Gerät – auf deinen anderen Geräten bleibt der Bucket sichtbar.")
+                    let opens = kind.parentName.map { "Ein Tipp aufs Widget öffnet die " + $0 + ". " }
+                        ?? (kind.hasApp && kind.hasWidget ? "Ein Tipp aufs Widget öffnet die App. " : "")
+                    Text(opens + "Gilt nur für dieses Gerät – auf deinen anderen Geräten bleibt alles, wie es ist.")
                 }
                 if let settings = kind.settings {
                     Section("Einstellungen") { settings(configBinding(i)) }
                 }
                 Section {
-                    Button("Von der Startseite entfernen", role: .destructive) {
+                    Button("Entfernen (auf allen Geräten)", role: .destructive) {
                         store.removeBucket(id: bucketId); dismiss()
                     }
                 }
@@ -282,7 +299,7 @@ struct CatalogRow: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            BucketRow(kind: kind, detail: kind.blurb)
+            BucketRow(kind: kind, detail: kind.parentName.map { "Widget der " + $0 + " · " + kind.blurb } ?? kind.blurb)
             Spacer()
             if !kind.available {
                 Text("bald").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)

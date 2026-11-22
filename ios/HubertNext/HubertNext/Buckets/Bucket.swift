@@ -1,7 +1,9 @@
 import SwiftUI
 
-/// Glance = anschauen (Briefing oben), Tool = benutzen (App-Symbole unten),
-/// Button = runder Knopf unten rechts (z. B. Gäste-WLAN)
+/// Jeder Bucket ist eine App (Symbol unten bei APPS, öffnet die Detailansicht) und kann ein Widget
+/// (Karte oben) haben. Beides ist pro Gerät einzeln ein-/ausblendbar.
+/// Glance = mit Widget (+ App, wenn es eine Detailansicht gibt), Tool = nur App,
+/// Button = runder Knopf unten rechts (z. B. Gäste-WLAN, ohne App)
 enum BucketArt { case glance, tool, button }
 
 /// Beschreibung einer Bucket-Art im Katalog.
@@ -29,13 +31,24 @@ struct BucketKind: Identifiable {
     var itemLinks = false
     /// Einstellungen (nil = nichts einzustellen)
     var settings: ((Binding<[String: JSON]>) -> AnyView)? = nil
+    /// Widget einer anderen App (z. B. Einkauf → Küche): kein eigenes App-Symbol
+    var parent: String? = nil
+}
+
+extension BucketKind {
+    /// Hat ein eigenes App-Symbol unten bei APPS
+    var hasApp: Bool { available && art != .button && parent == nil && detail != nil }
+    /// Hat ein Widget (Karte oben auf der Startseite)
+    var hasWidget: Bool { art == .glance }
+    /// Name der App, zu der dieses Widget gehört
+    var parentName: String? { parent.flatMap { BucketRegistry.kind($0)?.name } }
 }
 
 /// Alle Buckets, die es gibt
 enum BucketRegistry {
     static let all: [BucketKind] = [WeatherBucket.kind, SunBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, DealsBucket.kind, TransitBucket.kind, CountdownBucket.kind,
-                                         KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
-                                         KitchenBuckets.kitchen, KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind] + comingSoon
+                                         KitchenBuckets.kitchen, KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
+                                         KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
 

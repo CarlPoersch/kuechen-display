@@ -20,8 +20,12 @@ final class AppStore: ObservableObject {
     // Reihenfolge und Größe der Karten gelten nur für dieses Gerät – iPhone und iPad
     // haben so jedes seine eigene Startseite. Der Server behält die Werte von vor dieser
     // Trennung; ein neues Gerät startet mit ihnen.
-    // Dazu: welche Buckets auf diesem Gerät ausgeblendet sind (z. B. Sport nur auf dem iPhone).
-    private struct Layout: Codable { var order: [String] = []; var sizes: [String: BucketSize] = [:]; var hidden: [String]? }
+    // Dazu: welche Widgets auf diesem Gerät ausgeblendet sind (z. B. Sport nur auf dem iPhone)
+    // und welche Buckets hier ein App-Symbol unten bei APPS haben (apps).
+    private struct Layout: Codable {
+        var order: [String] = []; var sizes: [String: BucketSize] = [:]; var hidden: [String]?
+        var apps: [String]?      // nil = Ansicht von vor „Jeder Bucket ist eine App“
+    }
     private struct ServerSpot { let position: Int; let size: BucketSize }
     private let layoutKey = "hubert.layout.v1"
     private var layout: Layout?
@@ -37,10 +41,40 @@ final class AppStore: ObservableObject {
         storeLayout()
     }
 
+    /// Buckets mit App-Symbol auf diesem Gerät (unten bei APPS)
+    @Published private(set) var appsHere: Set<String> = []
+    var appBuckets: [BucketInstance] {
+        buckets.filter { appsHere.contains($0.id) && BucketRegistry.kind($0.bucket)?.hasApp == true }
+    }
+    func setApp(_ id: String, _ on: Bool) {
+        if on { appsHere.insert(id) } else { appsHere.remove(id) }
+        storeLayout()
+    }
+    /// Alte Ansicht (vor den Apps) übernehmen: App-Symbole hatten nur die Tools
+    private var migrateApps = false
+
+    /// Neue Buckets bekommen App-Symbol und Widget – je Art aber nur ein Symbol
+    /// (zwei ÖPNV-Karten → ein ÖPNV-Symbol)
+    private func giveApps(_ list: [BucketInstance]) {
+        for b in list where BucketRegistry.kind(b.bucket)?.hasApp == true {
+            let sameKind = buckets.contains { $0.id != b.id && $0.bucket == b.bucket && appsHere.contains($0.id) }
+            if !sameKind { appsHere.insert(b.id) }
+        }
+    }
+
     private func loadLayout() {
         guard layout == nil, let d = UserDefaults.standard.data(forKey: layoutKey) else { return }
         layout = try? JSONDecoder().decode(Layout.self, from: d)
         hiddenHere = Set(layout?.hidden ?? [])
+        if let a = layout?.apps { appsHere = Set(a) } else if layout != nil { migrateApps = true }
+    }
+
+    /// Einmalig: Tools, die nicht ausgeblendet waren, behalten ihr App-Symbol; Widgets bleiben, wie sie sind
+    private func runAppMigration(_ list: [BucketInstance]) {
+        guard migrateApps else { return }
+        migrateApps = false
+        appsHere = Set(list.filter { BucketRegistry.kind($0.bucket)?.art == .tool && !hiddenHere.contains($0.id) }.map(\.id))
+        hiddenHere.subtract(list.filter { BucketRegistry.kind($0.bucket)?.art == .tool }.map(\.id))
     }
 
     /// Ansicht dieses Geräts merken (Reihenfolge und Größen wie gerade angezeigt)
@@ -50,6 +84,7 @@ final class AppStore: ObservableObject {
         let ids = Set(buckets.map { $0.id })
         let hidden = hiddenHere.filter { ids.contains($0) || buckets.isEmpty }
         l.hidden = hidden.isEmpty ? nil : Array(hidden)
+        l.apps = Array(appsHere.filter { ids.contains($0) || buckets.isEmpty })
         layout = l
         if let d = try? JSONEncoder().encode(l) { UserDefaults.standard.set(d, forKey: layoutKey) }
     }
@@ -58,6 +93,7 @@ final class AppStore: ObservableObject {
     /// auf einem anderen Gerät neu hinzugefügte Buckets kommen hinten dazu.
     private func applyLayout(_ list: [BucketInstance]) -> [BucketInstance] {
         guard let l = layout else { return list }
+        runAppMigration(list)
         var rank: [String: Int] = [:]
         for (i, id) in l.order.enumerated() where rank[id] == nil { rank[id] = i }
         var known: [BucketInstance] = [], added: [BucketInstance] = []
@@ -66,8 +102,11 @@ final class AppStore: ObservableObject {
             if rank[b.id] != nil { known.append(b) } else { added.append(b) }
         }
         known.sort { (rank[$0.id] ?? 0) < (rank[$1.id] ?? 0) }
+        // Auf einem anderen Gerät hinzugefügt → hier auch App-Symbol (Widget ist ohnehin sichtbar)
+        addedRemotely = added
         return known + added
     }
+    private var addedRemotely: [BucketInstance] = []
 
     private struct Cache: Codable { var profile: Profile?; var household: Household?; var buckets: [BucketInstance] }
 
@@ -92,8 +131,16 @@ final class AppStore: ObservableObject {
             serverSpots = [:]
             for b in fromServer { serverSpots[b.id] = ServerSpot(position: b.position, size: b.size) }
             loadLayout()
+            let fresh = layout == nil
             buckets = applyLayout(fromServer)
-            if layout == nil { storeLayout() }   // erster Start mit eigener Ansicht: so, wie es gerade aussieht
+            if fresh {
+                // Erster Start auf diesem Gerät: so, wie es gerade aussieht – jeder Bucket mit App-Symbol und Widget
+                giveApps(buckets)
+                storeLayout()
+            } else {
+                if !addedRemotely.isEmpty { giveApps(addedRemotely); addedRemotely = [] }
+                storeLayout()      // hält auch die einmalige Umstellung auf Apps fest
+            }
             saveCache()
             phase = (profile?.onboarded == true && household != nil) ? .ready : .onboarding
         } catch let e as APIError where e.isAuth {
@@ -118,7 +165,7 @@ final class AppStore: ObservableObject {
         api.signOut()
         UserDefaults.standard.removeObject(forKey: cacheKey)
         UserDefaults.standard.removeObject(forKey: layoutKey)
-        layout = nil; serverSpots = [:]; hiddenHere = []
+        layout = nil; serverSpots = [:]; hiddenHere = []; appsHere = []
         profile = nil; household = nil; buckets = []
         KitchenStore.shared.reset(); CookSession.shared.end(local: true); LiveSync.shared.stop()   // Küchendaten des Haushalts nicht auf dem Gerät lassen
         phase = .signedOut
@@ -176,6 +223,8 @@ final class AppStore: ObservableObject {
 
     func finishOnboarding(with chosen: [BucketInstance]) async throws {
         buckets = chosen.enumerated().map { pair in var b = pair.element; b.position = pair.offset; return b }
+        appsHere = []
+        giveApps(buckets)
         storeLayout()
         try await saveBucketsThrowing()
         guard let uid = api.userId else { return }
@@ -189,13 +238,19 @@ final class AppStore: ObservableObject {
     // MARK: Buckets
 
     func addBucket(_ kind: BucketKind, config: [String: JSON]? = nil) {
-        buckets.append(BucketInstance(kind: kind.id, position: buckets.count, size: kind.defaultSize,
-                                      config: config ?? kind.defaultConfig))
+        let b = BucketInstance(kind: kind.id, position: buckets.count, size: kind.defaultSize,
+                               config: config ?? kind.defaultConfig)
+        buckets.append(b)
+        giveApps([b])           // neu: App-Symbol und Widget an
         saveBuckets()
     }
 
     func removeBucket(id: String) {
+        let kindId = buckets.first { $0.id == id }?.bucket
         buckets.removeAll { $0.id == id }
+        // Hatte der entfernte Bucket das App-Symbol, übernimmt es ein anderer derselben Art
+        if appsHere.remove(id) != nil, let k = kindId, let other = buckets.first(where: { $0.bucket == k }) { appsHere.insert(other.id) }
+        hiddenHere.remove(id)
         saveBuckets()
     }
 
@@ -262,6 +317,7 @@ final class AppStore: ObservableObject {
         guard let d = UserDefaults.standard.data(forKey: cacheKey),
               let c = try? JSONDecoder().decode(Cache.self, from: d) else { return }
         profile = c.profile; household = c.household; buckets = c.buckets
+        runAppMigration(buckets)
         if c.profile?.onboarded == true && c.household != nil { phase = .ready }
     }
 }
