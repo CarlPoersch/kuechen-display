@@ -71,6 +71,7 @@ enum TransitBucket {
         var from: Place
         var to: Place?
         var nearby: Bool     // Zuhause ohne Ziel: Abfahrten an den Haltestellen in der Nähe
+        var maxWalk: Int? = nil   // Mein Standort: höchstens so viele Minuten zu Fuß
         var id: String { key }
     }
 
@@ -141,7 +142,15 @@ enum TransitBucket {
         return sel
     }
 
-    static func route(_ from: Saved, _ to: Saved?) -> Route {
+    /// Höchstens so viele Minuten zu Fuß ab „Mein Standort“ (Einstellungen, 2–20, Standard 10)
+    static func walk(_ c: [String: JSON]) -> Int { min(20, max(2, Int(c["walk"]?.double ?? 10))) }
+
+    static func route(_ from: Saved, _ to: Saved?, walk: Int? = nil) -> Route {
+        if from.isHere, let w = walk {
+            var r = route(from, to)
+            r.key += "~\(w)"; r.maxWalk = w
+            return r
+        }
         // Schlüssel enthält die Ortskennung: neuer Standort / neue Suche → neu laden
         let fk = from.isAdHoc ? from.key + "@" + from.loc.id : from.key
         let tk = to.map { $0.isAdHoc ? $0.key + "@" + $0.loc.id : $0.key } ?? ""
@@ -243,30 +252,34 @@ final class TransitService: ObservableObject {
     func load(_ routes: [TransitBucket.Route]) async {
         for r in routes {
             if r.to != nil { await loadTrips(r) }
-            else if r.nearby { await loadNearby(r.from); for s in nearby[r.from.id] ?? [] { await loadBoard(s.id) } }
+            else if r.nearby { await loadNearby(r.from, walk: r.maxWalk); for s in nearby[r.from.id] ?? [] { await loadBoard(s.id) } }
             else if r.from.stop { await loadBoard(r.from.id) }
         }
     }
 
     /// Haltestellen im Umkreis von 700 m. Gehzeit: Luftlinie × 1,3 (Umwege) bei 80 m/min, plus 1 min Puffer.
-    private func loadNearby(_ p: TransitBucket.Place) async {
+    /// Mit `walk`: Umkreis aus der maximalen Gehzeit (Minuten − 1 Puffer, × 80 m/min, ÷ 1,3 für Umwege)
+    private func loadNearby(_ p: TransitBucket.Place, walk: Int? = nil) async {
         guard let lat = p.lat, let lon = p.lon else { return }
-        if nearby[p.id] != nil, let t = loadedAt["n:" + p.id], Date().timeIntervalSince(t) < 24 * 3600 { return }
+        let radius = walk.map { min(1600, max(150, Int(Double($0 - 1) * 80 / 1.3))) } ?? 700
+        let cache = "n:" + p.id + "|\(radius)"
+        if nearby[p.id] != nil, let t = loadedAt[cache], Date().timeIntervalSince(t) < 24 * 3600 { return }
         do {
             let fmt = "WGS84[dd.ddddd]"
             let data = try await efa("XML_COORD_REQUEST", [
                 ("outputFormat", "rapidJSON"), ("coordOutputFormat", fmt),
                 ("coord", String(format: "%.6f:%.6f:", lon, lat) + fmt),
-                ("type_1", "STOP"), ("radius_1", "700"), ("inclFilter", "1"), ("max", "6"),
+                ("type_1", "STOP"), ("radius_1", "\(radius)"), ("inclFilter", "1"), ("max", "8"),
             ])
             let r = try JSONDecoder().decode(StopFinder.self, from: data)
             nearby[p.id] = (r.locations ?? []).compactMap { l in
                 guard let id = l.properties?.stopId, let n = l.name, let d = l.properties?.distance else { return nil }
                 return NearStop(id: id, name: n, walk: Int((d * 1.3 / 80).rounded(.up)) + 1, meters: Int(d))
             }
+            .filter { s in walk.map { s.walk <= $0 } ?? true }
             .sorted { $0.meters < $1.meters }
             .prefix(4).map { $0 }
-            loadedAt["n:" + p.id] = Date(); failed.remove("n:" + p.id)
+            loadedAt[cache] = Date(); failed.remove("n:" + p.id)
         } catch { failed.insert("n:" + p.id); print("ÖPNV Umkreis:", error) }
     }
 
@@ -348,7 +361,8 @@ final class TransitService: ObservableObject {
     func rows(_ r: TransitBucket.Route) -> [TransitRow] {
         let now = Date().addingTimeInterval(-30)
         if r.to != nil {
-            return (trips[r.key] ?? []).filter { $0.leave > now }.map { j in
+            // Ab Mein Standort: nur Verbindungen mit höchstens so viel Fußweg wie eingestellt
+            return (trips[r.key] ?? []).filter { $0.leave > now && $0.footMinutes <= (r.maxWalk ?? 999) }.map { j in
                 let first = j.rides[0]
                 var detail = "ab " + shortStop(first.from)
                 if j.footMinutes > 0 { detail += " · \(j.footMinutes) min Fußweg" }
@@ -590,7 +604,7 @@ struct TransitGlance: View {
 
     private var route: TransitBucket.Route? {
         let sel = TransitBucket.selection(config, bucket: bucketId)
-        return sel.from.map { TransitBucket.route($0, sel.to) }
+        return sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config)) }
     }
 
     var body: some View {
@@ -656,11 +670,11 @@ struct TransitDetail: View {
     @Environment(\.bucketId) private var bucketId
 
     private var sel: (from: TransitBucket.Saved?, to: TransitBucket.Saved?) { TransitBucket.selection(config, bucket: bucketId) }
-    private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to) } }
+    private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to, walk: TransitBucket.walk(config)) } }
     /// Zusätzlich: die anderen Ziele (mehr Überblick)
     private var others: [(TransitBucket.Saved, TransitBucket.Route)] {
         guard let f = sel.from else { return [] }
-        return TransitBucket.saved(config).filter { $0.key != f.key && $0.key != sel.to?.key }.map { ($0, TransitBucket.route(f, $0)) }
+        return TransitBucket.saved(config).filter { $0.key != f.key && $0.key != sel.to?.key }.map { ($0, TransitBucket.route(f, $0, walk: TransitBucket.walk(config))) }
     }
 
     var body: some View {
@@ -827,6 +841,28 @@ struct TransitSettings: View {
                 }
             }
         }
+        // Mein Standort: wie weit zu Fuß
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Label("Fußweg ab Mein Standort", systemImage: "figure.walk").font(.subheadline.weight(.semibold))
+                Spacer()
+                Text("höchstens \(TransitBucket.walk(config)) min").font(.subheadline.monospacedDigit()).foregroundColor(Theme.accent)
+            }
+            Slider(value: Binding(get: { Double(TransitBucket.walk(config)) },
+                                  set: { config["walk"] = .number(($0).rounded()) }),
+                   in: 2...20, step: 1) {
+                Text("Maximaler Fußweg")
+            } minimumValueLabel: {
+                Text("2").font(.caption).foregroundColor(Theme.secondary)
+            } maximumValueLabel: {
+                Text("20").font(.caption).foregroundColor(Theme.secondary)
+            }
+            .tint(Theme.accent)
+            Text("Etwa \(Int(Double(TransitBucket.walk(config) - 1) * 80 / 1.3 / 10) * 10) m Luftlinie. Hubert zeigt nur Haltestellen und Verbindungen, zu denen du höchstens so lange läufst.")
+                .font(.caption).foregroundColor(Theme.secondary)
+        }
+        .padding(.vertical, 4)
+
         VStack(alignment: .leading, spacing: 4) {
             Text("Ziel hinzufügen").font(.subheadline.weight(.semibold))
             Text("Adresse oder Haltestelle – den Namen (z. B. „Philipp“) kannst du danach ändern.")
