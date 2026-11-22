@@ -250,6 +250,7 @@ struct CountdownForm: View {
 struct CountdownApp: View {
     let bucketId: String
     @EnvironmentObject var store: AppStore
+    @ObservedObject private var focus = FocusCenter.shared
     @State private var sheet: Sheet?
     @State private var showPast = false
 
@@ -373,6 +374,9 @@ struct CountdownApp: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(e.title).font(.body.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
                 Text(dateLine(e)).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                // Lernzeit aus dem Fokus-Timer
+                let m = focus.state.minutes(countdown: e.id)
+                if m > 0 { Label(hours(m) + " fokussiert", systemImage: "brain.head.profile").font(.caption.weight(.semibold)).foregroundColor(Theme.accent) }
             }
             Spacer(minLength: 6)
             Text(e.upcoming ? CountdownBucket.label(e) : "vorbei")

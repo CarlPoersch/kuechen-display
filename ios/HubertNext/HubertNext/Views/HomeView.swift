@@ -535,9 +535,10 @@ struct FloatingBucketButtons: View {
     let buttons: [BucketInstance]
     @ObservedObject private var session = CookSession.shared
     @ObservedObject private var center = TimerCenter.shared
+    @ObservedObject private var focus = FocusCenter.shared
 
     private var lift: CGFloat {
-        let active = (session.recipe != nil && !session.presented) || !center.timers.isEmpty
+        let active = (session.recipe != nil && !session.presented) || !center.timers.isEmpty || focus.state.active
         return UIDevice.current.userInterfaceIdiom == .phone && active ? 64 : 0
     }
 

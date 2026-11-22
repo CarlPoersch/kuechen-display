@@ -136,6 +136,7 @@ final class LiveSync: ObservableObject {
                 async let c: [LiveCookingRow] = api.select("kitchen_cooking", ["household_id": "eq." + h])
                 let (timers, cooking) = try await (t, c)
                 TimerCenter.shared.apply(remote: timers)
+                await FocusCenter.shared.pull()
                 await CookSession.shared.apply(remote: cooking.first.flatMap { $0.active == false ? nil : $0 })
                 lastSync = Date()
             } catch {
@@ -172,6 +173,10 @@ final class LiveSync: ObservableObject {
             changes.append(["event": "INSERT", "schema": "public", "table": t, "filter": "household_id=eq." + h])
             changes.append(["event": "UPDATE", "schema": "public", "table": t, "filter": "household_id=eq." + h])
             changes.append(["event": "DELETE", "schema": "public", "table": t])
+        }
+        // Fokus: gehört zum Konto (alle eigenen Geräte), nicht zum Haushalt
+        if FocusCenter.shared.remoteReady, let uid = api.userId {
+            changes.append(["event": "*", "schema": "public", "table": "user_focus", "filter": "user_id=eq." + uid])
         }
         let r = next()
         joinRef = r
@@ -238,6 +243,8 @@ final class LiveSync: ObservableObject {
         switch table {
         case "kitchen_items", "kitchen_plan":
             Task { await KitchenStore.shared.sync(household: household, force: true) }
+        case "user_focus":
+            Task { await FocusCenter.shared.pull() }
         default:
             Task { await pull() }
         }

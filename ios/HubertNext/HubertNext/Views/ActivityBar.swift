@@ -10,8 +10,12 @@ import SwiftUI
 // ============================================================
 
 struct ActivityBar: View {
+    @EnvironmentObject var store: AppStore
     @ObservedObject private var session = CookSession.shared
     @ObservedObject private var center = TimerCenter.shared
+    @ObservedObject private var focus = FocusCenter.shared
+    @State private var showFocus = false
+    @State private var focusActions = false
     @State private var showTimers = false
     @State private var cookActions = false
     @State private var confirmCancel = false
@@ -22,6 +26,7 @@ struct ActivityBar: View {
 
     var body: some View {
         HStack(spacing: 8) {
+            if focus.state.active { focusIsland(compact: cooking != nil || !center.timers.isEmpty) }
             if let r = cooking { cookIsland(r, compact: !center.timers.isEmpty) }
             if let t = sorted.first {
                 timerIsland(t)
@@ -30,7 +35,43 @@ struct ActivityBar: View {
         }
         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: cooking?.id)
         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: center.timers.count)
+        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: focus.state.active)
         .sheet(isPresented: $showTimers) { RunningTimersSheet() }
+        .sheet(isPresented: $showFocus) { FocusSheet().environmentObject(store) }
+    }
+
+    // MARK: Fokus (auf allen eigenen Geräten)
+
+    private func focusIsland(compact: Bool) -> some View {
+        let s = focus.state
+        return HStack(spacing: 10) {
+            ZStack {
+                FocusRing(line: 3).frame(width: 26, height: 26)
+                Image(systemName: "brain.head.profile").font(.system(size: 11, weight: .semibold))
+            }
+            Text(focus.waiting ? "Bereit" : FocusCenter.clock(focus.left))
+                .font(.headline.monospacedDigit())
+                .foregroundColor(focus.paused ? .white.opacity(0.5) : s.isFocus ? .white : .mint)
+            if !compact {
+                Text(focus.paused ? "Pausiert" : s.isFocus ? (s.task.isEmpty ? "Fokus" : s.task) : s.phaseName)
+                    .font(.subheadline).foregroundColor(.white.opacity(0.6)).lineLimit(1).frame(maxWidth: 150)
+            }
+        }
+        .island()
+        .onTapGesture { showFocus = true }
+        .onLongPressGesture { focusActions = true }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("Fokus \(s.task), \(focus.paused ? "pausiert" : "noch " + FocusCenter.clock(focus.left))")
+        .accessibilityHint("Tippen öffnet den Fokus, lange drücken zum Pausieren oder Beenden")
+        .accessibilityAddTraits(.isButton)
+        .confirmationDialog(s.task.isEmpty ? "Fokus" : s.task, isPresented: $focusActions, titleVisibility: .visible) {
+            if focus.waiting { Button("Nächste Runde starten") { focus.startNext() } }
+            else { Button(focus.paused ? "Weiter" : "Pausieren") { focus.togglePause() } }
+            Button(s.isFocus ? "Zur Pause springen" : "Pause überspringen") { focus.skip() }
+            Button("Fokus beenden", role: .destructive) { focus.stop() }
+            Button("Abbrechen", role: .cancel) {}
+        }
+        .transition(.scale(scale: 0.6).combined(with: .opacity))
     }
 
     // MARK: Kochen
