@@ -81,21 +81,22 @@ final class SpeechControl: ObservableObject {
             engine.prepare()
             try engine.start()
 
-            task = recognizer.recognitionTask(with: req) { @Sendable [weak self] result, error in
-                guard let self = self else { return }
+            // Schwacher Verweis in einer festen Box: Die Rückrufe laufen auf anderen Threads; eine
+            // „weak var self“ dort wäre eine veränderliche Variable (Swift-6-Fehler), die Box ist eine Konstante.
+            let me = WeakRef(self)
+            task = recognizer.recognitionTask(with: req) { @Sendable result, error in
                 if let r = result {
                     let words = r.bestTranscription.formattedString.lowercased().split(separator: " ").map(String.init)
-                    Task { @MainActor in self.handle(words) }
+                    Task { @MainActor in me.value?.handle(words) }
                 }
                 if error != nil || result?.isFinal == true {
-                    Task { @MainActor in if self.listening { self.begin() } }   // weiter zuhören
+                    Task { @MainActor in if me.value?.listening == true { me.value?.begin() } }   // weiter zuhören
                 }
             }
             listening = true; problem = nil
             // Apple begrenzt eine Erkennung auf etwa 1 Minute → regelmäßig neu starten
-            restartTimer = Timer.scheduledTimer(withTimeInterval: 50, repeats: false) { @Sendable [weak self] _ in
-                // [weak self] auch im Task: sonst greift der Task auf die äußere (veränderliche) Variable zu
-                Task { @MainActor [weak self] in if self?.listening == true { self?.begin() } }
+            restartTimer = Timer.scheduledTimer(withTimeInterval: 50, repeats: false) { @Sendable _ in
+                Task { @MainActor in if me.value?.listening == true { me.value?.begin() } }
             }
         } catch {
             problem = "Mikrofon konnte nicht starten."
@@ -120,4 +121,10 @@ final class SpeechControl: ObservableObject {
             if let c = cmd { heard = w; onCommand?(c) }
         }
     }
+}
+
+/// Schwacher Verweis als Konstante – darf in Rückrufe auf anderen Threads mitgenommen werden
+final class WeakRef<T: AnyObject>: @unchecked Sendable {
+    weak var value: T?
+    init(_ value: T) { self.value = value }
 }
