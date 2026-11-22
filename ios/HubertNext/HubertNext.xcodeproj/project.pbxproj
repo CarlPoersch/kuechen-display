@@ -252,6 +252,7 @@
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hubert zeigt Abfahrten und Verbindungen ab deinem aktuellen Standort.";
 				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
@@ -301,6 +302,7 @@
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hubert zeigt Abfahrten und Verbindungen ab deinem aktuellen Standort.";
 				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";

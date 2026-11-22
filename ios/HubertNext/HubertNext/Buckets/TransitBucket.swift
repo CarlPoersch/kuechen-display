@@ -13,6 +13,7 @@ import Combine
 // Quelle: Bayern-Fahrplanauskunft (EFA) über die Supabase-Funktion "efa".
 // Einstellungen: home = {id, name, lat, lon}, places = [{ key, label, id, name, stop, lat, lon }],
 //                from = "home" | key, to = key | ""
+// Spontan (nur dieses Gerät, nicht gespeichert): Suche oder „Mein Standort“ – siehe TransitAdHoc.swift
 // ============================================================
 enum TransitBucket {
     static let kind = BucketKind(
@@ -26,6 +27,7 @@ enum TransitBucket {
     )
 
     static let homeKey = "home"
+    static let hereKey = "adhoc-here"
 
     /// Ein Ort laut Fahrplanauskunft
     struct Place: Equatable, Hashable {
@@ -41,6 +43,8 @@ enum TransitBucket {
             guard let o = j?.object, let id = o["id"]?.string, let n = o["name"]?.string else { return nil }
             self.init(id: id, name: n, stop: o["stop"]?.bool ?? true, lat: o["lat"]?.double, lon: o["lon"]?.double)
         }
+        /// Koordinate statt Haltestelle/Adresse (Mein Standort)
+        var isCoord: Bool { id.hasSuffix("WGS84[dd.ddddd]") }
         var fields: [String: JSON] {
             var o: [String: JSON] = ["id": .string(id), "name": .string(name), "stop": .bool(stop)]
             if let a = lat, let b = lon { o["lat"] = .number(a); o["lon"] = .number(b) }
@@ -55,6 +59,10 @@ enum TransitBucket {
         var loc: Place
         var id: String { key }
         var isHome: Bool { key == TransitBucket.homeKey }
+        /// Mein Standort (spontan, nicht gespeichert)
+        var isHere: Bool { key == TransitBucket.hereKey }
+        /// Spontan gesucht oder Standort – nur auf diesem Gerät
+        var isAdHoc: Bool { key.hasPrefix("adhoc") }
         var json: JSON { var o = loc.fields; o["key"] = .string(key); o["label"] = .string(label); return .object(o) }
     }
 
@@ -115,8 +123,29 @@ enum TransitBucket {
         return (from, to)
     }
 
+    /// Auswahl mit den spontanen Orten dieses Geräts (Suche, Mein Standort) – die gehen vor
+    static func selection(_ c: [String: JSON], bucket: String) -> (from: Saved?, to: Saved?) {
+        var sel = selection(c)
+        let adhoc = TransitAdHoc.shared
+        if let f = adhoc.from(bucket) {
+            sel.from = f.here ? Saved(key: hereKey, label: "Mein Standort", loc: f.place)
+                              : Saved(key: "adhoc-from", label: shortStop(f.name), loc: f.place)
+            if sel.to?.loc.id == f.id { sel.to = nil }
+        }
+        if let t = adhoc.to(bucket) {
+            sel.to = Saved(key: "adhoc-to", label: shortStop(t.name), loc: t.place)
+        } else if adhoc.from(bucket) != nil, sel.to == nil, let f = sel.from, !f.isHere, !f.loc.stop {
+            // Von einer gesuchten Adresse gibt es keine Abfahrtstafel → erstes Ziel
+            sel.to = saved(c).first
+        }
+        return sel
+    }
+
     static func route(_ from: Saved, _ to: Saved?) -> Route {
-        Route(key: from.key + ">" + (to?.key ?? ""), from: from.loc, to: to?.loc, nearby: from.isHome && to == nil)
+        // Schlüssel enthält die Ortskennung: neuer Standort / neue Suche → neu laden
+        let fk = from.isAdHoc ? from.key + "@" + from.loc.id : from.key
+        let tk = to.map { $0.isAdHoc ? $0.key + "@" + $0.loc.id : $0.key } ?? ""
+        return Route(key: fk + ">" + tk, from: from.loc, to: to?.loc, nearby: (from.isHome || from.isHere) && to == nil)
     }
 }
 
@@ -270,8 +299,8 @@ final class TransitService: ObservableObject {
         let t = DateFormatter(); t.dateFormat = "HHmm"
         do {
             let data = try await efa("XML_TRIP_REQUEST2", [
-                ("outputFormat", "rapidJSON"), ("type_origin", "any"), ("name_origin", r.from.id),
-                ("type_destination", "any"), ("name_destination", to.id), ("itdTripDateTimeDepArr", "dep"),
+                ("outputFormat", "rapidJSON"), ("type_origin", r.from.isCoord ? "coord" : "any"), ("name_origin", r.from.id),
+                ("type_destination", to.isCoord ? "coord" : "any"), ("name_destination", to.id), ("itdTripDateTimeDepArr", "dep"),
                 ("itdDate", d.string(from: start)), ("itdTime", t.string(from: start)),
                 ("calcNumberOfTrips", "6"), ("maxChanges", "2"), ("useRealtime", "1"),
             ])
@@ -474,41 +503,61 @@ struct TransitPicker: View {
     @EnvironmentObject var store: AppStore
     @Environment(\.bucketId) private var bucketId
     @Environment(\.editBucket) private var edit
+    @ObservedObject private var adhoc = TransitAdHoc.shared
     @State private var pickFrom = false
     @State private var pickTo = false
+    @State private var searchFrom: Bool?        // Suche offen: true = Start, false = Ziel
 
     var body: some View {
-        let sel = TransitBucket.selection(config)
+        let sel = TransitBucket.selection(config, bucket: bucketId)
+        let locating = adhoc.locating.contains(bucketId)
         HStack(spacing: 6) {
             Button { pickFrom = true } label: {
-                chip(sel.from?.label ?? "Start", icon: sel.from?.isHome == true ? "house.fill" : "mappin")
+                chip(locating ? "Standort …" : sel.from?.label ?? "Start", icon: icon(sel.from))
             }
             .buttonStyle(.borderless)
             .confirmationDialog("Von", isPresented: $pickFrom, titleVisibility: .visible) {
+                Button(mark("Mein Standort", sel.from?.isHere == true)) { adhoc.useHere(bucket: bucketId) }
+                if let f = sel.from, f.isAdHoc, !f.isHere { Button(mark(f.label, true)) {} }
                 ForEach(TransitBucket.starts(config)) { p in
-                    Button(mark(p.label, p.key == sel.from?.key)) { set("from", p.key) }
+                    Button(mark(p.label, p.key == sel.from?.key)) { adhoc.clear(from: true, bucket: bucketId); set("from", p.key) }
                 }
+                Button("Suchen …") { searchFrom = true }
                 Button("Zuhause & Ziele bearbeiten …") { edit() }
             }
             Image(systemName: "arrow.right").font(.caption.weight(.bold)).foregroundColor(Theme.secondary)
             Button { pickTo = true } label: {
-                chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : "flag.checkered")
+                chip(sel.to?.label ?? abfahrten(sel.from), icon: sel.to == nil ? "list.bullet" : sel.to?.isAdHoc == true ? "magnifyingglass" : "flag.checkered")
             }
             .buttonStyle(.borderless)
             .confirmationDialog("Nach", isPresented: $pickTo, titleVisibility: .visible) {
-                if sel.from?.isHome == true || sel.from?.loc.stop == true {
-                    Button(mark(abfahrten(sel.from), sel.to == nil)) { set("to", "") }
+                if sel.from?.isHome == true || sel.from?.isHere == true || sel.from?.loc.stop == true {
+                    Button(mark(abfahrten(sel.from), sel.to == nil)) { adhoc.clear(from: false, bucket: bucketId); set("to", "") }
                 }
+                if let t = sel.to, t.isAdHoc { Button(mark(t.label, true)) {} }
                 ForEach(TransitBucket.saved(config).filter { $0.key != sel.from?.key }) { p in
-                    Button(mark(p.label, p.key == sel.to?.key)) { set("to", p.key) }
+                    Button(mark(p.label, p.key == sel.to?.key)) { adhoc.clear(from: false, bucket: bucketId); set("to", p.key) }
                 }
+                Button("Suchen …") { searchFrom = false }
                 Button("Ziel hinzufügen …") { edit() }
             }
             Spacer(minLength: 0)
         }
+        .sheet(item: Binding(get: { searchFrom.map { SearchSide(isFrom: $0) } }, set: { searchFrom = $0?.isFrom })) { side in
+            TransitSearchSheet(bucketId: bucketId, isFrom: side.isFrom).environmentObject(store)
+        }
     }
 
-    private func abfahrten(_ from: TransitBucket.Saved?) -> String { from?.isHome == true ? "Abfahrten in der Nähe" : "Abfahrten" }
+    private struct SearchSide: Identifiable { let isFrom: Bool; var id: Bool { isFrom } }
+
+    private func icon(_ s: TransitBucket.Saved?) -> String {
+        guard let s = s else { return "mappin" }
+        return s.isHome ? "house.fill" : s.isHere ? "location.fill" : s.isAdHoc ? "magnifyingglass" : "mappin"
+    }
+
+    private func abfahrten(_ from: TransitBucket.Saved?) -> String {
+        from?.isHome == true || from?.isHere == true ? "Abfahrten in der Nähe" : "Abfahrten"
+    }
     private func mark(_ text: String, _ on: Bool) -> String { on ? "✓ " + text : text }
 
     private func chip(_ text: String, icon: String) -> some View {
@@ -534,16 +583,19 @@ struct TransitPicker: View {
 struct TransitGlance: View {
     let config: [String: JSON]
     @ObservedObject private var svc = TransitService.shared
+    @ObservedObject private var adhoc = TransitAdHoc.shared
     @Environment(\.glanceSpace) private var space
     @Environment(\.openBucketDetail) private var openDetail
+    @Environment(\.bucketId) private var bucketId
 
     private var route: TransitBucket.Route? {
-        let sel = TransitBucket.selection(config)
+        let sel = TransitBucket.selection(config, bucket: bucketId)
         return sel.from.map { TransitBucket.route($0, sel.to) }
     }
 
     var body: some View {
         content.refreshing(id: route?.key ?? "", every: { 60 }) {
+            await adhoc.refreshHere(bucket: bucketId)
             if let r = route { await TransitService.shared.load([r]) }
         }
     }
@@ -599,9 +651,11 @@ struct TransitGlance: View {
 struct TransitDetail: View {
     let config: [String: JSON]
     @ObservedObject private var svc = TransitService.shared
+    @ObservedObject private var adhoc = TransitAdHoc.shared
     @Environment(\.editBucket) private var edit
+    @Environment(\.bucketId) private var bucketId
 
-    private var sel: (from: TransitBucket.Saved?, to: TransitBucket.Saved?) { TransitBucket.selection(config) }
+    private var sel: (from: TransitBucket.Saved?, to: TransitBucket.Saved?) { TransitBucket.selection(config, bucket: bucketId) }
     private var main: TransitBucket.Route? { sel.from.map { TransitBucket.route($0, sel.to) } }
     /// Zusätzlich: die anderen Ziele (mehr Überblick)
     private var others: [(TransitBucket.Saved, TransitBucket.Route)] {
@@ -611,7 +665,15 @@ struct TransitDetail: View {
 
     var body: some View {
         List {
-            Section { TransitPicker(config: config).listRowBackground(Color.clear).listRowInsets(EdgeInsets()) }
+            Section {
+                TransitPicker(config: config).listRowBackground(Color.clear).listRowInsets(EdgeInsets())
+            } footer: {
+                if sel.from?.isAdHoc == true || sel.to?.isAdHoc == true {
+                    Text("Spontan gewählt – gilt nur auf diesem Gerät und nicht gespeichert. Nach 3 Stunden zeigt die Karte wieder deine gespeicherte Auswahl.")
+                } else if adhoc.locationDenied {
+                    Text("Standortzugriff ist aus – erlauben in Einstellungen › Datenschutz › Ortungsdienste › Hubert.")
+                }
+            }
             if let r = main {
                 if r.nearby {
                     // Je Haltestelle in der Nähe ein Abschnitt, wie am Bus-Display
@@ -644,6 +706,7 @@ struct TransitDetail: View {
         }
         .listStyle(.insetGrouped)
         .refreshing(id: (main?.key ?? "") + others.map { $0.1.key }.joined(), every: { 60 }) {
+            await adhoc.refreshHere(bucket: bucketId)
             await svc.load([main].compactMap { $0 } + others.map { $0.1 })
         }
     }
