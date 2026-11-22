@@ -140,6 +140,10 @@ struct RecipesTab: View {
             out.append((r, missing))
         }
         if f.pantry { out.sort { $0.1.count < $1.1.count } }
+        else if f.collection == "Favoriten" {
+            // Lange nicht (oder nie) Gekochtes zuerst, damit nicht immer dieselben oben stehen
+            out.sort { (kitchen.meta[$0.0.id]?.lastCookedDate ?? .distantPast) < (kitchen.meta[$1.0.id]?.lastCookedDate ?? .distantPast) }
+        }
         return out
     }
 
@@ -187,9 +191,6 @@ struct RecipesTab: View {
                     }
                     .buttonStyle(.plain)
                 }
-
-                // Favoriten: schnell wiederfinden, ohne den Namen zu wissen
-                if query.isEmpty && filter == RecipeFilter(diet: dietPref) && !kitchen.favorites.isEmpty { favoritesRow }
 
                 // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
                 HStack(spacing: 10) {
@@ -310,7 +311,7 @@ struct RecipesTab: View {
                 }
             }
             .padding()
-            .padding(.bottom, 84)       // Platz für die schwebenden Knöpfe unten rechts
+            .padding(.bottom, 146)      // Platz für die schwebenden Knöpfe unten rechts
         }
         // Hinzufügen und Zufall schweben unten rechts – gut mit dem Daumen erreichbar,
         // die Suchzeile oben bleibt frei
@@ -369,7 +370,8 @@ struct RecipesTab: View {
 
     /// Zufallsrezept aus den gerade gefilterten Rezepten (nicht zweimal dasselbe hintereinander)
     private func shuffle() {
-        let pool = list.isEmpty ? kitchen.recipes : list
+        let favs = filter.collection == "Favoriten"
+        let pool = list.isEmpty && !favs ? kitchen.recipes : list
         guard !pool.isEmpty else { return }
         var pick = pool.randomElement()!
         if pool.count > 1 { while pick.id == suggestion?.id { pick = pool.randomElement()! } }
@@ -380,7 +382,7 @@ struct RecipesTab: View {
         HStack(spacing: 16) {
             Text(r.icon).font(.system(size: 54))
             VStack(alignment: .leading, spacing: 4) {
-                Text("🎲 ZUFALLSREZEPT" + (cuisine == "Alle" ? "" : " · " + cuisine.uppercased()))
+                Text((filter.collection == "Favoriten" ? "🎲 AUS DEINEN FAVORITEN" : "🎲 ZUFALLSREZEPT") + (cuisine == "Alle" ? "" : " · " + cuisine.uppercased()))
                     .font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
                 Text(r.title).font(.title3.weight(.bold)).lineLimit(2)
                 Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundColor(Theme.secondary)
@@ -412,9 +414,23 @@ struct RecipesTab: View {
         .transition(.scale(scale: 0.95).combined(with: .opacity))
     }
 
-    /// Zufall (klein) über Hinzufügen (groß, Tint) – unten rechts
+    /// Favoriten und Zufall (klein) über Hinzufügen (groß, Tint) – unten rechts
     private var floatingButtons: some View {
-        VStack(spacing: 14) {
+        let favs = filter.collection == "Favoriten"
+        return VStack(spacing: 14) {
+            // Herz schaltet auf „nur Favoriten“ um; der Würfel würfelt dann nur aus ihnen
+            Button {
+                withAnimation(.easeOut(duration: 0.2)) { filter.collection = favs ? "Alle" : "Favoriten"; suggestion = nil }
+            } label: {
+                Image(systemName: favs ? "heart.fill" : "heart").font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(favs ? .white : Theme.accent)
+                    .frame(width: 48, height: 48)
+                    .background(Circle().fill(favs ? Theme.accent : Theme.card))
+                    .shadow(color: .black.opacity(0.16), radius: 8, y: 3)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(favs ? "Alle Rezepte zeigen" : "Nur Favoriten zeigen")
+
             Button { shuffle() } label: {
                 Image(systemName: "die.face.5").font(.system(size: 20, weight: .semibold)).foregroundColor(Theme.accent)
                     .frame(width: 48, height: 48)
@@ -441,41 +457,6 @@ struct RecipesTab: View {
 }
 
 /// Große Umschalt-Kachel (Schnellwahl über den Kategorien)
-extension RecipesTab {
-    /// Waagrechte Reihe mit den Favoriten, „Alle ›“ zeigt sie als Liste
-    var favoritesRow: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack {
-                Label("FAVORITEN", systemImage: "heart.fill").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
-                Spacer()
-                Button { withAnimation { filter.collection = "Favoriten"; suggestion = nil } } label: {
-                    HStack(spacing: 3) { Text("Alle"); Image(systemName: "chevron.right").font(.caption.weight(.semibold)) }
-                        .font(.subheadline).foregroundColor(Theme.accent)
-                }
-                .buttonStyle(.plain)
-            }
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(kitchen.favorites.prefix(20), id: \.id) { r in
-                        NavigationLink(destination: RecipeDetailView(id: r.id)) {
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(r.icon).font(.system(size: 34))
-                                Text(r.title).font(.subheadline.weight(.semibold)).foregroundColor(.primary)
-                                    .lineLimit(2).multilineTextAlignment(.leading)
-                                Spacer(minLength: 0)
-                            }
-                            .padding(12)
-                            .frame(width: 130, height: 110, alignment: .topLeading)
-                            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-            }
-        }
-    }
-}
-
 /// Herz zum Merken. Eigener Knopf, damit er in Karten nicht das Rezept öffnet.
 struct FavoriteButton: View {
     let id: String
