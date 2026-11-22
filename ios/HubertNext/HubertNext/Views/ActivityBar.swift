@@ -58,7 +58,7 @@ struct ActivityBar: View {
             }
         }
         .island()
-        .onTapGesture { showFocus = true }
+        .onTapGesture { focus.presented = true }
         .onLongPressGesture { focusActions = true }
         .accessibilityElement(children: .combine)
         .accessibilityLabel("Fokus \(s.task), \(focus.paused ? "pausiert" : "noch " + FocusCenter.clock(focus.left))")

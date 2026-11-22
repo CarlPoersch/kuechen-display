@@ -109,6 +109,8 @@ final class FocusCenter: ObservableObject {
     static let shared = FocusCenter()
     @Published private(set) var state: FocusSnapshot
     @Published private(set) var tick = Date()
+    /// Vollbild auf diesem Gerät (nicht abgeglichen): geht beim Start auf, raus nur über Beenden, Pausieren, Verkleinern
+    @Published var presented = false
     private var clock: AnyCancellable?
     private let key = "fokus.state.v1"
     private var remoteMissing = false      // Tabelle (noch) nicht da → nur lokal
@@ -147,6 +149,7 @@ final class FocusCenter: ObservableObject {
         n.countdown = countdown?.id; n.countdownTitle = countdown?.title
         n.session = String(UUID().uuidString.lowercased().prefix(8))
         commit(n)
+        presented = true
     }
 
     /// Nächste Phase beginnen (nach einer Pause wartet der Fokus auf „Start“)
@@ -585,6 +588,117 @@ struct FocusApp: View {
 
 /// „1 h 20 min“ / „45 min“
 func hours(_ m: Int) -> String { m >= 60 ? "\(m / 60) h" + (m % 60 > 0 ? " \(m % 60) min" : "") : "\(m) min" }
+
+// MARK: Vollbild
+
+/// Fokus füllt den Bildschirm. Raus nur über ✕ (Beenden), Pausieren oder Verkleinern (Kapsel unten).
+struct FocusFullScreen: View {
+    @ObservedObject private var center = FocusCenter.shared
+    @State private var confirmStop = false
+
+    var body: some View {
+        let s = center.state
+        let tint: Color = center.paused ? .gray : s.isFocus ? Theme.accent : .mint
+        GeometryReader { g in
+            let ring = min(g.size.width - 64, g.size.height * 0.5, 440)
+            VStack(spacing: 0) {
+                // Oben: Beenden und Verkleinern
+                HStack {
+                    Button { confirmStop = true } label: { roundIcon("xmark") }
+                        .accessibilityLabel("Fokus beenden")
+                    Spacer()
+                    Text(s.isFocus ? "Runde \(s.round) von \(s.rounds)" : s.phaseName)
+                        .font(.subheadline.weight(.semibold)).foregroundColor(.white.opacity(0.7))
+                    Spacer()
+                    Button { center.presented = false } label: { roundIcon("arrow.down.right.and.arrow.up.left") }
+                        .accessibilityLabel("Verkleinern")
+                }
+                .padding(.horizontal, 20).padding(.top, 12)
+
+                Spacer(minLength: 12)
+
+                ZStack {
+                    FocusRing(line: 16)
+                    VStack(spacing: 8) {
+                        Text(center.paused ? "Pausiert" : center.waiting ? (s.isFocus ? "Bereit" : "Pause") : s.phaseName)
+                            .font(.title3.weight(.semibold)).foregroundColor(tint)
+                        Text(FocusCenter.clock(center.left))
+                            .font(.system(size: ring * 0.22, weight: .semibold).monospacedDigit())
+                            .foregroundColor(.white)
+                            .minimumScaleFactor(0.5).lineLimit(1)
+                        if let e = s.end {
+                            Text("bis " + Fmt.hhmm(e)).font(.subheadline).foregroundColor(.white.opacity(0.55))
+                        }
+                    }
+                    .padding(ring * 0.14)
+                }
+                .frame(width: ring, height: ring)
+
+                VStack(spacing: 6) {
+                    Text(s.task.isEmpty ? "Fokus" : s.task).font(.title2.weight(.semibold)).foregroundColor(.white).lineLimit(2)
+                        .multilineTextAlignment(.center)
+                    if let t = s.countdownTitle {
+                        Label(t, systemImage: "hourglass").font(.subheadline).foregroundColor(.white.opacity(0.6))
+                    }
+                }
+                .padding(.top, 24).padding(.horizontal, 24)
+
+                Spacer(minLength: 12)
+
+                // Unten: Pausieren (führt raus) bzw. nächste Runde / Weiter
+                VStack(spacing: 12) {
+                    if center.waiting {
+                        bigButton(s.isFocus ? "Runde \(s.round) starten" : "Pause starten", "play.fill") { center.startNext() }
+                    } else if center.paused {
+                        bigButton("Weiter", "play.fill") { center.togglePause() }
+                    } else {
+                        bigButton("Pausieren", "pause.fill") { center.togglePause(); center.presented = false }
+                    }
+                    Button { center.skip() } label: {
+                        Text(s.isFocus ? "Zur Pause springen" : "Pause überspringen").font(.subheadline.weight(.semibold))
+                            .foregroundColor(.white.opacity(0.7)).frame(minHeight: 44)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .frame(maxWidth: 420)
+                .padding(.horizontal, 24).padding(.bottom, 24)
+            }
+            .frame(width: g.size.width, height: g.size.height)
+        }
+        .background(Color.black.ignoresSafeArea())
+        .preferredColorScheme(.dark)
+        .confirmationDialog("Fokus beenden?", isPresented: $confirmStop, titleVisibility: .visible) {
+            Button("Fokus beenden", role: .destructive) { center.stop(); center.presented = false }
+            Button("Weitermachen", role: .cancel) {}
+        } message: {
+            Text("Die bisherigen Minuten zählen in die Statistik.")
+        }
+        // Sitzung anderswo beendet → Vollbild schließen
+        .onChange(of: center.state.active) { on in if !on { center.presented = false } }
+    }
+
+    private func roundIcon(_ sym: String) -> some View {
+        Image(systemName: sym).font(.headline).foregroundColor(.white)
+            .frame(width: 46, height: 46).background(Circle().fill(Color.white.opacity(0.14)))
+    }
+
+    private func bigButton(_ t: String, _ sym: String, _ action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Label(t, systemImage: sym).font(.title3.weight(.semibold)).foregroundColor(.white)
+                .frame(maxWidth: .infinity, minHeight: 60)
+                .background(Capsule().fill(Theme.accent))
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+/// Hängt das Fokus-Vollbild über die ganze App (wie der Kochmodus)
+struct FocusHost: ViewModifier {
+    @ObservedObject private var center = FocusCenter.shared
+    func body(content: Content) -> some View {
+        content.fullScreenCover(isPresented: $center.presented) { FocusFullScreen() }
+    }
+}
 
 /// Fokus als Blatt (aus der Kapsel unten)
 struct FocusSheet: View {

@@ -39,6 +39,7 @@ struct RootView: View {
             // Farbthema: Knöpfe, Schalter und Zurück-Pfeile (accentColor braucht iOS 15 für die Navigationsleiste)
             .tint(look.current.accent)
             .accentColor(look.current.accent)
+            .modifier(FocusHost())    // Fokus im Vollbild
             // Haushalt bekannt (Start, Beitritt, Wechsel) → Live-Abgleich starten
             .task(id: store.household?.id) { LiveSync.shared.start(household: store.household?.id) }
     }

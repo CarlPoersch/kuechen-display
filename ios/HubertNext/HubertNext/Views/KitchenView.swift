@@ -865,13 +865,23 @@ struct CookModeView: View {
                     .padding(.horizontal).padding(.top, 10)
             }
 
-            TabView(selection: $session.page) {
-                ForEach(Array(recipe.steps.enumerated()), id: \.offset) { i, s in
-                    stepPage(i, s).tag(i)
+            // Breit (iPad): rechts alle Schritte – vorherige abgehakt, aktueller markiert, nächste darunter.
+            // Schmal (iPhone): „Davor“ und „Als Nächstes“ direkt am Schritt.
+            GeometryReader { g in
+                let wide = g.size.width >= 700
+                HStack(alignment: .top, spacing: 0) {
+                    TabView(selection: $session.page) {
+                        ForEach(Array(recipe.steps.enumerated()), id: \.offset) { i, s in
+                            stepPage(i, s, wide: wide).tag(i)
+                        }
+                        donePage.tag(recipe.steps.count)
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                    if wide {
+                        stepList.frame(width: min(340, g.size.width * 0.34)).padding(.trailing, 16).padding(.vertical, 12)
+                    }
                 }
-                donePage.tag(recipe.steps.count)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
 
             // Weiter / Zurück
             HStack(spacing: 12) {
@@ -894,11 +904,33 @@ struct CookModeView: View {
         .overlay(TimerAlarmOverlay())
     }
 
-    private func stepPage(_ i: Int, _ s: Recipe.Step) -> some View {
-        ScrollView {
+    private func stepPage(_ i: Int, _ s: Recipe.Step, wide: Bool) -> some View {
+        let needed = StepIngredients.find(recipe, step: i)
+        let factor = Double(portions) / Double(recipe.baseServings)
+        return ScrollView {
             VStack(alignment: .leading, spacing: 24) {
+                if !wide && i > 0 {
+                    Text("Davor: " + recipe.steps[i - 1].text).font(.footnote).foregroundColor(Theme.secondary).lineLimit(1)
+                }
                 Text(s.text).font(.system(size: 30, weight: .medium)).lineSpacing(6)
                     .fixedSize(horizontal: false, vertical: true)
+                // Mengen für diesen Schritt – passend zur gewählten Portionenzahl
+                if !needed.isEmpty {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("DAFÜR · \(portions) \(portions == 1 ? "PORTION" : "PORTIONEN")")
+                            .font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                        ForEach(Array(needed.enumerated()), id: \.offset) { _, ing in
+                            HStack(alignment: .firstTextBaseline, spacing: 14) {
+                                Text(Amount.scale(ing.amount, factor)).font(.title3.weight(.semibold).monospacedDigit())
+                                    .foregroundColor(Theme.accent).frame(minWidth: 90, alignment: .leading)
+                                Text(ing.name).font(.title3)
+                            }
+                        }
+                    }
+                    .padding(18)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(RoundedRectangle(cornerRadius: 18, style: .continuous).fill(Theme.card))
+                }
                 if let m = s.minutes {
                     let running = timers.timers.contains { $0.name.hasSuffix("Schritt \(i + 1)") }
                     Button { timers.start("\(recipe.title) · Schritt \(i + 1)", minutes: m, source: recipe.title, icon: recipe.icon) } label: {
@@ -914,11 +946,63 @@ struct CookModeView: View {
                 if let h = Airfryer.hint(for: s, recipeIsAirfryer: recipe.airfryer == true) {
                     Label(h, systemImage: "flame").font(.title3).foregroundColor(.orange)
                 }
+                if !wide && i + 1 < recipe.steps.count {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("ALS NÄCHSTES").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                        Text(recipe.steps[i + 1].text).font(.body).foregroundColor(Theme.secondary).lineLimit(3)
+                    }
+                    .padding(14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                }
             }
             .padding(28)
             .frame(maxWidth: 820, alignment: .leading)
             .frame(maxWidth: .infinity)
         }
+    }
+
+    /// Alle Schritte an der Seite: vorherige abgehakt, aktueller hervorgehoben; antippen springt hin
+    private var stepList: some View {
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("SCHRITTE").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                        .padding(.horizontal, 12).padding(.top, 12).padding(.bottom, 4)
+                    ForEach(Array(recipe.steps.enumerated()), id: \.offset) { i, s in
+                        Button { withAnimation { page = i } } label: { stepRow(i, s) }
+                            .buttonStyle(.plain)
+                            .id(i)
+                    }
+                }
+                .padding(.bottom, 12)
+            }
+            .onAppear { proxy.scrollTo(min(page, recipe.steps.count - 1), anchor: .center) }
+            .onChange(of: page) { p in withAnimation { proxy.scrollTo(min(p, recipe.steps.count - 1), anchor: .center) } }
+        }
+        .background(RoundedRectangle(cornerRadius: 18, style: .continuous).fill(Theme.card))
+    }
+
+    private func stepRow(_ i: Int, _ s: Recipe.Step) -> some View {
+        let done = i < page, now = i == page
+        return HStack(alignment: .top, spacing: 10) {
+            ZStack {
+                Circle().fill(now ? Theme.accent : done ? Color(UIColor.tertiarySystemFill) : Color.clear)
+                Circle().stroke(now || done ? Color.clear : Theme.secondary.opacity(0.4), lineWidth: 1.5)
+                if done { Image(systemName: "checkmark").font(.caption2.weight(.bold)).foregroundColor(Theme.secondary) }
+                else { Text("\(i + 1)").font(.caption.weight(.bold)).foregroundColor(now ? .white : Theme.secondary) }
+            }
+            .frame(width: 26, height: 26)
+            Text(s.text).font(.subheadline.weight(now ? .semibold : .regular))
+                .foregroundColor(done ? Theme.secondary : .primary)
+                .lineLimit(now ? nil : 3)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.horizontal, 12).padding(.vertical, 9)
+        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(now ? Theme.accent.opacity(0.1) : Color.clear))
+        .padding(.horizontal, 6)
+        .contentShape(Rectangle())
     }
 
     private var donePage: some View {
@@ -1404,5 +1488,57 @@ struct PortionControl: View {
         .buttonStyle(.borderless)
         .disabled(!enabled)
         .opacity(enabled ? 1 : 0.4)
+    }
+}
+
+// MARK: Zutaten je Schritt
+
+/// Welche Zutaten ein Schritt braucht – aus dem Schritttext erkannt.
+/// Erst genaue Treffer („Zwiebeln“ → Zwiebeln, „Brühe“ → Gemüsebrühe); nur wenn ein Wort keinen genauen
+/// Treffer hat, auch lose („Öl“ → Olivenöl). So trifft „Zucker“ nicht zusätzlich „Puderzucker“.
+enum StepIngredients {
+    private static let stop: Set<String> = Set(("frisch frische frischer gehackt gehackte gemahlen gemahlener getrocknet getrocknete klein kleine "
+        + "große groß rot rote roter gelb gelbe grün grüne weiß weiße schwarz schwarzer optional fein feine gewürfelt geschält ca etwas "
+        + "zum braten für den die das und oder nach geschmack bio tk dose glas reif reife sehr geschmolzene braune brauner heller dunkle "
+        + "zerlassen festkochende mehligkochende servieren kühlregal").split(separator: " ").map(String.init))
+
+    private static func words(_ s: String) -> [String] {
+        s.lowercased().split { !$0.isLetter }.map(String.init)
+    }
+    private static func stem(_ w: String) -> String {
+        for suf in ["innen", "en", "er", "n", "e", "s"] where w.hasSuffix(suf) && w.count - suf.count >= 4 {
+            return String(w.dropLast(suf.count))
+        }
+        return w
+    }
+    private static func keys(_ name: String) -> [String] {
+        var n = name
+        while let r = n.range(of: #"\([^)]*\)"#, options: .regularExpression) { n.removeSubrange(r) }
+        n = String(n.split(separator: ",").first ?? "")
+        let w = words(n)
+        let k = w.filter { $0.count >= 3 && !stop.contains($0) }
+        return k.isEmpty ? Array(w.suffix(1)) : k
+    }
+    private static func strong(_ k: String, _ w: String) -> Bool {
+        w == k || stem(w) == stem(k) || (k.count >= 4 && w.hasSuffix(k))
+    }
+    private static func weak(_ k: String, _ w: String) -> Bool {
+        let ks = stem(k)
+        return (w.count >= 3 && k.hasSuffix(w) && w.count >= max(3, k.count / 3))
+            || (w == "öl" && k.hasSuffix("öl"))
+            || (ks.count >= 5 && w.hasPrefix(ks))
+    }
+
+    static func find(_ r: Recipe, step: Int) -> [Recipe.Ingredient] {
+        guard r.steps.indices.contains(step) else { return [] }
+        let ings = r.ingredients.filter { !$0.name.isEmpty }
+        let ik = ings.map { keys($0.name) }
+        var out: [Int] = []
+        for w in words(r.steps[step].text) where w.count >= 2 {
+            var hit = ings.indices.filter { i in ik[i].contains { strong($0, w) } }
+            if hit.isEmpty { hit = ings.indices.filter { i in ik[i].contains { weak($0, w) } } }
+            for i in hit where !out.contains(i) { out.append(i) }
+        }
+        return out.map { ings[$0] }
     }
 }
