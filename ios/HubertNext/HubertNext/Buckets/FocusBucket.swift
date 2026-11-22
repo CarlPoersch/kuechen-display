@@ -32,6 +32,7 @@ enum FocusBucket {
 }
 
 // MARK: Zustand
+// Hinweis: nicht „FocusState“ nennen – so heißt schon der SwiftUI-Baustein @FocusState für Eingabefelder.
 
 struct FocusLog: Codable, Equatable, Identifiable {
     var id: String            // Sitzung + Runde (gleich auf allen Geräten → keine Doppelten)
@@ -41,7 +42,7 @@ struct FocusLog: Codable, Equatable, Identifiable {
     var countdown: String?
 }
 
-struct FocusState: Codable, Equatable {
+struct FocusSnapshot: Codable, Equatable {
     var active = false        // Sitzung läuft (auch während Pause oder Warten auf die nächste Runde)
     var phase = "focus"       // focus, short, long
     var round = 1
@@ -102,11 +103,11 @@ struct FocusState: Codable, Equatable {
 }
 
 /// Zeile in der Tabelle user_focus
-struct FocusRow: Codable { let user_id: String; let state: FocusState; let updated_at: String }
+struct FocusRow: Codable { let user_id: String; let state: FocusSnapshot; let updated_at: String }
 
 final class FocusCenter: ObservableObject {
     static let shared = FocusCenter()
-    @Published private(set) var state: FocusState
+    @Published private(set) var state: FocusSnapshot
     @Published private(set) var tick = Date()
     private var clock: AnyCancellable?
     private let key = "fokus.state.v1"
@@ -115,8 +116,8 @@ final class FocusCenter: ObservableObject {
     private(set) var remoteReady = false
 
     init() {
-        if let d = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(FocusState.self, from: d) { state = s }
-        else { state = FocusState() }
+        if let d = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(FocusSnapshot.self, from: d) { state = s }
+        else { state = FocusSnapshot() }
         run()
     }
 
@@ -178,21 +179,21 @@ final class FocusCenter: ObservableObject {
         commit(n)
     }
 
-    private func logElapsed(_ n: inout FocusState) {
+    private func logElapsed(_ n: inout FocusSnapshot) {
         let done = n.total - (n.pausedLeft ?? max(0, (n.end ?? Date()).timeIntervalSinceNow))
         let m = Int((done / 60).rounded())
         if m >= 1 { addLog(&n, minutes: m) }
     }
 
-    private func addLog(_ n: inout FocusState, minutes: Int) {
+    private func addLog(_ n: inout FocusSnapshot, minutes: Int) {
         let id = n.session + "-\(n.round)"
         guard !n.log.contains(where: { $0.id == id }) else { return }
-        n.log.append(FocusLog(id: id, day: FocusState.day(Date()), minutes: minutes, task: n.task, countdown: n.countdown))
+        n.log.append(FocusLog(id: id, day: FocusSnapshot.day(Date()), minutes: minutes, task: n.task, countdown: n.countdown))
         if n.log.count > 600 { n.log.removeFirst(n.log.count - 600) }
     }
 
     /// Phase ist vorbei: Fokus → Pause (startet von selbst), Pause → nächste Runde (wartet auf Start)
-    private func advance(_ n: inout FocusState, at end: Date, chime: Bool, autoBreak: Bool) {
+    private func advance(_ n: inout FocusSnapshot, at end: Date, chime: Bool, autoBreak: Bool) {
         if n.isFocus {
             let long = n.round % max(1, n.rounds) == 0
             n.phase = long ? "long" : "short"
@@ -238,7 +239,7 @@ final class FocusCenter: ObservableObject {
 
     // MARK: Speichern & Abgleich
 
-    private func commit(_ s: FocusState, push: Bool = true) {
+    private func commit(_ s: FocusSnapshot, push: Bool = true) {
         var s = s
         if push { s.updated = Date() }
         state = s
