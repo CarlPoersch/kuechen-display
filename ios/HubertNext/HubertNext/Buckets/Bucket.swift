@@ -50,7 +50,8 @@ extension BucketKind {
 enum BucketRegistry {
     static let all: [BucketKind] = [WeatherBucket.kind, SunBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, DealsBucket.kind, TransitBucket.kind, CountdownBucket.kind,
                                          KitchenBuckets.kitchen, KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
-                                         KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind, FocusBucket.kind] + comingSoon
+                                         KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind, FocusBucket.kind,
+                                         PollenBucket.kind, ReiseBucket.kind, StundenplanBucket.kind, ZieleBucket.kind, StromBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
     /// Was man hinzufügen kann (Katalog, Einrichtung)
@@ -58,20 +59,15 @@ enum BucketRegistry {
 
     /// Schon im Katalog sichtbar, kommt in den nächsten Etappen
     static let comingSoon: [BucketKind] = [
-        soon("pollen", "Pollen & UV", "allergens", .yellow, .glance, ["wetter", "gesundheit"], "Pollenflug und UV-Index."),
         soon("lokal", "Lokalnachrichten", "building.2", .brown, .glance, ["news"], "Was in deiner Stadt los ist."),
         soon("tech", "Tech-Releases", "cpu", .gray, .glance, ["technik"], "Neue Software, KI-Modelle, Apple-Events."),
-        soon("reise", "Reise", "airplane", .cyan, .glance, ["unterwegs"], "Countdown, Wetter am Ziel, Packliste."),
         soon("tanken", "Tankpreise", "fuelpump", .green, .glance, ["unterwegs"], "Günstigste Tankstelle in der Nähe."),
         soon("pakete", "Pakete", "shippingbox", .brown, .glance, ["haushalt"], "Wann kommt deine Sendung?"),
         soon("kasse", "Haushaltskasse", "eurosign.circle", .green, .tool, ["haushalt"], "Wer hat was bezahlt?"),
-        soon("strom", "Stromverbrauch", "bolt", .yellow, .tool, ["haushalt"], "Zählerstand eintragen, Verlauf sehen."),
         soon("schritte", "Schritte", "figure.walk", .pink, .glance, ["gesundheit"], "Aus Apple Health."),
         soon("schlaf", "Schlaf", "bed.double", .indigo, .glance, ["gesundheit"], "Letzte Nacht, aus Apple Health."),
         soon("medikamente", "Medikamente", "pills", .red, .tool, ["gesundheit"], "Erinnern und abhaken."),
-        soon("stundenplan", "Stundenplan", "graduationcap", .blue, .glance, ["lernen"], "Nächste Vorlesung und Raum."),
         soon("pruefungen", "Prüfungen", "doc.text", .purple, .tool, ["lernen"], "Countdown und Lernplan."),
-        soon("ziele", "Wochenziele", "checkmark.seal", .green, .tool, ["lernen", "gesundheit"], "Drei Ziele pro Woche."),
         soon("events", "Events", "ticket", .purple, .glance, ["freizeit"], "Konzerte und Veranstaltungen in der Nähe."),
         soon("kicktipp", "Kicktipp", "sportscourt", .green, .glance, ["sport"], "Deine Tipps und dein Platz."),
         soon("lesen", "Buch & Serie", "book", .brown, .tool, ["freizeit"], "Fortschritt im Blick."),

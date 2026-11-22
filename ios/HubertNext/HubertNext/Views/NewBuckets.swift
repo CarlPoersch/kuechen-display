@@ -8,12 +8,37 @@ import SwiftUI
 
 enum NewBuckets {
     /// Komplett neue Buckets (neueste zuerst)
-    static let ids = ["fokus", "filme", "mensa", "sonne", "gaeste", "deals"]
+    static let ids = ["pollen", "reise", "stundenplan", "ziele", "strom", "fokus", "filme", "mensa", "sonne", "gaeste", "deals"]
 
     struct Highlight: Hashable { let symbol: String; let text: String }
 
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
+        "pollen": [
+            Highlight(symbol: "allergens", text: "Pollenflug für Erle, Birke, Gräser, Beifuß und Ambrosia – heute und die nächsten Tage"),
+            Highlight(symbol: "sun.max.fill", text: "UV-Index über den Tag, mit Tipp, ab wann Sonnencreme nötig ist"),
+            Highlight(symbol: "slider.horizontal.3", text: "Nur die Pollen zeigen, auf die du reagierst"),
+        ],
+        "reise": [
+            Highlight(symbol: "airplane", text: "Countdown bis zur nächsten Reise – erscheint auch bei den Countdowns"),
+            Highlight(symbol: "cloud.sun.fill", text: "Wetter am Ziel, sobald die Vorhersage reicht (16 Tage vorher)"),
+            Highlight(symbol: "checkmark.circle.fill", text: "Packliste mit Vorschlägen zum Abhaken"),
+        ],
+        "stundenplan": [
+            Highlight(symbol: "graduationcap", text: "Was jetzt läuft und was als Nächstes kommt – mit Raum"),
+            Highlight(symbol: "calendar", text: "Einmal anlegen, gilt jede Woche"),
+            Highlight(symbol: "sparkles", text: "Vorlesungsfrei? Ein Schalter, und der Plan ruht"),
+        ],
+        "ziele": [
+            Highlight(symbol: "checkmark.seal", text: "Drei Ziele pro Woche – direkt in der Karte abhaken"),
+            Highlight(symbol: "arrow.uturn.forward", text: "Neue Woche: offene Ziele mit einem Tipp übernehmen"),
+            Highlight(symbol: "flame.fill", text: "Verlauf und Serie: wie viele Wochen in Folge alles geklappt hat"),
+        ],
+        "strom": [
+            Highlight(symbol: "bolt.fill", text: "Zählerstand eintragen – Hubert rechnet den Verbrauch pro Tag aus"),
+            Highlight(symbol: "eurosign.circle", text: "Hochrechnung aufs Jahr in kWh und Euro"),
+            Highlight(symbol: "chart.bar.fill", text: "Reicht der Abschlag? Guthaben oder Nachzahlung auf einen Blick"),
+        ],
         "fokus": [
             Highlight(symbol: "brain.head.profile", text: "Pomodoro: 25 min Fokus, 5 min Pause – mit Aufgabe und Statistik"),
             Highlight(symbol: "hourglass", text: "Mit Prüfungs-Countdowns verknüpfen – die Lernzeit zählt dort mit"),

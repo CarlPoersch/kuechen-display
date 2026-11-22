@@ -86,9 +86,10 @@ struct CountdownGlance: View {
     let config: [String: JSON]
     let size: BucketSize
     @Environment(\.glanceSpace) private var space
+    @EnvironmentObject var store: AppStore
 
     var body: some View {
-        let all = CountdownBucket.entries(config)
+        let all = (CountdownBucket.entries(config) + ReiseBucket.countdownEntries(store))
             .filter { $0.upcoming }
             .sorted { $0.date < $1.date }
         // Nur einer, oder wenig Platz → der nächste groß. Sonst so viele Zeilen, wie passen,
@@ -260,7 +261,7 @@ struct CountdownApp: View {
     private var config: [String: JSON] { store.buckets.first { $0.id == bucketId }?.config ?? [:] }
 
     var body: some View {
-        let all = CountdownBucket.entries(config)
+        let all = CountdownBucket.entries(config) + ReiseBucket.countdownEntries(store)
         let coming = all.filter { $0.upcoming }.sorted { $0.date < $1.date }
         let past = all.filter { !$0.upcoming }.sorted { $0.date > $1.date }
         List {
@@ -395,7 +396,11 @@ struct CountdownApp: View {
         if k == .reise { e.end = Calendar.current.date(byAdding: .day, value: 33, to: Date()) }
         sheet = Sheet(id: e.id, entry: e, isNew: true)
     }
-    private func edit(_ e: CountdownBucket.Entry) { sheet = Sheet(id: e.id, entry: e, isNew: false) }
+    /// Reisen aus der Reise-App werden dort bearbeitet
+    private func edit(_ e: CountdownBucket.Entry) {
+        guard !e.id.hasPrefix("reise:") else { return }
+        sheet = Sheet(id: e.id, entry: e, isNew: false)
+    }
 
     private func save(_ e: CountdownBucket.Entry) {
         store.updateConfig(bucketId) { c in
