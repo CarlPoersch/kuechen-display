@@ -173,6 +173,26 @@ struct RecipesTab: View {
                     .accessibilityLabel(filter.isActive ? "Filter (aktiv)" : "Filter")
                 }
 
+                // Rezept des Tages (früher eigener Bucket) – nur ohne Suche/Filter, damit die Liste oben bleibt
+                if query.isEmpty && !filter.isActive, let r = kitchen.recipeOfTheDay() {
+                    NavigationLink(destination: RecipeDetailView(id: r.id)) {
+                        HStack(spacing: 14) {
+                            Text(r.icon).font(.system(size: 44))
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("REZEPT DES TAGES").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                                Text(r.title).font(.headline).foregroundColor(.primary).lineLimit(2)
+                                Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · "))
+                                    .font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
+                            }
+                            Spacer(minLength: 0)
+                            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                        }
+                        .padding(14)
+                        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
+                    }
+                    .buttonStyle(.plain)
+                }
+
                 // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
                 HStack(spacing: 10) {
                     QuickTile(emoji: "🧺", title: "Mit meinem Vorrat", detail: pantryDetail, on: filter.pantry) {

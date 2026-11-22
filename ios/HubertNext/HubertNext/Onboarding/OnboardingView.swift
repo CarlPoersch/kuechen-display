@@ -61,7 +61,7 @@ struct OnboardingView: View {
 
     /// Vorschlag: verfügbare Buckets, die zu den Interessen passen (Wetter und Countdowns immer)
     private func suggested() -> [BucketInstance] {
-        BucketRegistry.all.filter { k in
+        BucketRegistry.catalog.filter { k in
             k.available && (k.id == "wetter" || k.id == "countdown" || !Set(k.interests).isDisjoint(with: interests))
         }.enumerated().map { pair in
             BucketInstance(kind: pair.element.id, position: pair.offset, size: pair.element.defaultSize,
@@ -279,9 +279,9 @@ struct BucketPickStep: View {
     let onNext: () -> Void
 
     private var suggested: [BucketKind] {
-        BucketRegistry.all.filter { !Set($0.interests).isDisjoint(with: interests) || $0.id == "wetter" || $0.id == "countdown" }
+        BucketRegistry.catalog.filter { !Set($0.interests).isDisjoint(with: interests) || $0.id == "wetter" || $0.id == "countdown" }
     }
-    private var others: [BucketKind] { BucketRegistry.all.filter { k in !suggested.contains { $0.id == k.id } } }
+    private var others: [BucketKind] { BucketRegistry.catalog.filter { k in !suggested.contains { $0.id == k.id } } }
 
     var body: some View {
         VStack(spacing: 12) {

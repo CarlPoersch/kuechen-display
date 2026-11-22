@@ -34,7 +34,8 @@ enum KitchenBuckets {
         interests: ["haushalt"], blurb: "Jeden Tag ein Rezept – bevorzugt eins, das ihr länger nicht gekocht habt.",
         glance: { _, _ in AnyView(RecipeOfDayGlance()) },
         detail: { _ in AnyView(RecipeOfDayDetail()) },
-        parent: "kueche"
+        parent: "kueche",
+        inCatalog: false          // steckt jetzt in der Küchen-App (Rezepte); bestehende Karten bleiben
     )
 }
 

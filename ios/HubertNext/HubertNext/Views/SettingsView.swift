@@ -258,7 +258,7 @@ struct AddBucketView: View {
         NavigationView {
             List {
                 ForEach(Interest.all) { interest in
-                    let kinds = BucketRegistry.all.filter { $0.interests.first == interest.id }
+                    let kinds = BucketRegistry.catalog.filter { $0.interests.first == interest.id }
                     if !kinds.isEmpty {
                         Section(interest.name) {
                             ForEach(kinds) { kind in

@@ -25,6 +25,7 @@ final class AppStore: ObservableObject {
     private struct Layout: Codable {
         var order: [String] = []; var sizes: [String: BucketSize] = [:]; var hidden: [String]?
         var apps: [String]?      // nil = Ansicht von vor „Jeder Bucket ist eine App“
+        var appsV: Int?          // Stand der App-Symbole (2 = Film & Serien und Countdowns bekommen ihr Symbol)
     }
     private struct ServerSpot { let position: Int; let size: BucketSize }
     private let layoutKey = "hubert.layout.v1"
@@ -67,10 +68,24 @@ final class AppStore: ObservableObject {
         layout = try? JSONDecoder().decode(Layout.self, from: d)
         hiddenHere = Set(layout?.hidden ?? [])
         if let a = layout?.apps { appsHere = Set(a) } else if layout != nil { migrateApps = true }
+        if layout != nil && (layout?.appsV ?? 0) < 2 { appsV2 = true }
+    }
+
+    /// Einmalig (Stand 2): Film & Serien und Countdowns sind echte Apps → Symbol dazu
+    private var appsV2 = false
+    private func runAppsV2(_ list: [BucketInstance]) {
+        guard appsV2 else { return }
+        appsV2 = false
+        for k in ["filme", "countdown"] {
+            if let first = list.first(where: { $0.bucket == k }), !list.contains(where: { $0.bucket == k && appsHere.contains($0.id) }) {
+                appsHere.insert(first.id)
+            }
+        }
     }
 
     /// Einmalig: Tools, die nicht ausgeblendet waren, behalten ihr App-Symbol; Widgets bleiben, wie sie sind
     private func runAppMigration(_ list: [BucketInstance]) {
+        defer { runAppsV2(list) }
         guard migrateApps else { return }
         migrateApps = false
         appsHere = Set(list.filter { BucketRegistry.kind($0.bucket)?.art == .tool && !hiddenHere.contains($0.id) }.map(\.id))
@@ -85,6 +100,7 @@ final class AppStore: ObservableObject {
         let hidden = hiddenHere.filter { ids.contains($0) || buckets.isEmpty }
         l.hidden = hidden.isEmpty ? nil : Array(hidden)
         l.apps = Array(appsHere.filter { ids.contains($0) || buckets.isEmpty })
+        l.appsV = 2
         layout = l
         if let d = try? JSONEncoder().encode(l) { UserDefaults.standard.set(d, forKey: layoutKey) }
     }

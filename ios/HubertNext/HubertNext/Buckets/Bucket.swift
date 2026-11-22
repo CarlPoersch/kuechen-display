@@ -33,6 +33,8 @@ struct BucketKind: Identifiable {
     var settings: ((Binding<[String: JSON]>) -> AnyView)? = nil
     /// Widget einer anderen App (z. B. Einkauf → Küche): kein eigenes App-Symbol
     var parent: String? = nil
+    /// false = nicht mehr im Katalog (bestehende Karten laufen weiter)
+    var inCatalog = true
 }
 
 extension BucketKind {
@@ -51,6 +53,8 @@ enum BucketRegistry {
                                          KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
+    /// Was man hinzufügen kann (Katalog, Einrichtung)
+    static var catalog: [BucketKind] { all.filter { $0.inCatalog } }
 
     /// Schon im Katalog sichtbar, kommt in den nächsten Etappen
     static let comingSoon: [BucketKind] = [
