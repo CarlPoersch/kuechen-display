@@ -1286,7 +1286,6 @@ struct ShopTab: View {
         let open = kitchen.shop.filter { !$0.done }
         let done = kitchen.shop.filter { $0.done }
         let onList = Set(open.map { KitchenStore.key($0.name) })
-        let hits = ShopSuggest.find(query, extra: kitchen.pantry.map(\.name) + kitchen.shop.map(\.name) + Array(kitchen.aliases.values))
         List {
             Section {
                 HStack {
@@ -1298,25 +1297,8 @@ struct ShopTab: View {
                     if !query.isEmpty { AddPill(action: add) }
                 }
                 // Beim Tippen: passende Vorschläge zum direkten Hinzufügen
-                ForEach(hits, id: \.name) { h in
-                    let already = onList.contains(KitchenStore.key(h.name))
-                    Button { if !already { add(h.name) } } label: {
-                        HStack(spacing: 12) {
-                            Image(systemName: already ? "checkmark.circle.fill" : "plus.circle")
-                                .font(.title3).foregroundColor(already ? Theme.secondary : Theme.accent)
-                                .frame(width: 28)
-                            ShopSuggest.highlighted(h.name, query)
-                                .foregroundColor(already ? Theme.secondary : .primary)
-                            Spacer(minLength: 8)
-                            Text(already ? "steht schon drauf" : h.label).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
-                        }
-                        .frame(minHeight: 40)
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.borderless)
-                    .disabled(already)
-                    .accessibilityLabel(already ? "\(h.name) steht schon auf der Liste" : "\(h.name) hinzufügen")
-                }
+                SuggestRows(query: query, extra: kitchen.pantry.map(\.name) + kitchen.shop.map(\.name) + Array(kitchen.aliases.values),
+                            taken: onList, takenText: "steht schon drauf") { add($0) }
             }
             Section(header: Text(open.isEmpty ? "Alles eingekauft" : "Noch zu kaufen · \(open.count)")) {
                 ForEach(open) { ShopRow(item: $0) }
@@ -1339,6 +1321,37 @@ struct ShopTab: View {
         }
         .listStyle(.insetGrouped)
         .sheet(isPresented: $siri) { SiriSetupSheet() }
+    }
+}
+
+/// Vorschlagszeilen unter einem Eingabefeld (Einkauf, Vorrat)
+struct SuggestRows: View {
+    let query: String
+    let extra: [String]
+    let taken: Set<String>          // KitchenStore.key der Einträge, die schon da sind
+    let takenText: String
+    let onPick: (String) -> Void
+
+    var body: some View {
+        ForEach(ShopSuggest.find(query, extra: extra), id: \.name) { h in
+            let already = taken.contains(KitchenStore.key(h.name))
+            Button { if !already { onPick(h.name) } } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: already ? "checkmark.circle.fill" : "plus.circle")
+                        .font(.title3).foregroundColor(already ? Theme.secondary : Theme.accent)
+                        .frame(width: 28)
+                    ShopSuggest.highlighted(h.name, query)
+                        .foregroundColor(already ? Theme.secondary : .primary)
+                    Spacer(minLength: 8)
+                    Text(already ? takenText : h.label).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                }
+                .frame(minHeight: 40)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.borderless)
+            .disabled(already)
+            .accessibilityLabel(already ? "\(h.name): \(takenText)" : "\(h.name) hinzufügen")
+        }
     }
 }
 
@@ -1496,6 +1509,12 @@ struct PantryTab: View {
         withAnimation { kitchen.add("pantry", name: query, place: place) }
         newItem = ""; typing = true          // Tastatur bleibt offen für das nächste
     }
+    /// Vorschlag übernehmen: bekannte Lebensmittel landen an ihrem üblichen Ort (Käse → Kühlschrank)
+    private func pick(_ name: String) {
+        let known = FoodCatalog.ident(name) != nil
+        withAnimation { kitchen.add("pantry", name: name, place: known ? FoodCatalog.place(for: name) : place) }
+        newItem = ""; typing = true
+    }
 
     var body: some View {
         List {
@@ -1513,6 +1532,9 @@ struct PantryTab: View {
                 }
                 // Sobald etwas eingetippt ist: deutliche Zeile zum Hinzufügen (Enter geht weiterhin)
                 if !query.isEmpty { AddRow(text: query, target: place, action: add) }
+                // Passende Vorschläge zum direkten Übernehmen
+                SuggestRows(query: query, extra: kitchen.shop.map(\.name) + Array(kitchen.aliases.values),
+                            taken: Set(kitchen.pantry.map { KitchenStore.key($0.name) }), takenText: "schon im Vorrat") { pick($0) }
             }
             Section {
                 DisclosureGroup(isExpanded: $showBlocks.animation(.easeOut(duration: 0.2))) {

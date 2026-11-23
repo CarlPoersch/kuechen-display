@@ -233,36 +233,65 @@ struct ReiseGlance: View {
     @Environment(\.glanceSpace) private var space
     @StateObject private var weather = TripWeather()
 
+    /// Kleiner grauer Chip für eine Info
+    private func chip<C: View>(@ViewBuilder _ content: () -> C) -> some View {
+        HStack(spacing: 5) { content() }
+            .font(.footnote.weight(.medium))
+            .lineLimit(1)
+            .padding(.horizontal, 10).frame(height: 28)
+            .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
+    }
+
     var body: some View {
         let next = ReiseBucket.trips(config).filter { $0.upcoming }.sorted { $0.start < $1.start }
         if let t = next.first {
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                    Text(t.emoji).font(.title2)
-                    Text(ReiseBucket.label(t)).font(.title2.weight(.semibold).monospacedDigit())
-                        .foregroundColor(CountdownBucket.daysLeft(t.start) <= 7 ? Theme.accent : .primary)
-                    Spacer(minLength: 0)
-                    if let w = weather.days.first {
-                        let info = WeatherCode.info(w.code)
-                        Image(systemName: info.symbol).renderingMode(.original)
-                        Text((w.estimated ? "~" : "") + "\(Int(w.max.rounded()))°").font(.headline.monospacedDigit())
+            let d = CountdownBucket.daysLeft(t.start)
+            let soon = d <= 7
+            VStack(alignment: .leading, spacing: 10) {
+                // Kopf: Symbol, Ziel und Daten links – Countdown rechts
+                HStack(alignment: .center, spacing: 12) {
+                    Text(t.emoji).font(.system(size: 26))
+                        .frame(width: 46, height: 46)
+                        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.accent.opacity(0.12)))
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(t.title).font(.headline).lineLimit(1)
+                        Text(ReiseBucket.dates(t)).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
+                    }
+                    Spacer(minLength: 4)
+                    if t.running || d < 2 {
+                        Text(ReiseBucket.label(t)).font(.headline).foregroundColor(Theme.accent)
+                    } else {
+                        VStack(alignment: .trailing, spacing: 0) {
+                            Text("\(d)").font(.system(size: 30, weight: .bold).monospacedDigit())
+                                .foregroundColor(soon ? Theme.accent : .primary)
+                            Text("Tage").font(.caption).foregroundColor(Theme.secondary)
+                        }
                     }
                 }
-                Text(t.title + (t.city.isEmpty || t.city == t.title ? "" : " · " + t.city)).font(.headline).lineLimit(1)
-                Text(ReiseBucket.dates(t)).font(.subheadline).foregroundColor(Theme.secondary)
-                // Weit weg: Schätzung aus vergangenen Jahren statt Vorhersage
-                if let c = weather.climate, weather.days.first?.estimated == true, space.height > 120 {
-                    Text("Wetter meist \(Int(c.max.rounded()))° / \(Int(c.min.rounded()))°, Regen an ~\(c.rainDays) von \(c.days) Tagen (Schätzung)")
-                        .font(.footnote).foregroundColor(Theme.secondary).lineLimit(2)
-                }
-                if !t.pack.isEmpty && space.height > 100 {
+                // Infos als ruhige Chips: Wetter, Packliste
+                if space.height > 100 && (weather.days.first != nil || !t.pack.isEmpty) {
                     HStack(spacing: 8) {
-                        ProgressView(value: Double(t.packed), total: Double(max(1, t.pack.count))).tint(Theme.accent)
-                        Text("Gepackt \(t.packed)/\(t.pack.count)").font(.caption.monospacedDigit()).foregroundColor(Theme.secondary)
+                        if let w = weather.days.first {
+                            let info = WeatherCode.info(w.code)
+                            chip {
+                                Image(systemName: info.symbol).renderingMode(.original)
+                                Text(w.estimated
+                                     ? "meist \(Int((weather.climate?.max ?? w.max).rounded()))°"
+                                     : "\(Int(w.max.rounded()))° / \(Int(w.min.rounded()))°").monospacedDigit()
+                                if w.estimated { Text("Schätzung").foregroundColor(Theme.secondary) }
+                            }
+                        }
+                        if !t.pack.isEmpty {
+                            chip {
+                                Image(systemName: t.packed == t.pack.count ? "checkmark.circle.fill" : "suitcase.fill")
+                                    .foregroundColor(t.packed == t.pack.count ? .green : Theme.accent)
+                                Text("\(t.packed)/\(t.pack.count) gepackt").monospacedDigit()
+                            }
+                        }
+                        Spacer(minLength: 0)
                     }
-                    .padding(.top, 4)
                 }
-                if next.count > 1 && space.height > 150 {
+                if next.count > 1 && space.height > 160 {
                     Text("Danach: " + next[1].emoji + " " + next[1].title + " · " + ReiseBucket.label(next[1]))
                         .font(.footnote).foregroundColor(Theme.secondary).lineLimit(1)
                 }
@@ -270,8 +299,8 @@ struct ReiseGlance: View {
             .task(id: t.id) { await weather.load(t) }
         } else {
             VStack(alignment: .leading, spacing: 4) {
-                Text("Keine Reise geplant").font(.headline)
-                Text("Leg die nächste an – mit Wetter am Ziel und Packliste.").font(.subheadline).foregroundColor(Theme.secondary)
+                Label("Keine Reise geplant", systemImage: "airplane").font(.headline)
+                Text("Leg die nächste an – mit Countdown und Wetter am Ziel.").font(.subheadline).foregroundColor(Theme.secondary)
             }
         }
     }
