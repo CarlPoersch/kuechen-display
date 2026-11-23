@@ -538,6 +538,7 @@ struct CityPicker: View {
     struct Place: Decodable, Identifiable {
         let id: Int; let name: String; let latitude: Double; let longitude: Double
         let admin1: String?; let country: String?
+        let country_code: String?
     }
     private struct Response: Decodable { let results: [Place]? }
 
@@ -559,6 +560,7 @@ struct CityPicker: View {
                     config["city"] = .string(p.name)
                     config["lat"] = .number(p.latitude)
                     config["lon"] = .number(p.longitude)
+                    if let cc = p.country_code { config["cc"] = .string(cc) }      // Land (z. B. für die Packliste)
                     results = []; query = ""
                 } label: {
                     VStack(alignment: .leading) {

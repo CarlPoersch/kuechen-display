@@ -2,10 +2,11 @@ import SwiftUI
 import Combine
 
 // ============================================================
-// Reise: nächste Reise mit Countdown, Wetter am Ziel (ab 16 Tage vorher)
-// und Packliste zum Abhaken. Reisen erscheinen auch in den Countdowns.
-// Einstellungen: trips = [{ id, title, emoji, city, lat, lon, start, end (yyyy-MM-dd),
-//                           pack: [{ id, t, done }] }]
+// Reise: nächste Reise mit Countdown, Wetter am Ziel (Vorhersage bzw. Schätzung)
+// und Packliste zum Abhaken – nur auf Wunsch, passend zu Ziel, Wetter und Reiseart (ReisePack.swift).
+// Reisen erscheinen auch in den Countdowns.
+// Einstellungen: trips = [{ id, title, emoji, city, lat, lon, cc (Land), kind (Reiseart), start, end (yyyy-MM-dd),
+//                           pack: [{ id, t, done }], packCollapsed }]
 // ============================================================
 
 enum ReiseBucket {
@@ -24,6 +25,9 @@ enum ReiseBucket {
         var emoji = "✈️"
         var city = ""
         var lat = 0.0, lon = 0.0
+        var cc = ""                 // Ländercode, z. B. "TH"
+        var kind = ""               // Reiseart (TripKind), leer = nicht gewählt
+        var packCollapsed = false
         var start: Date
         var end: Date
         var pack: [Item] = []
@@ -34,10 +38,6 @@ enum ReiseBucket {
         var nights: Int { max(0, Calendar.current.dateComponents([.day], from: start, to: end).day ?? 0) }
         var packed: Int { pack.filter { $0.done }.count }
     }
-
-    static let defaultPack = ["Ausweis", "Tickets / Buchungen", "Geldbeutel & Karten", "Handy-Ladekabel", "Powerbank",
-                              "Kopfhörer", "Zahnbürste & Zahnpasta", "Duschzeug", "Unterwäsche & Socken", "T-Shirts",
-                              "Pulli / Jacke", "Schlafsachen", "Medikamente", "Schlüssel"]
 
     static func trips(_ c: [String: JSON]) -> [Trip] {
         let f = CountdownBucket.dayFormat
@@ -51,6 +51,7 @@ enum ReiseBucket {
             }
             return Trip(id: o["id"]?.string ?? t, title: t, emoji: o["emoji"]?.string ?? "✈️",
                         city: o["city"]?.string ?? "", lat: o["lat"]?.double ?? 0, lon: o["lon"]?.double ?? 0,
+                        cc: o["cc"]?.string ?? "", kind: o["kind"]?.string ?? "", packCollapsed: o["packCollapsed"]?.bool ?? false,
                         start: s, end: e, pack: pack)
         }
     }
@@ -60,6 +61,7 @@ enum ReiseBucket {
         c["trips"] = .array(list.map { t in
             JSON.object(["id": .string(t.id), "title": .string(t.title), "emoji": .string(t.emoji),
                          "city": .string(t.city), "lat": .number(t.lat), "lon": .number(t.lon),
+                         "cc": .string(t.cc), "kind": .string(t.kind), "packCollapsed": .bool(t.packCollapsed),
                          "start": .string(f.string(from: t.start)), "end": .string(f.string(from: t.end)),
                          "pack": .array(t.pack.map { i in JSON.object(["id": .string(i.id), "t": .string(i.t), "done": .bool(i.done)]) })])
         })
@@ -351,8 +353,7 @@ struct ReiseApp: View {
 
     private func add() {
         let start = Calendar.current.date(byAdding: .day, value: 14, to: Calendar.current.startOfDay(for: Date())) ?? Date()
-        newTrip = ReiseBucket.Trip(title: "", start: start, end: Calendar.current.date(byAdding: .day, value: 3, to: start) ?? start,
-                                   pack: ReiseBucket.defaultPack.map { ReiseBucket.Item(t: $0) })
+        newTrip = ReiseBucket.Trip(title: "", start: start, end: Calendar.current.date(byAdding: .day, value: 3, to: start) ?? start)
     }
 
     private func remove(_ ids: [String]) {
@@ -369,6 +370,8 @@ struct TripView: View {
     @StateObject private var weather = TripWeather()
     @State private var editing = false
     @State private var newItem = ""
+    @State private var planning = false
+    @State private var confirmRemove = false
 
     private var trip: ReiseBucket.Trip? {
         ReiseBucket.trips(store.buckets.first { $0.id == bucketId }?.config ?? [:]).first { $0.id == tripId }
@@ -420,32 +423,65 @@ struct TripView: View {
                         }
                     }
                 }
-                Section {
-                    ForEach(t.pack) { i in
-                        HStack(spacing: 4) {
-                            Button { toggle(i.id) } label: {
-                                HStack(spacing: 12) {
-                                    Image(systemName: i.done ? "checkmark.circle.fill" : "circle")
-                                        .font(.title3).foregroundColor(i.done ? Theme.accent : Theme.secondary)
-                                    Text(i.t).strikethrough(i.done).foregroundColor(i.done ? Theme.secondary : .primary)
-                                    Spacer(minLength: 0)
-                                }
-                                .contentShape(Rectangle())
-                            }
-                            .buttonStyle(.borderless)
-                            RemoveButton(name: i.t) { change { $0.pack.removeAll { $0.id == i.id } } }
+                if t.pack.isEmpty {
+                    // Packliste nur auf Wunsch
+                    Section {
+                        Button { planning = true } label: {
+                            Label("Packliste erstellen", systemImage: "checklist").font(.headline)
                         }
+                    } footer: {
+                        Text("Hubert schlägt vor, was du brauchst – passend zu Ziel, Wetter, Dauer und Art der Reise.")
                     }
-                    .onDelete { idx in let ids = idx.map { t.pack[$0].id }; change { $0.pack.removeAll { ids.contains($0.id) } } }
-                    HStack {
-                        TextField("Etwas hinzufügen", text: $newItem).submitLabel(.done).onSubmit { addItem() }
-                        Button { addItem() } label: { Image(systemName: "plus.circle.fill") }.disabled(newItem.trimmingCharacters(in: .whitespaces).isEmpty)
-                    }
-                } header: {
-                    Text("Packliste · \(t.packed)/\(t.pack.count)")
-                } footer: {
-                    if t.packed > 0 {
-                        Button("Alle Haken entfernen") { change { tr in for k in tr.pack.indices { tr.pack[k].done = false } } }
+                } else {
+                    Section {
+                        if !t.packCollapsed {
+                            ForEach(t.pack) { i in
+                                HStack(spacing: 4) {
+                                    Button { toggle(i.id) } label: {
+                                        HStack(spacing: 12) {
+                                            Image(systemName: i.done ? "checkmark.circle.fill" : "circle")
+                                                .font(.title3).foregroundColor(i.done ? Theme.accent : Theme.secondary)
+                                            Text(i.t).strikethrough(i.done).foregroundColor(i.done ? Theme.secondary : .primary)
+                                            Spacer(minLength: 0)
+                                        }
+                                        .contentShape(Rectangle())
+                                    }
+                                    .buttonStyle(.borderless)
+                                    RemoveButton(name: i.t) { change { $0.pack.removeAll { $0.id == i.id } } }
+                                }
+                            }
+                            .onDelete { idx in let ids = idx.map { t.pack[$0].id }; change { $0.pack.removeAll { ids.contains($0.id) } } }
+                            HStack {
+                                TextField("Etwas hinzufügen", text: $newItem).submitLabel(.done).onSubmit { addItem() }
+                                Button { addItem() } label: { Image(systemName: "plus.circle.fill") }
+                                    .buttonStyle(.borderless)
+                                    .disabled(newItem.trimmingCharacters(in: .whitespaces).isEmpty)
+                            }
+                            Button { planning = true } label: { Label("Vorschläge für diese Reise", systemImage: "sparkles") }
+                        }
+                    } header: {
+                        // Antippen klappt die Packliste ein und aus
+                        Button { withAnimation(.easeOut(duration: 0.2)) { change { $0.packCollapsed.toggle() } } } label: {
+                            HStack(spacing: 6) {
+                                Text("Packliste · \(t.packed)/\(t.pack.count)")
+                                Spacer()
+                                Image(systemName: t.packCollapsed ? "chevron.down" : "chevron.up").font(.caption.weight(.semibold))
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(t.packCollapsed ? "Packliste aufklappen" : "Packliste zuklappen")
+                    } footer: {
+                        if !t.packCollapsed {
+                            HStack {
+                                if t.packed > 0 {
+                                    Button("Alle Haken entfernen") { change { tr in for k in tr.pack.indices { tr.pack[k].done = false } } }
+                                }
+                                Spacer()
+                                Button("Packliste entfernen", role: .destructive) { confirmRemove = true }
+                            }
+                            .font(.footnote)
+                        }
                     }
                 }
             }
@@ -456,6 +492,16 @@ struct TripView: View {
             }
             .sheet(isPresented: $editing) {
                 TripEditSheet(trip: t, isNew: false) { saved in change { $0 = saved } }
+            }
+            .sheet(isPresented: $planning) {
+                PackPlanSheet(trip: t, days: weather.days) { items in
+                    change { tr in tr.pack += items.map { ReiseBucket.Item(t: $0) }; tr.packCollapsed = false }
+                }
+            }
+            .confirmationDialog("Packliste entfernen?", isPresented: $confirmRemove, titleVisibility: .visible) {
+                Button("Packliste entfernen", role: .destructive) { change { $0.pack = []; $0.packCollapsed = false } }
+            } message: {
+                Text("Alle Einträge dieser Reise werden gelöscht. Du kannst jederzeit eine neue erstellen.")
             }
             .task(id: "\(t.lat)\(t.start)\(t.end)") { await weather.load(t) }
         } else {
@@ -509,6 +555,23 @@ struct TripEditSheet: View {
                         }
                     }
                 }
+                Section {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(TripKind.allCases) { k in
+                                let on = trip.kind == k.rawValue
+                                Button { trip.kind = on ? "" : k.rawValue } label: {
+                                    Text(k.emoji + " " + k.label).font(.subheadline.weight(.semibold))
+                                        .foregroundColor(on ? .white : .primary)
+                                        .padding(.horizontal, 14).frame(minHeight: 36)
+                                        .background(Capsule().fill(on ? Theme.accent : Color(UIColor.tertiarySystemFill)))
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                    }
+                } header: { Text("Art der Reise") } footer: { Text("Hilft bei den Vorschlägen für die Packliste.") }
                 Section("Zeitraum") {
                     DatePicker("Hin", selection: $trip.start, displayedComponents: .date)
                     DatePicker("Zurück", selection: $trip.end, in: trip.start..., displayedComponents: .date)
@@ -526,6 +589,7 @@ struct TripEditSheet: View {
                         var t = trip
                         if let c = place["city"]?.string, let la = place["lat"]?.double, let lo = place["lon"]?.double {
                             t.city = c; t.lat = la; t.lon = lo
+                            t.cc = place["cc"]?.string ?? (c == trip.city ? trip.cc : "")
                         }
                         if t.title.trimmingCharacters(in: .whitespaces).isEmpty { t.title = t.city.isEmpty ? "Reise" : t.city }
                         if t.end < t.start { t.end = t.start }
@@ -534,7 +598,7 @@ struct TripEditSheet: View {
                 }
             }
             .onAppear {
-                if trip.hasPlace { place = ["city": .string(trip.city), "lat": .number(trip.lat), "lon": .number(trip.lon)] }
+                if trip.hasPlace { place = ["city": .string(trip.city), "lat": .number(trip.lat), "lon": .number(trip.lon), "cc": .string(trip.cc)] }
             }
         }
         .navigationViewStyle(.stack)
