@@ -1,6 +1,6 @@
 # Fernbedienung – Design
 
-Stand: 23.11.2026 · Status: **Entwurf, wartet auf Freigabe durch Carl**
+Stand: 23.11.2026 · Status: **freigegeben (Carl, 23.11.2026)** – umgesetzt in einem Schritt (Philips + Mi Stick)
 
 ## Absicht und Warum
 

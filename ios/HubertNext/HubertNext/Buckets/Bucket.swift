@@ -51,7 +51,8 @@ enum BucketRegistry {
     static let all: [BucketKind] = [WeatherBucket.kind, SunBucket.kind, TermineBucket.kind, NewsBucket.kind, SportBucket.kind, DealsBucket.kind, TransitBucket.kind, CountdownBucket.kind,
                                          KitchenBuckets.kitchen, KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
                                          KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind, FocusBucket.kind,
-                                         PollenBucket.kind, ReiseBucket.kind, StundenplanBucket.kind, ZieleBucket.kind, StromBucket.kind] + comingSoon
+                                         PollenBucket.kind, ReiseBucket.kind, StundenplanBucket.kind, ZieleBucket.kind, StromBucket.kind,
+                                         RemoteBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
     /// Was man hinzufügen kann (Katalog, Einrichtung)

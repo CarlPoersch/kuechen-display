@@ -252,6 +252,8 @@
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HubertNext-Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Hubert steuert deinen Fernseher und TV-Stick im WLAN (Fernbedienung).";
 				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine Termine auf der Startseite und im Kalender und legt auf Wunsch neue an. Die Termine bleiben auf diesem Gerät.";
@@ -302,6 +304,8 @@
 				DEVELOPMENT_TEAM = C5WA2W564Y;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HubertNext-Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Hubert steuert deinen Fernseher und TV-Stick im WLAN (Fernbedienung).";
 				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine Termine auf der Startseite und im Kalender und legt auf Wunsch neue an. Die Termine bleiben auf diesem Gerät.";
