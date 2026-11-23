@@ -17,6 +17,8 @@ struct HubertNextApp: App {
                 .animation(.easeOut(duration: 0.2), value: TimerCenter.shared.ringing.count)
                 .environmentObject(store)
                 .task { await store.start() }
+                // Rückweg aus der Spotify-App nach dem Anmelden/Verbinden
+                .onOpenURL { SpotifyCenter.shared.handle($0) }
         }
         .onChange(of: scenePhase) { phase in
             // Display bleibt an, solange Hubert offen ist (Wand-iPad)
@@ -25,6 +27,9 @@ struct HubertNextApp: App {
             // Live-Abgleich (Timer, Kochen, Einkauf) nur im Vordergrund – beim Öffnen sofort nachziehen
             if phase == .active { LiveSync.shared.start(household: store.household?.id) }
             if phase == .background { LiveSync.shared.pause() }
+            // Spotify: im Hintergrund Verbindung lösen (Musik läuft weiter), beim Öffnen leise neu verbinden
+            if phase == .active { SpotifyCenter.shared.appBecameActive() }
+            if phase == .background { SpotifyCenter.shared.appEnteredBackground() }
         }
     }
 }

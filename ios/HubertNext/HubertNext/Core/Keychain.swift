@@ -6,7 +6,11 @@ import Security
 enum Keychain {
     private static let service = "com.carlpoersch.HubertNext.session"
 
-    static func save(_ data: Data?) {
+    static func save(_ data: Data?) { save(data, service: service) }
+    static func load() -> Data? { load(service: service) }
+
+    /// Eigener Eintrag je Dienst (z. B. Spotify-Anmeldung)
+    static func save(_ data: Data?, service: String) {
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrService as String: service]
         SecItemDelete(query as CFDictionary)
@@ -17,7 +21,7 @@ enum Keychain {
         SecItemAdd(add as CFDictionary, nil)
     }
 
-    static func load() -> Data? {
+    static func load(service: String) -> Data? {
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrService as String: service,
                                     kSecReturnData as String: true,

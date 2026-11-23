@@ -6,6 +6,12 @@ import SwiftUI
 enum Config {
     static let supabaseURL = URL(string: "https://jcnpfkyntdujgudewmzb.supabase.co")!
     static let supabaseKey = "sb_publishable_CYlA5db0qaRSHec7pMlk8w_2L39e_AV"
+
+    /// Spotify: Client ID aus dem Spotify-Developer-Dashboard (developer.spotify.com/dashboard).
+    /// Darf in der App stehen: Die Anmeldung läuft über PKCE, ein Client Secret gibt es in der App nicht.
+    /// Im Dashboard eintragen: Redirect URI = spotifyRedirect, iOS-Bundle-ID = com.carlpoersch.HubertNext.
+    static let spotifyClientID = ""
+    static let spotifyRedirect = URL(string: "hubert-spotify://callback")!
 }
 
 /// Farben im Apple-Look. Systemfarben passen sich hell/dunkel automatisch an.
