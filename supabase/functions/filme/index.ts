@@ -97,47 +97,48 @@ const NOISE = /store|justwatch|amazon video|youtube|with ads|channel|plex|rakute
 const okProvider = (name: string) => !NOISE.test(name);
 
 // ---------- Offizielle App-Symbole (App Store) ----------
-// TMDB-Logos fehlen manchmal oder sind schlecht erkennbar (z. B. RTL+). Deshalb liefert die Funktion zusätzlich
-// das App-Symbol aus dem deutschen App Store. Feste App-IDs, wo bekannt; sonst Suche mit Prüfung des Anbieters.
-const APP_IDS: Record<string, number> = { "RTL+": 1057991212 };
-// Name bei TMDB → [Suchbegriff im App Store, Anbieter muss das enthalten]
-const APP_SEARCH: Record<string, [string, string]> = {
-  "Netflix": ["Netflix", "netflix"], "Amazon Prime Video": ["Amazon Prime Video", "amzn"], "Disney Plus": ["Disney+", "disney"],
-  "Apple TV Plus": ["Apple TV", "apple"], "Apple TV+": ["Apple TV", "apple"], "Paramount Plus": ["Paramount+", "paramount"],
-  "Paramount+": ["Paramount+", "paramount"], "WOW": ["WOW", "sky"], "Sky Go": ["Sky Go", "sky"], "Joyn": ["Joyn", "joyn"],
-  "MagentaTV": ["MagentaTV", "telekom"], "ARD Mediathek": ["ARD Mediathek", "ard"], "ZDF": ["ZDFmediathek", "zdf"],
-  "HBO Max": ["HBO Max", "warner"], "Max": ["HBO Max", "warner"], "Crunchyroll": ["Crunchyroll", "crunchyroll"],
-  "DAZN": ["DAZN", "dazn"], "SkyShowtime": ["SkyShowtime", "skyshowtime"], "RTL+": ["RTL+", "rtl"],
+// TMDB-Logos fehlen manchmal oder sind auf hellem Grund unsichtbar (RTL+: transparentes PNG mit heller Schrift).
+// Deshalb liefert die Funktion zusätzlich das App-Symbol aus dem deutschen App Store.
+// Feste App-IDs (am 23.11.2026 im App Store geprüft) und EINE Sammelabfrage – viele Einzelabfragen
+// hintereinander sperrt der App Store (so fehlte das RTL+-Symbol, es stand weit hinten in der Liste).
+const APP_IDS: Record<string, number> = {
+  "Netflix": 363590051, "Amazon Prime Video": 545519333, "Disney Plus": 1446075923, "Disney+": 1446075923,
+  "Apple TV Plus": 1174078549, "Apple TV+": 1174078549, "Apple TV": 1174078549,
+  "Paramount Plus": 1340650234, "Paramount+": 1340650234, "WOW": 929190059, "Sky Go": 375667763, "Joyn": 826510222,
+  "MagentaTV": 1625657880, "ZDF": 437025413, "HBO Max": 1666653815, "Max": 1666653815, "Crunchyroll": 329913454,
+  "DAZN": 1129523589, "RTL+": 1057991212, "ARD Plus": 1635800815, "arte": 405028510, "ARTE": 405028510,
 };
-const iconCache = new Map<string, { at: number; url?: string }>();
-const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9+]/g, "");
+let iconMap: Map<number, string> | null = null;
+let iconAt = 0;
+let iconLoading: Promise<void> | null = null;
 
-async function appIcon(name: string): Promise<string | undefined> {
-  if (!APP_IDS[name] && !APP_SEARCH[name]) return undefined;   // nur bekannte Dienste – sonst Gefahr falscher Treffer
-  const hit = iconCache.get(name);
-  if (hit && Date.now() - hit.at < (hit.url ? 7 * 86_400_000 : 6 * 3600_000)) return hit.url;
-  let url: string | undefined;
-  try {
-    const id = APP_IDS[name];
-    if (id) {
-      const r = await fetch(`https://itunes.apple.com/lookup?id=${id}&country=de`);
-      const j = r.ok ? await r.json() : null;
-      url = j?.results?.[0]?.artworkUrl512 ?? j?.results?.[0]?.artworkUrl100;
-    } else {
-      const [term, seller] = APP_SEARCH[name];
-      const r = await fetch(`https://itunes.apple.com/search?country=de&entity=software&limit=10&term=${encodeURIComponent(term)}`);
-      const j = r.ok ? await r.json() : null;
-      const want = norm(term);
-      const hit = (j?.results ?? []).find((a: any) =>
-        norm(a.trackName ?? "").startsWith(want) && !/fyc/i.test(a.trackName ?? "") &&
-        norm((a.sellerName ?? "") + (a.artistName ?? "")).includes(seller));
-      url = hit?.artworkUrl512 ?? hit?.artworkUrl100;
-    }
-  } catch { /* App Store nicht erreichbar: später nochmal */ }
-  iconCache.set(name, { at: Date.now(), url });
-  return url;
+async function loadIcons(): Promise<void> {
+  const fresh = iconMap && Date.now() - iconAt < (iconMap.size ? 7 * 86_400_000 : 10 * 60_000);
+  if (fresh) return;
+  if (!iconLoading) {
+    iconLoading = (async () => {
+      const ids = [...new Set(Object.values(APP_IDS))].join(",");
+      const map = new Map<number, string>();
+      try {
+        const r = await fetch(`https://itunes.apple.com/lookup?id=${ids}&country=de`);
+        const j = r.ok ? await r.json() : null;
+        for (const a of j?.results ?? []) {
+          const art = a.artworkUrl512 ?? a.artworkUrl100;
+          if (a.trackId && art) map.set(a.trackId, art);
+        }
+        if (!r.ok) console.log("App-Store-Abfrage fehlgeschlagen:", r.status);
+      } catch (e) { console.log("App Store nicht erreichbar:", String(e)); }
+      // Leeres Ergebnis nicht über ein altes, gutes legen
+      if (map.size || !iconMap) { iconMap = map; iconAt = Date.now(); }
+    })().finally(() => { iconLoading = null; });
+  }
+  await iconLoading;
 }
-const withIcon = (p: Provider): Provider => ({ ...p, icon: iconCache.get(p.name)?.url });
+const iconFor = (name: string): string | undefined => {
+  const id = APP_IDS[name];
+  return id ? iconMap?.get(id) : undefined;
+};
+const withIcon = (p: Provider): Provider => ({ ...p, icon: iconFor(p.name) });
 
 function providersDE(wp: any): Provider[] {
   const de = wp?.results?.DE;
@@ -169,7 +170,7 @@ async function providers() {
   for (const p of [...(j.results ?? []), ...(m.results ?? [])]) if (!all.has(p.provider_id)) all.set(p.provider_id, p);
   const prio = (p: any) => p.display_priorities?.DE ?? p.display_priority ?? 999;
   // Die 30 wichtigsten Dienste plus bekannte Abos, die bei TMDB weiter hinten stehen (z. B. HBO Max, neu seit 01/2026)
-  const PIN = /^(hbo max|max|rtl\+|wow|joyn|paramount\+|paramount plus|skyshowtime|magentatv|ard mediathek|zdf|dazn|crunchyroll|apple tv\+|apple tv plus|disney plus|netflix|amazon prime video)$/i;
+  const PIN = /^(hbo max|max|rtl\+|ard plus|arte|wow|joyn|paramount\+|paramount plus|skyshowtime|magentatv|ard mediathek|zdf|dazn|crunchyroll|apple tv\+|apple tv plus|disney plus|netflix|amazon prime video)$/i;
   const list = [...all.values()].filter((p) => okProvider(p.provider_name)).sort((a, b) => prio(a) - prio(b));
   const top = list.slice(0, 30);
   for (const p of list.slice(30)) if (PIN.test(p.provider_name)) top.push(p);
@@ -177,9 +178,6 @@ async function providers() {
   if (!top.some((p) => /hbo max|^max$/i.test(p.provider_name))) {
     top.push({ provider_id: 1899, provider_name: "HBO Max", logo_path: all.get(1899)?.logo_path });
   }
-  // App-Symbole nacheinander holen (App Store mag keine Massenabfragen), höchstens 8 s pro Aufruf
-  const until = Date.now() + 8000;
-  for (const p of top) { if (Date.now() > until) break; await appIcon(p.provider_name); }
   return top.map((p) => withIcon({ id: p.provider_id, name: p.provider_name, logo: img(p.logo_path, "w92") }));
 }
 
@@ -360,6 +358,7 @@ Deno.serve(async (req) => {
     return new Response("Kein Zugang", { status: 401, headers: cors });
   }
   const q = url.searchParams;
+  await loadIcons();      // einmal pro Instanz, danach aus dem Speicher
   let body: unknown;
   try {
     const t = (q.get("t") === "tv" ? "tv" : "movie") as "movie" | "tv";

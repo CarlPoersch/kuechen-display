@@ -280,19 +280,24 @@ struct ProviderLogo: View {
                     else { Color(UIColor.tertiarySystemFill) }
                 }
             } else if let u = p.logo.flatMap(URL.init), !tmdbFailed {
-                // 2. Logo von TMDB
+                // 2. Logo von TMDB. PNGs sind dort durchsichtig, oft mit heller Schrift (RTL+) – deshalb dunkle Unterlage
                 AsyncImage(url: u) { phase in
-                    if let img = phase.image { img.resizable().scaledToFit() }
+                    if let img = phase.image {
+                        img.resizable().scaledToFit()
+                            .background(u.pathExtension.lowercased() == "png" ? Color(white: 0.15) : Color.clear)
+                    }
                     else if phase.error != nil { Color.clear.onAppear { tmdbFailed = true } }
                     else { Color(UIColor.tertiarySystemFill) }
                 }
             } else {
                 // 3. Namensschild – und im Hintergrund nach dem App-Symbol suchen
-                badge.task(id: p.name) { await icons.fetch(p.name) }
+                badge
             }
         }
         .frame(width: size, height: size)
         .clipShape(RoundedRectangle(cornerRadius: size * 0.24, style: .continuous))
+        // Bekannter Dienst ohne App-Symbol: im Hintergrund nachladen, dann wechselt die Anzeige
+        .task(id: p.name) { if p.icon == nil { await icons.fetch(p.name) } }
         // feiner Rand: helle Logos verschwinden sonst auf weißen Karten
         .overlay(RoundedRectangle(cornerRadius: size * 0.24, style: .continuous).stroke(Color.primary.opacity(0.1), lineWidth: 0.5))
         .accessibilityLabel(p.name)
@@ -308,20 +313,22 @@ struct ProviderLogo: View {
     }
 }
 
-/// Offizielle App-Symbole aus dem App Store (iTunes-Suche, ohne Schlüssel), als Ersatz für fehlende Logos.
-/// Gefundene Adressen werden auf dem Gerät gemerkt.
+/// Offizielle App-Symbole aus dem App Store, als Ersatz für fehlende oder unsichtbare TMDB-Logos.
+/// Normalerweise liefert der Server sie mit (Feld „icon“). Fehlen sie dort, fragt die App selbst nach –
+/// mit festen App-IDs (am 23.11.2026 geprüft) in EINER Sammelabfrage, nie per Suche.
 final class AppIconStore: ObservableObject {
     static let shared = AppIconStore()
     @Published private(set) var urls: [String: URL] = [:]
-    private var asked = Set<String>()
+    private var loading = false
+    private var lastTry: Date?
     private let saveKey = "film.appIcons"
 
-    /// TMDB-Namen, die im App Store anders heißen
-    private static let terms: [String: String] = [
-        "Amazon Prime Video": "Amazon Prime Video", "Disney Plus": "Disney+", "Apple TV Plus": "Apple TV",
-        "Apple TV+": "Apple TV", "Paramount Plus": "Paramount+", "Paramount+ Amazon Channel": "Paramount+",
-        "RTL+": "RTL+", "RTL Plus": "RTL+", "HBO Max": "HBO Max", "Max": "HBO Max", "WOW": "WOW", "Sky Go": "Sky Go", "MagentaTV": "MagentaTV",
-        "ARD Mediathek": "ARD Mediathek", "ZDF": "ZDFmediathek", "Joyn": "Joyn", "Netflix": "Netflix",
+    static let appIds: [String: Int] = [
+        "Netflix": 363590051, "Amazon Prime Video": 545519333, "Disney Plus": 1446075923, "Disney+": 1446075923,
+        "Apple TV Plus": 1174078549, "Apple TV+": 1174078549, "Apple TV": 1174078549,
+        "Paramount Plus": 1340650234, "Paramount+": 1340650234, "WOW": 929190059, "Sky Go": 375667763, "Joyn": 826510222,
+        "MagentaTV": 1625657880, "ZDF": 437025413, "HBO Max": 1666653815, "Max": 1666653815, "Crunchyroll": 329913454,
+        "DAZN": 1129523589, "RTL+": 1057991212, "ARD Plus": 1635800815, "arte": 405028510, "ARTE": 405028510,
     ]
 
     init() {
@@ -335,33 +342,28 @@ final class AppIconStore: ObservableObject {
     func remember(_ list: [FilmProvider]) {
         var changed = false
         for p in list { if let i = p.icon, let u = URL(string: i), urls[p.name] != u { urls[p.name] = u; changed = true } }
-        if changed { UserDefaults.standard.set(urls.mapValues(\.absoluteString), forKey: saveKey) }
+        if changed { save() }
     }
 
-    private struct Result: Decodable { let trackName: String; let artworkUrl512: String?; let artworkUrl100: String? }
+    private func save() { UserDefaults.standard.set(urls.mapValues(\.absoluteString), forKey: saveKey) }
+
+    private struct Result: Decodable { let trackId: Int; let artworkUrl512: String?; let artworkUrl100: String? }
     private struct Response: Decodable { let results: [Result] }
 
-    private static func norm(_ s: String) -> String {
-        s.lowercased().filter { $0.isLetter || $0.isNumber || $0 == "+" }
-    }
-
+    /// Alle bekannten App-Symbole auf einmal holen (höchstens alle 10 Minuten ein Versuch)
     func fetch(_ name: String) async {
-        // Nur bekannte Dienste suchen – sonst Gefahr, dass ein fremdes App-Symbol erscheint
-        guard urls[name] == nil, !asked.contains(name), let term = Self.terms[name] else { return }
-        asked.insert(name)
-        var c = URLComponents(string: "https://itunes.apple.com/search")!
-        c.queryItems = [URLQueryItem(name: "term", value: term), URLQueryItem(name: "country", value: "de"),
-                        URLQueryItem(name: "entity", value: "software"), URLQueryItem(name: "limit", value: "10")]
-        // „+“ (RTL+, Disney+) muss kodiert werden, sonst liest der Server ein Leerzeichen
-        c.percentEncodedQuery = c.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
-        guard let url = c.url, let res = try? await URLSession.shared.data(from: url),
+        guard urls[name] == nil, Self.appIds[name] != nil, !loading else { return }
+        if let t = lastTry, Date().timeIntervalSince(t) < 600 { return }
+        loading = true; lastTry = Date()
+        defer { loading = false }
+        let ids = Set(Self.appIds.values).map(String.init).joined(separator: ",")
+        guard let url = URL(string: "https://itunes.apple.com/lookup?country=de&id=" + ids),
+              let res = try? await URLSession.shared.data(from: url),
               let r = try? JSONDecoder().decode(Response.self, from: res.0) else { return }
-        let want = Self.norm(term)
-        // Nur ein eindeutiger Treffer: App-Name beginnt mit dem Namen des Dienstes
-        guard let hit = r.results.first(where: { Self.norm($0.trackName).hasPrefix(want) && !$0.trackName.lowercased().contains("fyc") }),
-              let art = (hit.artworkUrl512 ?? hit.artworkUrl100).flatMap(URL.init) else { return }
-        urls[name] = art
-        UserDefaults.standard.set(urls.mapValues(\.absoluteString), forKey: saveKey)
+        var art: [Int: URL] = [:]
+        for a in r.results { if let u = (a.artworkUrl512 ?? a.artworkUrl100).flatMap(URL.init) { art[a.trackId] = u } }
+        for (n, id) in Self.appIds { if let u = art[id], urls[n] == nil { urls[n] = u } }
+        save()
     }
 }
 
