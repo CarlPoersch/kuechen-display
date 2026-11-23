@@ -460,27 +460,36 @@ struct TripView: View {
                             Button { planning = true } label: { Label("Vorschläge für diese Reise", systemImage: "sparkles") }
                         }
                     } header: {
-                        // Antippen klappt die Packliste ein und aus
-                        Button { withAnimation(.easeOut(duration: 0.2)) { change { $0.packCollapsed.toggle() } } } label: {
-                            HStack(spacing: 6) {
-                                Text("Packliste · \(t.packed)/\(t.pack.count)")
-                                Spacer()
-                                Image(systemName: t.packCollapsed ? "chevron.down" : "chevron.up").font(.caption.weight(.semibold))
-                            }
-                            .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel(t.packCollapsed ? "Packliste aufklappen" : "Packliste zuklappen")
-                    } footer: {
-                        if !t.packCollapsed {
-                            HStack {
-                                if t.packed > 0 {
-                                    Button("Alle Haken entfernen") { change { tr in for k in tr.pack.indices { tr.pack[k].done = false } } }
+                        HStack(spacing: 4) {
+                            // Antippen klappt die Packliste ein und aus
+                            Button { withAnimation(.easeOut(duration: 0.2)) { change { $0.packCollapsed.toggle() } } } label: {
+                                HStack(spacing: 6) {
+                                    Text("Packliste · \(t.packed)/\(t.pack.count)")
+                                    Image(systemName: t.packCollapsed ? "chevron.down" : "chevron.up").font(.caption.weight(.semibold))
+                                    Spacer(minLength: 0)
                                 }
-                                Spacer()
-                                Button("Packliste entfernen", role: .destructive) { confirmRemove = true }
+                                .frame(minHeight: 44)
+                                .contentShape(Rectangle())
                             }
-                            .font(.footnote)
+                            .buttonStyle(.plain)
+                            .accessibilityLabel(t.packCollapsed ? "Packliste aufklappen" : "Packliste zuklappen")
+                            // Alle Aktionen zur Packliste an einer Stelle
+                            Menu {
+                                Button { planning = true } label: { Label("Vorschläge für diese Reise", systemImage: "sparkles") }
+                                if t.packed > 0 {
+                                    Button { change { tr in for k in tr.pack.indices { tr.pack[k].done = false } } } label: {
+                                        Label("Alle Haken entfernen", systemImage: "arrow.counterclockwise")
+                                    }
+                                }
+                                Divider()
+                                Button(role: .destructive) { confirmRemove = true } label: {
+                                    Label("Packliste entfernen", systemImage: "trash")
+                                }
+                            } label: {
+                                Image(systemName: "ellipsis.circle").font(.title3).foregroundColor(Theme.accent)
+                                    .frame(width: 44, height: 44).contentShape(Rectangle())
+                            }
+                            .accessibilityLabel("Packliste – weitere Aktionen")
                         }
                     }
                 }
@@ -498,8 +507,9 @@ struct TripView: View {
                     change { tr in tr.pack += items.map { ReiseBucket.Item(t: $0) }; tr.packCollapsed = false }
                 }
             }
-            .confirmationDialog("Packliste entfernen?", isPresented: $confirmRemove, titleVisibility: .visible) {
-                Button("Packliste entfernen", role: .destructive) { change { $0.pack = []; $0.packCollapsed = false } }
+            .alert("Packliste entfernen?", isPresented: $confirmRemove) {
+                Button("Abbrechen", role: .cancel) {}
+                Button("Entfernen", role: .destructive) { withAnimation { change { $0.pack = []; $0.packCollapsed = false } } }
             } message: {
                 Text("Alle Einträge dieser Reise werden gelöscht. Du kannst jederzeit eine neue erstellen.")
             }
