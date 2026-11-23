@@ -31,6 +31,15 @@ Carl will sich in Hubert bei Spotify anmelden und über Hubert Musik hören. Die
 - App: großes Cover, Zufall/Zurück/Play/Weiter, darunter „Zuletzt gehört“ (Reihe), Playlists (mit „Lieblingssongs“ oben), die ersten 20 Lieblingssongs.
 - Lieblingssongs komplett abspielen über `spotify:user:<id>:collection`.
 
+## Erweiterung (23.11., Carls Wunsch)
+- **Hineinschauen:** Playlists, Alben und Lieblingssongs öffnen eine Songliste; ein Tipp auf einen Song startet die Liste ab dort.
+  - Songliste: eigene Playlists über die Web API (`/playlists/{id}/items`), fremde Playlists über die verbundene Spotify-App (Content API), weil Spotify seit Feb. 2026 Songlisten fremder Playlists per Web API nicht mehr herausgibt. Alben: `/albums/{id}/tracks`. Lieblingssongs: `/me/tracks` (bis 200).
+  - Abspielen ab Song: verbunden → `playItem(_:skipToTrackIndex:)`; anderes Gerät aktiv → Web API `play` mit `context_uri` + `offset`.
+- **Suche:** Web API `/search` (Songs, Künstler, Alben, Playlists; höchstens 10 je Art). Künstler antippen spielt den Künstler, Alben/Playlists öffnen die Songliste.
+- **Andere Geräte (Spotify Connect):** Geräteliste (`/me/player/devices`), Wechsel per `PUT /me/player`, Lautstärke des aktiven Geräts. Ist die Spotify-App nicht verbunden, liest Hubert die Wiedergabe alle 8 s über die Web API mit (nur solange Karte oder App sichtbar) und steuert das aktive Gerät über die Web API.
+- Neue Rechte (`user-read-playback-state`, `user-modify-playback-state`, `user-read-currently-playing`) → bestehende Anmeldungen müssen einmal neu verbinden; Hubert zeigt dafür einen Knopf.
+- SDK-Version: mindestens 5.0.1 (Xcode hatte zuerst 1.2.5 genommen).
+
 ## Dateien
 - `Core/Spotify/SpotifyCenter.swift` – Anmeldung, Verbindung, Steuerung, Web API
 - `Buckets/SpotifyBucket.swift` – Karte, App, Einstellungen

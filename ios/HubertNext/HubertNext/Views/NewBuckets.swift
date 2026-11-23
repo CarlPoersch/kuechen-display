@@ -15,9 +15,9 @@ enum NewBuckets {
     /// Drei kurze Punkte je Bucket für die Vorstellung
     static let highlights: [String: [Highlight]] = [
         "spotify": [
-            Highlight(symbol: "music.note", text: "Laufender Titel mit Cover – Play, Pause und Weiter direkt auf der Startseite"),
-            Highlight(symbol: "music.note.list", text: "Deine Playlists, Lieblingssongs und zuletzt gehörten Titel mit einem Tipp starten"),
-            Highlight(symbol: "ipad.and.iphone", text: "Die Musik läuft über die Spotify-App auf diesem Gerät"),
+            Highlight(symbol: "music.note.list", text: "Playlists, Alben und Lieblingssongs öffnen und jeden Song direkt starten"),
+            Highlight(symbol: "magnifyingglass", text: "Suchen nach Songs, Künstlern, Alben und Playlists"),
+            Highlight(symbol: "hifispeaker.2", text: "Auf diesem Gerät hören oder auf Fernseher, Lautsprecher und Computer wechseln"),
         ],
         "fernbedienung": [
             Highlight(symbol: "tv", text: "Philips-Fernseher und Android-TV-Sticks wie den Mi TV Stick im WLAN steuern"),
