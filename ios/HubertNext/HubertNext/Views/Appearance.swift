@@ -20,7 +20,7 @@ struct HeroHeader: View {
                 VStack(alignment: .leading, spacing: compact ? 2 : 4) {
                     if look.showGreeting {
                         Text(Self.greeting(ctx.date) + (name.map { ", " + $0 } ?? ""))
-                            .font(compact ? .subheadline.weight(.semibold) : .headline).foregroundColor(.white.opacity(0.9))
+                            .font(compact ? .subheadline.weight(.semibold) : .headline).foregroundColor(t.onHeader.opacity(0.9))
                             .lineLimit(1).minimumScaleFactor(0.8)
                     }
                     HStack(alignment: .center, spacing: 14) {
@@ -28,7 +28,7 @@ struct HeroHeader: View {
                              ? .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits).second(.twoDigits)
                              : .dateTime.hour(.twoDigits(amPM: .omitted)).minute(.twoDigits))
                             .font(.system(size: compact ? 46 : 76, weight: .thin))
-                            .monospacedDigit().foregroundColor(.white)
+                            .monospacedDigit().foregroundColor(t.onHeader)
                             .minimumScaleFactor(0.6).lineLimit(1)
                         // Kompakt: Datum zweizeilig neben der Uhr (Wochentag / Tag und Monat) – passt auch aufs iPhone
                         if compact && look.showDate {
@@ -36,7 +36,7 @@ struct HeroHeader: View {
                                 Text(ctx.date.formatted(.dateTime.weekday(.wide).locale(Locale(identifier: "de_DE"))))
                                 Text(ctx.date.formatted(.dateTime.day().month(.wide).locale(Locale(identifier: "de_DE"))))
                             }
-                            .font(.headline.weight(.medium)).foregroundColor(.white.opacity(0.9))
+                            .font(.headline.weight(.medium)).foregroundColor(t.onHeader.opacity(0.9))
                             .lineLimit(1).minimumScaleFactor(0.7)
                             .layoutPriority(1)
                         }
@@ -48,9 +48,9 @@ struct HeroHeader: View {
                 if let open = onSettings {
                     Button(action: open) {
                         Image(systemName: "gearshape.fill").font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
+                            .foregroundColor(t.onHeader)
                             .frame(width: 40, height: 40)
-                            .background(Circle().fill(Color.white.opacity(0.22)))
+                            .background(Circle().fill(t.onHeaderFill))
                     }
                     .accessibilityLabel("Einstellungen")
                 }
@@ -62,8 +62,9 @@ struct HeroHeader: View {
     }
 
     private func dateText(_ d: Date) -> some View {
-        Text(d.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: "de_DE"))))
-            .foregroundColor(.white.opacity(0.9)).lineLimit(1).minimumScaleFactor(0.8)
+        let t = look.current
+        return Text(d.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: "de_DE"))))
+            .foregroundColor(t.onHeader.opacity(0.9)).lineLimit(1).minimumScaleFactor(0.8)
     }
 
     static func greeting(_ d: Date) -> String {
@@ -155,7 +156,7 @@ struct AppearanceView: View {
     private var selectedRing: some View {
         ZStack {
             Circle().stroke(Color.primary, lineWidth: 2.5).frame(width: 56, height: 56)
-            Image(systemName: "checkmark").font(.system(size: 16, weight: .bold)).foregroundColor(.white)
+            Image(systemName: "checkmark").font(.system(size: 16, weight: .bold)).foregroundColor(look.current.onHeader)
         }
     }
 }

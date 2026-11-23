@@ -1200,14 +1200,31 @@ struct RecipePicker: View {
 struct AddButton: View {
     let enabled: Bool
     let action: () -> Void
+    var focus: (() -> Void)? = nil      // leeres Feld: Plus öffnet die Tastatur statt nichts zu tun
     var body: some View {
-        Button(action: action) {
-            Image(systemName: "plus.circle.fill").font(.title3)
+        Button { enabled ? action() : focus?() } label: {
+            Image(systemName: "plus.circle.fill").font(.title2)
                 .foregroundColor(enabled ? Theme.accent : Color(UIColor.tertiaryLabel))
+                .frame(width: 44, height: 44).contentShape(Rectangle())
         }
         .buttonStyle(.borderless)
-        .disabled(!enabled)
+        .padding(.leading, -8)
         .accessibilityLabel("Hinzufügen")
+    }
+}
+
+/// Deutlicher Knopf rechts im Eingabefeld, sobald etwas eingetippt ist
+struct AddPill: View {
+    let action: () -> Void
+    var body: some View {
+        Button(action: action) {
+            Text("Hinzufügen").font(.subheadline.weight(.semibold)).foregroundColor(.white)
+                .padding(.horizontal, 14).frame(minHeight: 36)
+                .background(Capsule().fill(Theme.accent))
+                .contentShape(Capsule())
+        }
+        .buttonStyle(.borderless)
+        .transition(.opacity)
     }
 }
 
@@ -1253,12 +1270,12 @@ struct ShopTab: View {
         List {
             Section {
                 HStack {
-                    AddButton(enabled: !query.isEmpty, action: add)
+                    AddButton(enabled: !query.isEmpty, action: add, focus: { typing = true })
                     TextField("Artikel hinzufügen, z. B. Milch", text: $newItem)
                         .focused($typing).submitLabel(.done)
                         .onSubmit(add)
+                    if !query.isEmpty { AddPill(action: add) }
                 }
-                if !query.isEmpty { AddRow(text: query, target: "Einkaufsliste", action: add) }
             }
             Section(header: Text(open.isEmpty ? "Alles eingekauft" : "Noch zu kaufen · \(open.count)")) {
                 ForEach(open) { ShopRow(item: $0) }
@@ -1382,7 +1399,7 @@ struct PantryTab: View {
                     Label("Barcode oder Kassenzettel scannen", systemImage: "barcode.viewfinder").font(.headline)
                 }
                 HStack {
-                    AddButton(enabled: !query.isEmpty, action: add)
+                    AddButton(enabled: !query.isEmpty, action: add, focus: { typing = true })
                     TextField("Hinzufügen, z. B. Reis", text: $newItem)
                         .focused($typing).submitLabel(.done)
                         .onSubmit(add)

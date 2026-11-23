@@ -122,11 +122,11 @@ struct HomeView: View {
                 Button { showSettings = true } label: {
                     Image(systemName: "gearshape.fill").font(.system(size: 15, weight: .semibold))
                         .frame(width: 34, height: 34)
-                        .background(Circle().fill(Color.white.opacity(0.22)))
+                        .background(Circle().fill(look.current.onHeaderFill))
                 }
                 .accessibilityLabel("Einstellungen")
             }
-            .foregroundColor(.white)
+            .foregroundColor(look.current.onHeader)
             .padding(.horizontal, pad + 6).padding(.vertical, 10)
             .background(look.current.gradient.ignoresSafeArea(edges: .top))
             .shadow(color: .black.opacity(0.12), radius: 6, y: 2)

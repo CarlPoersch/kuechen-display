@@ -38,6 +38,7 @@ struct CalEvent: Identifiable {
     let location: String?
     let calendarId: String
     let calendarName: String
+    var ekId: String = ""            // zum Bearbeiten im Apple-Termin-Fenster
 
     var time: String { allDay ? "ganztägig" : Fmt.hhmm(start) }
 }
@@ -85,13 +86,46 @@ final class CalendarService: ObservableObject {
                 return (c.startOfDay(for: a.startDate), a.isAllDay ? 0 : 1, a.startDate)
                      < (c.startOfDay(for: b.startDate), b.isAllDay ? 0 : 1, b.startDate)
             }
-            .map { e in
-                CalEvent(id: (e.eventIdentifier ?? UUID().uuidString) + "\(e.startDate.timeIntervalSince1970)",
-                         title: e.title ?? "Termin", start: e.startDate, end: e.endDate, allDay: e.isAllDay,
-                         color: Color(cgColor: e.calendar.cgColor), location: e.location,
-                         calendarId: e.calendar.calendarIdentifier, calendarName: e.calendar.title)
-            }
+            .map(Self.make)
         calendars = store.calendars(for: .event)
+    }
+
+    static func make(_ e: EKEvent) -> CalEvent {
+        CalEvent(id: (e.eventIdentifier ?? UUID().uuidString) + "\(e.startDate.timeIntervalSince1970)",
+                 title: e.title ?? "Termin", start: e.startDate, end: e.endDate, allDay: e.isAllDay,
+                 color: Color(cgColor: e.calendar.cgColor), location: e.location,
+                 calendarId: e.calendar.calendarIdentifier, calendarName: e.calendar.title,
+                 ekId: e.eventIdentifier ?? "")
+    }
+
+    // MARK: Kalender-Ansicht und eigene Termine
+
+    var eventStore: EKEventStore { store }
+
+    /// Termine in einem beliebigen Zeitraum (für die Monatsansicht, auch vergangene Tage)
+    func events(from: Date, to: Date) -> [CalEvent] {
+        guard granted else { return [] }
+        let pred = store.predicateForEvents(withStart: from, end: to, calendars: nil)
+        return store.events(matching: pred)
+            .sorted { ($0.isAllDay ? 0 : 1, $0.startDate) < ($1.isAllDay ? 0 : 1, $1.startDate) }
+            .map(Self.make)
+    }
+
+    func ekEvent(_ e: CalEvent) -> EKEvent? { e.ekId.isEmpty ? nil : store.event(withIdentifier: e.ekId) }
+
+    /// Neuer Termin als Vorlage: heute zur nächsten vollen Stunde, sonst 9 Uhr, Dauer 1 Stunde
+    func draft(on day: Date) -> EKEvent {
+        let c = Calendar.current
+        let e = EKEvent(eventStore: store)
+        var start = c.date(bySettingHour: 9, minute: 0, second: 0, of: day) ?? day
+        if c.isDateInToday(day) {
+            let next = c.date(byAdding: .hour, value: 1, to: Date()) ?? Date()
+            start = c.date(bySetting: .minute, value: 0, of: next) ?? next
+        }
+        e.startDate = start
+        e.endDate = c.date(byAdding: .hour, value: 1, to: start) ?? start
+        e.calendar = store.defaultCalendarForNewEvents
+        return e
     }
 
     /// Alle Kalender auf dem Gerät, nach Konto gruppiert (iCloud, Google, Abos …)
@@ -191,6 +225,9 @@ struct TermineDetail: View {
     let config: [String: JSON]
     @ObservedObject private var cal = CalendarService.shared
     @State private var hidden: Set<String> = []   // hier kurz ausgeblendete Kalender
+    @AppStorage("termine.ansicht") private var mode = "liste"   // pro Gerät: "liste" oder "monat"
+    @State private var day = Calendar.current.startOfDay(for: Date())   // gewählter Tag in der Monatsansicht
+    @State private var editor: EventEditRequest?
 
     private struct Day: Identifiable { let id: Date; let events: [CalEvent] }
 
@@ -211,6 +248,45 @@ struct TermineDetail: View {
     }
 
     var body: some View {
+        Group {
+            if mode == "monat" {
+                TermineMonth(config: config, hidden: hidden, day: $day) { e in
+                    if let ek = cal.ekEvent(e) { editor = EventEditRequest(event: ek) }
+                }
+            } else {
+                list
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Picker("Ansicht", selection: $mode) {
+                    Text("Liste").tag("liste")
+                    Text("Monat").tag("monat")
+                }
+                .pickerStyle(.segmented).frame(width: 190)
+            }
+        }
+        // Neuer Termin: runder Knopf unten rechts wie in der Küche
+        .overlay(alignment: .bottomTrailing) {
+            if cal.access == .ok {
+                Button { editor = EventEditRequest(event: cal.draft(on: mode == "monat" ? day : Date())) } label: {
+                    Image(systemName: "plus").font(.system(size: 24, weight: .semibold)).foregroundColor(.white)
+                        .frame(width: 60, height: 60)
+                        .background(Circle().fill(Theme.accent))
+                        .shadow(color: .black.opacity(0.18), radius: 8, y: 4)
+                }
+                .padding(20)
+                .accessibilityLabel("Neuer Termin")
+            }
+        }
+        .sheet(item: $editor) { r in
+            EventEditor(event: r.event, store: cal.eventStore) { editor = nil; cal.reload() }
+                .ignoresSafeArea()
+        }
+        .task { await cal.start() }
+    }
+
+    private var list: some View {
         List {
             if chips.count > 1 {
                 Section {
@@ -245,6 +321,7 @@ struct TermineDetail: View {
             ForEach(days) { day in
                 Section(header: Text(Fmt.dayLabel(day.id))) {
                     ForEach(day.events) { e in
+                        Button { if let ek = cal.ekEvent(e) { editor = EventEditRequest(event: ek) } } label: {
                         VStack(alignment: .leading, spacing: 2) {
                             EventRow(event: e)
                             let sub = [e.allDay ? nil : "bis " + Fmt.hhmm(e.end), e.location, chips.count > 1 ? e.calendarName : nil]
@@ -254,12 +331,15 @@ struct TermineDetail: View {
                             }
                         }
                         .padding(.vertical, 4)
+                        .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
+            Color.clear.frame(height: 70).listRowBackground(Color.clear)   // Platz für den Plus-Knopf
         }
         .listStyle(.insetGrouped)
-        .task { await cal.start() }
     }
 }
 

@@ -14,6 +14,24 @@ struct HubertTheme: Identifiable, Equatable {
     let accent: Color       // Knöpfe, Zurück-Pfeile, Hervorhebungen
 
     var gradient: LinearGradient { LinearGradient(colors: colors, startPoint: .topLeading, endPoint: .bottomTrailing) }
+
+    /// Ist die Kopfkarte so hell, dass weiße Schrift untergeht? Maßgeblich ist die linke, hellere Hälfte (dort stehen Uhr und Datum).
+    var isLight: Bool {
+        let l = colors.prefix(2).map { Self.luminance(UIColor($0)) }
+        return l.reduce(0, +) / Double(max(1, l.count)) > 0.6
+    }
+    /// Schrift und Symbole auf der Kopfkarte: weiß auf dunklen, fast schwarz auf hellen Farben
+    var onHeader: Color { isLight ? Color(white: 0.11) : .white }
+    /// Hinterlegung für runde Knöpfe auf der Kopfkarte (Zahnrad)
+    var onHeaderFill: Color { isLight ? Color.black.opacity(0.08) : Color.white.opacity(0.22) }
+
+    /// Relative Helligkeit nach WCAG (0 = schwarz, 1 = weiß)
+    static func luminance(_ c: UIColor) -> Double {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        c.getRed(&r, green: &g, blue: &b, alpha: &a)
+        func lin(_ v: CGFloat) -> Double { let x = Double(max(0, min(1, v))); return x <= 0.03928 ? x / 12.92 : pow((x + 0.055) / 1.055, 2.4) }
+        return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
+    }
     var shadow: Color { (colors.last ?? accent).opacity(0.25) }
 
     static func rgb(_ r: Double, _ g: Double, _ b: Double) -> Color { Color(red: r / 255, green: g / 255, blue: b / 255) }
@@ -35,7 +53,9 @@ struct HubertTheme: Identifiable, Equatable {
         c.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
         let light = UIColor(hue: h, saturation: s * 0.7, brightness: min(1, b * 1.12 + 0.05), alpha: 1)
         let dark = UIColor(hue: h, saturation: min(1, s * 1.05), brightness: b * 0.62, alpha: 1)
-        return HubertTheme(id: "eigene", name: "Eigene", colors: [Color(light), Color(c), Color(dark)], accent: Color(c))
+        // Sehr helle Farbe (z. B. Weiß): Akzent abdunkeln, sonst sind Knöpfe auf weißen Karten unsichtbar
+        let accent = luminance(c) > 0.6 ? UIColor(hue: h, saturation: s, brightness: min(b, 0.45), alpha: 1) : c
+        return HubertTheme(id: "eigene", name: "Eigene", colors: [Color(light), Color(c), Color(dark)], accent: Color(accent))
     }
 }
 

@@ -67,7 +67,12 @@ struct ShoppingGlance: View {
             }
             if canAdd {
                 HStack {
-                    Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent)
+                    let empty = newItem.trimmingCharacters(in: .whitespaces).isEmpty
+                    Button { kitchen.add("shop", name: newItem); newItem = "" } label: {
+                        Image(systemName: "plus.circle.fill").foregroundColor(empty ? Color(UIColor.tertiaryLabel) : Theme.accent)
+                    }
+                    .buttonStyle(.borderless).disabled(empty)
+                    .accessibilityLabel("Hinzufügen")
                     TextField("Hinzufügen", text: $newItem).submitLabel(.done)
                         .onSubmit { kitchen.add("shop", name: newItem); newItem = "" }
                 }

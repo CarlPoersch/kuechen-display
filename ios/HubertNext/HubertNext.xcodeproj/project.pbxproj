@@ -255,8 +255,8 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hubert zeigt Abfahrten und Verbindungen ab deinem aktuellen Standort.";
 				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine Termine auf der Startseite und im Kalender und legt auf Wunsch neue an. Die Termine bleiben auf diesem Gerät.";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine Termine auf der Startseite und im Kalender und legt auf Wunsch neue an. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Hubert scannt Barcodes und Kassenzettel, um sie in den Vorrat zu übernehmen.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Im Kochmodus hört Hubert auf „weiter“ und „zurück“, damit du mit vollen Händen umblättern kannst.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Im Kochmodus erkennt Hubert „weiter“, „zurück“ und „Timer“. Die Erkennung läuft wenn möglich auf dem Gerät.";
@@ -305,8 +305,8 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Hubert zeigt Abfahrten und Verbindungen ab deinem aktuellen Standort.";
 				INFOPLIST_KEY_CFBundleDisplayName = Hubert;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
-				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine heutigen Termine auf der Startseite. Die Termine bleiben auf diesem Gerät.";
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Hubert zeigt deine Termine auf der Startseite und im Kalender und legt auf Wunsch neue an. Die Termine bleiben auf diesem Gerät.";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Hubert zeigt deine Termine auf der Startseite und im Kalender und legt auf Wunsch neue an. Die Termine bleiben auf diesem Gerät.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Hubert scannt Barcodes und Kassenzettel, um sie in den Vorrat zu übernehmen.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Im Kochmodus hört Hubert auf „weiter“ und „zurück“, damit du mit vollen Händen umblättern kannst.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Im Kochmodus erkennt Hubert „weiter“, „zurück“ und „Timer“. Die Erkennung läuft wenn möglich auf dem Gerät.";
