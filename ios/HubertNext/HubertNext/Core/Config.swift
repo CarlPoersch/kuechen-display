@@ -10,7 +10,7 @@ enum Config {
     /// Spotify: Client ID aus dem Spotify-Developer-Dashboard (developer.spotify.com/dashboard).
     /// Darf in der App stehen: Die Anmeldung läuft über PKCE, ein Client Secret gibt es in der App nicht.
     /// Im Dashboard eintragen: Redirect URI = spotifyRedirect, iOS-Bundle-ID = com.carlpoersch.HubertNext.
-    static let spotifyClientID = ""
+    static let spotifyClientID = "02c1ddd0336d4c86921f9c665ea24b51"
     static let spotifyRedirect = URL(string: "hubert-spotify://callback")!
 }
 
