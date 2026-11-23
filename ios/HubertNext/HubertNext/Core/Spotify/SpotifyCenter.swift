@@ -379,7 +379,7 @@ final class SpotifyCenter: NSObject, ObservableObject {
             content.fetchContentItem(forURI: ctx) { [weak self] result, _ in
                 DispatchQueue.main.async {
                     if let item = result as? SPTAppRemoteContentItem, item.isPlayable {
-                        api.playItem(item, skipToTrackIndex: index) { _, error in
+                        api.play(item, skipToTrackIndex: index) { _, error in
                             if error != nil { DispatchQueue.main.async { self?.play(track.uri) } }
                         }
                     } else {
