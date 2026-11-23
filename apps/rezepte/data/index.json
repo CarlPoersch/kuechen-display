@@ -73,6 +73,30 @@
   ]
  },
  {
+  "id": "brokkolisalat-cranberry",
+  "title": "Brokkolisalat mit Cranberrys und Kernen",
+  "icon": "🥦",
+  "cuisine": "Amerikanisch",
+  "servings": 4,
+  "time": "ca. 20 Min.",
+  "cat": "Salat",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "gf": true,
+  "ing": [
+   "Brokkoli",
+   "getrocknete Cranberrys",
+   "Sonnenblumenkerne",
+   "kleine rote Zwiebel",
+   "Naturjoghurt",
+   "Mayonnaise",
+   "Senf",
+   "Honig",
+   "Zitronensaft"
+  ]
+ },
+ {
   "id": "af-chicken-wings",
   "title": "Buffalo Chicken Wings",
   "icon": "🍗",
@@ -149,6 +173,31 @@
   ]
  },
  {
+  "id": "chili-cheese-suesskartoffel",
+  "title": "Chili-Cheese-Süßkartoffeln aus dem Airfryer",
+  "icon": "🍠",
+  "cuisine": "Amerikanisch",
+  "servings": 2,
+  "time": "ca. 35 Min.",
+  "airfryer": true,
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "große Süßkartoffeln",
+   "Kidneybohnen",
+   "Mais",
+   "Chilipulver",
+   "Kreuzkümmel",
+   "Cheddar",
+   "saure Sahne",
+   "Frühlingszwiebeln",
+   "Öl"
+  ]
+ },
+ {
   "id": "chocolate-chip-cookies",
   "title": "Chocolate Chip Cookies",
   "icon": "🍪",
@@ -214,6 +263,27 @@
    "Butter",
    "gemischte Beeren",
    "Puderzucker (zum Bestäuben)"
+  ]
+ },
+ {
+  "id": "herzhafte-fruehstuecksmuffins",
+  "title": "Herzhafte Frühstücksmuffins mit Ei und Spinat",
+  "icon": "🧁",
+  "cuisine": "Amerikanisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Eier",
+   "Babyspinat",
+   "rote Paprika",
+   "Feta",
+   "Frühlingszwiebeln",
+   "Milch"
   ]
  },
  {
@@ -406,6 +476,28 @@
   ]
  },
  {
+  "id": "krautkrapfen",
+  "title": "Allgäuer Krautkrapfen",
+  "icon": "🥨",
+  "cuisine": "Bayerisch",
+  "servings": 4,
+  "time": "ca. 1 Std. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "anspruchsvoll",
+  "min": 90,
+  "ing": [
+   "Mehl",
+   "Eier",
+   "Wasser",
+   "Sauerkraut",
+   "Speckwürfel",
+   "Zwiebel",
+   "Gemüsebrühe",
+   "Butterschmalz"
+  ]
+ },
+ {
   "id": "apfel-crumble",
   "title": "Apple Crumble",
   "icon": "🍏",
@@ -426,6 +518,28 @@
    "brauner Zucker",
    "Haferflocken",
    "Salz"
+  ]
+ },
+ {
+  "id": "erbsen-minz-suppe",
+  "title": "Erbsen-Minz-Suppe",
+  "icon": "🟢",
+  "cuisine": "Britisch",
+  "servings": 4,
+  "time": "ca. 20 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "gf": true,
+  "ing": [
+   "TK-Erbsen",
+   "Zwiebel",
+   "Kartoffel",
+   "Gemüsebrühe",
+   "Minze",
+   "Sahne",
+   "Butter"
   ]
  },
  {
@@ -602,6 +716,30 @@
    "Pak Choi",
    "Frühlingszwiebeln",
    "geröstete Erdnüsse, gehackt"
+  ]
+ },
+ {
+  "id": "gebratene-nudeln-ei",
+  "title": "Gebratene Nudeln mit Ei und Gemüse",
+  "icon": "🍜",
+  "cuisine": "Chinesisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "Mie-Nudeln",
+   "Eier",
+   "Karotte",
+   "Weißkohl",
+   "Frühlingszwiebeln",
+   "Knoblauchzehe",
+   "Sojasauce",
+   "Austernsauce",
+   "Sesamöl",
+   "Öl"
   ]
  },
  {
@@ -893,6 +1031,28 @@
    "Speisestärke",
    "neutrales Öl",
    "Reis zum Servieren"
+  ]
+ },
+ {
+  "id": "smashed-cucumber",
+  "title": "Smashed Cucumber (chinesischer Gurkensalat)",
+  "icon": "🥒",
+  "cuisine": "Chinesisch",
+  "servings": 2,
+  "time": "ca. 15 Min.",
+  "cat": "Salat",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 15,
+  "ing": [
+   "Salatgurke",
+   "Knoblauchzehe",
+   "Sojasauce",
+   "Reisessig",
+   "Zucker",
+   "Sesamöl",
+   "Chiliöl",
+   "Sesam"
   ]
  },
  {
@@ -1996,6 +2156,26 @@
   ]
  },
  {
+  "id": "honig-moehren-ofen",
+  "title": "Honig-Möhren aus dem Ofen mit Thymian",
+  "icon": "🥕",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Karotten",
+   "Olivenöl",
+   "Honig",
+   "Thymian",
+   "Walnüsse"
+  ]
+ },
+ {
   "id": "frikadellen-sauce",
   "title": "Hähnchen-Frikadellen mit Gurkensalat",
   "icon": "🧆",
@@ -2524,6 +2704,29 @@
    "Butterschmalz",
    "Majoran",
    "süßer Senf (zum Servieren)"
+  ]
+ },
+ {
+  "id": "lebkuchen-tiramisu",
+  "title": "Lebkuchen-Tiramisu",
+  "icon": "🎄",
+  "cuisine": "Deutsch",
+  "servings": 6,
+  "time": "ca. 25 Min. (+ 3 Std. kühlen)",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Mascarpone",
+   "Magerquark",
+   "Schlagsahne",
+   "Zucker",
+   "Vanillezucker",
+   "Lebkuchen (ohne Schokolade)",
+   "Kaffee (abgekühlt)",
+   "Kakaopulver",
+   "Zimt"
   ]
  },
  {
@@ -3189,6 +3392,28 @@
    "Öl",
    "Meerrettich (Glas)",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "kuerbisbrot",
+  "title": "Saftiges Kürbisbrot",
+  "icon": "🎃",
+  "cuisine": "Deutsch",
+  "servings": 12,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Backen",
+  "diet": "vegan",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Hokkaido-Kürbis",
+   "Dinkelmehl",
+   "frische Hefe",
+   "lauwarmes Wasser",
+   "Zucker",
+   "Salz",
+   "Olivenöl",
+   "Kürbiskerne"
   ]
  },
  {
@@ -4136,6 +4361,27 @@
    "Olivenöl",
    "Thymian",
    "Parmesan oder Bergkäse"
+  ]
+ },
+ {
+  "id": "avgolemono",
+  "title": "Avgolemono (griechische Zitronen-Hühnersuppe)",
+  "icon": "🍋",
+  "cuisine": "Griechisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Hühnerbrühe",
+   "Hähnchenbrustfilet",
+   "Langkornreis",
+   "Eier",
+   "Zitronen",
+   "Dill"
   ]
  },
  {
@@ -5169,6 +5415,25 @@
   ]
  },
  {
+  "id": "chia-pudding-mango",
+  "title": "Chia-Pudding mit Mango",
+  "icon": "🥭",
+  "cuisine": "International",
+  "servings": 2,
+  "time": "ca. 10 Min. (+ über Nacht)",
+  "cat": "Frühstück",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 10,
+  "ing": [
+   "Chiasamen",
+   "Hafermilch",
+   "Ahornsirup",
+   "Mango",
+   "Kokosraspel"
+  ]
+ },
+ {
   "id": "chicken-adobo",
   "title": "Chicken Adobo",
   "icon": "🍗",
@@ -5258,6 +5523,25 @@
    "Zucker",
    "Zimt",
    "Sahne (zum Servieren)"
+  ]
+ },
+ {
+  "id": "heisse-zitrone-ingwer",
+  "title": "Heiße Zitrone mit Ingwer und Honig",
+  "icon": "🍋",
+  "cuisine": "International",
+  "servings": 2,
+  "time": "ca. 10 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 10,
+  "gf": true,
+  "ing": [
+   "Bio-Zitrone",
+   "Ingwer",
+   "Honig",
+   "Wasser"
   ]
  },
  {
@@ -5445,6 +5729,24 @@
   ]
  },
  {
+  "id": "nicecream",
+  "title": "Schoko-Bananen-Nicecream",
+  "icon": "🍌",
+  "cuisine": "International",
+  "servings": 2,
+  "time": "ca. 5 Min. (+ Gefrierzeit)",
+  "cat": "Dessert",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 5,
+  "ing": [
+   "reife Bananen (gefroren)",
+   "Kakaopulver",
+   "Haferdrink",
+   "Erdnussbutter"
+  ]
+ },
+ {
   "id": "poke-tofu",
   "title": "Tofu-Poke-Bowl",
   "icon": "🥗",
@@ -5494,6 +5796,26 @@
   ]
  },
  {
+  "id": "bruschetta",
+  "title": "Bruschetta mit Tomaten und Basilikum",
+  "icon": "🍅",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 15 Min.",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 15,
+  "ing": [
+   "Ciabatta",
+   "reife Tomaten",
+   "Knoblauchzehe",
+   "Basilikum",
+   "Olivenöl",
+   "Balsamico"
+  ]
+ },
+ {
   "id": "cacio-e-pepe",
   "title": "Cacio e Pepe",
   "icon": "🍝",
@@ -5533,6 +5855,29 @@
    "Knoblauchzehe",
    "Olivenöl",
    "Mozzarella"
+  ]
+ },
+ {
+  "id": "cremige-polenta-pilze",
+  "title": "Cremige Polenta mit gebratenen Pilzen",
+  "icon": "🍄",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "ing": [
+   "Polenta (Maisgrieß)",
+   "Gemüsebrühe",
+   "Parmesan",
+   "Butter",
+   "braune Champignons",
+   "Knoblauchzehen",
+   "Thymian",
+   "Olivenöl",
+   "Petersilie"
   ]
  },
  {
@@ -5648,6 +5993,53 @@
    "Olivenöl",
    "Parmesan",
    "Haselnüsse"
+  ]
+ },
+ {
+  "id": "gnudi-spinat-ricotta",
+  "title": "Gnudi mit Spinat und Ricotta",
+  "icon": "🥬",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 45,
+  "ing": [
+   "Ricotta",
+   "Blattspinat (TK, aufgetaut)",
+   "Parmesan",
+   "Ei",
+   "Mehl",
+   "Muskat",
+   "Butter",
+   "Salbeiblätter"
+  ]
+ },
+ {
+  "id": "haehnchen-cacciatore",
+  "title": "Hähnchen Cacciatore",
+  "icon": "🍗",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "Hähnchenschenkel (mit Haut)",
+   "Zwiebel",
+   "rote Paprika",
+   "Champignons",
+   "Knoblauchzehen",
+   "stückige Tomaten",
+   "Rotwein",
+   "Rosmarin",
+   "schwarze Oliven",
+   "Olivenöl"
   ]
  },
  {
@@ -8085,6 +8477,31 @@
   ]
  },
  {
+  "id": "fischtacos-mango",
+  "title": "Fischtacos mit Mango-Salsa",
+  "icon": "🌮",
+  "cuisine": "Mexikanisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Kabeljaufilet",
+   "Paprikapulver",
+   "Kreuzkümmel",
+   "kleine Weizentortillas",
+   "Mango",
+   "rote Zwiebel",
+   "Limette",
+   "Koriander",
+   "Rotkohl",
+   "saure Sahne",
+   "Öl"
+  ]
+ },
+ {
   "id": "guacamole",
   "title": "Guacamole mit Nachos",
   "icon": "🥑",
@@ -8305,6 +8722,31 @@
   ]
  },
  {
+  "id": "couscous-pfanne-aprikosen",
+  "title": "Couscous-Pfanne mit Hähnchen und Aprikosen",
+  "icon": "🍑",
+  "cuisine": "Orientalisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Hähnchenbrustfilet",
+   "Couscous",
+   "Gemüsebrühe",
+   "getrocknete Aprikosen",
+   "Zucchini",
+   "Zwiebel",
+   "Ras el-Hanout",
+   "Zimt",
+   "Mandeln",
+   "Minze",
+   "Olivenöl"
+  ]
+ },
+ {
   "id": "couscous-salat",
   "title": "Couscous-Salat mit Feta",
   "icon": "🥗",
@@ -8479,6 +8921,28 @@
   ]
  },
  {
+  "id": "af-kichererbsen",
+  "title": "Knusprige Kichererbsen aus dem Airfryer",
+  "icon": "🫘",
+  "cuisine": "Orientalisch",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "airfryer": true,
+  "tab": "airfryer",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 20,
+  "gf": true,
+  "ing": [
+   "Kichererbsen",
+   "Olivenöl",
+   "geräuchertes Paprikapulver",
+   "Kreuzkümmel",
+   "Knoblauchpulver"
+  ]
+ },
+ {
   "id": "af-koefte",
   "title": "Köfte mit Joghurtsauce",
   "icon": "🍢",
@@ -8533,6 +8997,29 @@
    "Mandeln, geröstet",
    "Koriander",
    "Couscous"
+  ]
+ },
+ {
+  "id": "mandel-pilaw",
+  "title": "Pilaw-Reis mit Mandeln und Rosinen",
+  "icon": "🍚",
+  "cuisine": "Orientalisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Basmatireis",
+   "Zwiebel",
+   "Butter",
+   "Zimtstange",
+   "Kardamomkapseln",
+   "Gemüsebrühe",
+   "Mandelstifte",
+   "Rosinen"
   ]
  },
  {
@@ -8603,6 +9090,29 @@
    "Zitronen",
    "Olivenöl",
    "Piment oder Baharat"
+  ]
+ },
+ {
+  "id": "rote-bete-suppe-meerrettich",
+  "title": "Rote-Bete-Suppe mit Meerrettich",
+  "icon": "🟣",
+  "cuisine": "Osteuropäisch",
+  "servings": 4,
+  "time": "ca. 40 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 40,
+  "gf": true,
+  "ing": [
+   "Rote Bete (roh)",
+   "Zwiebel",
+   "Apfel",
+   "Gemüsebrühe",
+   "Meerrettich (Glas)",
+   "Schmand",
+   "Öl",
+   "Apfelessig"
   ]
  },
  {
@@ -9035,6 +9545,33 @@
    "Zwiebel",
    "Eier",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "erdnuss-nudeln-tofu",
+  "title": "Erdnuss-Nudeln mit knusprigem Tofu",
+  "icon": "🥜",
+  "cuisine": "Thailändisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "Reisnudeln",
+   "fester Tofu",
+   "Speisestärke",
+   "Erdnussbutter",
+   "Sojasauce",
+   "Ahornsirup",
+   "Limette",
+   "Sambal Oelek",
+   "Karotte",
+   "rote Paprika",
+   "Frühlingszwiebeln",
+   "geröstete Erdnüsse",
+   "Öl"
   ]
  },
  {

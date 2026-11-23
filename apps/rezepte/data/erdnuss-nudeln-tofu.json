@@ -1,0 +1,85 @@
+{
+ "id": "erdnuss-nudeln-tofu",
+ "title": "Erdnuss-Nudeln mit knusprigem Tofu",
+ "icon": "🥜",
+ "cuisine": "Thailändisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Reisnudeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "fester Tofu"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Erdnussbutter"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ahornsirup"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sambal Oelek"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "50 g",
+   "name": "geröstete Erdnüsse"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tofu trocken tupfen, würfeln und in Stärke wenden. In Öl rundum knusprig braten.",
+   "minutes": 10
+  },
+  {
+   "text": "Reisnudeln nach Packung garen, abgießen und kalt abschrecken.",
+   "minutes": 6
+  },
+  {
+   "text": "Erdnussbutter, Sojasauce, Ahornsirup, Limettensaft, Sambal und 5 EL warmes Wasser glatt rühren."
+  },
+  {
+   "text": "Karotte und Paprika in feine Streifen schneiden, Frühlingszwiebeln in Ringe."
+  },
+  {
+   "text": "Nudeln mit Sauce und Gemüse mischen, Tofu und gehackte Erdnüsse darauf verteilen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 30
+}

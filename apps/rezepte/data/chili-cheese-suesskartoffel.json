@@ -1,0 +1,72 @@
+{
+ "id": "chili-cheese-suesskartoffel",
+ "title": "Chili-Cheese-Süßkartoffeln aus dem Airfryer",
+ "icon": "🍠",
+ "cuisine": "Amerikanisch",
+ "servings": 2,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "große Süßkartoffeln"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mais"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "80 g",
+   "name": "Cheddar"
+  },
+  {
+   "amount": "2 EL",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Süßkartoffeln waschen, mehrmals einstechen, mit Öl einreiben und im Airfryer bei 200 °C garen.",
+   "minutes": 25
+  },
+  {
+   "text": "Bohnen abspülen, mit Mais, Chili, Kreuzkümmel und Salz in einem Topf erwärmen.",
+   "minutes": 5
+  },
+  {
+   "text": "Süßkartoffeln längs aufschneiden, Bohnen einfüllen und mit Cheddar bestreuen."
+  },
+  {
+   "text": "Noch einmal in den Airfryer geben, bis der Käse schmilzt.",
+   "minutes": 3
+  },
+  {
+   "text": "Mit saurer Sahne und Frühlingszwiebeln servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true,
+ "airfryer": true
+}

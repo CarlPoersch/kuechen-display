@@ -1,0 +1,59 @@
+{
+ "id": "avgolemono",
+ "title": "Avgolemono (griechische Zitronen-Hühnersuppe)",
+ "icon": "🍋",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1,2 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "300 g",
+   "name": "Hähnchenbrustfilet"
+  },
+  {
+   "amount": "100 g",
+   "name": "Langkornreis"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "2",
+   "name": "Zitronen"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Dill"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in der Brühe gar ziehen lassen, herausnehmen und zerzupfen.",
+   "minutes": 15
+  },
+  {
+   "text": "Reis in der Brühe weich kochen.",
+   "minutes": 15
+  },
+  {
+   "text": "Eier mit Zitronensaft schaumig schlagen, dann nach und nach eine Kelle heiße Brühe einrühren."
+  },
+  {
+   "text": "Eier-Mischung bei kleiner Hitze in die Suppe rühren, nicht mehr kochen lassen, bis sie leicht bindet.",
+   "minutes": 3
+  },
+  {
+   "text": "Hähnchen zugeben, salzen und mit Dill servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 40,
+ "gf": true
+}

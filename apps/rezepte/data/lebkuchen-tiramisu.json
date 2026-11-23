@@ -1,0 +1,68 @@
+{
+ "id": "lebkuchen-tiramisu",
+ "title": "Lebkuchen-Tiramisu",
+ "icon": "🎄",
+ "cuisine": "Deutsch",
+ "servings": 6,
+ "time": "ca. 25 Min. (+ 3 Std. kühlen)",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mascarpone"
+  },
+  {
+   "amount": "250 g",
+   "name": "Magerquark"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Schlagsahne"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "250 g",
+   "name": "Lebkuchen (ohne Schokolade)"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Kaffee (abgekühlt)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kakaopulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mascarpone, Quark, Zucker und Vanillezucker glatt rühren, Sahne steif schlagen und unterheben."
+  },
+  {
+   "text": "Lebkuchen kurz in Kaffee tauchen und eine Form damit auslegen."
+  },
+  {
+   "text": "Die Hälfte der Creme darauf streichen, wieder Lebkuchen, dann die restliche Creme schichten."
+  },
+  {
+   "text": "Abgedeckt im Kühlschrank durchziehen lassen.",
+   "minutes": 180
+  },
+  {
+   "text": "Kakao mit Zimt mischen und vor dem Servieren darübersieben."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}

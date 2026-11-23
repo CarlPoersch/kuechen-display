@@ -1,0 +1,49 @@
+{
+ "id": "chia-pudding-mango",
+ "title": "Chia-Pudding mit Mango",
+ "icon": "🥭",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 10 Min. (+ über Nacht)",
+ "ingredients": [
+  {
+   "amount": "4 EL",
+   "name": "Chiasamen"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Hafermilch"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ahornsirup"
+  },
+  {
+   "amount": "1",
+   "name": "Mango"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kokosraspel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Chiasamen mit Hafermilch und Ahornsirup verrühren, nach 5 Minuten noch einmal umrühren.",
+   "minutes": 5
+  },
+  {
+   "text": "Abgedeckt im Kühlschrank quellen lassen, am besten über Nacht."
+  },
+  {
+   "text": "Mango würfeln oder pürieren."
+  },
+  {
+   "text": "Pudding in Gläser füllen, Mango darauf geben und mit Kokosraspeln bestreuen."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 10
+}

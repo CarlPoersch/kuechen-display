@@ -1,0 +1,57 @@
+{
+ "id": "herzhafte-fruehstuecksmuffins",
+ "title": "Herzhafte Frühstücksmuffins mit Ei und Spinat",
+ "icon": "🧁",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Babyspinat"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "80 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "50 ml",
+   "name": "Milch"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 180 °C vorheizen, ein Muffinblech einfetten."
+  },
+  {
+   "text": "Spinat grob hacken, Paprika fein würfeln, Frühlingszwiebeln in Ringe schneiden."
+  },
+  {
+   "text": "Eier mit Milch, Salz und Pfeffer verquirlen."
+  },
+  {
+   "text": "Gemüse und zerbröselten Feta in die Mulden verteilen und mit der Eiermasse auffüllen."
+  },
+  {
+   "text": "Backen, bis die Muffins gestockt und leicht gebräunt sind.",
+   "minutes": 20
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

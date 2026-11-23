@@ -1,0 +1,76 @@
+{
+ "id": "haehnchen-cacciatore",
+ "title": "Hähnchen Cacciatore",
+ "icon": "🍗",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "8",
+   "name": "Hähnchenschenkel (mit Haut)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "200 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "2 Zweige",
+   "name": "Rosmarin"
+  },
+  {
+   "amount": "50 g",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchenschenkel salzen und pfeffern, in Öl auf der Hautseite knusprig braten, wenden und herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Zwiebel, Paprika und Pilze in Streifen schneiden und im Bratfett anbraten, Knoblauch kurz mitbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Rotwein ablöschen und kurz einkochen lassen.",
+   "minutes": 2
+  },
+  {
+   "text": "Tomaten, Rosmarin und Oliven zugeben, Hähnchen mit der Haut nach oben daraufsetzen und zugedeckt schmoren.",
+   "minutes": 30
+  },
+  {
+   "text": "Abschmecken – dazu Ciabatta, Polenta oder Pasta."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "gf": true
+}

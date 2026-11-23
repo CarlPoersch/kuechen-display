@@ -1273,15 +1273,20 @@ struct ShopTab: View {
     @FocusState private var typing: Bool
 
     private var query: String { newItem.trimmingCharacters(in: .whitespaces) }
-    private func add() {
-        guard !query.isEmpty else { return }
-        withAnimation { kitchen.add("shop", name: query) }
+    private func add() { add(query) }
+    private func add(_ name: String) {
+        let n = name.trimmingCharacters(in: .whitespaces)
+        guard !n.isEmpty else { return }
+        withAnimation { kitchen.add("shop", name: n) }
+        ShopSuggest.remember(n)
         newItem = ""; typing = true          // Tastatur bleibt offen für den nächsten Artikel
     }
 
     var body: some View {
         let open = kitchen.shop.filter { !$0.done }
         let done = kitchen.shop.filter { $0.done }
+        let onList = Set(open.map { KitchenStore.key($0.name) })
+        let hits = ShopSuggest.find(query, extra: kitchen.pantry.map(\.name) + kitchen.shop.map(\.name) + Array(kitchen.aliases.values))
         List {
             Section {
                 HStack {
@@ -1289,7 +1294,28 @@ struct ShopTab: View {
                     TextField("Artikel hinzufügen, z. B. Milch", text: $newItem)
                         .focused($typing).submitLabel(.done)
                         .onSubmit(add)
+                        .disableAutocorrection(true)
                     if !query.isEmpty { AddPill(action: add) }
+                }
+                // Beim Tippen: passende Vorschläge zum direkten Hinzufügen
+                ForEach(hits, id: \.name) { h in
+                    let already = onList.contains(KitchenStore.key(h.name))
+                    Button { if !already { add(h.name) } } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: already ? "checkmark.circle.fill" : "plus.circle")
+                                .font(.title3).foregroundColor(already ? Theme.secondary : Theme.accent)
+                                .frame(width: 28)
+                            ShopSuggest.highlighted(h.name, query)
+                                .foregroundColor(already ? Theme.secondary : .primary)
+                            Spacer(minLength: 8)
+                            Text(already ? "steht schon drauf" : h.label).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                        }
+                        .frame(minHeight: 40)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.borderless)
+                    .disabled(already)
+                    .accessibilityLabel(already ? "\(h.name) steht schon auf der Liste" : "\(h.name) hinzufügen")
                 }
             }
             Section(header: Text(open.isEmpty ? "Alles eingekauft" : "Noch zu kaufen · \(open.count)")) {
@@ -1313,6 +1339,69 @@ struct ShopTab: View {
         }
         .listStyle(.insetGrouped)
         .sheet(isPresented: $siri) { SiriSetupSheet() }
+    }
+}
+
+/// Vorschläge beim Tippen in der Einkaufsliste: Lebensmittel-Katalog, Haushalt/Drogerie,
+/// zuletzt Gekauftes und was im Vorrat steht. Wortanfang zählt mehr als „irgendwo drin“.
+enum ShopSuggest {
+    struct Hit { let name: String; let label: String }
+
+    static let household: [String] = [
+        "Spülmaschinentabs", "Spülmittel", "Klarspüler", "Spülmaschinensalz", "Waschmittel", "Weichspüler", "Toilettenpapier",
+        "Küchenrolle", "Taschentücher", "Müllbeutel", "Alufolie", "Backpapier", "Frischhaltefolie", "Gefrierbeutel",
+        "Schwämme", "Putzmittel", "Glasreiniger", "WC-Reiniger", "Entkalker", "Batterien", "Glühbirne", "Kerzen",
+        "Zahnpasta", "Zahnbürste", "Zahnseide", "Duschgel", "Shampoo", "Spülung", "Deo", "Seife", "Handcreme",
+        "Rasierer", "Wattepads", "Wattestäbchen", "Sonnencreme", "Pflaster", "Kaffee", "Kaffeebohnen", "Tee",
+        "Mineralwasser", "Sprudel", "Saft", "Bier", "Wein", "Chips", "Gummibärchen", "Müsli", "Cornflakes",
+        "Marmelade", "Nutella", "Brot", "Toast", "Brötchen",
+    ]
+
+    private static let catalog: [(String, String)] = {
+        var out: [(String, String)] = []
+        for c in FoodCatalog.categories {
+            for g in c.groups { for n in [g.name] + g.sorts { out.append((n, c.name)) } }
+        }
+        return out + household.map { ($0, "Haushalt & Co.") } + FoodNames.basics.map { ($0, "") }
+    }()
+
+    private static let historyKey = "shop.history"
+    static func remember(_ name: String) {
+        var h = UserDefaults.standard.stringArray(forKey: historyKey) ?? []
+        h.removeAll { $0.lowercased() == name.lowercased() }
+        h.insert(name, at: 0)
+        UserDefaults.standard.set(Array(h.prefix(150)), forKey: historyKey)
+    }
+
+    static func find(_ q: String, extra: [String], limit: Int = 6) -> [Hit] {
+        let query = q.lowercased()
+        guard query.count >= 2 else { return [] }
+        let history = UserDefaults.standard.stringArray(forKey: historyKey) ?? []
+        var pool: [(String, String, Int)] = []          // Name, Hinweis, Bonus
+        pool += history.map { ($0, "zuletzt gekauft", 30) }
+        pool += extra.map { ($0, "", 20) }
+        pool += catalog.map { ($0.0, $0.1, 0) }
+        var seen = Set<String>(), scored: [(Hit, Int)] = []
+        for (name, label, bonus) in pool {
+            let k = name.lowercased()
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            var score: Int
+            if k == query { score = 300 }
+            else if k.hasPrefix(query) { score = 200 }
+            else if k.split(whereSeparator: { $0 == " " || $0 == "-" }).contains(where: { $0.hasPrefix(query) }) { score = 150 }
+            else if k.contains(query) { score = 80 }
+            else { continue }
+            seen.insert(k)
+            let hint = label.isEmpty ? (FoodCatalog.ident(name).map { FoodCatalog.categories[$0.cat].name } ?? "") : label
+            scored.append((Hit(name: name, label: hint), score + bonus - min(k.count, 30)))
+        }
+        return scored.sorted { $0.1 > $1.1 }.prefix(limit).map { $0.0 }
+    }
+
+    /// Getippter Teil fett hervorgehoben
+    static func highlighted(_ name: String, _ q: String) -> Text {
+        guard let r = name.range(of: q, options: .caseInsensitive), !q.isEmpty else { return Text(name) }
+        return Text(String(name[..<r.lowerBound])) + Text(String(name[r])).bold() + Text(String(name[r.upperBound...]))
     }
 }
 

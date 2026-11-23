@@ -1,0 +1,70 @@
+{
+ "id": "cremige-polenta-pilze",
+ "title": "Cremige Polenta mit gebratenen Pilzen",
+ "icon": "🍄",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Polenta (Maisgrieß)"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "500 g",
+   "name": "braune Champignons"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3 Zweige",
+   "name": "Thymian"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brühe aufkochen, Polenta unter Rühren einrieseln lassen und bei kleiner Hitze quellen lassen, öfter umrühren.",
+   "minutes": 15
+  },
+  {
+   "text": "Pilze in Scheiben schneiden und in heißem Öl portionsweise scharf anbraten.",
+   "minutes": 8
+  },
+  {
+   "text": "Knoblauch und Thymian zu den Pilzen geben, salzen und pfeffern.",
+   "minutes": 2
+  },
+  {
+   "text": "Butter und Parmesan unter die Polenta rühren, eventuell mit etwas Brühe cremiger machen."
+  },
+  {
+   "text": "Polenta auf Teller geben, Pilze darauf verteilen und mit Petersilie bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

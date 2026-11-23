@@ -1,0 +1,67 @@
+{
+ "id": "kuerbisbrot",
+ "title": "Saftiges Kürbisbrot",
+ "icon": "🎃",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Hokkaido-Kürbis"
+  },
+  {
+   "amount": "500 g",
+   "name": "Dinkelmehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "200 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "40 g",
+   "name": "Kürbiskerne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kürbis würfeln, weich dämpfen und fein pürieren, abkühlen lassen.",
+   "minutes": 12
+  },
+  {
+   "text": "Hefe mit Zucker im Wasser auflösen, mit Mehl, Salz, Öl und Kürbispüree zu einem glatten Teig kneten."
+  },
+  {
+   "text": "Zugedeckt an einem warmen Ort gehen lassen, bis er sich verdoppelt hat.",
+   "minutes": 45
+  },
+  {
+   "text": "Zu einem Laib formen, in Kürbiskernen wälzen und noch einmal gehen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Bei 210 °C backen, bis das Brot beim Klopfen hohl klingt.",
+   "minutes": 35
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 75
+}

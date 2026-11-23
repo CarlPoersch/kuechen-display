@@ -1,0 +1,78 @@
+{
+ "id": "couscous-pfanne-aprikosen",
+ "title": "Couscous-Pfanne mit Hähnchen und Aprikosen",
+ "icon": "🍑",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenbrustfilet"
+  },
+  {
+   "amount": "250 g",
+   "name": "Couscous"
+  },
+  {
+   "amount": "350 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "80 g",
+   "name": "getrocknete Aprikosen"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ras el-Hanout"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mandeln"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen würfeln, mit Ras el-Hanout und Salz würzen und in Öl anbraten.",
+   "minutes": 6
+  },
+  {
+   "text": "Zwiebel und Zucchini würfeln, zugeben und mitbraten.",
+   "minutes": 4
+  },
+  {
+   "text": "Aprikosen klein schneiden, mit Zimt und Brühe zugeben und aufkochen."
+  },
+  {
+   "text": "Couscous einrühren, Pfanne vom Herd nehmen und zugedeckt quellen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Gabel auflockern, geröstete Mandeln und Minze darüberstreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30
+}

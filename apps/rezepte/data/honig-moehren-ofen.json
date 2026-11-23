@@ -1,0 +1,50 @@
+{
+ "id": "honig-moehren-ofen",
+ "title": "Honig-Möhren aus dem Ofen mit Thymian",
+ "icon": "🥕",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Karotten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "3 Zweige",
+   "name": "Thymian"
+  },
+  {
+   "amount": "30 g",
+   "name": "Walnüsse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C Umluft vorheizen. Karotten schälen und längs halbieren."
+  },
+  {
+   "text": "Mit Öl, Honig, Thymian, Salz und Pfeffer auf dem Blech mischen."
+  },
+  {
+   "text": "Im Ofen rösten, bis sie weich und an den Rändern leicht gebräunt sind, einmal wenden.",
+   "minutes": 25
+  },
+  {
+   "text": "Mit gehackten Walnüssen bestreuen."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

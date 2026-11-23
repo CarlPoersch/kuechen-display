@@ -1,0 +1,67 @@
+{
+ "id": "krautkrapfen",
+ "title": "Allgäuer Krautkrapfen",
+ "icon": "🥨",
+ "cuisine": "Bayerisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "500 g",
+   "name": "Sauerkraut"
+  },
+  {
+   "amount": "150 g",
+   "name": "Speckwürfel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butterschmalz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Eier, Wasser und Salz zu einem glatten Nudelteig kneten und ruhen lassen.",
+   "minutes": 30
+  },
+  {
+   "text": "Zwiebel würfeln, mit Speck anbraten, Sauerkraut zugeben und kurz mitdünsten.",
+   "minutes": 8
+  },
+  {
+   "text": "Teig dünn ausrollen, mit Kraut belegen, aufrollen und in 4 cm breite Schnecken schneiden."
+  },
+  {
+   "text": "Schnecken in Butterschmalz in einer großen Pfanne von unten anbraten.",
+   "minutes": 5
+  },
+  {
+   "text": "Brühe angießen und zugedeckt garen, bis die Flüssigkeit fast verkocht ist und der Boden knusprig wird.",
+   "minutes": 25
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 90
+}

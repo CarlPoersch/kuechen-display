@@ -1,0 +1,65 @@
+{
+ "id": "gnudi-spinat-ricotta",
+ "title": "Gnudi mit Spinat und Ricotta",
+ "icon": "🥬",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Ricotta"
+  },
+  {
+   "amount": "300 g",
+   "name": "Blattspinat (TK, aufgetaut)"
+  },
+  {
+   "amount": "80 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "80 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "8",
+   "name": "Salbeiblätter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spinat sehr gut ausdrücken und fein hacken."
+  },
+  {
+   "text": "Ricotta, Spinat, Ei, die Hälfte vom Parmesan, Muskat, Salz und Mehl zu einem weichen Teig verrühren."
+  },
+  {
+   "text": "Mit zwei Esslöffeln Nocken formen und in leicht siedendem Salzwasser garen, bis sie oben schwimmen.",
+   "minutes": 4
+  },
+  {
+   "text": "Butter mit Salbei aufschäumen lassen, bis sie leicht nussig riecht.",
+   "minutes": 3
+  },
+  {
+   "text": "Gnudi in der Salbeibutter schwenken und mit restlichem Parmesan servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 45
+}

@@ -1,0 +1,60 @@
+{
+ "id": "erbsen-minz-suppe",
+ "title": "Erbsen-Minz-Suppe",
+ "icon": "🟢",
+ "cuisine": "Britisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "TK-Erbsen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Kartoffel"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Kartoffel würfeln und in Butter andünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Brühe zugeben und köcheln, bis die Kartoffel weich ist.",
+   "minutes": 10
+  },
+  {
+   "text": "Erbsen zugeben und nur kurz mitkochen, damit sie grün bleiben.",
+   "minutes": 3
+  },
+  {
+   "text": "Minze zugeben, alles fein pürieren, Sahne einrühren und abschmecken."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

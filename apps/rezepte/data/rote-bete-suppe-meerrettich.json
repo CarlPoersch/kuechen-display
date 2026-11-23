@@ -1,0 +1,66 @@
+{
+ "id": "rote-bete-suppe-meerrettich",
+ "title": "Rote-Bete-Suppe mit Meerrettich",
+ "icon": "🟣",
+ "cuisine": "Osteuropäisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rote Bete (roh)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Apfel"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Meerrettich (Glas)"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schmand"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Apfelessig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rote Bete schälen (Handschuhe!), Rote Bete, Zwiebel und Apfel würfeln."
+  },
+  {
+   "text": "Zwiebel in Öl andünsten, Rote Bete und Apfel kurz mitdünsten.",
+   "minutes": 4
+  },
+  {
+   "text": "Brühe zugeben und köcheln, bis die Rote Bete weich ist.",
+   "minutes": 25
+  },
+  {
+   "text": "Fein pürieren, mit Essig, Salz und Pfeffer abschmecken."
+  },
+  {
+   "text": "Schmand mit Meerrettich verrühren und auf die Suppe geben."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "gf": true
+}

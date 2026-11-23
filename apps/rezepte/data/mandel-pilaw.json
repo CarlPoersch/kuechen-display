@@ -1,0 +1,67 @@
+{
+ "id": "mandel-pilaw",
+ "title": "Pilaw-Reis mit Mandeln und Rosinen",
+ "icon": "🍚",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Basmatireis"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "3",
+   "name": "Kardamomkapseln"
+  },
+  {
+   "amount": "450 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "40 g",
+   "name": "Mandelstifte"
+  },
+  {
+   "amount": "30 g",
+   "name": "Rosinen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis waschen, bis das Wasser klar ist, abtropfen lassen."
+  },
+  {
+   "text": "Zwiebel fein würfeln und in Butter mit Zimt und Kardamom goldgelb dünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Reis zugeben und kurz glasig rühren.",
+   "minutes": 2
+  },
+  {
+   "text": "Brühe und Rosinen zugeben, aufkochen und zugedeckt bei kleinster Hitze garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Mandeln rösten und unter den aufgelockerten Reis heben."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

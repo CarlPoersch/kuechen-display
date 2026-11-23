@@ -1,0 +1,42 @@
+{
+ "id": "nicecream",
+ "title": "Schoko-Bananen-Nicecream",
+ "icon": "🍌",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 5 Min. (+ Gefrierzeit)",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "reife Bananen (gefroren)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Kakaopulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Haferdrink"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Erdnussbutter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bananen in Scheiben schneiden und mindestens 4 Stunden einfrieren."
+  },
+  {
+   "text": "Gefrorene Bananen mit Kakao und Haferdrink im Mixer cremig pürieren, zwischendurch abschaben."
+  },
+  {
+   "text": "Erdnussbutter kurz unterziehen und sofort essen oder 30 Minuten nachfrieren.",
+   "minutes": 30
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 5
+}

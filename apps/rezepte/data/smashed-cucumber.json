@@ -1,0 +1,61 @@
+{
+ "id": "smashed-cucumber",
+ "title": "Smashed Cucumber (chinesischer Gurkensalat)",
+ "icon": "🥒",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Reisessig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesam"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Gurke mit der flachen Messerseite andrücken, bis sie aufplatzt, dann in mundgerechte Stücke brechen."
+  },
+  {
+   "text": "Mit etwas Salz mischen und Wasser ziehen lassen, dann abgießen.",
+   "minutes": 10
+  },
+  {
+   "text": "Knoblauch fein hacken und mit Sojasauce, Essig, Zucker, Sesamöl und Chiliöl verrühren."
+  },
+  {
+   "text": "Gurke mit dem Dressing mischen und mit Sesam bestreuen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 15
+}

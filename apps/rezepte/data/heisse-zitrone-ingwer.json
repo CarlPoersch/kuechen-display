@@ -1,0 +1,43 @@
+{
+ "id": "heisse-zitrone-ingwer",
+ "title": "Heiße Zitrone mit Ingwer und Honig",
+ "icon": "🍋",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone"
+  },
+  {
+   "amount": "20 g",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Honig"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Wasser"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ingwer in dünne Scheiben schneiden und im Wasser kurz aufkochen, dann ziehen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Zitrone auspressen, ein paar Scheiben Schale mitziehen lassen."
+  },
+  {
+   "text": "Etwas abkühlen lassen und erst dann den Honig einrühren."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10,
+ "gf": true
+}

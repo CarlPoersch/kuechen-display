@@ -1,0 +1,53 @@
+{
+ "id": "bruschetta",
+ "title": "Bruschetta mit Tomaten und Basilikum",
+ "icon": "🍅",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Ciabatta"
+  },
+  {
+   "amount": "4",
+   "name": "reife Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Balsamico"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tomaten entkernen und fein würfeln, mit Basilikum, 2 EL Öl, Balsamico, Salz und Pfeffer mischen."
+  },
+  {
+   "text": "Ciabatta in Scheiben schneiden, mit restlichem Öl beträufeln und im Ofen oder in der Pfanne rösten.",
+   "minutes": 5
+  },
+  {
+   "text": "Brote mit der halbierten Knoblauchzehe einreiben."
+  },
+  {
+   "text": "Tomaten erst kurz vor dem Servieren daraufgeben, damit das Brot knusprig bleibt."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 15
+}

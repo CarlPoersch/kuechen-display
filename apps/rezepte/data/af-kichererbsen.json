@@ -1,0 +1,52 @@
+{
+ "id": "af-kichererbsen",
+ "title": "Knusprige Kichererbsen aus dem Airfryer",
+ "icon": "🫘",
+ "cuisine": "Orientalisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Dose",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "geräuchertes Paprikapulver"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Knoblauchpulver"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kichererbsen abspülen und sehr gut trocken tupfen, lose Häutchen entfernen."
+  },
+  {
+   "text": "Mit Öl, Gewürzen und Salz mischen."
+  },
+  {
+   "text": "Im Airfryer bei 200 °C knusprig rösten, zwischendurch schütteln.",
+   "minutes": 15
+  },
+  {
+   "text": "Kurz abkühlen lassen – sie werden dabei noch knuspriger."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 20,
+ "gf": true,
+ "airfryer": true,
+ "tab": "airfryer"
+}

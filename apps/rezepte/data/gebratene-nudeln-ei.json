@@ -1,0 +1,75 @@
+{
+ "id": "gebratene-nudeln-ei",
+ "title": "Gebratene Nudeln mit Ei und Gemüse",
+ "icon": "🍜",
+ "cuisine": "Chinesisch",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Mie-Nudeln"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "100 g",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Nudeln nach Packung garen und abtropfen lassen.",
+   "minutes": 4
+  },
+  {
+   "text": "Karotte und Kohl in feine Streifen schneiden, Frühlingszwiebeln in Ringe."
+  },
+  {
+   "text": "Eier im Wok in Öl stocken lassen, zerteilen und herausnehmen.",
+   "minutes": 2
+  },
+  {
+   "text": "Gemüse und Knoblauch im Wok bei großer Hitze anbraten.",
+   "minutes": 3
+  },
+  {
+   "text": "Nudeln, Saucen und Ei zugeben und alles zusammen kräftig durchbraten, mit Sesamöl beträufeln.",
+   "minutes": 3
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 20
+}

@@ -1,0 +1,77 @@
+{
+ "id": "fischtacos-mango",
+ "title": "Fischtacos mit Mango-Salsa",
+ "icon": "🌮",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Kabeljaufilet"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Paprikapulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "8",
+   "name": "kleine Weizentortillas"
+  },
+  {
+   "amount": "1",
+   "name": "Mango"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "150 g",
+   "name": "Rotkohl"
+  },
+  {
+   "amount": "150 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mango und Zwiebel fein würfeln, mit Koriander, der Hälfte des Limettensafts und Salz zur Salsa mischen."
+  },
+  {
+   "text": "Rotkohl sehr fein hobeln und mit etwas Salz und Limettensaft kneten."
+  },
+  {
+   "text": "Fisch in Stücke schneiden, mit Paprika, Kreuzkümmel und Salz würzen und in Öl braten.",
+   "minutes": 6
+  },
+  {
+   "text": "Tortillas in einer trockenen Pfanne kurz erwärmen.",
+   "minutes": 2
+  },
+  {
+   "text": "Tortillas mit Kohl, Fisch, Salsa und saurer Sahne füllen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30
+}
