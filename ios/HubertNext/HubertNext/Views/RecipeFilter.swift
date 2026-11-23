@@ -59,11 +59,12 @@ enum PantryMatch {
             || key.hasSuffix("öl") || key == "zucker" || key.hasPrefix("öl")
     }
 
-    static func missing(_ r: RecipeSummary, pantryKeys: [String]) -> [String] {
+    static func missing(_ r: RecipeSummary, pantry: [FoodKey]) -> [String] {
         (r.ing ?? []).filter { name in
             let k = KitchenStore.key(name)
             guard !k.isEmpty, !isStaple(k) else { return false }
-            return !pantryKeys.contains { p in !p.isEmpty && (k.contains(p) || p.contains(k)) }
+            let i = FoodCatalog.key(name)
+            return !pantry.contains { FoodCatalog.matches($0, i) }
         }
     }
 }

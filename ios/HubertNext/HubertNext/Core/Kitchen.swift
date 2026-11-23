@@ -427,7 +427,7 @@ final class KitchenStore: ObservableObject {
         guard it.kind == "shop" else { return }
         let marker = "shop:" + it.id
         if c.done {
-            if !inPantry(it.name) { add("pantry", name: it.name, place: "Vorrat", recipe: marker) }
+            if !hasInPantry(exact: it.name) { add("pantry", name: it.name, place: FoodCatalog.place(for: it.name), recipe: marker) }
         } else {
             for p in pantry where p.recipe == marker { delete(p) }
         }
@@ -447,14 +447,26 @@ final class KitchenStore: ObservableObject {
     /// Eingekauft → in den Vorrat
     func moveToPantry(_ it: KitchenItem) {
         delete(it)
-        if !inPantry(it.name) { add("pantry", name: it.name, place: "Vorrat") }
+        if !hasInPantry(exact: it.name) { add("pantry", name: it.name, place: FoodCatalog.place(for: it.name)) }
     }
 
-    /// Ist etwas mit diesem Namen im Vorrat? ("Knoblauchzehen" passt zu "Knoblauch")
+    /// Ist etwas für diese Zutat im Vorrat? Über den Lebensmittel-Katalog:
+    /// „Knoblauch“ ↔ „Knoblauchzehen“, „Nudeln“ ↔ „Tagliatelle“, „Spaghetti“ ↔ „Tagliatelle“, aber „Reis“ ≠ „Reisnudeln“
     func inPantry(_ ingredient: String) -> Bool {
-        let n = Self.key(ingredient)
-        guard !n.isEmpty else { return false }
-        return pantry.contains { p in let k = Self.key(p.name); return !k.isEmpty && (n.contains(k) || k.contains(n)) }
+        let i = FoodCatalog.key(ingredient)
+        return pantry.contains { FoodCatalog.matches(FoodCatalog.key($0.name), i) }
+    }
+
+    /// Steht genau dieser Name im Vorrat? (für die Bausteine)
+    func hasInPantry(exact name: String) -> Bool {
+        let k = Self.key(name)
+        return pantry.contains { Self.key($0.name) == k }
+    }
+
+    /// Baustein abwählen: alle Einträge mit genau diesem Namen aus dem Vorrat
+    func removeFromPantry(named name: String) {
+        let k = Self.key(name)
+        for p in pantry where Self.key(p.name) == k { delete(p) }
     }
 
     private func onList(_ ingredient: String) -> Bool {

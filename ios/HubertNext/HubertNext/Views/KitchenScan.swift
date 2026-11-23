@@ -246,7 +246,7 @@ struct ReceiptScanView: View {
                         for l in picked where l.name != l.suggested { kitchen.learn(key: FoodNames.key(l.raw), name: l.name) }
                         let chosen = picked.map { $0.name }
                         for n in chosen {
-                            if !kitchen.inPantry(n) { kitchen.add("pantry", name: n, place: place) }
+                            if !kitchen.hasInPantry(exact: n) { kitchen.add("pantry", name: n, place: place) }
                             // Passendes auf der Einkaufsliste gleich abhaken
                             for it in kitchen.shop where !it.done && KitchenStore.key(n).contains(KitchenStore.key(it.name)) {
                                 kitchen.toggle(it)

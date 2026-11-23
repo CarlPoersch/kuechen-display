@@ -111,7 +111,7 @@ struct RecipesTab: View {
     /// Passende Rezepte mit fehlenden Zutaten (nur bei „Mit meinem Vorrat“ gefüllt)
     private func matching(_ f: RecipeFilter) -> [(RecipeSummary, [String])] {
         let q = query.lowercased().trimmingCharacters(in: .whitespaces)
-        let pantryKeys = f.pantry ? kitchen.pantry.map { KitchenStore.key($0.name) } : []
+        let pantryKeys = f.pantry ? kitchen.pantry.map { FoodCatalog.key($0.name) } : []
         let include = f.include.map { $0.lowercased() }
         var out: [(RecipeSummary, [String])] = []
         for r in kitchen.recipes {
@@ -134,7 +134,7 @@ struct RecipesTab: View {
             if !include.allSatisfy({ z in ing.contains { $0.contains(z) } }) { continue }
             var missing: [String] = []
             if f.pantry {
-                missing = PantryMatch.missing(r, pantryKeys: pantryKeys)
+                missing = PantryMatch.missing(r, pantry: pantryKeys)
                 if missing.count > f.maxMissing { continue }
             }
             out.append((r, missing))
@@ -1365,6 +1365,7 @@ struct PantryTab: View {
     @State private var place = "Vorrat"
     @State private var editing: KitchenItem?
     @State private var scanning = false
+    @AppStorage("hubert.pantry.blocks") private var showBlocks = false
     @FocusState private var typing: Bool
 
     private var query: String { newItem.trimmingCharacters(in: .whitespaces) }
@@ -1391,6 +1392,13 @@ struct PantryTab: View {
                 // Sobald etwas eingetippt ist: deutliche Zeile zum Hinzufügen (Enter geht weiterhin)
                 if !query.isEmpty { AddRow(text: query, target: place, action: add) }
             }
+            Section {
+                DisclosureGroup(isExpanded: $showBlocks.animation(.easeOut(duration: 0.2))) {
+                    PantryBlocks()
+                } label: {
+                    Label("Schnell hinzufügen", systemImage: "square.grid.2x2").font(.headline)
+                }
+            }
             let soon = kitchen.pantry.filter { ($0.daysLeft ?? 99) <= 3 }
             if !soon.isEmpty {
                 Section(header: Text("Bald aufbrauchen")) { ForEach(soon) { row($0) } }
@@ -1409,20 +1417,118 @@ struct PantryTab: View {
     }
 
     private func row(_ it: KitchenItem) -> some View {
-        Button { editing = it } label: {
-            HStack {
-                Text(it.name).foregroundColor(.primary)
-                Spacer()
-                if let d = it.daysLeft {
-                    Text(d < 0 ? "abgelaufen" : d == 0 ? "heute" : d == 1 ? "morgen" : "noch \(d) Tage")
-                        .font(.subheadline).foregroundColor(d <= 1 ? .red : d <= 3 ? .orange : Theme.secondary)
-                }
+        HStack(spacing: 4) {
+            // Minus: sofort raus aus dem Vorrat, ohne Rückfrage
+            Button { withAnimation { kitchen.delete(it) } } label: {
+                Image(systemName: "minus.circle.fill").font(.title3).foregroundColor(Theme.secondary)
+                    .frame(width: 44, height: 44).contentShape(Rectangle())
             }
+            .buttonStyle(.borderless)
+            .padding(.leading, -10)
+            .accessibilityLabel("\(it.name) entfernen")
+            Button { editing = it } label: {
+                HStack {
+                    Text(it.name).foregroundColor(.primary)
+                    Spacer()
+                    if let d = it.daysLeft {
+                        Text(d < 0 ? "abgelaufen" : d == 0 ? "heute" : d == 1 ? "morgen" : "noch \(d) Tage")
+                            .font(.subheadline).foregroundColor(d <= 1 ? .red : d <= 3 ? .orange : Theme.secondary)
+                    }
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.borderless)
         }
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) { kitchen.delete(it) } label: { Label("Löschen", systemImage: "trash") }
             Button { kitchen.add("shop", name: it.name) } label: { Label("Einkaufen", systemImage: "cart.badge.plus") }.tint(Theme.accent)
         }
+    }
+}
+
+/// Vorgefertigte Bausteine: Kategorie wählen, antippen = in den Vorrat, nochmal antippen = wieder raus
+struct PantryBlocks: View {
+    @ObservedObject private var kitchen = KitchenStore.shared
+    @AppStorage("hubert.pantry.category") private var category = ""
+    private let columns = [GridItem(.adaptive(minimum: 120), spacing: 8)]
+
+    private struct Block: Hashable { let name: String; let place: String; let main: Bool }
+    private struct Part: Hashable { let title: String; let blocks: [Block] }
+
+    /// Gruppen mit Sorten bekommen eine eigene Überschrift, einzelne Lebensmittel landen gesammelt unter „Weitere“
+    private func parts(_ c: FoodCategory) -> [Part] {
+        var out: [Part] = []
+        if let general = c.also.first {
+            out.append(Part(title: "", blocks: [Block(name: general, place: c.place, main: true)]))
+        }
+        var single: [Block] = []
+        for g in c.groups {
+            if g.sorts.isEmpty {
+                single.append(Block(name: g.name, place: g.place, main: false))
+            } else {
+                out.append(Part(title: g.name, blocks: [Block(name: g.name, place: g.place, main: true)]
+                                + g.sorts.map { Block(name: $0, place: g.place, main: false) }))
+            }
+        }
+        if !single.isEmpty { out.append(Part(title: out.count > 1 ? "Weitere" : "", blocks: single)) }
+        return out
+    }
+
+    var body: some View {
+        let cats = FoodCatalog.categories
+        let current = cats.first { $0.name == category } ?? cats[0]
+        let have = Set(kitchen.pantry.map { KitchenStore.key($0.name) })
+        VStack(alignment: .leading, spacing: 14) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(cats, id: \.name) { c in
+                        let on = c.name == current.name
+                        Button { category = c.name } label: {
+                            Text(c.name).font(.subheadline.weight(.semibold))
+                                .padding(.horizontal, 14).frame(minHeight: 36)
+                                .foregroundColor(on ? .white : .primary)
+                                .background(Capsule().fill(on ? Theme.accent : Color(UIColor.tertiarySystemFill)))
+                        }
+                        .buttonStyle(.borderless)
+                    }
+                }
+                .padding(.vertical, 4)
+            }
+            ForEach(parts(current), id: \.self) { part in
+                VStack(alignment: .leading, spacing: 8) {
+                    if !part.title.isEmpty {
+                        Text(part.title.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+                    }
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 8) {
+                        ForEach(part.blocks, id: \.self) { b in chip(b, has: have.contains(KitchenStore.key(b.name))) }
+                    }
+                }
+            }
+        }
+        .padding(.vertical, 6)
+    }
+
+    private func chip(_ b: Block, has: Bool) -> some View {
+        Button {
+            withAnimation(.easeOut(duration: 0.15)) {
+                if has { kitchen.removeFromPantry(named: b.name) } else { kitchen.add("pantry", name: b.name, place: b.place) }
+            }
+        } label: {
+            HStack(spacing: 6) {
+                Image(systemName: has ? "checkmark" : "plus").font(.caption.weight(.bold))
+                Text(b.name).font(b.main ? .subheadline.weight(.semibold) : .subheadline)
+                    .lineLimit(1).minimumScaleFactor(0.75)
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 10)
+            .frame(maxWidth: .infinity, minHeight: 44)
+            .foregroundColor(has ? Theme.accent : .primary)
+            .background(RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill(has ? Theme.accent.opacity(0.15) : Color(UIColor.tertiarySystemFill)))
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.borderless)
+        .accessibilityLabel(has ? "\(b.name) aus dem Vorrat entfernen" : "\(b.name) in den Vorrat")
     }
 }
 
