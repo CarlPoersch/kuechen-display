@@ -1,7 +1,7 @@
 import SwiftUI
 import Combine
 #if canImport(SpotifyiOS)
-import SpotifyiOS
+@preconcurrency import SpotifyiOS
 #endif
 
 // ============================================================
@@ -127,7 +127,11 @@ final class SpotifyCenter: NSObject, ObservableObject {
         configuration.playURI = uri
         retriedConnect = false
         phase = .connecting
-        sessionManager.initiateSession(with: scope, options: .default, campaign: nil)
+        guard let presenter = Self.topViewController() else {
+            phase = .failed("Spotify ließ sich gerade nicht öffnen. Versuche es gleich nochmal.")
+            return
+        }
+        sessionManager.initiateSession(with: scope, options: .default, presenting: presenter)
         #endif
     }
 
@@ -224,6 +228,15 @@ final class SpotifyCenter: NSObject, ObservableObject {
     func playLiked() {
         if let id = userId { play("spotify:user:\(id):collection") }
         else if let first = liked.first { play(first.uri) }
+    }
+
+    /// Oberster Bildschirm – das SDK braucht ihn, falls es die Anmeldung im Browser zeigt
+    private static func topViewController() -> UIViewController? {
+        let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+        let window = scenes.flatMap(\.windows).first(where: { $0.isKeyWindow }) ?? scenes.first?.windows.first
+        var top = window?.rootViewController
+        while let next = top?.presentedViewController { top = next }
+        return top
     }
 
     #if canImport(SpotifyiOS)
