@@ -256,14 +256,94 @@ struct FilmPoster: View {
     }
 }
 
+/// Logo eines Streamingdienstes. Reihenfolge: Logo von TMDB → offizielles App-Symbol aus dem App Store → Namensschild
 struct ProviderLogo: View {
     let p: FilmProvider
     var size: CGFloat = 20
+    @ObservedObject private var icons = AppIconStore.shared
+    @State private var tmdbFailed = false
+    @State private var iconFailed = false
+
     var body: some View {
-        AsyncImage(url: p.logo.flatMap(URL.init)) { img in img.resizable().scaledToFit() } placeholder: { Color(UIColor.tertiarySystemFill) }
-            .frame(width: size, height: size)
-            .clipShape(RoundedRectangle(cornerRadius: size * 0.24, style: .continuous))
-            .accessibilityLabel(p.name)
+        Group {
+            if let u = p.logo.flatMap(URL.init), !tmdbFailed {
+                AsyncImage(url: u) { phase in
+                    if let img = phase.image { img.resizable().scaledToFit() }
+                    else if phase.error != nil { Color.clear.onAppear { tmdbFailed = true } }
+                    else { Color(UIColor.tertiarySystemFill) }
+                }
+            } else if let u = icons.url(for: p.name), !iconFailed {
+                AsyncImage(url: u) { phase in
+                    if let img = phase.image { img.resizable().scaledToFit() }
+                    else if phase.error != nil { Color.clear.onAppear { iconFailed = true } }
+                    else { Color(UIColor.tertiarySystemFill) }
+                }
+            } else {
+                badge.task(id: p.name) { await icons.fetch(p.name) }
+            }
+        }
+        .frame(width: size, height: size)
+        .clipShape(RoundedRectangle(cornerRadius: size * 0.24, style: .continuous))
+        // feiner Rand: helle Logos verschwinden sonst auf weißen Karten
+        .overlay(RoundedRectangle(cornerRadius: size * 0.24, style: .continuous).stroke(Color.primary.opacity(0.1), lineWidth: 0.5))
+        .accessibilityLabel(p.name)
+    }
+
+    private var badge: some View {
+        ZStack {
+            Color(UIColor.secondarySystemFill)
+            Text(p.name.count <= 6 ? p.name : String(p.name.split(separator: " ").compactMap(\.first).prefix(3)))
+                .font(.system(size: max(6, size * 0.3), weight: .bold)).foregroundColor(.primary)
+                .lineLimit(1).minimumScaleFactor(0.4).padding(size * 0.08)
+        }
+    }
+}
+
+/// Offizielle App-Symbole aus dem App Store (iTunes-Suche, ohne Schlüssel), als Ersatz für fehlende Logos.
+/// Gefundene Adressen werden auf dem Gerät gemerkt.
+final class AppIconStore: ObservableObject {
+    static let shared = AppIconStore()
+    @Published private(set) var urls: [String: URL] = [:]
+    private var asked = Set<String>()
+    private let saveKey = "film.appIcons"
+
+    /// TMDB-Namen, die im App Store anders heißen
+    private static let terms: [String: String] = [
+        "Amazon Prime Video": "Prime Video", "Disney Plus": "Disney+", "Apple TV Plus": "Apple TV",
+        "Apple TV+": "Apple TV", "Paramount Plus": "Paramount+", "Paramount+ Amazon Channel": "Paramount+",
+        "RTL+": "RTL+", "RTL Plus": "RTL+", "WOW": "WOW", "Sky Go": "Sky Go", "MagentaTV": "MagentaTV",
+        "ARD Mediathek": "ARD Mediathek", "ZDF": "ZDFmediathek", "Joyn": "Joyn", "Netflix": "Netflix",
+    ]
+
+    init() {
+        let d = UserDefaults.standard.dictionary(forKey: saveKey) as? [String: String] ?? [:]
+        urls = d.compactMapValues(URL.init)
+    }
+
+    func url(for name: String) -> URL? { urls[name] }
+
+    private struct Result: Decodable { let trackName: String; let artworkUrl512: String?; let artworkUrl100: String? }
+    private struct Response: Decodable { let results: [Result] }
+
+    private static func norm(_ s: String) -> String {
+        s.lowercased().filter { $0.isLetter || $0.isNumber || $0 == "+" }
+    }
+
+    func fetch(_ name: String) async {
+        guard urls[name] == nil, !asked.contains(name) else { return }
+        asked.insert(name)
+        let term = Self.terms[name] ?? name
+        var c = URLComponents(string: "https://itunes.apple.com/search")!
+        c.queryItems = [URLQueryItem(name: "term", value: term), URLQueryItem(name: "country", value: "de"),
+                        URLQueryItem(name: "entity", value: "software"), URLQueryItem(name: "limit", value: "10")]
+        guard let url = c.url, let res = try? await URLSession.shared.data(from: url),
+              let r = try? JSONDecoder().decode(Response.self, from: res.0) else { return }
+        let want = Self.norm(term)
+        // Nur ein eindeutiger Treffer: App-Name beginnt mit dem Namen des Dienstes
+        guard let hit = r.results.first(where: { Self.norm($0.trackName).hasPrefix(want) }),
+              let art = (hit.artworkUrl512 ?? hit.artworkUrl100).flatMap(URL.init) else { return }
+        urls[name] = art
+        UserDefaults.standard.set(urls.mapValues(\.absoluteString), forKey: saveKey)
     }
 }
 

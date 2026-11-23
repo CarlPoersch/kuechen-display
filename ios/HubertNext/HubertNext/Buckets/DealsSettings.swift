@@ -306,8 +306,7 @@ struct DealTermEdit: View {
                         HStack {
                             Text(a)
                             Spacer()
-                            Button { update { $0.alts.removeAll { $0 == a } } } label: { Image(systemName: "minus.circle.fill").foregroundColor(.red) }
-                                .buttonStyle(.borderless).accessibilityLabel("\(a) entfernen")
+                            RemoveButton(name: a) { update { $0.alts.removeAll { $0 == a } } }
                         }
                     }
                     addRow("Weiteres Wort, z. B. Earbuds", $newAlt) { v in update { $0.alts.append(v) } }
@@ -321,8 +320,7 @@ struct DealTermEdit: View {
                         HStack {
                             Text(a)
                             Spacer()
-                            Button { update { $0.not.removeAll { $0 == a } } } label: { Image(systemName: "minus.circle.fill").foregroundColor(.red) }
-                                .buttonStyle(.borderless).accessibilityLabel("\(a) entfernen")
+                            RemoveButton(name: a) { update { $0.not.removeAll { $0 == a } } }
                         }
                     }
                     addRow("Ausschließen, z. B. Hülle", $newNot) { v in update { $0.not.append(v) } }

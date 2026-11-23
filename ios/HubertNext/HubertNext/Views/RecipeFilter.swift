@@ -149,11 +149,7 @@ struct RecipeFilterSheet: View {
                         HStack {
                             Text(z)
                             Spacer()
-                            Button { filter.include.removeAll { $0 == z } } label: {
-                                Image(systemName: "minus.circle.fill").foregroundColor(.red)
-                            }
-                            .buttonStyle(.borderless)
-                            .accessibilityLabel("\(z) entfernen")
+                            RemoveButton(name: z) { filter.include.removeAll { $0 == z } }
                         }
                     }
                     HStack {

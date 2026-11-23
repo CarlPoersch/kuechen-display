@@ -138,15 +138,20 @@ struct ZieleApp: View {
         List {
             Section {
                 ForEach(goals) { g in
-                    Button { change { list in if let i = list.firstIndex(where: { $0.id == g.id }) { list[i].done.toggle() } } } label: {
-                        HStack(spacing: 12) {
-                            Image(systemName: g.done ? "checkmark.circle.fill" : "circle")
-                                .font(.title2).foregroundColor(g.done ? Theme.accent : Theme.secondary)
-                            Text(g.t).font(.body).strikethrough(g.done).foregroundColor(g.done ? Theme.secondary : .primary)
+                    HStack(spacing: 4) {
+                        Button { change { list in if let i = list.firstIndex(where: { $0.id == g.id }) { list[i].done.toggle() } } } label: {
+                            HStack(spacing: 12) {
+                                Image(systemName: g.done ? "checkmark.circle.fill" : "circle")
+                                    .font(.title2).foregroundColor(g.done ? Theme.accent : Theme.secondary)
+                                Text(g.t).font(.body).strikethrough(g.done).foregroundColor(g.done ? Theme.secondary : .primary)
+                                Spacer(minLength: 0)
+                            }
+                            .padding(.vertical, 4)
+                            .contentShape(Rectangle())
                         }
-                        .padding(.vertical, 4)
+                        .buttonStyle(.borderless)
+                        RemoveButton(name: g.t) { change { $0.removeAll { $0.id == g.id } } }
                     }
-                    .buttonStyle(.plain)
                 }
                 .onDelete { idx in let ids = idx.map { goals[$0].id }; change { $0.removeAll { ids.contains($0.id) } } }
                 if goals.count < 5 {

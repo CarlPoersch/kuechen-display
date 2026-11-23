@@ -381,14 +381,13 @@ struct BucketCard: View {
             } else {
                 row
             }
-            if kind.settings != nil {
-                Button { editing = true } label: {
-                    Image(systemName: "slider.horizontal.3").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
-                        .frame(width: 28, height: 22)
-                }
-                .buttonStyle(.borderless)
-                .accessibilityLabel("Anpassen")
+            // Immer da: auch ohne eigene Einstellungen gibt es Name, Größe und „Auf diesem Gerät zeigen“
+            Button { editing = true } label: {
+                Image(systemName: "slider.horizontal.3").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
+                    .frame(width: 28, height: 22)
             }
+            .buttonStyle(.borderless)
+            .accessibilityLabel("Anpassen")
         }
     }
 
@@ -425,12 +424,10 @@ struct BucketDetailHost: View {
             .environment(\.bucketId, instance.id)
             .environment(\.editBucket, { editing = true })
             .toolbar {
-                // Warum das "if" innen steht: Bedingte Toolbar-Einträge gibt es erst ab iOS 16
+                // Immer da – auch ohne eigene Einstellungen (Name, Größe, Sichtbarkeit)
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    if kind.settings != nil {
-                        Button { editing = true } label: { Image(systemName: "slider.horizontal.3") }
-                            .accessibilityLabel("Anpassen")
-                    }
+                    Button { editing = true } label: { Image(systemName: "slider.horizontal.3") }
+                        .accessibilityLabel("Anpassen")
                 }
             }
             .sheet(isPresented: $editing) { BucketEditSheet(bucketId: instance.id).environmentObject(store) }

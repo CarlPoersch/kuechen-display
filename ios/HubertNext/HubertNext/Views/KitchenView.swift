@@ -1213,6 +1213,21 @@ struct AddButton: View {
     }
 }
 
+/// Minus am rechten Zeilenende: entfernt sofort, gut mit dem Daumen erreichbar
+struct RemoveButton: View {
+    let name: String
+    let action: () -> Void
+    var body: some View {
+        Button { withAnimation { action() } } label: {
+            Image(systemName: "minus.circle.fill").font(.title3).foregroundColor(Theme.secondary)
+                .frame(width: 44, height: 44).contentShape(Rectangle())
+        }
+        .buttonStyle(.borderless)
+        .padding(.trailing, -10)
+        .accessibilityLabel("\(name) entfernen")
+    }
+}
+
 /// Deutlicher Knopf rechts im Eingabefeld, sobald etwas eingetippt ist
 struct AddPill: View {
     let action: () -> Void
@@ -1333,6 +1348,7 @@ struct ShopRow: View {
             if compact { nameLabel }
             else { Button { editing = true } label: { nameLabel }.buttonStyle(.borderless) }
             if compact && !item.amount.isEmpty { Text(item.amount).font(.caption).foregroundColor(Theme.secondary) }
+            if !compact { RemoveButton(name: item.name) { kitchen.delete(item) } }
         }
         .padding(.vertical, compact ? 0 : 2)
         .swipeActions(edge: .trailing) {
@@ -1435,14 +1451,6 @@ struct PantryTab: View {
 
     private func row(_ it: KitchenItem) -> some View {
         HStack(spacing: 4) {
-            // Minus: sofort raus aus dem Vorrat, ohne Rückfrage
-            Button { withAnimation { kitchen.delete(it) } } label: {
-                Image(systemName: "minus.circle.fill").font(.title3).foregroundColor(Theme.secondary)
-                    .frame(width: 44, height: 44).contentShape(Rectangle())
-            }
-            .buttonStyle(.borderless)
-            .padding(.leading, -10)
-            .accessibilityLabel("\(it.name) entfernen")
             Button { editing = it } label: {
                 HStack {
                     Text(it.name).foregroundColor(.primary)
@@ -1455,6 +1463,8 @@ struct PantryTab: View {
                 .contentShape(Rectangle())
             }
             .buttonStyle(.borderless)
+            // Minus rechts: sofort raus aus dem Vorrat, ohne Rückfrage
+            RemoveButton(name: it.name) { kitchen.delete(it) }
         }
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) { kitchen.delete(it) } label: { Label("Löschen", systemImage: "trash") }
