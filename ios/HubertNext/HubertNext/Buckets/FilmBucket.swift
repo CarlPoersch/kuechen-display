@@ -76,7 +76,10 @@ enum FilmBucket {
 
 // MARK: Daten
 
-struct FilmProvider: Codable, Identifiable, Hashable { let id: Int; let name: String; let logo: String? }
+struct FilmProvider: Codable, Identifiable, Hashable {
+    let id: Int; let name: String; let logo: String?
+    let icon: String?          // offizielles App-Symbol aus dem App Store (vom Server, falls bekannt)
+}
 struct FilmEpisode: Codable, Hashable { let s: Int; let e: Int; let date: String?; let name: String? }
 struct FilmItem: Codable, Hashable {
     let id: Int; let t: String; let title: String; let poster: String?; let date: String?
@@ -163,7 +166,10 @@ final class FilmService: ObservableObject {
     }
 
     func loadBasics() async {
-        if providers.isEmpty, let p = try? await get("providers", [], [FilmProvider].self) { providers = p }
+        if providers.isEmpty, let p = try? await get("providers", [], [FilmProvider].self) {
+            providers = p
+            AppIconStore.shared.remember(p)     // App-Symbole auch für Titel-Kacheln merken
+        }
         if genres.isEmpty, let g = try? await get("genres", [], [FilmGenre].self) { genres = g }
     }
 
@@ -256,7 +262,7 @@ struct FilmPoster: View {
     }
 }
 
-/// Logo eines Streamingdienstes. Reihenfolge: Logo von TMDB → offizielles App-Symbol aus dem App Store → Namensschild
+/// Logo eines Streamingdienstes. Reihenfolge: offizielles App-Symbol → Logo von TMDB → Namensschild
 struct ProviderLogo: View {
     let p: FilmProvider
     var size: CGFloat = 20
@@ -266,19 +272,22 @@ struct ProviderLogo: View {
 
     var body: some View {
         Group {
-            if let u = p.logo.flatMap(URL.init), !tmdbFailed {
-                AsyncImage(url: u) { phase in
-                    if let img = phase.image { img.resizable().scaledToFit() }
-                    else if phase.error != nil { Color.clear.onAppear { tmdbFailed = true } }
-                    else { Color(UIColor.tertiarySystemFill) }
-                }
-            } else if let u = icons.url(for: p.name), !iconFailed {
+            if let u = (p.icon.flatMap(URL.init) ?? icons.url(for: p.name)), !iconFailed {
+                // 1. Offizielles App-Symbol (vom Server oder schon gemerkt)
                 AsyncImage(url: u) { phase in
                     if let img = phase.image { img.resizable().scaledToFit() }
                     else if phase.error != nil { Color.clear.onAppear { iconFailed = true } }
                     else { Color(UIColor.tertiarySystemFill) }
                 }
+            } else if let u = p.logo.flatMap(URL.init), !tmdbFailed {
+                // 2. Logo von TMDB
+                AsyncImage(url: u) { phase in
+                    if let img = phase.image { img.resizable().scaledToFit() }
+                    else if phase.error != nil { Color.clear.onAppear { tmdbFailed = true } }
+                    else { Color(UIColor.tertiarySystemFill) }
+                }
             } else {
+                // 3. Namensschild – und im Hintergrund nach dem App-Symbol suchen
                 badge.task(id: p.name) { await icons.fetch(p.name) }
             }
         }
@@ -309,9 +318,9 @@ final class AppIconStore: ObservableObject {
 
     /// TMDB-Namen, die im App Store anders heißen
     private static let terms: [String: String] = [
-        "Amazon Prime Video": "Prime Video", "Disney Plus": "Disney+", "Apple TV Plus": "Apple TV",
+        "Amazon Prime Video": "Amazon Prime Video", "Disney Plus": "Disney+", "Apple TV Plus": "Apple TV",
         "Apple TV+": "Apple TV", "Paramount Plus": "Paramount+", "Paramount+ Amazon Channel": "Paramount+",
-        "RTL+": "RTL+", "RTL Plus": "RTL+", "WOW": "WOW", "Sky Go": "Sky Go", "MagentaTV": "MagentaTV",
+        "RTL+": "RTL+", "RTL Plus": "RTL+", "HBO Max": "HBO Max", "Max": "HBO Max", "WOW": "WOW", "Sky Go": "Sky Go", "MagentaTV": "MagentaTV",
         "ARD Mediathek": "ARD Mediathek", "ZDF": "ZDFmediathek", "Joyn": "Joyn", "Netflix": "Netflix",
     ]
 
@@ -322,6 +331,13 @@ final class AppIconStore: ObservableObject {
 
     func url(for name: String) -> URL? { urls[name] }
 
+    /// App-Symbole aus der Dienste-Liste des Servers übernehmen
+    func remember(_ list: [FilmProvider]) {
+        var changed = false
+        for p in list { if let i = p.icon, let u = URL(string: i), urls[p.name] != u { urls[p.name] = u; changed = true } }
+        if changed { UserDefaults.standard.set(urls.mapValues(\.absoluteString), forKey: saveKey) }
+    }
+
     private struct Result: Decodable { let trackName: String; let artworkUrl512: String?; let artworkUrl100: String? }
     private struct Response: Decodable { let results: [Result] }
 
@@ -330,17 +346,19 @@ final class AppIconStore: ObservableObject {
     }
 
     func fetch(_ name: String) async {
-        guard urls[name] == nil, !asked.contains(name) else { return }
+        // Nur bekannte Dienste suchen – sonst Gefahr, dass ein fremdes App-Symbol erscheint
+        guard urls[name] == nil, !asked.contains(name), let term = Self.terms[name] else { return }
         asked.insert(name)
-        let term = Self.terms[name] ?? name
         var c = URLComponents(string: "https://itunes.apple.com/search")!
         c.queryItems = [URLQueryItem(name: "term", value: term), URLQueryItem(name: "country", value: "de"),
                         URLQueryItem(name: "entity", value: "software"), URLQueryItem(name: "limit", value: "10")]
+        // „+“ (RTL+, Disney+) muss kodiert werden, sonst liest der Server ein Leerzeichen
+        c.percentEncodedQuery = c.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
         guard let url = c.url, let res = try? await URLSession.shared.data(from: url),
               let r = try? JSONDecoder().decode(Response.self, from: res.0) else { return }
         let want = Self.norm(term)
         // Nur ein eindeutiger Treffer: App-Name beginnt mit dem Namen des Dienstes
-        guard let hit = r.results.first(where: { Self.norm($0.trackName).hasPrefix(want) }),
+        guard let hit = r.results.first(where: { Self.norm($0.trackName).hasPrefix(want) && !$0.trackName.lowercased().contains("fyc") }),
               let art = (hit.artworkUrl512 ?? hit.artworkUrl100).flatMap(URL.init) else { return }
         urls[name] = art
         UserDefaults.standard.set(urls.mapValues(\.absoluteString), forKey: saveKey)

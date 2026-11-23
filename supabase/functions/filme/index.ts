@@ -1,6 +1,6 @@
 // ============================================================
 // Edge Function "filme": Kino, Streaming und Serien für Hubert (Daten: TMDB).
-//   GET .../filme/providers                 Streamingdienste in Deutschland (mit Logo)
+//   GET .../filme/providers                 Streamingdienste in Deutschland (mit Logo und App-Symbol)
 //   GET .../filme/genres                    Genres (Film + Serie, deutsch)
 //   GET .../filme/feed?p=8,9&x=27           Neu: Kino, Streaming-Filme, Serien (p = Dienste, x = Genres ausblenden)
 //   GET .../filme/title?t=movie|tv&id=…     Details eines Titels
@@ -86,7 +86,7 @@ async function tmdb(path: string, params: Record<string, string | number | undef
 const day = (offset: number) => new Date(Date.now() + offset * 86_400_000).toISOString().slice(0, 10);
 const img = (p: string | null | undefined, size = "w342") => (p ? IMG + size + p : undefined);
 
-type Provider = { id: number; name: string; logo?: string };
+type Provider = { id: number; name: string; logo?: string; icon?: string };
 type Item = {
   id: number; t: "movie" | "tv"; title: string; poster?: string; date?: string; rating?: number; genres?: number[];
   providers?: Provider[]; next?: { s: number; e: number; date?: string; name?: string }; kino?: boolean;
@@ -96,12 +96,55 @@ type Item = {
 const NOISE = /store|justwatch|amazon video|youtube|with ads|channel|plex|rakuten|google play|microsoft|videoload|chili|kino on demand/i;
 const okProvider = (name: string) => !NOISE.test(name);
 
+// ---------- Offizielle App-Symbole (App Store) ----------
+// TMDB-Logos fehlen manchmal oder sind schlecht erkennbar (z. B. RTL+). Deshalb liefert die Funktion zusätzlich
+// das App-Symbol aus dem deutschen App Store. Feste App-IDs, wo bekannt; sonst Suche mit Prüfung des Anbieters.
+const APP_IDS: Record<string, number> = { "RTL+": 1057991212 };
+// Name bei TMDB → [Suchbegriff im App Store, Anbieter muss das enthalten]
+const APP_SEARCH: Record<string, [string, string]> = {
+  "Netflix": ["Netflix", "netflix"], "Amazon Prime Video": ["Amazon Prime Video", "amzn"], "Disney Plus": ["Disney+", "disney"],
+  "Apple TV Plus": ["Apple TV", "apple"], "Apple TV+": ["Apple TV", "apple"], "Paramount Plus": ["Paramount+", "paramount"],
+  "Paramount+": ["Paramount+", "paramount"], "WOW": ["WOW", "sky"], "Sky Go": ["Sky Go", "sky"], "Joyn": ["Joyn", "joyn"],
+  "MagentaTV": ["MagentaTV", "telekom"], "ARD Mediathek": ["ARD Mediathek", "ard"], "ZDF": ["ZDFmediathek", "zdf"],
+  "HBO Max": ["HBO Max", "warner"], "Max": ["HBO Max", "warner"], "Crunchyroll": ["Crunchyroll", "crunchyroll"],
+  "DAZN": ["DAZN", "dazn"], "SkyShowtime": ["SkyShowtime", "skyshowtime"], "RTL+": ["RTL+", "rtl"],
+};
+const iconCache = new Map<string, { at: number; url?: string }>();
+const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9+]/g, "");
+
+async function appIcon(name: string): Promise<string | undefined> {
+  if (!APP_IDS[name] && !APP_SEARCH[name]) return undefined;   // nur bekannte Dienste – sonst Gefahr falscher Treffer
+  const hit = iconCache.get(name);
+  if (hit && Date.now() - hit.at < (hit.url ? 7 * 86_400_000 : 6 * 3600_000)) return hit.url;
+  let url: string | undefined;
+  try {
+    const id = APP_IDS[name];
+    if (id) {
+      const r = await fetch(`https://itunes.apple.com/lookup?id=${id}&country=de`);
+      const j = r.ok ? await r.json() : null;
+      url = j?.results?.[0]?.artworkUrl512 ?? j?.results?.[0]?.artworkUrl100;
+    } else {
+      const [term, seller] = APP_SEARCH[name];
+      const r = await fetch(`https://itunes.apple.com/search?country=de&entity=software&limit=10&term=${encodeURIComponent(term)}`);
+      const j = r.ok ? await r.json() : null;
+      const want = norm(term);
+      const hit = (j?.results ?? []).find((a: any) =>
+        norm(a.trackName ?? "").startsWith(want) && !/fyc/i.test(a.trackName ?? "") &&
+        norm((a.sellerName ?? "") + (a.artistName ?? "")).includes(seller));
+      url = hit?.artworkUrl512 ?? hit?.artworkUrl100;
+    }
+  } catch { /* App Store nicht erreichbar: später nochmal */ }
+  iconCache.set(name, { at: Date.now(), url });
+  return url;
+}
+const withIcon = (p: Provider): Provider => ({ ...p, icon: iconCache.get(p.name)?.url });
+
 function providersDE(wp: any): Provider[] {
   const de = wp?.results?.DE;
   const list = [...(de?.flatrate ?? []), ...(de?.free ?? []), ...(de?.ads ?? [])];
   const seen = new Set<number>();
   return list.filter((p: any) => okProvider(p.provider_name) && !seen.has(p.provider_id) && seen.add(p.provider_id))
-    .map((p: any) => ({ id: p.provider_id, name: p.provider_name, logo: img(p.logo_path, "w92") }));
+    .map((p: any) => withIcon({ id: p.provider_id, name: p.provider_name, logo: img(p.logo_path, "w92") }));
 }
 
 function base(r: any, t: "movie" | "tv"): Item {
@@ -124,11 +167,20 @@ async function providers() {
   const m = await tmdb("watch/providers/movie", { watch_region: "DE" }, 7 * 86_400_000);
   const all = new Map<number, any>();
   for (const p of [...(j.results ?? []), ...(m.results ?? [])]) if (!all.has(p.provider_id)) all.set(p.provider_id, p);
-  return [...all.values()]
-    .filter((p) => okProvider(p.provider_name))
-    .sort((a, b) => (a.display_priorities?.DE ?? a.display_priority ?? 999) - (b.display_priorities?.DE ?? b.display_priority ?? 999))
-    .slice(0, 24)
-    .map((p) => ({ id: p.provider_id, name: p.provider_name, logo: img(p.logo_path, "w92") }));
+  const prio = (p: any) => p.display_priorities?.DE ?? p.display_priority ?? 999;
+  // Die 30 wichtigsten Dienste plus bekannte Abos, die bei TMDB weiter hinten stehen (z. B. HBO Max, neu seit 01/2026)
+  const PIN = /^(hbo max|max|rtl\+|wow|joyn|paramount\+|paramount plus|skyshowtime|magentatv|ard mediathek|zdf|dazn|crunchyroll|apple tv\+|apple tv plus|disney plus|netflix|amazon prime video)$/i;
+  const list = [...all.values()].filter((p) => okProvider(p.provider_name)).sort((a, b) => prio(a) - prio(b));
+  const top = list.slice(0, 30);
+  for (const p of list.slice(30)) if (PIN.test(p.provider_name)) top.push(p);
+  // Falls TMDB HBO Max für Deutschland (noch) nicht führt: von Hand ergänzen (TMDB-ID 1899)
+  if (!top.some((p) => /hbo max|^max$/i.test(p.provider_name))) {
+    top.push({ provider_id: 1899, provider_name: "HBO Max", logo_path: all.get(1899)?.logo_path });
+  }
+  // App-Symbole nacheinander holen (App Store mag keine Massenabfragen), höchstens 8 s pro Aufruf
+  const until = Date.now() + 8000;
+  for (const p of top) { if (Date.now() > until) break; await appIcon(p.provider_name); }
+  return top.map((p) => withIcon({ id: p.provider_id, name: p.provider_name, logo: img(p.logo_path, "w92") }));
 }
 
 async function genres() {
