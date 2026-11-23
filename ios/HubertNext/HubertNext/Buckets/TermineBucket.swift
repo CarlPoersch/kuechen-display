@@ -250,9 +250,7 @@ struct TermineDetail: View {
     var body: some View {
         Group {
             if mode == "monat" {
-                TermineMonth(config: config, hidden: hidden, day: $day) { e in
-                    if let ek = cal.ekEvent(e) { editor = EventEditRequest(event: ek) }
-                }
+                TermineMonth(config: config, hidden: hidden, day: $day)
             } else {
                 list
             }
@@ -261,7 +259,7 @@ struct TermineDetail: View {
             ToolbarItem(placement: .principal) {
                 Picker("Ansicht", selection: $mode) {
                     Text("Liste").tag("liste")
-                    Text("Monat").tag("monat")
+                    Text("Kalender").tag("monat")
                 }
                 .pickerStyle(.segmented).frame(width: 190)
             }
