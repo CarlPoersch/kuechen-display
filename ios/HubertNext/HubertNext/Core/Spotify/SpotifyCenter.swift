@@ -74,6 +74,18 @@ struct SpotifyDevice: Identifiable, Hashable {
     }
 }
 
+/// Eigene Ablage der Spotify-Schlüssel (Schlüsselbund).
+/// Hubert erneuert den Zugang selbst mit dem Refresh-Token (PKCE, ohne Server) –
+/// so bleibt man angemeldet, auch nach Stunden oder einem Neustart der App.
+struct SpotifyTokens: Codable {
+    var access: String
+    var refresh: String
+    var expires: Date
+    var scopeRaw: UInt
+
+    var isFresh: Bool { expires.timeIntervalSinceNow > 120 }
+}
+
 /// Songliste einer Playlist, eines Albums oder der Lieblingssongs
 struct SpotifyTrackList {
     var tracks: [SpotifyItem]
@@ -105,11 +117,17 @@ final class SpotifyCenter: NSObject, ObservableObject {
     @Published private(set) var devicesLoading = false
     @Published private(set) var message: String?
 
-    private static let keychainService = "com.carlpoersch.HubertNext.spotify"
+    private static let keychainService = "com.carlpoersch.HubertNext.spotify"          // alte SDK-Sitzung (nur noch zum Übernehmen)
+    private static let tokenService = "com.carlpoersch.HubertNext.spotify.tokens"
+    private var tokens: SpotifyTokens? {
+        didSet { Keychain.save(tokens.flatMap { try? JSONEncoder().encode($0) }, service: Self.tokenService) }
+    }
+    private var refreshing = false
     private(set) var userId: String?
     private var coverURI: String?
     private var retriedConnect = false
     private var quietAttempt = false
+    private var quietTry = 0
     private var tokenWaiters: [(String?) -> Void] = []
     private var watchers = 0
     private var pollTask: Task<Void, Never>?
@@ -118,7 +136,7 @@ final class SpotifyCenter: NSObject, ObservableObject {
     var isSignedIn: Bool {
         #if canImport(SpotifyiOS)
         if case .unavailable = phase { return false }
-        return sessionManager.session != nil
+        return tokens != nil
         #else
         return false
         #endif
@@ -127,8 +145,9 @@ final class SpotifyCenter: NSObject, ObservableObject {
     /// Hat die Anmeldung schon die Rechte für Geräte und Steuerung? (ältere Anmeldungen nicht)
     var canControlDevices: Bool {
         #if canImport(SpotifyiOS)
-        guard let s = sessionManager.session else { return false }
-        return s.scope.contains(.userModifyPlaybackState) && s.scope.contains(.userReadPlaybackState)
+        guard let t = tokens else { return false }
+        let s = SPTScope(rawValue: t.scopeRaw)
+        return s.contains(.userModifyPlaybackState) && s.contains(.userReadPlaybackState)
         #else
         return false
         #endif
@@ -167,9 +186,18 @@ final class SpotifyCenter: NSObject, ObservableObject {
             phase = .unavailable("Spotify ist noch nicht eingerichtet: Die Client ID fehlt.")
             return
         }
-        if let data = Keychain.load(service: Self.keychainService),
-           let session = try? NSKeyedUnarchiver.unarchivedObject(ofClass: SPTSession.self, from: data) {
-            sessionManager.session = session
+        if let data = Keychain.load(service: Self.tokenService),
+           let t = try? JSONDecoder().decode(SpotifyTokens.self, from: data) {
+            tokens = t
+            phase = .disconnected
+        } else if let data = Keychain.load(service: Self.keychainService),
+                  let session = try? NSKeyedUnarchiver.unarchivedObject(ofClass: SPTSession.self, from: data) {
+            // Übernahme aus der ersten Fassung (SDK-Sitzung)
+            tokens = SpotifyTokens(access: session.accessToken, refresh: session.refreshToken,
+                                   expires: session.expirationDate, scopeRaw: session.scope.rawValue)
+            // didSet läuft im eigenen init nicht → hier ausdrücklich speichern
+            Keychain.save(tokens.flatMap { try? JSONEncoder().encode($0) }, service: Self.tokenService)
+            Keychain.save(nil, service: Self.keychainService)
             phase = .disconnected
         }
         #else
@@ -195,20 +223,20 @@ final class SpotifyCenter: NSObject, ObservableObject {
         #endif
     }
 
-    /// Leise verbinden, ohne zu Spotify zu wechseln (klappt, wenn Spotify im Hintergrund läuft)
-    func reconnectQuietly() {
+    /// Leise verbinden, ohne zu Spotify zu wechseln. Klappt, solange die Spotify-App im Hintergrund lebt
+    /// (iOS legt sie schlafen, wenn sie eine Weile nichts abspielt – dann hilft nur kurz Spotify öffnen).
+    /// Versucht es bis zu dreimal, weil Spotify nach dem Zurückkehren manchmal einen Moment braucht.
+    func reconnectQuietly(attempt: Int = 0) {
         #if canImport(SpotifyiOS)
-        guard phase == .disconnected, !quietAttempt, let session = sessionManager.session else { return }
-        if session.isExpired {
-            withToken { [weak self] token in
-                guard let self = self, token != nil else { return }
-                self.reconnectQuietly()
-            }
-            return
-        }
+        guard phase == .disconnected, !quietAttempt, tokens != nil, !appRemote.isConnected else { return }
         quietAttempt = true
-        appRemote.connectionParameters.accessToken = session.accessToken
-        appRemote.connect()
+        quietTry = attempt
+        withToken { [weak self] token in
+            guard let self = self else { return }
+            guard let token = token else { self.quietAttempt = false; return }
+            self.appRemote.connectionParameters.accessToken = token
+            self.appRemote.connect()
+        }
         #endif
     }
 
@@ -217,6 +245,7 @@ final class SpotifyCenter: NSObject, ObservableObject {
         if appRemote.isConnected { appRemote.disconnect() }
         sessionManager.session = nil
         #endif
+        tokens = nil
         Keychain.save(nil, service: Self.keychainService)
         now = nil; cover = nil; coverURI = nil; userId = nil
         playlists = []; liked = []; recent = []; devices = []; libraryError = nil
@@ -588,16 +617,49 @@ final class SpotifyCenter: NSObject, ObservableObject {
         await withCheckedContinuation { cont in withToken { cont.resume(returning: $0) } }
     }
 
-    /// Gültiger Zugangsschlüssel; ist er abgelaufen, wird er zuerst erneuert
+    /// Gültiger Zugangsschlüssel; ist er (fast) abgelaufen, erneuert Hubert ihn selbst
     private func withToken(_ done: @escaping (String?) -> Void) {
-        #if canImport(SpotifyiOS)
-        guard let session = sessionManager.session else { done(nil); return }
-        if !session.isExpired { done(session.accessToken); return }
+        guard let t = tokens else { done(nil); return }
+        if t.isFresh { done(t.access); return }
         tokenWaiters.append(done)
-        if tokenWaiters.count == 1 { sessionManager.renewSession() }
-        #else
-        done(nil)
-        #endif
+        guard !refreshing else { return }
+        refreshing = true
+        Task { await refreshTokens(t) }
+    }
+
+    /// Refresh-Token gegen neuen Zugang tauschen (Spotify-Konto bleibt angemeldet)
+    private func refreshTokens(_ t: SpotifyTokens) async {
+        var req = URLRequest(url: URL(string: "https://accounts.spotify.com/api/token")!)
+        req.httpMethod = "POST"
+        req.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        var form = URLComponents()
+        form.queryItems = [URLQueryItem(name: "grant_type", value: "refresh_token"),
+                           URLQueryItem(name: "refresh_token", value: t.refresh),
+                           URLQueryItem(name: "client_id", value: Config.spotifyClientID)]
+        req.httpBody = form.percentEncodedQuery?.data(using: .utf8)
+        defer { refreshing = false }
+        do {
+            let (data, resp) = try await URLSession.shared.data(for: req)
+            let code = (resp as? HTTPURLResponse)?.statusCode ?? 0
+            let j = ((try? JSONSerialization.jsonObject(with: data)) as? [String: Any]) ?? [:]
+            if let access = j["access_token"] as? String {
+                let expiresIn = (j["expires_in"] as? Double) ?? 3600
+                tokens = SpotifyTokens(access: access, refresh: (j["refresh_token"] as? String) ?? t.refresh,
+                                       expires: Date().addingTimeInterval(expiresIn), scopeRaw: t.scopeRaw)
+                #if canImport(SpotifyiOS)
+                appRemote.connectionParameters.accessToken = access
+                #endif
+                finishTokenWaiters(access)
+            } else if code == 400 || code == 401 {
+                // Zugang wurde bei Spotify widerrufen → wirklich neu anmelden
+                finishTokenWaiters(nil)
+                signOut()
+            } else {
+                finishTokenWaiters(nil)   // Spotify gerade nicht erreichbar – Anmeldung bleibt
+            }
+        } catch {
+            finishTokenWaiters(nil)       // kein Netz – Anmeldung bleibt
+        }
     }
 
     private func finishTokenWaiters(_ token: String?) {
@@ -644,9 +706,8 @@ final class SpotifyCenter: NSObject, ObservableObject {
 
     #if canImport(SpotifyiOS)
     private func didGetSession(_ session: SPTSession, renewed: Bool) {
-        if let data = try? NSKeyedArchiver.archivedData(withRootObject: session, requiringSecureCoding: true) {
-            Keychain.save(data, service: Self.keychainService)
-        }
+        tokens = SpotifyTokens(access: session.accessToken, refresh: session.refreshToken,
+                               expires: session.expirationDate, scopeRaw: session.scope.rawValue)
         finishTokenWaiters(session.accessToken)
         appRemote.connectionParameters.accessToken = session.accessToken
         if !renewed {
@@ -659,7 +720,7 @@ final class SpotifyCenter: NSObject, ObservableObject {
     private func sessionFailed(_ error: Error) {
         finishTokenWaiters(nil)
         if phase == .connecting {
-            phase = sessionManager.session == nil ? .signedOut : .disconnected
+            phase = tokens == nil ? .signedOut : .disconnected
         }
     }
 
@@ -676,20 +737,28 @@ final class SpotifyCenter: NSObject, ObservableObject {
     }
 
     private func connectFailed() {
+        let wasQuiet = quietAttempt
         quietAttempt = false
+        if wasQuiet, phase == .disconnected, quietTry < 2 {
+            let next = quietTry + 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + Double(next) * 1.5) { [weak self] in
+                self?.reconnectQuietly(attempt: next)
+            }
+            return
+        }
         // Direkt nach der Rückkehr aus Spotify klappt es manchmal erst beim zweiten Versuch
         if phase == .connecting, !retriedConnect {
             retriedConnect = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in self?.appRemote.connect() }
             return
         }
-        phase = sessionManager.session == nil ? .signedOut : .disconnected
+        phase = tokens == nil ? .signedOut : .disconnected
     }
 
     private func didDisconnect() {
         quietAttempt = false
         if phase == .connected || phase == .connecting {
-            phase = sessionManager.session == nil ? .signedOut : .disconnected
+            phase = tokens == nil ? .signedOut : .disconnected
         }
     }
 

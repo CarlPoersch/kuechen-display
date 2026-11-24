@@ -41,7 +41,7 @@ struct SpotifyGlance: View {
                     HStack(spacing: 8) { ProgressView(); Text("Verbinde mit Spotify …").foregroundColor(Theme.secondary) }
                         .font(.subheadline)
                 case .disconnected:
-                    prompt("Spotify ist gerade nicht verbunden.", button: "Weiter hören")
+                    prompt("Spotify ruht im Hintergrund. Ein Tipp öffnet Spotify kurz und spielt weiter.", button: "Weiter hören")
                 case .connected:
                     prompt("Gerade läuft nichts.", button: "Weiter hören")
                 }
@@ -388,7 +388,7 @@ struct SpotifyApp: View {
             case .connected:
                 notice("play.circle", "Gerade läuft nichts. Wähle unten eine Playlist oder suche oben.", button: nil)
             case .disconnected:
-                notice("play.circle", "Spotify ist gerade nicht verbunden.", button: "Weiter hören")
+                notice("play.circle", "Du bist angemeldet – Spotify ruht nur im Hintergrund. Ein Tipp öffnet Spotify kurz und spielt weiter.", button: "Weiter hören")
             }
         }
     }
