@@ -163,7 +163,8 @@ final class SmartHomeStore: ObservableObject {
                 revert[d.key(o)] = state[d.key(o)] ?? true
                 state[d.key(o)] = false
             }
-            Task { await self.send(deviceId: d.id, dps, revert: revert) }
+            let id = d.id, sendDps = dps, sendRevert = revert
+            Task { await self.send(deviceId: id, sendDps, revert: sendRevert) }
         }
     }
 
@@ -179,7 +180,8 @@ final class SmartHomeStore: ObservableObject {
                 revert[d.key(o)] = state[d.key(o)] ?? !on
                 state[d.key(o)] = on
             }
-            Task { await self.send(deviceId: d.id, dps, revert: revert) }
+            let id = d.id, sendDps = dps, sendRevert = revert
+            Task { await self.send(deviceId: id, sendDps, revert: sendRevert) }
         }
     }
 

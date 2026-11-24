@@ -29,7 +29,7 @@ enum TuyaDiscovery {
         return best
     }
 
-    static func text(_ ip: UInt32) -> String {
+    nonisolated static func text(_ ip: UInt32) -> String {
         "\(ip >> 24 & 0xFF).\(ip >> 16 & 0xFF).\(ip >> 8 & 0xFF).\(ip & 0xFF)"
     }
 

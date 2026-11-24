@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 // ============================================================
 // Uhr: Wecker | Timer (später: Stoppuhr). Ersetzt die reine Timer-App.

@@ -111,8 +111,8 @@ enum AlarmKitBridge {
 #if canImport(AlarmKit)
 @available(iOS 26.0, *)
 nonisolated struct HubertAlarmData: AlarmMetadata {
-    var alarmId: String = ""
-    var fire: Double = 0
+    let alarmId: String
+    let fire: Double
 }
 
 /// „Beenden“ auf dem Sperrbildschirm → gilt in Hubert auf allen Geräten
