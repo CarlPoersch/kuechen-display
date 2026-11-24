@@ -26,6 +26,8 @@ struct HubertNextApp: App {
             // Display bleibt an, solange Hubert offen ist (Wand-iPad)
             UIApplication.shared.isIdleTimerDisabled = (phase == .active)
             if phase != .active { NightClock.shared.end() }   // Helligkeit zurückgeben
+            // Wecker neu planen: im Hintergrund klingeln die System-Wecker (ab iOS 26), offen klingelt Hubert
+            if phase != .inactive { AlarmCenter.shared.reschedule() }
             if phase == .active, store.phase == .ready { Task { await store.reload() } }
             // Live-Abgleich (Timer, Kochen, Einkauf) nur im Vordergrund – beim Öffnen sofort nachziehen
             if phase == .active { LiveSync.shared.start(household: store.household?.id) }

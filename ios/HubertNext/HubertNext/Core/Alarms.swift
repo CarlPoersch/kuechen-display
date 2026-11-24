@@ -122,6 +122,7 @@ final class AlarmCenter: ObservableObject {
     private var clock: AnyCancellable?
     private var lastBeep = Date.distantPast
     private var ringStarted = Date.distantPast
+    private var kitTrimmed = false
     private let cacheKey = "alarms.cache"
     /// So lange klingelt ein Wecker höchstens, dann hört er von allein auf
     static let maxRing: TimeInterval = 30 * 60
@@ -293,6 +294,16 @@ final class AlarmCenter: ObservableObject {
         }
         // Licht (nur das Lichtgerät schaltet, nur wenn es Lampen gibt)
         if LightHost.shared.isHost && LightHost.hasLights { lightStep(now) }
+        // Hubert offen und eine Weckzeit steht in der nächsten Minute an → System-Wecker dafür zurücknehmen
+        if AlarmKitBridge.available && UIApplication.shared.applicationState == .active {
+            let soon = alarms.filter(ringsHere).contains { a in
+                a.fires(from: now, to: now.addingTimeInterval(60)).contains { $0 != a.dismissedFor } ||
+                (a.snoozeUntil.map { $0 > now && $0 <= now.addingTimeInterval(60) } ?? false)
+            }
+            if soon && !kitTrimmed { kitTrimmed = true; reschedule() }
+            if !soon { kitTrimmed = false }
+            if ringing != nil { AlarmKitBridge.silenceAlerting() }
+        }
         // Ton und Wecker-Fenster folgen dem Klingeln
         if let r = ringing {
             AlarmSound.shared.start(tone: AlarmTone.from(r.alarm.sound), ramp: r.alarm.ramp)
@@ -364,23 +375,34 @@ final class AlarmCenter: ObservableObject {
     /// Mitteilungen dieses Geräts neu planen: die nächsten Weckzeiten (max. 40) plus laufendes Schlummern
     func reschedule() {
         let c = UNUserNotificationCenter.current()
-        let list = alarms
-        let mine = list.filter(ringsHere)
+        let mine = alarms.filter(ringsHere)
+        let now = Date()
+        let active = UIApplication.shared.applicationState == .active
+        var plan: [(Alarm, Date)] = []
+        for a in mine {
+            for f in a.fires(from: now, to: now.addingTimeInterval(4 * 86400)) where f != a.dismissedFor {
+                plan.append((a, f))
+            }
+            if let s = a.snoozeUntil, s > now, a.snoozeFor != a.dismissedFor { plan.append((a, s)) }
+        }
+        plan.sort { $0.1 < $1.1 }
+        // Hubert geht gerade in den Hintergrund und klingelt: als System-Wecker gleich weiterklingeln
+        if !active, let r = ringing { plan.insert((r.alarm, now.addingTimeInterval(3)), at: 0) }
+
+        // System-Wecker (ab iOS 26): Ist Hubert offen, klingelt Hubert die nächste Minute selbst
+        let kit = plan.filter { !active || $0.1 > now.addingTimeInterval(60) }.prefix(30)
+            .map { PlannedRing(alarmId: $0.0.id, title: $0.0.title, fire: $0.1) }
+        let useKit = AlarmKitBridge.available
         AlarmTone.installNotificationSounds()
         Task {
-            if !mine.isEmpty { _ = try? await c.requestAuthorization(options: [.alert, .sound]) }
+            if useKit { await AlarmKitBridge.sync(Array(kit)) }
+            let kitOn = useKit && AlarmKitBridge.authorized
+            if !mine.isEmpty && !kitOn { _ = try? await c.requestAuthorization(options: [.alert, .sound]) }
             let pending = await c.pendingNotificationRequests()
             c.removePendingNotificationRequests(withIdentifiers: pending.map(\.identifier).filter { $0.hasPrefix(Self.prefix) })
+            guard !kitOn else { return }      // System-Wecker übernehmen – keine doppelten Mitteilungen
 
-            let now = Date()
-            var plan: [(Alarm, Date)] = []
-            for a in mine {
-                for f in a.fires(from: now, to: now.addingTimeInterval(4 * 86400)) where f != a.dismissedFor {
-                    plan.append((a, f))
-                }
-                if let s = a.snoozeUntil, s > now, a.snoozeFor != a.dismissedFor { plan.append((a, s)) }
-            }
-            for (a, d) in plan.sorted(by: { $0.1 < $1.1 }).prefix(40) {
+            for (a, d) in plan.prefix(40) {
                 let content = UNMutableNotificationContent()
                 content.title = "⏰ " + a.title
                 content.body = String(format: "%d:%02d – Wecker", Calendar.current.component(.hour, from: d), Calendar.current.component(.minute, from: d))
@@ -392,6 +414,37 @@ final class AlarmCenter: ObservableObject {
                 try? await c.add(UNNotificationRequest(identifier: id, content: content, trigger: trigger))
             }
         }
+    }
+
+    // MARK: Vom Sperrbildschirm (AlarmKit, ab iOS 26)
+
+    /// „Beenden“ am System-Wecker
+    func systemStop(alarmId: String, fire: Date) async {
+        if alarms.isEmpty, let h = household ?? TimerCenter.shared.household { await load(household: h) }
+        guard var a = alarms.first(where: { $0.id == alarmId }) else { return }
+        // Bei einem Schlummer-Klingeln ist „fire“ das Schlummer-Ende – gemeint ist die ursprüngliche Weckzeit
+        let original = a.snoozeUntil == fire ? (a.snoozeFor ?? fire) : fire
+        a.dismissed_for = ISO.string(original)
+        a.dismissed_by = AppStore.deviceName + " (Sperrbildschirm)"
+        a.snooze_for = nil; a.snooze_until = nil
+        if a.days.isEmpty { a.enabled = false }
+        if let i = alarms.firstIndex(where: { $0.id == a.id }) { alarms[i] = a }
+        cache()
+        try? await api.upsert("alarms", [a])      // abwarten: die App läuft hier evtl. nur kurz im Hintergrund
+        reschedule()
+    }
+
+    /// „Schlummern“ am System-Wecker
+    func systemSnooze(alarmId: String, fire: Date) async {
+        if alarms.isEmpty, let h = household ?? TimerCenter.shared.household { await load(household: h) }
+        guard var a = alarms.first(where: { $0.id == alarmId }) else { return }
+        let original = a.snoozeUntil == fire ? (a.snoozeFor ?? fire) : fire
+        a.snooze_for = ISO.string(original)
+        a.snooze_until = ISO.string(Date().addingTimeInterval(TimeInterval(max(1, a.snooze_min) * 60)))
+        if let i = alarms.firstIndex(where: { $0.id == a.id }) { alarms[i] = a }
+        cache()
+        try? await api.upsert("alarms", [a])
+        reschedule()
     }
 }
 

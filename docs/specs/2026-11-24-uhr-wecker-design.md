@@ -99,3 +99,14 @@ Ohne Lampen ist die Uhr ein ganz normaler Wecker/Timer, und „Gute Nacht“ bes
 - Aufteilung der Dateien (z. B. `Core/Alarms.swift`, `Buckets/ClockBucket.swift`, Umbau von `Core/Timers.swift`).
 - Genaue Planung der Mitteilungen (Fenster der nächsten Tage, max. 64).
 - Wie „langsam lauter“ umgesetzt wird (Lautstärke des Players hochfahren).
+
+## Nachtrag 24.11.: System-Wecker über AlarmKit (ab iOS/iPadOS 26)
+Carl nutzt jetzt ein iPad Pro (6. Gen.) mit iPadOS 26.5; auch andere Nutzer haben neuere Versionen.
+- Ab iOS 26 legt Hubert jede Weckzeit (nächste 4 Tage, max. 30) zusätzlich als **AlarmKit-Wecker** an. Er klingelt auch gesperrt, im Stumm-Modus und bei Fokus. Mitteilungen entfallen dann.
+- **Hubert offen:** Hubert klingelt selbst (Ton, langsam lauter, Licht). System-Wecker der nächsten Minute werden zurückgenommen, laufende stummgeschaltet.
+- **Beenden/Schlummern am Sperrbildschirm:** über App-Intents in Hubert, gelten auf allen Geräten. Schlummern nutzt bewusst keinen AlarmKit-Countdown (der bräuchte eine Widget-Erweiterung), sondern plant selbst neu.
+- **Grenzen:**
+  - Wegwischen meldet AlarmKit der App nicht.
+  - Beendet ein anderes Gerät, verschwindet der System-Wecker hier erst, wenn Hubert wieder läuft.
+  - Der Ton ist der System-Weckton (eigene Töne später).
+- iOS < 26: unverändert Mitteilungen.

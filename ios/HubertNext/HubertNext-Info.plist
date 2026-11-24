@@ -24,5 +24,8 @@
 			</array>
 		</dict>
 	</array>
+	<!-- Wecker (ab iOS 26): echte System-Wecker über AlarmKit -->
+	<key>NSAlarmKitUsageDescription</key>
+	<string>Hubert stellt deine Wecker so, dass sie auch bei gesperrtem Bildschirm, im Stumm-Modus und bei „Nicht stören“ klingeln.</string>
 </dict>
 </plist>
