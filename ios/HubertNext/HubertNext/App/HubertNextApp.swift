@@ -13,16 +13,19 @@ struct HubertNextApp: App {
                     ActivityBar().padding(.bottom, 12)
                 }
                 .modifier(CookModeHost())
+                // Nachtuhr über der Startseite und den Inseln, aber unter Timer- und Wecker-Hinweisen
+                .overlay(NightClockOverlay())
                 .overlay(TimerAlarmOverlay())
                 .animation(.easeOut(duration: 0.2), value: TimerCenter.shared.ringing.count)
                 .environmentObject(store)
-                .task { _ = AlarmCenter.shared; await store.start() }
+                .task { _ = AlarmCenter.shared; _ = NightClock.shared; await store.start() }
                 // Rückweg aus der Spotify-App nach dem Anmelden/Verbinden
                 .onOpenURL { SpotifyCenter.shared.handle($0) }
         }
         .onChange(of: scenePhase) { phase in
             // Display bleibt an, solange Hubert offen ist (Wand-iPad)
             UIApplication.shared.isIdleTimerDisabled = (phase == .active)
+            if phase != .active { NightClock.shared.end() }   // Helligkeit zurückgeben
             if phase == .active, store.phase == .ready { Task { await store.reload() } }
             // Live-Abgleich (Timer, Kochen, Einkauf) nur im Vordergrund – beim Öffnen sofort nachziehen
             if phase == .active { LiveSync.shared.start(household: store.household?.id) }

@@ -22,7 +22,7 @@ enum ClockBucket {
 // MARK: Die App
 
 struct ClockView: View {
-    enum Tab: String, CaseIterable { case alarm, timer }
+    enum Tab: String, CaseIterable { case alarm, timer, stopwatch }
     @State private var tab: Tab
 
     init(start: Tab? = nil) {
@@ -35,6 +35,7 @@ struct ClockView: View {
             Picker("Ansicht", selection: $tab) {
                 Text("Wecker").tag(Tab.alarm)
                 Text("Timer").tag(Tab.timer)
+                Text("Stoppuhr").tag(Tab.stopwatch)
             }
             .pickerStyle(.segmented)
             .frame(maxWidth: 420)
@@ -42,6 +43,7 @@ struct ClockView: View {
             switch tab {
             case .alarm: AlarmListView()
             case .timer: TimerToolView()
+            case .stopwatch: StopwatchView()
             }
         }
         .background(Color(UIColor.systemGroupedBackground).ignoresSafeArea())
@@ -56,17 +58,16 @@ struct AlarmListView: View {
     @Environment(\.horizontalSizeClass) private var size
     @ObservedObject private var smart = SmartHomeStore.shared
     @ObservedObject private var host = LightHost.shared
+    @ObservedObject private var night = NightClock.shared
     @State private var editing: Alarm?
     @State private var isNew = false
     @State private var goodNight = false
 
     var body: some View {
         List {
-            if !smart.lights.isEmpty {
-                Section {
-                    Button { goodNight = true } label: {
-                        Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.body.weight(.semibold))
-                    }
+            Section {
+                Button { goodNight = true } label: {
+                    Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.body.weight(.semibold))
                 }
             }
             if center.alarms.isEmpty {
@@ -104,14 +105,22 @@ struct AlarmListView: View {
                     Text("Klingelt in Hubert mit Ton. Ist Hubert zu, kommt eine Mitteilung. Beenden oder Schlummern gilt auf allen Geräten.")
                 }
             }
-            if !smart.lights.isEmpty {
-                Section {
-                    Toggle("Wanddisplay", isOn: $host.isWall).tint(Theme.accent)
-                } header: { Text("Dieses Gerät") } footer: {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Ein Wanddisplay schaltet bevorzugt das Licht für Wecker und Timer.")
-                        LightHostNote()
+            Section {
+                Toggle("Wanddisplay", isOn: $host.isWall).tint(Theme.accent)
+                if host.isWall {
+                    Toggle("Nachtuhr automatisch", isOn: $night.autoOn).tint(Theme.accent)
+                    if night.autoOn {
+                        DatePicker("Ab", selection: night.binding(\.fromMin), displayedComponents: .hourAndMinute)
+                        DatePicker("Bis", selection: night.binding(\.toMin), displayedComponents: .hourAndMinute)
                     }
+                    Button("Nachtuhr jetzt") { NightClock.shared.start() }
+                }
+            } header: { Text("Dieses Gerät") } footer: {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(host.isWall
+                         ? "Die Nachtuhr macht den Bildschirm ganz dunkel. Antippen beendet sie, der Wecker weckt sie auf."
+                         : "Wanddisplays zeigen nachts die Nachtuhr\(smart.lights.isEmpty ? "" : " und schalten bevorzugt das Licht").")
+                    if !smart.lights.isEmpty { LightHostNote() }
                 }
             }
         }
@@ -207,6 +216,13 @@ struct AlarmEditSheet: View {
                         ForEach([5, 9, 10, 15], id: \.self) { Text("\($0) Min.").tag($0) }
                     }
                     Toggle("Für den ganzen Haushalt", isOn: $a.shared).tint(Theme.accent)
+                    Picker("Ton", selection: Binding(get: { AlarmTone.from(a.sound) }, set: { t in
+                        a.sound = t.rawValue
+                        AlarmSound.shared.preview(t)          // gleich vorspielen
+                    })) {
+                        ForEach(AlarmTone.allCases) { Text($0.label).tag($0) }
+                    }
+                    Toggle("Langsam lauter", isOn: $a.ramp).tint(Theme.accent)
                 } footer: {
                     Text(a.shared ? "Klingelt auf allen Geräten im Haushalt." : "Klingelt nur auf deinen Geräten.")
                 }
@@ -252,6 +268,7 @@ struct AlarmEditSheet: View {
                 }
             }
             .navigationTitle(isNew ? "Neuer Wecker" : "Wecker").navigationBarTitleDisplayMode(.inline)
+            .onDisappear { if AlarmCenter.shared.ringing == nil { AlarmSound.shared.stop() } }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Abbrechen") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
@@ -342,17 +359,15 @@ struct NextAlarmGlance: View {
                     Toggle("", isOn: Binding(get: { first.alarm.enabled }, set: { center.toggle(first.alarm, on: $0) }))
                         .labelsHidden().tint(Theme.accent)
                 }
-                if !smart.lights.isEmpty {
-                    Button { goodNight = true } label: {
-                        Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.subheadline.weight(.semibold))
-                            .foregroundColor(Theme.accent)
-                            .padding(.horizontal, 14).frame(minHeight: 36)
-                            .background(Capsule().fill(Theme.accent.opacity(0.14)))
-                    }
-                    .buttonStyle(.borderless)
+                Button { goodNight = true } label: {
+                    Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.subheadline.weight(.semibold))
+                        .foregroundColor(Theme.accent)
+                        .padding(.horizontal, 14).frame(minHeight: 36)
+                        .background(Capsule().fill(Theme.accent.opacity(0.14)))
                 }
+                .buttonStyle(.borderless)
                 // Weitere Wecker, wenn Platz ist
-                let room = max(0, Int((space.height - (smart.lights.isEmpty ? 80 : 126)) / 30))
+                let room = max(0, Int((space.height - 126) / 30))
                 ForEach(Array(upcoming.dropFirst().prefix(room))) { u in
                     HStack {
                         Text(u.alarm.timeText).font(.body.monospacedDigit())
@@ -423,7 +438,8 @@ struct GoodNightSheet: View {
 
                 Section {
                     Button {
-                        smart.switchLights(smart.lights.map(\.id), on: false)
+                        if !smart.lights.isEmpty { smart.switchLights(smart.lights.map(\.id), on: false) }
+                        NightClock.shared.request(household: TimerCenter.shared.household)
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
                         dismiss()
                     } label: {
@@ -435,7 +451,8 @@ struct GoodNightSheet: View {
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color.clear)
                 } footer: {
-                    Text("Alle Lampen gehen aus.")
+                    Text(smart.lights.isEmpty ? "Wanddisplays wechseln in die Nachtuhr."
+                                              : "Alle Lampen gehen aus, Wanddisplays wechseln in die Nachtuhr.")
                 }
             }
             .listStyle(.insetGrouped)
@@ -444,5 +461,106 @@ struct GoodNightSheet: View {
             .sheet(item: $editing) { a in AlarmEditSheet(alarm: a, isNew: !center.alarms.contains { $0.id == a.id }) }
         }
         .navigationViewStyle(.stack)
+    }
+}
+
+
+// MARK: Stoppuhr (pro Gerät; merkt sich die Startzeit und läuft darum auch bei geschlossener App weiter)
+
+final class Stopwatch: ObservableObject {
+    static let shared = Stopwatch()
+    @Published private(set) var startedAt: Date?
+    @Published private(set) var stored: TimeInterval = 0          // Zeit vor dem letzten Start
+    @Published private(set) var laps: [TimeInterval] = []        // Rundenzeiten (je Runde)
+    private let d = UserDefaults.standard
+
+    init() {
+        let t = d.double(forKey: "stopwatch.started")
+        startedAt = t > 0 ? Date(timeIntervalSince1970: t) : nil
+        stored = d.double(forKey: "stopwatch.stored")
+        laps = (d.array(forKey: "stopwatch.laps") as? [Double]) ?? []
+    }
+
+    var running: Bool { startedAt != nil }
+    func elapsed(_ now: Date = Date()) -> TimeInterval { stored + (startedAt.map { now.timeIntervalSince($0) } ?? 0) }
+    var lapTotal: TimeInterval { laps.reduce(0, +) }
+
+    func startStop() {
+        if let s = startedAt { stored += Date().timeIntervalSince(s); startedAt = nil } else { startedAt = Date() }
+        save()
+    }
+
+    func lapOrReset() {
+        if running { laps.append(elapsed() - lapTotal) } else { stored = 0; laps = [] }
+        save()
+    }
+
+    private func save() {
+        d.set(startedAt?.timeIntervalSince1970 ?? 0, forKey: "stopwatch.started")
+        d.set(stored, forKey: "stopwatch.stored")
+        d.set(laps, forKey: "stopwatch.laps")
+    }
+
+    static func format(_ t: TimeInterval) -> String {
+        let cs = Int((t * 100).rounded(.down))
+        let h = cs / 360_000, m = cs / 6000 % 60, s = cs / 100 % 60, c = cs % 100
+        return h > 0 ? String(format: "%d:%02d:%02d,%02d", h, m, s, c) : String(format: "%02d:%02d,%02d", m, s, c)
+    }
+}
+
+struct StopwatchView: View {
+    @ObservedObject private var sw = Stopwatch.shared
+    @Environment(\.horizontalSizeClass) private var size
+
+    var body: some View {
+        let big = size == .regular
+        List {
+            Section {
+                VStack(spacing: big ? 28 : 20) {
+                    TimelineView(.periodic(from: .now, by: sw.running ? 0.05 : 3600)) { ctx in
+                        Text(Stopwatch.format(sw.elapsed(ctx.date)))
+                            .font(.system(size: big ? 96 : 64, weight: .thin).monospacedDigit())
+                            .lineLimit(1).minimumScaleFactor(0.5)
+                            .frame(maxWidth: .infinity)
+                    }
+                    HStack {
+                        roundButton(sw.running ? "Runde" : "Zurücksetzen", fill: Color(UIColor.tertiarySystemFill), text: .primary) {
+                            sw.lapOrReset()
+                        }
+                        .disabled(!sw.running && sw.elapsed() == 0)
+                        Spacer()
+                        roundButton(sw.running ? "Stopp" : "Start", fill: sw.running ? Color.red.opacity(0.18) : Color.green.opacity(0.2),
+                                    text: sw.running ? .red : .green) { sw.startStop() }
+                    }
+                    .frame(maxWidth: 420)
+                }
+                .padding(.vertical, big ? 24 : 12)
+                .frame(maxWidth: .infinity)
+            }
+            if !sw.laps.isEmpty {
+                Section("Runden") {
+                    let best = sw.laps.min(), worst = sw.laps.count > 2 ? sw.laps.max() : nil
+                    ForEach(sw.laps.indices.reversed(), id: \.self) { i in
+                        let lap = sw.laps[i]
+                        HStack {
+                            Text("Runde \(i + 1)")
+                            Spacer()
+                            Text(Stopwatch.format(lap)).monospacedDigit()
+                        }
+                        .foregroundColor(sw.laps.count > 1 && lap == best ? .green : lap == worst ? .red : .primary)
+                    }
+                }
+            }
+        }
+        .listStyle(.insetGrouped)
+    }
+
+    private func roundButton(_ title: String, fill: Color, text: Color, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(title).font(.headline).foregroundColor(text)
+                .frame(width: 88, height: 88)
+                .background(Circle().fill(fill))
+        }
+        .buttonStyle(.borderless)
     }
 }

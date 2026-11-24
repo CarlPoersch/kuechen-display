@@ -517,10 +517,48 @@ struct TimerToolView: View {
     @ObservedObject private var smart = SmartHomeStore.shared
     @State private var endAction = ""          // "", "off", "on" – nur mit Lampen sichtbar
     @State private var endLamps: [String] = []
+    @ObservedObject private var templates = TimerPresetStore.shared
+    @State private var editPreset: TimerPreset?
+    @State private var newPreset = false
     private let presets = [1, 3, 5, 8, 10, 15, 20, 30, 45, 60]
 
     var body: some View {
         List {
+            // Vorlagen: ein Tipp startet sofort, gedrückt halten = bearbeiten
+            Section {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(templates.presets) { p in
+                            Button { withAnimation { center.start(p.name, seconds: p.secs, icon: p.icon.isEmpty ? nil : p.icon) } } label: {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(p.label).font(.subheadline.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
+                                    Text(TimerCenter.format(TimeInterval(p.secs))).font(.caption.monospacedDigit()).foregroundColor(Theme.secondary)
+                                }
+                                .padding(.horizontal, 14).frame(minWidth: 96, minHeight: 52, alignment: .leading)
+                                .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.card))
+                            }
+                            .buttonStyle(.plain)
+                            .contextMenu {
+                                Button { editPreset = p } label: { Label("Bearbeiten", systemImage: "pencil") }
+                                Button { templates.moveToFront(p) } label: { Label("Nach vorne", systemImage: "arrow.left.to.line") }
+                                Button(role: .destructive) { templates.delete(p) } label: { Label("Löschen", systemImage: "trash") }
+                            }
+                            .accessibilityLabel("\(p.name), \(p.secs / 60) Minuten starten")
+                        }
+                        Button { newPreset = true } label: {
+                            Image(systemName: "plus").font(.headline).foregroundColor(Theme.accent)
+                                .frame(width: 52, height: 52)
+                                .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.accent.opacity(0.12)))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel("Vorlage anlegen")
+                    }
+                    .padding(.vertical, 4)
+                }
+                .listRowBackground(Color.clear)
+                .listRowInsets(EdgeInsets())
+            } header: { Text("Vorlagen") } footer: { Text("Antippen startet sofort. Gedrückt halten zum Bearbeiten.") }
+
             // Neuer Timer
             Section {
                 DurationWheel(seconds: $seconds)
@@ -617,6 +655,11 @@ struct TimerToolView: View {
         }
         .listStyle(.insetGrouped)
         .sheet(item: $editing) { TimerEditSheet(timer: $0) }
+        .sheet(item: $editPreset) { PresetEditSheet(preset: $0, isNew: false) }
+        .sheet(isPresented: $newPreset) {
+            if let p = templates.newPreset() { PresetEditSheet(preset: p, isNew: true) }
+        }
+        .task { if let h = center.household { await templates.load(household: h) } }
     }
 
     private func startNew() {

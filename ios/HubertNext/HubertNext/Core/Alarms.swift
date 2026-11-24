@@ -295,9 +295,9 @@ final class AlarmCenter: ObservableObject {
         if LightHost.shared.isHost && LightHost.hasLights { lightStep(now) }
         // Ton und Wecker-Fenster folgen dem Klingeln
         if let r = ringing {
-            AlarmSound.shared.start(ramp: r.alarm.ramp)
+            AlarmSound.shared.start(tone: AlarmTone.from(r.alarm.sound), ramp: r.alarm.ramp)
             AlarmWindow.shared.show()
-        } else {
+        } else if AlarmWindow.shared.visible {
             AlarmSound.shared.stop()
             AlarmWindow.shared.hide()
         }
@@ -366,6 +366,7 @@ final class AlarmCenter: ObservableObject {
         let c = UNUserNotificationCenter.current()
         let list = alarms
         let mine = list.filter(ringsHere)
+        AlarmTone.installNotificationSounds()
         Task {
             if !mine.isEmpty { _ = try? await c.requestAuthorization(options: [.alert, .sound]) }
             let pending = await c.pendingNotificationRequests()
@@ -383,8 +384,8 @@ final class AlarmCenter: ObservableObject {
                 let content = UNMutableNotificationContent()
                 content.title = "⏰ " + a.title
                 content.body = String(format: "%d:%02d – Wecker", Calendar.current.component(.hour, from: d), Calendar.current.component(.minute, from: d))
-                content.sound = .default
-                if #available(iOS 15.0, *) { content.interruptionLevel = .timeSensitive }
+                content.sound = AlarmTone.from(a.sound).notificationSound
+                content.interruptionLevel = .timeSensitive
                 let comps = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: d)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)
                 let id = Self.prefix + a.id + "." + String(Int(d.timeIntervalSince1970))
@@ -403,22 +404,16 @@ final class AlarmSound {
     static let shared = AlarmSound()
     private var player: AVAudioPlayer?
     private var started = Date.distantPast
-    private var ramp = true
     private var rampTimer: Timer?
+    private var previewStop: DispatchWorkItem?
+    private(set) var playingTone: AlarmTone?
 
-    func start(ramp: Bool) {
-        guard player == nil else { return }
-        self.ramp = ramp
-        let s = AVAudioSession.sharedInstance()
-        try? s.setCategory(.playback, mode: .default, options: [.duckOthers])
-        try? s.setActive(true)
-        guard let p = try? AVAudioPlayer(data: Self.tone) else { return }
-        p.numberOfLoops = -1
-        p.volume = ramp ? 0.15 : 1
-        p.play()
-        player = p
+    /// Wecker klingelt: Ton in Schleife, auf Wunsch langsam lauter (30 s)
+    func start(tone: AlarmTone, ramp: Bool) {
+        if playingTone == tone && previewStop == nil { return }
+        stop()
+        play(tone, volume: ramp ? 0.15 : 1)
         started = Date()
-        // Langsam lauter: in 30 s auf volle Lautstärke
         if ramp {
             rampTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] t in
                 DispatchQueue.main.async {
@@ -431,39 +426,35 @@ final class AlarmSound {
         }
     }
 
+    /// Kurz vorspielen (beim Auswählen im Wecker), 3 s
+    func preview(_ tone: AlarmTone) {
+        stop()
+        play(tone, volume: 0.8)
+        let w = DispatchWorkItem { [weak self] in self?.stop() }
+        previewStop = w
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: w)
+    }
+
+    private func play(_ tone: AlarmTone, volume: Float) {
+        let s = AVAudioSession.sharedInstance()
+        try? s.setCategory(.playback, mode: .default, options: [.duckOthers])
+        try? s.setActive(true)
+        guard let p = try? AVAudioPlayer(data: tone.wav()) else { return }
+        p.numberOfLoops = -1
+        p.volume = volume
+        p.play()
+        player = p
+        playingTone = tone
+    }
+
     func stop() {
+        previewStop?.cancel(); previewStop = nil
         guard player != nil else { return }
         rampTimer?.invalidate(); rampTimer = nil
         player?.stop(); player = nil
+        playingTone = nil
         try? AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
     }
-
-    /// Wecker-Ton, selbst erzeugt (keine fremde Aufnahme): zweimal kurz piepen, Pause – als WAV
-    static let tone: Data = {
-        let rate = 44_100
-        var samples: [Int16] = []
-        func beep(_ secs: Double, _ freq: Double) {
-            let n = Int(secs * Double(rate))
-            for i in 0..<n {
-                let t = Double(i) / Double(rate)
-                // weiches Ein-/Ausblenden gegen Knackser
-                let env = min(1, min(t, secs - t) / 0.01)
-                samples.append(Int16(sin(2 * .pi * freq * t) * env * 0.6 * Double(Int16.max)))
-            }
-        }
-        func pause(_ secs: Double) { samples.append(contentsOf: repeatElement(0, count: Int(secs * Double(rate)))) }
-        beep(0.16, 1046); pause(0.08); beep(0.16, 1046); pause(0.08); beep(0.16, 1318); pause(0.7)
-
-        var d = Data()
-        func u32(_ v: UInt32) { var x = v.littleEndian; withUnsafeBytes(of: &x) { d.append(contentsOf: $0) } }
-        func u16(_ v: UInt16) { var x = v.littleEndian; withUnsafeBytes(of: &x) { d.append(contentsOf: $0) } }
-        let dataLen = UInt32(samples.count * 2)
-        d.append(contentsOf: Array("RIFF".utf8)); u32(36 + dataLen); d.append(contentsOf: Array("WAVE".utf8))
-        d.append(contentsOf: Array("fmt ".utf8)); u32(16); u16(1); u16(1); u32(UInt32(rate)); u32(UInt32(rate * 2)); u16(2); u16(16)
-        d.append(contentsOf: Array("data".utf8)); u32(dataLen)
-        for s in samples { u16(UInt16(bitPattern: s)) }
-        return d
-    }()
 }
 
 // MARK: Eigenes Fenster über allem
@@ -490,6 +481,8 @@ final class AlarmWindow {
         w.makeKeyAndVisible()
         window = w
     }
+
+    var visible: Bool { window != nil }
 
     func hide() {
         guard let w = window else { return }

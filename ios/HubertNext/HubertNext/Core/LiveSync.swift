@@ -145,6 +145,12 @@ final class LiveSync: ObservableObject {
                 // Wecker: eigener Versuch, damit ein Fehler dort die Timer nicht aufhält
                 if let alarms = try? await w { AlarmCenter.shared.apply(remote: alarms, household: h) }
                 await LightHost.shared.beat(household: h)
+                // „Gute Nacht“ von einem anderen Gerät → Nachtuhr auf Wanddisplays
+                struct Night: Decodable { let requested_at: String; let device: String }
+                if let n: [Night] = try? await api.select("household_night", ["household_id": "eq." + h]),
+                   let r = n.first, let at = ISO.date(r.requested_at) {
+                    NightClock.shared.remote(requestedAt: at, device: r.device)
+                }
                 await FocusCenter.shared.pull()
                 await CookSession.shared.apply(remote: cooking.first.flatMap { $0.active == false ? nil : $0 })
                 lastSync = Date()
@@ -176,7 +182,7 @@ final class LiveSync: ObservableObject {
         sentToken = token
         // Je Tabelle: Einfügen/Ändern nur für unseren Haushalt; Löschen ohne Filter,
         // weil Supabase Lösch-Ereignisse nicht filtern kann (dann wird eben kurz nachgesehen).
-        let tables = ["kitchen_timers", "kitchen_cooking", "kitchen_items", "kitchen_plan", "alarms"]
+        let tables = ["kitchen_timers", "kitchen_cooking", "kitchen_items", "kitchen_plan", "alarms", "household_night"]
         var changes: [[String: Any]] = []
         for t in tables {
             changes.append(["event": "INSERT", "schema": "public", "table": t, "filter": "household_id=eq." + h])
