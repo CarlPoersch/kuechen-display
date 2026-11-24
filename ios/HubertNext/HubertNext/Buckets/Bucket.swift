@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 /// Jeder Bucket ist eine App (Symbol unten bei APPS, öffnet die Detailansicht) und kann ein Widget
 /// (Karte oben) haben. Beides ist pro Gerät einzeln ein-/ausblendbar.
@@ -35,6 +36,35 @@ struct BucketKind: Identifiable {
     var parent: String? = nil
     /// false = nicht mehr im Katalog (bestehende Karten laufen weiter)
     var inCatalog = true
+    /// Mehrere Ansichten in einer Karte (z. B. Einkauf ↔ Vorrat). Umschalten über den Titel im Kartenkopf.
+    var modes: [BucketMode] = []
+}
+
+/// Eine Ansicht einer Karte mit mehreren Themen
+struct BucketMode: Identifiable, Hashable {
+    let id: String
+    let name: String
+    let symbol: String
+}
+
+/// Merkt sich pro Karte, welche Ansicht gerade gewählt ist – pro Gerät (iPhone und iPad dürfen
+/// verschiedene Ansichten zeigen, die Inhalte bleiben gleich).
+final class BucketModes: ObservableObject {
+    static let shared = BucketModes()
+    private let key = "hubert.bucketModes"
+    @Published private var values: [String: String]
+
+    init() { values = UserDefaults.standard.dictionary(forKey: key) as? [String: String] ?? [:] }
+
+    func mode(_ bucketId: String, default first: String) -> String { values[bucketId] ?? first }
+    func mode(_ bucketId: String, kind: BucketKind) -> BucketMode? {
+        let id = values[bucketId]
+        return kind.modes.first { $0.id == id } ?? kind.modes.first
+    }
+    func set(_ bucketId: String, _ mode: String) {
+        values[bucketId] = mode
+        UserDefaults.standard.set(values, forKey: key)
+    }
 }
 
 extension BucketKind {

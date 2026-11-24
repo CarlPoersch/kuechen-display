@@ -319,6 +319,7 @@ struct BucketCard: View {
     @Environment(\.homeEditing) private var homeEditing
     @Environment(\.startHomeEditing) private var startHomeEditing
     let instance: BucketInstance
+    @ObservedObject private var modes = BucketModes.shared
     @State private var editing = false
     @State private var open = false   // Details geöffnet
 
@@ -363,6 +364,55 @@ struct BucketCard: View {
     }
 
     @ViewBuilder private func head(_ kind: BucketKind) -> some View {
+        if kind.modes.isEmpty { plainHead(kind) } else { modeHead(kind) }
+    }
+
+    /// Kopf mit Umschalter: Der Titel ist ein Menü (Einkauf ⌄ → Vorrat). Menü und „Alle ›“ liegen
+    /// bewusst nebeneinander statt ineinander – ein Menü in einem Knopf fängt auf iOS 15 die Tipper ab.
+    @ViewBuilder private func modeHead(_ kind: BucketKind) -> some View {
+        let current = modes.mode(instance.id, kind: kind) ?? kind.modes[0]
+        HStack(spacing: 10) {
+            Menu {
+                Picker("Ansicht", selection: Binding(get: { current.id },
+                                                     set: { v in withAnimation(.easeOut(duration: 0.2)) { modes.set(instance.id, v) } })) {
+                    ForEach(kind.modes) { Label($0.name, systemImage: $0.symbol).tag($0.id) }
+                }
+            } label: {
+                HStack(spacing: 6) {
+                    Image(systemName: current.symbol).foregroundColor(kind.tint)
+                    Text(current.name.uppercased())
+                        .font(.caption.weight(.semibold)).foregroundColor(Theme.secondary).lineLimit(1)
+                    Image(systemName: "chevron.down").font(.caption2.weight(.bold)).foregroundColor(Theme.secondary)
+                }
+                .frame(minHeight: 28)
+                .contentShape(Rectangle())
+            }
+            .accessibilityLabel("Ansicht: \(current.name)")
+            Spacer(minLength: 0)
+            if kind.detail != nil {
+                Button { open = true } label: {
+                    HStack(spacing: 6) {
+                        Text("Alle").font(.subheadline).foregroundColor(Theme.accent)
+                        Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                    }
+                    .frame(minHeight: 28).contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+            }
+            editButton
+        }
+    }
+
+    private var editButton: some View {
+        Button { editing = true } label: {
+            Image(systemName: "slider.horizontal.3").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
+                .frame(width: 28, height: 22)
+        }
+        .buttonStyle(.borderless)
+        .accessibilityLabel("Anpassen")
+    }
+
+    @ViewBuilder private func plainHead(_ kind: BucketKind) -> some View {
         HStack(spacing: 10) {
             let row = HStack(spacing: 6) {
                 Image(systemName: kind.symbol).foregroundColor(kind.tint)
@@ -382,12 +432,7 @@ struct BucketCard: View {
                 row
             }
             // Immer da: auch ohne eigene Einstellungen gibt es Name, Größe und „Auf diesem Gerät zeigen“
-            Button { editing = true } label: {
-                Image(systemName: "slider.horizontal.3").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
-                    .frame(width: 28, height: 22)
-            }
-            .buttonStyle(.borderless)
-            .accessibilityLabel("Anpassen")
+            editButton
         }
     }
 

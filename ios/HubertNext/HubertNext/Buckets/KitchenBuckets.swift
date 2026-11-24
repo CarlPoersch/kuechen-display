@@ -4,7 +4,7 @@ import SwiftUI
 // Küchen-Buckets:
 //  - Küche (App): Rezepte, Woche, Einkauf, Vorrat, Airfryer
 //  - Timer (App): mehrere Timer gleichzeitig
-//  - Einkauf (Startseite): offene Artikel, direkt abhaken oder hinzufügen
+//  - Einkauf & Vorrat (Startseite): oben am Titel umschalten; abhaken, hinzufügen, entfernen
 //  - Rezept des Tages (Startseite): jeden Tag ein anderes Rezept
 // ============================================================
 enum KitchenBuckets {
@@ -22,12 +22,15 @@ enum KitchenBuckets {
     )
 
     static let shopping = BucketKind(
-        id: "einkauf", name: "Einkauf", symbol: "cart.fill", tint: .green, art: .glance,
-        interests: ["haushalt"], blurb: "Die Einkaufsliste des Haushalts – abhaken und hinzufügen direkt auf der Startseite.",
-        glance: { _, _ in AnyView(ShoppingGlance()) },
-        detail: { _ in AnyView(KitchenView(tab: .shop)) },
+        id: "einkauf", name: "Einkauf & Vorrat", symbol: "cart.fill", tint: .green, art: .glance,
+        interests: ["haushalt"], blurb: "Einkaufsliste und Vorrat in einer Karte – oben am Titel umschalten, direkt abhaken, hinzufügen und entfernen.",
+        glance: { inst, _ in AnyView(ShoppingGlance(bucketId: inst.id)) },
+        // „Alle ›“ öffnet die Küche passend zur gewählten Ansicht
+        detail: { inst in AnyView(KitchenView(tab: BucketModes.shared.mode(inst.id, default: "shop") == "pantry" ? .pantry : .shop)) },
         itemLinks: true,
-        parent: "kueche"          // Widget der Küche
+        parent: "kueche",         // Widget der Küche
+        modes: [BucketMode(id: "shop", name: "Einkauf", symbol: "cart.fill"),
+                BucketMode(id: "pantry", name: "Vorrat", symbol: "archivebox.fill")]
     )
 
     static let recipeOfDay = BucketKind(
@@ -40,41 +43,52 @@ enum KitchenBuckets {
     )
 }
 
-/// Einkaufsliste auf der Startseite
+/// Einkauf oder Vorrat auf der Startseite – umgeschaltet über den Titel im Kartenkopf
 struct ShoppingGlance: View {
+    let bucketId: String
     @EnvironmentObject var app: AppStore
     @ObservedObject private var kitchen = KitchenStore.shared
+    @ObservedObject private var modes = BucketModes.shared
     @Environment(\.glanceSpace) private var space
     @State private var newItem = ""
 
+    private var pantryMode: Bool { modes.mode(bucketId, default: "shop") == "pantry" }
+
+    /// Vorrat: was bald weg muss zuerst, dann alphabetisch
+    private var pantrySorted: [KitchenItem] {
+        kitchen.pantry.sorted { a, b in
+            let da = a.daysLeft ?? 999, db = b.daysLeft ?? 999
+            return da != db ? da < db : a.name.localizedCompare(b.name) == .orderedAscending
+        }
+    }
+
+    private func add() {
+        let n = newItem.trimmingCharacters(in: .whitespaces)
+        guard !n.isEmpty else { return }
+        if pantryMode {
+            // bekannte Lebensmittel landen an ihrem üblichen Ort (Käse → Kühlschrank)
+            let place = FoodCatalog.ident(n) != nil ? FoodCatalog.place(for: n) : "Vorrat"
+            withAnimation { kitchen.add("pantry", name: n, place: place) }
+        } else {
+            withAnimation { kitchen.add("shop", name: n) }
+        }
+        newItem = ""
+    }
+
     var body: some View {
-        let open = kitchen.shop.filter { !$0.done }
         let canAdd = space.height > 110
         VStack(alignment: .leading, spacing: 0) {
-            if open.isEmpty {
-                Label("Alles eingekauft", systemImage: "checkmark.circle").foregroundColor(Theme.secondary).padding(.vertical, 6)
-                Spacer(minLength: 0)
-            } else {
-                GlancePager(pages: Pages.split(open, height: space.height - (canAdd ? 52 : 0), row: 34)) { page in
-                    VStack(alignment: .leading, spacing: 0) {
-                        ForEach(Array(page.enumerated()), id: \.element.id) { i, it in
-                            if i > 0 { Divider() }
-                            ShopRow(item: it, compact: true).padding(.vertical, 6)
-                        }
-                    }
-                }
-                Spacer(minLength: 0)
-            }
+            if pantryMode { pantryList(canAdd) } else { shopList(canAdd) }
             if canAdd {
                 HStack {
                     let empty = newItem.trimmingCharacters(in: .whitespaces).isEmpty
-                    Button { kitchen.add("shop", name: newItem); newItem = "" } label: {
+                    Button(action: add) {
                         Image(systemName: "plus.circle.fill").foregroundColor(empty ? Color(UIColor.tertiaryLabel) : Theme.accent)
                     }
                     .buttonStyle(.borderless).disabled(empty)
                     .accessibilityLabel("Hinzufügen")
-                    TextField("Hinzufügen", text: $newItem).submitLabel(.done)
-                        .onSubmit { kitchen.add("shop", name: newItem); newItem = "" }
+                    TextField(pantryMode ? "In den Vorrat" : "Hinzufügen", text: $newItem).submitLabel(.done)
+                        .onSubmit(add)
                 }
                 .padding(.horizontal, 10).padding(.vertical, 8)
                 .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
@@ -83,6 +97,69 @@ struct ShoppingGlance: View {
         .refreshing(id: app.household?.id ?? "", every: { 15 }) {
             await KitchenStore.shared.sync(household: app.household?.id)
         }
+    }
+
+    @ViewBuilder private func shopList(_ canAdd: Bool) -> some View {
+        let open = kitchen.shop.filter { !$0.done }
+        if open.isEmpty {
+            Label("Alles eingekauft", systemImage: "checkmark.circle").foregroundColor(Theme.secondary).padding(.vertical, 6)
+            Spacer(minLength: 0)
+        } else {
+            GlancePager(pages: Pages.split(open, height: space.height - (canAdd ? 52 : 0), row: 34)) { page in
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(Array(page.enumerated()), id: \.element.id) { i, it in
+                        if i > 0 { Divider() }
+                        ShopRow(item: it, compact: true).padding(.vertical, 6)
+                    }
+                }
+            }
+            Spacer(minLength: 0)
+        }
+    }
+
+    @ViewBuilder private func pantryList(_ canAdd: Bool) -> some View {
+        let list = pantrySorted
+        if list.isEmpty {
+            Label("Vorrat ist noch leer", systemImage: "archivebox").foregroundColor(Theme.secondary).padding(.vertical, 6)
+            Spacer(minLength: 0)
+        } else {
+            GlancePager(pages: Pages.split(list, height: space.height - (canAdd ? 52 : 0), row: 38)) { page in
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(Array(page.enumerated()), id: \.element.id) { i, it in
+                        if i > 0 { Divider() }
+                        PantryGlanceRow(item: it)
+                    }
+                }
+            }
+            Spacer(minLength: 0)
+        }
+    }
+}
+
+/// Vorratszeile in der Karte: Name, Ort/Haltbarkeit, Minus rechts entfernt sofort
+struct PantryGlanceRow: View {
+    let item: KitchenItem
+    @ObservedObject private var kitchen = KitchenStore.shared
+
+    var body: some View {
+        HStack(spacing: 8) {
+            Text(item.name).font(.subheadline).lineLimit(1)
+            Spacer(minLength: 4)
+            if let d = item.daysLeft, d <= 3 {
+                Text(d < 0 ? "abgelaufen" : d == 0 ? "heute" : d == 1 ? "morgen" : "noch \(d) Tage")
+                    .font(.caption).foregroundColor(d <= 1 ? .red : .orange)
+            } else if !item.place.isEmpty && item.place != "Vorrat" {
+                Text(item.place).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+            }
+            Button { withAnimation { kitchen.delete(item) } } label: {
+                Image(systemName: "minus.circle.fill").font(.body).foregroundColor(Theme.secondary)
+                    .frame(width: 38, height: 38).contentShape(Rectangle())
+            }
+            .buttonStyle(.borderless)
+            .padding(.trailing, -8)
+            .accessibilityLabel("\(item.name) entfernen")
+        }
+        .frame(height: 38)
     }
 }
 
