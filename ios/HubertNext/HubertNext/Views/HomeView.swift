@@ -289,8 +289,11 @@ struct BriefingGrid: View {
                 let free = max(0, width - gap * CGFloat(row.count - 1))   // beim ersten Messen kann die Breite 0 sein
                 HStack(alignment: .top, spacing: gap) {
                     ForEach(row) { it in
+                        let w = free * CGFloat(min(span(it.size), columns)) / total
                         BucketCard(instance: it)
-                            .frame(width: free * CGFloat(min(span(it.size), columns)) / total, height: height(row))
+                            // Höchstens so viel Platz wie die Größe erlaubt – die Karte selbst ist nur so hoch wie ihr Inhalt
+                            .environment(\.glanceSpace, CGSize(width: max(0, w - 32), height: contentCap(it.size)))
+                            .frame(width: w)
                             .opacity(dragging == it.id ? 0.4 : 1)
                             // Im Bearbeiten-Modus: Karte ziehen und auf einer anderen loslassen
                             // Kein startEditing() beim Ziehen – siehe ToolIcon (Absturz mit offenem Kontextmenü)
@@ -298,14 +301,16 @@ struct BriefingGrid: View {
                             .onDrop(of: [UTType.text], delegate: BucketDrop(target: it.id, dragging: $dragging, store: store))
                     }
                 }
+                // Karten einer Reihe gleich hoch (die höchste bestimmt), aber nie höher als ihr Inhalt
+                .fixedSize(horizontal: false, vertical: true)
             }
         }
     }
 
-    /// Alle Karten einer Reihe gleich hoch → saubere Rechtecke
-    private func height(_ row: [BucketInstance]) -> CGFloat {
-        // Groß: bis zu 6 Einträge · Mittel: 3 · Klein: einer
-        row.contains { $0.size == .l } ? 340 : row.contains { $0.size == .m } ? 240 : 170
+    /// Größte Inhaltshöhe je Größe (Karte 170/240/340 pt minus Rand und Kopf).
+    /// Groß: bis zu 6 Einträge · Mittel: 3 · Klein: einer. Wer weniger zeigt, wird entsprechend kleiner.
+    private func contentCap(_ size: BucketSize) -> CGFloat {
+        switch size { case .s: return 100; case .m: return 170; case .l: return 270 }
     }
 }
 
@@ -316,6 +321,7 @@ struct BriefingGrid: View {
 /// Der Regler-Knopf (oder lange drücken) öffnet die Einstellungen direkt hier.
 struct BucketCard: View {
     @EnvironmentObject var store: AppStore
+    @Environment(\.glanceSpace) private var space
     @Environment(\.homeEditing) private var homeEditing
     @Environment(\.startHomeEditing) private var startHomeEditing
     let instance: BucketInstance
@@ -436,14 +442,14 @@ struct BucketCard: View {
         }
     }
 
+    /// Inhalt nur so hoch wie nötig (höchstens `glanceSpace.height`, vom Raster gesetzt).
+    /// Warum nicht mehr GeometryReader: Der nahm immer die volle Höhe → leere Flächen in den Karten.
     @ViewBuilder private func content(_ kind: BucketKind) -> some View {
-        let inner = GeometryReader { g in
-            kind.glance(instance, instance.size)
-                .environment(\.glanceSpace, g.size)
-                .frame(width: g.size.width, height: g.size.height, alignment: .topLeading)
-        }
-        .clipped()
-        .contentShape(Rectangle())
+        let inner = kind.glance(instance, instance.size)
+            .fixedSize(horizontal: false, vertical: true)
+            .frame(maxWidth: .infinity, maxHeight: space.height, alignment: .topLeading)
+            .clipped()
+            .contentShape(Rectangle())
         if kind.detail != nil && !kind.itemLinks {
             Button { open = true } label: { inner }.buttonStyle(.plain)
         } else {

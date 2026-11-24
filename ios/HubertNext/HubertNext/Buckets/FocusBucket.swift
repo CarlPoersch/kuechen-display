@@ -309,6 +309,8 @@ struct FocusRing: View {
                 .rotationEffect(.degrees(-90))
                 .animation(.linear(duration: 1), value: center.progress)
         }
+        // Die Linie liegt mittig auf dem Kreis → halbe Linienbreite Abstand, sonst wird der Ring am Rand abgeschnitten
+        .padding(line / 2)
     }
 }
 

@@ -85,7 +85,12 @@ enum ReiseBucket {
     static func dates(_ t: Trip) -> String {
         let f = DateFormatter(); f.locale = Locale(identifier: "de_DE"); f.dateFormat = "d. MMM"
         let y = DateFormatter(); y.locale = Locale(identifier: "de_DE"); y.dateFormat = "d. MMM yyyy"
-        if Calendar.current.isDate(t.start, inSameDayAs: t.end) { return y.string(from: t.start) }
+        let cal = Calendar.current
+        if cal.isDate(t.start, inSameDayAs: t.end) { return y.string(from: t.start) }
+        // Gleicher Monat: „1.–4. Jan. 2027“ statt „1. Jan. – 4. Jan. 2027“
+        if cal.isDate(t.start, equalTo: t.end, toGranularity: .month) {
+            return "\(cal.component(.day, from: t.start)).–" + y.string(from: t.end)
+        }
         return f.string(from: t.start) + " – " + y.string(from: t.end)
     }
 }
@@ -247,38 +252,39 @@ struct ReiseGlance: View {
         if let t = next.first {
             let d = CountdownBucket.daysLeft(t.start)
             let soon = d <= 7
-            VStack(alignment: .leading, spacing: 10) {
+            let roomy = space.height > 100
+            VStack(alignment: .leading, spacing: 12) {
                 // Kopf: Symbol, Ziel und Daten links – Countdown rechts
                 HStack(alignment: .center, spacing: 12) {
-                    Text(t.emoji).font(.system(size: 26))
-                        .frame(width: 46, height: 46)
-                        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.accent.opacity(0.12)))
+                    Text(t.emoji).font(.system(size: 28))
+                        .frame(width: 52, height: 52)
+                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(t.title).font(.headline).lineLimit(1)
+                        Text(t.title).font(.title3.weight(.semibold)).lineLimit(1)
                         Text(ReiseBucket.dates(t)).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
                     }
                     Spacer(minLength: 4)
                     if t.running || d < 2 {
                         Text(ReiseBucket.label(t)).font(.headline).foregroundColor(Theme.accent)
                     } else {
-                        VStack(alignment: .trailing, spacing: 0) {
-                            Text("\(d)").font(.system(size: 30, weight: .bold).monospacedDigit())
+                        VStack(alignment: .trailing, spacing: -2) {
+                            Text("\(d)").font(.system(size: 34, weight: .bold, design: .rounded).monospacedDigit())
                                 .foregroundColor(soon ? Theme.accent : .primary)
-                            Text("Tage").font(.caption).foregroundColor(Theme.secondary)
+                            Text(d == 1 ? "Tag" : "Tage").font(.caption.weight(.medium)).foregroundColor(Theme.secondary)
                         }
                     }
                 }
-                // Infos als ruhige Chips: Wetter, Packliste
-                if space.height > 100 && (weather.days.first != nil || !t.pack.isEmpty) {
+                // Wetter am Ziel und Packliste in einer ruhigen Zeile
+                if roomy && (weather.days.first != nil || !t.pack.isEmpty) {
                     HStack(spacing: 8) {
                         if let w = weather.days.first {
                             let info = WeatherCode.info(w.code)
                             chip {
                                 Image(systemName: info.symbol).renderingMode(.original)
                                 Text(w.estimated
-                                     ? "meist \(Int((weather.climate?.max ?? w.max).rounded()))°"
+                                     ? "um \(Int((weather.climate?.max ?? w.max).rounded()))°"
                                      : "\(Int(w.max.rounded()))° / \(Int(w.min.rounded()))°").monospacedDigit()
-                                if w.estimated { Text("Schätzung").foregroundColor(Theme.secondary) }
+                                Text(w.estimated ? "üblich" : "Vorhersage").foregroundColor(Theme.secondary)
                             }
                         }
                         if !t.pack.isEmpty {
@@ -291,9 +297,19 @@ struct ReiseGlance: View {
                         Spacer(minLength: 0)
                     }
                 }
-                if next.count > 1 && space.height > 160 {
-                    Text("Danach: " + next[1].emoji + " " + next[1].title + " · " + ReiseBucket.label(next[1]))
-                        .font(.footnote).foregroundColor(Theme.secondary).lineLimit(1)
+                // Nächste Reise danach – als eigene, leise Zeile mit Trennlinie
+                if roomy && next.count > 1 {
+                    let n = next[1]
+                    VStack(alignment: .leading, spacing: 10) {
+                        Divider()
+                        HStack(spacing: 8) {
+                            Text("DANACH").font(.caption2.weight(.semibold)).foregroundColor(Theme.secondary)
+                            Text(n.emoji)
+                            Text(n.title).font(.subheadline.weight(.medium)).lineLimit(1)
+                            Spacer(minLength: 4)
+                            Text(ReiseBucket.label(n)).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
+                        }
+                    }
                 }
             }
             .task(id: t.id) { await weather.load(t) }
