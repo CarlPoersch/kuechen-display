@@ -82,7 +82,7 @@ enum BucketRegistry {
                                          KitchenBuckets.kitchen, KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
                                          KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind, FocusBucket.kind,
                                          PollenBucket.kind, ReiseBucket.kind, StundenplanBucket.kind, ZieleBucket.kind, StromBucket.kind,
-                                         RemoteBucket.kind, SpotifyBucket.kind] + comingSoon
+                                         RemoteBucket.kind, SpotifyBucket.kind, SmartHomeBucket.kind] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
     /// Was man hinzufügen kann (Katalog, Einrichtung)
@@ -105,7 +105,6 @@ enum BucketRegistry {
         soon("foto", "Foto des Tages", "photo", .teal, .glance, ["freizeit"], "Erinnerungen oder Bilder aus dem All."),
         soon("quiz", "Tagesfrage", "questionmark.bubble", .orange, .glance, ["freizeit"], "Eine Frage pro Tag, Punkte im Haushalt."),
         soon("kochen-heute", "Was koche ich heute?", "flame", .orange, .glance, ["haushalt"], "Passend zu Vorrat, Wetter und Zeit."),
-        soon("smarthome", "Smart Home", "lightbulb", .yellow, .tool, ["haushalt", "technik"], "Licht und Geräte steuern."),
     ]
 
     private static func soon(_ id: String, _ name: String, _ symbol: String, _ tint: Color, _ art: BucketArt,
