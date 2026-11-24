@@ -48,3 +48,6 @@ begin
     alter publication supabase_realtime add table public.alarms;
   end if;
 end $$;
+
+-- Welches Gerät zuletzt beendet hat (zur Fehlersuche: „hat nicht geklingelt“)
+alter table public.alarms add column if not exists dismissed_by text;

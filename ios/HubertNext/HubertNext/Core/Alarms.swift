@@ -2,6 +2,8 @@ import SwiftUI
 import Combine
 import AudioToolbox
 import UserNotifications
+import AVFoundation
+import UIKit
 
 // ============================================================
 // Wecker (Bucket „Uhr“) – Design: docs/specs/2026-11-24-uhr-wecker-design.md
@@ -34,10 +36,11 @@ struct Alarm: Codable, Identifiable, Equatable {
     var snooze_for: String?
     var snooze_until: String?
     var position: Int = 0
+    var dismissed_by: String?
 
     enum CodingKeys: String, CodingKey {
         case id, household_id, owner, shared, name, hour, minute, days, enabled, armed_at, snooze_min, sound, ramp
-        case lamps, light_lead, light_stagger, dismissed_for, snooze_for, snooze_until, position
+        case lamps, light_lead, light_stagger, dismissed_for, snooze_for, snooze_until, position, dismissed_by
     }
 
     // Leere Felder ausdrücklich als null senden (sonst bliebe ein altes Schlummern auf dem Server stehen)
@@ -51,6 +54,7 @@ struct Alarm: Codable, Identifiable, Equatable {
         try c.encode(lamps, forKey: .lamps); try c.encode(light_lead, forKey: .light_lead); try c.encode(light_stagger, forKey: .light_stagger)
         try c.encode(dismissed_for, forKey: .dismissed_for); try c.encode(snooze_for, forKey: .snooze_for)
         try c.encode(snooze_until, forKey: .snooze_until); try c.encode(position, forKey: .position)
+        try c.encodeIfPresent(dismissed_by, forKey: .dismissed_by)
     }
 
     var timeText: String { String(format: "%d:%02d", hour, minute) }
@@ -219,8 +223,10 @@ final class AlarmCenter: ObservableObject {
 
     /// Klingeln beenden – überall. Einmal-Wecker schalten sich danach ab.
     func dismiss() {
+        guard !justStarted else { return }
         guard let r = ringing, var a = alarms.first(where: { $0.id == r.alarm.id }) else { ringing = nil; return }
         a.dismissed_for = ISO.string(r.fire)
+        a.dismissed_by = AppStore.deviceName + " " + String(Device.id.prefix(6))
         a.snooze_for = nil; a.snooze_until = nil
         if a.days.isEmpty { a.enabled = false }
         ringing = nil
@@ -230,6 +236,7 @@ final class AlarmCenter: ObservableObject {
 
     /// Schlummern – überall
     func snooze() {
+        guard !justStarted else { return }
         guard let r = ringing, var a = alarms.first(where: { $0.id == r.alarm.id }) else { ringing = nil; return }
         a.snooze_for = ISO.string(r.fire)
         a.snooze_until = ISO.string(Date().addingTimeInterval(TimeInterval(max(1, a.snooze_min) * 60)))
@@ -284,11 +291,18 @@ final class AlarmCenter: ObservableObject {
             if ringing == nil, found != nil { ringStarted = now }
             ringing = found
         }
-        if ringing != nil, now.timeIntervalSince(lastBeep) >= 2 {
-            lastBeep = now
-            AudioServicesPlayAlertSound(1005)
+        // Ton und Wecker-Fenster folgen dem Klingeln
+        if let r = ringing {
+            AlarmSound.shared.start(ramp: r.alarm.ramp)
+            AlarmWindow.shared.show()
+        } else {
+            AlarmSound.shared.stop()
+            AlarmWindow.shared.hide()
         }
     }
+
+    /// Schutz vor einem versehentlichen Tipp genau in dem Moment, in dem der Wecker erscheint
+    var justStarted: Bool { Date().timeIntervalSince(ringStarted) < 1.5 }
 
     // MARK: Mitteilungen (falls Hubert zu ist)
 
@@ -327,7 +341,111 @@ final class AlarmCenter: ObservableObject {
     }
 }
 
-// MARK: Wecker-Bildschirm (liegt über der ganzen App)
+// MARK: Ton
+// Warum nicht der System-Ton (AudioServicesPlayAlertSound): Der bleibt stumm, wenn das Gerät
+// auf „Stumm“ steht – genau das war „der Wecker hat nicht geläutet“. AVAudioPlayer mit der
+// Kategorie .playback klingt auch im Stumm-Modus (Lautstärke = Medienlautstärke).
+
+final class AlarmSound {
+    static let shared = AlarmSound()
+    private var player: AVAudioPlayer?
+    private var started = Date.distantPast
+    private var ramp = true
+    private var rampTimer: Timer?
+
+    func start(ramp: Bool) {
+        guard player == nil else { return }
+        self.ramp = ramp
+        let s = AVAudioSession.sharedInstance()
+        try? s.setCategory(.playback, mode: .default, options: [.duckOthers])
+        try? s.setActive(true)
+        guard let p = try? AVAudioPlayer(data: Self.tone) else { return }
+        p.numberOfLoops = -1
+        p.volume = ramp ? 0.15 : 1
+        p.play()
+        player = p
+        started = Date()
+        // Langsam lauter: in 30 s auf volle Lautstärke
+        if ramp {
+            rampTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] t in
+                DispatchQueue.main.async {
+                    guard let self = self, let p = self.player else { t.invalidate(); return }
+                    let f = min(1, Date().timeIntervalSince(self.started) / 30)
+                    p.volume = Float(0.15 + 0.85 * f)
+                    if f >= 1 { t.invalidate() }
+                }
+            }
+        }
+    }
+
+    func stop() {
+        guard player != nil else { return }
+        rampTimer?.invalidate(); rampTimer = nil
+        player?.stop(); player = nil
+        try? AVAudioSession.sharedInstance().setActive(false, options: [.notifyOthersOnDeactivation])
+    }
+
+    /// Wecker-Ton, selbst erzeugt (keine fremde Aufnahme): zweimal kurz piepen, Pause – als WAV
+    static let tone: Data = {
+        let rate = 44_100
+        var samples: [Int16] = []
+        func beep(_ secs: Double, _ freq: Double) {
+            let n = Int(secs * Double(rate))
+            for i in 0..<n {
+                let t = Double(i) / Double(rate)
+                // weiches Ein-/Ausblenden gegen Knackser
+                let env = min(1, min(t, secs - t) / 0.01)
+                samples.append(Int16(sin(2 * .pi * freq * t) * env * 0.6 * Double(Int16.max)))
+            }
+        }
+        func pause(_ secs: Double) { samples.append(contentsOf: repeatElement(0, count: Int(secs * Double(rate)))) }
+        beep(0.16, 1046); pause(0.08); beep(0.16, 1046); pause(0.08); beep(0.16, 1318); pause(0.7)
+
+        var d = Data()
+        func u32(_ v: UInt32) { var x = v.littleEndian; withUnsafeBytes(of: &x) { d.append(contentsOf: $0) } }
+        func u16(_ v: UInt16) { var x = v.littleEndian; withUnsafeBytes(of: &x) { d.append(contentsOf: $0) } }
+        let dataLen = UInt32(samples.count * 2)
+        d.append(contentsOf: Array("RIFF".utf8)); u32(36 + dataLen); d.append(contentsOf: Array("WAVE".utf8))
+        d.append(contentsOf: Array("fmt ".utf8)); u32(16); u16(1); u16(1); u32(UInt32(rate)); u32(UInt32(rate * 2)); u16(2); u16(16)
+        d.append(contentsOf: Array("data".utf8)); u32(dataLen)
+        for s in samples { u16(UInt16(bitPattern: s)) }
+        return d
+    }()
+}
+
+// MARK: Eigenes Fenster über allem
+// Warum: Ein .overlay an der App liegt UNTER Blättern (z. B. der geöffneten Uhr-App).
+// Der Wecker muss aber immer obenauf sein – darum ein eigenes Fenster auf Alarm-Ebene.
+
+final class AlarmWindow {
+    static let shared = AlarmWindow()
+    private var window: UIWindow?
+
+    func show() {
+        guard window == nil,
+              let scene = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive }) ??
+                UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first
+        else { return }
+        let w = UIWindow(windowScene: scene)
+        w.windowLevel = .alert + 1
+        let host = UIHostingController(rootView: AlarmRingOverlay())
+        host.view.backgroundColor = .clear
+        w.rootViewController = host
+        w.overrideUserInterfaceStyle = .dark
+        w.makeKeyAndVisible()
+        window = w
+    }
+
+    func hide() {
+        guard let w = window else { return }
+        w.isHidden = true
+        window = nil
+    }
+}
+
+// MARK: Wecker-Bildschirm (im eigenen Fenster über allem)
 
 struct AlarmRingOverlay: View {
     @ObservedObject private var center = AlarmCenter.shared
