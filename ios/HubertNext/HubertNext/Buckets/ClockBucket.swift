@@ -107,6 +107,7 @@ struct AlarmListView: View {
                 }
             }
             Section {
+                Toggle("Standby-Knopf auf der Startseite", isOn: $night.standbyButton).tint(Theme.accent)
                 Toggle("Wanddisplay", isOn: $host.isWall).tint(Theme.accent)
                 if host.isWall {
                     Toggle("Nachtuhr automatisch", isOn: $night.autoOn).tint(Theme.accent)
@@ -357,8 +358,8 @@ struct NextAlarmGlance: View {
                             .font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
                     }
                     Spacer(minLength: 8)
-                    Toggle("", isOn: Binding(get: { first.alarm.enabled }, set: { center.toggle(first.alarm, on: $0) }))
-                        .labelsHidden().tint(Theme.accent)
+                    MiniSwitch(isOn: Binding(get: { first.alarm.enabled }, set: { center.toggle(first.alarm, on: $0) }),
+                               label: "Wecker \(first.alarm.timeText)")
                 }
                 Button { goodNight = true } label: {
                     Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.subheadline.weight(.semibold))
@@ -377,10 +378,15 @@ struct NextAlarmGlance: View {
                     }
                 }
             }
+            // Tipp irgendwo auf die Karte öffnet die Uhr (Schalter und „Gute Nacht“ behalten ihre Funktion)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .contentShape(Rectangle())
+            .onTapGesture { openDetail() }
             .sheet(isPresented: $goodNight) { GoodNightSheet() }
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 Text(center.alarms.isEmpty ? "Kein Wecker gestellt" : "Alle Wecker aus").font(.headline)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Button { openDetail() } label: {
                     Text("Wecker stellen").font(.subheadline.weight(.semibold)).foregroundColor(.white)
                         .padding(.horizontal, 16).frame(minHeight: 36)
@@ -388,6 +394,8 @@ struct NextAlarmGlance: View {
                 }
                 .buttonStyle(.borderless)
             }
+            .contentShape(Rectangle())
+            .onTapGesture { openDetail() }
         }
     }
 
@@ -563,5 +571,33 @@ struct StopwatchView: View {
                 .background(Circle().fill(fill))
         }
         .buttonStyle(.borderless)
+    }
+}
+
+
+/// Schalter im iOS-Stil mit fester Größe (51 × 31 pt). Warum nicht Toggle: Auf iOS 26 zeichnet der
+/// System-Schalter größer, als er meldet – in Karten wurde er rechts abgeschnitten.
+struct MiniSwitch: View {
+    @Binding var isOn: Bool
+    var label: String = ""
+
+    var body: some View {
+        Button {
+            withAnimation(.easeOut(duration: 0.18)) { isOn.toggle() }
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        } label: {
+            ZStack(alignment: isOn ? .trailing : .leading) {
+                Capsule().fill(isOn ? Theme.accent : Color(UIColor.systemFill))
+                Circle().fill(Color.white).padding(2)
+                    .shadow(color: .black.opacity(0.15), radius: 2, y: 1)
+            }
+            .frame(width: 51, height: 31)
+            .padding(.vertical, 6)            // größere Tippfläche (≥ 43 pt)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(label)
+        .accessibilityValue(isOn ? "Ein" : "Aus")
+        .accessibilityAddTraits(.isButton)
     }
 }

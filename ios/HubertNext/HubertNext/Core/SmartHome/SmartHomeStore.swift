@@ -151,6 +151,14 @@ final class SmartHomeStore: ObservableObject {
         }
     }
 
+    /// Alle Lampen an
+    func allOn() {
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        switchLights(lights.filter { state[$0.id] != true && isReachable($0) }.map(\.id), on: true)
+    }
+
+    var anyOn: Bool { lights.contains { state[$0.id] == true } }
+
     func allOff() {
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         for d in devices {

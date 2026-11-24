@@ -16,6 +16,7 @@ struct HomeView: View {
     @State private var editing = false          // Startseite bearbeiten (wackeln, verschieben)
     @State private var dragging: String?        // Bucket, der gerade gezogen wird
     @ObservedObject private var look = ThemeStore.shared
+    @ObservedObject private var night = NightClock.shared   // Standby-Knopf ein/aus
 
     private var glances: [BucketInstance] {
         store.visibleBuckets.filter { BucketRegistry.kind($0.bucket)?.art == .glance }
@@ -45,7 +46,7 @@ struct HomeView: View {
                     .padding(.vertical, 12)
                     // Platz unten für den runden Knopf (rechts) und die Inseln (Timer, Kochen, Fokus) –
                     // sonst liegen die Inseln über der letzten App-Reihe
-                    .modifier(BottomClearance(button: !buttons.isEmpty))
+                    .modifier(BottomClearance(button: !buttons.isEmpty || night.standbyButton))
                     // Liest die Scroll-Position direkt aus UIKit (die SwiftUI-Messung
                     // hat auf dem iPad mit iOS 15 nicht zuverlässig ausgelöst)
                     .background(ScrollOffsetReader { y in
@@ -61,7 +62,7 @@ struct HomeView: View {
                 }
                 // Runde Knöpfe unten rechts (Gäste-WLAN) – im Bearbeiten-Modus ausgeblendet
                 .overlay(alignment: .bottomTrailing) {
-                    if !editing && !buttons.isEmpty {
+                    if !editing && (!buttons.isEmpty || night.standbyButton) {
                         FloatingBucketButtons(buttons: buttons)
                             .padding(.trailing, pad(geo.size.width) + 4)
                             .transition(.scale.combined(with: .opacity))
@@ -583,6 +584,7 @@ func afterMenu(_ action: @escaping () -> Void) {
 /// auf laufende Timer/Kochen reagiert: Auf dem iPhone rutschen sie dann über die Kapseln.
 struct FloatingBucketButtons: View {
     let buttons: [BucketInstance]
+    @ObservedObject private var night = NightClock.shared
     @ObservedObject private var session = CookSession.shared
     @ObservedObject private var center = TimerCenter.shared
     @ObservedObject private var focus = FocusCenter.shared
@@ -594,6 +596,7 @@ struct FloatingBucketButtons: View {
 
     var body: some View {
         VStack(spacing: 14) {
+            if night.standbyButton { StandbyButton() }
             ForEach(buttons) { inst in
                 if inst.bucket == GuestWifiBucket.kind.id { GuestWifiButton(instance: inst) }
             }

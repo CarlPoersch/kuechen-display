@@ -7,12 +7,20 @@ import Combine
 //   - automatisch ab einer Uhrzeit (einstellbar, pro Gerät, einmal pro Nacht),
 //   - nach „Gute Nacht“ – von jedem Gerät im Haushalt (Tabelle household_night).
 // Endet: Antippen, Wecker (bzw. dessen Licht-Vorlauf), Timer klingelt, oder zur „bis“-Uhrzeit.
+//
+// Standby (alle Geräte, Knopf über dem Gäste-WLAN-Knopf): helle große Uhr mit Datum und
+// nächstem Wecker, Helligkeit bleibt. Antippen beendet. Beginnt die Nacht, wird daraus die Nachtuhr.
 // ============================================================
 
 final class NightClock: ObservableObject {
     static let shared = NightClock()
 
-    @Published private(set) var active = false
+    enum Mode { case off, standby, night }
+    @Published private(set) var mode: Mode = .off
+    /// Nachtuhr läuft (dunkel)
+    var active: Bool { mode == .night }
+    /// Standby-Knopf auf der Startseite (pro Gerät ausblendbar)
+    @Published var standbyButton: Bool { didSet { d.set(standbyButton, forKey: "standby.button") } }
     @Published var autoOn: Bool { didSet { d.set(autoOn, forKey: "night.auto") } }
     @Published var fromMin: Int { didSet { d.set(fromMin, forKey: "night.from") } }
     @Published var toMin: Int { didSet { d.set(toMin, forKey: "night.to") } }
@@ -30,6 +38,7 @@ final class NightClock: ObservableObject {
 
     init() {
         autoOn = (d.object(forKey: "night.auto") as? Bool) ?? true
+        standbyButton = (d.object(forKey: "standby.button") as? Bool) ?? true
         fromMin = (d.object(forKey: "night.from") as? Int) ?? 23 * 60
         toMin = (d.object(forKey: "night.to") as? Int) ?? 6 * 60 + 30
         lastRemote = Date(timeIntervalSince1970: d.double(forKey: "night.lastRemote"))
@@ -52,7 +61,7 @@ final class NightClock: ObservableObject {
     // MARK: Ablauf
 
     func check(_ now: Date = Date()) {
-        guard LightHost.shared.isWall else { if active { end() }; return }
+        guard LightHost.shared.isWall else { if active { end() }; return }   // Standby bleibt auf jedem Gerät
         if active {
             if shouldWake(now) { end() }
             return
@@ -83,19 +92,29 @@ final class NightClock: ObservableObject {
         start()
     }
 
+    /// Nachtuhr (dunkel) – auch direkt aus dem Standby heraus
     func start() {
-        guard !active else { return }
+        guard mode != .night else { return }
         savedBrightness = UIScreen.main.brightness
         UIScreen.main.brightness = 0.01
         wakeAt = nextTime(toMin, after: Date())
-        withAnimation(.easeInOut(duration: 0.6)) { active = true }
+        withAnimation(.easeInOut(duration: 0.6)) { mode = .night }
     }
 
+    /// Standby: helle Uhr, Helligkeit bleibt
+    func startStandby() {
+        guard mode == .off else { return }
+        withAnimation(.easeInOut(duration: 0.4)) { mode = .standby }
+    }
+
+    /// Nachtuhr bzw. Standby beenden
     func end() {
-        guard active else { return }
-        UIScreen.main.brightness = max(savedBrightness ?? 0.6, 0.3)
-        savedBrightness = nil
-        withAnimation(.easeInOut(duration: 0.4)) { active = false }
+        guard mode != .off else { return }
+        if mode == .night {
+            UIScreen.main.brightness = max(savedBrightness ?? 0.6, 0.3)
+            savedBrightness = nil
+        }
+        withAnimation(.easeInOut(duration: 0.4)) { mode = .off }
     }
 
     /// Wach werden: Wecker klingelt oder sein Licht-Vorlauf beginnt, Timer klingelt, „bis“-Uhrzeit erreicht
@@ -136,44 +155,88 @@ final class NightClock: ObservableObject {
     }
 }
 
-/// Die Nachtuhr selbst (liegt über der Startseite, unter Wecker und Timer-Hinweisen)
+/// Nachtuhr (dunkel, rot gedimmt) bzw. Standby (hell) – liegt über der Startseite,
+/// unter Timer- und Wecker-Hinweisen. Für alle Geräte: Schrift skaliert mit der Bildschirmbreite.
 struct NightClockOverlay: View {
     @ObservedObject private var night = NightClock.shared
     @ObservedObject private var alarms = AlarmCenter.shared
 
     var body: some View {
-        if night.active {
-            TimelineView(.everyMinute) { ctx in
-                let f = DateFormatter.nightClock.string(from: ctx.date)
-                // Gegen Einbrennen: Ziffern wandern jede Minute ein Stück
-                let m = Calendar.current.component(.minute, from: ctx.date)
-                let dx = CGFloat((m * 37) % 61 - 30), dy = CGFloat((m * 53) % 41 - 20)
-                ZStack {
-                    Color.black.ignoresSafeArea()
-                    VStack(spacing: 14) {
-                        Text(f)
-                            .font(.system(size: 160, weight: .thin).monospacedDigit())
-                            .minimumScaleFactor(0.4).lineLimit(1)
-                            .foregroundColor(Color(red: 0.85, green: 0.2, blue: 0.12).opacity(0.55))
-                        if let n = alarms.next {
-                            Label(n.alarm.timeText, systemImage: "alarm.fill")
-                                .font(.title3.weight(.medium))
-                                .foregroundColor(Color(red: 0.85, green: 0.2, blue: 0.12).opacity(0.4))
+        if night.mode != .off {
+            let dark = night.mode == .night
+            let red = Color(red: 0.85, green: 0.2, blue: 0.12)
+            GeometryReader { geo in
+                TimelineView(.everyMinute) { ctx in
+                    // Gegen Einbrennen: Inhalt wandert jede Minute ein Stück
+                    let m = Calendar.current.component(.minute, from: ctx.date)
+                    let dx = CGFloat((m * 37) % 61 - 30), dy = CGFloat((m * 53) % 41 - 20)
+                    let size = min(geo.size.width * 0.3, geo.size.height * 0.42, 260)
+                    ZStack {
+                        Color.black.ignoresSafeArea()
+                        VStack(spacing: dark ? 14 : 10) {
+                            if !dark {
+                                Text(DateFormatter.standbyDate.string(from: ctx.date))
+                                    .font(.title2.weight(.semibold))
+                                    .foregroundColor(Theme.accent)
+                            }
+                            Text(DateFormatter.nightClock.string(from: ctx.date))
+                                .font(.system(size: size, weight: .thin).monospacedDigit())
+                                .minimumScaleFactor(0.4).lineLimit(1)
+                                .foregroundColor(dark ? red.opacity(0.55) : .white)
+                            if let n = alarms.next {
+                                Label(Self.day(n.fire) + " · " + n.alarm.timeText, systemImage: "alarm.fill")
+                                    .font(.title3.weight(.medium))
+                                    .foregroundColor(dark ? red.opacity(0.4) : Color.white.opacity(0.7))
+                            }
                         }
+                        .padding(.horizontal, 24)
+                        .offset(x: dx, y: dy)
                     }
-                    .padding(.horizontal, 24)
-                    .offset(x: dx, y: dy)
+                    .contentShape(Rectangle())
+                    .onTapGesture { night.end() }
                 }
-                .contentShape(Rectangle())
-                .onTapGesture { night.end() }
             }
+            .ignoresSafeArea()
             .transition(.opacity)
-            .accessibilityLabel("Nachtuhr. Zum Beenden tippen.")
+            .accessibilityLabel(dark ? "Nachtuhr. Zum Beenden tippen." : "Standby-Uhr. Zum Beenden tippen.")
+        }
+    }
+
+    /// „Heute“, „Morgen“ oder Wochentag
+    private static func day(_ d: Date) -> String {
+        let cal = Calendar.current
+        if cal.isDateInToday(d) { return "Heute" }
+        if cal.isDateInTomorrow(d) { return "Morgen" }
+        let f = DateFormatter(); f.locale = Locale(identifier: "de_DE"); f.dateFormat = "EEEE"
+        return f.string(from: d)
+    }
+}
+
+/// Runder Knopf über dem Gäste-WLAN-Knopf: Standby-Uhr
+struct StandbyButton: View {
+    var body: some View {
+        let big = UIDevice.current.userInterfaceIdiom == .pad
+        Button { NightClock.shared.startStandby() } label: {
+            Image(systemName: "clock.fill").font(.system(size: big ? 24 : 20, weight: .semibold))
+                .foregroundColor(Theme.accent)
+                .frame(width: big ? 66 : 58, height: big ? 66 : 58)
+                .background(Circle().fill(Theme.card))
+                .shadow(color: .black.opacity(0.18), radius: 10, y: 4)
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("Standby-Uhr zeigen")
+        .contextMenu {
+            Button { NightClock.shared.standbyButton = false } label: {
+                Label("Auf diesem " + AppStore.deviceName + " ausblenden", systemImage: "eye.slash")
+            }
         }
     }
 }
 
 extension DateFormatter {
+    static let standbyDate: DateFormatter = {
+        let f = DateFormatter(); f.locale = Locale(identifier: "de_DE"); f.dateFormat = "EEEE, d. MMMM"; return f
+    }()
     static let nightClock: DateFormatter = {
         let f = DateFormatter(); f.locale = Locale(identifier: "de_DE"); f.dateFormat = "H:mm"; return f
     }()

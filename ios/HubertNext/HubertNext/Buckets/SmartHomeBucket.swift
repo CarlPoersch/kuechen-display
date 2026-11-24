@@ -73,6 +73,45 @@ struct SmartLightTile: View {
     }
 }
 
+/// Kachel „Alle an“ / „Alle aus“ – ist mindestens eine Lampe an, schaltet sie alle aus
+struct AllLightsTile: View {
+    var compact = false
+    @ObservedObject private var store = SmartHomeStore.shared
+
+    var body: some View {
+        let on = store.anyOn
+        Button { on ? store.allOff() : store.allOn() } label: {
+            Group {
+                if compact {
+                    HStack(spacing: 10) {
+                        Image(systemName: on ? "lightbulb.slash" : "lightbulb.2.fill").font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(Theme.accent).frame(width: 24)
+                        Text(on ? "Alle aus" : "Alle an").font(.subheadline.weight(.semibold)).foregroundColor(.primary)
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                        Spacer(minLength: 0)
+                    }
+                    .padding(.horizontal, 12).padding(.vertical, 10)
+                } else {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Image(systemName: on ? "lightbulb.slash" : "lightbulb.2.fill").font(.system(size: 24, weight: .semibold))
+                            .foregroundColor(Theme.accent)
+                        Spacer(minLength: 8)
+                        Text(on ? "Alle aus" : "Alle an").font(.body.weight(.semibold)).foregroundColor(.primary)
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                        Text("\(store.lights.count) Lampen").font(.footnote).foregroundColor(Theme.secondary).lineLimit(1)
+                    }
+                    .padding(14)
+                }
+            }
+            .frame(maxWidth: .infinity, minHeight: SmartLightTile.height(compact: compact), alignment: .topLeading)
+            .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.accent.opacity(0.14)))
+            .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(on ? "Alle Lampen aus" : "Alle Lampen an")
+    }
+}
+
 // MARK: Karte auf der Startseite
 
 struct SmartHomeGlance: View {
@@ -106,13 +145,15 @@ struct SmartHomeGlance: View {
                 let compact = space.width < 520
                 let minWidth: CGFloat = compact ? 140 : 160
                 let maxCols = max(1, Int((space.width + gap) / (minWidth + gap)))
-                let cols = max(1, min(maxCols, lights.count))
+                let cols = max(1, min(maxCols, lights.count + (lights.count > 1 ? 1 : 0)))
                 let h = SmartLightTile.height(compact: compact)
                 let rows = max(1, Int((space.height + gap) / (h + gap)))
-                let room = cols * rows
-                let shown = lights.count > room ? Array(lights.prefix(room - 1)) : lights
+                // Eine Kachel ist für „Alle an/aus“ reserviert (ab zwei Lampen)
+                let room = cols * rows - (lights.count > 1 ? 1 : 0)
+                let shown = lights.count > room ? Array(lights.prefix(max(0, room - 1))) : lights
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: gap), count: cols), spacing: gap) {
                     ForEach(shown) { SmartLightTile(light: $0, compact: compact) }
+                    if lights.count > 1 { AllLightsTile(compact: compact) }
                     if lights.count > room {
                         Button { openDetail() } label: {
                             VStack(spacing: 2) {
@@ -158,10 +199,12 @@ struct SmartHomeView: View {
                     ForEach(store.lights) { l in row(l) }
                 }
                 Section {
-                    Button { store.allOff() } label: {
-                        Label("Alle aus", systemImage: "lightbulb.slash").font(.body.weight(.semibold))
+                    HStack(spacing: 12) {
+                        bigButton("Alle an", "lightbulb.fill", tint: .yellow, enabled: store.lights.contains { store.isOn($0) != true }) { store.allOn() }
+                        bigButton("Alle aus", "lightbulb.slash", tint: Theme.secondary, enabled: store.anyOn) { store.allOff() }
                     }
-                    .disabled(!store.lights.contains { store.isOn($0) == true })
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
                 }
                 Section {
                     if store.searching {
@@ -187,6 +230,17 @@ struct SmartHomeView: View {
         .alert(store.message ?? "", isPresented: Binding(get: { store.message != nil }, set: { if !$0 { store.message = nil } })) {
             Button("OK", role: .cancel) {}
         }
+    }
+
+    private func bigButton(_ title: String, _ symbol: String, tint: Color, enabled: Bool, _ action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Label(title, systemImage: symbol).font(.body.weight(.semibold))
+                .foregroundColor(enabled ? .primary : Theme.secondary)
+                .frame(maxWidth: .infinity, minHeight: 52)
+                .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.card))
+        }
+        .buttonStyle(.plain)
+        .disabled(!enabled)
     }
 
     private func row(_ l: SmartLight) -> some View {
