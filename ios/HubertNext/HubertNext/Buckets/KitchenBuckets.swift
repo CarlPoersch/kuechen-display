@@ -15,10 +15,11 @@ enum KitchenBuckets {
         settings: { binding in AnyView(KitchenSettings(config: binding)) }
     )
 
+    /// „Uhr“: Wecker und Timer (ID bleibt „timer“, damit bestehende App-Symbole bleiben)
     static let timer = BucketKind(
-        id: "timer", name: "Timer", symbol: "timer", tint: .teal, art: .tool,
-        interests: ["haushalt"], blurb: "Mehrere Timer gleichzeitig, mit Namen.",
-        detail: { _ in AnyView(TimerToolView()) }
+        id: "timer", name: "Uhr", symbol: "alarm.fill", tint: .teal, art: .tool,
+        interests: ["haushalt"], blurb: "Wecker und Timer – Wecker klingeln auf allen Geräten, Timer mit Namen.",
+        detail: { _ in AnyView(ClockView()) }
     )
 
     static let shopping = BucketKind(

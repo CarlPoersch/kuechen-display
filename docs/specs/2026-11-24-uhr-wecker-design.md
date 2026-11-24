@@ -1,6 +1,6 @@
 # Uhr: Wecker, Timer, Stoppuhr – Design
 
-Stand: 24.11.2026 · Status: **Entwurf, wartet auf Freigabe**
+Stand: 24.11.2026 · Status: **freigegeben (Carl, 24.11.)**
 
 ## Absicht und Warum
 Der bisherige Timer-Bucket wird zur **„Uhr“** mit Wecker, Timer und Stoppuhr. Kern ist Carls Wunsch, dass **beim Wecker die Lampen angehen** (einstellbar). So wird das Wand-iPad morgens zum Lichtwecker.
@@ -33,6 +33,20 @@ Grundsatz: Alles muss auf **iPhone und iPad** sauber aussehen und gut bedienbar 
 - **Licht schaltet nur ein Gerät zu Hause, auf dem Hubert offen ist** (normalerweise das Wand-iPad). Damit nicht zwei Geräte doppelt schalten, übernimmt das zuerst angemeldete Gerät mit offenem Hubert.
 - Ist am Morgen kein solches Gerät aktiv, bleibt das Licht aus. Das zeigt der Wecker im Bearbeiten-Fenster als Hinweis.
 - Später (nicht jetzt): echter iPhone-Wecker über AlarmKit ab iOS 26.
+
+## Zwei Ansichten: mit und ohne Lampen (Carl, 24.11.)
+Alles rund ums Licht ist nur sichtbar, wenn der Smart-Home-Bucket eingerichtet ist **und** mindestens eine Lampe verbunden ist. Betroffen sind:
+- der Abschnitt „Licht“ im Wecker,
+- „Am Ende: Lampen …“ beim Timer,
+- Lampen-Texte bei „Gute Nacht“,
+- der Hinweis „kein Lichtgerät aktiv“.
+
+Ohne Lampen ist die Uhr ein ganz normaler Wecker/Timer, und „Gute Nacht“ bestätigt nur den Wecker und startet die Nachtuhr. Gespeicherte Lampen-Einstellungen bleiben erhalten und werden ignoriert, solange keine Lampen da sind.
+
+## Lieferung in drei Schritten
+1. Wecker mit Klingeln (in Hubert) und Mitteilungen (iPhone), Abgleich Beenden/Schlummern.
+2. Licht beim Wecker, Timer mit Aktion, Gute Nacht, Lichtgerät.
+3. Nachtuhr, Timer-Vorlagen, Stoppuhr, Töne.
 
 ## Nicht-Ziele
 - Kein Dimmen, keine Lichtfarben (Steckdosen können nur an/aus).

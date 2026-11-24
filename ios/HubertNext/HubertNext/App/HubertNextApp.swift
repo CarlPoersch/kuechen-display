@@ -14,6 +14,8 @@ struct HubertNextApp: App {
                 }
                 .modifier(CookModeHost())
                 .overlay(TimerAlarmOverlay())
+                .overlay(AlarmRingOverlay())
+                .animation(.easeOut(duration: 0.2), value: AlarmCenter.shared.ringing != nil)
                 .animation(.easeOut(duration: 0.2), value: TimerCenter.shared.ringing.count)
                 .environmentObject(store)
                 .task { await store.start() }

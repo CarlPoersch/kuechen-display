@@ -134,8 +134,11 @@ final class LiveSync: ObservableObject {
             do {
                 async let t: [LiveTimerRow] = api.select("kitchen_timers", ["household_id": "eq." + h])
                 async let c: [LiveCookingRow] = api.select("kitchen_cooking", ["household_id": "eq." + h])
+                async let w: [Alarm] = api.select("alarms", ["household_id": "eq." + h, "order": "hour,minute"])
                 let (timers, cooking) = try await (t, c)
                 TimerCenter.shared.apply(remote: timers)
+                // Wecker: eigener Versuch, damit ein Fehler dort die Timer nicht aufhält
+                if let alarms = try? await w { AlarmCenter.shared.apply(remote: alarms, household: h) }
                 await FocusCenter.shared.pull()
                 await CookSession.shared.apply(remote: cooking.first.flatMap { $0.active == false ? nil : $0 })
                 lastSync = Date()
@@ -167,7 +170,7 @@ final class LiveSync: ObservableObject {
         sentToken = token
         // Je Tabelle: Einfügen/Ändern nur für unseren Haushalt; Löschen ohne Filter,
         // weil Supabase Lösch-Ereignisse nicht filtern kann (dann wird eben kurz nachgesehen).
-        let tables = ["kitchen_timers", "kitchen_cooking", "kitchen_items", "kitchen_plan"]
+        let tables = ["kitchen_timers", "kitchen_cooking", "kitchen_items", "kitchen_plan", "alarms"]
         var changes: [[String: Any]] = []
         for t in tables {
             changes.append(["event": "INSERT", "schema": "public", "table": t, "filter": "household_id=eq." + h])
