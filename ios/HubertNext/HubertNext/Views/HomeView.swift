@@ -43,7 +43,9 @@ struct HomeView: View {
                     .id(look.refreshKey)
                     .padding(.horizontal, pad(geo.size.width))
                     .padding(.vertical, 12)
-                    .padding(.bottom, buttons.isEmpty ? 0 : 72)   // Platz für den Knopf unten rechts
+                    // Platz unten für den runden Knopf (rechts) und die Inseln (Timer, Kochen, Fokus) –
+                    // sonst liegen die Inseln über der letzten App-Reihe
+                    .modifier(BottomClearance(button: !buttons.isEmpty))
                     // Liest die Scroll-Position direkt aus UIKit (die SwiftUI-Messung
                     // hat auf dem iPad mit iOS 15 nicht zuverlässig ausgelöst)
                     .background(ScrollOffsetReader { y in
@@ -598,5 +600,20 @@ struct FloatingBucketButtons: View {
         }
         .padding(.bottom, 16 + lift)
         .animation(.easeOut(duration: 0.2), value: lift)
+    }
+}
+
+
+/// Abstand unten auf der Startseite: Knopf unten rechts und/oder Inseln unten in der Mitte.
+/// Eigener Modifier, damit nur er (nicht die ganze Startseite) bei laufenden Timern neu rechnet.
+struct BottomClearance: ViewModifier {
+    let button: Bool
+    @ObservedObject private var timers = TimerCenter.shared
+    @ObservedObject private var cook = CookSession.shared
+    @ObservedObject private var focus = FocusCenter.shared
+
+    func body(content: Content) -> some View {
+        let islands = !timers.timers.isEmpty || focus.state.active || (cook.recipe != nil && !cook.presented)
+        content.padding(.bottom, islands ? 84 : button ? 72 : 0)
     }
 }

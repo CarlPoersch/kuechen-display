@@ -87,6 +87,15 @@ struct GlancePager<Item, Page: View>: View {
                 // Die Scrollfläche ist genau eine Seite breit (+ Abstand) → Einrasten pro Seite.
                 // Rechts daneben bleibt Platz, in dem die nächste Seite hereinragt.
                 .frame(width: pageWidth + gap, height: pageHeight, alignment: .topLeading)
+                // Die hereinragende nächste Seite rechts weich ausblenden – sonst stehen dort
+                // halbe Wörter („Butt…“, „Cou…“) neben der Liste.
+                .frame(width: full, alignment: .leading)
+                .overlay(alignment: .trailing) {
+                    LinearGradient(colors: [Theme.card.opacity(0), Theme.card], startPoint: .leading, endPoint: .trailing)
+                        .frame(width: peek + gap)
+                        .allowsHitTesting(false)
+                }
+                .clipped()
 
                 HStack(spacing: 6) {
                     ForEach(pages.indices, id: \.self) { i in

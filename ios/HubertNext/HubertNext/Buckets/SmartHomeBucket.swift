@@ -22,31 +22,53 @@ enum SmartHomeBucket {
 
 struct SmartLightTile: View {
     let light: SmartLight
-    var height: CGFloat = 76
+    /// kompakt = eine Zeile (Symbol links, Name rechts) für schmale Karten (iPhone)
+    var compact = false
     @ObservedObject private var store = SmartHomeStore.shared
+
+    static func height(compact: Bool) -> CGFloat { compact ? 58 : 92 }
 
     var body: some View {
         let on = store.isOn(light) == true
         let reachable = store.isReachable(light)
+        let symbol = !reachable ? "lightbulb.slash" : on ? "lightbulb.fill" : "lightbulb"
+        let status = !reachable ? "Nicht erreichbar" : store.isOn(light) == nil ? "…" : on ? "An" : "Aus"
         Button { store.toggle(light) } label: {
-            VStack(alignment: .leading, spacing: 0) {
-                Image(systemName: !reachable ? "lightbulb.slash" : on ? "lightbulb.fill" : "lightbulb")
-                    .font(.system(size: 22, weight: .semibold))
-                    .foregroundColor(on && reachable ? .yellow : Theme.secondary)
-                Spacer(minLength: 4)
-                Text(light.name).font(.subheadline.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
-                Text(!reachable ? "Nicht erreichbar" : store.isOn(light) == nil ? "…" : on ? "An" : "Aus")
-                    .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+            Group {
+                if compact {
+                    HStack(spacing: 10) {
+                        Image(systemName: symbol).font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(on && reachable ? .yellow : Theme.secondary)
+                            .frame(width: 24)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(light.name).font(.subheadline.weight(.semibold)).foregroundColor(.primary)
+                                .lineLimit(1).minimumScaleFactor(0.8)
+                            Text(status).font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                        }
+                        Spacer(minLength: 0)
+                    }
+                    .padding(.horizontal, 12).padding(.vertical, 10)
+                } else {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Image(systemName: symbol).font(.system(size: 24, weight: .semibold))
+                            .foregroundColor(on && reachable ? .yellow : Theme.secondary)
+                        Spacer(minLength: 8)
+                        Text(light.name).font(.body.weight(.semibold)).foregroundColor(.primary)
+                            .lineLimit(1).minimumScaleFactor(0.8)
+                        Text(status).font(.footnote).foregroundColor(Theme.secondary).lineLimit(1)
+                    }
+                    .padding(14)
+                }
             }
-            .padding(12)
-            .frame(maxWidth: .infinity, minHeight: height, maxHeight: height, alignment: .topLeading)
+            // Mindesthöhe statt fester Höhe: bei größerer Schrift wächst die Kachel mit, statt abzuschneiden
+            .frame(maxWidth: .infinity, minHeight: Self.height(compact: compact), alignment: .topLeading)
             .background(RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .fill(on && reachable ? Color.yellow.opacity(0.22) : Color(UIColor.tertiarySystemFill)))
             .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
             .opacity(store.busy.contains(light.id) ? 0.6 : 1)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("\(light.name), \(on ? "an" : "aus")")
+        .accessibilityLabel("\(light.name), \(status)")
         .accessibilityHint("Zum Umschalten tippen")
     }
 }
@@ -60,7 +82,6 @@ struct SmartHomeGlance: View {
     @Environment(\.editBucket) private var editBucket
     @Environment(\.openBucketDetail) private var openDetail
 
-    private let tileHeight: CGFloat = 76
     private let gap: CGFloat = 10
 
     var body: some View {
@@ -79,19 +100,26 @@ struct SmartHomeGlance: View {
                     .buttonStyle(.borderless)
                 }
             } else {
-                let cols = max(2, Int((space.width + gap) / (130 + gap)))
-                let rows = max(1, Int((space.height + gap) / (tileHeight + gap)))
+                // Schmale Karte (iPhone, halbe Breite): einzeilige Kacheln, zwei nebeneinander.
+                // Breite Karte (iPad): große Kacheln, so viele nebeneinander, wie Lampen da sind
+                // (mind. 160 pt breit) – wenige Lampen werden also breiter statt winzig.
+                let compact = space.width < 520
+                let minWidth: CGFloat = compact ? 140 : 160
+                let maxCols = max(1, Int((space.width + gap) / (minWidth + gap)))
+                let cols = max(1, min(maxCols, lights.count))
+                let h = SmartLightTile.height(compact: compact)
+                let rows = max(1, Int((space.height + gap) / (h + gap)))
                 let room = cols * rows
                 let shown = lights.count > room ? Array(lights.prefix(room - 1)) : lights
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: gap), count: cols), spacing: gap) {
-                    ForEach(shown) { SmartLightTile(light: $0, height: tileHeight) }
+                    ForEach(shown) { SmartLightTile(light: $0, compact: compact) }
                     if lights.count > room {
                         Button { openDetail() } label: {
                             VStack(spacing: 2) {
                                 Text("+\(lights.count - shown.count)").font(.title3.weight(.semibold))
                                 Text("weitere").font(.caption).foregroundColor(Theme.secondary)
                             }
-                            .frame(maxWidth: .infinity, minHeight: tileHeight, maxHeight: tileHeight)
+                            .frame(maxWidth: .infinity, minHeight: h)
                             .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
                         }
                         .buttonStyle(.plain)
