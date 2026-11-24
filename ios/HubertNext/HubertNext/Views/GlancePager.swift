@@ -48,50 +48,74 @@ enum Pages {
 struct GlancePager<Item, Page: View>: View {
     let pages: [[Item]]
     @ViewBuilder let page: ([Item]) -> Page
+    @Environment(\.glanceSpace) private var space
     @State private var index = 0
+    @State private var width: CGFloat = 0        // gemessene Breite
+    @State private var pageHeight: CGFloat = 0   // Höhe der höchsten Seite
 
     private let gap: CGFloat = 14
     private let peek: CGFloat = 26
 
+    // Warum kein GeometryReader drumherum: Die Karten sind nur so hoch wie ihr Inhalt
+    // (fixedSize). Ein GeometryReader hat dabei keine eigene Höhe und fällt auf ~10 pt zusammen –
+    // Inhalt verschwand (ÖPNV, Sport, News) oder lag übereinander (Vorrat). Jetzt hat der Pager
+    // eine echte Höhe: die der höchsten Seite + Punkte.
     var body: some View {
         if pages.count <= 1 {
             page(pages.first ?? [])
                 .frame(maxWidth: .infinity, alignment: .topLeading)
         } else {
-            GeometryReader { g in
-                let pageWidth = max(40, g.size.width - peek - gap)
-                VStack(alignment: .leading, spacing: 6) {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(alignment: .top, spacing: gap) {
-                            ForEach(pages.indices, id: \.self) { i in
-                                page(pages[i])
-                                    .frame(width: pageWidth, alignment: .topLeading)
-                                    .opacity(i == index ? 1 : 0.4)
-                                    .animation(.easeOut(duration: 0.2), value: index)
-                            }
-                        }
-                        .padding(.trailing, gap)   // damit die letzte Seite sauber einrastet
-                        .background(PagingHelper { index = $0 })
-                    }
-                    // Die Scrollfläche ist genau eine Seite breit (+ Abstand) → Einrasten pro Seite.
-                    // Rechts daneben bleibt Platz, in dem die nächste Seite hereinragt.
-                    .frame(width: pageWidth + gap, alignment: .leading)
-                    .frame(maxHeight: .infinity, alignment: .top)
-
-                    HStack(spacing: 6) {
+            let full = width > 0 ? width : space.width
+            let pageWidth = max(40, full - peek - gap)
+            VStack(alignment: .leading, spacing: 6) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .top, spacing: gap) {
                         ForEach(pages.indices, id: \.self) { i in
-                            Circle().fill(i == index ? Theme.accent : Color(UIColor.tertiaryLabel))
-                                .frame(width: 6, height: 6)
+                            page(pages[i])
+                                .frame(width: pageWidth, alignment: .topLeading)
+                                .opacity(i == index ? 1 : 0.4)
+                                .animation(.easeOut(duration: 0.2), value: index)
                         }
                     }
-                    .frame(maxWidth: pageWidth)
-                    .frame(height: Pages.dots - 6)
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("Seite \(index + 1) von \(pages.count), waagerecht wischen für mehr")
+                    .fixedSize(horizontal: false, vertical: true)   // eigene Höhe, egal was angeboten wird
+                    .background(GeometryReader { g in
+                        Color.clear.preference(key: PagerHeightKey.self, value: g.size.height)
+                    })
+                    .padding(.trailing, gap)   // damit die letzte Seite sauber einrastet
+                    .background(PagingHelper { index = $0 })
                 }
+                // Die Scrollfläche ist genau eine Seite breit (+ Abstand) → Einrasten pro Seite.
+                // Rechts daneben bleibt Platz, in dem die nächste Seite hereinragt.
+                .frame(width: pageWidth + gap, height: pageHeight, alignment: .topLeading)
+
+                HStack(spacing: 6) {
+                    ForEach(pages.indices, id: \.self) { i in
+                        Circle().fill(i == index ? Theme.accent : Color(UIColor.tertiaryLabel))
+                            .frame(width: 6, height: 6)
+                    }
+                }
+                .frame(width: pageWidth)
+                .frame(height: Pages.dots - 6)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Seite \(index + 1) von \(pages.count), waagerecht wischen für mehr")
             }
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .background(GeometryReader { g in
+                Color.clear.preference(key: PagerWidthKey.self, value: g.size.width)
+            })
+            .onPreferenceChange(PagerWidthKey.self) { w in if abs(w - width) > 0.5 { width = w } }
+            .onPreferenceChange(PagerHeightKey.self) { h in if abs(h - pageHeight) > 0.5 { pageHeight = h } }
         }
     }
+}
+
+private struct PagerWidthKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = max(value, nextValue()) }
+}
+private struct PagerHeightKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) { value = max(value, nextValue()) }
 }
 
 /// Stellt die umgebende UIKit-Scrollfläche auf Seiten-Einrasten um, lässt die
