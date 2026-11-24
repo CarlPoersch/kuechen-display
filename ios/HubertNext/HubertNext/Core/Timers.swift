@@ -330,46 +330,112 @@ struct CircleButton: View {
 }
 
 /// Laufender Timer als große Zeile: Ring mit Zeit, Name, Herkunft, Knöpfe. Antippen = bearbeiten.
+/// iPad (breit): alles in einer Reihe. iPhone (schmal): oben Ring, Zeit und Pause, darunter
+/// „+1 Min“ und „Stoppen“ – sonst wurde die Zeit zu „15:…“ abgeschnitten und „Küche“ brach senkrecht um.
 struct TimerCard: View {
     let timer: KitchenTimer
     let onEdit: () -> Void
     @ObservedObject private var center = TimerCenter.shared
+    @Environment(\.horizontalSizeClass) private var sizeClass
+
+    private var paused: Bool { timer.pausedLeft != nil }
 
     var body: some View {
+        if sizeClass == .compact { compact } else { wide }
+    }
+
+    // MARK: Breit (iPad)
+    private var wide: some View {
         HStack(spacing: 16) {
-            ZStack {
-                TimerRing(timer: timer, line: 5)
-                if let i = timer.icon { Text(i).font(.system(size: 22)) }
-                else { Image(systemName: "timer").font(.title3).foregroundColor(Theme.accent) }
-            }
-            .frame(width: 56, height: 56)
-            Button(action: onEdit) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(TimerCenter.format(timer.left))
-                        .font(.system(size: 34, weight: .light).monospacedDigit())
-                        .foregroundColor(timer.pausedLeft != nil ? Theme.secondary : timer.left < 60 ? Theme.accent : .primary)
-                    HStack(spacing: 6) {
-                        Text(timer.name).font(.subheadline).foregroundColor(.primary).lineLimit(1)
-                        if timer.source != nil {
-                            Label("Küche", systemImage: "fork.knife").font(.caption2.weight(.semibold))
-                                .padding(.horizontal, 6).padding(.vertical, 2)
-                                .background(Capsule().fill(Theme.accent.opacity(0.14))).foregroundColor(Theme.accent)
-                        }
-                        if timer.pausedLeft != nil { Text("Pausiert").font(.caption).foregroundColor(Theme.secondary) }
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("\(timer.name), noch \(TimerCenter.format(timer.left)). Bearbeiten")
+            ring(56)
+            Button(action: onEdit) { info(timeSize: 34) }
+                .buttonStyle(.plain)
+                .accessibilityLabel("\(timer.name), noch \(TimerCenter.format(timer.left)). Bearbeiten")
             CircleButton(symbol: "plus", label: "Eine Minute mehr", size: 40) { center.add(timer, minutes: 1) }
-            CircleButton(symbol: timer.pausedLeft == nil ? "pause.fill" : "play.fill",
-                         label: timer.pausedLeft == nil ? "Pausieren" : "Fortsetzen", size: 44,
-                         filled: timer.pausedLeft == nil ? .orange : .green) { center.pause(timer) }
+            pauseButton
             CircleButton(symbol: "xmark", label: "Stoppen", tint: .red, size: 40) { withAnimation { center.cancel(timer) } }
         }
         .padding(.vertical, 6)
+    }
+
+    // MARK: Schmal (iPhone)
+    private var compact: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 14) {
+                ring(52)
+                Button(action: onEdit) { info(timeSize: 36) }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("\(timer.name), noch \(TimerCenter.format(timer.left)). Bearbeiten")
+                pauseButton
+            }
+            HStack(spacing: 10) {
+                pill("+1 Min", symbol: "plus", tint: .primary, fill: Color(UIColor.tertiarySystemFill)) {
+                    center.add(timer, minutes: 1)
+                }
+                .accessibilityLabel("Eine Minute mehr")
+                pill("Stoppen", symbol: "xmark", tint: .red, fill: Color.red.opacity(0.12)) {
+                    withAnimation { center.cancel(timer) }
+                }
+            }
+        }
+        .padding(.vertical, 8)
+    }
+
+    // MARK: Bausteine
+    private func ring(_ size: CGFloat) -> some View {
+        ZStack {
+            TimerRing(timer: timer, line: 5)
+            if let i = timer.icon { Text(i).font(.system(size: size * 0.4)) }
+            else { Image(systemName: "timer").font(.title3).foregroundColor(Theme.accent) }
+        }
+        .frame(width: size, height: size)
+    }
+
+    private func info(timeSize: CGFloat) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(TimerCenter.format(timer.left))
+                .font(.system(size: timeSize, weight: .light).monospacedDigit())
+                .lineLimit(1).minimumScaleFactor(0.6)
+                .foregroundColor(paused ? Theme.secondary : timer.left < 60 ? Theme.accent : .primary)
+            HStack(spacing: 6) {
+                Text(timer.name).font(.subheadline).foregroundColor(.primary).lineLimit(1)
+                if timer.source != nil {
+                    // Nur Symbol + Wort in einer Zeile, nie umbrechen
+                    HStack(spacing: 3) {
+                        Image(systemName: "fork.knife")
+                        Text("Küche")
+                    }
+                    .font(.caption2.weight(.semibold))
+                    .lineLimit(1).fixedSize()
+                    .padding(.horizontal, 7).padding(.vertical, 3)
+                    .background(Capsule().fill(Theme.accent.opacity(0.14))).foregroundColor(Theme.accent)
+                }
+                if paused { Text("Pausiert").font(.caption).foregroundColor(Theme.secondary).lineLimit(1).fixedSize() }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+    }
+
+    private var pauseButton: some View {
+        CircleButton(symbol: paused ? "play.fill" : "pause.fill",
+                     label: paused ? "Fortsetzen" : "Pausieren", size: 48,
+                     filled: paused ? .green : .orange) { center.pause(timer) }
+    }
+
+    /// Sekundärer Knopf wie in iOS: graue (bzw. rote) Füllfläche, kein Rahmen, 44 pt hoch
+    private func pill(_ title: String, symbol: String, tint: Color, fill: Color, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                Image(systemName: symbol).font(.subheadline.weight(.semibold))
+                Text(title).font(.subheadline.weight(.semibold))
+            }
+            .foregroundColor(tint)
+            .frame(maxWidth: .infinity, minHeight: 44)
+            .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(fill))
+            .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
+        .buttonStyle(.borderless)
     }
 }
 
