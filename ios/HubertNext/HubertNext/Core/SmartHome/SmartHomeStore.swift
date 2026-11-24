@@ -167,6 +167,22 @@ final class SmartHomeStore: ObservableObject {
         }
     }
 
+    /// Bestimmte Lampen an- oder ausschalten (für Wecker, Timer, Gute Nacht). Unbekannte IDs werden übergangen.
+    func switchLights(_ ids: [String], on: Bool) {
+        for d in devices {
+            let outs = d.outlets.filter { ids.contains(d.key($0)) }
+            guard !outs.isEmpty else { continue }
+            var dps: [String: Any] = [:]
+            var revert: [String: Bool] = [:]
+            for o in outs {
+                dps[String(o.dp)] = on
+                revert[d.key(o)] = state[d.key(o)] ?? !on
+                state[d.key(o)] = on
+            }
+            Task { await self.send(deviceId: d.id, dps, revert: revert) }
+        }
+    }
+
     private func send(deviceId: String, _ dps: [String: Any], revert: [String: Bool]) async {
         await exclusive(deviceId) {
             guard let d = self.devices.first(where: { $0.id == deviceId }), !d.ip.isEmpty else {

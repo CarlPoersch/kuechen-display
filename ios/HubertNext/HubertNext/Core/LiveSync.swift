@@ -42,13 +42,16 @@ struct LiveTimerRow: Codable {
     let icon: String?
     let device: String?
     var done_at: String? = nil   // gesetzt = beendet (gestoppt oder „OK“ gedrückt)
+    var light_action: String? = nil
+    var lamps: [String]? = nil
 
     init(_ t: KitchenTimer, household: String) {
         id = t.id.uuidString.lowercased(); household_id = household; name = t.name; total_secs = t.total
         end_at = ISO.string(t.end); paused_left = t.pausedLeft; source = t.source; icon = t.icon; device = Device.id
+        light_action = t.lightAction; lamps = t.lamps
     }
 
-    enum CodingKeys: String, CodingKey { case id, household_id, name, total_secs, end_at, paused_left, source, icon, device, done_at }
+    enum CodingKeys: String, CodingKey { case id, household_id, name, total_secs, end_at, paused_left, source, icon, device, done_at, light_action, lamps }
 
     /// Beim Senden: paused_left immer mitschicken (auch leer – sonst bliebe „pausiert“ nach dem Fortsetzen
     /// auf dem Server stehen); done_at nie (Beenden geht nur über `finish`, damit nichts wiederaufersteht).
@@ -58,11 +61,13 @@ struct LiveTimerRow: Codable {
         try c.encode(total_secs, forKey: .total_secs); try c.encode(end_at, forKey: .end_at)
         try c.encode(paused_left, forKey: .paused_left)
         try c.encodeIfPresent(source, forKey: .source); try c.encodeIfPresent(icon, forKey: .icon); try c.encodeIfPresent(device, forKey: .device)
+        try c.encode(light_action, forKey: .light_action); try c.encode(lamps ?? [], forKey: .lamps)
     }
 
     var timer: KitchenTimer? {
         guard let u = UUID(uuidString: id), let end = ISO.date(end_at) else { return nil }
-        return KitchenTimer(id: u, name: name, total: total_secs, end: end, pausedLeft: paused_left, source: source, icon: icon)
+        return KitchenTimer(id: u, name: name, total: total_secs, end: end, pausedLeft: paused_left, source: source, icon: icon,
+                            lightAction: light_action, lamps: lamps ?? [])
     }
 }
 
@@ -139,6 +144,7 @@ final class LiveSync: ObservableObject {
                 TimerCenter.shared.apply(remote: timers)
                 // Wecker: eigener Versuch, damit ein Fehler dort die Timer nicht aufhält
                 if let alarms = try? await w { AlarmCenter.shared.apply(remote: alarms, household: h) }
+                await LightHost.shared.beat(household: h)
                 await FocusCenter.shared.pull()
                 await CookSession.shared.apply(remote: cooking.first.flatMap { $0.active == false ? nil : $0 })
                 lastSync = Date()

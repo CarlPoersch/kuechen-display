@@ -54,11 +54,21 @@ struct ClockView: View {
 struct AlarmListView: View {
     @ObservedObject private var center = AlarmCenter.shared
     @Environment(\.horizontalSizeClass) private var size
+    @ObservedObject private var smart = SmartHomeStore.shared
+    @ObservedObject private var host = LightHost.shared
     @State private var editing: Alarm?
     @State private var isNew = false
+    @State private var goodNight = false
 
     var body: some View {
         List {
+            if !smart.lights.isEmpty {
+                Section {
+                    Button { goodNight = true } label: {
+                        Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.body.weight(.semibold))
+                    }
+                }
+            }
             if center.alarms.isEmpty {
                 Section {
                     VStack(alignment: .leading, spacing: 6) {
@@ -94,6 +104,16 @@ struct AlarmListView: View {
                     Text("Klingelt in Hubert mit Ton. Ist Hubert zu, kommt eine Mitteilung. Beenden oder Schlummern gilt auf allen Geräten.")
                 }
             }
+            if !smart.lights.isEmpty {
+                Section {
+                    Toggle("Wanddisplay", isOn: $host.isWall).tint(Theme.accent)
+                } header: { Text("Dieses Gerät") } footer: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Ein Wanddisplay schaltet bevorzugt das Licht für Wecker und Timer.")
+                        LightHostNote()
+                    }
+                }
+            }
         }
         .listStyle(.insetGrouped)
         .toolbar {
@@ -102,6 +122,7 @@ struct AlarmListView: View {
             }
         }
         .sheet(item: $editing) { a in AlarmEditSheet(alarm: a, isNew: isNew) }
+        .sheet(isPresented: $goodNight) { GoodNightSheet() }
     }
 
     private func add() {
@@ -147,6 +168,7 @@ struct AlarmEditSheet: View {
     let isNew: Bool
     @State private var a: Alarm
     @ObservedObject private var center = AlarmCenter.shared
+    @ObservedObject private var smart = SmartHomeStore.shared
     @Environment(\.dismiss) private var dismiss
 
     init(alarm: Alarm, isNew: Bool) {
@@ -187,6 +209,36 @@ struct AlarmEditSheet: View {
                     Toggle("Für den ganzen Haushalt", isOn: $a.shared).tint(Theme.accent)
                 } footer: {
                     Text(a.shared ? "Klingelt auf allen Geräten im Haushalt." : "Klingelt nur auf deinen Geräten.")
+                }
+                // Licht – nur mit Smart Home und Lampen
+                if !smart.lights.isEmpty {
+                    Section {
+                        NavigationLink(destination: LampPicker(selection: $a.lamps)) {
+                            HStack {
+                                Text("Lampen")
+                                Spacer()
+                                Text(LampPicker.summary(a.lamps)).foregroundColor(Theme.secondary)
+                            }
+                        }
+                        if !a.lamps.isEmpty {
+                            Picker("Anschalten", selection: $a.light_lead) {
+                                Text("Beim Klingeln").tag(0)
+                                ForEach([5, 10, 15], id: \.self) { Text("\($0) Min. vorher").tag($0) }
+                            }
+                            if a.light_lead > 0 && a.lamps.count > 1 {
+                                Toggle("Nacheinander", isOn: $a.light_stagger).tint(Theme.accent)
+                            }
+                        }
+                    } header: { Text("Licht") } footer: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            if !a.lamps.isEmpty {
+                                Text(a.light_stagger && a.light_lead > 0 && a.lamps.count > 1
+                                     ? "Die Lampen gehen eine nach der anderen an – die letzte zur Weckzeit."
+                                     : "Beenden lässt das Licht an, Schlummern schaltet es bis zum nächsten Klingeln aus.")
+                            }
+                            LightHostNote()
+                        }
+                    }
                 }
                 if !isNew {
                     Section {
@@ -267,8 +319,10 @@ struct NextAlarmGlance: View {
     struct Upcoming: Identifiable { let alarm: Alarm; let fire: Date; var id: String { alarm.id } }
 
     @ObservedObject private var center = AlarmCenter.shared
+    @ObservedObject private var smart = SmartHomeStore.shared
     @Environment(\.glanceSpace) private var space
     @Environment(\.openBucketDetail) private var openDetail
+    @State private var goodNight = false
 
     var body: some View {
         let upcoming: [Upcoming] = center.alarms.filter(center.ringsHere)
@@ -288,8 +342,17 @@ struct NextAlarmGlance: View {
                     Toggle("", isOn: Binding(get: { first.alarm.enabled }, set: { center.toggle(first.alarm, on: $0) }))
                         .labelsHidden().tint(Theme.accent)
                 }
+                if !smart.lights.isEmpty {
+                    Button { goodNight = true } label: {
+                        Label("Gute Nacht", systemImage: "moon.zzz.fill").font(.subheadline.weight(.semibold))
+                            .foregroundColor(Theme.accent)
+                            .padding(.horizontal, 14).frame(minHeight: 36)
+                            .background(Capsule().fill(Theme.accent.opacity(0.14)))
+                    }
+                    .buttonStyle(.borderless)
+                }
                 // Weitere Wecker, wenn Platz ist
-                let room = max(0, Int((space.height - 80) / 30))
+                let room = max(0, Int((space.height - (smart.lights.isEmpty ? 80 : 126)) / 30))
                 ForEach(Array(upcoming.dropFirst().prefix(room))) { u in
                     HStack {
                         Text(u.alarm.timeText).font(.body.monospacedDigit())
@@ -298,6 +361,7 @@ struct NextAlarmGlance: View {
                     }
                 }
             }
+            .sheet(isPresented: $goodNight) { GoodNightSheet() }
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 Text(center.alarms.isEmpty ? "Kein Wecker gestellt" : "Alle Wecker aus").font(.headline)
@@ -324,5 +388,61 @@ struct NextAlarmGlance: View {
         let mins = max(0, Int(d.timeIntervalSinceNow / 60))
         let rel = mins < 60 ? "in \(mins) Min." : mins < 24 * 60 ? "in \(mins / 60) Std. \(mins % 60) Min." : ""
         return rel.isEmpty ? day : day + ", " + rel
+    }
+}
+
+
+// MARK: Gute Nacht (nur mit Lampen)
+
+struct GoodNightSheet: View {
+    @ObservedObject private var center = AlarmCenter.shared
+    @ObservedObject private var smart = SmartHomeStore.shared
+    @Environment(\.dismiss) private var dismiss
+    @State private var editing: Alarm?
+
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    if let n = center.next {
+                        HStack(spacing: 12) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(n.alarm.timeText).font(.system(size: 44, weight: .light).monospacedDigit())
+                                Text(NextAlarmGlance.when(n.fire) + " · " + n.alarm.title)
+                                    .font(.subheadline).foregroundColor(Theme.secondary)
+                            }
+                            Spacer()
+                            Button("Ändern") { editing = n.alarm }.buttonStyle(.borderless)
+                        }
+                        Button("Diesmal überspringen") { center.skipNext(n.alarm, true) }
+                    } else {
+                        Text("Kein Wecker gestellt.").foregroundColor(Theme.secondary)
+                        Button("Wecker stellen") { editing = center.newAlarm() }
+                    }
+                } header: { Text("Nächster Wecker") }
+
+                Section {
+                    Button {
+                        smart.switchLights(smart.lights.map(\.id), on: false)
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                        dismiss()
+                    } label: {
+                        Text("Gute Nacht").font(.headline).foregroundColor(.white)
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.accent))
+                    }
+                    .buttonStyle(.plain)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
+                } footer: {
+                    Text("Alle Lampen gehen aus.")
+                }
+            }
+            .listStyle(.insetGrouped)
+            .navigationTitle("Gute Nacht").navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Abbrechen") { dismiss() } } }
+            .sheet(item: $editing) { a in AlarmEditSheet(alarm: a, isNew: !center.alarms.contains { $0.id == a.id }) }
+        }
+        .navigationViewStyle(.stack)
     }
 }

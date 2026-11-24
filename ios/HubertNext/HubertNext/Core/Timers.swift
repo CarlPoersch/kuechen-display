@@ -18,6 +18,8 @@ struct KitchenTimer: Identifiable, Equatable {
     var pausedLeft: TimeInterval?   // gesetzt = pausiert
     var source: String? = nil       // Rezept, aus dem der Timer kommt
     var icon: String? = nil         // dessen Emoji
+    var lightAction: String? = nil  // „on“/„off“: am Ende Lampen schalten (nur mit Smart Home)
+    var lamps: [String] = []
 
     var left: TimeInterval { pausedLeft ?? max(0, end.timeIntervalSinceNow) }
     var progress: Double { total > 0 ? 1 - left / total : 1 }
@@ -50,9 +52,11 @@ final class TimerCenter: ObservableObject {
         start(name, seconds: Int(minutes * 60), source: source, icon: icon)
     }
 
-    func start(_ name: String, seconds: Int, source: String? = nil, icon: String? = nil) {
+    func start(_ name: String, seconds: Int, source: String? = nil, icon: String? = nil,
+               lightAction: String? = nil, lamps: [String] = []) {
         let secs = TimeInterval(max(5, seconds))
-        let t = KitchenTimer(name: name, total: secs, end: Date().addingTimeInterval(secs), source: source, icon: icon)
+        var t = KitchenTimer(name: name, total: secs, end: Date().addingTimeInterval(secs), source: source, icon: icon)
+        if let a = lightAction, !lamps.isEmpty { t.lightAction = a; t.lamps = lamps }
         timers.append(t)
         if source == nil { remember(Recent(name: name, secs: Int(secs))) }
         notify(t)
@@ -167,7 +171,7 @@ final class TimerCenter: ObservableObject {
             seen.insert(t.id)
             if t.pausedLeft == nil && t.end <= now {
                 if now.timeIntervalSince(t.end) > 3 * 3600 { purge(t.id); continue }   // vergessen, aufräumen
-                if !ring.contains(where: { $0.id == t.id }) { ring.append(t) }
+                if !ring.contains(where: { $0.id == t.id }) { ring.append(t); runLightAction(t) }
             } else {
                 if timers.first(where: { $0.id == t.id }) != t { notify(t) }
                 next.append(t)
@@ -197,6 +201,7 @@ final class TimerCenter: ObservableObject {
     private func step(_ now: Date) {
         tick = now
         let done = timers.filter { $0.pausedLeft == nil && $0.end <= now }
+        done.forEach(runLightAction)
         if !done.isEmpty {
             timers.removeAll { t in done.contains { $0.id == t.id } }
             ringing += done
@@ -207,6 +212,15 @@ final class TimerCenter: ObservableObject {
             AudioServicesPlayAlertSound(1005)
         }
         if timers.isEmpty && ringing.isEmpty { clock?.cancel(); clock = nil }
+    }
+
+    /// „Am Ende: Lampen an/aus“ – nur das Lichtgerät schaltet, jeder Timer nur einmal
+    private var lightDone = Set<UUID>()
+    private func runLightAction(_ t: KitchenTimer) {
+        guard let a = t.lightAction, !t.lamps.isEmpty, !lightDone.contains(t.id),
+              LightHost.shared.isHost, Date().timeIntervalSince(t.end) < 120 else { return }
+        lightDone.insert(t.id)
+        SmartHomeStore.shared.switchLights(t.lamps, on: a == "on")
     }
 
     /// Mitteilung, falls die App gerade nicht offen ist
@@ -500,6 +514,9 @@ struct TimerToolView: View {
     @State private var seconds = 10 * 60
     @State private var name = ""
     @State private var editing: KitchenTimer?
+    @ObservedObject private var smart = SmartHomeStore.shared
+    @State private var endAction = ""          // "", "off", "on" – nur mit Lampen sichtbar
+    @State private var endLamps: [String] = []
     private let presets = [1, 3, 5, 8, 10, 15, 20, 30, 45, 60]
 
     var body: some View {
@@ -513,6 +530,26 @@ struct TimerToolView: View {
                 HStack {
                     Text("Bezeichnung")
                     TextField("Timer", text: $name).multilineTextAlignment(.trailing).submitLabel(.done)
+                }
+                // Licht am Ende – nur, wenn Smart Home mit Lampen eingerichtet ist
+                if !smart.lights.isEmpty {
+                    Picker("Am Ende", selection: $endAction) {
+                        Text("Nichts").tag("")
+                        Text("Lampen aus").tag("off")
+                        Text("Lampen an").tag("on")
+                    }
+                    .onChange(of: endAction) { a in
+                        if !a.isEmpty && endLamps.isEmpty { endLamps = smart.lights.map(\.id) }
+                    }
+                    if !endAction.isEmpty {
+                        NavigationLink(destination: LampPicker(selection: $endLamps)) {
+                            HStack {
+                                Text("Lampen")
+                                Spacer()
+                                Text(LampPicker.summary(endLamps)).foregroundColor(Theme.secondary)
+                            }
+                        }
+                    }
                 }
                 HStack {
                     Button("Zurücksetzen") { withAnimation { seconds = 0; name = "" } }
@@ -584,8 +621,12 @@ struct TimerToolView: View {
 
     private func startNew() {
         let n = name.trimmingCharacters(in: .whitespaces)
-        withAnimation { center.start(n.isEmpty ? "Timer" : n, seconds: seconds) }
+        withAnimation {
+            center.start(n.isEmpty ? "Timer" : n, seconds: seconds,
+                         lightAction: endAction.isEmpty || smart.lights.isEmpty ? nil : endAction, lamps: endLamps)
+        }
         name = ""
+        endAction = ""
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

@@ -291,6 +291,8 @@ final class AlarmCenter: ObservableObject {
             if ringing == nil, found != nil { ringStarted = now }
             ringing = found
         }
+        // Licht (nur das Lichtgerät schaltet, nur wenn es Lampen gibt)
+        if LightHost.shared.isHost && LightHost.hasLights { lightStep(now) }
         // Ton und Wecker-Fenster folgen dem Klingeln
         if let r = ringing {
             AlarmSound.shared.start(ramp: r.alarm.ramp)
@@ -303,6 +305,57 @@ final class AlarmCenter: ObservableObject {
 
     /// Schutz vor einem versehentlichen Tipp genau in dem Moment, in dem der Wecker erscheint
     var justStarted: Bool { Date().timeIntervalSince(ringStarted) < 1.5 }
+
+    // MARK: Licht beim Wecker
+
+    /// Erledigte Licht-Schritte (Schlüssel → Zeitpunkt), damit nichts doppelt schaltet – auch nach Neustart
+    private var lightDone: [String: Double] = (UserDefaults.standard.dictionary(forKey: "alarms.lightDone") as? [String: Double]) ?? [:]
+
+    private func once(_ key: String, _ action: () -> Void) {
+        guard lightDone[key] == nil else { return }
+        lightDone[key] = Date().timeIntervalSince1970
+        let cutoff = Date().timeIntervalSince1970 - 2 * 86400
+        lightDone = lightDone.filter { $0.value > cutoff }
+        UserDefaults.standard.set(lightDone, forKey: "alarms.lightDone")
+        action()
+    }
+
+    /// Plan pro Weckzeit F (Vorlauf L Minuten, n Lampen):
+    ///   ohne Vorlauf: alle Lampen bei F an
+    ///   mit Vorlauf: alle bei F − L an – oder „nacheinander“ gleichmäßig verteilt zwischen F − L und F
+    ///   Schlummern: Lampen aus, am Ende des Schlummerns wieder an. Beenden: Licht bleibt an.
+    /// Ein Schritt wird nur ausgeführt, wenn sein Zeitpunkt höchstens 2 Minuten zurückliegt.
+    private func lightStep(_ now: Date) {
+        let available = Set(SmartHomeStore.shared.lights.map(\.id))
+        for a in alarms where a.enabled || a.snoozeFor != nil {
+            let lamps = a.lamps.filter { available.contains($0) }
+            guard !lamps.isEmpty else { continue }
+            let lead = TimeInterval(max(0, a.light_lead) * 60)
+            for f in a.fires(from: now.addingTimeInterval(-2 * 3600), to: now.addingTimeInterval(lead + 60)) {
+                if a.dismissedFor == f && a.snoozeFor != f && f > now { continue }   // übersprungen
+                let base = a.id + "|" + String(Int(f.timeIntervalSince1970))
+                // Einschalten vor bzw. bei der Weckzeit
+                if a.dismissedFor != f || now >= f {
+                    let steps: [(Date, [String])]
+                    if lead > 0 && a.light_stagger && lamps.count > 1 {
+                        let gap = lead / Double(lamps.count)
+                        steps = lamps.enumerated().map { (f.addingTimeInterval(-lead + Double($0.offset) * gap), [$0.element]) }
+                    } else {
+                        steps = [(f.addingTimeInterval(-lead), lamps)]
+                    }
+                    for (i, st) in steps.enumerated() where now >= st.0 && now.timeIntervalSince(st.0) < 120 {
+                        once(base + "|on\(i)") { SmartHomeStore.shared.switchLights(st.1, on: true) }
+                    }
+                }
+                // Schlummern: aus – und am Ende wieder an
+                if a.snoozeFor == f, let until = a.snoozeUntil {
+                    let key = base + "|" + String(Int(until.timeIntervalSince1970))
+                    if now < until { once(key + "|off") { SmartHomeStore.shared.switchLights(lamps, on: false) } }
+                    else if now.timeIntervalSince(until) < 120 { once(key + "|on") { SmartHomeStore.shared.switchLights(lamps, on: true) } }
+                }
+            }
+        }
+    }
 
     // MARK: Mitteilungen (falls Hubert zu ist)
 
