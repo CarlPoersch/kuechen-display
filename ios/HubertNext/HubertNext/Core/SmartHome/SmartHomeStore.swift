@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import SwiftUI   // für move(fromOffsets:toOffset:)
 import UIKit
 
 // ============================================================

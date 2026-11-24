@@ -437,8 +437,8 @@ enum TuyaLocal {
 
     /// Passt dieser Schlüssel zum Gerät unter `host`? Probiert die Versionen durch.
     static func identify(host: String, devId: String, key: String, dps: [Int],
-                         versions: [TuyaVersion] = TuyaVersion.detectOrder) async -> (TuyaVersion, [String: Any])? {
-        for v in versions {
+                         versions: [TuyaVersion]? = nil) async -> (TuyaVersion, [String: Any])? {
+        for v in versions ?? TuyaVersion.detectOrder {
             if let found = try? await query(host: host, devId: devId, key: key, version: v, dps: dps) {
                 return (found.1, found.0)
             }
