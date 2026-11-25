@@ -41,26 +41,53 @@
  ],
  "steps": [
   {
-   "text": "Kürbis entkernen und klein würfeln, Zwiebel in Spalten schneiden."
+   "text": "Kürbis entkernen und klein würfeln, Zwiebel in Spalten schneiden.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Kürbis und Zwiebel in Öl bissfest braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    5
+   ]
   },
   {
    "text": "Gnocchi zugeben und mitbraten, bis sie goldbraun sind.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Butter und Salbei zugeben und aufschäumen lassen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Mit gehackten Haselnüssen und Parmesan servieren."
+   "text": "Mit gehackten Haselnüssen und Parmesan servieren.",
+   "use": [
+    7,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 530,
+  "p": 14,
+  "kh": 66,
+  "z": 6,
+  "f": 23,
+  "bs": 5
+ }
 }

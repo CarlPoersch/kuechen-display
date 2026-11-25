@@ -71,25 +71,56 @@
  ],
  "steps": [
   {
-   "text": "Saucenzutaten in zwei Schalen aufteilen und verrühren."
+   "text": "Saucenzutaten in zwei Schalen aufteilen und verrühren.",
+   "use": []
   },
   {
    "text": "Hack in wenig Öl krümelig braten, mit Sojasauce und Wein ablöschen, bis es knusprig ist.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    5,
+    2,
+    6,
+    3
+   ]
   },
   {
    "text": "Nudeln nach Packung kochen, Pak Choi in der letzten Minute mitgaren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    11
+   ]
   },
   {
-   "text": "Nudeln mit etwas Kochwasser in die Schalen geben und gut mit der Sauce mischen."
+   "text": "Nudeln mit etwas Kochwasser in die Schalen geben und gut mit der Sauce mischen.",
+   "use": [
+    0,
+    2,
+    6
+   ]
   },
   {
-   "text": "Hack, Pak Choi, Frühlingszwiebeln und Erdnüsse darauf verteilen."
+   "text": "Hack, Pak Choi, Frühlingszwiebeln und Erdnüsse darauf verteilen.",
+   "use": [
+    1,
+    11,
+    12,
+    13
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 860,
+  "p": 34,
+  "kh": 83,
+  "z": 7,
+  "f": 43,
+  "bs": 6
+ }
 }

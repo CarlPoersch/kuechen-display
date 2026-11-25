@@ -45,25 +45,54 @@
  ],
  "steps": [
   {
-   "text": "Hack, Garnelen, Ingwer, Sojasauce und Sesamöl verkneten."
+   "text": "Hack, Garnelen, Ingwer, Sojasauce und Sesamöl verkneten.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Je 1 TL Füllung in die Mitte eines Blatts geben, Ränder befeuchten und zu Säckchen formen."
+   "text": "Je 1 TL Füllung in die Mitte eines Blatts geben, Ränder befeuchten und zu Säckchen formen.",
+   "use": []
   },
   {
    "text": "Brühe aufkochen und mit Sojasauce abschmecken. Pak Choi halbieren und 2 Minuten darin garen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    6,
+    4,
+    7
+   ]
   },
   {
    "text": "Wan Tans in leicht siedendem Wasser garen, bis sie oben schwimmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "In Schalen mit Brühe, Pak Choi und Frühlingszwiebeln servieren."
+   "text": "In Schalen mit Brühe, Pak Choi und Frühlingszwiebeln servieren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 380,
+  "p": 23,
+  "kh": 34,
+  "z": 3,
+  "f": 17,
+  "bs": 2
+ }
 }

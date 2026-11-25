@@ -33,22 +33,46 @@
  ],
  "steps": [
   {
-   "text": "Knoblauch in Scheiben schneiden, Chili zerbröseln."
+   "text": "Knoblauch in Scheiben schneiden, Chili zerbröseln.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Öl in einer flachen Pfanne erhitzen, Knoblauch und Chili sanft anbraten, bis der Knoblauch duftet.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    3,
+    1,
+    2
+   ]
   },
   {
    "text": "Garnelen zugeben und braten, bis sie rosa sind.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Salzen, mit Petersilie bestreuen und im Öl mit Brot zum Tunken servieren."
+   "text": "Salzen, mit Petersilie bestreuen und im Öl mit Brot zum Tunken servieren.",
+   "use": [
+    4,
+    3
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "fisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 560,
+  "p": 24,
+  "kh": 35,
+  "z": 2,
+  "f": 36,
+  "bs": 2
+ }
 }

@@ -66,31 +66,64 @@
  "steps": [
   {
    "text": "Strunk aus dem Kohl schneiden. Kohl in kochendes Salzwasser legen und die äußeren 8 Blätter nach und nach ablösen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Dicke Blattrippen flach schneiden."
+   "text": "Dicke Blattrippen flach schneiden.",
+   "use": []
   },
   {
-   "text": "Eingeweichtes, ausgedrücktes Brötchen, gehackte Zwiebel, Hack, Ei, Senf und Paprika verkneten, salzen und pfeffern."
+   "text": "Eingeweichtes, ausgedrücktes Brötchen, gehackte Zwiebel, Hack, Ei, Senf und Paprika verkneten, salzen und pfeffern.",
+   "use": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Je 2 Blätter überlappend legen, Füllung daraufgeben, Seiten einschlagen, aufrollen und mit Garn binden."
+   "text": "Je 2 Blätter überlappend legen, Füllung daraufgeben, Seiten einschlagen, aufrollen und mit Garn binden.",
+   "use": [
+    13
+   ]
   },
   {
    "text": "Rouladen in Butterschmalz rundum anbraten, Speck mitbraten. Tomatenmark kurz anrösten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    8,
+    10
+   ]
   },
   {
    "text": "Mit Brühe ablöschen und zugedeckt schmoren, zwischendurch wenden.",
-   "minutes": 50
+   "minutes": 50,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Rouladen herausnehmen. Sauce mit Sahne verfeinern und mit angerührter Stärke binden. Mit Salzkartoffeln servieren."
+   "text": "Rouladen herausnehmen. Sauce mit Sahne verfeinern und mit angerührter Stärke binden. Mit Salzkartoffeln servieren.",
+   "use": [
+    11,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 700,
+  "p": 33,
+  "kh": 26,
+  "z": 11,
+  "f": 52,
+  "bs": 7
+ }
 }

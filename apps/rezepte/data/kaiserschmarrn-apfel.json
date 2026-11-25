@@ -41,24 +41,49 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Milch, Eier und Salz glatt rühren."
+   "text": "Mehl, Milch, Eier und Salz glatt rühren.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Äpfel schälen und in dünne Spalten schneiden."
+   "text": "Äpfel schälen und in dünne Spalten schneiden.",
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Butter in einer Pfanne schmelzen, Apfelspalten darin kurz anbraten."
+   "text": "Butter in einer Pfanne schmelzen, Apfelspalten darin kurz anbraten.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Teig darübergießen, zugedeckt stocken lassen, wenden und fertig backen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
-   "text": "Mit Zimt und Zucker bestreuen."
+   "text": "Mit Zimt und Zucker bestreuen.",
+   "use": [
+    7,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 430,
+  "p": 14,
+  "kh": 61,
+  "z": 22,
+  "f": 15,
+  "bs": 4
+ }
 }

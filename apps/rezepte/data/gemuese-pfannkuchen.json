@@ -53,21 +53,47 @@
  "steps": [
   {
    "text": "Zucchini und Karotte raspeln, salzen, 10 Minuten ziehen lassen und kräftig ausdrücken.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln, Feta, Eiern und Mehl mischen, pfeffern."
+   "text": "Mit Frühlingszwiebeln, Feta, Eiern und Mehl mischen, pfeffern.",
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "In Öl kleine Puffer pro Seite goldbraun braten.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Joghurt mit Knoblauch, Minze und Salz verrühren und dazu servieren."
+   "text": "Joghurt mit Knoblauch, Minze und Salz verrühren und dazu servieren.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 320,
+  "p": 13,
+  "kh": 17,
+  "z": 7,
+  "f": 23,
+  "bs": 3
+ }
 }

@@ -45,24 +45,52 @@
  ],
  "steps": [
   {
-   "text": "Kichererbsen abgießen, etwas Kochflüssigkeit aufheben. Optional die Häutchen abreiben, dann wird es cremiger."
+   "text": "Kichererbsen abgießen, etwas Kochflüssigkeit aufheben. Optional die Häutchen abreiben, dann wird es cremiger.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Tahin mit Zitronensaft und Knoblauch im Mixer aufschlagen."
+   "text": "Tahin mit Zitronensaft und Knoblauch im Mixer aufschlagen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Kichererbsen, Kreuzkümmel und Salz zugeben und pürieren, dabei Eiswasser zugeben, bis es sehr cremig ist.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    5,
+    4
+   ]
   },
   {
-   "text": "In eine Schale streichen, mit einer Mulde Olivenöl und Paprika garnieren."
+   "text": "In eine Schale streichen, mit einer Mulde Olivenöl und Paprika garnieren.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Mit warmem Fladenbrot servieren."
+   "text": "Mit warmem Fladenbrot servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 270,
+  "p": 9,
+  "kh": 20,
+  "z": 1,
+  "f": 17,
+  "bs": 6
+ }
 }

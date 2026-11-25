@@ -81,31 +81,79 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Fleisch mit Sojasauce, Zucker, Knoblauch und 1 TL Sesamöl marinieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    8,
+    9,
+    14,
+    11,
+    10,
+    13,
+    1
+   ]
   },
   {
-   "text": "Spinat und Sprossen jeweils 1 Minute blanchieren, ausdrücken und mit etwas Sesamöl und Salz würzen."
+   "text": "Spinat und Sprossen jeweils 1 Minute blanchieren, ausdrücken und mit etwas Sesamöl und Salz würzen.",
+   "use": [
+    4,
+    5,
+    10,
+    13
+   ]
   },
   {
-   "text": "Karotte, Zucchini und Pilze nacheinander kurz in etwas Öl anbraten und leicht salzen."
+   "text": "Karotte, Zucchini und Pilze nacheinander kurz in etwas Öl anbraten und leicht salzen.",
+   "use": [
+    2,
+    3,
+    10,
+    13
+   ]
   },
   {
    "text": "Fleisch scharf anbraten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Spiegeleier braten."
+   "text": "Spiegeleier braten.",
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Sauce verrühren. Reis in Schalen geben, Gemüse und Fleisch darauf anordnen, Ei obenauf, Sauce dazu. Beim Essen alles vermischen."
+   "text": "Sauce verrühren. Reis in Schalen geben, Gemüse (Karotte, Zucchini, Spinat, Sojasprossen, Shiitake) und Fleisch darauf anordnen, Ei obenauf, Sauce dazu. Beim Essen alles vermischen.",
+   "use": [
+    8,
+    0,
+    2,
+    3,
+    4,
+    5,
+    6,
+    1
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 850,
+  "p": 40,
+  "kh": 91,
+  "z": 18,
+  "f": 38,
+  "bs": 7
+ }
 }

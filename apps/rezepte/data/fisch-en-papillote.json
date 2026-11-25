@@ -41,25 +41,55 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C vorheizen. Gemüse in feine Streifen schneiden."
+   "text": "Ofen auf 200 °C vorheizen. Gemüse (Zucchini, Karotte, Kirschtomaten) in feine Streifen schneiden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Gemüse auf zwei große Backpapierbögen verteilen, Fisch darauflegen, salzen, pfeffern, mit Zitronenscheiben, Thymian und Öl belegen."
+   "text": "Gemüse (Zucchini, Karotte, Kirschtomaten) auf zwei große Backpapierbögen verteilen, Fisch darauflegen, salzen, pfeffern, mit Zitronenscheiben, Thymian und Öl belegen.",
+   "use": [
+    7,
+    0,
+    4,
+    6,
+    5,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Papier zu dichten Päckchen falten."
+   "text": "Papier zu dichten Päckchen falten.",
+   "use": [
+    7
+   ]
   },
   {
    "text": "Im Ofen garen – der Fisch dämpft im eigenen Saft.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Päckchen am Tisch öffnen."
+   "text": "Päckchen am Tisch öffnen.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 280,
+  "p": 29,
+  "kh": 11,
+  "z": 7,
+  "f": 14,
+  "bs": 3
+ },
  "gf": true
 }

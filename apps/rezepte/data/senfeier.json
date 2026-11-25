@@ -61,28 +61,64 @@
  "steps": [
   {
    "text": "Kartoffeln schälen und weich kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Eier 8 Minuten kochen, abschrecken und pellen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Butter schmelzen, Mehl anschwitzen und nach und nach Brühe und Milch einrühren. Köcheln lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    10,
+    2,
+    3,
+    4,
+    9
+   ]
   },
   {
-   "text": "Beide Senfsorten einrühren, mit Zitronensaft, Salz, Pfeffer und einer Prise Zucker abschmecken."
+   "text": "Beide Senfsorten einrühren, mit Zitronensaft, Salz, Pfeffer und einer Prise Zucker abschmecken.",
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen und mit Muskat würzen."
+   "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen und mit Muskat würzen.",
+   "use": [
+    8,
+    4,
+    9,
+    1,
+    10,
+    11
+   ]
   },
   {
-   "text": "Eier halbieren, in die Sauce legen und mit Püree servieren."
+   "text": "Eier halbieren, in die Sauce legen und mit Püree servieren.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 630,
+  "p": 25,
+  "kh": 57,
+  "z": 8,
+  "f": 33,
+  "bs": 6
+ }
 }

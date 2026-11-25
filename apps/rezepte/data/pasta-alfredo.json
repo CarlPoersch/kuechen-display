@@ -30,21 +30,42 @@
  "steps": [
   {
    "text": "Fettuccine kochen, 200 ml Nudelwasser aufheben.",
-   "minutes": 9
+   "minutes": 9,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Butter in einer großen Pfanne schmelzen, Sahne zugeben."
+   "text": "Butter in einer großen Pfanne schmelzen, Sahne zugeben.",
+   "use": [
+    1,
+    3
+   ]
   },
   {
-   "text": "Nudeln mit etwas Nudelwasser zugeben, Parmesan nach und nach unterschwenken, bis eine glänzende Sauce entsteht."
+   "text": "Nudeln mit etwas Nudelwasser zugeben, Parmesan nach und nach unterschwenken, bis eine glänzende Sauce entsteht.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit Pfeffer und Muskat abschmecken und sofort servieren."
+   "text": "Mit Pfeffer und Muskat abschmecken und sofort servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 680,
+  "p": 22,
+  "kh": 72,
+  "z": 4,
+  "f": 33,
+  "bs": 3
+ },
  "gf": true
 }

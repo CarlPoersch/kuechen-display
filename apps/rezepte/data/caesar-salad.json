@@ -56,22 +56,49 @@
  ],
  "steps": [
   {
-   "text": "Für das Dressing Eigelb, Knoblauch, Sardellen, Senf und Zitronensaft pürieren, Öl langsam einlaufen lassen. Die Hälfte des Parmesans unterrühren."
+   "text": "Für das Dressing Eigelb, Knoblauch, Sardellen, Senf und Zitronensaft pürieren, Öl langsam einlaufen lassen. Die Hälfte des Parmesans unterrühren.",
+   "use": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    4,
+    3
+   ]
   },
   {
    "text": "Hähnchen salzen, pfeffern und in Öl pro Seite braten, ruhen lassen und in Streifen schneiden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    4
+   ]
   },
   {
    "text": "Brot würfeln und in der Pfanne knusprig rösten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Salat zerzupfen, mit Dressing mischen, mit Hähnchen, Croutons und Parmesanspänen anrichten."
+   "text": "Salat zerzupfen, mit Dressing mischen, mit Hähnchen, Croutons und Parmesanspänen anrichten.",
+   "use": [
+    0,
+    3
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 800,
+  "p": 55,
+  "kh": 18,
+  "z": 3,
+  "f": 56,
+  "bs": 3
+ }
 }

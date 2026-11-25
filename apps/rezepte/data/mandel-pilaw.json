@@ -41,27 +41,54 @@
  ],
  "steps": [
   {
-   "text": "Reis waschen, bis das Wasser klar ist, abtropfen lassen."
+   "text": "Reis waschen, bis das Wasser klar ist, abtropfen lassen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel fein würfeln und in Butter mit Zimt und Kardamom goldgelb dünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Reis zugeben und kurz glasig rühren.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Brühe und Rosinen zugeben, aufkochen und zugedeckt bei kleinster Hitze garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    5,
+    7
+   ]
   },
   {
-   "text": "Mandeln rösten und unter den aufgelockerten Reis heben."
+   "text": "Mandeln rösten und unter den aufgelockerten Reis heben.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 370,
+  "p": 8,
+  "kh": 58,
+  "z": 6,
+  "f": 12,
+  "bs": 3
+ },
  "gf": true
 }

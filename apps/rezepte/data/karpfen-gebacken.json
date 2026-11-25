@@ -45,24 +45,50 @@
  "steps": [
   {
    "text": "Karpfenhälften in Portionsstücke teilen, mit Zitronensaft beträufeln, salzen und pfeffern.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Stücke nacheinander in Mehl, verquirltem Ei und Bröseln wenden."
+   "text": "Stücke nacheinander in Mehl, verquirltem Ei und Bröseln wenden.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Butterschmalz in einer großen Pfanne fingerhoch erhitzen."
+   "text": "Butterschmalz in einer großen Pfanne fingerhoch erhitzen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Karpfen darin goldbraun ausbacken, einmal wenden.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Auf Küchenpapier abtropfen lassen und mit Zitronenspalten, Kartoffelsalat und Remoulade servieren."
+   "text": "Auf Küchenpapier abtropfen lassen und mit Zitronenspalten, Kartoffelsalat und Remoulade servieren.",
+   "use": [
+    1,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 530,
+  "p": 52,
+  "kh": 46,
+  "z": 2,
+  "f": 15,
+  "bs": 3
+ }
 }

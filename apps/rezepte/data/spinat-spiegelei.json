@@ -42,30 +42,60 @@
  "steps": [
   {
    "text": "Kartoffeln schälen und in Salzwasser garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Zwiebel und Knoblauch fein würfeln und in Butter glasig dünsten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Spinat zugeben und zusammenfallen lassen bzw. auftauen. Sahne zugeben und cremig einkochen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    4
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und Muskat abschmecken. Wer es feiner mag, kurz pürieren."
+   "text": "Mit Salz, Pfeffer und Muskat abschmecken. Wer es feiner mag, kurz pürieren.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Eier als Spiegeleier braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Spinat und Kartoffeln anrichten."
+   "text": "Mit Spinat und Kartoffeln anrichten.",
+   "use": [
+    0,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 690,
+  "p": 31,
+  "kh": 69,
+  "z": 8,
+  "f": 34,
+  "bs": 14
+ },
  "gf": true
 }

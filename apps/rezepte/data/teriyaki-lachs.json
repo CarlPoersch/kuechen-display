@@ -52,33 +52,61 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Saucenzutaten verrühren."
+   "text": "Saucenzutaten verrühren.",
+   "use": []
   },
   {
    "text": "Brokkoli dämpfen oder kochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Lachs trocken tupfen und in Öl auf der Hautseite knusprig braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Wenden und 2 Minuten weiterbraten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": []
   },
   {
    "text": "Sauce in die Pfanne gießen und einkochen, bis sie glänzt. Lachs dabei immer wieder damit überziehen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "Mit Reis, Brokkoli und Sesam servieren."
+   "text": "Mit Reis, Brokkoli und Sesam servieren.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "mittel",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 780,
+  "p": 41,
+  "kh": 86,
+  "z": 20,
+  "f": 27,
+  "bs": 4
+ }
 }

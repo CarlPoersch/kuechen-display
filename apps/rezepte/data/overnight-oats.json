@@ -37,17 +37,37 @@
  ],
  "steps": [
   {
-   "text": "Haferflocken, Milch, Joghurt, Chiasamen und Honig in einem Glas verrühren."
+   "text": "Haferflocken, Milch, Joghurt, Chiasamen und Honig in einem Glas verrühren.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Abgedeckt über Nacht in den Kühlschrank stellen."
+   "text": "Abgedeckt über Nacht in den Kühlschrank stellen.",
+   "use": []
   },
   {
-   "text": "Morgens mit Beeren und Nüssen toppen."
+   "text": "Morgens mit Beeren und Nüssen toppen.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 5
+ "min": 5,
+ "nutri": {
+  "kcal": 440,
+  "p": 16,
+  "kh": 57,
+  "z": 23,
+  "f": 16,
+  "bs": 11
+ }
 }

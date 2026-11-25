@@ -49,26 +49,54 @@
  ],
  "steps": [
   {
-   "text": "Hack mit Ei, Paniermehl, 1 gepressten Knoblauchzehe, Salz und Pfeffer verkneten und walnussgroße Bällchen formen."
+   "text": "Hack mit Ei, Paniermehl, 1 gepressten Knoblauchzehe, Salz und Pfeffer verkneten und walnussgroße Bällchen formen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Bällchen in Olivenöl rundum anbraten und herausnehmen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Zwiebel und restlichen Knoblauch fein würfeln und im Bratfett glasig dünsten, Paprikapulver kurz mitrösten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    4,
+    3,
+    5
+   ]
   },
   {
    "text": "Mit Weißwein ablöschen, Tomaten dazugeben und die Bällchen darin zugedeckt garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    7,
+    6
+   ]
   },
   {
-   "text": "Mit gehackter Petersilie bestreuen – dazu Weißbrot oder Reis."
+   "text": "Mit gehackter Petersilie bestreuen – dazu Weißbrot oder Reis.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 520,
+  "p": 26,
+  "kh": 16,
+  "z": 5,
+  "f": 37,
+  "bs": 2
+ }
 }

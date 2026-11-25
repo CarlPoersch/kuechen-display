@@ -37,18 +37,35 @@
  ],
  "steps": [
   {
-   "text": "Kichererbsen abgießen, etwas Kochwasser auffangen."
+   "text": "Kichererbsen abgießen, etwas Kochwasser auffangen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Alle Zutaten mit Salz in einem Mixer sehr fein pürieren, bei Bedarf etwas Kichererbsenwasser zugeben."
+   "text": "Alle Zutaten mit Salz in einem Mixer sehr fein pürieren, bei Bedarf etwas Kichererbsenwasser zugeben.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Abschmecken und mit Olivenöl beträufelt servieren – dazu Gemüsesticks oder Fladenbrot."
+   "text": "Abschmecken und mit Olivenöl beträufelt servieren – dazu Gemüsesticks oder Fladenbrot.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "einfach",
  "min": 10,
+ "nutri": {
+  "kcal": 230,
+  "p": 7,
+  "kh": 19,
+  "z": 5,
+  "f": 15,
+  "bs": 6
+ },
  "gf": true
 }

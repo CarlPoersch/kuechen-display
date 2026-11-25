@@ -46,24 +46,51 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Nudeln 2 Minuten kürzer als angegeben kochen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
-   "text": "Schinken und Zwiebel würfeln, Zwiebel kurz andünsten."
+   "text": "Schinken und Zwiebel würfeln, Zwiebel kurz andünsten.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Sahne, Milch und Eier verquirlen, mit Salz, Pfeffer und Muskat würzen."
+   "text": "Sahne, Milch und Eier verquirlen, mit Salz, Pfeffer und Muskat würzen.",
+   "use": [
+    4,
+    5,
+    6,
+    8
+   ]
   },
   {
-   "text": "Nudeln, Schinken, Zwiebel und Erbsen in eine Auflaufform geben und den Guss darübergießen."
+   "text": "Nudeln, Schinken, Zwiebel und Erbsen in eine Auflaufform geben und den Guss darübergießen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Mit Käse bestreuen und goldbraun backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 850,
+  "p": 44,
+  "kh": 85,
+  "z": 12,
+  "f": 36,
+  "bs": 6
+ }
 }

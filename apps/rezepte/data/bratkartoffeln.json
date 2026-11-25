@@ -33,25 +33,51 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln pellen und in 5 mm dicke Scheiben schneiden. Zwiebeln in Streifen, Speck in Würfel schneiden."
+   "text": "Kartoffeln pellen und in 5 mm dicke Scheiben schneiden. Zwiebeln in Streifen, Speck in Würfel schneiden.",
+   "use": [
+    0,
+    2,
+    1
+   ]
   },
   {
-   "text": "Butterschmalz in einer großen Pfanne heiß werden lassen. Kartoffeln in einer Lage hineingeben."
+   "text": "Butterschmalz in einer großen Pfanne heiß werden lassen. Kartoffeln in einer Lage hineingeben.",
+   "use": [
+    3,
+    0
+   ]
   },
   {
    "text": "Ohne Rühren goldbraun braten, dann wenden. Warum nicht ständig rühren: Nur so entsteht die Kruste.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
    "text": "Speck und Zwiebeln zugeben und mitbraten, bis alles knusprig ist.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und Majoran würzen und mit Schnittlauch bestreuen."
+   "text": "Mit Salz, Pfeffer und Majoran würzen und mit Schnittlauch bestreuen.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 450,
+  "p": 11,
+  "kh": 46,
+  "z": 4,
+  "f": 24,
+  "bs": 6
+ }
 }

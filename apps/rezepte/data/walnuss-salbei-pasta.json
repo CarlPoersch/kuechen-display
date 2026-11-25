@@ -42,26 +42,50 @@
  "steps": [
   {
    "text": "Pasta in Salzwasser bissfest kochen, eine Tasse Nudelwasser aufheben.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Walnüsse ohne Fett anrösten und grob hacken.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Butter mit Salbei und angedrücktem Knoblauch aufschäumen lassen, bis der Salbei knusprig ist.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2,
+    4
+   ]
   },
   {
    "text": "Sahne, die Hälfte der Nüsse und Muskat zugeben und kurz köcheln.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    5,
+    1,
+    7
+   ]
   },
   {
-   "text": "Pasta mit etwas Nudelwasser und Parmesan in der Sauce schwenken, mit restlichen Nüssen bestreuen."
+   "text": "Pasta mit etwas Nudelwasser und Parmesan in der Sauce schwenken, mit restlichen Nüssen bestreuen.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 820,
+  "p": 22,
+  "kh": 76,
+  "z": 5,
+  "f": 46,
+  "bs": 5
+ }
 }

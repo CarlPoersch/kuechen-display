@@ -42,22 +42,46 @@
  "steps": [
   {
    "text": "Kartoffeln in Scheiben schneiden und in Butterschmalz goldbraun braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    5
+   ]
   },
   {
    "text": "Speck und Zwiebel zugeben und mitbraten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2,
+    1
+   ]
   },
   {
    "text": "Eier mit Milch, Salz und Pfeffer verquirlen, darübergießen und bei kleiner Hitze stocken lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Mit Schnittlauch bestreuen und mit Gewürzgurken servieren."
+   "text": "Mit Schnittlauch bestreuen und mit Gewürzgurken servieren.",
+   "use": [
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 700,
+  "p": 28,
+  "kh": 47,
+  "z": 6,
+  "f": 44,
+  "bs": 6
+ }
 }

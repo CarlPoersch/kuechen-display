@@ -49,26 +49,56 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel, Karotte und Knoblauch fein würfeln."
+   "text": "Zwiebel, Karotte und Knoblauch fein würfeln.",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Hack in Öl scharf und krümelig braten, Gemüse zugeben und mitbraten.",
-   "minutes": 8
+   "text": "Hack in Öl scharf und krümelig braten, Gemüse (Zwiebel, Karotte) zugeben und mitbraten.",
+   "minutes": 8,
+   "use": [
+    1,
+    8,
+    2,
+    3
+   ]
   },
   {
    "text": "Tomatenmark kurz anrösten, Tomaten und Oregano zugeben, salzen und köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Spaghetti kochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit der Sauce und Parmesan servieren."
+   "text": "Mit der Sauce und Parmesan servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 730,
+  "p": 34,
+  "kh": 86,
+  "z": 13,
+  "f": 28,
+  "bs": 7
+ }
 }

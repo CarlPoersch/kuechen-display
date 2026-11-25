@@ -45,27 +45,56 @@
  ],
  "steps": [
   {
-   "text": "Pilze putzen und in Scheiben schneiden, Schalotten fein würfeln."
+   "text": "Pilze putzen und in Scheiben schneiden, Schalotten fein würfeln.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Pilze portionsweise in heißem Öl scharf anbraten, bis sie Farbe haben.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    6
+   ]
   },
   {
    "text": "Butter, Schalotten und Knoblauch zugeben und kurz dünsten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    5,
+    1,
+    2
+   ]
   },
   {
    "text": "Mit Brühe und Sahne ablöschen, Senf einrühren und sämig einköcheln.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    4,
+    3,
+    7
+   ]
   },
   {
-   "text": "Salzen, pfeffern und mit Petersilie bestreuen – dazu Semmelknödel oder Bandnudeln."
+   "text": "Salzen, pfeffern und mit Petersilie bestreuen – dazu Semmelknödel oder Bandnudeln.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 250,
+  "p": 7,
+  "kh": 10,
+  "z": 6,
+  "f": 22,
+  "bs": 2
+ },
  "gf": true
 }

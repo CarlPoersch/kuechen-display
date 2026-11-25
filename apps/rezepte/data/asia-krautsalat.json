@@ -53,20 +53,51 @@
  ],
  "steps": [
   {
-   "text": "Spitzkohl fein schneiden, Karotten raspeln, Paprika und Frühlingszwiebeln in feine Streifen schneiden."
+   "text": "Spitzkohl fein schneiden, Karotten raspeln, Paprika und Frühlingszwiebeln in feine Streifen schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Erdnussbutter mit Sojasauce, Limettensaft, Sesamöl, Ahornsirup und 3 EL warmem Wasser cremig rühren."
+   "text": "Erdnussbutter mit Sojasauce, Limettensaft, Sesamöl, Ahornsirup und 3 EL warmem Wasser cremig rühren.",
+   "use": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Gemüse mit dem Dressing mischen."
+   "text": "Gemüse (Spitzkohl, Karotten, rote Paprika, Frühlingszwiebeln) mit dem Dressing mischen.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Mit Koriander und gehackten Erdnüssen bestreuen."
+   "text": "Mit Koriander und gehackten Erdnüssen bestreuen.",
+   "use": [
+    4,
+    10
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegan",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 210,
+  "p": 9,
+  "kh": 20,
+  "z": 10,
+  "f": 12,
+  "bs": 7
+ }
 }

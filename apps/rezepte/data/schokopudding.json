@@ -33,23 +33,45 @@
  ],
  "steps": [
   {
-   "text": "Stärke, Zucker, Kakao und Salz mit 100 ml Milch glatt rühren."
+   "text": "Stärke, Zucker, Kakao und Salz mit 100 ml Milch glatt rühren.",
+   "use": [
+    2,
+    3,
+    5,
+    0
+   ]
   },
   {
-   "text": "Restliche Milch mit gehackter Schokolade aufkochen, bis sie geschmolzen ist."
+   "text": "Restliche Milch mit gehackter Schokolade aufkochen, bis sie geschmolzen ist.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Angerührte Stärke einrühren und unter Rühren 1 Minute kochen lassen.",
-   "minutes": 1
+   "minutes": 1,
+   "use": [
+    2
+   ]
   },
   {
    "text": "In Schälchen füllen und kalt stellen.",
-   "minutes": 120
+   "minutes": 120,
+   "use": []
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 320,
+  "p": 6,
+  "kh": 41,
+  "z": 31,
+  "f": 14,
+  "bs": 3
+ },
  "gf": true
 }

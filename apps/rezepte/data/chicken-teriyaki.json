@@ -50,25 +50,55 @@
  "steps": [
   {
    "text": "Reis garen. Brokkoli in Röschen die letzten Minuten dämpfen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    8,
+    9
+   ]
   },
   {
-   "text": "Sojasauce, Mirin, Sake und Zucker verrühren."
+   "text": "Sojasauce, Mirin, Sake und Zucker verrühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Hähnchen mit der Hautseite nach unten in Öl knusprig braten, wenden und fertig braten.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Fett abgießen, Sauce zugeben und einkochen, bis sie glänzt und das Fleisch überzieht.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "In Streifen schneiden, mit Sesam und Frühlingszwiebeln auf Reis servieren."
+   "text": "In Streifen schneiden, mit Sesam und Frühlingszwiebeln auf Reis servieren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 640,
+  "p": 37,
+  "kh": 77,
+  "z": 11,
+  "f": 18,
+  "bs": 4
+ }
 }

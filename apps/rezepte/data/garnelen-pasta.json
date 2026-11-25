@@ -46,25 +46,52 @@
  "steps": [
   {
    "text": "Linguine kochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Knoblauch und Chili in Öl anbraten, Garnelen zugeben und kurz braten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2,
+    3,
+    7,
+    1
+   ]
   },
   {
    "text": "Tomaten halbieren, zugeben, mit Wein ablöschen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Nudeln mit etwas Nudelwasser zugeben, Zitronenabrieb und -saft unterschwenken."
+   "text": "Nudeln mit etwas Nudelwasser zugeben, Zitronenabrieb und -saft unterschwenken.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Petersilie servieren."
+   "text": "Mit Petersilie servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 580,
+  "p": 31,
+  "kh": 76,
+  "z": 5,
+  "f": 14,
+  "bs": 4
+ }
 }

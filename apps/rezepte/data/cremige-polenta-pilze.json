@@ -46,25 +46,54 @@
  "steps": [
   {
    "text": "Brühe aufkochen, Polenta unter Rühren einrieseln lassen und bei kleiner Hitze quellen lassen, öfter umrühren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1,
+    0
+   ]
   },
   {
    "text": "Pilze in Scheiben schneiden und in heißem Öl portionsweise scharf anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Knoblauch und Thymian zu den Pilzen geben, salzen und pfeffern.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Butter und Parmesan unter die Polenta rühren, eventuell mit etwas Brühe cremiger machen."
+   "text": "Butter und Parmesan unter die Polenta rühren, eventuell mit etwas Brühe cremiger machen.",
+   "use": [
+    3,
+    2,
+    0,
+    1
+   ]
   },
   {
-   "text": "Polenta auf Teller geben, Pilze darauf verteilen und mit Petersilie bestreuen."
+   "text": "Polenta auf Teller geben, Pilze darauf verteilen und mit Petersilie bestreuen.",
+   "use": [
+    0,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 430,
+  "p": 15,
+  "kh": 54,
+  "z": 4,
+  "f": 18,
+  "bs": 4
+ }
 }

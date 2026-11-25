@@ -52,28 +52,57 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Dashi und Eier zu einem dicken Teig verrühren."
+   "text": "Mehl, Dashi und Eier zu einem dicken Teig verrühren.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Kohl und Frühlingszwiebeln unterheben."
+   "text": "Kohl und Frühlingszwiebeln unterheben.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Etwas Öl in einer Pfanne erhitzen, die Hälfte des Teigs zu einem 2 cm dicken Fladen formen, Fleisch darauflegen."
+   "text": "Etwas Öl in einer Pfanne erhitzen, die Hälfte des Teigs zu einem 2 cm dicken Fladen formen, Fleisch darauflegen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Bei mittlerer Hitze braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
    "text": "Vorsichtig wenden (mit Hilfe eines Tellers) und weiterbraten, bis er durch ist.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Sauce und Mayonnaise bestreichen, mit Bonito und Aonori bestreuen. Zweiten Fladen genauso backen."
+   "text": "Mit Sauce und Mayonnaise bestreichen, mit Bonito und Aonori bestreuen. Zweiten Fladen genauso backen.",
+   "use": [
+    6,
+    7,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 810,
+  "p": 30,
+  "kh": 72,
+  "z": 12,
+  "f": 46,
+  "bs": 7
+ }
 }

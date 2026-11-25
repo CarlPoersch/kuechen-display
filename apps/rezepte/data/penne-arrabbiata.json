@@ -38,25 +38,51 @@
  "steps": [
   {
    "text": "Knoblauch in Scheiben schneiden und mit zerbröselten Chilis im Öl anschwitzen, ohne dass er braun wird.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Tomaten zerdrücken, zugeben, salzen und köcheln lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Penne kochen.",
-   "minutes": 11
+   "minutes": 11,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Penne mit etwas Nudelwasser in der Sauce schwenken."
+   "text": "Penne mit etwas Nudelwasser in der Sauce schwenken.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Petersilie und Pecorino servieren."
+   "text": "Mit Petersilie und Pecorino servieren.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 580,
+  "p": 16,
+  "kh": 83,
+  "z": 10,
+  "f": 20,
+  "bs": 6
+ }
 }

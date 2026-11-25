@@ -68,29 +68,66 @@
  "steps": [
   {
    "text": "Fleisch mit Öl, Zitronensaft, Knoblauch, Oregano, Salz und Pfeffer marinieren.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    1,
+    8,
+    2,
+    3,
+    7,
+    4,
+    0
+   ]
   },
   {
    "text": "Gurke grob reiben, salzen und nach 10 Minuten kräftig ausdrücken. Warum: Sonst wird das Tzatziki wässrig.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Gurke mit Joghurt, gepresstem Knoblauch, Öl und Dill verrühren und kühlen."
+   "text": "Gurke mit Joghurt, gepresstem Knoblauch, Öl und Dill verrühren und kühlen.",
+   "use": [
+    6,
+    5,
+    3,
+    7,
+    1,
+    8,
+    9
+   ]
   },
   {
-   "text": "Fleisch auf Spieße stecken."
+   "text": "Fleisch auf Spieße stecken.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Spieße (kurze, die in den Korb passen) im Airfryer bei 200 °C garen, nach der Hälfte wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Pita kurz rösten und mit Spießen, Tzatziki, Zwiebeln und Tomaten servieren."
+   "text": "Pita kurz rösten und mit Spießen, Tzatziki, Zwiebeln und Tomaten servieren.",
+   "use": [
+    11,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 890,
+  "p": 49,
+  "kh": 47,
+  "z": 11,
+  "f": 57,
+  "bs": 3
+ },
  "airfryer": true
 }

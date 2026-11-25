@@ -59,30 +59,60 @@
  ],
  "steps": [
   {
-   "text": "Flügel trocken tupfen und mit Backpulver, Salz und Gewürzen mischen. Warum Backpulver: Es macht die Haut extra knusprig."
+   "text": "Flügel trocken tupfen und mit Backpulver, Salz und Gewürzen (Paprika geräuchert, Knoblauchpulver) mischen. Warum Backpulver: Es macht die Haut extra knusprig.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "In einer Lage in den Korb legen und bei 180 °C garen, nach der Hälfte wenden.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
    "text": "Auf 200 °C erhöhen und knusprig fertig garen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": []
   },
   {
-   "text": "Butter schmelzen, Chilisauce und Honig einrühren."
+   "text": "Butter schmelzen, Chilisauce und Honig einrühren.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Wings in der Sauce schwenken."
+   "text": "Wings in der Sauce schwenken.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Saure Sahne mit zerdrücktem Käse verrühren und mit Selleriesticks dazu servieren."
+   "text": "Saure Sahne mit zerdrücktem Käse verrühren und mit Selleriesticks dazu servieren.",
+   "use": [
+    8,
+    10,
+    9
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "fleisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 890,
+  "p": 54,
+  "kh": 17,
+  "z": 10,
+  "f": 67,
+  "bs": 2
+ },
  "gf": true,
  "airfryer": true,
  "tab": "airfryer"

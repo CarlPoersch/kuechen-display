@@ -65,23 +65,52 @@
  ],
  "steps": [
   {
-   "text": "Fleisch mit Zwiebel und Sellerie in Öl anbraten, Gewürze kurz mitrösten.",
-   "minutes": 6
+   "text": "Fleisch mit Zwiebel und Sellerie in Öl anbraten, Gewürze (Zimt, Kurkuma) kurz mitrösten.",
+   "minutes": 6,
+   "use": [
+    0,
+    1,
+    2,
+    6,
+    7
+   ]
   },
   {
    "text": "Tomaten, Linsen und Wasser zugeben und köcheln.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    5,
+    3,
+    9
+   ]
   },
   {
    "text": "Kichererbsen und Nudeln zugeben und garen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    4,
+    10
+   ]
   },
   {
-   "text": "Gehackte Kräuter unterrühren, salzen, pfeffern und mit Zitronenspalten servieren."
+   "text": "Gehackte Kräuter (Koriander, Petersilie) unterrühren, salzen, pfeffern und mit Zitronenspalten servieren.",
+   "use": [
+    13,
+    11,
+    12
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 290,
+  "p": 18,
+  "kh": 32,
+  "z": 4,
+  "f": 10,
+  "bs": 7
+ }
 }

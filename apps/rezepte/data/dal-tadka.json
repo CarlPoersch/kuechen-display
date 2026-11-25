@@ -69,30 +69,65 @@
  "steps": [
   {
    "text": "Linsen waschen, mit Wasser, Kurkuma und Salz weich kochen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Basmatireis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    13
+   ]
   },
   {
-   "text": "Ghee erhitzen, Kreuzkümmel, Senfsamen und Chilis knistern lassen."
+   "text": "Ghee erhitzen, Kreuzkümmel, Senfsamen und Chilis knistern lassen.",
+   "use": [
+    4,
+    5,
+    6,
+    10
+   ]
   },
   {
    "text": "Zwiebel und Knoblauch goldbraun braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    7,
+    8
+   ]
   },
   {
    "text": "Tomaten und Garam Masala zugeben und 3 Minuten braten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    9,
+    11
+   ]
   },
   {
-   "text": "Tadka in die Linsen rühren, mit Koriander servieren. Warum am Ende: So bleibt das Gewürzaroma frisch."
+   "text": "Tadka in die Linsen rühren, mit Koriander servieren. Warum am Ende: So bleibt das Gewürzaroma frisch.",
+   "use": [
+    0,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 600,
+  "p": 22,
+  "kh": 100,
+  "z": 4,
+  "f": 12,
+  "bs": 10
+ },
  "gf": true
 }

@@ -53,26 +53,59 @@
  ],
  "steps": [
   {
-   "text": "Frischen Grünkohl von den Stielen zupfen, waschen, 2 Minuten blanchieren und grob hacken."
+   "text": "Frischen Grünkohl von den Stielen zupfen, waschen, 2 Minuten blanchieren und grob hacken.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebeln würfeln, in Schmalz glasig dünsten, Grünkohl und Brühe zugeben und zugedeckt schmoren.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    1,
+    2,
+    0,
+    3
+   ]
   },
   {
    "text": "Haferflocken und Senf unterrühren, Kassler und Pinkel auf den Kohl legen und weiter schmoren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    4,
+    5,
+    0
+   ]
   },
   {
    "text": "Kartoffeln kochen, pellen und in Butter mit Zucker karamellisieren.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    8,
+    10,
+    9
+   ]
   },
   {
-   "text": "Grünkohl mit Salz und Pfeffer abschmecken und mit Fleisch und Kartoffeln servieren."
+   "text": "Grünkohl mit Salz und Pfeffer abschmecken und mit Fleisch und Kartoffeln servieren.",
+   "use": [
+    0,
+    8,
+    2,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 120
+ "min": 120,
+ "nutri": {
+  "kcal": 770,
+  "p": 37,
+  "kh": 68,
+  "z": 13,
+  "f": 43,
+  "bs": 16
+ }
 }

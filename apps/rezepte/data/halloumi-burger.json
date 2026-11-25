@@ -41,19 +41,46 @@
  ],
  "steps": [
   {
-   "text": "Gemüse in Streifen schneiden und in einer Grillpfanne mit Öl rösten, salzen.",
-   "minutes": 8
+   "text": "Gemüse (Zucchini, rote Paprikaschote, rote Zwiebel) in Streifen schneiden und in einer Grillpfanne mit Öl rösten, salzen.",
+   "minutes": 8,
+   "use": [
+    7,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Halloumi in Scheiben schneiden und ohne Öl pro Seite goldbraun braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0,
+    7
+   ]
   },
   {
-   "text": "Tortillas kurz erwärmen, mit Hummus bestreichen, mit Rucola, Gemüse und Halloumi belegen und einrollen."
+   "text": "Tortillas kurz erwärmen, mit Hummus bestreichen, mit Rucola, Gemüse (Zucchini, rote Paprikaschote, rote Zwiebel) und Halloumi belegen und einrollen.",
+   "use": [
+    4,
+    5,
+    6,
+    0,
+    1,
+    2,
+    3
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 570,
+  "p": 23,
+  "kh": 43,
+  "z": 7,
+  "f": 34,
+  "bs": 6
+ }
 }

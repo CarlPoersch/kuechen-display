@@ -50,26 +50,54 @@
  "steps": [
   {
    "text": "Zwiebel und Knoblauch würfeln und in Öl andünsten. Hack zugeben und krümelig braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    9
+   ]
   },
   {
    "text": "Tomatenmark anrösten, Tomaten und Oregano zugeben, salzen und köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5,
+    4,
+    8
+   ]
   },
   {
    "text": "Ofen auf 200 °C vorheizen. Rigatoni sehr bissfest kochen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Nudeln mit der Sauce und der Hälfte des gewürfelten Mozzarellas mischen."
+   "text": "Nudeln mit der Sauce und der Hälfte des gewürfelten Mozzarellas mischen.",
+   "use": [
+    6
+   ]
   },
   {
    "text": "In eine Form geben, mit restlichem Mozzarella und Parmesan bestreuen und backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 750,
+  "p": 38,
+  "kh": 68,
+  "z": 9,
+  "f": 35,
+  "bs": 4
+ }
 }

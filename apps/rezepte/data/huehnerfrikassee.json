@@ -50,26 +50,53 @@
  "steps": [
   {
    "text": "Hähnchen in der Brühe gar ziehen lassen, herausnehmen und in Stücke zupfen. Brühe aufheben.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Reis nach Packungsangabe garen.",
-   "minutes": 18
+   "minutes": 18,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Butter schmelzen, Mehl anschwitzen und nach und nach 600 ml Brühe einrühren. Köcheln lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    4,
+    5,
+    1
+   ]
   },
   {
    "text": "Pilze in Scheiben und Spargel bzw. Erbsen in der Sauce garen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Fleisch zugeben. Sahne mit Eigelb verquirlen und einrühren (nicht mehr kochen). Mit Zitrone, Salz und Pfeffer abschmecken."
+   "text": "Fleisch zugeben. Sahne mit Eigelb verquirlen und einrühren (nicht mehr kochen). Mit Zitrone, Salz und Pfeffer abschmecken.",
+   "use": [
+    6,
+    7,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 620,
+  "p": 46,
+  "kh": 62,
+  "z": 4,
+  "f": 21,
+  "bs": 3
+ }
 }

@@ -41,20 +41,48 @@
  ],
  "steps": [
   {
-   "text": "Bohnen abspülen und abtropfen lassen, Zwiebel in feine Ringe schneiden."
+   "text": "Bohnen abspülen und abtropfen lassen, Zwiebel in feine Ringe schneiden.",
+   "use": [
+    0,
+    2
+   ]
   },
   {
-   "text": "Tomaten halbieren, Petersilie grob hacken."
+   "text": "Tomaten halbieren, Petersilie grob hacken.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Öl, Essig, Salz und Pfeffer verrühren."
+   "text": "Öl, Essig, Salz und Pfeffer verrühren.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Bohnen, Zwiebel, Tomaten, Kapern und zerpflückten Thunfisch mit dem Dressing mischen und mit Petersilie bestreuen."
+   "text": "Bohnen, Zwiebel, Tomaten, Kapern und zerpflückten Thunfisch mit dem Dressing mischen und mit Petersilie bestreuen.",
+   "use": [
+    0,
+    2,
+    3,
+    7,
+    1,
+    4
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 380,
+  "p": 29,
+  "kh": 23,
+  "z": 3,
+  "f": 17,
+  "bs": 9
+ }
 }

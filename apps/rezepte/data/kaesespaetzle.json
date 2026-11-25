@@ -42,30 +42,59 @@
  "steps": [
   {
    "text": "Mehl, Eier, Wasser und Salz zu einem zähen Teig schlagen, bis er Blasen wirft.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Teig ruhen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Zwiebeln in Ringe schneiden und in Butter langsam goldbraun braten.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Teig portionsweise in kochendes Salzwasser schaben oder pressen. Sobald die Spätzle oben schwimmen, abschöpfen."
+   "text": "Teig portionsweise in kochendes Salzwasser schaben oder pressen. Sobald die Spätzle oben schwimmen, abschöpfen.",
+   "use": [
+    2
+   ]
   },
   {
    "text": "Lagenweise mit Käse in eine Airfryer-geeignete Form schichten und bei 160 °C kurz überbacken, bis der Käse schmilzt.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Mit Röstzwiebeln und Schnittlauch servieren."
+   "text": "Mit Röstzwiebeln und Schnittlauch servieren.",
+   "use": [
+    5,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 1090,
+  "p": 52,
+  "kh": 97,
+  "z": 5,
+  "f": 53,
+  "bs": 7
+ },
  "airfryer": true
 }

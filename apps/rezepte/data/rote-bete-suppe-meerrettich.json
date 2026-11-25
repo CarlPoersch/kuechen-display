@@ -41,26 +41,56 @@
  ],
  "steps": [
   {
-   "text": "Rote Bete schälen (Handschuhe!), Rote Bete, Zwiebel und Apfel würfeln."
+   "text": "Rote Bete schälen (Handschuhe!), Rote Bete, Zwiebel und Apfel würfeln.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Zwiebel in Öl andünsten, Rote Bete und Apfel kurz mitdünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    6,
+    0,
+    2
+   ]
   },
   {
    "text": "Brühe zugeben und köcheln, bis die Rote Bete weich ist.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    3,
+    0
+   ]
   },
   {
-   "text": "Fein pürieren, mit Essig, Salz und Pfeffer abschmecken."
+   "text": "Fein pürieren, mit Essig, Salz und Pfeffer abschmecken.",
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Schmand mit Meerrettich verrühren und auf die Suppe geben."
+   "text": "Schmand mit Meerrettich verrühren und auf die Suppe geben.",
+   "use": [
+    5,
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 230,
+  "p": 5,
+  "kh": 27,
+  "z": 19,
+  "f": 13,
+  "bs": 6
+ },
  "gf": true
 }

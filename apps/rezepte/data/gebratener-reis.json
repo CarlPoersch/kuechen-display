@@ -49,29 +49,61 @@
  ],
  "steps": [
   {
-   "text": "Den Reis mit den Händen lockern, damit keine Klumpen entstehen. Warum Reis vom Vortag: Er ist trockener und wird nicht matschig."
+   "text": "Den Reis mit den Händen lockern, damit keine Klumpen entstehen. Warum Reis vom Vortag: Er ist trockener und wird nicht matschig.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "1 EL Öl im Wok erhitzen, Eier verquirlen, darin stocken lassen und herausnehmen."
+   "text": "1 EL Öl im Wok erhitzen, Eier verquirlen, darin stocken lassen und herausnehmen.",
+   "use": [
+    7,
+    1
+   ]
   },
   {
    "text": "Restliches Öl erhitzen, Karotte und Knoblauch 2 Minuten braten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    7,
+    3,
+    5
+   ]
   },
   {
    "text": "Reis zugeben und bei starker Hitze 4–5 Minuten braten, dabei immer wieder wenden.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Erbsen, Ei, Sojasauce und Pfeffer untermischen und 2 Minuten weiterbraten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2,
+    6,
+    9
+   ]
   },
   {
-   "text": "Mit Sesamöl und Frühlingszwiebeln abschmecken."
+   "text": "Mit Sesamöl und Frühlingszwiebeln abschmecken.",
+   "use": [
+    7,
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 590,
+  "p": 21,
+  "kh": 72,
+  "z": 6,
+  "f": 24,
+  "bs": 5
+ }
 }

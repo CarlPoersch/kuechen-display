@@ -45,29 +45,56 @@
  ],
  "steps": [
   {
-   "text": "Hähnchen mit Gewürzen, Limettensaft und 1 EL Öl marinieren.",
-   "minutes": 15
+   "text": "Hähnchen mit Gewürzen (Kreuzkümmel, Chilipulver), Limettensaft und 1 EL Öl marinieren.",
+   "minutes": 15,
+   "use": [
+    6,
+    3,
+    5
+   ]
   },
   {
-   "text": "Paprika und Zwiebel in Streifen schneiden."
+   "text": "Paprika und Zwiebel in Streifen schneiden.",
+   "use": [
+    1,
+    4,
+    2
+   ]
   },
   {
    "text": "Pfanne sehr heiß werden lassen, Hähnchen braten, bis es durch ist, und herausnehmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
-   "text": "Gemüse bei starker Hitze bissfest braten.",
-   "minutes": 4
+   "text": "Gemüse (Paprika, rote Zwiebel) bei starker Hitze bissfest braten.",
+   "minutes": 4,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Hähnchen zurückgeben und durchschwenken."
+   "text": "Hähnchen zurückgeben und durchschwenken.",
+   "use": []
   },
   {
-   "text": "Tortillas erwärmen und alles am Tisch selbst füllen."
+   "text": "Tortillas erwärmen und alles am Tisch selbst füllen.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 800,
+  "p": 52,
+  "kh": 106,
+  "z": 14,
+  "f": 18,
+  "bs": 10
+ }
 }

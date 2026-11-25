@@ -54,29 +54,59 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C vorheizen. Hähnchen würfeln, salzen und in etwas Butter anbraten, herausnehmen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    4
+   ]
   },
   {
    "text": "Zwiebel und Karotten würfeln und in der restlichen Butter andünsten. Mehl darüberstäuben und anschwitzen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    1,
+    4,
+    5
+   ]
   },
   {
    "text": "Brühe und Sahne einrühren, Thymian zugeben und sämig köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6,
+    7,
+    8
+   ]
   },
   {
-   "text": "Hähnchen und Erbsen unterrühren, abschmecken und in eine Auflaufform füllen."
+   "text": "Hähnchen und Erbsen unterrühren, abschmecken und in eine Auflaufform füllen.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit Blätterteig abdecken, Ränder andrücken, Eigelb aufstreichen und ein Loch für den Dampf einschneiden."
+   "text": "Mit Blätterteig abdecken, Ränder andrücken, Eigelb aufstreichen und ein Loch für den Dampf einschneiden.",
+   "use": [
+    9,
+    10
+   ]
   },
   {
    "text": "Goldbraun backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 670,
+  "p": 38,
+  "kh": 44,
+  "z": 8,
+  "f": 37,
+  "bs": 5
+ }
 }

@@ -58,28 +58,63 @@
  "steps": [
   {
    "text": "Pilze in heißem Wasser einweichen, dann in Streifen schneiden.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    2,
+    8
+   ]
   },
   {
    "text": "Brühe mit Pilzen, Fleisch und Bambus aufkochen und 5 Minuten köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    2,
+    1
+   ]
   },
   {
    "text": "Tofu, Essig, Sojasauce und Pfeffer zugeben und 2 Minuten köcheln.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    3,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Mit der Stärke binden."
+   "text": "Mit der Stärke binden.",
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Das Ei in dünnem Strahl unter Rühren einlaufen lassen."
+   "text": "Das Ei in dünnem Strahl unter Rühren einlaufen lassen.",
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln und Chiliöl servieren. Mit Essig und Pfeffer abschmecken: Sie soll deutlich scharf und sauer sein."
+   "text": "Mit Frühlingszwiebeln und Chiliöl servieren. Mit Essig und Pfeffer abschmecken: Sie soll deutlich scharf und sauer sein.",
+   "use": [
+    10,
+    11,
+    5,
+    7
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 230,
+  "p": 20,
+  "kh": 12,
+  "z": 2,
+  "f": 12,
+  "bs": 2
+ }
 }

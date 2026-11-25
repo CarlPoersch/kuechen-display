@@ -64,24 +64,56 @@
  ],
  "steps": [
   {
-   "text": "Zucker, Gewürze und Salz mischen und das Fleisch rundum damit einreiben."
+   "text": "Zucker, Gewürze (Paprika geräuchert, Knoblauchpulver, Senfpulver) und Salz mischen und das Fleisch rundum damit einreiben.",
+   "use": [
+    1,
+    5,
+    2,
+    3,
+    4,
+    0
+   ]
   },
   {
    "text": "In einen Bräter legen, Apfelsaft angießen, zugedeckt bei 140 °C im Ofen garen, bis es zerfällt.",
-   "minutes": 360
+   "minutes": 360,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Für den Coleslaw Kohl und Karotte fein raspeln und mit Mayo, Essig, Salz und Pfeffer mischen."
+   "text": "Für den Coleslaw Kohl und Karotte fein raspeln und mit Mayo, Essig, Salz und Pfeffer mischen.",
+   "use": [
+    9,
+    10,
+    12,
+    5
+   ]
   },
   {
-   "text": "Fleisch mit zwei Gabeln zerzupfen und mit BBQ-Sauce und etwas Bratensaft mischen."
+   "text": "Fleisch mit zwei Gabeln zerzupfen und mit BBQ-Sauce und etwas Bratensaft mischen.",
+   "use": [
+    6,
+    0
+   ]
   },
   {
-   "text": "In Brötchen mit Coleslaw servieren."
+   "text": "In Brötchen mit Coleslaw servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 390
+ "min": 390,
+ "nutri": {
+  "kcal": 860,
+  "p": 52,
+  "kh": 57,
+  "z": 22,
+  "f": 47,
+  "bs": 4
+ }
 }

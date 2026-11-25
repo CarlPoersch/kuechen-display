@@ -34,26 +34,48 @@
  "steps": [
   {
    "text": "Eiweiß mit Salz steif schlagen, Puderzucker nach und nach einrieseln lassen und weiterschlagen, bis die Masse glänzt.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    2,
+    1
+   ]
   },
   {
-   "text": "4 EL Eischnee für die Glasur abnehmen und abgedeckt beiseitestellen."
+   "text": "4 EL Eischnee für die Glasur abnehmen und abgedeckt beiseitestellen.",
+   "use": []
   },
   {
    "text": "Mandeln und Zimt unter den restlichen Eischnee kneten. Teig kalt stellen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Teig zwischen Backpapier 8 mm dick ausrollen, Sterne ausstechen (Form immer wieder in Wasser tauchen) und mit Glasur bestreichen."
+   "text": "Teig zwischen Backpapier 8 mm dick ausrollen, Sterne ausstechen (Form immer wieder in Wasser tauchen) und mit Glasur bestreichen.",
+   "use": []
   },
   {
    "text": "Kurz antrocknen lassen, dann bei 140 °C Umluft backen – die Glasur bleibt weiß.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 90,
+ "nutri": {
+  "kcal": 70,
+  "p": 2,
+  "kh": 6,
+  "z": 5,
+  "f": 4,
+  "bs": 1
+ },
  "gf": true
 }

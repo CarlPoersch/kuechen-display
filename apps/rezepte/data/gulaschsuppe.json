@@ -53,29 +53,62 @@
  ],
  "steps": [
   {
-   "text": "Fleisch in kleine Würfel schneiden und in Schmalz portionsweise kräftig anbraten."
+   "text": "Fleisch in kleine Würfel schneiden und in Schmalz portionsweise kräftig anbraten.",
+   "use": [
+    4,
+    0
+   ]
   },
   {
    "text": "Gewürfelte Zwiebeln zugeben und goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Tomatenmark und Paprika kurz mitrösten, sofort mit Brühe ablöschen."
+   "text": "Tomatenmark und Paprika kurz mitrösten, sofort mit Brühe ablöschen.",
+   "use": [
+    7,
+    2,
+    5,
+    6,
+    10
+   ]
   },
   {
    "text": "Kümmel und Majoran zugeben und zugedeckt köcheln.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    8,
+    9
+   ]
   },
   {
    "text": "Kartoffeln und Paprika würfeln, zugeben und weich garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3,
+    2,
+    5,
+    6
+   ]
   },
   {
-   "text": "Mit Salz und Pfeffer abschmecken."
+   "text": "Mit Salz und Pfeffer abschmecken.",
+   "use": []
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 105
+ "min": 105,
+ "nutri": {
+  "kcal": 300,
+  "p": 25,
+  "kh": 22,
+  "z": 6,
+  "f": 13,
+  "bs": 4
+ }
 }

@@ -64,27 +64,52 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    11
+   ]
   },
   {
-   "text": "Blumenkohl in kleine Röschen teilen, mit Öl mischen und mit Stärke bestäuben."
+   "text": "Blumenkohl in kleine Röschen teilen, mit Öl mischen und mit Stärke bestäuben.",
+   "use": [
+    0,
+    2,
+    1
+   ]
   },
   {
    "text": "Bei 200 °C garen, nach der Hälfte schütteln.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Glasur in einer Pfanne aufkochen, bis sie leicht eindickt.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Blumenkohl darin schwenken, mit Sesam und Frühlingszwiebeln bestreuen."
+   "text": "Blumenkohl darin schwenken, mit Sesam und Frühlingszwiebeln bestreuen.",
+   "use": [
+    0,
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 590,
+  "p": 15,
+  "kh": 112,
+  "z": 21,
+  "f": 11,
+  "bs": 10
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

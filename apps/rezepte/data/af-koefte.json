@@ -71,26 +71,58 @@
  ],
  "steps": [
   {
-   "text": "Hack mit Zwiebel, Knoblauch, gehackter Petersilie und Gewürzen kräftig verkneten. Warum lange kneten: Die Köfte halten dann besser zusammen."
+   "text": "Hack mit Zwiebel, Knoblauch, gehackter Petersilie und Gewürzen (Kreuzkümmel, Paprika edelsüß, Zimt) kräftig verkneten. Warum lange kneten: Die Köfte halten dann besser zusammen.",
+   "use": [
+    0,
+    1,
+    2,
+    10,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Zu 8 länglichen Röllchen formen."
+   "text": "Zu 8 länglichen Röllchen formen.",
+   "use": []
   },
   {
    "text": "Bei 200 °C garen, nach der Hälfte wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Joghurt mit Minze, Knoblauch und Salz verrühren."
+   "text": "Joghurt mit Minze, Knoblauch und Salz verrühren.",
+   "use": [
+    8,
+    9,
+    2,
+    10,
+    7
+   ]
   },
   {
-   "text": "Mit Fladenbrot, Tomate, Gurke und Sauce servieren."
+   "text": "Mit Fladenbrot, Tomate, Gurke und Sauce servieren.",
+   "use": [
+    11,
+    12,
+    13
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 920,
+  "p": 52,
+  "kh": 77,
+  "z": 10,
+  "f": 45,
+  "bs": 6
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

@@ -52,22 +52,50 @@
  "steps": [
   {
    "text": "Ofen auf 220 °C vorheizen. Kartoffeln würfeln, mit Öl und Salz mischen und knusprig backen.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Zwiebel und Knoblauch andünsten, Gewürze und Tomaten zugeben, einkochen und pürieren.",
-   "minutes": 15
+   "text": "Zwiebel und Knoblauch andünsten, Gewürze (Paprika geräuchert, Cayennepfeffer) und Tomaten zugeben, einkochen und pürieren.",
+   "minutes": 15,
+   "use": [
+    2,
+    3,
+    8,
+    6,
+    4,
+    5
+   ]
   },
   {
-   "text": "Mayonnaise mit gepresstem Knoblauch verrühren."
+   "text": "Mayonnaise mit gepresstem Knoblauch verrühren.",
+   "use": [
+    7,
+    3,
+    8
+   ]
   },
   {
-   "text": "Kartoffeln mit beiden Saucen servieren."
+   "text": "Kartoffeln mit beiden Saucen servieren.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 470,
+  "p": 6,
+  "kh": 42,
+  "z": 6,
+  "f": 32,
+  "bs": 6
+ },
  "gf": true
 }

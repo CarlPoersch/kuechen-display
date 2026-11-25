@@ -45,27 +45,54 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 160 °C vorheizen. Filet salzen, pfeffern und mit Speck umwickeln."
+   "text": "Ofen auf 160 °C vorheizen. Filet salzen, pfeffern und mit Speck umwickeln.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "In Öl rundum anbraten und im Ofen rosa garen (Kerntemperatur 62 °C).",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    7
+   ]
   },
   {
    "text": "In der Pfanne Schalotte und Pilze anbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3
+   ]
   },
   {
    "text": "Mit Brühe und Sahne ablöschen, Senf einrühren und sämig einkochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    4,
+    6
+   ]
   },
   {
-   "text": "Filet in Medaillons schneiden, mit Sauce und Petersilie servieren. Dazu Spätzle oder Kroketten."
+   "text": "Filet in Medaillons schneiden, mit Sauce und Petersilie servieren. Dazu Spätzle oder Kroketten.",
+   "use": [
+    0,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 480,
+  "p": 41,
+  "kh": 5,
+  "z": 4,
+  "f": 33,
+  "bs": 1
+ },
  "gf": true
 }

@@ -58,27 +58,57 @@
  "steps": [
   {
    "text": "Reis garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Zwiebel, Knoblauch und Ingwer in Öl andünsten, Gewürze kurz mitrösten.",
-   "minutes": 4
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl andünsten, Gewürze (Currypulver, Kurkuma) kurz mitrösten.",
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    3,
+    11,
+    4,
+    5
+   ]
   },
   {
    "text": "Kokosmilch und Tomaten zugeben und köcheln.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    6,
+    7
+   ]
   },
   {
    "text": "Fisch in Stücken einlegen und zugedeckt gar ziehen lassen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Limette und Salz abschmecken, mit Koriander servieren."
+   "text": "Mit Limette und Salz abschmecken, mit Koriander servieren.",
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 620,
+  "p": 35,
+  "kh": 68,
+  "z": 5,
+  "f": 23,
+  "bs": 3
+ },
  "gf": true
 }

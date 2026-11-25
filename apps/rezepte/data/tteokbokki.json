@@ -50,21 +50,50 @@
  "steps": [
   {
    "text": "Harte Reiskuchen 10 Minuten in Wasser einweichen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Wasser mit Gochujang, Gochugaru, Sojasauce, Zucker und Knoblauch aufkochen."
+   "text": "Wasser mit Gochujang, Gochugaru, Sojasauce, Zucker und Knoblauch aufkochen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Reiskuchen und Fischfrikadellen zugeben und köcheln, bis die Sauce dick ist und die Reiskuchen weich sind.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    7,
+    4
+   ]
   },
   {
-   "text": "Frühlingszwiebeln und halbierte Eier zugeben und 1 Minute erwärmen."
+   "text": "Frühlingszwiebeln und halbierte Eier zugeben und 1 Minute erwärmen.",
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 740,
+  "p": 24,
+  "kh": 128,
+  "z": 13,
+  "f": 12,
+  "bs": 3
+ }
 }

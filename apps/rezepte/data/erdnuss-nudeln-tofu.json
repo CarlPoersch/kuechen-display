@@ -62,24 +62,61 @@
  "steps": [
   {
    "text": "Tofu trocken tupfen, würfeln und in Stärke wenden. In Öl rundum knusprig braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    12
+   ]
   },
   {
    "text": "Reisnudeln nach Packung garen, abgießen und kalt abschrecken.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Erdnussbutter, Sojasauce, Ahornsirup, Limettensaft, Sambal und 5 EL warmes Wasser glatt rühren."
+   "text": "Erdnussbutter, Sojasauce, Ahornsirup, Limettensaft, Sambal und 5 EL warmes Wasser glatt rühren.",
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Karotte und Paprika in feine Streifen schneiden, Frühlingszwiebeln in Ringe."
+   "text": "Karotte und Paprika in feine Streifen schneiden, Frühlingszwiebeln in Ringe.",
+   "use": [
+    8,
+    9,
+    10
+   ]
   },
   {
-   "text": "Nudeln mit Sauce und Gemüse mischen, Tofu und gehackte Erdnüsse darauf verteilen."
+   "text": "Nudeln mit Sauce und Gemüse (Karotte, rote Paprika, Frühlingszwiebeln) mischen, Tofu und gehackte Erdnüsse darauf verteilen.",
+   "use": [
+    0,
+    4,
+    1,
+    11,
+    8,
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 630,
+  "p": 27,
+  "kh": 70,
+  "z": 8,
+  "f": 27,
+  "bs": 7
+ }
 }

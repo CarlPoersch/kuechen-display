@@ -45,24 +45,51 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Quark mit Zucker, Eiern, Vanillezucker, Zitronenabrieb und Rosinen glatt rühren."
+   "text": "Ofen auf 180 °C vorheizen. Quark mit Zucker, Eiern, Vanillezucker, Zitronenabrieb und Rosinen glatt rühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Teigblätter auf einem Tuch auslegen und mit geschmolzener Butter bestreichen."
+   "text": "Teigblätter auf einem Tuch auslegen und mit geschmolzener Butter bestreichen.",
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Füllung auf dem unteren Drittel verteilen, mit dem Tuch aufrollen und auf ein Blech legen."
+   "text": "Füllung auf dem unteren Drittel verteilen, mit dem Tuch aufrollen und auf ein Blech legen.",
+   "use": []
   },
   {
    "text": "Mit Butter bestreichen und goldbraun backen.",
-   "minutes": 40
+   "minutes": 40,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Lauwarm mit Puderzucker servieren."
+   "text": "Lauwarm mit Puderzucker servieren.",
+   "use": [
+    2,
+    8
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 320,
+  "p": 12,
+  "kh": 37,
+  "z": 17,
+  "f": 14,
+  "bs": 1
+ }
 }

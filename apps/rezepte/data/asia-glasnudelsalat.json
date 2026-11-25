@@ -54,20 +54,47 @@
  "steps": [
   {
    "text": "Glasnudeln mit kochendem Wasser übergießen, 5 Minuten ziehen lassen, abschrecken und kürzer schneiden.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Gemüse in feine Streifen schneiden."
+   "text": "Gemüse (Karotte, rote Paprikaschote, Salatgurke) in feine Streifen schneiden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Sojasauce, Limettensaft, Sesamöl, Zucker und Knoblauch verrühren."
+   "text": "Sojasauce, Limettensaft, Sesamöl, Zucker und Knoblauch verrühren.",
+   "use": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
-   "text": "Alles mischen und mit Koriander und Erdnüssen bestreuen."
+   "text": "Alles mischen und mit Koriander und Erdnüssen bestreuen.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegan",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 280,
+  "p": 7,
+  "kh": 41,
+  "z": 6,
+  "f": 10,
+  "bs": 3
+ }
 }

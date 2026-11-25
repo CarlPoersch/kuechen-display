@@ -63,29 +63,63 @@
  ],
  "steps": [
   {
-   "text": "Nudeln nach Packung vorbereiten und lockern."
+   "text": "Nudeln nach Packung vorbereiten und lockern.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Sauce verrühren."
+   "text": "Sauce verrühren.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Fleisch in etwas Öl knusprig braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Zwiebel, Karotte und Kohl zugeben und 3 Minuten braten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4,
+    3,
+    2
+   ]
   },
   {
    "text": "Nudeln und Sauce zugeben und 2–3 Minuten unter Wenden braten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Mit Ingwer und Aonori servieren."
+   "text": "Mit Ingwer und Aonori servieren.",
+   "use": [
+    10,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 940,
+  "p": 33,
+  "kh": 134,
+  "z": 23,
+  "f": 30,
+  "bs": 9
+ }
 }

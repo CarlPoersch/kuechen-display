@@ -25,23 +25,42 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln schälen, grob reiben und salzen."
+   "text": "Kartoffeln schälen, grob reiben und salzen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "In 2 EL Butterschmalz flach in die Pfanne drücken und bei mittlerer Hitze goldbraun braten.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Mit einem Teller wenden, restliches Fett zugeben und die zweite Seite braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Spiegeleier braten und mit Schnittlauch auf die Rösti geben.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2,
+    3
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 490,
+  "p": 13,
+  "kh": 52,
+  "z": 3,
+  "f": 26,
+  "bs": 7
+ }
 }

@@ -45,22 +45,48 @@
  ],
  "steps": [
   {
-   "text": "Knoblauch, Sardellen und Chili in Öl anschwitzen, bis die Sardellen zerfallen."
+   "text": "Knoblauch, Sardellen und Chili in Öl anschwitzen, bis die Sardellen zerfallen.",
+   "use": [
+    2,
+    1,
+    7
+   ]
   },
   {
    "text": "Tomaten zugeben und zerdrücken, Oliven und Kapern zugeben und köcheln.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Spaghetti kochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Nudeln in der Sauce schwenken und mit Petersilie servieren. Kaum salzen – Sardellen und Kapern sind salzig."
+   "text": "Nudeln in der Sauce schwenken und mit Petersilie servieren. Kaum salzen – Sardellen und Kapern sind salzig.",
+   "use": [
+    8,
+    1,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 560,
+  "p": 17,
+  "kh": 82,
+  "z": 10,
+  "f": 18,
+  "bs": 7
+ }
 }

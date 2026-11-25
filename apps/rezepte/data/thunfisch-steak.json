@@ -41,21 +41,43 @@
  ],
  "steps": [
   {
-   "text": "Thunfisch mit 1 EL Sojasauce bestreichen und rundum in Sesam wälzen."
+   "text": "Thunfisch mit 1 EL Sojasauce bestreichen und rundum in Sesam wälzen.",
+   "use": [
+    2,
+    1
+   ]
   },
   {
    "text": "In einer sehr heißen Pfanne pro Seite nur kurz anbraten, innen bleibt er roh.",
-   "minutes": 1
+   "minutes": 1,
+   "use": []
   },
   {
-   "text": "Restliche Sojasauce, Sesamöl und Essig verrühren."
+   "text": "Restliche Sojasauce, Sesamöl und Essig verrühren.",
+   "use": [
+    2,
+    3,
+    7
+   ]
   },
   {
-   "text": "Thunfisch aufschneiden und mit Avocado, Salat und Dressing servieren."
+   "text": "Thunfisch aufschneiden und mit Avocado, Salat und Dressing servieren.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 490,
+  "p": 47,
+  "kh": 12,
+  "z": 1,
+  "f": 29,
+  "bs": 7
+ }
 }

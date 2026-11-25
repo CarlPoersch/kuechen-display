@@ -42,26 +42,52 @@
  "steps": [
   {
    "text": "Auberginen würfeln, salzen und abtropfen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Trocken tupfen und portionsweise in Olivenöl goldbraun braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Knoblauch und Chili im restlichen Öl kurz anbraten, Tomaten zugeben und einkochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    2,
+    6,
+    3
+   ]
   },
   {
    "text": "Nudeln garen, mit Sauce, Auberginen und Basilikum mischen.",
-   "minutes": 11
+   "minutes": 11,
+   "use": [
+    1,
+    4
+   ]
   },
   {
-   "text": "Mit geriebenem Käse servieren."
+   "text": "Mit geriebenem Käse servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 700,
+  "p": 25,
+  "kh": 90,
+  "z": 15,
+  "f": 28,
+  "bs": 10
+ }
 }

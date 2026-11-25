@@ -33,25 +33,50 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen, ein Muffinblech einfetten."
+   "text": "Ofen auf 180 °C vorheizen, ein Muffinblech einfetten.",
+   "use": []
   },
   {
-   "text": "Spinat grob hacken, Paprika fein würfeln, Frühlingszwiebeln in Ringe schneiden."
+   "text": "Spinat grob hacken, Paprika fein würfeln, Frühlingszwiebeln in Ringe schneiden.",
+   "use": [
+    1,
+    2,
+    4
+   ]
   },
   {
-   "text": "Eier mit Milch, Salz und Pfeffer verquirlen."
+   "text": "Eier mit Milch, Salz und Pfeffer verquirlen.",
+   "use": [
+    0,
+    5
+   ]
   },
   {
-   "text": "Gemüse und zerbröselten Feta in die Mulden verteilen und mit der Eiermasse auffüllen."
+   "text": "Gemüse (Babyspinat, rote Paprika, Frühlingszwiebeln) und zerbröselten Feta in die Mulden verteilen und mit der Eiermasse auffüllen.",
+   "use": [
+    3,
+    1,
+    2,
+    4
+   ]
   },
   {
    "text": "Backen, bis die Muffins gestockt und leicht gebräunt sind.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 250,
+  "p": 20,
+  "kh": 5,
+  "z": 3,
+  "f": 17,
+  "bs": 2
+ },
  "gf": true
 }

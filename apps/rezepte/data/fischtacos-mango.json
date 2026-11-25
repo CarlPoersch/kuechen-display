@@ -53,25 +53,57 @@
  ],
  "steps": [
   {
-   "text": "Mango und Zwiebel fein würfeln, mit Koriander, der Hälfte des Limettensafts und Salz zur Salsa mischen."
+   "text": "Mango und Zwiebel fein würfeln, mit Koriander, der Hälfte des Limettensafts und Salz zur Salsa mischen.",
+   "use": [
+    4,
+    5,
+    7,
+    6
+   ]
   },
   {
-   "text": "Rotkohl sehr fein hobeln und mit etwas Salz und Limettensaft kneten."
+   "text": "Rotkohl sehr fein hobeln und mit etwas Salz und Limettensaft kneten.",
+   "use": [
+    8,
+    6
+   ]
   },
   {
    "text": "Fisch in Stücke schneiden, mit Paprika, Kreuzkümmel und Salz würzen und in Öl braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    2,
+    10,
+    0
+   ]
   },
   {
    "text": "Tortillas in einer trockenen Pfanne kurz erwärmen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Tortillas mit Kohl, Fisch, Salsa und saurer Sahne füllen."
+   "text": "Tortillas mit Kohl, Fisch, Salsa und saurer Sahne füllen.",
+   "use": [
+    3,
+    8,
+    9,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 640,
+  "p": 35,
+  "kh": 78,
+  "z": 18,
+  "f": 21,
+  "bs": 7
+ }
 }

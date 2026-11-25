@@ -45,24 +45,54 @@
  ],
  "steps": [
   {
-   "text": "Gemüse in mundgerechte Stücke schneiden, mit Öl, Kräutern, Salz und Pfeffer mischen."
+   "text": "Gemüse (Zucchini, rote Paprika, rote Zwiebel, Cherrytomaten) in mundgerechte Stücke schneiden, mit Öl, Kräutern, Salz und Pfeffer mischen.",
+   "use": [
+    5,
+    6,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Bei 200 °C garen, nach der Hälfte schütteln.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Halloumi auf das Gemüse legen und weitergaren, bis er goldbraun ist.",
-   "minutes": 6
+   "text": "Halloumi auf das Gemüse (Zucchini, rote Paprika, rote Zwiebel, Cherrytomaten) legen und weitergaren, bis er goldbraun ist.",
+   "minutes": 6,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Mit Honig und Zitronensaft beträufeln."
+   "text": "Mit Honig und Zitronensaft beträufeln.",
+   "use": [
+    8,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 620,
+  "p": 30,
+  "kh": 29,
+  "z": 23,
+  "f": 45,
+  "bs": 5
+ },
  "gf": true,
  "airfryer": true,
  "tab": "airfryer"

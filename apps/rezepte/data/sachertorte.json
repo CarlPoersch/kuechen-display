@@ -48,28 +48,57 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 170 °C vorheizen, Springform (24 cm) mit Backpapier auslegen. Schokolade schmelzen."
+   "text": "Ofen auf 170 °C vorheizen, Springform (24 cm) mit Backpapier auslegen. Schokolade schmelzen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Butter mit Puderzucker schaumig rühren, Eigelbe einzeln, dann die Schokolade unterrühren."
+   "text": "Butter mit Puderzucker schaumig rühren, Eigelbe einzeln, dann die Schokolade unterrühren.",
+   "use": [
+    1,
+    2,
+    4,
+    0
+   ]
   },
   {
-   "text": "Eiweiß mit Zucker steif schlagen, abwechselnd mit dem Mehl unterheben."
+   "text": "Eiweiß mit Zucker steif schlagen, abwechselnd mit dem Mehl unterheben.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
    "text": "In die Form füllen und backen. Stäbchenprobe.",
-   "minutes": 55
+   "minutes": 55,
+   "use": []
   },
   {
-   "text": "Abkühlen lassen, waagerecht halbieren, mit erwärmter Konfitüre füllen und rundum bestreichen."
+   "text": "Abkühlen lassen, waagerecht halbieren, mit erwärmter Konfitüre füllen und rundum bestreichen.",
+   "use": [
+    6
+   ]
   },
   {
    "text": "Kuvertüre mit Öl schmelzen und die Torte damit überziehen. Fest werden lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "anspruchsvoll",
- "min": 120
+ "min": 120,
+ "nutri": {
+  "kcal": 440,
+  "p": 7,
+  "kh": 50,
+  "z": 40,
+  "f": 24,
+  "bs": 3
+ }
 }

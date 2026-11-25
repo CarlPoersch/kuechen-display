@@ -65,25 +65,52 @@
  "steps": [
   {
    "text": "Pasten-Zutaten fein pürieren und in einem schweren Topf in Öl anrösten, bis sie duftet.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    12
+   ]
   },
   {
-   "text": "Fleisch zugeben und rundum mit der Paste anbraten."
+   "text": "Fleisch zugeben und rundum mit der Paste anbraten.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Kokosmilch, angedrücktes Zitronengras, Limettenblätter, Kurkuma und Zucker zugeben, salzen."
+   "text": "Kokosmilch, angedrücktes Zitronengras, Limettenblätter, Kurkuma und Zucker zugeben, salzen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
   },
   {
    "text": "Offen bei kleiner Hitze schmoren, bis die Sauce fast verkocht ist und das Fleisch dunkel wird. Gegen Ende öfter rühren.",
-   "minutes": 150
+   "minutes": 150,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Kokosraspel ohne Fett rösten, untermischen und mit Reis servieren."
+   "text": "Kokosraspel ohne Fett rösten, untermischen und mit Reis servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
  "min": 180,
+ "nutri": {
+  "kcal": 730,
+  "p": 58,
+  "kh": 19,
+  "z": 9,
+  "f": 44,
+  "bs": 4
+ },
  "gf": true
 }

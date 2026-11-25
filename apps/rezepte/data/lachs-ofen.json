@@ -41,24 +41,51 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C vorheizen."
+   "text": "Ofen auf 200 °C vorheizen.",
+   "use": []
   },
   {
-   "text": "Butter mit Paniermehl, gehackter Petersilie, Zitronenabrieb und Knoblauch verkneten, salzen."
+   "text": "Butter mit Paniermehl, gehackter Petersilie, Zitronenabrieb und Knoblauch verkneten, salzen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Lachs auf ein Blech legen, salzen und die Kruste daraufdrücken. Gemüse mit Öl und Salz daneben verteilen."
+   "text": "Lachs auf ein Blech legen, salzen und die Kruste daraufdrücken. Gemüse (grüner Spargel oder Brokkoli) mit Öl und Salz daneben verteilen.",
+   "use": [
+    0,
+    7,
+    6
+   ]
   },
   {
    "text": "Backen, bis der Lachs innen noch leicht glasig ist.",
-   "minutes": 14
+   "minutes": 14,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Zitronenspalten servieren."
+   "text": "Mit Zitronenspalten servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 480,
+  "p": 34,
+  "kh": 12,
+  "z": 3,
+  "f": 33,
+  "bs": 3
+ }
 }

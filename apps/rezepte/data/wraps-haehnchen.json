@@ -49,21 +49,48 @@
  ],
  "steps": [
   {
-   "text": "Hähnchen in Streifen schneiden, mit Gewürzen und Salz in Öl braten.",
-   "minutes": 7
+   "text": "Hähnchen in Streifen schneiden, mit Gewürzen (Paprika geräuchert, Kreuzkümmel) und Salz in Öl braten.",
+   "minutes": 7,
+   "use": [
+    9,
+    2,
+    3
+   ]
   },
   {
-   "text": "Avocado und Tomate in Streifen schneiden."
+   "text": "Avocado und Tomate in Streifen schneiden.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Tortillas kurz in der Pfanne erwärmen."
+   "text": "Tortillas kurz in der Pfanne erwärmen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit saurer Sahne bestreichen, mit Salat, Hähnchen, Gemüse und Käse belegen und einrollen."
+   "text": "Mit saurer Sahne bestreichen, mit Salat, Hähnchen, Gemüse (Avocado, Tomate) und Käse belegen und einrollen.",
+   "use": [
+    8,
+    6,
+    4,
+    5,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 510,
+  "p": 37,
+  "kh": 36,
+  "z": 4,
+  "f": 25,
+  "bs": 5
+ }
 }

@@ -41,21 +41,46 @@
  ],
  "steps": [
   {
-   "text": "Feldsalat waschen und trocken schleudern."
+   "text": "Feldsalat waschen und trocken schleudern.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Speck knusprig braten, Brotwürfel im Speckfett rösten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Schalotte fein würfeln, mit Balsamico, Senf, Honig und Öl verrühren, salzen und pfeffern."
+   "text": "Schalotte fein würfeln, mit Balsamico, Senf, Honig und Öl verrühren, salzen und pfeffern.",
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Salat mit Dressing mischen und mit Speck und Croutons bestreuen."
+   "text": "Salat mit Dressing mischen und mit Speck und Croutons bestreuen.",
+   "use": [
+    0,
+    1
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 270,
+  "p": 6,
+  "kh": 12,
+  "z": 4,
+  "f": 22,
+  "bs": 1
+ }
 }

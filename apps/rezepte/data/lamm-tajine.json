@@ -62,30 +62,66 @@
  "steps": [
   {
    "text": "Fleisch in Olivenöl portionsweise anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Zwiebeln, Knoblauch und Ingwer weich braten, Gewürze 1 Minute mitrösten.",
-   "minutes": 6
+   "text": "Zwiebeln, Knoblauch und Ingwer weich braten, Gewürze (Ras el Hanout, Zimtstange) 1 Minute mitrösten.",
+   "minutes": 6,
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Fleisch zurückgeben, Brühe und Safran zugeben und zugedeckt schmoren.",
-   "minutes": 90
+   "minutes": 90,
+   "use": [
+    7,
+    6,
+    0
+   ]
   },
   {
    "text": "Aprikosen und Honig zugeben und weiterschmoren.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8,
+    9
+   ]
   },
   {
    "text": "Couscous mit gleicher Menge kochender Brühe übergießen und quellen lassen, dann auflockern.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    12,
+    7
+   ]
   },
   {
-   "text": "Tajine mit Mandeln und Koriander bestreut auf dem Couscous servieren."
+   "text": "Tajine mit Mandeln und Koriander bestreut auf dem Couscous servieren.",
+   "use": [
+    10,
+    11,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 135
+ "min": 135,
+ "nutri": {
+  "kcal": 890,
+  "p": 47,
+  "kh": 80,
+  "z": 28,
+  "f": 43,
+  "bs": 8
+ }
 }

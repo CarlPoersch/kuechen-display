@@ -37,24 +37,48 @@
  ],
  "steps": [
   {
-   "text": "Kohl vierteln, Strunk entfernen und in feine Streifen schneiden."
+   "text": "Kohl vierteln, Strunk entfernen und in feine Streifen schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Speck auslassen, Zwiebel zugeben und glasig dünsten. Zucker darüberstreuen und leicht karamellisieren."
+   "text": "Speck auslassen, Zwiebel zugeben und glasig dünsten. Zucker darüberstreuen und leicht karamellisieren.",
+   "use": [
+    2,
+    1,
+    3
+   ]
   },
   {
-   "text": "Kohl zugeben und kurz anbraten, mit Essig und Brühe ablöschen, Kümmel zugeben."
+   "text": "Kohl zugeben und kurz anbraten, mit Essig und Brühe ablöschen, Kümmel zugeben.",
+   "use": [
+    0,
+    5,
+    6,
+    4
+   ]
   },
   {
    "text": "Zugedeckt weich schmoren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
-   "text": "Mit Salz und Pfeffer abschmecken."
+   "text": "Mit Salz und Pfeffer abschmecken.",
+   "use": []
   }
  ],
  "cat": "Beilage",
  "diet": "fleisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 190,
+  "p": 7,
+  "kh": 20,
+  "z": 12,
+  "f": 10,
+  "bs": 6
+ }
 }

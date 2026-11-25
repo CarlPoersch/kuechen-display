@@ -54,31 +54,66 @@
  "steps": [
   {
    "text": "Fleisch in kaltem Wasser aufsetzen, 3 Minuten kochen und abgießen. Warum: So werden Trübstoffe entfernt.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    9,
+    0
+   ]
   },
   {
-   "text": "Zucker in einem Topf mit 1 EL Öl hellbraun karamellisieren lassen."
+   "text": "Zucker in einem Topf mit 1 EL Öl hellbraun karamellisieren lassen.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Fleisch zugeben und rundum im Karamell wenden."
+   "text": "Fleisch zugeben und rundum im Karamell wenden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Wein, beide Sojasaucen, Gewürze, Ingwer und Wasser zugeben."
+   "text": "Wein, beide Sojasaucen, Gewürze (Sternanis, Zimtstange), Ingwer und Wasser zugeben.",
+   "use": [
+    4,
+    2,
+    3,
+    5,
+    9,
+    7,
+    8
+   ]
   },
   {
    "text": "Zugedeckt bei kleiner Hitze schmoren.",
-   "minutes": 90
+   "minutes": 90,
+   "use": []
   },
   {
    "text": "Deckel abnehmen und die Sauce bei starker Hitze sirupartig einkochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    2,
+    3
+   ]
   },
   {
-   "text": "Mit Reis servieren."
+   "text": "Mit Reis servieren.",
+   "use": [
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 120
+ "min": 120,
+ "nutri": {
+  "kcal": 900,
+  "p": 28,
+  "kh": 70,
+  "z": 8,
+  "f": 55,
+  "bs": 2
+ }
 }

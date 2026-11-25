@@ -72,32 +72,66 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    13
+   ]
   },
   {
-   "text": "Fleisch mit Ei vermischen und in Stärke wenden."
+   "text": "Fleisch mit Ei vermischen und in Stärke wenden.",
+   "use": [
+    1,
+    2,
+    11,
+    0
+   ]
   },
   {
    "text": "Öl in einem Topf auf ca. 170 °C erhitzen und das Fleisch portionsweise 4–5 Minuten goldbraun frittieren. Auf Küchenpapier abtropfen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Saucenzutaten verrühren."
+   "text": "Saucenzutaten verrühren.",
+   "use": []
   },
   {
    "text": "2 EL Öl in einer Pfanne erhitzen, Zwiebel und Paprika 2 Minuten braten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    4,
+    3
+   ]
   },
   {
    "text": "Ananas und Sauce zugeben und aufkochen, bis die Sauce andickt.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    5,
+    9
+   ]
   },
   {
-   "text": "Fleisch kurz in der Sauce schwenken und sofort mit Reis servieren, damit es knusprig bleibt."
+   "text": "Fleisch kurz in der Sauce schwenken und sofort mit Reis servieren, damit es knusprig bleibt.",
+   "use": [
+    9,
+    13,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 840,
+  "p": 38,
+  "kh": 77,
+  "z": 48,
+  "f": 42,
+  "bs": 4
+ }
 }

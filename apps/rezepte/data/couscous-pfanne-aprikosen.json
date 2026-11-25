@@ -54,25 +54,53 @@
  "steps": [
   {
    "text": "Hähnchen würfeln, mit Ras el-Hanout und Salz würzen und in Öl anbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    6,
+    10
+   ]
   },
   {
    "text": "Zwiebel und Zucchini würfeln, zugeben und mitbraten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    5,
+    4
+   ]
   },
   {
-   "text": "Aprikosen klein schneiden, mit Zimt und Brühe zugeben und aufkochen."
+   "text": "Aprikosen klein schneiden, mit Zimt und Brühe zugeben und aufkochen.",
+   "use": [
+    3,
+    7,
+    2
+   ]
   },
   {
    "text": "Couscous einrühren, Pfanne vom Herd nehmen und zugedeckt quellen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Gabel auflockern, geröstete Mandeln und Minze darüberstreuen."
+   "text": "Mit Gabel auflockern, geröstete Mandeln und Minze darüberstreuen.",
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 550,
+  "p": 41,
+  "kh": 63,
+  "z": 14,
+  "f": 15,
+  "bs": 7
+ }
 }

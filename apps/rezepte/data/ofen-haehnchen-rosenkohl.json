@@ -45,25 +45,56 @@
  ],
  "steps": [
   {
-   "text": "Backofen auf 200 °C Umluft vorheizen. Kartoffeln halbieren, Rosenkohl putzen und halbieren, Zwiebel in Spalten schneiden."
+   "text": "Backofen auf 200 °C Umluft vorheizen. Kartoffeln halbieren, Rosenkohl putzen und halbieren, Zwiebel in Spalten schneiden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Gemüse mit 2 EL Öl, Salz und Thymian auf einem Blech mischen."
+   "text": "Gemüse (Rosenkohl, rote Zwiebel) mit 2 EL Öl, Salz und Thymian auf einem Blech mischen.",
+   "use": [
+    4,
+    8,
+    2,
+    3
+   ]
   },
   {
-   "text": "Öl, Senf, Honig, Paprika, Salz und Pfeffer verrühren und die Keulen damit einpinseln."
+   "text": "Öl, Senf, Honig, Paprika, Salz und Pfeffer verrühren und die Keulen damit einpinseln.",
+   "use": [
+    4,
+    5,
+    6,
+    0
+   ]
   },
   {
-   "text": "Keulen auf das Gemüse legen und im Ofen garen, bis die Haut knusprig ist.",
-   "minutes": 45
+   "text": "Keulen auf das Gemüse (Rosenkohl, rote Zwiebel) legen und im Ofen garen, bis die Haut knusprig ist.",
+   "minutes": 45,
+   "use": [
+    0,
+    2,
+    3
+   ]
   },
   {
-   "text": "Kurz ruhen lassen und mit dem Bratensaft servieren."
+   "text": "Kurz ruhen lassen und mit dem Bratensaft servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 55,
+ "nutri": {
+  "kcal": 660,
+  "p": 41,
+  "kh": 52,
+  "z": 10,
+  "f": 32,
+  "bs": 10
+ },
  "gf": true
 }

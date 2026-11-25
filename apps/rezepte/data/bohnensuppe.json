@@ -53,27 +53,57 @@
  ],
  "steps": [
   {
-   "text": "Gemüse würfeln und in 3 EL Öl langsam andünsten.",
-   "minutes": 10
+   "text": "Gemüse (Zwiebel, Karotten, Staudensellerie, Schwarzkohl oder Wirsing) würfeln und in 3 EL Öl langsam andünsten.",
+   "minutes": 10,
+   "use": [
+    9,
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
    "text": "Tomaten, Brühe, Rosmarin und Kohlstreifen zugeben und köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6,
+    7,
+    10
+   ]
   },
   {
    "text": "Bohnen zugeben, ein Drittel davon mit etwas Brühe pürieren und zurückgeben.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    7
+   ]
   },
   {
    "text": "Brot in Stücke reißen und in der Suppe weich ziehen lassen. Warum: Das Brot bindet die Suppe – typisch toskanisch.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und restlichem Olivenöl servieren."
+   "text": "Mit Salz, Pfeffer und restlichem Olivenöl servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegan",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 540,
+  "p": 23,
+  "kh": 67,
+  "z": 12,
+  "f": 18,
+  "bs": 19
+ }
 }

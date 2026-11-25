@@ -33,18 +33,39 @@
  ],
  "steps": [
   {
-   "text": "Ingwer schälen und fein reiben."
+   "text": "Ingwer schälen und fein reiben.",
+   "use": [
+    3
+   ]
   },
   {
    "text": "Milch mit Kurkuma, Zimt, Ingwer und Pfeffer unter Rühren erhitzen, nicht kochen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Durch ein Sieb gießen, mit Honig süßen und aufschäumen."
+   "text": "Durch ein Sieb gießen, mit Honig süßen und aufschäumen.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 10
+ "min": 10,
+ "nutri": {
+  "kcal": 200,
+  "p": 9,
+  "kh": 23,
+  "z": 21,
+  "f": 9,
+  "bs": 1
+ }
 }

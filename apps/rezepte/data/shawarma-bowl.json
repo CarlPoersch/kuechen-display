@@ -46,21 +46,46 @@
  "steps": [
   {
    "text": "Bulgur mit 300 ml heißem Wasser und Salz quellen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Falafel im Ofen oder in der Pfanne erhitzen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Gemüse würfeln. Tahin mit Zitronensaft, Wasser und Salz cremig rühren."
+   "text": "Gemüse (Salatgurke, Kirschtomaten, rote Zwiebel) würfeln. Tahin mit Zitronensaft, Wasser und Salz cremig rühren.",
+   "use": [
+    6,
+    7,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Alles in Schalen anrichten, mit Hummus, Tahinsauce und Petersilie servieren."
+   "text": "Alles in Schalen anrichten, mit Hummus, Tahinsauce und Petersilie servieren.",
+   "use": [
+    5,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 920,
+  "p": 33,
+  "kh": 112,
+  "z": 9,
+  "f": 40,
+  "bs": 22
+ }
 }

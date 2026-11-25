@@ -52,25 +52,52 @@
  ],
  "steps": [
   {
-   "text": "Hefe mit Zucker im Wasser auflösen. Mit Mehl, zerdrückter Kartoffel und Salz zu einem weichen Teig kneten."
+   "text": "Hefe mit Zucker im Wasser auflösen. Mit Mehl, zerdrückter Kartoffel und Salz zu einem weichen Teig kneten.",
+   "use": [
+    1,
+    4,
+    2,
+    0,
+    3,
+    5
+   ]
   },
   {
    "text": "Abgedeckt gehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Öl auf 175 °C erhitzen. Teig in 6 Stücke teilen und mit geölten Händen flach ausziehen."
+   "text": "Öl auf 175 °C erhitzen. Teig in 6 Stücke teilen und mit geölten Händen flach ausziehen.",
+   "use": [
+    6
+   ]
   },
   {
    "text": "Nacheinander goldbraun ausbacken, einmal wenden.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
-   "text": "Knoblauch fein hacken, mit etwas Salzwasser verrühren und aufstreichen. Mit saurer Sahne und Käse belegen."
+   "text": "Knoblauch fein hacken, mit etwas Salzwasser verrühren und aufstreichen. Mit saurer Sahne und Käse belegen.",
+   "use": [
+    7,
+    2,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 530,
+  "p": 18,
+  "kh": 67,
+  "z": 3,
+  "f": 21,
+  "bs": 4
+ }
 }

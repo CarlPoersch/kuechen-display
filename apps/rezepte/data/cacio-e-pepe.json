@@ -22,24 +22,43 @@
  "steps": [
   {
    "text": "Pfefferkörner grob zerstoßen und in einer Pfanne ohne Fett rösten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Nudeln in wenig Salzwasser knapp al dente garen. Nudelwasser aufheben.",
-   "minutes": 9
+   "minutes": 9,
+   "use": []
   },
   {
-   "text": "Pecorino mit 4–5 EL lauwarmem Nudelwasser zu einer cremigen Paste rühren."
+   "text": "Pecorino mit 4–5 EL lauwarmem Nudelwasser zu einer cremigen Paste rühren.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Nudeln mit einer Kelle Nudelwasser in die Pfefferpfanne geben und schwenken."
+   "text": "Nudeln mit einer Kelle Nudelwasser in die Pfefferpfanne geben und schwenken.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Pfanne vom Herd nehmen, Käsecreme unterrühren und schwenken, bis die Sauce glänzt – nicht mehr erhitzen, sonst klumpt sie."
+   "text": "Pfanne vom Herd nehmen, Käsecreme unterrühren und schwenken, bis die Sauce glänzt – nicht mehr erhitzen, sonst klumpt sie.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 520,
+  "p": 26,
+  "kh": 72,
+  "z": 3,
+  "f": 13,
+  "bs": 3
+ }
 }

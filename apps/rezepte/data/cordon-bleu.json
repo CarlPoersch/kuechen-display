@@ -41,24 +41,49 @@
  ],
  "steps": [
   {
-   "text": "Schnitzel zu einer Tasche aufschneiden und flach klopfen."
+   "text": "Schnitzel zu einer Tasche aufschneiden und flach klopfen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit je einer Scheibe Schinken und Käse füllen, Ränder fest andrücken. Außen salzen und pfeffern."
+   "text": "Mit je einer Scheibe Schinken und Käse füllen, Ränder fest andrücken. Außen salzen und pfeffern.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "In Mehl, verquirltem Ei und Bröseln wenden."
+   "text": "In Mehl, verquirltem Ei und Bröseln wenden.",
+   "use": [
+    3
+   ]
   },
   {
    "text": "In reichlich Öl bei mittlerer Hitze pro Seite goldbraun braten, damit der Käse schmilzt.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    6,
+    2
+   ]
   },
   {
-   "text": "Mit Zitrone und Pommes oder Kartoffelsalat servieren."
+   "text": "Mit Zitrone und Pommes oder Kartoffelsalat servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 670,
+  "p": 47,
+  "kh": 34,
+  "z": 2,
+  "f": 38,
+  "bs": 2
+ }
 }

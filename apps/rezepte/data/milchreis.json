@@ -41,23 +41,50 @@
  ],
  "steps": [
   {
-   "text": "Milch mit Zucker, Vanillezucker und Salz aufkochen, Reis einrühren."
+   "text": "Milch mit Zucker, Vanillezucker und Salz aufkochen, Reis einrühren.",
+   "use": [
+    1,
+    2,
+    7,
+    3,
+    4,
+    0
+   ]
   },
   {
    "text": "Bei kleinster Hitze zugedeckt quellen lassen, gelegentlich umrühren, damit nichts ansetzt.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
    "text": "Kirschen mit Saft erhitzen, mit angerührter Stärke binden.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Milchreis mit Kirschen und Zimt-Zucker servieren."
+   "text": "Milchreis mit Kirschen und Zimt-Zucker servieren.",
+   "use": [
+    0,
+    5,
+    7,
+    2
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 480,
+  "p": 13,
+  "kh": 86,
+  "z": 33,
+  "f": 9,
+  "bs": 2
+ },
  "gf": true
 }

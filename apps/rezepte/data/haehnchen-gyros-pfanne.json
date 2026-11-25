@@ -56,21 +56,50 @@
  "steps": [
   {
    "text": "Fleisch in dünne Streifen schneiden, mit Öl, Gyrosgewürz und Oregano marinieren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    2,
+    8,
+    3,
+    4,
+    0
+   ]
   },
   {
-   "text": "Gurke raspeln, gut ausdrücken, mit Joghurt, Knoblauch, Öl und Salz verrühren."
+   "text": "Gurke raspeln, gut ausdrücken, mit Joghurt, Knoblauch, Öl und Salz verrühren.",
+   "use": [
+    6,
+    5,
+    7,
+    2,
+    8
+   ]
   },
   {
    "text": "Fleisch in einer sehr heißen Pfanne portionsweise knusprig braten, Zwiebelstreifen mitbraten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "Mit Tzatziki und warmen Pitabroten servieren."
+   "text": "Mit Tzatziki und warmen Pitabroten servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 740,
+  "p": 45,
+  "kh": 45,
+  "z": 10,
+  "f": 42,
+  "bs": 3
+ }
 }

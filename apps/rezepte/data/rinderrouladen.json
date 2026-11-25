@@ -57,33 +57,68 @@
  ],
  "steps": [
   {
-   "text": "Rouladen ausbreiten, salzen, pfeffern und mit Senf bestreichen."
+   "text": "Rouladen ausbreiten, salzen, pfeffern und mit Senf bestreichen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Je eine Scheibe Speck, Gurkenstreifen und Zwiebelstreifen darauflegen, aufrollen und mit Rouladennadeln feststecken."
+   "text": "Je eine Scheibe Speck, Gurkenstreifen und Zwiebelstreifen darauflegen, aufrollen und mit Rouladennadeln feststecken.",
+   "use": [
+    2,
+    4
+   ]
   },
   {
    "text": "Rouladen in Öl rundum kräftig anbraten und herausnehmen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    10
+   ]
   },
   {
-   "text": "Gemüse würfeln und im Bratfett anrösten, Tomatenmark mitrösten.",
-   "minutes": 5
+   "text": "Gemüse (Karotte, Sellerie) würfeln und im Bratfett anrösten, Tomatenmark mitrösten.",
+   "minutes": 5,
+   "use": [
+    7,
+    5,
+    6
+   ]
   },
   {
    "text": "Mit Wein ablöschen, Brühe zugeben, Rouladen hineinlegen und zugedeckt schmoren.",
-   "minutes": 90
+   "minutes": 90,
+   "use": [
+    8,
+    9,
+    0
+   ]
   },
   {
-   "text": "Rouladen herausnehmen, Sauce passieren und mit Stärke binden."
+   "text": "Rouladen herausnehmen, Sauce passieren und mit Stärke binden.",
+   "use": [
+    0,
+    11
+   ]
   },
   {
-   "text": "Dazu passen Rotkohl und Kartoffelklöße."
+   "text": "Dazu passen Rotkohl und Kartoffelklöße.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
  "min": 135,
+ "nutri": {
+  "kcal": 520,
+  "p": 47,
+  "kh": 14,
+  "z": 5,
+  "f": 27,
+  "bs": 2
+ },
  "gf": true
 }

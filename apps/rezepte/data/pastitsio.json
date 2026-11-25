@@ -54,26 +54,48 @@
  "steps": [
   {
    "text": "Zwiebel und Hack anbraten, Tomaten und Zimt zugeben, salzen und einkochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    2,
+    1,
+    3,
+    4
+   ]
   },
   {
    "text": "Nudeln bissfest kochen und mit 1 Ei und der Hälfte des Käses mischen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
    "text": "Béchamel kochen, vom Herd nehmen und das zweite Ei einrühren. Mit Muskat würzen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Ofen auf 180 °C vorheizen. Die Hälfte der Nudeln in eine Form, darauf die Hacksauce, dann restliche Nudeln."
+   "text": "Ofen auf 180 °C vorheizen. Die Hälfte der Nudeln in eine Form, darauf die Hacksauce, dann restliche Nudeln.",
+   "use": []
   },
   {
    "text": "Béchamel darübergießen, mit restlichem Käse bestreuen und goldbraun backen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 810,
+  "p": 40,
+  "kh": 77,
+  "z": 12,
+  "f": 38,
+  "bs": 4
+ }
 }

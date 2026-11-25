@@ -58,20 +58,47 @@
  "steps": [
   {
    "text": "Brot in Stücke reißen und in 2 EL Öl in der Pfanne knusprig rösten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Gemüse würfeln, Kräuter grob hacken."
+   "text": "Gemüse (Romanasalat, Tomaten, Salatgurke, Paprikaschote, Radieschen) würfeln, Kräuter (Petersilie, Minze) grob hacken.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Zitronensaft, Granatapfelsirup, restliches Öl, Sumach und Salz verrühren."
+   "text": "Zitronensaft, Granatapfelsirup, restliches Öl, Sumach und Salz verrühren.",
+   "use": [
+    9,
+    11,
+    10,
+    8
+   ]
   },
   {
-   "text": "Alles mischen und sofort servieren, damit das Brot knusprig bleibt."
+   "text": "Alles mischen und sofort servieren, damit das Brot knusprig bleibt.",
+   "use": []
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 370,
+  "p": 9,
+  "kh": 48,
+  "z": 11,
+  "f": 17,
+  "bs": 6
+ }
 }

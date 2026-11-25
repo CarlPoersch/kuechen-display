@@ -42,26 +42,55 @@
  "steps": [
   {
    "text": "Kürbis würfeln, weich dämpfen und fein pürieren, abkühlen lassen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Hefe mit Zucker im Wasser auflösen, mit Mehl, Salz, Öl und Kürbispüree zu einem glatten Teig kneten."
+   "text": "Hefe mit Zucker im Wasser auflösen, mit Mehl, Salz, Öl und Kürbispüree zu einem glatten Teig kneten.",
+   "use": [
+    2,
+    4,
+    3,
+    1,
+    5,
+    6,
+    0
+   ]
   },
   {
    "text": "Zugedeckt an einem warmen Ort gehen lassen, bis er sich verdoppelt hat.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zu einem Laib formen, in Kürbiskernen wälzen und noch einmal gehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Bei 210 °C backen, bis das Brot beim Klopfen hohl klingt.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegan",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 190,
+  "p": 6,
+  "kh": 32,
+  "z": 2,
+  "f": 4,
+  "bs": 2
+ }
 }

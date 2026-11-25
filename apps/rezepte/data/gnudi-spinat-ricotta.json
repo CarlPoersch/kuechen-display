@@ -41,25 +41,52 @@
  ],
  "steps": [
   {
-   "text": "Spinat sehr gut ausdrücken und fein hacken."
+   "text": "Spinat sehr gut ausdrücken und fein hacken.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Ricotta, Spinat, Ei, die Hälfte vom Parmesan, Muskat, Salz und Mehl zu einem weichen Teig verrühren."
+   "text": "Ricotta, Spinat, Ei, die Hälfte vom Parmesan, Muskat, Salz und Mehl zu einem weichen Teig verrühren.",
+   "use": [
+    0,
+    1,
+    3,
+    2,
+    5,
+    4
+   ]
   },
   {
    "text": "Mit zwei Esslöffeln Nocken formen und in leicht siedendem Salzwasser garen, bis sie oben schwimmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": []
   },
   {
    "text": "Butter mit Salbei aufschäumen lassen, bis sie leicht nussig riecht.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Gnudi in der Salbeibutter schwenken und mit restlichem Parmesan servieren."
+   "text": "Gnudi in der Salbeibutter schwenken und mit restlichem Parmesan servieren.",
+   "use": [
+    6,
+    2
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 490,
+  "p": 24,
+  "kh": 21,
+  "z": 4,
+  "f": 34,
+  "bs": 3
+ }
 }

@@ -45,22 +45,46 @@
  ],
  "steps": [
   {
-   "text": "Bananen zerdrücken und mit Eiern, Haferflocken, Milch, Backpulver, Zimt und einer Prise Salz verrühren."
+   "text": "Bananen zerdrücken und mit Eiern, Haferflocken, Milch, Backpulver, Zimt und einer Prise Salz verrühren.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Teig kurz quellen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
    "text": "Butter in einer Pfanne erhitzen und kleine Pancakes bei mittlerer Hitze von beiden Seiten backen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Beeren und Ahornsirup servieren."
+   "text": "Mit Beeren und Ahornsirup servieren.",
+   "use": [
+    8,
+    7
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 470,
+  "p": 17,
+  "kh": 61,
+  "z": 18,
+  "f": 18,
+  "bs": 8
+ }
 }

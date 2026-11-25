@@ -61,33 +61,67 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel, Karotte und Sellerie sehr fein würfeln (Soffritto)."
+   "text": "Zwiebel, Karotte und Sellerie sehr fein würfeln (Soffritto).",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Pancetta in Olivenöl auslassen, Soffritto zugeben und weich dünsten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    10
+   ]
   },
   {
    "text": "Hack zugeben und krümelig braten, bis die Flüssigkeit verdampft ist.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Tomatenmark 1 Minute mitrösten, mit Wein ablöschen und einkochen lassen."
+   "text": "Tomatenmark 1 Minute mitrösten, mit Wein ablöschen und einkochen lassen.",
+   "use": [
+    7,
+    5
+   ]
   },
   {
-   "text": "Milch zugeben und einkochen lassen. Warum Milch: Sie macht das Fleisch zart und die Sauce runder."
+   "text": "Milch zugeben und einkochen lassen. Warum Milch: Sie macht das Fleisch zart und die Sauce runder.",
+   "use": [
+    8,
+    0
+   ]
   },
   {
    "text": "Tomaten und Brühe zugeben und bei kleinster Hitze offen köcheln, bei Bedarf Brühe nachgießen.",
-   "minutes": 120
+   "minutes": 120,
+   "use": [
+    6,
+    9
+   ]
   },
   {
    "text": "Tagliatelle kochen, mit dem Ragù mischen und mit Parmesan servieren.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    11,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 150
+ "min": 150,
+ "nutri": {
+  "kcal": 940,
+  "p": 41,
+  "kh": 85,
+  "z": 12,
+  "f": 45,
+  "bs": 6
+ }
 }

@@ -48,26 +48,51 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C Umluft vorheizen. Kürbis entkernen und in Spalten schneiden."
+   "text": "Ofen auf 200 °C Umluft vorheizen. Kürbis entkernen und in Spalten schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Öl, Gewürzen und Salz mischen und auf einem Blech verteilen."
+   "text": "Mit Öl, Gewürzen (Paprika geräuchert, Kreuzkümmel) und Salz mischen und auf einem Blech verteilen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Backen, bis die Ränder karamellisieren; nach der Hälfte wenden.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
-   "text": "Joghurt mit gepresstem Knoblauch, Zitrone, gehackter Petersilie und Salz verrühren."
+   "text": "Joghurt mit gepresstem Knoblauch, Zitrone, gehackter Petersilie und Salz verrühren.",
+   "use": [
+    5,
+    6,
+    8
+   ]
   },
   {
    "text": "Kürbiskerne ohne Fett rösten und über die Spalten streuen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 250,
+  "p": 7,
+  "kh": 21,
+  "z": 10,
+  "f": 18,
+  "bs": 3
+ },
  "gf": true
 }

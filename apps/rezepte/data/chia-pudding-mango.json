@@ -30,20 +30,41 @@
  "steps": [
   {
    "text": "Chiasamen mit Hafermilch und Ahornsirup verrühren, nach 5 Minuten noch einmal umrühren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Abgedeckt im Kühlschrank quellen lassen, am besten über Nacht."
+   "text": "Abgedeckt im Kühlschrank quellen lassen, am besten über Nacht.",
+   "use": []
   },
   {
-   "text": "Mango würfeln oder pürieren."
+   "text": "Mango würfeln oder pürieren.",
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Pudding in Gläser füllen, Mango darauf geben und mit Kokosraspeln bestreuen."
+   "text": "Pudding in Gläser füllen, Mango darauf geben und mit Kokosraspeln bestreuen.",
+   "use": [
+    3,
+    4
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegan",
  "level": "einfach",
- "min": 10
+ "min": 10,
+ "nutri": {
+  "kcal": 290,
+  "p": 6,
+  "kh": 43,
+  "z": 28,
+  "f": 12,
+  "bs": 11
+ }
 }

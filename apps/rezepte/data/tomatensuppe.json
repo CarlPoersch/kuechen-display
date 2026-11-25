@@ -46,22 +46,47 @@
  "steps": [
   {
    "text": "Zwiebel und Knoblauch würfeln und in Öl glasig dünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Tomatenmark kurz anrösten, Tomaten, Brühe und Zucker zugeben und köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Fein pürieren, Sahne einrühren und mit Salz und Pfeffer abschmecken."
+   "text": "Fein pürieren, Sahne einrühren und mit Salz und Pfeffer abschmecken.",
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Mit Basilikum servieren."
+   "text": "Mit Basilikum servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 200,
+  "p": 4,
+  "kh": 15,
+  "z": 11,
+  "f": 14,
+  "bs": 3
+ },
  "gf": true
 }

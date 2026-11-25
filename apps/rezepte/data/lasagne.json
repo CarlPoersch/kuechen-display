@@ -79,39 +79,80 @@
  "steps": [
   {
    "text": "Zwiebel, Karotte und Knoblauch fein würfeln und in Öl andünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Hack krümelig braten, Tomatenmark mitrösten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    5
+   ]
   },
   {
    "text": "Tomaten und Oregano zugeben, salzen und köcheln lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    4,
+    6
+   ]
   },
   {
    "text": "Für die Béchamel Butter schmelzen, Mehl einrühren, Milch nach und nach unterrühren und köcheln, bis sie andickt. Mit Muskat und Salz würzen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
-   "text": "In die Form abwechselnd Sauce, Platten (passend gebrochen), Béchamel und Parmesan schichten. Mit Béchamel, Mozzarella und Parmesan abschließen."
+   "text": "In die Form abwechselnd Sauce, Platten (passend gebrochen), Béchamel und Parmesan schichten. Mit Béchamel, Mozzarella und Parmesan abschließen.",
+   "use": [
+    14,
+    11,
+    12,
+    13
+   ]
   },
   {
    "text": "Mit Alufolie abgedeckt im Airfryer bei 160 °C backen. Warum abdecken: So garen die Platten durch, bevor der Käse verbrennt.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    14,
+    11,
+    12,
+    13
+   ]
   },
   {
    "text": "Folie abnehmen und bei 180 °C goldbraun backen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
    "text": "Vor dem Anschneiden ruhen lassen, damit sie nicht zerfällt.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 90,
+ "nutri": {
+  "kcal": 680,
+  "p": 36,
+  "kh": 51,
+  "z": 13,
+  "f": 37,
+  "bs": 4
+ },
  "airfryer": true
 }

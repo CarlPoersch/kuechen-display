@@ -53,28 +53,58 @@
  "steps": [
   {
    "text": "Brötchen in Wasser einweichen und gut ausdrücken.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Kartoffeln schälen und in Salzwasser weich kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Hack mit Brötchen, fein gewürfelter Zwiebel, Ei, Senf, Paprika, Salz und Pfeffer verkneten."
+   "text": "Hack mit Brötchen, fein gewürfelter Zwiebel, Ei, Senf, Paprika, Salz und Pfeffer verkneten.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Mit feuchten Händen 8 Frikadellen formen."
+   "text": "Mit feuchten Händen 8 Frikadellen formen.",
+   "use": []
   },
   {
    "text": "In Öl bei mittlerer Hitze von beiden Seiten braten, bis sie durch sind.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen, mit Muskat und Salz würzen."
+   "text": "Kartoffeln abgießen, mit warmer Milch und Butter stampfen, mit Muskat und Salz würzen.",
+   "use": [
+    6,
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 700,
+  "p": 32,
+  "kh": 55,
+  "z": 6,
+  "f": 39,
+  "bs": 7
+ }
 }

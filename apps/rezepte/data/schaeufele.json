@@ -45,29 +45,59 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Schwarte rautenförmig einschneiden, Fleisch mit Salz, Pfeffer, Kümmel und Senf einreiben."
+   "text": "Ofen auf 180 °C vorheizen. Schwarte rautenförmig einschneiden, Fleisch mit Salz, Pfeffer, Kümmel und Senf einreiben.",
+   "use": [
+    6,
+    7,
+    0
+   ]
   },
   {
-   "text": "Gemüse grob würfeln, in einen Bräter geben, Fleisch mit der Schwarte nach unten daraufsetzen und 250 ml Brühe angießen."
+   "text": "Gemüse (Zwiebeln, Karotten, Knollensellerie) grob würfeln, in einen Bräter geben, Fleisch mit der Schwarte nach unten daraufsetzen und 250 ml Brühe angießen.",
+   "use": [
+    5,
+    1,
+    2,
+    3,
+    0
+   ]
   },
   {
    "text": "Zugedeckt garen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
    "text": "Fleisch wenden, Bier und restliche Brühe angießen und offen weitergaren, dabei immer wieder begießen.",
-   "minutes": 90
+   "minutes": 90,
+   "use": [
+    4,
+    5,
+    0
+   ]
   },
   {
    "text": "Zum Schluss mit Grillfunktion die Kruste knusprig werden lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Soße abseihen, mit angerührter Stärke binden und mit Kartoffelklößen servieren."
+   "text": "Soße abseihen, mit angerührter Stärke binden und mit Kartoffelklößen servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 180
+ "min": 180,
+ "nutri": {
+  "kcal": 1000,
+  "p": 71,
+  "kh": 17,
+  "z": 5,
+  "f": 69,
+  "bs": 2
+ }
 }

@@ -46,23 +46,48 @@
  "steps": [
   {
    "text": "Zwiebel und Paprika in Streifen schneiden und in Öl weich dünsten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    1,
+    8
+   ]
   },
   {
    "text": "Knoblauch und Kreuzkümmel kurz mitbraten, Tomaten zugeben, salzen und einkochen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    4,
+    3
+   ]
   },
   {
    "text": "Vier Mulden formen, Eier hineinschlagen, zudecken und stocken lassen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Mit Feta und Petersilie servieren, dazu Fladenbrot."
+   "text": "Mit Feta und Petersilie servieren, dazu Fladenbrot.",
+   "use": [
+    6,
+    7
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 480,
+  "p": 25,
+  "kh": 20,
+  "z": 13,
+  "f": 33,
+  "bs": 5
+ },
  "gf": true
 }

@@ -46,28 +46,56 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Dashi, Sojasauce, Mirin und Zucker in einer kleinen Pfanne aufkochen."
+   "text": "Dashi, Sojasauce, Mirin und Zucker in einer kleinen Pfanne aufkochen.",
+   "use": [
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Zwiebel und Hähnchen darin zugedeckt garen.",
-   "minutes": 7
+   "minutes": 7,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Eier nur leicht verquirlen und gleichmäßig darübergießen."
+   "text": "Eier nur leicht verquirlen und gleichmäßig darübergießen.",
+   "use": [
+    2
+   ]
   },
   {
    "text": "Zugedeckt stocken lassen, das Ei soll noch weich sein.",
-   "minutes": 1
+   "minutes": 1,
+   "use": []
   },
   {
-   "text": "Auf Reis gleiten lassen und mit Frühlingszwiebeln bestreuen."
+   "text": "Auf Reis gleiten lassen und mit Frühlingszwiebeln bestreuen.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 650,
+  "p": 36,
+  "kh": 75,
+  "z": 13,
+  "f": 21,
+  "bs": 2
+ }
 }

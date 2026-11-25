@@ -30,17 +30,37 @@
  "steps": [
   {
    "text": "Gurken in dünne Scheiben hobeln, leicht salzen und 10 Minuten ziehen lassen. Wasser abgießen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Saure Sahne, Essig, Zucker und gehackten Dill verrühren, pfeffern."
+   "text": "Saure Sahne, Essig, Zucker und gehackten Dill verrühren, pfeffern.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Mit den Gurken mischen und sofort servieren."
+   "text": "Mit den Gurken mischen und sofort servieren.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 80,
+  "p": 3,
+  "kh": 10,
+  "z": 6,
+  "f": 4,
+  "bs": 1
+ }
 }

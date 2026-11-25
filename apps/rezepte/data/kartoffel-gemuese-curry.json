@@ -49,27 +49,56 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln würfeln. Kreuzkümmel in Öl anrösten, bis er duftet."
+   "text": "Kartoffeln würfeln. Kreuzkümmel in Öl anrösten, bis er duftet.",
+   "use": [
+    0,
+    4,
+    8
+   ]
   },
   {
    "text": "Zwiebel und Ingwer zugeben und goldbraun braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    7
+   ]
   },
   {
    "text": "Tomaten, Kurkuma und Garam Masala zugeben, Kartoffeln und 300 ml Wasser zugeben, salzen und weich köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3,
+    5,
+    6,
+    0
+   ]
   },
   {
    "text": "Erbsen zugeben und kurz mitgaren.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Koriander und Naan oder Reis servieren."
+   "text": "Mit Koriander und Naan oder Reis servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 280,
+  "p": 8,
+  "kh": 47,
+  "z": 7,
+  "f": 7,
+  "bs": 9
+ },
  "gf": true
 }

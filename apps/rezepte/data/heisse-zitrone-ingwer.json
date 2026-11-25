@@ -26,18 +26,36 @@
  "steps": [
   {
    "text": "Ingwer in dünne Scheiben schneiden und im Wasser kurz aufkochen, dann ziehen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    3
+   ]
   },
   {
-   "text": "Zitrone auspressen, ein paar Scheiben Schale mitziehen lassen."
+   "text": "Zitrone auspressen, ein paar Scheiben Schale mitziehen lassen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Etwas abkühlen lassen und erst dann den Honig einrühren."
+   "text": "Etwas abkühlen lassen und erst dann den Honig einrühren.",
+   "use": [
+    2
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 10,
+ "nutri": {
+  "kcal": 30,
+  "p": 0,
+  "kh": 9,
+  "z": 6,
+  "f": 0,
+  "bs": 0
+ },
  "gf": true
 }

@@ -54,22 +54,51 @@
  "steps": [
   {
    "text": "Hack in Öl krümelig braten, Zwiebel und Paprika zugeben.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    10,
+    2,
+    3,
+    7
+   ]
   },
   {
-   "text": "Reis und Gewürze kurz mitrösten."
+   "text": "Reis und Gewürze (Paprika edelsüß, Kreuzkümmel) kurz mitrösten.",
+   "use": [
+    1,
+    7,
+    8
+   ]
   },
   {
    "text": "Tomaten und Brühe zugeben, aufkochen und zugedeckt garen, bis der Reis weich ist.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5,
+    6,
+    1
+   ]
   },
   {
-   "text": "Mais unterheben, mit Käse bestreuen und zugedeckt schmelzen lassen."
+   "text": "Mais unterheben, mit Käse bestreuen und zugedeckt schmelzen lassen.",
+   "use": [
+    4,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 690,
+  "p": 34,
+  "kh": 68,
+  "z": 8,
+  "f": 33,
+  "bs": 5
+ },
  "gf": true
 }

@@ -45,25 +45,54 @@
  ],
  "steps": [
   {
-   "text": "Äpfel entkernen und würfeln, Zwiebel in feine Ringe, Gurken in Scheiben schneiden."
+   "text": "Äpfel entkernen und würfeln, Zwiebel in feine Ringe, Gurken in Scheiben schneiden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Saure Sahne, Joghurt und Gurkenwasser verrühren, mit Pfeffer und einer Prise Zucker würzen."
+   "text": "Saure Sahne, Joghurt und Gurkenwasser verrühren, mit Pfeffer und einer Prise Zucker würzen.",
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Äpfel, Zwiebel und Gurken unterheben, Matjes in Stücke schneiden und dazugeben."
+   "text": "Äpfel, Zwiebel und Gurken unterheben, Matjes in Stücke schneiden und dazugeben.",
+   "use": [
+    1,
+    2,
+    3,
+    0
+   ]
   },
   {
    "text": "Im Kühlschrank ziehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Mit Dill bestreuen und mit Pellkartoffeln servieren."
+   "text": "Mit Dill bestreuen und mit Pellkartoffeln servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 610,
+  "p": 27,
+  "kh": 53,
+  "z": 16,
+  "f": 33,
+  "bs": 7
+ },
  "gf": true
 }

@@ -45,24 +45,50 @@
  ],
  "steps": [
   {
-   "text": "Mascarpone, Quark, Zucker und Vanillezucker glatt rühren, Sahne steif schlagen und unterheben."
+   "text": "Mascarpone, Quark, Zucker und Vanillezucker glatt rühren, Sahne steif schlagen und unterheben.",
+   "use": [
+    0,
+    1,
+    3,
+    4,
+    2
+   ]
   },
   {
-   "text": "Lebkuchen kurz in Kaffee tauchen und eine Form damit auslegen."
+   "text": "Lebkuchen kurz in Kaffee tauchen und eine Form damit auslegen.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Die Hälfte der Creme darauf streichen, wieder Lebkuchen, dann die restliche Creme schichten."
+   "text": "Die Hälfte der Creme darauf streichen, wieder Lebkuchen, dann die restliche Creme schichten.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Abgedeckt im Kühlschrank durchziehen lassen.",
-   "minutes": 180
+   "minutes": 180,
+   "use": []
   },
   {
-   "text": "Kakao mit Zimt mischen und vor dem Servieren darübersieben."
+   "text": "Kakao mit Zimt mischen und vor dem Servieren darübersieben.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 520,
+  "p": 10,
+  "kh": 45,
+  "z": 32,
+  "f": 33,
+  "bs": 2
+ }
 }

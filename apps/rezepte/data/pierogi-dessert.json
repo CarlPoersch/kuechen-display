@@ -49,21 +49,49 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln durch die Presse drücken und abkühlen lassen."
+   "text": "Kartoffeln durch die Presse drücken und abkühlen lassen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Quark, Ei, Zucker, Mehl, Zitronenabrieb und Rosinen zu einem Teig verkneten."
+   "text": "Mit Quark, Ei, Zucker, Mehl, Zitronenabrieb und Rosinen zu einem Teig verkneten.",
+   "use": [
+    1,
+    2,
+    3,
+    9,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Kleine Taler formen und in Butterschmalz pro Seite goldbraun braten.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Mit Zimt-Zucker und Apfelmus servieren."
+   "text": "Mit Zimt-Zucker und Apfelmus servieren.",
+   "use": [
+    9,
+    3,
+    8
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 460,
+  "p": 15,
+  "kh": 67,
+  "z": 26,
+  "f": 15,
+  "bs": 4
+ }
 }

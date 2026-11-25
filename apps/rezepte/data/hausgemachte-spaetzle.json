@@ -29,25 +29,47 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Eier, Wasser, 1 TL Salz und Muskat zu einem zähen Teig schlagen, bis er Blasen wirft."
+   "text": "Mehl, Eier, Wasser, 1 TL Salz und Muskat zu einem zähen Teig schlagen, bis er Blasen wirft.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Teig ruhen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Teig portionsweise in kochendes Salzwasser schaben oder pressen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Sobald die Spätzle oben schwimmen, mit einer Schaumkelle herausheben."
+   "text": "Sobald die Spätzle oben schwimmen, mit einer Schaumkelle herausheben.",
+   "use": []
   },
   {
-   "text": "In Butter schwenken – passt zu Braten, Gulasch und Rahmgerichten."
+   "text": "In Butter schwenken – passt zu Braten, Gulasch und Rahmgerichten.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 480,
+  "p": 17,
+  "kh": 72,
+  "z": 1,
+  "f": 13,
+  "bs": 4
+ }
 }

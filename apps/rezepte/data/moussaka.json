@@ -76,35 +76,74 @@
  "steps": [
   {
    "text": "Auberginen in 1 cm Scheiben schneiden, salzen, mit Öl bestreichen und portionsweise im Airfryer bei 200 °C garen, bis sie weich und gebräunt sind.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0,
+    14
+   ]
   },
   {
    "text": "Zwiebel und Knoblauch andünsten, Hack krümelig braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    1
+   ]
   },
   {
    "text": "Mit Wein ablöschen, Tomaten, Zimt und Oregano zugeben und köcheln.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    5,
+    4,
+    6,
+    7
+   ]
   },
   {
    "text": "Béchamel kochen: Butter schmelzen, Mehl einrühren, Milch unterrühren, andicken lassen, vom Herd nehmen, Eigelbe, Käse und Muskat unterrühren.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    8,
+    9,
+    10,
+    11,
+    13,
+    12
+   ]
   },
   {
-   "text": "Abwechselnd Auberginen und Fleischsauce in eine Form schichten, mit Béchamel abschließen."
+   "text": "Abwechselnd Auberginen und Fleischsauce in eine Form schichten, mit Béchamel abschließen.",
+   "use": [
+    0,
+    14
+   ]
   },
   {
    "text": "Im Airfryer bei 160 °C backen. Wird die Oberfläche zu schnell dunkel, mit Alufolie abdecken. Warum niedriger als im Ofen: Der Airfryer bläst die Hitze direkt von oben.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    14
+   ]
   },
   {
    "text": "Vor dem Anschneiden ruhen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 105,
+ "nutri": {
+  "kcal": 620,
+  "p": 30,
+  "kh": 30,
+  "z": 15,
+  "f": 41,
+  "bs": 7
+ },
  "airfryer": true
 }

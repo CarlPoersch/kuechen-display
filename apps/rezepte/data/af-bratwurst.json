@@ -40,28 +40,53 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln in Spalten schneiden, mit Öl, Rosmarin, Paprika und Salz mischen."
+   "text": "Kartoffeln in Spalten schneiden, mit Öl, Rosmarin, Paprika und Salz mischen.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Bei 190 °C garen, nach der Hälfte schütteln.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Bratwürste auf die Kartoffeln legen und weitergaren, nach der Hälfte wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Sauerkraut im Topf erwärmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Senf servieren."
+   "text": "Mit Senf servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 970,
+  "p": 38,
+  "kh": 58,
+  "z": 5,
+  "f": 66,
+  "bs": 10
+ },
  "gf": true,
  "airfryer": true,
  "tab": "airfryer"

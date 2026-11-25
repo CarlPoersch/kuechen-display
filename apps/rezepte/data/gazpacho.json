@@ -45,24 +45,53 @@
  ],
  "steps": [
   {
-   "text": "Gemüse grob schneiden, Brot kurz einweichen."
+   "text": "Gemüse (sehr reife Tomaten, Salatgurke, rote Paprika, Zwiebel) grob schneiden, Brot kurz einweichen.",
+   "use": [
+    5,
+    0,
+    1,
+    2,
+    4
+   ]
   },
   {
-   "text": "Alles mit Öl, Essig und Salz im Mixer sehr fein pürieren."
+   "text": "Alles mit Öl, Essig und Salz im Mixer sehr fein pürieren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   },
   {
-   "text": "Durch ein Sieb streichen, damit sie samtig wird."
+   "text": "Durch ein Sieb streichen, damit sie samtig wird.",
+   "use": []
   },
   {
    "text": "Gut gekühlt durchziehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Mit fein gewürfeltem Gemüse und einem Schuss Olivenöl servieren."
+   "text": "Mit fein gewürfeltem Gemüse (sehr reife Tomaten, Salatgurke, rote Paprika, Zwiebel) und einem Schuss Olivenöl servieren.",
+   "use": [
+    6,
+    0,
+    1,
+    2,
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegan",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 270,
+  "p": 4,
+  "kh": 23,
+  "z": 11,
+  "f": 19,
+  "bs": 5
+ }
 }

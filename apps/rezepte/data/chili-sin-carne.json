@@ -61,26 +61,60 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel, Knoblauch, Paprika und Süßkartoffel würfeln."
+   "text": "Zwiebel, Knoblauch, Paprika und Süßkartoffel würfeln.",
+   "use": [
+    0,
+    1,
+    2,
+    9,
+    3
+   ]
   },
   {
-   "text": "Zwiebel und Knoblauch in Öl andünsten, Gewürze kurz mitrösten."
+   "text": "Zwiebel und Knoblauch in Öl andünsten, Gewürze (Kreuzkümmel, Paprika geräuchert, Chilipulver) kurz mitrösten.",
+   "use": [
+    0,
+    1,
+    12,
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Paprika, Süßkartoffel und Tomaten zugeben und köcheln.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    2,
+    9,
+    3,
+    4
+   ]
   },
   {
    "text": "Bohnen und Mais abspülen, zugeben und mit Kakao weiter köcheln. Kakao rundet die Schärfe ab.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Mit Salz abschmecken und mit Reis oder Brot servieren."
+   "text": "Mit Salz abschmecken und mit Reis oder Brot servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
  "min": 50,
+ "nutri": {
+  "kcal": 460,
+  "p": 21,
+  "kh": 70,
+  "z": 15,
+  "f": 9,
+  "bs": 20
+ },
  "gf": true
 }

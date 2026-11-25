@@ -37,18 +37,39 @@
  ],
  "steps": [
   {
-   "text": "Äpfel würfeln und sofort mit Zitronensaft mischen. Sellerie in feine Scheiben schneiden, Trauben halbieren."
+   "text": "Äpfel würfeln und sofort mit Zitronensaft mischen. Sellerie in feine Scheiben schneiden, Trauben halbieren.",
+   "use": [
+    0,
+    6,
+    1,
+    3
+   ]
   },
   {
-   "text": "Mayonnaise und Joghurt verrühren, salzen und pfeffern."
+   "text": "Mayonnaise und Joghurt verrühren, salzen und pfeffern.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Alles mischen und mit grob gehackten Walnüssen bestreuen."
+   "text": "Alles mischen und mit grob gehackten Walnüssen bestreuen.",
+   "use": [
+    2
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 370,
+  "p": 4,
+  "kh": 22,
+  "z": 15,
+  "f": 30,
+  "bs": 4
+ },
  "gf": true
 }

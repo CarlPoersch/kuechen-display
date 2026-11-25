@@ -30,24 +30,48 @@
  "steps": [
   {
    "text": "Wakame 5 Minuten in Wasser einweichen und abgießen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Dashi erhitzen, aber nicht kochen lassen."
+   "text": "Dashi erhitzen, aber nicht kochen lassen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Misopaste in einer Kelle Brühe glatt rühren und zurück in den Topf geben. Warum nicht kochen: Miso verliert sonst Aroma."
+   "text": "Misopaste in einer Kelle Brühe glatt rühren und zurück in den Topf geben. Warum nicht kochen: Miso verliert sonst Aroma.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Tofu und Wakame zugeben und 1 Minute erwärmen."
+   "text": "Tofu und Wakame zugeben und 1 Minute erwärmen.",
+   "use": [
+    2,
+    3
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln servieren."
+   "text": "Mit Frühlingszwiebeln servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 100,
+  "p": 8,
+  "kh": 9,
+  "z": 3,
+  "f": 4,
+  "bs": 2
+ },
  "gf": true
 }

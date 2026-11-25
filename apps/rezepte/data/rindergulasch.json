@@ -54,24 +54,53 @@
  "steps": [
   {
    "text": "Zwiebeln in Streifen schneiden und im Schmalz langsam goldbraun schmoren. Warum so viele: Sie binden später die Sauce.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    1,
+    10
+   ]
   },
   {
-   "text": "Tomatenmark kurz mitrösten, Topf vom Herd nehmen und das Paprikapulver einrühren (es verbrennt sonst leicht)."
+   "text": "Tomatenmark kurz mitrösten, Topf vom Herd nehmen und das Paprikapulver einrühren (es verbrennt sonst leicht).",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Mit Essig ablöschen, Fleisch, Kümmel, Majoran und Knoblauch zugeben."
+   "text": "Mit Essig ablöschen, Fleisch, Kümmel, Majoran und Knoblauch zugeben.",
+   "use": [
+    8,
+    5,
+    6,
+    7,
+    0
+   ]
   },
   {
    "text": "Brühe angießen und zugedeckt sanft schmoren, bis das Fleisch zart ist.",
-   "minutes": 120
+   "minutes": 120,
+   "use": [
+    9,
+    0
+   ]
   },
   {
-   "text": "Mit Salz und Pfeffer abschmecken. Dazu passen Semmelknödel oder Spätzle."
+   "text": "Mit Salz und Pfeffer abschmecken. Dazu passen Semmelknödel oder Spätzle.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 150
+ "min": 150,
+ "nutri": {
+  "kcal": 580,
+  "p": 57,
+  "kh": 24,
+  "z": 11,
+  "f": 28,
+  "bs": 5
+ }
 }

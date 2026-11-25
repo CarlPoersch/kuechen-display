@@ -46,25 +46,53 @@
  "steps": [
   {
    "text": "Spargel schälen. Schalen und Enden mit Wasser, Salz und Zucker auskochen, dann absieben – das ist der Fond.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Spargelstangen in Stücke schneiden und im Fond bissfest garen, herausnehmen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Butter schmelzen, Mehl anschwitzen und mit dem Fond glatt rühren. Köcheln lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Sahne mit Eigelb verquirlen, vom Herd nehmen und einrühren. Mit Salz und Zitrone abschmecken."
+   "text": "Sahne mit Eigelb verquirlen, vom Herd nehmen und einrühren. Mit Salz und Zitrone abschmecken.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Spargelstücke zugeben und mit Kräutern servieren."
+   "text": "Spargelstücke zugeben und mit Kräutern (Kerbel oder Petersilie) servieren.",
+   "use": [
+    0,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 290,
+  "p": 8,
+  "kh": 20,
+  "z": 7,
+  "f": 21,
+  "bs": 6
+ }
 }

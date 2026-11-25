@@ -49,22 +49,51 @@
  ],
  "steps": [
   {
-   "text": "Zwiebeln in Ringe, Karotte in Scheiben schneiden."
+   "text": "Zwiebeln in Ringe, Karotte in Scheiben schneiden.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Mit Wasser, Essig, Zucker, Salz und Gewürzen aufkochen und köcheln.",
-   "minutes": 10
+   "text": "Mit Wasser, Essig, Zucker, Salz und Gewürzen (Lorbeerblätter, Wacholderbeeren, Pfefferkörner) aufkochen und köcheln.",
+   "minutes": 10,
+   "use": [
+    4,
+    3,
+    5,
+    9,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Hitze reduzieren, die Bratwürste einlegen und knapp unter dem Siedepunkt ziehen lassen – sie färben sich bläulich.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Würste mit Sud, Zwiebeln und Karotten in tiefen Tellern servieren. Dazu frisches Bauernbrot."
+   "text": "Würste mit Sud, Zwiebeln und Karotten in tiefen Tellern servieren. Dazu frisches Bauernbrot.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 720,
+  "p": 32,
+  "kh": 13,
+  "z": 7,
+  "f": 60,
+  "bs": 2
+ }
 }

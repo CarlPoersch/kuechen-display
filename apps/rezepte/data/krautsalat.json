@@ -33,21 +33,43 @@
  ],
  "steps": [
   {
-   "text": "Kohl sehr fein hobeln, mit 1 TL Salz kräftig durchkneten, bis er weich wird."
+   "text": "Kohl sehr fein hobeln, mit 1 TL Salz kräftig durchkneten, bis er weich wird.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Essig mit Zucker, Kümmel und 100 ml heißem Wasser aufkochen und über den Kohl gießen."
+   "text": "Essig mit Zucker, Kümmel und 100 ml heißem Wasser aufkochen und über den Kohl gießen.",
+   "use": [
+    2,
+    5,
+    4,
+    0
+   ]
   },
   {
-   "text": "Speck knusprig braten und mit dem Öl unterheben."
+   "text": "Speck knusprig braten und mit dem Öl unterheben.",
+   "use": [
+    1,
+    3
+   ]
   },
   {
    "text": "Ziehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 180,
+  "p": 4,
+  "kh": 10,
+  "z": 6,
+  "f": 15,
+  "bs": 4
+ }
 }

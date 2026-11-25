@@ -46,25 +46,50 @@
  "steps": [
   {
    "text": "Klebreis in einer Pfanne ohne Fett goldbraun rösten und im Mörser fein mahlen. Warum: Das gibt den typischen nussigen Biss.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Hack mit 3 EL Wasser in der Pfanne krümelig garen, ohne es anzubraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    7
+   ]
   },
   {
-   "text": "Vom Herd nehmen, mit Fischsauce, Limettensaft und Chili würzen."
+   "text": "Vom Herd nehmen, mit Fischsauce, Limettensaft und Chili würzen.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Schalotten, Kräuter und das Reispulver unterheben."
+   "text": "Schalotten, Kräuter (Minze, Koriander) und das Reispulver unterheben.",
+   "use": [
+    2,
+    6,
+    7
+   ]
   },
   {
-   "text": "In Salatblättern servieren."
+   "text": "In Salatblättern servieren.",
+   "use": []
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 340,
+  "p": 33,
+  "kh": 23,
+  "z": 6,
+  "f": 13,
+  "bs": 4
+ },
  "gf": true
 }

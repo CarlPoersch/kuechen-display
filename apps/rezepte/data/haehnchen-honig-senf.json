@@ -41,23 +41,43 @@
  ],
  "steps": [
   {
-   "text": "Hähnchen flach klopfen, salzen und pfeffern."
+   "text": "Hähnchen flach klopfen, salzen und pfeffern.",
+   "use": []
   },
   {
    "text": "In Öl pro Seite goldbraun und durchgebraten braten. Herausnehmen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Knoblauch kurz anbraten, Honig, beide Senfsorten und Sahne zugeben und einkochen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    5,
+    1,
+    4
+   ]
   },
   {
-   "text": "Hähnchen in der Sauce wenden und mit Petersilie servieren. Dazu Reis oder Ofenkartoffeln."
+   "text": "Hähnchen in der Sauce wenden und mit Petersilie servieren. Dazu Reis oder Ofenkartoffeln.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 360,
+  "p": 36,
+  "kh": 15,
+  "z": 14,
+  "f": 17,
+  "bs": 0
+ },
  "gf": true
 }

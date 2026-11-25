@@ -55,24 +55,47 @@
  "steps": [
   {
    "text": "Teig kneten und abgedeckt ruhen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Zwiebel fein reiben, mit Hack, 3 EL Wasser, Salz und Pfeffer verkneten."
+   "text": "Zwiebel fein reiben, mit Hack, 3 EL Wasser, Salz und Pfeffer verkneten.",
+   "use": [
+    5,
+    2,
+    3
+   ]
   },
   {
-   "text": "Teig dünn ausrollen, kleine Kreise ausstechen, je 1 TL Füllung daraufgeben, zu Halbmonden falten und die Enden zusammendrücken."
+   "text": "Teig dünn ausrollen, kleine Kreise ausstechen, je 1 TL Füllung daraufgeben, zu Halbmonden falten und die Enden zusammendrücken.",
+   "use": []
   },
   {
    "text": "In siedendem Salzwasser garen, bis sie oben schwimmen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "In Butter schwenken, mit Schmand und Dill servieren."
+   "text": "In Butter schwenken, mit Schmand und Dill servieren.",
+   "use": [
+    8,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 760,
+  "p": 29,
+  "kh": 66,
+  "z": 3,
+  "f": 42,
+  "bs": 4
+ }
 }

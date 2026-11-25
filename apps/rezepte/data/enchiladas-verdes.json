@@ -46,24 +46,51 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C vorheizen. Zwiebel würfeln, mit Bohnen, Mais und Kreuzkümmel kurz anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    1,
+    2,
+    7
+   ]
   },
   {
-   "text": "Salsa verde mit saurer Sahne verrühren, ein Drittel in eine Form streichen."
+   "text": "Salsa verde mit saurer Sahne verrühren, ein Drittel in eine Form streichen.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Tortillas kurz erwärmen, füllen, aufrollen und nebeneinander in die Form legen."
+   "text": "Tortillas kurz erwärmen, füllen, aufrollen und nebeneinander in die Form legen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit restlicher Sauce und Käse bedecken und goldbraun backen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Koriander servieren."
+   "text": "Mit Koriander servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 780,
+  "p": 24,
+  "kh": 53,
+  "z": 6,
+  "f": 52,
+  "bs": 11
+ }
 }

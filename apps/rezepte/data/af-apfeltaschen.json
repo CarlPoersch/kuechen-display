@@ -45,29 +45,57 @@
  ],
  "steps": [
   {
-   "text": "Äpfel schälen, klein würfeln und mit Zucker, Zimt, Zitronensaft und Rosinen mischen."
+   "text": "Äpfel schälen, klein würfeln und mit Zucker, Zimt, Zitronensaft und Rosinen mischen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Blätterteig in 8 Quadrate schneiden."
+   "text": "Blätterteig in 8 Quadrate schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Füllung auf je eine Hälfte geben, zu Dreiecken falten und die Ränder mit einer Gabel fest andrücken."
+   "text": "Füllung auf je eine Hälfte geben, zu Dreiecken falten und die Ränder mit einer Gabel fest andrücken.",
+   "use": []
   },
   {
-   "text": "Eigelb mit Milch verquirlen, Taschen damit bestreichen und oben einritzen."
+   "text": "Eigelb mit Milch verquirlen, Taschen damit bestreichen und oben einritzen.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
    "text": "Auf Backpapier in den Korb legen und bei 170 °C goldbraun backen. Nicht stapeln.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Etwas abkühlen lassen und mit Puderzucker bestäuben."
+   "text": "Etwas abkühlen lassen und mit Puderzucker bestäuben.",
+   "use": [
+    2,
+    8
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 410,
+  "p": 6,
+  "kh": 54,
+  "z": 25,
+  "f": 20,
+  "bs": 4
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

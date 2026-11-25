@@ -41,25 +41,50 @@
  ],
  "steps": [
   {
-   "text": "Bohnen leicht zerdrücken und mit Mais, Frühlingszwiebel, Jalapeño und Kreuzkümmel mischen."
+   "text": "Bohnen leicht zerdrücken und mit Mais, Frühlingszwiebel, Jalapeño und Kreuzkümmel mischen.",
+   "use": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Eine Tortilla in eine trockene Pfanne legen, mit Käse, Füllung und noch etwas Käse belegen, zweite Tortilla darauf."
+   "text": "Eine Tortilla in eine trockene Pfanne legen, mit Käse, Füllung und noch etwas Käse belegen, zweite Tortilla darauf.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Bei mittlerer Hitze braten, bis die Unterseite knusprig ist.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
    "text": "Mit Hilfe eines Tellers wenden und weiterbraten, bis der Käse geschmolzen ist.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "In Dreiecke schneiden und mit Salsa servieren."
+   "text": "In Dreiecke schneiden und mit Salsa servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 820,
+  "p": 40,
+  "kh": 86,
+  "z": 6,
+  "f": 34,
+  "bs": 11
+ }
 }

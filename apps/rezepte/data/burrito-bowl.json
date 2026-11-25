@@ -58,28 +58,61 @@
  "steps": [
   {
    "text": "Reis kochen und mit Limettensaft und gehacktem Koriander mischen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Hähnchen mit Gewürzen, Salz und Öl einreiben."
+   "text": "Hähnchen mit Gewürzen (Kreuzkümmel, Paprika geräuchert), Salz und Öl einreiben.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
    "text": "In der Pfanne pro Seite braten, bis es durch ist, dann ruhen lassen und in Streifen schneiden.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Bohnen und Mais erwärmen."
+   "text": "Bohnen und Mais erwärmen.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Avocado und Tomaten würfeln."
+   "text": "Avocado und Tomaten würfeln.",
+   "use": [
+    8,
+    9
+   ]
   },
   {
-   "text": "Alles nebeneinander auf dem Reis anrichten, mit saurer Sahne und Käse toppen."
+   "text": "Alles nebeneinander auf dem Reis anrichten, mit saurer Sahne und Käse toppen.",
+   "use": [
+    0,
+    10,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 870,
+  "p": 60,
+  "kh": 102,
+  "z": 7,
+  "f": 26,
+  "bs": 17
+ },
  "gf": true
 }

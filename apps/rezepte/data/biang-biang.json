@@ -76,49 +76,89 @@
   ],
   "steps": [
     {
-      "text": "Mehl und Salz mischen, Wasser nach und nach einrühren, bis ein zottiger Teig entsteht."
+      "text": "Mehl und Salz mischen, Wasser nach und nach einrühren, bis ein zottiger Teig entsteht.",
+      "use": [
+        0,
+        2,
+        1
+      ]
     },
     {
       "text": "Teig 10 Minuten glatt und elastisch kneten.",
-      "minutes": 10
+      "minutes": 10,
+      "use": []
     },
     {
       "text": "Abgedeckt 30 Minuten ruhen lassen.",
-      "minutes": 30
+      "minutes": 30,
+      "use": []
     },
     {
-      "text": "Kurz durchkneten, in 6 gleich große Stücke teilen und zu länglichen Fladen formen."
+      "text": "Kurz durchkneten, in 6 gleich große Stücke teilen und zu länglichen Fladen formen.",
+      "use": []
     },
     {
       "text": "Fladen rundum mit Öl bestreichen, abdecken und 1 Stunde ruhen lassen.",
-      "minutes": 60
+      "minutes": 60,
+      "use": [
+        3
+      ]
     },
     {
-      "text": "Sojasauce, Essig und Zucker in einer Schüssel verrühren."
+      "text": "Sojasauce, Essig und Zucker in einer Schüssel verrühren.",
+      "use": [
+        10,
+        11,
+        12
+      ]
     },
     {
-      "text": "Großen Topf mit Wasser zum Kochen bringen."
+      "text": "Großen Topf mit Wasser zum Kochen bringen.",
+      "use": [
+        1
+      ]
     },
     {
-      "text": "Einen Fladen flach drücken, mit einem Stäbchen der Länge nach eine Rille eindrücken, an den Enden fassen und unter leichtem Schlagen auf die Arbeitsfläche auf ca. 1 m Länge ziehen. Entlang der Rille in zwei Hälften reißen."
+      "text": "Einen Fladen flach drücken, mit einem Stäbchen der Länge nach eine Rille eindrücken, an den Enden fassen und unter leichtem Schlagen auf die Arbeitsfläche auf ca. 1 m Länge ziehen. Entlang der Rille in zwei Hälften reißen.",
+      "use": []
     },
     {
       "text": "Nudeln 1–2 Minuten kochen, bis sie oben schwimmen. Pak Choi in der letzten Minute mitgaren.",
-      "minutes": 2
+      "minutes": 2,
+      "use": [
+        13
+      ]
     },
     {
-      "text": "Nudeln abtropfen lassen, in Schalen geben, Sauce darüber. Knoblauch, Frühlingszwiebeln, Chili, Sichuanpfeffer und Kreuzkümmel obenauf häufen."
+      "text": "Nudeln abtropfen lassen, in Schalen geben, Sauce darüber. Knoblauch, Frühlingszwiebeln, Chili, Sichuanpfeffer und Kreuzkümmel obenauf häufen.",
+      "use": [
+        10,
+        4,
+        5,
+        7,
+        8
+      ]
     },
     {
-      "text": "Öl in einem kleinen Topf stark erhitzen, bis es leicht raucht, und zischend über das Topping gießen."
+      "text": "Öl in einem kleinen Topf stark erhitzen, bis es leicht raucht, und zischend über das Topping gießen.",
+      "use": []
     },
     {
-      "text": "Sofort gut durchmischen und servieren."
+      "text": "Sofort gut durchmischen und servieren.",
+      "use": []
     }
   ],
   "cuisine": "Chinesisch",
   "cat": "Hauptgericht",
   "diet": "vegan",
   "level": "anspruchsvoll",
-  "min": 105
+  "min": 105,
+  "nutri": {
+    "kcal": 880,
+    "p": 19,
+    "kh": 118,
+    "z": 5,
+    "f": 36,
+    "bs": 10
+  }
 }

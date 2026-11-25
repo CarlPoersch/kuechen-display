@@ -42,25 +42,52 @@
  "steps": [
   {
    "text": "Keulen mit halbierter Zwiebel, Lorbeer, 1 TL Salz und Wasser aufkochen, abschäumen und leise köcheln.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0,
+    3,
+    5
+   ]
   },
   {
-   "text": "Keulen herausnehmen, Fleisch von Haut und Knochen lösen und zerzupfen."
+   "text": "Keulen herausnehmen, Fleisch von Haut und Knochen lösen und zerzupfen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Karotten und Sellerie in Scheiben in der Brühe garen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Nudeln zugeben und garen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Fleisch zurückgeben, abschmecken und mit Petersilie servieren."
+   "text": "Fleisch zurückgeben, abschmecken und mit Petersilie servieren.",
+   "use": [
+    7,
+    0
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "einfach",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 290,
+  "p": 20,
+  "kh": 25,
+  "z": 4,
+  "f": 12,
+  "bs": 3
+ }
 }

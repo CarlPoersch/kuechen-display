@@ -29,14 +29,24 @@
  ],
  "steps": [
   {
-   "text": "Alles im Mixer cremig pürieren."
+   "text": "Alles im Mixer cremig pürieren.",
+   "use": []
   },
   {
-   "text": "Sofort servieren."
+   "text": "Sofort servieren.",
+   "use": []
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 5
+ "min": 5,
+ "nutri": {
+  "kcal": 220,
+  "p": 7,
+  "kh": 35,
+  "z": 25,
+  "f": 7,
+  "bs": 6
+ }
 }

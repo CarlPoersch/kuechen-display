@@ -45,30 +45,61 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Kartoffeln schälen, in dünne Scheiben schneiden."
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Kartoffeln schälen, in dünne Scheiben schneiden.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel und Paprika würfeln. Hack in Öl krümelig braten, Gemüse zugeben.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    5,
+    1,
+    8
+   ]
   },
   {
    "text": "Tomaten und Paprikapulver zugeben, salzen, pfeffern und kurz köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    4,
+    3,
+    5
+   ]
   },
   {
-   "text": "Kartoffeln und Hacksauce abwechselnd in eine Form schichten, mit Kartoffeln abschließen."
+   "text": "Kartoffeln und Hacksauce abwechselnd in eine Form schichten, mit Kartoffeln abschließen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Sahne salzen und darübergießen, mit Käse bestreuen."
+   "text": "Sahne salzen und darübergießen, mit Käse bestreuen.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
    "text": "Abgedeckt backen, dann offen goldbraun backen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 70,
+ "nutri": {
+  "kcal": 810,
+  "p": 36,
+  "kh": 53,
+  "z": 10,
+  "f": 50,
+  "bs": 8
+ },
  "gf": true
 }

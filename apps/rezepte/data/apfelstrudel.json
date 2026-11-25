@@ -45,27 +45,60 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 190 °C vorheizen. Äpfel schälen, in dünne Scheiben schneiden, mit Zucker, Zimt, Rosinen und Zitronensaft mischen."
+   "text": "Ofen auf 190 °C vorheizen. Äpfel schälen, in dünne Scheiben schneiden, mit Zucker, Zimt, Rosinen und Zitronensaft mischen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    7
+   ]
   },
   {
-   "text": "Brösel in 30 g Butter goldbraun rösten. Restliche Butter schmelzen."
+   "text": "Brösel in 30 g Butter goldbraun rösten. Restliche Butter schmelzen.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Teigblätter auf einem Küchentuch überlappend auslegen und mit Butter bestreichen."
+   "text": "Teigblätter auf einem Küchentuch überlappend auslegen und mit Butter bestreichen.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Brösel auf dem unteren Drittel verteilen, Äpfel daraufgeben. Mit Hilfe des Tuchs aufrollen, Enden einschlagen."
+   "text": "Brösel auf dem unteren Drittel verteilen, Äpfel daraufgeben. Mit Hilfe des Tuchs aufrollen, Enden einschlagen.",
+   "use": [
+    5,
+    1
+   ]
   },
   {
    "text": "Mit Butter bestreichen und goldbraun backen.",
-   "minutes": 40
+   "minutes": 40,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Lauwarm mit Puderzucker und Vanillesauce servieren."
+   "text": "Lauwarm mit Puderzucker und Vanillesauce servieren.",
+   "use": [
+    2,
+    8
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 340,
+  "p": 4,
+  "kh": 57,
+  "z": 28,
+  "f": 12,
+  "bs": 4
+ }
 }

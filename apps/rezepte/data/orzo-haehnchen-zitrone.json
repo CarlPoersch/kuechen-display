@@ -50,26 +50,54 @@
  "steps": [
   {
    "text": "Hähnchen in Würfel schneiden, salzen und in Öl rundum anbraten, herausnehmen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Zwiebel und Knoblauch im Bratfett andünsten, Orzo kurz mitrösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2,
+    3,
+    1
+   ]
   },
   {
    "text": "Brühe, Oregano und abgeriebene Zitronenschale zugeben, unter gelegentlichem Rühren köcheln.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    4,
+    9,
+    5
+   ]
   },
   {
    "text": "Hähnchen und Spinat unterheben, bis der Spinat zusammenfällt.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Zitronensaft, Parmesan, Salz und Pfeffer abschmecken."
+   "text": "Mit Zitronensaft, Parmesan, Salz und Pfeffer abschmecken.",
+   "use": [
+    5,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 540,
+  "p": 45,
+  "kh": 59,
+  "z": 4,
+  "f": 13,
+  "bs": 3
+ }
 }

@@ -66,30 +66,65 @@
  "steps": [
   {
    "text": "Hack in Öl krümelig und kräftig braun anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Paprika zugeben und weich braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3,
+    9
+   ]
   },
   {
-   "text": "Tomatenmark und Gewürze 1 Minute mitrösten."
+   "text": "Tomatenmark und Gewürze (Kreuzkümmel, Paprika edelsüß, Chilipulver, Oregano) 1 Minute mitrösten.",
+   "use": [
+    4,
+    8,
+    9,
+    10,
+    11
+   ]
   },
   {
    "text": "Tomaten zugeben und zugedeckt köcheln.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Bohnen, Mais und Schokolade zugeben und weiterköcheln. Warum Schokolade: Sie macht das Chili runder und dunkler.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    6,
+    7,
+    12
+   ]
   },
   {
-   "text": "Abschmecken und mit saurer Sahne und Reis servieren."
+   "text": "Abschmecken und mit saurer Sahne und Reis servieren.",
+   "use": [
+    13
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 75,
+ "nutri": {
+  "kcal": 600,
+  "p": 37,
+  "kh": 49,
+  "z": 15,
+  "f": 29,
+  "bs": 13
+ },
  "gf": true
 }

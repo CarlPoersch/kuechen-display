@@ -50,24 +50,54 @@
  "steps": [
   {
    "text": "Hefeteig aus Mehl, Hefe, Milch, Zucker, Butter, Ei und Salz kneten und gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Zwetschgen entsteinen und längs einschneiden (nicht halbieren)."
+   "text": "Zwetschgen entsteinen und längs einschneiden (nicht halbieren).",
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Teig auf ein gefettetes Blech ausrollen und die Zwetschgen dachziegelartig dicht daraufsetzen."
+   "text": "Teig auf ein gefettetes Blech ausrollen und die Zwetschgen dachziegelartig dicht daraufsetzen.",
+   "use": [
+    7
+   ]
   },
   {
    "text": "Bei 200 °C backen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
-   "text": "Noch warm mit Zimt und Zucker bestreuen, mit Schlagsahne servieren."
+   "text": "Noch warm mit Zimt und Zucker bestreuen, mit Schlagsahne servieren.",
+   "use": [
+    9,
+    3,
+    8
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 160,
+  "p": 4,
+  "kh": 31,
+  "z": 15,
+  "f": 3,
+  "bs": 3
+ }
 }

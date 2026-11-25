@@ -54,29 +54,57 @@
  "steps": [
   {
    "text": "Hähnchen salzen und pfeffern. Speck im Bräter auslassen und herausnehmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Hähnchen im Fett rundum goldbraun anbraten und herausnehmen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Zwiebeln und Pilze anbraten, Knoblauch zugeben.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Mehl darüberstäuben, kurz anschwitzen, dann mit Wein und Brühe ablöschen."
+   "text": "Mehl darüberstäuben, kurz anschwitzen, dann mit Wein und Brühe ablöschen.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Hähnchen, Speck und Kräuter zurückgeben und zugedeckt schmoren.",
-   "minutes": 75
+   "text": "Hähnchen, Speck und Kräuter (Thymian) zurückgeben und zugedeckt schmoren.",
+   "minutes": 75,
+   "use": [
+    1,
+    9
+   ]
   },
   {
-   "text": "Sauce bei Bedarf einkochen und mit der Butter verfeinern. Dazu Baguette oder Kartoffeln."
+   "text": "Sauce bei Bedarf einkochen und mit der Butter verfeinern. Dazu Baguette oder Kartoffeln.",
+   "use": [
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 120
+ "min": 120,
+ "nutri": {
+  "kcal": 830,
+  "p": 50,
+  "kh": 31,
+  "z": 13,
+  "f": 48,
+  "bs": 5
+ }
 }

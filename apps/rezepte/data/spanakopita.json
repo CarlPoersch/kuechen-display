@@ -46,28 +46,56 @@
  "steps": [
   {
    "text": "Spinat in einer Pfanne zusammenfallen lassen, gut ausdrücken und hacken.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln, Dill, zerbröseltem Feta, Eiern, Muskat und Pfeffer mischen."
+   "text": "Mit Frühlingszwiebeln, Dill, zerbröseltem Feta, Eiern, Muskat und Pfeffer mischen.",
+   "use": [
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
-   "text": "Form fetten."
+   "text": "Form fetten.",
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Die Hälfte der Teigblätter einzeln mit Butter bestreichen und in die Form legen."
+   "text": "Die Hälfte der Teigblätter einzeln mit Butter bestreichen und in die Form legen.",
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Füllung verteilen, mit den restlichen gebutterten Blättern bedecken."
+   "text": "Füllung verteilen, mit den restlichen gebutterten Blättern bedecken.",
+   "use": []
   },
   {
    "text": "Oberfläche in Portionsstücke einritzen und im Airfryer bei 160 °C backen, bis sie goldbraun ist.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 60,
+ "nutri": {
+  "kcal": 390,
+  "p": 16,
+  "kh": 30,
+  "z": 2,
+  "f": 24,
+  "bs": 3
+ },
  "airfryer": true
 }

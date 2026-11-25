@@ -29,25 +29,48 @@
  ],
  "steps": [
   {
-   "text": "Schokolade über dem Wasserbad schmelzen und etwas abkühlen lassen."
+   "text": "Schokolade über dem Wasserbad schmelzen und etwas abkühlen lassen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Eier trennen. Eigelbe mit der Hälfte des Zuckers cremig schlagen und die Schokolade einrühren."
+   "text": "Eier trennen. Eigelbe mit der Hälfte des Zuckers cremig schlagen und die Schokolade einrühren.",
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "Sahne steif schlagen und unterheben."
+   "text": "Sahne steif schlagen und unterheben.",
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Eiweiß mit Salz und restlichem Zucker steif schlagen und vorsichtig unterheben."
+   "text": "Eiweiß mit Salz und restlichem Zucker steif schlagen und vorsichtig unterheben.",
+   "use": [
+    4,
+    2
+   ]
   },
   {
    "text": "In Gläser füllen und kalt stellen.",
-   "minutes": 240
+   "minutes": 240,
+   "use": []
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 25,
+ "nutri": {
+  "kcal": 360,
+  "p": 8,
+  "kh": 23,
+  "z": 21,
+  "f": 26,
+  "bs": 3
+ },
  "gf": true
 }

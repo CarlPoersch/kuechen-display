@@ -36,7 +36,7 @@ struct KitchenView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Theme.background.ignoresSafeArea())
         .navigationBarTitleDisplayMode(.inline)
-        .task { await kitchen.loadRecipes() }
+        .task { await kitchen.loadRecipes(); await NutritionCalc.shared.load() }
         .refreshing(id: app.household?.id ?? "", every: { 15 }) {
             await KitchenStore.shared.sync(household: app.household?.id)
         }
@@ -114,6 +114,9 @@ struct RecipesTab: View {
     @State private var showFilter = false
     @State private var suggestion: RecipeSummary?
     @State private var sheet: Sheet?
+    @State private var pendingOpen: String?      // aus der Statistik gewählt – öffnet nach dem Schließen
+    @State private var openId = ""
+    @State private var opening = false
 
     enum Sheet: String, Identifiable { case new, link, cookbook, stats; var id: String { rawValue } }
 
@@ -350,14 +353,23 @@ struct RecipesTab: View {
         .onAppear(perform: takeJump)
         .onChange(of: jump.pending) { _ in takeJump() }
         .sheet(isPresented: $showFilter) { RecipeFilterSheet(filter: $filter) { matching($0).count } }
-        .sheet(item: $sheet) { s in
+        .sheet(item: $sheet, onDismiss: {
+            // Erst wenn die Statistik zu ist, das Rezept öffnen (sonst liegt es unter dem Blatt)
+            guard let id = pendingOpen else { return }
+            pendingOpen = nil
+            openId = id
+            opening = true
+        }) { s in
             switch s {
             case .new: NewRecipeSheet()
             case .link: ImportLinkSheet()
             case .cookbook: CookbookSheet()
-            case .stats: KitchenStatsView()
+            case .stats: KitchenStatsView { pendingOpen = $0 }
             }
         }
+        .background(
+            NavigationLink(destination: RecipeDetailView(id: openId).id(openId), isActive: $opening) { EmptyView() }.hidden()
+        )
     }
 
     /// Untertitel der Vorrat-Kachel: wie viele Rezepte mit dem Vorrat gehen
@@ -586,6 +598,7 @@ struct RecipeDetailView: View {
     @State private var recipe: Recipe?
     @State private var portions = 2
     @ObservedObject private var session = CookSession.shared
+    @ObservedObject private var nutrition = NutritionCalc.shared
     @State private var replaceCooking = false
     @State private var confirmCancel = false
     @State private var planning = false
@@ -600,11 +613,16 @@ struct RecipeDetailView: View {
                     header(r)
                     if hSize == .regular {
                         HStack(alignment: .top, spacing: 20) {
-                            ingredients(r).frame(maxWidth: 340)
+                            VStack(alignment: .leading, spacing: 20) {
+                                ingredients(r)
+                                nutritionCard(r)
+                            }
+                            .frame(maxWidth: 340)
                             steps(r)
                         }
                     } else {
                         ingredients(r)
+                        nutritionCard(r)
                         steps(r)
                     }
                     notes(r)
@@ -630,6 +648,7 @@ struct RecipeDetailView: View {
         .task {
             recipe = await kitchen.recipe(id)
             if let r = recipe { portions = r.baseServings }
+            if !nutrition.ready { await nutrition.load() }
             note = kitchen.metaFor(id).note
         }
         .onDisappear { if note != kitchen.metaFor(id).note { kitchen.setNote(id, note) } }
@@ -678,7 +697,8 @@ struct RecipeDetailView: View {
                 Text(r.icon).font(.system(size: 60))
                 VStack(alignment: .leading, spacing: 4) {
                     Text(r.title).font(.system(size: 28, weight: .bold))
-                    Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · ")).foregroundColor(Theme.secondary)
+                    Text([r.cuisine, r.time, nutrition.nutrition(r).map { "\(Int($0.kcal)) kcal" }].compactMap { $0 }.joined(separator: " · "))
+                        .foregroundColor(Theme.secondary)
                     if let src = r.source, let host = URL(string: src)?.host {
                         Label(host.replacingOccurrences(of: "www.", with: ""), systemImage: "link").font(.caption).foregroundColor(Theme.secondary)
                     }
@@ -753,7 +773,8 @@ struct RecipeDetailView: View {
     }
 
     private func steps(_ r: Recipe) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
+        let factor = Double(portions) / Double(r.baseServings)
+        return VStack(alignment: .leading, spacing: 10) {
             Text("ZUBEREITUNG").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(Array(r.steps.enumerated()), id: \.offset) { i, s in
@@ -763,6 +784,13 @@ struct RecipeDetailView: View {
                             .frame(width: 28, height: 28).background(Circle().fill(Theme.accent))
                         VStack(alignment: .leading, spacing: 8) {
                             Text(s.text).fixedSize(horizontal: false, vertical: true)
+                            // Was dieser Schritt braucht – mit Mengen für die gewählten Portionen
+                            let used = StepIngredients.find(r, step: i)
+                            if !used.isEmpty {
+                                Text(used.map { StepIngredients.line($0, factor) }.joined(separator: " · "))
+                                    .font(.footnote).foregroundColor(Theme.secondary)
+                                    .fixedSize(horizontal: false, vertical: true)
+                            }
                             HStack(spacing: 8) {
                                 if let m = s.minutes {
                                     Button { timers.start("\(r.title) · Schritt \(i + 1)", minutes: m, source: r.title, icon: r.icon) } label: {
@@ -784,6 +812,64 @@ struct RecipeDetailView: View {
             .padding(.horizontal, 16).padding(.vertical, 4)
             .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
         }
+    }
+
+    /// Nährwerte pro Portion: Kalorien groß, darunter Eiweiß, Kohlenhydrate, Fett als Balken und Liste
+    @ViewBuilder
+    private func nutritionCard(_ r: Recipe) -> some View {
+        if let n = nutrition.nutrition(r) {
+            let sh = n.shares
+            VStack(alignment: .leading, spacing: 10) {
+                Text("NÄHRWERTE · PRO PORTION").font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
+                        Text("\(Int(n.kcal))").font(.system(size: 34, weight: .bold).monospacedDigit())
+                        Text("kcal").font(.headline).foregroundColor(Theme.secondary)
+                        Spacer(minLength: 0)
+                        Text("ca.").font(.subheadline).foregroundColor(Theme.secondary)
+                    }
+                    // Energie-Anteile
+                    GeometryReader { geo in
+                        HStack(spacing: 2) {
+                            Rectangle().fill(NutritionColors.protein).frame(width: max(0, geo.size.width * sh.p - 2))
+                            Rectangle().fill(NutritionColors.carbs).frame(width: max(0, geo.size.width * sh.kh - 2))
+                            Rectangle().fill(NutritionColors.fat)
+                        }
+                        .clipShape(Capsule())
+                    }
+                    .frame(height: 8)
+                    .accessibilityHidden(true)
+                    VStack(spacing: 0) {
+                        nutritionRow("Eiweiß", n.p, NutritionColors.protein)
+                        Divider()
+                        nutritionRow("Kohlenhydrate", n.kh, NutritionColors.carbs)
+                        nutritionRow("davon Zucker", n.z, nil).padding(.leading, 18)
+                        Divider()
+                        nutritionRow("Fett", n.f, NutritionColors.fat)
+                        Divider()
+                        nutritionRow("Ballaststoffe", n.bs, nil)
+                    }
+                }
+                .padding(16)
+                .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
+                Text("Richtwerte, aus den Zutaten berechnet – ohne Beilagen „zum Servieren“."
+                     + (portions > 1 ? " Für \(portions) Portionen: \(Int(n.kcal) * portions) kcal." : ""))
+                    .font(.caption).foregroundColor(Theme.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    private func nutritionRow(_ title: String, _ grams: Double, _ color: Color?) -> some View {
+        HStack(spacing: 8) {
+            if let c = color { Circle().fill(c).frame(width: 9, height: 9) }
+            Text(title).foregroundColor(color == nil && title.hasPrefix("davon") ? Theme.secondary : .primary)
+            Spacer(minLength: 8)
+            Text("\(Int(grams)) g").font(.body.monospacedDigit().weight(.semibold))
+        }
+        .font(title.hasPrefix("davon") ? .subheadline : .body)
+        .padding(.vertical, 7)
+        .accessibilityElement(children: .combine)
     }
 
     private func notes(_ r: Recipe) -> some View {
@@ -1126,6 +1212,7 @@ struct WeekTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
     @State private var picking: Date?
     @State private var message: String?
+    @State private var dicing = false
 
     private var days: [Date] {
         (0..<7).map { Calendar.current.date(byAdding: .day, value: $0, to: Calendar.current.startOfDay(for: Date()))! }
@@ -1134,6 +1221,9 @@ struct WeekTab: View {
     var body: some View {
         List {
             Section {
+                Button { dicing = true } label: {
+                    Label("Woche würfeln", systemImage: "die.face.5").font(.headline)
+                }
                 Button {
                     Task {
                         let n = await kitchen.shoppingFromPlan()
@@ -1143,7 +1233,8 @@ struct WeekTab: View {
                     Label("Einkaufsliste für die Woche erstellen", systemImage: "cart.badge.plus").font(.headline)
                 }
             } footer: {
-                Text("Nimmt alle geplanten Rezepte der nächsten 7 Tage. Was im Vorrat ist oder schon auf der Liste steht, kommt nicht dazu.")
+                Text("Würfeln füllt die freien Tage mit passenden Hauptgerichten – mit Abwechslung, unter der Woche schnell. "
+                     + "Die Einkaufsliste nimmt alle geplanten Rezepte der nächsten 7 Tage; was im Vorrat ist oder schon auf der Liste steht, kommt nicht dazu.")
             }
             ForEach(days, id: \.self) { d in
                 Section(header: Text(Fmt.dayLabel(d))) {
@@ -1154,7 +1245,7 @@ struct WeekTab: View {
                                     Text(s.icon).font(.title2)
                                     VStack(alignment: .leading, spacing: 2) {
                                         Text(s.title).font(.headline)
-                                        Text("\(e.portions) Portionen" + (s.time.map { " · " + $0 } ?? ""))
+                                        Text("\(e.portions) Portionen" + (s.time.map { " · " + $0 } ?? "") + (s.kcal.map { " · \($0) kcal" } ?? ""))
                                             .font(.caption).foregroundColor(Theme.secondary)
                                     }
                                 }
@@ -1180,6 +1271,7 @@ struct WeekTab: View {
             }
         }
         .listStyle(.insetGrouped)
+        .sheet(isPresented: $dicing) { WeekDiceSheet(days: days) }
         .sheet(item: Binding(get: { picking.map { PickDay(date: $0) } }, set: { picking = $0?.date })) { p in
             RecipePicker { id in kitchen.addToPlan(id, on: p.date, portions: kitchen.summary(id)?.servings ?? 2) }
         }
@@ -1827,12 +1919,29 @@ struct PortionControl: View {
     }
 }
 
+// MARK: Nährwerte – Farben für Eiweiß, Kohlenhydrate, Fett
+
+enum NutritionColors {
+    static let protein = Color(red: 0.20, green: 0.55, blue: 0.95)
+    static let carbs = Color(red: 1.00, green: 0.62, blue: 0.04)
+    static let fat = Color(red: 0.95, green: 0.33, blue: 0.40)
+}
+
 // MARK: Zutaten je Schritt
 
 /// Welche Zutaten ein Schritt braucht – aus dem Schritttext erkannt.
 /// Erst genaue Treffer („Zwiebeln“ → Zwiebeln, „Brühe“ → Gemüsebrühe); nur wenn ein Wort keinen genauen
 /// Treffer hat, auch lose („Öl“ → Olivenöl). So trifft „Zucker“ nicht zusätzlich „Puderzucker“.
 enum StepIngredients {
+    /// „200 g Couscous“ – Menge für die gewählten Portionen, Name ohne Zusatz („Zwiebel, in Ringen“ → „Zwiebel“)
+    static func line(_ ing: Recipe.Ingredient, _ factor: Double) -> String {
+        var n = ing.name
+        while let r = n.range(of: #"\s*\([^)]*\)"#, options: .regularExpression) { n.removeSubrange(r) }
+        n = String(n.split(separator: ",").first ?? Substring(n)).trimmingCharacters(in: .whitespaces)
+        let a = Amount.scale(ing.amount, factor)
+        return a.isEmpty ? n : a + " " + n
+    }
+
     private static let stop: Set<String> = Set(("frisch frische frischer gehackt gehackte gemahlen gemahlener getrocknet getrocknete klein kleine "
         + "große groß rot rote roter gelb gelbe grün grüne weiß weiße schwarz schwarzer optional fein feine gewürfelt geschält ca etwas "
         + "zum braten für den die das und oder nach geschmack bio tk dose glas reif reife sehr geschmolzene braune brauner heller dunkle "
@@ -1852,9 +1961,16 @@ enum StepIngredients {
         while let r = n.range(of: #"\([^)]*\)"#, options: .regularExpression) { n.removeSubrange(r) }
         n = String(n.split(separator: ",").first ?? "")
         let w = words(n)
-        let k = w.filter { $0.count >= 3 && !stop.contains($0) }
-        return k.isEmpty ? Array(w.suffix(1)) : k
+        var k = w.filter { $0.count >= 3 && !stop.contains($0) }
+        if k.isEmpty { k = Array(w.suffix(1)) }
+        // „Knoblauchzehen“ passt auch bei „Knoblauch“ im Schritt, „Lachsfilets“ bei „Lachs“
+        for x in k {
+            if let suf = suffixes.first(where: { x.hasSuffix($0) && x.count - $0.count >= 4 }) { k.append(String(x.dropLast(suf.count))) }
+        }
+        return k
     }
+    private static let suffixes = ["zehen", "zehe", "stangen", "stange", "filets", "filet", "schoten", "schote", "knolle",
+                                   "kapseln", "körner", "samen", "würfel"]
     private static func strong(_ k: String, _ w: String) -> Bool {
         w == k || stem(w) == stem(k) || (k.count >= 4 && w.hasSuffix(k))
     }
@@ -1868,6 +1984,10 @@ enum StepIngredients {
     static func find(_ r: Recipe, step: Int) -> [Recipe.Ingredient] {
         guard r.steps.indices.contains(step) else { return [] }
         let ings = r.ingredients.filter { !$0.name.isEmpty }
+        // Rezepte aus der Sammlung: vorberechnet (auch „Gemüse würfeln“ → welches Gemüse)
+        if !r.isOwn, let use = r.steps[step].use {
+            return use.filter { ings.indices.contains($0) }.map { ings[$0] }
+        }
         let ik = ings.map { keys($0.name) }
         var out: [Int] = []
         for w in words(r.steps[step].text) where w.count >= 2 {

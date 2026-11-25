@@ -58,26 +58,56 @@
  "steps": [
   {
    "text": "Paneer würfeln und in 1 EL Butter goldbraun braten. Herausnehmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    6
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch, Ingwer und Cashews in Butter anbraten, Tomaten zugeben und köcheln.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    3,
+    6,
+    5
+   ]
   },
   {
-   "text": "Fein pürieren und zurück in den Topf geben. Gewürze und Zucker zugeben."
+   "text": "Fein pürieren und zurück in den Topf geben. Gewürze (Garam Masala, Kashmiri-Chili, getrocknete Bockshornkleeblätter) und Zucker zugeben.",
+   "use": [
+    11,
+    7,
+    8,
+    10
+   ]
   },
   {
    "text": "Sahne einrühren, Paneer zugeben und kurz ziehen lassen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    9,
+    0
+   ]
   },
   {
-   "text": "Bockshornklee zwischen den Fingern zerreiben und darüberstreuen. Mit Naan servieren."
+   "text": "Bockshornklee zwischen den Fingern zerreiben und darüberstreuen. Mit Naan servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 550,
+  "p": 24,
+  "kh": 18,
+  "z": 10,
+  "f": 43,
+  "bs": 2
+ },
  "gf": true
 }

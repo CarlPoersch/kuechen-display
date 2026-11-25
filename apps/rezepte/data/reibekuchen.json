@@ -37,29 +37,54 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln schälen und mit der Zwiebel fein reiben."
+   "text": "Kartoffeln schälen und mit der Zwiebel fein reiben.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Masse in einem Tuch kräftig ausdrücken. Warum: Weniger Wasser = knusprigere Puffer."
+   "text": "Masse in einem Tuch kräftig ausdrücken. Warum: Weniger Wasser = knusprigere Puffer.",
+   "use": []
   },
   {
-   "text": "Mit Eiern, Mehl und Salz vermengen."
+   "text": "Mit Eiern, Mehl und Salz vermengen.",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Öl erhitzen, je 2 EL Masse flach drücken und pro Seite goldbraun braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Auf Küchenpapier abtropfen. Vor dem Servieren alle zusammen im Airfryer bei 180 °C wieder aufknuspern.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
-   "text": "Mit Apfelmus servieren."
+   "text": "Mit Apfelmus servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 550,
+  "p": 10,
+  "kh": 70,
+  "z": 20,
+  "f": 26,
+  "bs": 7
+ },
  "airfryer": true
 }

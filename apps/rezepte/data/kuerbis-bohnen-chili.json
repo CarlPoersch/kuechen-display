@@ -57,27 +57,60 @@
  ],
  "steps": [
   {
-   "text": "Kürbis mit Schale in 2 cm große Würfel schneiden, Zwiebel und Knoblauch fein hacken."
+   "text": "Kürbis mit Schale in 2 cm große Würfel schneiden, Zwiebel und Knoblauch fein hacken.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Zwiebel in Öl glasig dünsten, Knoblauch und Gewürze kurz mitrösten.",
-   "minutes": 4
+   "text": "Zwiebel in Öl glasig dünsten, Knoblauch und Gewürze (Kreuzkümmel, geräuchertes Paprikapulver, Chiliflocken) kurz mitrösten.",
+   "minutes": 4,
+   "use": [
+    1,
+    10,
+    2,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Kürbis, Tomaten und Brühe zugeben und zugedeckt köcheln, bis der Kürbis fast weich ist.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    5,
+    9
+   ]
   },
   {
    "text": "Bohnen abspülen, zugeben und offen weiterköcheln, bis das Chili sämig ist.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    4,
+    0
+   ]
   },
   {
-   "text": "Mit Salz und Limettensaft abschmecken."
+   "text": "Mit Salz und Limettensaft abschmecken.",
+   "use": [
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 280,
+  "p": 13,
+  "kh": 37,
+  "z": 10,
+  "f": 7,
+  "bs": 11
+ },
  "gf": true
 }

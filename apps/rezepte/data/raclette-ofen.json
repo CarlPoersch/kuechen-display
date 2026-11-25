@@ -34,25 +34,50 @@
  "steps": [
   {
    "text": "Kartoffeln mit Schale in Salzwasser garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Ofen auf 220 °C Grill vorheizen. Kartoffeln halbieren und mit der Schnittfläche nach oben in eine Form legen."
+   "text": "Ofen auf 220 °C Grill vorheizen. Kartoffeln halbieren und mit der Schnittfläche nach oben in eine Form legen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Käse belegen, mit Paprika und Pfeffer bestreuen."
+   "text": "Mit Käse belegen, mit Paprika und Pfeffer bestreuen.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Überbacken, bis der Käse blubbert.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Schinken, Cornichons und Silberzwiebeln servieren."
+   "text": "Mit Schinken, Cornichons und Silberzwiebeln servieren.",
+   "use": [
+    2,
+    3,
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 680,
+  "p": 43,
+  "kh": 52,
+  "z": 8,
+  "f": 33,
+  "bs": 8
+ },
  "gf": true
 }

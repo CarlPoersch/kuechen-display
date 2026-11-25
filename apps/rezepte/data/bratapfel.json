@@ -48,26 +48,55 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Äpfel waschen und das Kerngehäuse großzügig ausstechen."
+   "text": "Ofen auf 180 °C vorheizen. Äpfel waschen und das Kerngehäuse großzügig ausstechen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Nüsse, Rosinen, Honig und Zimt mischen und in die Äpfel füllen. Je ein Butterflöckchen daraufsetzen."
+   "text": "Nüsse, Rosinen, Honig und Zimt mischen und in die Äpfel füllen. Je ein Butterflöckchen daraufsetzen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    0
+   ]
   },
   {
    "text": "In einer Form backen, bis die Äpfel weich sind und leicht aufplatzen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Für die Sauce Pulver mit Zucker und etwas Milch glatt rühren, restliche Milch aufkochen, einrühren und kurz köcheln.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    7,
+    8,
+    6
+   ]
   },
   {
-   "text": "Bratäpfel mit warmer Vanillesauce servieren."
+   "text": "Bratäpfel mit warmer Vanillesauce servieren.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 410,
+  "p": 7,
+  "kh": 65,
+  "z": 46,
+  "f": 15,
+  "bs": 6
+ },
  "gf": true
 }

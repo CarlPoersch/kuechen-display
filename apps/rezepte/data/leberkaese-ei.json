@@ -42,26 +42,54 @@
  "steps": [
   {
    "text": "Kartoffeln in Scheiben schneiden. In 2 EL Butterschmalz ohne Rühren goldbraun braten, erst dann wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    2,
+    5
+   ]
   },
   {
    "text": "Zwiebel und Speck zugeben und mitbraten, mit Salz, Pfeffer und Majoran würzen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4,
+    6
+   ]
   },
   {
    "text": "Leberkäse in einer zweiten Pfanne in restlichem Fett beidseitig knusprig braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Eier daneben als Spiegeleier braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Leberkäse mit Ei belegen, mit Bratkartoffeln und süßem Senf servieren."
+   "text": "Leberkäse mit Ei belegen, mit Bratkartoffeln und süßem Senf servieren.",
+   "use": [
+    0,
+    2,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 1030,
+  "p": 35,
+  "kh": 46,
+  "z": 6,
+  "f": 77,
+  "bs": 6
+ }
 }

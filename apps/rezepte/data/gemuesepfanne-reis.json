@@ -45,25 +45,57 @@
  ],
  "steps": [
   {
-   "text": "Gemüse klein würfeln."
+   "text": "Gemüse (Paprikaschote, Zucchini, Karotten, Erbsen, Frühlingszwiebeln) klein würfeln.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    8
+   ]
   },
   {
    "text": "In Öl in einer großen Pfanne scharf anbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Reis zugeben und mitbraten, bis er leicht knusprig ist.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Gemüse zur Seite schieben, Eier hineinschlagen und unter Rühren stocken lassen, dann alles mischen."
+   "text": "Gemüse (Paprikaschote, Zucchini, Karotten, Erbsen) zur Seite schieben, Eier hineinschlagen und unter Rühren stocken lassen, dann alles mischen.",
+   "use": [
+    5,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Mit Sojasauce würzen und mit Frühlingszwiebeln bestreuen."
+   "text": "Mit Sojasauce würzen und mit Frühlingszwiebeln bestreuen.",
+   "use": [
+    6,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 390,
+  "p": 14,
+  "kh": 57,
+  "z": 8,
+  "f": 11,
+  "bs": 5
+ }
 }

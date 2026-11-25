@@ -41,30 +41,57 @@
  ],
  "steps": [
   {
-   "text": "Hefe in der lauwarmen Milch mit 1 TL Zucker auflösen."
+   "text": "Hefe in der lauwarmen Milch mit 1 TL Zucker auflösen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Mit Mehl, restlichem Zucker, Butter, Ei und einer Prise Salz zu einem glatten Teig kneten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Zugedeckt an einem warmen Ort gehen lassen, bis er sich verdoppelt hat.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Teig in drei Stränge teilen, zu einem Zopf flechten und auf ein Blech legen."
+   "text": "Teig in drei Stränge teilen, zu einem Zopf flechten und auf ein Blech legen.",
+   "use": []
   },
   {
    "text": "Nochmals gehen lassen, Backofen auf 180 °C Ober-/Unterhitze vorheizen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
    "text": "Mit Eigelb bestreichen, mit Hagelzucker bestreuen und goldbraun backen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    6,
+    3,
+    7
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 150
+ "min": 150,
+ "nutri": {
+  "kcal": 260,
+  "p": 6,
+  "kh": 40,
+  "z": 11,
+  "f": 8,
+  "bs": 2
+ }
 }

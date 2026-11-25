@@ -38,21 +38,44 @@
  "steps": [
   {
    "text": "Paprika in Ringe schneiden und in Butter und Öl weich braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    3,
+    4
+   ]
   },
   {
    "text": "Tomaten würfeln, zugeben und einkochen, bis die Flüssigkeit fast verdampft ist.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Eier hineinschlagen und vorsichtig rühren, bis sie gerade gestockt sind."
+   "text": "Eier hineinschlagen und vorsichtig rühren, bis sie gerade gestockt sind.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit Pul Biber und Salz würzen und mit Brot servieren."
+   "text": "Mit Pul Biber und Salz würzen und mit Brot servieren.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 360,
+  "p": 18,
+  "kh": 18,
+  "z": 12,
+  "f": 25,
+  "bs": 6
+ }
 }

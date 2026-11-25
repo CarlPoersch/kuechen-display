@@ -50,31 +50,61 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Den dicken Teil der Kokosmilch im Topf erhitzen, bis sich das Fett absetzt, dann die Currypaste 2 Minuten darin anrösten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2,
+    1
+   ]
   },
   {
    "text": "Hähnchen zugeben und 3 Minuten mitgaren.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
    "text": "Restliche Kokosmilch, Aubergine und Limettenblätter zugeben und köcheln lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    7
+   ]
   },
   {
    "text": "Zuckerschoten, Fischsauce und Zucker zugeben und 2 Minuten köcheln.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Basilikum unterheben und mit Reis servieren."
+   "text": "Basilikum unterheben und mit Reis servieren.",
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 880,
+  "p": 48,
+  "kh": 83,
+  "z": 15,
+  "f": 40,
+  "bs": 8
+ },
  "gf": true
 }

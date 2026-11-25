@@ -25,15 +25,31 @@
  ],
  "steps": [
   {
-   "text": "Gurke raspeln und ausdrücken."
+   "text": "Gurke raspeln und ausdrücken.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Joghurt, Kreuzkümmel, gehackter Minze und Salz verrühren."
+   "text": "Mit Joghurt, Kreuzkümmel, gehackter Minze und Salz verrühren.",
+   "use": [
+    0,
+    2,
+    3
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 10,
+ "nutri": {
+  "kcal": 60,
+  "p": 3,
+  "kh": 6,
+  "z": 4,
+  "f": 3,
+  "bs": 0
+ },
  "gf": true
 }

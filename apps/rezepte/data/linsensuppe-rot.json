@@ -50,22 +50,48 @@
  "steps": [
   {
    "text": "Zwiebel und Karotte würfeln und in 2 EL Öl andünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    7
+   ]
   },
   {
-   "text": "Tomatenmark und Gewürze kurz mitrösten, Linsen und Brühe zugeben und weich kochen.",
-   "minutes": 20
+   "text": "Tomatenmark und Gewürze (Kreuzkümmel, Paprika edelsüß) kurz mitrösten, Linsen und Brühe zugeben und weich kochen.",
+   "minutes": 20,
+   "use": [
+    3,
+    0,
+    6,
+    4,
+    5
+   ]
   },
   {
-   "text": "Fein pürieren und mit Salz abschmecken."
+   "text": "Fein pürieren und mit Salz abschmecken.",
+   "use": []
   },
   {
-   "text": "Restliches Öl mit Pul Biber erhitzen und über die Suppe träufeln. Mit Zitronenspalten servieren."
+   "text": "Restliches Öl mit Pul Biber erhitzen und über die Suppe träufeln. Mit Zitronenspalten servieren.",
+   "use": [
+    7,
+    9,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegan",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 300,
+  "p": 15,
+  "kh": 35,
+  "z": 5,
+  "f": 11,
+  "bs": 7
+ },
  "gf": true
 }

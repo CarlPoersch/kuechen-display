@@ -33,18 +33,38 @@
  ],
  "steps": [
   {
-   "text": "Joghurt in zwei Schalen verteilen."
+   "text": "Joghurt in zwei Schalen verteilen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Beeren, Granola, gehackte Walnüsse und Leinsamen darauf geben."
+   "text": "Beeren, Granola, gehackte Walnüsse und Leinsamen darauf geben.",
+   "use": [
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
-   "text": "Mit Honig beträufeln."
+   "text": "Mit Honig beträufeln.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 5,
+ "nutri": {
+  "kcal": 500,
+  "p": 15,
+  "kh": 44,
+  "z": 29,
+  "f": 31,
+  "bs": 8
+ },
  "gf": true
 }

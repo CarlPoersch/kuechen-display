@@ -41,21 +41,44 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen, Muffinblech mit Förmchen auslegen."
+   "text": "Ofen auf 180 °C vorheizen, Muffinblech mit Förmchen auslegen.",
+   "use": []
   },
   {
-   "text": "Mehl, Backpulver, Zucker und Salz mischen."
+   "text": "Mehl, Backpulver, Zucker und Salz mischen.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Eier, Buttermilch und Öl verquirlen und kurz unter die trockenen Zutaten rühren."
+   "text": "Eier, Buttermilch und Öl verquirlen und kurz unter die trockenen Zutaten rühren.",
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Heidelbeeren unterheben, Teig verteilen und backen.",
-   "minutes": 22
+   "minutes": 22,
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 230,
+  "p": 5,
+  "kh": 33,
+  "z": 15,
+  "f": 9,
+  "bs": 2
+ }
 }

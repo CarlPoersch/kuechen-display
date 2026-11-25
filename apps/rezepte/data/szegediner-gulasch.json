@@ -50,30 +50,59 @@
  "steps": [
   {
    "text": "Fleisch in heißem Öl portionsweise kräftig anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    9,
+    0
+   ]
   },
   {
    "text": "Zwiebeln in Streifen schneiden und mitbraten, Knoblauch und Tomatenmark kurz mitrösten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    2,
+    5
+   ]
   },
   {
-   "text": "Paprikapulver und Kümmel einrühren, sofort mit Brühe ablöschen."
+   "text": "Paprikapulver und Kümmel einrühren, sofort mit Brühe ablöschen.",
+   "use": [
+    4,
+    6,
+    7
+   ]
   },
   {
    "text": "Zugedeckt schmoren lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
    "text": "Sauerkraut abtropfen lassen, untermischen und weiterschmoren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Abschmecken und mit einem Klecks Schmand servieren."
+   "text": "Abschmecken und mit einem Klecks Schmand servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 105,
+ "nutri": {
+  "kcal": 580,
+  "p": 42,
+  "kh": 16,
+  "z": 7,
+  "f": 40,
+  "bs": 6
+ },
  "gf": true
 }

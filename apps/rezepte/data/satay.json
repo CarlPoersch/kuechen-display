@@ -60,26 +60,63 @@
  ],
  "steps": [
   {
-   "text": "Spieße wässern. Hähnchen in Streifen schneiden, mit Kokosmilch, Gewürzen und Sojasauce marinieren.",
-   "minutes": 30
+   "text": "Spieße wässern. Hähnchen in Streifen schneiden, mit Kokosmilch, Gewürzen (Kurkuma, Koriander) und Sojasauce marinieren.",
+   "minutes": 30,
+   "use": [
+    11,
+    1,
+    6,
+    4,
+    7,
+    2,
+    3
+   ]
   },
   {
-   "text": "Fleisch wellenförmig auf die Spieße stecken."
+   "text": "Fleisch wellenförmig auf die Spieße stecken.",
+   "use": [
+    11,
+    0
+   ]
   },
   {
    "text": "In einer Grillpfanne oder unter dem Ofengrill rundum goldbraun braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Erdnussbutter mit Kokosmilch, Sojasauce, Zucker und Sambal erwärmen und glatt rühren, mit Limette abschmecken.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    5,
+    1,
+    6,
+    4,
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
-   "text": "Spieße mit Sauce servieren."
+   "text": "Spieße mit Sauce servieren.",
+   "use": [
+    11,
+    4,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 500,
+  "p": 43,
+  "kh": 12,
+  "z": 8,
+  "f": 31,
+  "bs": 2
+ }
 }

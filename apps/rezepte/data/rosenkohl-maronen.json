@@ -33,27 +33,51 @@
  ],
  "steps": [
   {
-   "text": "Rosenkohl putzen, große Röschen halbieren."
+   "text": "Rosenkohl putzen, große Röschen halbieren.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "In Salzwasser bissfest garen und abschrecken.",
-   "minutes": 7
+   "minutes": 7,
+   "use": []
   },
   {
    "text": "Speck in einer Pfanne knusprig auslassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Butter, Rosenkohl und halbierte Maronen zugeben und anbraten, bis alles leicht Farbe nimmt.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3,
+    0,
+    2
+   ]
   },
   {
-   "text": "Mit Honig, Muskat, Salz und Pfeffer abschmecken. Passt zu Braten und Ente."
+   "text": "Mit Honig, Muskat, Salz und Pfeffer abschmecken. Passt zu Braten und Ente.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "fleisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 290,
+  "p": 10,
+  "kh": 35,
+  "z": 10,
+  "f": 14,
+  "bs": 9
+ },
  "gf": true
 }

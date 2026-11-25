@@ -64,33 +64,62 @@
  "steps": [
   {
    "text": "Hähnchen in Salzwasser gar ziehen lassen und mit zwei Gabeln zerzupfen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Sauce aufkochen und 10 Minuten köcheln.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Zwiebel und Paprika anbraten, mit Hähnchen, Bohnen und der Hälfte des Käses mischen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    3,
+    4,
+    11,
+    5
+   ]
   },
   {
-   "text": "Etwas Sauce in eine Airfryer-geeignete Form (ca. 20 cm) geben."
+   "text": "Etwas Sauce in eine Airfryer-geeignete Form (ca. 20 cm) geben.",
+   "use": []
   },
   {
-   "text": "Tortillas füllen, aufrollen und dicht nebeneinander in die Form legen. Passen nicht alle hinein, halbieren oder in zwei Durchgängen backen."
+   "text": "Tortillas füllen, aufrollen und dicht nebeneinander in die Form legen. Passen nicht alle hinein, halbieren oder in zwei Durchgängen backen.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Mit Sauce und restlichem Käse bedecken und im Airfryer bei 180 °C backen, bis der Käse blubbert.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    5,
+    11
+   ]
   },
   {
-   "text": "Mit saurer Sahne und Koriander servieren."
+   "text": "Mit saurer Sahne und Koriander servieren.",
+   "use": [
+    10,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 60,
+ "nutri": {
+  "kcal": 890,
+  "p": 58,
+  "kh": 88,
+  "z": 13,
+  "f": 31,
+  "bs": 13
+ },
  "airfryer": true
 }

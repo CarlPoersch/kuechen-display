@@ -46,26 +46,54 @@
  "steps": [
   {
    "text": "Speck in der Pfanne auslassen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3
+   ]
   },
   {
    "text": "Kimchi zugeben und 3 Minuten braten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Reis, Kimchisaft und Gochujang zugeben und bei starker Hitze braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    2,
+    4
+   ]
   },
   {
-   "text": "Mit Sesamöl abschmecken."
+   "text": "Mit Sesamöl abschmecken.",
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Spiegeleier braten und auf den Reis setzen, mit Frühlingszwiebeln und zerbröseltem Nori bestreuen."
+   "text": "Spiegeleier braten und auf den Reis setzen, mit Frühlingszwiebeln und zerbröseltem Nori bestreuen.",
+   "use": [
+    6,
+    0,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 610,
+  "p": 22,
+  "kh": 65,
+  "z": 4,
+  "f": 28,
+  "bs": 3
+ },
  "gf": true
 }

@@ -33,23 +33,46 @@
  ],
  "steps": [
   {
-   "text": "Tomatensauce mit Oregano und Salz würzen."
+   "text": "Tomatensauce mit Oregano und Salz würzen.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Eine Tortilla mit Sauce bestreichen, mit Mozzarella und Belag belegen."
+   "text": "Eine Tortilla mit Sauce bestreichen, mit Mozzarella und Belag belegen.",
+   "use": [
+    1,
+    3,
+    4
+   ]
   },
   {
    "text": "Bei 190 °C backen, bis der Käse blubbert und der Rand knusprig ist.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Mit Basilikum servieren, zweite Pizza genauso."
+   "text": "Mit Basilikum servieren, zweite Pizza genauso.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 350,
+  "p": 17,
+  "kh": 32,
+  "z": 3,
+  "f": 17,
+  "bs": 2
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

@@ -54,27 +54,55 @@
  "steps": [
   {
    "text": "Hähnchen würfeln und mit Zwiebel und Knoblauch in Öl anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4,
+    9
+   ]
   },
   {
    "text": "Garnelen und Sambal zugeben.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2,
+    5
+   ]
   },
   {
    "text": "Reis zugeben und kräftig braten. Mit Ketjap Manis würzen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    6
+   ]
   },
   {
    "text": "Spiegeleier braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Reis mit Spiegelei, Gurkenscheiben und Röstzwiebeln servieren."
+   "text": "Reis mit Spiegelei, Gurkenscheiben und Röstzwiebeln servieren.",
+   "use": [
+    0,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 800,
+  "p": 48,
+  "kh": 101,
+  "z": 23,
+  "f": 21,
+  "bs": 2
+ },
  "gf": true
 }

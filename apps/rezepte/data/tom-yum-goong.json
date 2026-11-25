@@ -54,26 +54,55 @@
  "steps": [
   {
    "text": "Brühe mit Zitronengras, Galgant und Limettenblättern aufkochen und ziehen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    2,
+    3,
+    8
+   ]
   },
   {
    "text": "Pilze und Chilipaste zugeben und 2 Minuten köcheln.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    5,
+    9
+   ]
   },
   {
    "text": "Garnelen zugeben und nur garen, bis sie rosa sind.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Vom Herd nehmen, mit Fischsauce und Limettensaft abschmecken: scharf, sauer, salzig."
+   "text": "Vom Herd nehmen, mit Fischsauce und Limettensaft abschmecken: scharf, sauer, salzig.",
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Mit Chilis und Koriander servieren."
+   "text": "Mit Chilis und Koriander servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fisch",
  "level": "mittel",
  "min": 25,
+ "nutri": {
+  "kcal": 200,
+  "p": 30,
+  "kh": 13,
+  "z": 6,
+  "f": 4,
+  "bs": 3
+ },
  "gf": true
 }

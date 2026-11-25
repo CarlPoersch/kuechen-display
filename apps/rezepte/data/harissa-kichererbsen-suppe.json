@@ -50,26 +50,53 @@
  "steps": [
   {
    "text": "Zwiebel und Knoblauch würfeln und in Olivenöl andünsten, Harissa und Kreuzkümmel kurz mitrösten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Abgetropfte Kichererbsen, Tomaten und Brühe zugeben und köcheln.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    1,
+    6
+   ]
   },
   {
-   "text": "Ein Drittel der Suppe pürieren und zurückgießen, damit sie sämig wird."
+   "text": "Ein Drittel der Suppe pürieren und zurückgießen, damit sie sämig wird.",
+   "use": []
   },
   {
    "text": "Spinat unterrühren und zusammenfallen lassen, mit Zitronensaft und Salz abschmecken.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Mit einem Klecks Joghurt servieren."
+   "text": "Mit einem Klecks Joghurt servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 210,
+  "p": 12,
+  "kh": 30,
+  "z": 6,
+  "f": 4,
+  "bs": 9
+ },
  "gf": true
 }

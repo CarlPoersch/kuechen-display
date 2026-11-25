@@ -45,28 +45,57 @@
  "steps": [
   {
    "text": "Hefe im Wasser auflösen, mit Mehl, Butter und Salz 10 Minuten kneten. Gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    1,
+    2,
+    5,
+    0,
+    3,
+    4,
+    7
+   ]
   },
   {
-   "text": "In 8 Stücke teilen, zu langen Strängen (ca. 50 cm) rollen, Enden dünner. Zu Brezeln schlingen."
+   "text": "In 8 Stücke teilen, zu langen Strängen (ca. 50 cm) rollen, Enden dünner. Zu Brezeln schlingen.",
+   "use": []
   },
   {
    "text": "Unabgedeckt im Kühlschrank ruhen lassen – so bekommen sie eine Haut.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Ofen auf 220 °C vorheizen. Wasser mit Natron aufkochen (Achtung, schäumt)."
+   "text": "Ofen auf 220 °C vorheizen. Wasser mit Natron aufkochen (Achtung, schäumt).",
+   "use": [
+    2,
+    5,
+    6
+   ]
   },
   {
-   "text": "Brezeln einzeln 30 Sekunden in die Lauge tauchen, auf Backpapier legen, mit Salz bestreuen und dick einschneiden."
+   "text": "Brezeln einzeln 30 Sekunden in die Lauge tauchen, auf Backpapier legen, mit Salz bestreuen und dick einschneiden.",
+   "use": [
+    4,
+    7
+   ]
   },
   {
    "text": "Dunkelbraun backen.",
-   "minutes": 18
+   "minutes": 18,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "anspruchsvoll",
- "min": 105
+ "min": 105,
+ "nutri": {
+  "kcal": 260,
+  "p": 7,
+  "kh": 46,
+  "z": 0,
+  "f": 5,
+  "bs": 3
+ }
 }

@@ -55,26 +55,57 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln waschen, trocknen, mehrmals mit einer Gabel einstechen und mit Öl und Salz einreiben."
+   "text": "Kartoffeln waschen, trocknen, mehrmals mit einer Gabel einstechen und mit Öl und Salz einreiben.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Bei 200 °C garen, nach der Hälfte wenden, bis ein Messer leicht hineingleitet.",
-   "minutes": 40
+   "minutes": 40,
+   "use": []
   },
   {
-   "text": "Quark mit Milch, Knoblauch, gehackten Kräutern, Salz und Pfeffer cremig rühren."
+   "text": "Quark mit Milch, Knoblauch, gehackten Kräutern (Schnittlauch, Petersilie), Salz und Pfeffer cremig rühren.",
+   "use": [
+    3,
+    4,
+    5,
+    2,
+    6,
+    7
+   ]
   },
   {
-   "text": "Speck in den letzten 5 Minuten in einer kleinen Form mit in den Airfryer stellen."
+   "text": "Speck in den letzten 5 Minuten in einer kleinen Form mit in den Airfryer stellen.",
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Kartoffeln kreuzweise einschneiden, etwas aufdrücken, mit Quark, Speck und Röstzwiebeln füllen."
+   "text": "Kartoffeln kreuzweise einschneiden, etwas aufdrücken, mit Quark, Speck und Röstzwiebeln füllen.",
+   "use": [
+    0,
+    3,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 530,
+  "p": 26,
+  "kh": 60,
+  "z": 8,
+  "f": 21,
+  "bs": 7
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

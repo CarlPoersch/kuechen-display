@@ -46,25 +46,54 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C vorheizen. Makkaroni sehr bissfest kochen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und köcheln, bis die Sauce andickt.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Vom Herd nehmen, Käse (eine Handvoll aufheben), Senf und Paprika einrühren, salzen."
+   "text": "Vom Herd nehmen, Käse (eine Handvoll aufheben), Senf und Paprika einrühren, salzen.",
+   "use": [
+    6,
+    7,
+    4,
+    5
+   ]
   },
   {
-   "text": "Nudeln unterheben, in eine Form füllen, mit restlichem Käse und Paniermehl bestreuen."
+   "text": "Nudeln unterheben, in eine Form füllen, mit restlichem Käse und Paniermehl bestreuen.",
+   "use": [
+    2,
+    8,
+    4,
+    5
+   ]
   },
   {
    "text": "Goldbraun überbacken.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 800,
+  "p": 35,
+  "kh": 84,
+  "z": 10,
+  "f": 35,
+  "bs": 3
+ }
 }

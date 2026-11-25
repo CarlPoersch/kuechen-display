@@ -50,17 +50,42 @@
  "steps": [
   {
    "text": "Nudeln kochen, kalt abschrecken.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Tahin, Sojasauce, Essig, Zucker, Chiliöl, Knoblauch und 3 EL warmes Wasser glatt rühren."
+   "text": "Tahin, Sojasauce, Essig, Zucker, Chiliöl, Knoblauch und 3 EL warmes Wasser glatt rühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Nudeln mit Sauce mischen, mit Gurkenstreifen, Frühlingszwiebeln und Sesam servieren."
+   "text": "Nudeln mit Sauce mischen, mit Gurkenstreifen, Frühlingszwiebeln und Sesam servieren.",
+   "use": [
+    0,
+    2,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 690,
+  "p": 23,
+  "kh": 109,
+  "z": 14,
+  "f": 18,
+  "bs": 7
+ }
 }

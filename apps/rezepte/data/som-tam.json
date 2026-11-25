@@ -49,27 +49,61 @@
  ],
  "steps": [
   {
-   "text": "Papaya und Karotte schälen und in feine Streifen hobeln."
+   "text": "Papaya und Karotte schälen und in feine Streifen hobeln.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Bohnen in 3 cm Stücke schneiden, Tomaten halbieren."
+   "text": "Bohnen in 3 cm Stücke schneiden, Tomaten halbieren.",
+   "use": [
+    3,
+    2
+   ]
   },
   {
-   "text": "Knoblauch und Chilis im Mörser zerstoßen, dann Zucker, Fischsauce und Limettensaft verrühren."
+   "text": "Knoblauch und Chilis im Mörser zerstoßen, dann Zucker, Fischsauce und Limettensaft verrühren.",
+   "use": [
+    4,
+    5,
+    8,
+    6,
+    7
+   ]
   },
   {
-   "text": "Bohnen und Tomaten zugeben und leicht andrücken."
+   "text": "Bohnen und Tomaten zugeben und leicht andrücken.",
+   "use": [
+    3,
+    2
+   ]
   },
   {
-   "text": "Papaya und Karotte unterheben und kurz mit dem Stößel durchklopfen, damit sie das Dressing aufnehmen."
+   "text": "Papaya und Karotte unterheben und kurz mit dem Stößel durchklopfen, damit sie das Dressing aufnehmen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Erdnüssen bestreut sofort servieren."
+   "text": "Mit Erdnüssen bestreut sofort servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 230,
+  "p": 7,
+  "kh": 37,
+  "z": 22,
+  "f": 8,
+  "bs": 6
+ },
  "gf": true
 }

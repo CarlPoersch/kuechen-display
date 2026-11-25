@@ -37,22 +37,46 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C vorheizen. Zwiebel und Knoblauch fein würfeln und in 1 EL Öl andünsten, in einer Form verteilen."
+   "text": "Ofen auf 200 °C vorheizen. Zwiebel und Knoblauch fein würfeln und in 1 EL Öl andünsten, in einer Form verteilen.",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Zucchini und Tomaten in Scheiben schneiden und abwechselnd aufrecht in die Form stellen."
+   "text": "Zucchini und Tomaten in Scheiben schneiden und abwechselnd aufrecht in die Form stellen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit restlichem Öl beträufeln, mit Thymian, Salz und Pfeffer würzen."
+   "text": "Mit restlichem Öl beträufeln, mit Thymian, Salz und Pfeffer würzen.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
    "text": "Backen, mit Käse bestreuen und goldbraun fertig backen.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 220,
+  "p": 10,
+  "kh": 13,
+  "z": 9,
+  "f": 16,
+  "bs": 4
+ },
  "gf": true
 }

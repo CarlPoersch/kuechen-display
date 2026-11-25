@@ -42,21 +42,44 @@
  "steps": [
   {
    "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und dick einkochen. Mit Muskat, Salz und der Hälfte des Käses verrühren.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    3,
+    4,
+    5,
+    7
+   ]
   },
   {
-   "text": "Ofengrill vorheizen. Zwei Brotscheiben mit Senf bestreichen, mit Schinken und etwas Käse belegen, zuklappen."
+   "text": "Ofengrill vorheizen. Zwei Brotscheiben mit Senf bestreichen, mit Schinken und etwas Käse belegen, zuklappen.",
+   "use": [
+    6,
+    1,
+    2
+   ]
   },
   {
-   "text": "Oben mit der Sauce bestreichen und mit restlichem Käse bestreuen."
+   "text": "Oben mit der Sauce bestreichen und mit restlichem Käse bestreuen.",
+   "use": [
+    2
+   ]
   },
   {
    "text": "Unter dem Grill goldbraun überbacken.",
-   "minutes": 6
+   "minutes": 6,
+   "use": []
   }
  ],
  "cat": "Snack",
  "diet": "fleisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 510,
+  "p": 29,
+  "kh": 33,
+  "z": 7,
+  "f": 28,
+  "bs": 2
+ }
 }

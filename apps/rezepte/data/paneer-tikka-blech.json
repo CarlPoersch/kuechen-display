@@ -41,26 +41,50 @@
  ],
  "steps": [
   {
-   "text": "Joghurt mit Gewürzen, Zitronensaft, Öl und Salz verrühren."
+   "text": "Joghurt mit Gewürzen, Zitronensaft, Öl und Salz verrühren.",
+   "use": [
+    3,
+    4,
+    6,
+    7
+   ]
   },
   {
    "text": "Paneer, Paprika und Zwiebel in große Stücke schneiden und in der Marinade ziehen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Ofen auf 230 °C Grill vorheizen und alles auf einem Blech verteilen."
+   "text": "Ofen auf 230 °C Grill vorheizen und alles auf einem Blech verteilen.",
+   "use": []
   },
   {
    "text": "Grillen, bis die Ränder schwarze Stellen bekommen; einmal wenden.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
-   "text": "Mit Minz-Joghurt und Naan servieren."
+   "text": "Mit Minz-Joghurt und Naan servieren.",
+   "use": [
+    3
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 430,
+  "p": 22,
+  "kh": 15,
+  "z": 10,
+  "f": 31,
+  "bs": 3
+ },
  "gf": true
 }

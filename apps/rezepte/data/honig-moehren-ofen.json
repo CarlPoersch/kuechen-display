@@ -29,22 +29,42 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C Umluft vorheizen. Karotten schälen und längs halbieren."
+   "text": "Ofen auf 200 °C Umluft vorheizen. Karotten schälen und längs halbieren.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Öl, Honig, Thymian, Salz und Pfeffer auf dem Blech mischen."
+   "text": "Mit Öl, Honig, Thymian, Salz und Pfeffer auf dem Blech mischen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Im Ofen rösten, bis sie weich und an den Rändern leicht gebräunt sind, einmal wenden.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   },
   {
-   "text": "Mit gehackten Walnüssen bestreuen."
+   "text": "Mit gehackten Walnüssen bestreuen.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 200,
+  "p": 3,
+  "kh": 25,
+  "z": 14,
+  "f": 11,
+  "bs": 6
+ },
  "gf": true
 }

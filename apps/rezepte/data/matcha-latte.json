@@ -25,18 +25,37 @@
  ],
  "steps": [
   {
-   "text": "Matcha in eine Tasse sieben und mit dem heißen Wasser klümpchenfrei aufschlagen (am besten mit einem Bambusbesen)."
+   "text": "Matcha in eine Tasse sieben und mit dem heißen Wasser klümpchenfrei aufschlagen (am besten mit einem Bambusbesen).",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Milch erwärmen und aufschäumen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Milch auf den Matcha gießen und nach Geschmack süßen."
+   "text": "Milch auf den Matcha gießen und nach Geschmack süßen.",
+   "use": [
+    2,
+    0
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 5
+ "min": 5,
+ "nutri": {
+  "kcal": 150,
+  "p": 7,
+  "kh": 16,
+  "z": 14,
+  "f": 7,
+  "bs": 1
+ }
 }

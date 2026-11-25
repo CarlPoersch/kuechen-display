@@ -46,27 +46,55 @@
  "steps": [
   {
    "text": "Pinienkerne ohne Fett goldbraun rösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Basilikum, Knoblauch, Pinienkerne und etwas Salz im Mörser oder Mixer zerkleinern, Käse und Öl einarbeiten. Nicht zu lange mixen: Basilikum wird sonst bitter."
+   "text": "Basilikum, Knoblauch, Pinienkerne und etwas Salz im Mörser oder Mixer zerkleinern, Käse und Öl einarbeiten. Nicht zu lange mixen: Basilikum wird sonst bitter.",
+   "use": [
+    3,
+    2,
+    6,
+    4,
+    5
+   ]
   },
   {
-   "text": "Kartoffel würfeln, Bohnen in Stücke schneiden."
+   "text": "Kartoffel würfeln, Bohnen in Stücke schneiden.",
+   "use": [
+    7,
+    8
+   ]
   },
   {
    "text": "Nudeln mit Kartoffel und Bohnen im selben Topf kochen.",
-   "minutes": 11
+   "minutes": 11,
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Abgießen, dabei etwas Nudelwasser auffangen."
+   "text": "Abgießen, dabei etwas Nudelwasser auffangen.",
+   "use": []
   },
   {
-   "text": "Mit Pesto und 2–3 EL Nudelwasser vermengen, bis alles cremig ist."
+   "text": "Mit Pesto und 2–3 EL Nudelwasser vermengen, bis alles cremig ist.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 980,
+  "p": 28,
+  "kh": 91,
+  "z": 6,
+  "f": 58,
+  "bs": 7
+ }
 }

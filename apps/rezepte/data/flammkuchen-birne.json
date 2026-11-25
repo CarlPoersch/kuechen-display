@@ -37,21 +37,42 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 250 °C vorheizen. Teig auf dem Blech ausrollen und mit Crème fraîche bestreichen, salzen und pfeffern."
+   "text": "Ofen auf 250 °C vorheizen. Teig auf dem Blech ausrollen und mit Crème fraîche bestreichen, salzen und pfeffern.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Birne in dünne Spalten schneiden und mit Gorgonzola und Walnüssen verteilen."
+   "text": "Birne in dünne Spalten schneiden und mit Gorgonzola und Walnüssen verteilen.",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Knusprig backen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Mit Honig beträufeln und mit Thymian bestreuen."
+   "text": "Mit Honig beträufeln und mit Thymian bestreuen.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 970,
+  "p": 23,
+  "kh": 91,
+  "z": 23,
+  "f": 56,
+  "bs": 6
+ }
 }

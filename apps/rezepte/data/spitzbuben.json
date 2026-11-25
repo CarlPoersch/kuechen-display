@@ -42,24 +42,50 @@
  "steps": [
   {
    "text": "Mehl, Butter, Puderzucker, Mandeln, Eigelb und Vanillezucker zu einem Mürbeteig verkneten und kalt stellen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    2,
+    7,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Ofen auf 180 °C vorheizen. Teig 2 mm dünn ausrollen, gleich viele Kreise ausstechen; bei der Hälfte ein kleines Loch in die Mitte stechen."
+   "text": "Ofen auf 180 °C vorheizen. Teig 2 mm dünn ausrollen, gleich viele Kreise ausstechen; bei der Hälfte ein kleines Loch in die Mitte stechen.",
+   "use": []
   },
   {
    "text": "Hell backen und abkühlen lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
-   "text": "Gelee erwärmen, auf die ganzen Plätzchen streichen."
+   "text": "Gelee erwärmen, auf die ganzen Plätzchen streichen.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Die gelochten Plätzchen mit Puderzucker bestäuben und daraufsetzen."
+   "text": "Die gelochten Plätzchen mit Puderzucker bestäuben und daraufsetzen.",
+   "use": [
+    2,
+    7
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 120,
+  "p": 2,
+  "kh": 13,
+  "z": 7,
+  "f": 6,
+  "bs": 1
+ }
 }

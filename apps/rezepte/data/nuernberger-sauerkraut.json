@@ -50,26 +50,53 @@
  "steps": [
   {
    "text": "Zwiebel würfeln und in Schmalz glasig dünsten. Apfel in Stücken kurz mitdünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    4,
+    3
+   ]
   },
   {
    "text": "Sauerkraut, Apfelsaft, Zucker, Lorbeer und Wacholder zugeben und zugedeckt schmoren.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    1,
+    5,
+    6
+   ]
   },
   {
    "text": "Kartoffel fein reiben und unterrühren – das bindet das Kraut.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    9,
+    1
+   ]
   },
   {
    "text": "Würstchen in einer Pfanne rundum goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
-   "text": "Mit Sauerkraut, Senf und Bauernbrot oder Kartoffelpüree servieren."
+   "text": "Mit Sauerkraut, Senf und Bauernbrot oder Kartoffelpüree servieren.",
+   "use": [
+    1,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 590,
+  "p": 23,
+  "kh": 26,
+  "z": 13,
+  "f": 44,
+  "bs": 6
+ }
 }

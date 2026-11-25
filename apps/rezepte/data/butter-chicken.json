@@ -68,37 +68,73 @@
  ],
  "steps": [
   {
-   "text": "Hähnchen mit Joghurt und den Gewürzen marinieren (gern auch über Nacht).",
-   "minutes": 60
+   "text": "Hähnchen mit Joghurt und den Gewürzen (Garam Masala, Kurkuma, Chilipulver) marinieren (gern auch über Nacht).",
+   "minutes": 60,
+   "use": [
+    1,
+    7,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Hähnchen im Airfryer bei 200 °C rösten, bis die Ränder Farbe haben. Nach der Hälfte den Korb schütteln.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
    "text": "Butter im Topf schmelzen, Zwiebel glasig dünsten, Knoblauch und Ingwer 1 Minute mitbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    5,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Tomaten zugeben und einköcheln lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Basmatireis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    13
+   ]
   },
   {
    "text": "Sahne, Zucker und Hähnchen zugeben und köcheln, bis das Fleisch gar ist.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    10,
+    11,
+    0
+   ]
   },
   {
-   "text": "Kasuri Methi zwischen den Fingern zerreiben und unterrühren."
+   "text": "Kasuri Methi zwischen den Fingern zerreiben und unterrühren.",
+   "use": [
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 60,
+ "nutri": {
+  "kcal": 750,
+  "p": 29,
+  "kh": 72,
+  "z": 9,
+  "f": 37,
+  "bs": 3
+ },
  "gf": true,
  "airfryer": true
 }

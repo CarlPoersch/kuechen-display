@@ -38,30 +38,56 @@
  "steps": [
   {
    "text": "Eier trennen. Eigelbe mit Zucker hell und cremig aufschlagen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mascarpone unterrühren."
+   "text": "Mascarpone unterrühren.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Eiweiß steif schlagen und vorsichtig unterheben."
+   "text": "Eiweiß steif schlagen und vorsichtig unterheben.",
+   "use": []
   },
   {
-   "text": "Espresso mit Amaretto mischen. Biskuits nur kurz eintauchen, damit sie nicht durchweichen."
+   "text": "Espresso mit Amaretto mischen. Biskuits nur kurz eintauchen, damit sie nicht durchweichen.",
+   "use": [
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Abwechselnd Biskuits und Creme in eine Form schichten, mit Creme abschließen."
+   "text": "Abwechselnd Biskuits und Creme in eine Form schichten, mit Creme abschließen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Abgedeckt kühlen, am besten über Nacht.",
-   "minutes": 360
+   "minutes": 360,
+   "use": []
   },
   {
-   "text": "Vor dem Servieren mit Kakao bestäuben."
+   "text": "Vor dem Servieren mit Kakao bestäuben.",
+   "use": []
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 650,
+  "p": 12,
+  "kh": 48,
+  "z": 37,
+  "f": 45,
+  "bs": 1
+ }
 }

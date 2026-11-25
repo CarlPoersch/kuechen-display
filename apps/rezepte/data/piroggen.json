@@ -55,28 +55,61 @@
  "steps": [
   {
    "text": "Mehl, Wasser, Öl und Salz zu einem glatten Teig kneten und abgedeckt ruhen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Kartoffeln kochen und zerstampfen. Zwiebeln würfeln und in Butter goldbraun braten.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    4,
+    6,
+    7
+   ]
   },
   {
-   "text": "Kartoffeln, Quark und die Hälfte der Zwiebeln mischen, salzen und pfeffern."
+   "text": "Kartoffeln, Quark und die Hälfte der Zwiebeln mischen, salzen und pfeffern.",
+   "use": [
+    4,
+    5,
+    6,
+    3
+   ]
   },
   {
-   "text": "Teig dünn ausrollen, Kreise ausstechen, füllen, zu Halbmonden klappen und Ränder fest andrücken."
+   "text": "Teig dünn ausrollen, Kreise ausstechen, füllen, zu Halbmonden klappen und Ränder fest andrücken.",
+   "use": []
   },
   {
    "text": "In siedendem Salzwasser garen, bis sie oben schwimmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit restlichen Zwiebeln und saurer Sahne servieren."
+   "text": "Mit restlichen Zwiebeln und saurer Sahne servieren.",
+   "use": [
+    6,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 660,
+  "p": 21,
+  "kh": 99,
+  "z": 7,
+  "f": 19,
+  "bs": 7
+ }
 }

@@ -42,24 +42,52 @@
  "steps": [
   {
    "text": "Reis garen. Kohl sehr fein hobeln und in Eiswasser knackig werden lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    7,
+    5
+   ]
   },
   {
-   "text": "Fleisch an den Rändern einschneiden, salzen und pfeffern."
+   "text": "Fleisch an den Rändern einschneiden, salzen und pfeffern.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "In Mehl, Ei und Panko wenden."
+   "text": "In Mehl, Ei und Panko wenden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "In 170 °C heißem Öl goldbraun ausbacken.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Kurz abtropfen lassen, in Streifen schneiden, mit Kohl, Sauce und Reis servieren."
+   "text": "Kurz abtropfen lassen, in Streifen schneiden, mit Kohl, Sauce und Reis servieren.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 1010,
+  "p": 60,
+  "kh": 130,
+  "z": 12,
+  "f": 27,
+  "bs": 6
+ }
 }

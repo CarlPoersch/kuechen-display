@@ -89,35 +89,80 @@
  "steps": [
   {
    "text": "Knochen und Brust in Wasser aufkochen, 5 Minuten kochen, abgießen und abspülen. Warum: Die Brühe wird klar.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1,
+    10
+   ]
   },
   {
-   "text": "Zwiebeln und Ingwer halbiert in einer Pfanne ohne Fett schwarz rösten, Gewürze kurz mitrösten.",
-   "minutes": 8
+   "text": "Zwiebeln und Ingwer halbiert in einer Pfanne ohne Fett schwarz rösten, Gewürze (Sternanis, Zimtstange, Gewürznelken, Koriandersamen) kurz mitrösten.",
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Alles mit 2,5 l frischem Wasser aufsetzen und sanft simmern, nicht sprudelnd kochen.",
-   "minutes": 150
+   "minutes": 150,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Brust nach 2 Stunden herausnehmen und in Scheiben schneiden."
+   "text": "Brust nach 2 Stunden herausnehmen und in Scheiben schneiden.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Brühe abseihen, mit Fischsauce und Zucker abschmecken."
+   "text": "Brühe abseihen, mit Fischsauce und Zucker abschmecken.",
+   "use": [
+    8,
+    9
+   ]
   },
   {
    "text": "Nudeln nach Packung garen und auf Schalen verteilen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    11
+   ]
   },
   {
-   "text": "Brust und rohes Filet darauflegen und mit kochender Brühe übergießen, das Filet gart dabei."
+   "text": "Brust und rohes Filet darauflegen und mit kochender Brühe übergießen, das Filet gart dabei.",
+   "use": [
+    1,
+    12
+   ]
   },
   {
-   "text": "Mit Kräutern, Sprossen, Limette, Chili und Saucen servieren."
+   "text": "Mit Kräutern (Thai-Basilikum, Koriander), Sprossen, Limette, Chili und Saucen servieren.",
+   "use": [
+    13,
+    16,
+    17,
+    14,
+    15
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 180
+ "min": 180,
+ "nutri": {
+  "kcal": 820,
+  "p": 43,
+  "kh": 96,
+  "z": 9,
+  "f": 30,
+  "bs": 5
+ }
 }

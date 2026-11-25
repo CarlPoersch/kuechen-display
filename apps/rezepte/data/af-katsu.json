@@ -60,29 +60,60 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Panko mit dem Öl in einer Pfanne goldbraun rösten. Warum vorrösten: Im Airfryer wird Panko ohne Fett sonst nur blass."
+   "text": "Panko mit dem Öl in einer Pfanne goldbraun rösten. Warum vorrösten: Im Airfryer wird Panko ohne Fett sonst nur blass.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Hähnchen flach klopfen, salzen, in Mehl, verquirltem Ei und dem gerösteten Panko wenden."
+   "text": "Hähnchen flach klopfen, salzen, in Mehl, verquirltem Ei und dem gerösteten Panko wenden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Bei 190 °C garen, nach der Hälfte wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Sauce verrühren."
+   "text": "Sauce verrühren.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Schnitzel in Streifen schneiden und mit Reis, Kohl und Sauce servieren."
+   "text": "Schnitzel in Streifen schneiden und mit Reis, Kohl und Sauce servieren.",
+   "use": [
+    9,
+    10,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 30,
+ "nutri": {
+  "kcal": 810,
+  "p": 57,
+  "kh": 113,
+  "z": 16,
+  "f": 13,
+  "bs": 5
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

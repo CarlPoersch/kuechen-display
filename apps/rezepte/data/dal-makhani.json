@@ -50,27 +50,57 @@
  "steps": [
   {
    "text": "Linsen und Bohnen über Nacht einweichen, dann in frischem Wasser weich kochen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Ingwer in der Hälfte der Butter goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    4,
+    6
+   ]
   },
   {
-   "text": "Tomaten und Gewürze zugeben und einkochen.",
-   "minutes": 10
+   "text": "Tomaten und Gewürze (Garam Masala, Chilipulver) zugeben und einkochen.",
+   "minutes": 10,
+   "use": [
+    5,
+    8,
+    9
+   ]
   },
   {
    "text": "Linsen mit etwas Kochwasser zugeben und bei kleiner Hitze cremig köcheln, oft rühren.",
-   "minutes": 40
+   "minutes": 40,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Restliche Butter und Sahne einrühren und salzen."
+   "text": "Restliche Butter und Sahne einrühren und salzen.",
+   "use": [
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 120,
+ "nutri": {
+  "kcal": 300,
+  "p": 12,
+  "kh": 29,
+  "z": 3,
+  "f": 14,
+  "bs": 6
+ },
  "gf": true
 }

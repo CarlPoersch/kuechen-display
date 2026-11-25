@@ -50,23 +50,50 @@
  "steps": [
   {
    "text": "Nudeln kochen und abtropfen lassen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Fleisch in Streifen schneiden und in Öl scharf anbraten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    9
+   ]
   },
   {
-   "text": "Gemüse und Knoblauch zugeben und kurz mitbraten.",
-   "minutes": 3
+   "text": "Gemüse (Karotte, Weißkohl, Sojasprossen) und Knoblauch zugeben und kurz mitbraten.",
+   "minutes": 3,
+   "use": [
+    5,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Nudeln, Ketjap, Sojasauce und Sambal zugeben und alles gut durchbraten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    6,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 830,
+  "p": 48,
+  "kh": 122,
+  "z": 28,
+  "f": 16,
+  "bs": 7
+ }
 }

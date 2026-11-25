@@ -71,32 +71,70 @@
  ],
  "steps": [
   {
-   "text": "Brötchen einweichen und gut ausdrücken. Zwiebel und Sardellen fein hacken."
+   "text": "Brötchen einweichen und gut ausdrücken. Zwiebel und Sardellen fein hacken.",
+   "use": [
+    1,
+    2,
+    4
+   ]
   },
   {
-   "text": "Hack, Brötchen, Zwiebel, Sardellen und Ei verkneten, salzen, pfeffern und 12 Klopse formen."
+   "text": "Hack, Brötchen, Zwiebel, Sardellen und Ei verkneten, salzen, pfeffern und 12 Klopse formen.",
+   "use": [
+    1,
+    2,
+    4,
+    3
+   ]
   },
   {
    "text": "Brühe mit Lorbeer aufkochen, Klopse einlegen und knapp unter dem Siedepunkt gar ziehen lassen. Warum nicht kochen: Sonst zerfallen sie.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Kartoffeln schälen und in Salzwasser garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    13
+   ]
   },
   {
    "text": "Klopse herausnehmen. Butter schmelzen, Mehl anschwitzen und mit 500 ml Kochbrühe glatt rühren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Sahne und Kapern zugeben, vom Herd nehmen und mit Eigelb legieren. Mit Zitronensaft, Salz und Pfeffer abschmecken."
+   "text": "Sahne und Kapern zugeben, vom Herd nehmen und mit Eigelb legieren. Mit Zitronensaft, Salz und Pfeffer abschmecken.",
+   "use": [
+    9,
+    10,
+    11,
+    12
+   ]
   },
   {
-   "text": "Klopse in der Sauce erwärmen und mit Kartoffeln servieren."
+   "text": "Klopse in der Sauce erwärmen und mit Kartoffeln servieren.",
+   "use": [
+    13
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 770,
+  "p": 34,
+  "kh": 54,
+  "z": 5,
+  "f": 47,
+  "bs": 6
+ }
 }

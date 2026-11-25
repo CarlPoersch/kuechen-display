@@ -46,25 +46,54 @@
  "steps": [
   {
    "text": "Reis garen, mit Sesamöl und Salz würzen und abkühlen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Eier zu einem dünnen Omelett braten und in Streifen schneiden. Karotte in Stifte schneiden und kurz anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    6,
+    4
+   ]
   },
   {
-   "text": "Spinat blanchieren, ausdrücken und mit Sesamöl und Salz würzen."
+   "text": "Spinat blanchieren, ausdrücken und mit Sesamöl und Salz würzen.",
+   "use": [
+    5,
+    1
+   ]
   },
   {
-   "text": "Nori auf eine Bambusmatte legen, dünn mit Reis belegen (oben 2 cm frei), Füllung in einer Reihe darauflegen."
+   "text": "Nori auf eine Bambusmatte legen, dünn mit Reis belegen (oben 2 cm frei), Füllung in einer Reihe darauflegen.",
+   "use": [
+    2,
+    0
+   ]
   },
   {
-   "text": "Fest aufrollen, mit Sesamöl bestreichen, mit Sesam bestreuen und mit einem nassen Messer in Scheiben schneiden."
+   "text": "Fest aufrollen, mit Sesamöl bestreichen, mit Sesam bestreuen und mit einem nassen Messer in Scheiben schneiden.",
+   "use": [
+    1,
+    8
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 370,
+  "p": 11,
+  "kh": 65,
+  "z": 2,
+  "f": 7,
+  "bs": 2
+ },
  "gf": true
 }

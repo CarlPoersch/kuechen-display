@@ -45,23 +45,47 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 220 °C vorheizen. Tomaten halbieren, Paprika und Zwiebel grob schneiden, mit Knoblauch und Öl auf ein Blech geben."
+   "text": "Ofen auf 220 °C vorheizen. Tomaten halbieren, Paprika und Zwiebel grob schneiden, mit Knoblauch und Öl auf ein Blech geben.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Rösten, bis die Ränder dunkel werden.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
    "text": "Mit Brühe in einen Topf geben, kurz aufkochen und fein pürieren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und Zucker abschmecken, Sahne einrühren und mit Basilikum servieren."
+   "text": "Mit Salz, Pfeffer und Zucker abschmecken, Sahne einrühren und mit Basilikum servieren.",
+   "use": [
+    6,
+    8,
+    7
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 50,
+ "nutri": {
+  "kcal": 240,
+  "p": 5,
+  "kh": 18,
+  "z": 12,
+  "f": 18,
+  "bs": 4
+ },
  "gf": true
 }

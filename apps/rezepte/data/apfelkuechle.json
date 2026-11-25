@@ -42,24 +42,50 @@
  "steps": [
   {
    "text": "Mehl, Eier, Milch, Zucker und eine Prise Salz zu einem glatten Teig rühren und ruhen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
   },
   {
-   "text": "Äpfel schälen, Kerngehäuse ausstechen und in 1 cm dicke Ringe schneiden."
+   "text": "Äpfel schälen, Kerngehäuse ausstechen und in 1 cm dicke Ringe schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Öl in einer Pfanne gut 1 cm hoch erhitzen."
+   "text": "Öl in einer Pfanne gut 1 cm hoch erhitzen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Apfelringe durch den Teig ziehen und von beiden Seiten goldbraun ausbacken.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Auf Küchenpapier abtropfen lassen und noch warm in Zimtzucker wenden."
+   "text": "Auf Küchenpapier abtropfen lassen und noch warm in Zimtzucker wenden.",
+   "use": [
+    4,
+    6
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 330,
+  "p": 9,
+  "kh": 63,
+  "z": 31,
+  "f": 5,
+  "bs": 5
+ }
 }

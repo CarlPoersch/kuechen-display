@@ -50,29 +50,58 @@
  "steps": [
   {
    "text": "Hähnchen salzen und in Öl rundum goldbraun anbraten, herausnehmen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Zwiebeln fein würfeln und im Bratfett weich dünsten, Paprika in Streifen dazugeben.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Topf kurz vom Herd nehmen, Paprikapulver und Tomatenmark einrühren (Paprika verbrennt sonst schnell bitter)."
+   "text": "Topf kurz vom Herd nehmen, Paprikapulver und Tomatenmark einrühren (Paprika verbrennt sonst schnell bitter).",
+   "use": [
+    3,
+    4,
+    5,
+    2
+   ]
   },
   {
    "text": "Mit Brühe ablöschen, Hähnchen zurück in den Topf legen und zugedeckt schmoren.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Saure Sahne mit Mehl glatt rühren, unter die Sauce ziehen und kurz aufkochen lassen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Abschmecken – dazu Nockerl, Spätzle oder Reis."
+   "text": "Abschmecken – dazu Nockerl, Spätzle oder Reis.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 580,
+  "p": 43,
+  "kh": 14,
+  "z": 7,
+  "f": 39,
+  "bs": 3
+ }
 }

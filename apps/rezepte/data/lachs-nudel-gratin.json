@@ -45,22 +45,49 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Spinat auftauen und ausdrücken, Lachs in Würfel schneiden."
+   "text": "Ofen auf 180 °C vorheizen. Spinat auftauen und ausdrücken, Lachs in Würfel schneiden.",
+   "use": [
+    1,
+    0
+   ]
   },
   {
    "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und köcheln, bis die Sauce andickt. Mit Salz, Pfeffer, Zitronenabrieb und Knoblauch würzen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Etwas Sauce in eine Form geben, dann Platten, Spinat, Lachs und Sauce schichten."
+   "text": "Etwas Sauce in eine Form geben, dann Platten, Spinat, Lachs und Sauce schichten.",
+   "use": [
+    2,
+    1,
+    0
+   ]
   },
   {
    "text": "Mit Sauce und Parmesan abschließen und backen.",
-   "minutes": 40
+   "minutes": 40,
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "mittel",
- "min": 70
+ "min": 70,
+ "nutri": {
+  "kcal": 740,
+  "p": 43,
+  "kh": 59,
+  "z": 11,
+  "f": 37,
+  "bs": 5
+ }
 }

@@ -50,21 +50,48 @@
  "steps": [
   {
    "text": "Eier genau 6,5 Minuten kochen, in Eiswasser abschrecken und pellen.",
-   "minutes": 7
+   "minutes": 7,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Brühe erhitzen, Miso und Sojasauce einrühren. Nicht mehr kochen lassen, sonst verliert Miso das Aroma."
+   "text": "Brühe erhitzen, Miso und Sojasauce einrühren. Nicht mehr kochen lassen, sonst verliert Miso das Aroma.",
+   "use": [
+    1,
+    3
+   ]
   },
   {
    "text": "Nudeln nach Packung kochen und in Schalen verteilen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Brühe darübergießen, Spinat, Mais, halbierte Eier, Frühlingszwiebeln und Nori daraufgeben, mit Sesamöl beträufeln."
+   "text": "Brühe darübergießen, Spinat, Mais, halbierte Eier, Frühlingszwiebeln und Nori daraufgeben, mit Sesamöl beträufeln.",
+   "use": [
+    1,
+    8,
+    6,
+    5,
+    7,
+    9,
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 540,
+  "p": 26,
+  "kh": 83,
+  "z": 7,
+  "f": 12,
+  "bs": 6
+ }
 }

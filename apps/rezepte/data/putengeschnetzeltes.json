@@ -46,26 +46,53 @@
  "steps": [
   {
    "text": "Nudeln kochen.",
-   "minutes": 9
+   "minutes": 9,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Pute in Streifen schneiden, mit Mehl bestäuben und in Öl portionsweise scharf anbraten. Herausnehmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    6
+   ]
   },
   {
    "text": "Zwiebel und Pilze anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Mit Brühe und Sahne ablöschen, einkochen, Fleisch zurückgeben, abschmecken.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    4,
+    3,
+    0
+   ]
   },
   {
-   "text": "Mit Petersilie und Nudeln servieren."
+   "text": "Mit Petersilie und Nudeln servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 750,
+  "p": 53,
+  "kh": 79,
+  "z": 7,
+  "f": 24,
+  "bs": 4
+ }
 }

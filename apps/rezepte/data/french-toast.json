@@ -41,21 +41,44 @@
  ],
  "steps": [
   {
-   "text": "Eier, Milch, Zimt und Zucker verquirlen."
+   "text": "Eier, Milch, Zimt und Zucker verquirlen.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Brotscheiben kurz darin einweichen."
+   "text": "Brotscheiben kurz darin einweichen.",
+   "use": []
   },
   {
    "text": "In Butter bei mittlerer Hitze pro Seite goldbraun braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Mit Beeren und Puderzucker servieren."
+   "text": "Mit Beeren und Puderzucker servieren.",
+   "use": [
+    6,
+    4,
+    7
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 400,
+  "p": 15,
+  "kh": 45,
+  "z": 19,
+  "f": 18,
+  "bs": 5
+ }
 }

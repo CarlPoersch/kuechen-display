@@ -46,24 +46,51 @@
  "steps": [
   {
    "text": "Kartoffeln in der Schale gar kochen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Noch warm pellen und in dünne Scheiben schneiden."
+   "text": "Noch warm pellen und in dünne Scheiben schneiden.",
+   "use": []
   },
   {
-   "text": "Zwiebel sehr fein würfeln, mit Brühe, Essig, Senf, Zucker, Salz und Pfeffer aufkochen."
+   "text": "Zwiebel sehr fein würfeln, mit Brühe, Essig, Senf, Zucker, Salz und Pfeffer aufkochen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Heiß über die Kartoffeln gießen, vorsichtig mischen. Warum heiß: Warme Kartoffeln saugen die Marinade auf."
+   "text": "Heiß über die Kartoffeln gießen, vorsichtig mischen. Warum heiß: Warme Kartoffeln saugen die Marinade auf.",
+   "use": [
+    2,
+    0
+   ]
   },
   {
    "text": "Ziehen lassen, dann Öl, Gurkenscheiben und Schnittlauch unterheben. Lauwarm servieren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    6,
+    8
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegan",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 350,
+  "p": 6,
+  "kh": 47,
+  "z": 4,
+  "f": 16,
+  "bs": 6
+ }
 }

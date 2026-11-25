@@ -57,27 +57,57 @@
  ],
  "steps": [
   {
-   "text": "Fleisch trocken tupfen und portionsweise in Öl kräftig anbraten, herausnehmen."
+   "text": "Fleisch trocken tupfen und portionsweise in Öl kräftig anbraten, herausnehmen.",
+   "use": [
+    11,
+    0
+   ]
   },
   {
    "text": "Zwiebeln, Karotte und Sellerie würfeln und anrösten, Tomatenmark kurz mitrösten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Mit Rotwein ablöschen und einkochen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Fleisch, Fond, angedrückte Wacholderbeeren und Lorbeer zugeben und zugedeckt schmoren.",
-   "minutes": 90
+   "minutes": 90,
+   "use": [
+    6,
+    7,
+    0
+   ]
   },
   {
-   "text": "Sahne und Preiselbeeren einrühren, mit Salz und Pfeffer abschmecken. Dazu Spätzle oder Knödel und Rotkohl."
+   "text": "Sahne und Preiselbeeren einrühren, mit Salz und Pfeffer abschmecken. Dazu Spätzle oder Knödel und Rotkohl.",
+   "use": [
+    10,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 135,
+ "nutri": {
+  "kcal": 540,
+  "p": 58,
+  "kh": 15,
+  "z": 7,
+  "f": 22,
+  "bs": 3
+ },
  "gf": true
 }

@@ -33,17 +33,36 @@
  ],
  "steps": [
   {
-   "text": "Gurke grob raspeln, salzen und gut ausdrücken."
+   "text": "Gurke grob raspeln, salzen und gut ausdrücken.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Joghurt, gepresstem Knoblauch, Öl, Essig und Dill verrühren."
+   "text": "Mit Joghurt, gepresstem Knoblauch, Öl, Essig und Dill verrühren.",
+   "use": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Mit Salz abschmecken und etwas ziehen lassen."
+   "text": "Mit Salz abschmecken und etwas ziehen lassen.",
+   "use": []
   }
  ],
  "cat": "Snack",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 10
+ "min": 10,
+ "nutri": {
+  "kcal": 220,
+  "p": 7,
+  "kh": 9,
+  "z": 7,
+  "f": 19,
+  "bs": 1
+ }
 }

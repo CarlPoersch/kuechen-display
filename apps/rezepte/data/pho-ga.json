@@ -66,27 +66,65 @@
  "steps": [
   {
    "text": "Zwiebel und Ingwer halbieren und in einer trockenen Pfanne schwarz rösten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Sternanis und Zimt kurz anrösten."
+   "text": "Sternanis und Zimt kurz anrösten.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Hähnchen mit Wasser, Zwiebel, Ingwer und Gewürzen aufkochen, abschäumen und leise köcheln.",
-   "minutes": 60
+   "text": "Hähnchen mit Wasser, Zwiebel, Ingwer und Gewürzen (Sternanis, Zimtstange) aufkochen, abschäumen und leise köcheln.",
+   "minutes": 60,
+   "use": [
+    7,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Hähnchen herausnehmen und zerzupfen. Brühe abseihen und mit Fischsauce, Zucker und Salz abschmecken."
+   "text": "Hähnchen herausnehmen und zerzupfen. Brühe abseihen und mit Fischsauce, Zucker und Salz abschmecken.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Nudeln garen, in Schalen mit Fleisch verteilen, heiße Brühe darübergießen."
+   "text": "Nudeln garen, in Schalen mit Fleisch verteilen, heiße Brühe darübergießen.",
+   "use": [
+    8,
+    0
+   ]
   },
   {
-   "text": "Mit Kräutern, Sprossen, Limette und Chili servieren."
+   "text": "Mit Kräutern (Thai-Basilikum, Koriander), Sprossen, Limette und Chili servieren.",
+   "use": [
+    11,
+    12,
+    13,
+    9,
+    10
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 650,
+  "p": 40,
+  "kh": 70,
+  "z": 5,
+  "f": 23,
+  "bs": 3
+ }
 }

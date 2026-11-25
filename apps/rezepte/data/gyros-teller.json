@@ -45,27 +45,57 @@
  ],
  "steps": [
   {
-   "text": "Fleisch in dünne Streifen schneiden, mit Zwiebel, Öl und Gewürzen marinieren.",
-   "minutes": 60
+   "text": "Fleisch in dünne Streifen schneiden, mit Zwiebel, Öl und Gewürzen (Gyrosgewürz, Oregano) marinieren.",
+   "minutes": 60,
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    0
+   ]
   },
   {
    "text": "Pommes im Ofen backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Kohl fein hobeln, mit Essig, Öl und Salz kräftig durchkneten."
+   "text": "Kohl fein hobeln, mit Essig, Öl und Salz kräftig durchkneten.",
+   "use": [
+    6,
+    7,
+    2
+   ]
   },
   {
    "text": "Fleisch in einer sehr heißen Pfanne portionsweise knusprig braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Pommes, Krautsalat und Tzatziki servieren."
+   "text": "Mit Pommes, Krautsalat und Tzatziki servieren.",
+   "use": [
+    5,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 900,
+  "p": 45,
+  "kh": 55,
+  "z": 6,
+  "f": 55,
+  "bs": 8
+ },
  "gf": true
 }

@@ -232,6 +232,8 @@ struct CookbookSheet: View {
 // MARK: Koch-Statistik
 
 struct KitchenStatsView: View {
+    /// Rezept antippen → Statistik schließt sich, das Rezept öffnet sich in der Küche
+    var onOpen: ((String) -> Void)? = nil
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var kitchen = KitchenStore.shared
 
@@ -268,6 +270,46 @@ struct KitchenStatsView: View {
             .compactMap { m in kitchen.summary(m.recipeId).map { ($0, m.cookedCount) } }
     }
 
+    /// Zuletzt gekocht: die letzten 5 verschiedenen Rezepte
+    private var recent: [(RecipeSummary, Date)] {
+        var seen = Set<String>()
+        var out: [(RecipeSummary, Date)] = []
+        for e in events where !seen.contains(e.recipeId) {
+            seen.insert(e.recipeId)
+            if let s = kitchen.summary(e.recipeId) { out.append((s, e.date)) }
+            if out.count == 5 { break }
+        }
+        return out
+    }
+
+    private func when(_ d: Date) -> String {
+        let days = -Fmt.dayDiff(d)
+        return days <= 0 ? "heute" : days == 1 ? "gestern" : "vor \(days) Tagen"
+    }
+
+    private func open(_ id: String) {
+        onOpen?(id)
+        dismiss()
+    }
+
+    /// Antippbare Zeile: Symbol, Titel, rechts Wert und Pfeil
+    private func recipeRow(_ r: RecipeSummary, _ trailing: String) -> some View {
+        Button { open(r.id) } label: {
+            HStack(spacing: 10) {
+                Text(r.icon)
+                Text(r.title).lineLimit(1).foregroundColor(.primary)
+                Spacer(minLength: 8)
+                Text(trailing).font(.subheadline.monospacedDigit().weight(.semibold)).foregroundColor(Theme.secondary)
+                    .lineLimit(1).layoutPriority(1)
+                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Color(UIColor.tertiaryLabel))
+            }
+            .frame(minHeight: 44)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("Rezept öffnen")
+    }
+
     private var cuisines: [(String, Int)] {
         var c: [String: Int] = [:]
         for e in events { if let s = kitchen.summary(e.recipeId) { c[s.cuisine ?? "Sonstige", default: 0] += 1 } }
@@ -298,8 +340,15 @@ struct KitchenStatsView: View {
                             card("AM HÄUFIGSTEN GEKOCHT") {
                                 ForEach(Array(top.enumerated()), id: \.offset) { i, t in
                                     if i > 0 { Divider() }
-                                    HStack { Text(t.0.icon); Text(t.0.title).lineLimit(1); Spacer(); Text("\(t.1)×").font(.headline.monospacedDigit()) }
-                                        .padding(.vertical, 6)
+                                    recipeRow(t.0, "\(t.1)×")
+                                }
+                            }
+                        }
+                        if !recent.isEmpty {
+                            card("ZULETZT GEKOCHT") {
+                                ForEach(Array(recent.enumerated()), id: \.offset) { i, t in
+                                    if i > 0 { Divider() }
+                                    recipeRow(t.0, when(t.1))
                                 }
                             }
                         }

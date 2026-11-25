@@ -33,26 +33,52 @@
  ],
  "steps": [
   {
-   "text": "Maultaschen in Streifen schneiden. Zwiebeln in Ringe schneiden."
+   "text": "Maultaschen in Streifen schneiden. Zwiebeln in Ringe schneiden.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Zwiebeln in Butter goldbraun schmelzen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    3
+   ]
   },
   {
    "text": "Maultaschenstreifen zugeben und anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Eier verquirlen, salzen, darübergießen und unter Wenden stocken lassen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit Schnittlauch bestreuen und mit Kartoffelsalat servieren."
+   "text": "Mit Schnittlauch bestreuen und mit Kartoffelsalat servieren.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 400,
+  "p": 17,
+  "kh": 34,
+  "z": 5,
+  "f": 21,
+  "bs": 3
+ }
 }

@@ -37,25 +37,49 @@
  ],
  "steps": [
   {
-   "text": "Schnitzel zwischen Frischhaltefolie dünn klopfen."
+   "text": "Schnitzel zwischen Frischhaltefolie dünn klopfen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Jedes mit einer Scheibe Schinken und einem Salbeiblatt belegen und mit einem Zahnstocher feststecken."
+   "text": "Jedes mit einer Scheibe Schinken und einem Salbeiblatt belegen und mit einem Zahnstocher feststecken.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Auf der Unterseite leicht mehlieren."
+   "text": "Auf der Unterseite leicht mehlieren.",
+   "use": []
   },
   {
    "text": "Butter und Öl erhitzen, Schnitzel zuerst auf der Schinkenseite braten, dann wenden.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4,
+    5,
+    0
+   ]
   },
   {
    "text": "Mit Wein ablöschen, kurz einkochen und die Sauce über das Fleisch geben.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    6,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 490,
+  "p": 43,
+  "kh": 9,
+  "z": 1,
+  "f": 27,
+  "bs": 1
+ }
 }

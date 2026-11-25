@@ -31,8 +31,9 @@ struct RecipeSummary: Decodable, Identifiable, Hashable {
     var level: String? = nil      // einfach, mittel, anspruchsvoll
     var min: Int? = nil           // Gesamtzeit in Minuten
     var gf: Bool? = nil           // ohne Gluten-Zutaten
+    var kcal: Int? = nil          // kcal pro Portion (Richtwert)
 
-    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, airfryer, ing, cat, diet, level, min, gf }
+    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, airfryer, ing, cat, diet, level, min, gf, kcal }
 
     /// Gesamtzeit in Minuten: aus der Sammlung, sonst aus "ca. 1 Std. 30 Min." gelesen
     var minutes: Int? {
@@ -49,7 +50,8 @@ struct RecipeSummary: Decodable, Identifiable, Hashable {
 
 struct Recipe: Codable, Identifiable {
     struct Ingredient: Codable, Hashable { var amount: String?; var name: String; var group: String? = nil }
-    struct Step: Codable, Hashable { var text: String; var minutes: Double? = nil }
+    /// use: welche Zutaten (Index in `ingredients`) der Schritt braucht – aus der Sammlung vorberechnet
+    struct Step: Codable, Hashable { var text: String; var minutes: Double? = nil; var use: [Int]? = nil }
     var id: String
     var title: String
     var icon: String
@@ -60,6 +62,7 @@ struct Recipe: Codable, Identifiable {
     var steps: [Step]
     var airfryer: Bool?
     var source: String? = nil     // Link, falls importiert
+    var nutri: Nutrition? = nil   // Nährwerte pro Portion (Sammlung); eigene Rezepte rechnet NutritionCalc
 
     var isOwn: Bool { id.hasPrefix("u-") }
 
@@ -69,7 +72,7 @@ struct Recipe: Codable, Identifiable {
         self.time = time; self.ingredients = ingredients; self.steps = steps; self.airfryer = airfryer; self.source = source
     }
 
-    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, ingredients, steps, airfryer, source }
+    enum CodingKeys: String, CodingKey { case id, title, icon, cuisine, servings, time, ingredients, steps, airfryer, source, nutri }
 
     /// In den Rezeptdateien stehen Gruppen als eigene Einträge ({"group": "Dip"}) vor ihren Zutaten.
     /// Beim Lesen wird daraus: jede Zutat kennt ihre Gruppe, die Überschrift-Einträge fallen weg.
@@ -84,6 +87,7 @@ struct Recipe: Codable, Identifiable {
         steps = (try? c.decode([Step].self, forKey: .steps)) ?? []
         airfryer = try c.decodeIfPresent(Bool.self, forKey: .airfryer)
         source = try c.decodeIfPresent(String.self, forKey: .source)
+        nutri = try? c.decodeIfPresent(Nutrition.self, forKey: .nutri)
         struct Raw: Decodable { let amount: String?; let name: String?; let group: String? }
         var group: String?
         var out: [Ingredient] = []

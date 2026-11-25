@@ -49,21 +49,44 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 175 °C vorheizen. Kastenform mit Backpapier auslegen."
+   "text": "Ofen auf 175 °C vorheizen. Kastenform mit Backpapier auslegen.",
+   "use": []
   },
   {
-   "text": "Bananen zerdrücken, mit Butter, Zucker, Eiern und Vanille verrühren."
+   "text": "Bananen zerdrücken, mit Butter, Zucker, Eiern und Vanille verrühren.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Mehl, Natron, Salz und Zimt mischen und kurz unterrühren. Nüsse unterheben."
+   "text": "Mehl, Natron, Salz und Zimt mischen und kurz unterrühren. Nüsse unterheben.",
+   "use": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
   },
   {
    "text": "In die Form füllen und backen. Stäbchenprobe machen.",
-   "minutes": 55
+   "minutes": 55,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 70
+ "min": 70,
+ "nutri": {
+  "kcal": 270,
+  "p": 5,
+  "kh": 37,
+  "z": 17,
+  "f": 12,
+  "bs": 2
+ }
 }

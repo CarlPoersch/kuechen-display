@@ -38,23 +38,48 @@
  "steps": [
   {
    "text": "Linsen in Wasser halb gar kochen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebeln in feine Ringe schneiden und in Öl langsam tief goldbraun und knusprig braten.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    2,
+    3
+   ]
   },
   {
-   "text": "Reis, Gewürze, Salz und so viel Wasser zu den Linsen geben, dass alles knapp bedeckt ist. Zugedeckt garen.",
-   "minutes": 18
+   "text": "Reis, Gewürze (Kreuzkümmel, Zimt), Salz und so viel Wasser zu den Linsen geben, dass alles knapp bedeckt ist. Zugedeckt garen.",
+   "minutes": 18,
+   "use": [
+    1,
+    0,
+    4,
+    5
+   ]
   },
   {
-   "text": "Die Hälfte der Zwiebeln unterheben, den Rest darüberstreuen. Mit Joghurt servieren."
+   "text": "Die Hälfte der Zwiebeln unterheben, den Rest darüberstreuen. Mit Joghurt servieren.",
+   "use": [
+    2,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 50,
+ "nutri": {
+  "kcal": 510,
+  "p": 18,
+  "kh": 67,
+  "z": 7,
+  "f": 18,
+  "bs": 8
+ },
  "gf": true
 }

@@ -42,27 +42,57 @@
  "steps": [
   {
    "text": "Couscous mit gleicher Menge kochender Brühe übergießen und quellen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Hack anbraten, Tomaten und Oregano zugeben und 5 Minuten köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4,
+    2,
+    5,
+    6
+   ]
   },
   {
-   "text": "Mit Couscous und der Hälfte des Fetas mischen."
+   "text": "Mit Couscous und der Hälfte des Fetas mischen.",
+   "use": [
+    1,
+    7
+   ]
   },
   {
-   "text": "Paprika halbieren, entkernen und füllen, restlichen Feta darüberbröseln."
+   "text": "Paprika halbieren, entkernen und füllen, restlichen Feta darüberbröseln.",
+   "use": [
+    0,
+    7
+   ]
   },
   {
    "text": "Bei 180 °C garen, bis die Paprika weich und der Feta gebräunt ist.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 740,
+  "p": 39,
+  "kh": 71,
+  "z": 12,
+  "f": 33,
+  "bs": 9
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

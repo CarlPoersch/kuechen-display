@@ -50,21 +50,50 @@
  "steps": [
   {
    "text": "Steak salzen und in einer heißen Pfanne pro Seite braten, ruhen lassen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Fischsauce, Limettensaft, Zucker und gehackte Chili verrühren."
+   "text": "Fischsauce, Limettensaft, Zucker und gehackte Chili verrühren.",
+   "use": [
+    6,
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Gurke, Tomaten und Zwiebel schneiden, Kräuter zupfen."
+   "text": "Gurke, Tomaten und Zwiebel schneiden, Kräuter (Koriander, Minze) zupfen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Steak dünn aufschneiden und mit Gemüse, Kräutern und Dressing mischen."
+   "text": "Steak dünn aufschneiden und mit Gemüse, Kräutern (Koriander, Minze) und Dressing mischen.",
+   "use": [
+    0,
+    4,
+    5
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 320,
+  "p": 36,
+  "kh": 21,
+  "z": 12,
+  "f": 11,
+  "bs": 3
+ },
  "gf": true
 }

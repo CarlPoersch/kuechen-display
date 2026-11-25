@@ -45,29 +45,60 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Auflaufform mit Butter ausstreichen."
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Auflaufform mit Butter ausstreichen.",
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Kartoffeln schälen und in 2–3 mm dünne Scheiben hobeln. Nicht waschen – die Stärke bindet die Sauce."
+   "text": "Kartoffeln schälen und in 2–3 mm dünne Scheiben hobeln. Nicht waschen – die Stärke bindet die Sauce.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Sahne, Milch, zerdrückten Knoblauch, Salz, Pfeffer und Muskat aufkochen."
+   "text": "Sahne, Milch, zerdrückten Knoblauch, Salz, Pfeffer und Muskat aufkochen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    5
+   ]
   },
   {
-   "text": "Kartoffelscheiben dachziegelartig in die Form schichten und die heiße Sahnemilch darübergießen."
+   "text": "Kartoffelscheiben dachziegelartig in die Form schichten und die heiße Sahnemilch darübergießen.",
+   "use": [
+    0,
+    2
+   ]
   },
   {
    "text": "Mit Käse bestreuen und backen, bis die Kartoffeln weich sind und die Oberfläche goldbraun ist.",
-   "minutes": 55
+   "minutes": 55,
+   "use": [
+    7,
+    0
+   ]
   },
   {
    "text": "10 Minuten ruhen lassen, damit die Sauce andickt.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 75,
+ "nutri": {
+  "kcal": 500,
+  "p": 15,
+  "kh": 47,
+  "z": 6,
+  "f": 28,
+  "bs": 6
+ },
  "gf": true
 }

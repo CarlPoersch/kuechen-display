@@ -45,25 +45,51 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C vorheizen."
+   "text": "Ofen auf 200 °C vorheizen.",
+   "use": []
   },
   {
    "text": "Zwiebel und Knoblauch in Öl andünsten, Tomaten und Oregano zugeben, salzen und köcheln.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    8,
+    3,
+    4
+   ]
   },
   {
-   "text": "Gnocchi roh unter die Sauce mischen und in eine Auflaufform geben. Warum roh: Sie garen in der Sauce und bleiben fluffig."
+   "text": "Gnocchi roh unter die Sauce mischen und in eine Auflaufform geben. Warum roh: Sie garen in der Sauce und bleiben fluffig.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit Mozzarellascheiben und Parmesan belegen und backen, bis der Käse blubbert.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Mit Basilikum bestreuen."
+   "text": "Mit Basilikum bestreuen.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 610,
+  "p": 25,
+  "kh": 76,
+  "z": 10,
+  "f": 22,
+  "bs": 6
+ }
 }

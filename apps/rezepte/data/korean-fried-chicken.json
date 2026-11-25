@@ -56,26 +56,50 @@
  ],
  "steps": [
   {
-   "text": "Hähnchen trocken tupfen und salzen. Stärke, Mehl und Backpulver mischen und das Fleisch darin wenden."
+   "text": "Hähnchen trocken tupfen und salzen. Stärke, Mehl und Backpulver mischen und das Fleisch darin wenden.",
+   "use": [
+    1,
+    2,
+    3,
+    0
+   ]
   },
   {
    "text": "Bei 160 °C frittieren, herausnehmen und ruhen lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    4
+   ]
   },
   {
    "text": "Bei 180 °C ein zweites Mal frittieren – das macht sie extra knusprig.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    4
+   ]
   },
   {
    "text": "Glasur-Zutaten in einer Pfanne aufkochen, bis sie sirupartig ist.",
-   "minutes": 2
+   "minutes": 2,
+   "use": []
   },
   {
-   "text": "Hähnchen darin schwenken und mit Sesam bestreuen."
+   "text": "Hähnchen darin schwenken und mit Sesam bestreuen.",
+   "use": [
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 550,
+  "p": 26,
+  "kh": 40,
+  "z": 16,
+  "f": 32,
+  "bs": 1
+ }
 }

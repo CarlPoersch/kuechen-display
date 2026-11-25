@@ -58,30 +58,60 @@
  "steps": [
   {
    "text": "Glasnudeln einweichen, abtropfen und kürzen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Gemüse fein schneiden, in einer Pfanne kurz anbraten und mit Sojasauce und Sesamöl würzen. Abkühlen lassen.",
-   "minutes": 10
+   "text": "Gemüse (Weißkohl, Karotte, Sojasprossen, Shiitake, Frühlingszwiebeln) fein schneiden, in einer Pfanne kurz anbraten und mit Sojasauce und Sesamöl würzen. Abkühlen lassen.",
+   "minutes": 10,
+   "use": [
+    7,
+    8,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Glasnudeln untermischen."
+   "text": "Glasnudeln untermischen.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Je 2 EL Füllung auf ein Blatt geben, Seiten einschlagen, straff aufrollen und mit Stärkewasser verkleben."
+   "text": "Je 2 EL Füllung auf ein Blatt geben, Seiten einschlagen, straff aufrollen und mit Stärkewasser verkleben.",
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Rollen rundum mit Öl bepinseln."
+   "text": "Rollen rundum mit Öl bepinseln.",
+   "use": [
+    10
+   ]
   },
   {
    "text": "Bei 190 °C goldbraun garen, nach der Hälfte wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 290,
+  "p": 7,
+  "kh": 45,
+  "z": 5,
+  "f": 10,
+  "bs": 4
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

@@ -42,22 +42,46 @@
  "steps": [
   {
    "text": "Eier wachsweich kochen und abschrecken.",
-   "minutes": 7
+   "minutes": 7,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Brühe mit Sojasauce und Mirin aufkochen, Pilze in Scheiben darin garen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Pak Choi und Nudeln zugeben und erhitzen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    6,
+    0
+   ]
   },
   {
-   "text": "In Schalen füllen, mit halbierten Eiern und Frühlingszwiebelringen servieren."
+   "text": "In Schalen füllen, mit halbierten Eiern und Frühlingszwiebelringen servieren.",
+   "use": [
+    7,
+    5
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 450,
+  "p": 22,
+  "kh": 69,
+  "z": 12,
+  "f": 8,
+  "bs": 4
+ }
 }

@@ -42,26 +42,54 @@
  "steps": [
   {
    "text": "Ofen auf 180 °C Umluft vorheizen. Kartoffeln schälen, in Scheiben schneiden und in Salzwasser vorgaren.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Brokkoli in Röschen teilen und die letzten 3 Minuten mitgaren. Abgießen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Sahne, Brühe, Eier und zerdrückten Knoblauch verquirlen, mit Salz, Pfeffer und Muskat würzen."
+   "text": "Sahne, Brühe, Eier und zerdrückten Knoblauch verquirlen, mit Salz, Pfeffer und Muskat würzen.",
+   "use": [
+    2,
+    3,
+    4,
+    5,
+    7
+   ]
   },
   {
-   "text": "Gemüse in eine Form schichten, Guss darübergießen und mit Käse bestreuen."
+   "text": "Gemüse (Brokkoli) in eine Form schichten, Guss darübergießen und mit Käse bestreuen.",
+   "use": [
+    1,
+    6
+   ]
   },
   {
    "text": "Backen, bis der Guss gestockt und der Käse goldbraun ist.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 60,
+ "nutri": {
+  "kcal": 540,
+  "p": 23,
+  "kh": 45,
+  "z": 6,
+  "f": 30,
+  "bs": 8
+ },
  "gf": true
 }

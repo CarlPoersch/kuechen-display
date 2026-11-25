@@ -54,25 +54,56 @@
  "steps": [
   {
    "text": "Zwiebel, Karotte und Sellerie fein würfeln und in Butter andünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    3,
+    7
+   ]
   },
   {
-   "text": "Mehl darüberstäuben, kurz anschwitzen und mit Brühe ablöschen."
+   "text": "Mehl darüberstäuben, kurz anschwitzen und mit Brühe ablöschen.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
    "text": "Linsen und Lorbeer zugeben und weich köcheln.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Würstchen im heißen, nicht kochenden Wasser ziehen lassen, Spätzle erwärmen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    9,
+    8
+   ]
   },
   {
-   "text": "Linsen mit Essig, Salz und Pfeffer kräftig abschmecken und mit Spätzle und Würstchen servieren."
+   "text": "Linsen mit Essig, Salz und Pfeffer kräftig abschmecken und mit Spätzle und Würstchen servieren.",
+   "use": [
+    0,
+    6,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 770,
+  "p": 39,
+  "kh": 81,
+  "z": 6,
+  "f": 32,
+  "bs": 10
+ }
 }

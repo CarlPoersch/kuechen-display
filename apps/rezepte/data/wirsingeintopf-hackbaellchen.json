@@ -45,30 +45,64 @@
  ],
  "steps": [
   {
-   "text": "Hack mit Ei, Salz, Pfeffer und Muskat verkneten und kleine Bällchen formen."
+   "text": "Hack mit Ei, Salz, Pfeffer und Muskat verkneten und kleine Bällchen formen.",
+   "use": [
+    2,
+    7,
+    0
+   ]
   },
   {
    "text": "Zwiebel würfeln und im großen Topf glasig dünsten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Kartoffeln und Karotten würfeln, Wirsing in Streifen schneiden, alles in den Topf geben und mit Brühe aufgießen."
+   "text": "Kartoffeln und Karotten würfeln, Wirsing in Streifen schneiden, alles in den Topf geben und mit Brühe aufgießen.",
+   "use": [
+    4,
+    5,
+    0,
+    6
+   ]
   },
   {
-   "text": "Köcheln, bis das Gemüse fast gar ist.",
-   "minutes": 15
+   "text": "Köcheln, bis das Gemüse (kleiner Wirsing, Zwiebel, Karotten) fast gar ist.",
+   "minutes": 15,
+   "use": [
+    0,
+    3,
+    5
+   ]
   },
   {
    "text": "Hackbällchen einlegen und bei kleiner Hitze gar ziehen lassen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Muskat abschmecken und mit Petersilie bestreuen."
+   "text": "Mit Muskat abschmecken und mit Petersilie bestreuen.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "einfach",
  "min": 50,
+ "nutri": {
+  "kcal": 480,
+  "p": 27,
+  "kh": 42,
+  "z": 12,
+  "f": 24,
+  "bs": 10
+ },
  "gf": true
 }

@@ -38,24 +38,49 @@
  "steps": [
   {
    "text": "Milch erwärmen und über das Knödelbrot gießen. Zugedeckt ziehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "Zwiebel fein würfeln und in Butter glasig dünsten, Petersilie hacken."
+   "text": "Zwiebel fein würfeln und in Butter glasig dünsten, Petersilie hacken.",
+   "use": [
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Zwiebel, Petersilie, Eier, Salz, Pfeffer und Muskat zugeben und gut vermengen."
+   "text": "Zwiebel, Petersilie, Eier, Salz, Pfeffer und Muskat zugeben und gut vermengen.",
+   "use": [
+    3,
+    5,
+    2,
+    6
+   ]
   },
   {
-   "text": "Mit nassen Händen 8 Knödel formen."
+   "text": "Mit nassen Händen 8 Knödel formen.",
+   "use": []
   },
   {
    "text": "In leicht siedendem Salzwasser gar ziehen lassen, nicht sprudelnd kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 340,
+  "p": 15,
+  "kh": 44,
+  "z": 7,
+  "f": 11,
+  "bs": 3
+ }
 }

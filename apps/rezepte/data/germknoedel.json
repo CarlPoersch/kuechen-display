@@ -50,25 +50,54 @@
  "steps": [
   {
    "text": "Hefeteig aus Mehl, Hefe, Milch, Zucker, Butter, Ei und einer Prise Salz kneten und gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    5
+   ]
   },
   {
-   "text": "In 4 Stücke teilen, flach drücken, je 1 EL Powidl in die Mitte geben und gut verschließen."
+   "text": "In 4 Stücke teilen, flach drücken, je 1 EL Powidl in die Mitte geben und gut verschließen.",
+   "use": [
+    6
+   ]
   },
   {
    "text": "Mit dem Verschluss nach unten nochmals gehen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
    "text": "In einem Topf mit Dampfeinsatz zugedeckt dämpfen, Deckel nicht öffnen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
-   "text": "Mit geschmolzener Butter übergießen und mit Mohn-Puderzucker bestreuen."
+   "text": "Mit geschmolzener Butter übergießen und mit Mohn-Puderzucker bestreuen.",
+   "use": [
+    4,
+    7,
+    8,
+    3,
+    9
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 105
+ "min": 105,
+ "nutri": {
+  "kcal": 790,
+  "p": 17,
+  "kh": 103,
+  "z": 28,
+  "f": 34,
+  "bs": 7
+ }
 }

@@ -37,21 +37,41 @@
  ],
  "steps": [
   {
-   "text": "Backofen auf 200 °C vorheizen. Stiele aus den Pilzen drehen und fein hacken."
+   "text": "Backofen auf 200 °C vorheizen. Stiele aus den Pilzen drehen und fein hacken.",
+   "use": []
   },
   {
-   "text": "Gehackte Stiele mit Frischkäse, gepresstem Knoblauch, Schnittlauch, Salz und Pfeffer verrühren."
+   "text": "Gehackte Stiele mit Frischkäse, gepresstem Knoblauch, Schnittlauch, Salz und Pfeffer verrühren.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Pilzköpfe füllen, mit Parmesan und Paniermehl bestreuen und mit Öl beträufeln."
+   "text": "Pilzköpfe füllen, mit Parmesan und Paniermehl bestreuen und mit Öl beträufeln.",
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Im Ofen goldbraun backen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   }
  ],
  "cat": "Snack",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 190,
+  "p": 9,
+  "kh": 7,
+  "z": 3,
+  "f": 15,
+  "bs": 1
+ }
 }

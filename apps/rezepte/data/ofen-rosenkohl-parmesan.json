@@ -29,22 +29,41 @@
  ],
  "steps": [
   {
-   "text": "Backofen auf 220 °C vorheizen. Rosenkohl putzen und halbieren."
+   "text": "Backofen auf 220 °C vorheizen. Rosenkohl putzen und halbieren.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Öl, Salz, Pfeffer und Chili mischen und mit der Schnittfläche nach unten aufs Blech legen."
+   "text": "Mit Öl, Salz, Pfeffer und Chili mischen und mit der Schnittfläche nach unten aufs Blech legen.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Rösten, bis die Unterseite tief goldbraun ist.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Mit fein geriebenem Parmesan und etwas Zitronenschale bestreuen."
+   "text": "Mit fein geriebenem Parmesan und etwas Zitronenschale bestreuen.",
+   "use": [
+    2,
+    3
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 190,
+  "p": 8,
+  "kh": 14,
+  "z": 4,
+  "f": 12,
+  "bs": 6
+ },
  "gf": true
 }

@@ -46,25 +46,51 @@
  "steps": [
   {
    "text": "Weinblätter abspülen. Zwiebeln fein hacken und in der Hälfte des Öls weich dünsten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    2
+   ]
   },
   {
-   "text": "Reis, Pinienkerne, gehackte Kräuter, Saft einer Zitrone, Salz und Pfeffer untermischen."
+   "text": "Reis, Pinienkerne, gehackte Kräuter (Dill, Minze), Saft einer Zitrone, Salz und Pfeffer untermischen.",
+   "use": [
+    1,
+    5,
+    7,
+    3,
+    4
+   ]
   },
   {
-   "text": "Je 1 TL Füllung auf ein Blatt geben, Seiten einschlagen und fest aufrollen."
+   "text": "Je 1 TL Füllung auf ein Blatt geben, Seiten einschlagen und fest aufrollen.",
+   "use": []
   },
   {
-   "text": "Dicht an dicht in einen Topf schichten, mit restlichem Öl, Zitronensaft und Wasser übergießen und mit einem Teller beschweren."
+   "text": "Dicht an dicht in einen Topf schichten, mit restlichem Öl, Zitronensaft und Wasser übergießen und mit einem Teller beschweren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Zugedeckt bei kleiner Hitze garen. Abkühlen lassen und kalt servieren.",
-   "minutes": 50
+   "minutes": 50,
+   "use": []
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "anspruchsvoll",
  "min": 90,
+ "nutri": {
+  "kcal": 330,
+  "p": 5,
+  "kh": 34,
+  "z": 2,
+  "f": 21,
+  "bs": 4
+ },
  "gf": true
 }

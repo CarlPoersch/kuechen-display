@@ -42,26 +42,53 @@
  "steps": [
   {
    "text": "Mehl, Eier, Wasser und Salz zu einem glatten Nudelteig kneten und ruhen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Zwiebel würfeln, mit Speck anbraten, Sauerkraut zugeben und kurz mitdünsten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    5,
+    4,
+    3
+   ]
   },
   {
-   "text": "Teig dünn ausrollen, mit Kraut belegen, aufrollen und in 4 cm breite Schnecken schneiden."
+   "text": "Teig dünn ausrollen, mit Kraut belegen, aufrollen und in 4 cm breite Schnecken schneiden.",
+   "use": [
+    3
+   ]
   },
   {
    "text": "Schnecken in Butterschmalz in einer großen Pfanne von unten anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Brühe angießen und zugedeckt garen, bis die Flüssigkeit fast verkocht ist und der Boden knusprig wird.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 670,
+  "p": 24,
+  "kh": 79,
+  "z": 4,
+  "f": 28,
+  "bs": 8
+ }
 }

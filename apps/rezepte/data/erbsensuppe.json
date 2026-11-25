@@ -50,23 +50,50 @@
  "steps": [
   {
    "text": "Erbsen abspülen und mit Wasser und Speck aufkochen. Schaum abschöpfen und köcheln.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0,
+    1,
+    7
+   ]
   },
   {
-   "text": "Gemüse und Kartoffeln würfeln, zugeben und weiterköcheln, bis alles weich ist.",
-   "minutes": 30
+   "text": "Gemüse (Zwiebel, Karotten, Sellerieknolle, Lauchstange) und Kartoffeln würfeln, zugeben und weiterköcheln, bis alles weich ist.",
+   "minutes": 30,
+   "use": [
+    6,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Speck herausnehmen, würfeln und zurückgeben. Suppe nach Wunsch teilweise pürieren."
+   "text": "Speck herausnehmen, würfeln und zurückgeben. Suppe nach Wunsch teilweise pürieren.",
+   "use": [
+    7
+   ]
   },
   {
    "text": "Würstchen in Scheiben in der Suppe erwärmen. Mit Majoran, Salz und Pfeffer abschmecken.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 90,
+ "nutri": {
+  "kcal": 670,
+  "p": 34,
+  "kh": 70,
+  "z": 11,
+  "f": 29,
+  "bs": 18
+ },
  "gf": true
 }

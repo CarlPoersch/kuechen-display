@@ -54,25 +54,57 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C vorheizen. Zwiebel und Paprika würfeln und andünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    4,
+    3,
+    7
+   ]
   },
   {
-   "text": "Bohnen, Mais, die Hälfte der Tomaten und Gewürze zugeben, salzen und kurz köcheln.",
-   "minutes": 5
+   "text": "Bohnen, Mais, die Hälfte der Tomaten und Gewürze (Kreuzkümmel, Paprika geräuchert) zugeben, salzen und kurz köcheln.",
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Restliche Tomaten mit etwas Salz in eine Form streichen. Tortillas, Füllung und Käse abwechselnd schichten."
+   "text": "Restliche Tomaten mit etwas Salz in eine Form streichen. Tortillas, Füllung und Käse abwechselnd schichten.",
+   "use": [
+    5,
+    0,
+    8
+   ]
   },
   {
    "text": "Mit Käse abschließen und backen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Mit saurer Sahne und Avocadowürfeln servieren."
+   "text": "Mit saurer Sahne und Avocadowürfeln servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 810,
+  "p": 35,
+  "kh": 90,
+  "z": 14,
+  "f": 35,
+  "bs": 17
+ }
 }

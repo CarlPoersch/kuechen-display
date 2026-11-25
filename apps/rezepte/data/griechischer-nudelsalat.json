@@ -42,20 +42,45 @@
  "steps": [
   {
    "text": "Orzo kochen, abgießen und mit 1 EL Öl mischen.",
-   "minutes": 9
+   "minutes": 9,
+   "use": [
+    0,
+    6
+   ]
   },
   {
-   "text": "Gemüse würfeln, Oliven halbieren."
+   "text": "Gemüse (Paprikaschote, Salatgurke) würfeln, Oliven halbieren.",
+   "use": [
+    3,
+    1,
+    2
+   ]
   },
   {
-   "text": "Mit Zitronensaft, restlichem Öl, Oregano, Salz und Pfeffer mischen."
+   "text": "Mit Zitronensaft, restlichem Öl, Oregano, Salz und Pfeffer mischen.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Feta darüberbröseln."
+   "text": "Feta darüberbröseln.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 490,
+  "p": 15,
+  "kh": 51,
+  "z": 5,
+  "f": 25,
+  "bs": 4
+ }
 }

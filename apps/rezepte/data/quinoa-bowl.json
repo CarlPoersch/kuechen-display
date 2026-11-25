@@ -53,22 +53,49 @@
  "steps": [
   {
    "text": "Ofen auf 220 °C vorheizen. Süßkartoffel würfeln, mit Kichererbsen, Öl, Paprika und Salz mischen und rösten.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    1,
+    2,
+    5,
+    6
+   ]
   },
   {
    "text": "Quinoa abspülen und in doppelter Menge Wasser garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Tahin mit Zitronensaft, Ahornsirup, Salz und Wasser zu einem cremigen Dressing rühren."
+   "text": "Tahin mit Zitronensaft, Ahornsirup, Salz und Wasser zu einem cremigen Dressing rühren.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Quinoa, Spinat, Ofengemüse und Avocadoscheiben in Schalen anrichten und mit Dressing beträufeln."
+   "text": "Quinoa, Spinat, Ofengemüse und Avocadoscheiben in Schalen anrichten und mit Dressing beträufeln.",
+   "use": [
+    0,
+    4,
+    3
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 880,
+  "p": 26,
+  "kh": 111,
+  "z": 10,
+  "f": 39,
+  "bs": 23
+ },
  "gf": true
 }

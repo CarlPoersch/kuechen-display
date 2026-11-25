@@ -29,15 +29,31 @@
  ],
  "steps": [
   {
-   "text": "Tomaten und Mozzarella in Scheiben schneiden und abwechselnd auf einer Platte anrichten."
+   "text": "Tomaten und Mozzarella in Scheiben schneiden und abwechselnd auf einer Platte anrichten.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Basilikum belegen, mit Salz und Pfeffer würzen und mit Olivenöl beträufeln."
+   "text": "Mit Basilikum belegen, mit Salz und Pfeffer würzen und mit Olivenöl beträufeln.",
+   "use": [
+    2,
+    3
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 10,
+ "nutri": {
+  "kcal": 300,
+  "p": 11,
+  "kh": 6,
+  "z": 4,
+  "f": 27,
+  "bs": 2
+ },
  "gf": true
 }

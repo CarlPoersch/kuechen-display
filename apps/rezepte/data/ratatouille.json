@@ -45,31 +45,71 @@
  ],
  "steps": [
   {
-   "text": "Gemüse in 2 cm Würfel schneiden."
+   "text": "Gemüse (Aubergine, Zucchini, Paprika, Zwiebel, Tomaten) in 2 cm Würfel schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
    "text": "Aubergine in 2 EL Öl anbraten und herausnehmen. Warum getrennt: Jedes Gemüse behält so seinen Biss.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    7
+   ]
   },
   {
    "text": "Zucchini und Paprika ebenfalls nacheinander anbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Zwiebel und Knoblauch im restlichen Öl andünsten, Tomaten und Kräuter zugeben.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4,
+    7,
+    5,
+    6
+   ]
   },
   {
-   "text": "Alles Gemüse zurück in den Topf geben und sanft schmoren.",
-   "minutes": 25
+   "text": "Alles Gemüse (Aubergine, Zucchini, Paprika, Zwiebel, Tomaten) zurück in den Topf geben und sanft schmoren.",
+   "minutes": 25,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und Basilikum abschmecken."
+   "text": "Mit Salz, Pfeffer und Basilikum abschmecken.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "mittel",
  "min": 60,
+ "nutri": {
+  "kcal": 230,
+  "p": 5,
+  "kh": 20,
+  "z": 13,
+  "f": 16,
+  "bs": 7
+ },
  "gf": true
 }

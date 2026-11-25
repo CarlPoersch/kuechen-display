@@ -29,21 +29,42 @@
  ],
  "steps": [
   {
-   "text": "Eier mit Milch, Salz und Pfeffer verquirlen."
+   "text": "Eier mit Milch, Salz und Pfeffer verquirlen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Butter bei kleiner Hitze schmelzen, Eier zugeben."
+   "text": "Butter bei kleiner Hitze schmelzen, Eier zugeben.",
+   "use": [
+    2,
+    0
+   ]
   },
   {
    "text": "Mit einem Pfannenwender langsam von außen nach innen schieben, bis das Ei gerade gestockt, aber noch glänzend ist.",
-   "minutes": 4
+   "minutes": 4,
+   "use": []
   },
   {
-   "text": "Mit Schnittlauch bestreuen und mit Brot servieren."
+   "text": "Mit Schnittlauch bestreuen und mit Brot servieren.",
+   "use": [
+    3,
+    4
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 10
+ "min": 10,
+ "nutri": {
+  "kcal": 380,
+  "p": 22,
+  "kh": 21,
+  "z": 3,
+  "f": 22,
+  "bs": 2
+ }
 }

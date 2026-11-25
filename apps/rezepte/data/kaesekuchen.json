@@ -60,25 +60,55 @@
  "steps": [
   {
    "text": "Mehl, Zucker, Butter und Ei zu einem Mürbeteig verkneten und kalt stellen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    5,
+    2,
+    9,
+    3
+   ]
   },
   {
-   "text": "Ofen auf 170 °C Ober-/Unterhitze vorheizen. Teig in einer Springform (26 cm) als Boden und 3 cm hohen Rand auslegen."
+   "text": "Ofen auf 170 °C Ober-/Unterhitze vorheizen. Teig in einer Springform (26 cm) als Boden und 3 cm hohen Rand auslegen.",
+   "use": []
   },
   {
-   "text": "Quark, Zucker, Eier, Puddingpulver, Sahne, Butter und Zitronenabrieb glatt rühren."
+   "text": "Quark, Zucker, Eier, Puddingpulver, Sahne, Butter und Zitronenabrieb glatt rühren.",
+   "use": [
+    4,
+    1,
+    5,
+    6,
+    7,
+    8,
+    2,
+    9,
+    10
+   ]
   },
   {
    "text": "Füllung auf den Boden geben und backen.",
-   "minutes": 70
+   "minutes": 70,
+   "use": []
   },
   {
    "text": "Im ausgeschalteten Ofen bei leicht geöffneter Tür abkühlen lassen – so reißt er nicht ein.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 430,
+  "p": 15,
+  "kh": 42,
+  "z": 28,
+  "f": 22,
+  "bs": 1
+ }
 }

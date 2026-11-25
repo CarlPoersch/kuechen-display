@@ -65,34 +65,71 @@
  ],
  "steps": [
   {
-   "text": "Kreuzkümmel in Öl anrösten, bis er duftet."
+   "text": "Kreuzkümmel in Öl anrösten, bis er duftet.",
+   "use": [
+    6,
+    12
+   ]
   },
   {
    "text": "Zwiebel goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Knoblauch, Ingwer, Chili und gemahlene Gewürze 1 Minute mitbraten."
+   "text": "Knoblauch, Ingwer, Chili und gemahlene Gewürze (Kreuzkümmelsamen, Garam Masala, Kurkuma) 1 Minute mitbraten.",
+   "use": [
+    2,
+    3,
+    4,
+    6,
+    7,
+    9
+   ]
   },
   {
    "text": "Tomaten zugeben und einköcheln.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Basmatireis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    13
+   ]
   },
   {
    "text": "Kichererbsen mit 150 ml Wasser zugeben, einige zerdrücken und köcheln lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Zitronensaft und Koriander abschmecken."
+   "text": "Mit Zitronensaft und Koriander abschmecken.",
+   "use": [
+    10,
+    8,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 610,
+  "p": 21,
+  "kh": 101,
+  "z": 6,
+  "f": 11,
+  "bs": 14
+ },
  "gf": true
 }

@@ -41,22 +41,49 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C vorheizen. Tomaten und Knoblauch in eine Form geben, Feta in die Mitte legen."
+   "text": "Ofen auf 200 °C vorheizen. Tomaten und Knoblauch in eine Form geben, Feta in die Mitte legen.",
+   "use": [
+    1,
+    2,
+    0
+   ]
   },
   {
    "text": "Mit Öl, Oregano, Chili, Salz und Pfeffer würzen und backen, bis die Tomaten platzen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    3,
+    4,
+    1
+   ]
   },
   {
    "text": "Nudeln kochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Feta und Tomaten in der Form zerdrücken, Nudeln und Basilikum untermischen."
+   "text": "Feta und Tomaten in der Form zerdrücken, Nudeln und Basilikum untermischen.",
+   "use": [
+    0,
+    1,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 650,
+  "p": 22,
+  "kh": 77,
+  "z": 7,
+  "f": 28,
+  "bs": 5
+ }
 }

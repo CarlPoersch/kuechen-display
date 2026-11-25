@@ -41,24 +41,48 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Eine Form (20 × 20 cm) mit Backpapier auslegen."
+   "text": "Ofen auf 180 °C vorheizen. Eine Form (20 × 20 cm) mit Backpapier auslegen.",
+   "use": []
   },
   {
-   "text": "Schokolade mit Butter schmelzen."
+   "text": "Schokolade mit Butter schmelzen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Zucker und Eier verrühren, Schokobutter einrühren."
+   "text": "Zucker und Eier verrühren, Schokobutter einrühren.",
+   "use": [
+    2,
+    3,
+    1
+   ]
   },
   {
-   "text": "Mehl, Kakao und Salz unterheben, Nüsse zugeben."
+   "text": "Mehl, Kakao und Salz unterheben, Nüsse zugeben.",
+   "use": [
+    4,
+    6,
+    7
+   ]
   },
   {
    "text": "Backen, bis die Oberfläche glänzt, innen aber noch feucht ist. Warum nicht länger: Sonst werden sie trocken statt fudgy.",
-   "minutes": 22
+   "minutes": 22,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 270,
+  "p": 4,
+  "kh": 24,
+  "z": 18,
+  "f": 17,
+  "bs": 2
+ }
 }

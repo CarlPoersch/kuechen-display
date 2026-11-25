@@ -33,25 +33,44 @@
  ],
  "steps": [
   {
-   "text": "Eier mit Dashi, Zucker, Sojasauce und Mirin verquirlen, ohne viel Schaum zu schlagen."
+   "text": "Eier mit Dashi, Zucker, Sojasauce und Mirin verquirlen, ohne viel Schaum zu schlagen.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Eckige Pfanne dünn ölen, ein Viertel der Masse hineingießen und fast stocken lassen.",
-   "minutes": 1
+   "minutes": 1,
+   "use": []
   },
   {
-   "text": "Von einer Seite her aufrollen, Rolle zur Seite schieben, nachölen und die nächste Schicht darunterlaufen lassen."
+   "text": "Von einer Seite her aufrollen, Rolle zur Seite schieben, nachölen und die nächste Schicht darunterlaufen lassen.",
+   "use": []
   },
   {
    "text": "Wiederholen, bis die Masse aufgebraucht ist.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
-   "text": "In ein Tuch wickeln, kurz in Form drücken und in Scheiben schneiden."
+   "text": "In ein Tuch wickeln, kurz in Form drücken und in Scheiben schneiden.",
+   "use": []
   }
  ],
  "cat": "Frühstück",
  "diet": "fisch",
  "level": "mittel",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 220,
+  "p": 15,
+  "kh": 10,
+  "z": 9,
+  "f": 14,
+  "bs": 0
+ }
 }

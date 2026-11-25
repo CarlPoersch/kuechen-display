@@ -46,23 +46,48 @@
  "steps": [
   {
    "text": "Zwiebel und Knoblauch in Öl andünsten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1,
+    2,
+    7
+   ]
   },
   {
    "text": "Tomaten halbieren, mit Oliven und Kapern zugeben, mit Wein ablöschen und köcheln.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Fisch in Stücke schneiden, salzen und in die Sauce legen. Zugedeckt gar ziehen lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Petersilie und Brot oder Reis servieren."
+   "text": "Mit Petersilie und Brot oder Reis servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 280,
+  "p": 29,
+  "kh": 8,
+  "z": 4,
+  "f": 13,
+  "bs": 2
+ },
  "gf": true
 }

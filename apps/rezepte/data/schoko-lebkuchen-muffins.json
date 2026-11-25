@@ -45,21 +45,44 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen und ein Muffinblech mit Förmchen auslegen."
+   "text": "Ofen auf 180 °C vorheizen und ein Muffinblech mit Förmchen auslegen.",
+   "use": []
   },
   {
-   "text": "Mehl, Kakao, Backpulver, Gewürz und Zucker mischen."
+   "text": "Mehl, Kakao, Backpulver, Gewürz und Zucker mischen.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Eier, Öl und Milch verquirlen, kurz unter die trockenen Zutaten rühren und Schokolade unterheben."
+   "text": "Eier, Öl und Milch verquirlen, kurz unter die trockenen Zutaten rühren und Schokolade unterheben.",
+   "use": [
+    5,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Teig in die Förmchen füllen und backen (Stäbchenprobe).",
-   "minutes": 22
+   "minutes": 22,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 260,
+  "p": 5,
+  "kh": 32,
+  "z": 17,
+  "f": 13,
+  "bs": 2
+ }
 }

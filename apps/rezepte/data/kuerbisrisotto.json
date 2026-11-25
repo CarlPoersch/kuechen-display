@@ -45,27 +45,56 @@
  ],
  "steps": [
   {
-   "text": "Kürbis entkernen und mit Schale klein würfeln. Zwiebel fein würfeln."
+   "text": "Kürbis entkernen und mit Schale klein würfeln. Zwiebel fein würfeln.",
+   "use": [
+    0,
+    2
+   ]
   },
   {
    "text": "Zwiebel in Öl glasig dünsten, Reis und Kürbis kurz mitrösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2,
+    7,
+    1,
+    0
+   ]
   },
   {
    "text": "Mit Wein ablöschen, dann nach und nach Brühe angießen und unter Rühren cremig garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Salbei in der Butter knusprig braten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Parmesan unter das Risotto rühren, abschmecken und mit Salbeibutter servieren."
+   "text": "Parmesan unter das Risotto rühren, abschmecken und mit Salbeibutter servieren.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 470,
+  "p": 13,
+  "kh": 71,
+  "z": 6,
+  "f": 14,
+  "bs": 3
+ },
  "gf": true
 }

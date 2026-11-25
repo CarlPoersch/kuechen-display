@@ -42,18 +42,41 @@
  "steps": [
   {
    "text": "Mehl, Milch, Eier, Salz und Zucker glatt rühren und ruhen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "In wenig Butter dünne Pfannkuchen backen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Mit Marmelade bestreichen, einrollen und mit Puderzucker bestäuben."
+   "text": "Mit Marmelade bestreichen, einrollen und mit Puderzucker bestäuben.",
+   "use": [
+    6,
+    4,
+    7
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 490,
+  "p": 14,
+  "kh": 74,
+  "z": 38,
+  "f": 15,
+  "bs": 2
+ }
 }

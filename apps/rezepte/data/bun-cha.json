@@ -72,30 +72,65 @@
  "steps": [
   {
    "text": "Hack mit Fischsauce, Zucker, Schalotten und Knoblauch verkneten und ziehen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    1,
+    5,
+    2,
+    6,
+    3,
+    4
+   ]
   },
   {
-   "text": "Dipsauce verrühren, Karotte und Chili hineingeben."
+   "text": "Dipsauce verrühren, Karotte und Chili hineingeben.",
+   "use": [
+    10,
+    9
+   ]
   },
   {
-   "text": "Aus dem Hack kleine flache Patties formen."
+   "text": "Aus dem Hack kleine flache Patties formen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Im Airfryer bei 200 °C garen, nach der Hälfte wenden, bis sie gebräunt sind. Warum Airfryer: Die heiße Luft gibt ähnliche Röstaromen wie der Holzkohlegrill.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Reisnudeln garen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    11
+   ]
   },
   {
-   "text": "Patties in die Dipsauce legen. Nudeln, Salat und Kräuter dazu: Zum Essen alles in die Sauce tunken."
+   "text": "Patties in die Dipsauce legen. Nudeln, Salat und Kräuter dazu: Zum Essen alles in die Sauce tunken.",
+   "use": [
+    11,
+    12,
+    13,
+    1,
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 850,
+  "p": 36,
+  "kh": 101,
+  "z": 31,
+  "f": 34,
+  "bs": 6
+ },
  "gf": true,
  "airfryer": true
 }

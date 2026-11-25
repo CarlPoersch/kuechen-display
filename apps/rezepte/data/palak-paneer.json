@@ -54,34 +54,68 @@
  "steps": [
   {
    "text": "Spinat 2 Minuten blanchieren, in Eiswasser abschrecken und fein pürieren. Warum Eiswasser: Er bleibt grün.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Basmatireis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    10
+   ]
   },
   {
    "text": "Paneer in 1 EL Ghee goldbraun braten und herausnehmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    9
+   ]
   },
   {
    "text": "Kreuzkümmel im restlichen Ghee anrösten, Zwiebel weich braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6,
+    9,
+    2
+   ]
   },
   {
-   "text": "Knoblauch, Ingwer, Chili und Garam Masala 1 Minute mitbraten."
+   "text": "Knoblauch, Ingwer, Chili und Garam Masala 1 Minute mitbraten.",
+   "use": [
+    3,
+    4,
+    5,
+    7
+   ]
   },
   {
    "text": "Spinatpüree zugeben und 5 Minuten köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
-   "text": "Paneer und Sahne unterrühren, mit Salz abschmecken."
+   "text": "Paneer und Sahne unterrühren, mit Salz abschmecken.",
+   "use": [
+    1,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 830,
+  "p": 32,
+  "kh": 77,
+  "z": 7,
+  "f": 44,
+  "bs": 7
+ },
  "gf": true
 }

@@ -41,24 +41,48 @@
  ],
  "steps": [
   {
-   "text": "Kardamom leicht andrücken. Wasser mit allen Gewürzen aufkochen und ziehen lassen.",
-   "minutes": 5
+   "text": "Kardamom leicht andrücken. Wasser mit allen Gewürzen (Nelken) aufkochen und ziehen lassen.",
+   "minutes": 5,
+   "use": [
+    4,
+    1,
+    5
+   ]
   },
   {
    "text": "Tee zugeben und kurz mitköcheln.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Milch und Zucker zugeben, erhitzen und durch ein Sieb in Tassen gießen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    7
+   ]
   },
   {
-   "text": "Nach Belieben mit Milchschaum und einer Prise Zimt servieren."
+   "text": "Nach Belieben mit Milchschaum und einer Prise Zimt servieren.",
+   "use": [
+    0,
+    3
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 140,
+  "p": 6,
+  "kh": 16,
+  "z": 13,
+  "f": 6,
+  "bs": 1
+ },
  "gf": true
 }

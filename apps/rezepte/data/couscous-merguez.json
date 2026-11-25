@@ -50,25 +50,50 @@
  "steps": [
   {
    "text": "Würstchen in einer Pfanne rundum braten und herausnehmen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Gemüse würfeln und im Bratfett mit Ras el-Hanout anbraten.",
-   "minutes": 8
+   "text": "Gemüse (Zucchini, Paprika, rote Zwiebel) würfeln und im Bratfett mit Ras el-Hanout anbraten.",
+   "minutes": 8,
+   "use": [
+    6,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Abgetropfte Kichererbsen zugeben und warm werden lassen."
+   "text": "Abgetropfte Kichererbsen zugeben und warm werden lassen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Couscous mit kochender Brühe übergießen, quellen lassen und auflockern.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    7
+   ]
   },
   {
-   "text": "Alles mischen, Würstchen daraufsetzen und mit Minze bestreuen."
+   "text": "Alles mischen, Würstchen daraufsetzen und mit Minze bestreuen.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 750,
+  "p": 32,
+  "kh": 63,
+  "z": 5,
+  "f": 40,
+  "bs": 8
+ }
 }

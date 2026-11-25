@@ -33,18 +33,33 @@
  ],
  "steps": [
   {
-   "text": "Mango schälen und vom Stein schneiden."
+   "text": "Mango schälen und vom Stein schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Alles im Mixer cremig pürieren."
+   "text": "Alles im Mixer cremig pürieren.",
+   "use": []
   },
   {
-   "text": "Mit Kardamom bestäubt sofort servieren."
+   "text": "Mit Kardamom bestäubt sofort servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 5,
+ "nutri": {
+  "kcal": 250,
+  "p": 8,
+  "kh": 40,
+  "z": 38,
+  "f": 8,
+  "bs": 2
+ },
  "gf": true
 }

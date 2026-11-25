@@ -50,27 +50,53 @@
  "steps": [
   {
    "text": "Hähnchenschenkel salzen und pfeffern, in Öl auf der Hautseite knusprig braten, wenden und herausnehmen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    9
+   ]
   },
   {
    "text": "Zwiebel, Paprika und Pilze in Streifen schneiden und im Bratfett anbraten, Knoblauch kurz mitbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    2,
+    4
+   ]
   },
   {
    "text": "Mit Rotwein ablöschen und kurz einkochen lassen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Tomaten, Rosmarin und Oliven zugeben, Hähnchen mit der Haut nach oben daraufsetzen und zugedeckt schmoren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    5,
+    7,
+    8
+   ]
   },
   {
-   "text": "Abschmecken – dazu Ciabatta, Polenta oder Pasta."
+   "text": "Abschmecken – dazu Ciabatta, Polenta oder Pasta.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 820,
+  "p": 69,
+  "kh": 12,
+  "z": 7,
+  "f": 53,
+  "bs": 3
+ },
  "gf": true
 }

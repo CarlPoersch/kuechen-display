@@ -53,28 +53,46 @@
  "steps": [
   {
    "text": "Alle Teigzutaten 8 Minuten zu einem weichen Teig kneten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
    "text": "Abgedeckt an einem warmen Ort gehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Teig in 6 Stücke teilen und oval ausrollen (ca. 5 mm)."
+   "text": "Teig in 6 Stücke teilen und oval ausrollen (ca. 5 mm).",
+   "use": []
   },
   {
-   "text": "Eine Pfanne (am besten Gusseisen) ohne Fett sehr heiß werden lassen."
+   "text": "Eine Pfanne (am besten Gusseisen) ohne Fett sehr heiß werden lassen.",
+   "use": []
   },
   {
    "text": "Naan backen, bis Blasen entstehen, wenden und weiterbacken.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
-   "text": "Butter mit Knoblauch schmelzen und die heißen Naan damit bestreichen, mit Koriander bestreuen."
+   "text": "Butter mit Knoblauch schmelzen und die heißen Naan damit bestreichen, mit Koriander bestreuen.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 410,
+  "p": 9,
+  "kh": 57,
+  "z": 3,
+  "f": 16,
+  "bs": 3
+ }
 }

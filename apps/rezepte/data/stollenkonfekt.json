@@ -53,24 +53,54 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Mehl, Backpulver, Quark, Zucker, Butter, Ei und Gewürz zu einem glatten Teig kneten."
+   "text": "Ofen auf 180 °C vorheizen. Mehl, Backpulver, Quark, Zucker, Butter, Ei und Gewürz zu einem glatten Teig kneten.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    9,
+    5,
+    8
+   ]
   },
   {
-   "text": "Rosinen und Mandeln unterkneten."
+   "text": "Rosinen und Mandeln unterkneten.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Teig zu zwei Rollen formen, in 2 cm dicke Stücke schneiden und auf ein Blech setzen."
+   "text": "Teig zu zwei Rollen formen, in 2 cm dicke Stücke schneiden und auf ein Blech setzen.",
+   "use": []
   },
   {
    "text": "Goldgelb backen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
-   "text": "Noch warm mit flüssiger Butter bestreichen und dick in Puderzucker wälzen."
+   "text": "Noch warm mit flüssiger Butter bestreichen und dick in Puderzucker wälzen.",
+   "use": [
+    4,
+    9,
+    3,
+    10
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 80,
+  "p": 2,
+  "kh": 10,
+  "z": 5,
+  "f": 4,
+  "bs": 1
+ }
 }

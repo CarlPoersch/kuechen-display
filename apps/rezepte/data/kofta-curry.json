@@ -60,27 +60,59 @@
  ],
  "steps": [
   {
-   "text": "Hack mit fein geriebener Zwiebel, Garam Masala, Koriander und Salz verkneten und 20 Bällchen formen."
+   "text": "Hack mit fein geriebener Zwiebel, Garam Masala, Koriander und Salz verkneten und 20 Bällchen formen.",
+   "use": [
+    0,
+    1,
+    4,
+    2,
+    3
+   ]
   },
   {
-   "text": "Zwiebel, Knoblauch und Ingwer in Öl goldbraun braten, Gewürze kurz mitrösten.",
-   "minutes": 8
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl goldbraun braten, Gewürze (Garam Masala, Kurkuma, Kreuzkümmel) kurz mitrösten.",
+   "minutes": 8,
+   "use": [
+    1,
+    4,
+    5,
+    6,
+    11,
+    2,
+    9,
+    10
+   ]
   },
   {
    "text": "Tomaten zugeben und köcheln.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Joghurt einrühren, Bällchen einlegen und zugedeckt gar ziehen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Mit Reis oder Naan servieren."
+   "text": "Mit Reis oder Naan servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 480,
+  "p": 25,
+  "kh": 12,
+  "z": 7,
+  "f": 37,
+  "bs": 3
+ },
  "gf": true
 }

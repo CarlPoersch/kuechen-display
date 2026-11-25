@@ -29,31 +29,55 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln in 1 cm dicke Stifte schneiden."
+   "text": "Kartoffeln in 1 cm dicke Stifte schneiden.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "In kaltem Wasser einweichen. Warum: Das spült Stärke aus, die Pommes werden knuspriger statt klebrig.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Gründlich trocken tupfen, mit Stärke bestäuben und mit Öl mischen."
+   "text": "Gründlich trocken tupfen, mit Stärke bestäuben und mit Öl mischen.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Bei 180 °C garen, alle 5 Minuten den Korb schütteln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
    "text": "Auf 200 °C erhöhen und goldbraun knuspern lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
-   "text": "Sofort salzen (und mit Paprika würzen)."
+   "text": "Sofort salzen (und mit Paprika würzen).",
+   "use": [
+    3,
+    4
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegan",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 310,
+  "p": 6,
+  "kh": 56,
+  "z": 2,
+  "f": 6,
+  "bs": 7
+ },
  "gf": true,
  "airfryer": true,
  "tab": "airfryer"

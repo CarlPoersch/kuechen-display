@@ -54,24 +54,56 @@
  "steps": [
   {
    "text": "Reis garen. Auberginen in fingerdicke Stifte schneiden, salzen und 10 Minuten ziehen lassen, trocken tupfen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    10,
+    0
+   ]
   },
   {
    "text": "In Öl portionsweise weich und goldbraun braten. Herausnehmen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Doubanjiang, Knoblauch und Ingwer im Öl anbraten."
+   "text": "Doubanjiang, Knoblauch und Ingwer im Öl anbraten.",
+   "use": [
+    2,
+    3,
+    4,
+    1
+   ]
   },
   {
-   "text": "Essig, Sojasauce, Zucker und 100 ml Wasser mit Stärke verrühren, zugeben und andicken lassen."
+   "text": "Essig, Sojasauce, Zucker und 100 ml Wasser mit Stärke verrühren, zugeben und andicken lassen.",
+   "use": [
+    5,
+    6,
+    7,
+    8
+   ]
   },
   {
-   "text": "Auberginen in der Sauce schwenken, mit Frühlingszwiebeln servieren."
+   "text": "Auberginen in der Sauce schwenken, mit Frühlingszwiebeln servieren.",
+   "use": [
+    0,
+    6,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 670,
+  "p": 13,
+  "kh": 112,
+  "z": 20,
+  "f": 20,
+  "bs": 11
+ }
 }

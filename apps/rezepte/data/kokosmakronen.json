@@ -34,22 +34,43 @@
  "steps": [
   {
    "text": "Ofen auf 150 °C vorheizen. Eiweiß mit Salz steif schlagen, Zucker und Vanillezucker einrieseln lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    3,
+    1,
+    4
+   ]
   },
   {
-   "text": "Kokosraspel vorsichtig unterheben."
+   "text": "Kokosraspel vorsichtig unterheben.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit zwei Teelöffeln kleine Häufchen auf die Oblaten setzen."
+   "text": "Mit zwei Teelöffeln kleine Häufchen auf die Oblaten setzen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Backen, bis sie leicht goldene Spitzen haben.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 70,
+  "p": 1,
+  "kh": 8,
+  "z": 6,
+  "f": 4,
+  "bs": 1
+ },
  "gf": true
 }

@@ -41,21 +41,40 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 160 °C vorheizen."
+   "text": "Ofen auf 160 °C vorheizen.",
+   "use": []
   },
   {
-   "text": "Kokosöl mit Sirup schmelzen, mit Haferflocken, Nüssen, Kernen, Zimt und Salz mischen."
+   "text": "Kokosöl mit Sirup schmelzen, mit Haferflocken, Nüssen, Kernen, Zimt und Salz mischen.",
+   "use": [
+    4,
+    3,
+    0,
+    1,
+    5,
+    6
+   ]
   },
   {
    "text": "Auf einem Blech verteilen und goldbraun backen, nach der Hälfte wenden.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   },
   {
-   "text": "Abkühlen lassen (wird erst dann knusprig) und Trockenfrüchte untermischen. Luftdicht aufbewahren."
+   "text": "Abkühlen lassen (wird erst dann knusprig) und Trockenfrüchte untermischen. Luftdicht aufbewahren.",
+   "use": []
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 350,
+  "p": 9,
+  "kh": 39,
+  "z": 13,
+  "f": 17,
+  "bs": 6
+ }
 }

@@ -58,26 +58,54 @@
  "steps": [
   {
    "text": "Paste in Öl anrösten, Kokosmilch und Brühe zugeben, aufkochen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    11,
+    1,
+    2
+   ]
   },
   {
    "text": "Hähnchen in dünnen Scheiben darin gar ziehen lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
    "text": "Garnelen zugeben, mit Fischsauce, Zucker und Limette abschmecken.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4,
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Reisnudeln nach Packung einweichen und in Schalen verteilen."
+   "text": "Reisnudeln nach Packung einweichen und in Schalen verteilen.",
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Suppe darübergießen und mit Sprossen und Koriander servieren."
+   "text": "Suppe darübergießen und mit Sprossen und Koriander servieren.",
+   "use": [
+    6,
+    10
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 810,
+  "p": 43,
+  "kh": 63,
+  "z": 9,
+  "f": 42,
+  "bs": 3
+ },
  "gf": true
 }

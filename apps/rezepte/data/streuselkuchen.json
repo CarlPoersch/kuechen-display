@@ -56,22 +56,52 @@
  "steps": [
   {
    "text": "Hefe in Milch auflösen, mit Mehl, Zucker, Butter und Ei zu einem Teig kneten. Gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    1,
+    2,
+    0,
+    6,
+    3,
+    7,
+    4,
+    8,
+    5
+   ]
   },
   {
-   "text": "Für die Streusel Mehl, Zucker, Butter und Zimt mit den Fingern zu Bröseln reiben."
+   "text": "Für die Streusel Mehl, Zucker, Butter und Zimt mit den Fingern zu Bröseln reiben.",
+   "use": [
+    0,
+    6,
+    3,
+    7,
+    4,
+    8,
+    9
+   ]
   },
   {
    "text": "Teig auf einem gefetteten Blech ausrollen, Streusel darauf verteilen und nochmals gehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Bei 180 °C goldbraun backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 300,
+  "p": 5,
+  "kh": 42,
+  "z": 14,
+  "f": 12,
+  "bs": 2
+ }
 }

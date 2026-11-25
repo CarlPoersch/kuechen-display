@@ -54,29 +54,63 @@
  "steps": [
   {
    "text": "Hähnchen mit Fischsauce, Kurkuma und der Hälfte des Zitronengrases marinieren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    4,
+    6,
+    10,
+    1
+   ]
   },
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Zucker in der Pfanne mit 1 EL Wasser hell karamellisieren."
+   "text": "Zucker in der Pfanne mit 1 EL Wasser hell karamellisieren.",
+   "use": [
+    5,
+    10
+   ]
   },
   {
-   "text": "Öl, restliches Zitronengras, Knoblauch und Chili zugeben und 1 Minute braten."
+   "text": "Öl, restliches Zitronengras, Knoblauch und Chili zugeben und 1 Minute braten.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Hähnchen und Zwiebel zugeben und braten, bis das Fleisch durch und glasiert ist.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    7,
+    0
+   ]
   },
   {
-   "text": "Mit Koriander und Reis servieren."
+   "text": "Mit Koriander und Reis servieren.",
+   "use": [
+    10,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 30,
+ "nutri": {
+  "kcal": 730,
+  "p": 34,
+  "kh": 75,
+  "z": 11,
+  "f": 31,
+  "bs": 3
+ },
  "gf": true
 }

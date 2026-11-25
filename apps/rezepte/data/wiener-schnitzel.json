@@ -65,28 +65,63 @@
  "steps": [
   {
    "text": "Kartoffeln mit Schale kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Zwiebel fein würfeln, mit Brühe, Essig, Senf, Salz und Pfeffer aufkochen."
+   "text": "Zwiebel fein würfeln, mit Brühe, Essig, Senf, Salz und Pfeffer aufkochen.",
+   "use": [
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Kartoffeln pellen, warm in Scheiben schneiden und mit dem heißen Sud übergießen. Öl unterheben und ziehen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    6,
+    8,
+    11
+   ]
   },
   {
-   "text": "Schnitzel dünn klopfen, salzen, in Mehl, verquirltem Ei und Bröseln wenden. Panade nicht andrücken."
+   "text": "Schnitzel dünn klopfen, salzen, in Mehl, verquirltem Ei und Bröseln wenden. Panade nicht andrücken.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Butterschmalz reichlich erhitzen und die Schnitzel schwimmend ausbacken, dabei die Pfanne schwenken, damit die Panade Wellen schlägt.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    4,
+    0
+   ]
   },
   {
-   "text": "Auf Küchenpapier abtropfen lassen. Mit Zitrone und dem Salat (mit Schnittlauch) servieren."
+   "text": "Auf Küchenpapier abtropfen lassen. Mit Zitrone und dem Salat (mit Schnittlauch) servieren.",
+   "use": [
+    5,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 850,
+  "p": 46,
+  "kh": 78,
+  "z": 6,
+  "f": 39,
+  "bs": 8
+ }
 }

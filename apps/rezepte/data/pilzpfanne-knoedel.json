@@ -38,22 +38,45 @@
  "steps": [
   {
    "text": "Knödel nach Packung zubereiten.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Pilze putzen und schneiden. Portionsweise in Butter scharf anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    2
+   ]
   },
   {
    "text": "Zwiebel zugeben, mit Brühe und Sahne ablöschen und sämig einkochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    4,
+    3
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und viel Petersilie abschmecken und mit den Knödeln servieren."
+   "text": "Mit Salz, Pfeffer und viel Petersilie abschmecken und mit den Knödeln servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 260,
+  "p": 7,
+  "kh": 10,
+  "z": 6,
+  "f": 22,
+  "bs": 2
+ }
 }

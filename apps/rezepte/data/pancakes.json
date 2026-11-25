@@ -45,24 +45,50 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Backpulver, Zucker und Salz mischen."
+   "text": "Mehl, Backpulver, Zucker und Salz mischen.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Buttermilch, Eier und Butter verquirlen und kurz unter das Mehl rühren. Klümpchen sind gut – zu viel Rühren macht sie zäh."
+   "text": "Buttermilch, Eier und Butter verquirlen und kurz unter das Mehl rühren. Klümpchen sind gut – zu viel Rühren macht sie zäh.",
+   "use": [
+    4,
+    5,
+    6,
+    0
+   ]
   },
   {
-   "text": "Pfanne bei mittlerer Hitze leicht fetten, je 3 EL Teig hineingeben."
+   "text": "Pfanne bei mittlerer Hitze leicht fetten, je 3 EL Teig hineingeben.",
+   "use": []
   },
   {
    "text": "Wenden, sobald sich Bläschen bilden, und fertig backen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
-   "text": "Mit Ahornsirup und Heidelbeeren servieren."
+   "text": "Mit Ahornsirup und Heidelbeeren servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 390,
+  "p": 13,
+  "kh": 56,
+  "z": 10,
+  "f": 12,
+  "bs": 4
+ }
 }

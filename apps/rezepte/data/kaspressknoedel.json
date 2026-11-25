@@ -41,22 +41,48 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel fein würfeln und in etwas Butterschmalz glasig dünsten."
+   "text": "Zwiebel fein würfeln und in etwas Butterschmalz glasig dünsten.",
+   "use": [
+    2,
+    6
+   ]
   },
   {
    "text": "Käse grob reiben. Knödelbrot mit Zwiebel, Käse, Eiern, Milch, Schnittlauch, Salz und Pfeffer verkneten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    0,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "8 flache Laibchen formen und in Butterschmalz pro Seite goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "In heißer Brühe servieren oder mit Krautsalat."
+   "text": "In heißer Brühe servieren oder mit Krautsalat.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 520,
+  "p": 23,
+  "kh": 38,
+  "z": 6,
+  "f": 31,
+  "bs": 2
+ }
 }

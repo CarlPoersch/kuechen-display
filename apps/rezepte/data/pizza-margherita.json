@@ -52,41 +52,76 @@
  "steps": [
   {
    "text": "Mehl, Wasser und Hefe vermengen, Salz zugeben und 10 Minuten kneten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
    "text": "Abgedeckt gehen lassen.",
-   "minutes": 120
+   "minutes": 120,
+   "use": []
   },
   {
    "text": "Teig in drei Kugeln teilen und noch einmal ruhen lassen. Warum drei: Eine Pizza muss in den Airfryer-Korb passen (ca. 18 cm).",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
    "text": "Airfryer auf 200 °C vorheizen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
-   "text": "Tomaten mit Salz zerdrücken. Mozzarella abtropfen lassen und zerzupfen."
+   "text": "Tomaten mit Salz zerdrücken. Mozzarella abtropfen lassen und zerzupfen.",
+   "use": [
+    4,
+    3,
+    5,
+    6
+   ]
   },
   {
-   "text": "Eine Kugel auf Backpapier von innen nach außen dünn drücken (ca. 18 cm), Rand dicker lassen."
+   "text": "Eine Kugel auf Backpapier von innen nach außen dünn drücken (ca. 18 cm), Rand dicker lassen.",
+   "use": []
   },
   {
    "text": "Mit Tomaten bestreichen und mit dem Backpapier in den Korb legen. Backen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    4
+   ]
   },
   {
    "text": "Mozzarella belegen und fertig backen. Die übrigen Pizzen genauso.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Basilikum und Olivenöl servieren."
+   "text": "Mit Basilikum und Olivenöl servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "anspruchsvoll",
  "min": 180,
+ "nutri": {
+  "kcal": 900,
+  "p": 35,
+  "kh": 113,
+  "z": 6,
+  "f": 33,
+  "bs": 8
+ },
  "airfryer": true
 }

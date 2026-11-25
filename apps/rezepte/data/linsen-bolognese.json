@@ -50,22 +50,47 @@
  "steps": [
   {
    "text": "Zwiebel, Karotte und Knoblauch fein würfeln und in Öl andünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3,
+    8
+   ]
   },
   {
    "text": "Tomatenmark anrösten, Linsen, Tomaten, Brühe und Oregano zugeben und köcheln, bis die Linsen weich sind.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    4,
+    0,
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Spaghetti kochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Sauce abschmecken und mit den Nudeln servieren."
+   "text": "Sauce abschmecken und mit den Nudeln servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 620,
+  "p": 26,
+  "kh": 107,
+  "z": 14,
+  "f": 9,
+  "bs": 11
+ }
 }

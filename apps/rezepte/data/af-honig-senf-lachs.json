@@ -48,27 +48,52 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Brokkoli mit Öl und Salz mischen und bei 190 °C vorgaren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Glasur verrühren, Lachs damit bestreichen."
+   "text": "Glasur verrühren, Lachs damit bestreichen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Lachs zum Brokkoli in den Korb legen und bei 190 °C garen, bis er innen gerade glasig ist.",
-   "minutes": 9
+   "minutes": 9,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Reis servieren."
+   "text": "Mit Reis servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 710,
+  "p": 41,
+  "kh": 79,
+  "z": 12,
+  "f": 27,
+  "bs": 5
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

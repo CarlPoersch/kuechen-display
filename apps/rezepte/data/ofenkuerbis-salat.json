@@ -45,26 +45,55 @@
  ],
  "steps": [
   {
-   "text": "Backofen auf 200 °C Umluft vorheizen. Kürbis entkernen und in Spalten schneiden (Schale bleibt dran)."
+   "text": "Backofen auf 200 °C Umluft vorheizen. Kürbis entkernen und in Spalten schneiden (Schale bleibt dran).",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit 2 EL Öl, Salz und Chili mischen und im Ofen weich und leicht gebräunt rösten.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Kürbiskerne ohne Fett rösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Restliches Öl, Balsamico, Honig, Salz und Pfeffer verrühren."
+   "text": "Restliches Öl, Balsamico, Honig, Salz und Pfeffer verrühren.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Rucola mit dem Dressing mischen, Kürbis, zerbröselten Feta, Granatapfelkerne und Kürbiskerne darauf verteilen."
+   "text": "Rucola mit dem Dressing mischen, Kürbis, zerbröselten Feta, Granatapfelkerne und Kürbiskerne darauf verteilen.",
+   "use": [
+    1,
+    0,
+    2,
+    4,
+    3
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 370,
+  "p": 13,
+  "kh": 33,
+  "z": 19,
+  "f": 23,
+  "bs": 6
+ },
  "gf": true
 }

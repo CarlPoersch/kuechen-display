@@ -46,22 +46,47 @@
  "steps": [
   {
    "text": "Zwiebel und Ingwer fein hacken und in etwas Öl andünsten, Currypaste kurz mitrösten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Süßkartoffeln würfeln, mit Brühe und Kokosmilch zugeben und weich kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    5,
+    4
+   ]
   },
   {
-   "text": "Pürieren und mit Limettensaft und Salz abschmecken."
+   "text": "Pürieren und mit Limettensaft und Salz abschmecken.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit gehackten Erdnüssen und Koriander servieren."
+   "text": "Mit gehackten Erdnüssen und Koriander servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegan",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 410,
+  "p": 8,
+  "kh": 48,
+  "z": 12,
+  "f": 21,
+  "bs": 7
+ },
  "gf": true
 }

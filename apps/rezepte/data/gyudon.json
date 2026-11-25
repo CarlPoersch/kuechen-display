@@ -46,25 +46,53 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Dashi, Sojasauce, Mirin und Zucker in einer Pfanne aufkochen."
+   "text": "Dashi, Sojasauce, Mirin und Zucker in einer Pfanne aufkochen.",
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Zwiebel darin weich köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Rindfleisch zugeben und nur kurz garen, bis es nicht mehr rosa ist.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Auf Reis verteilen, etwas Sud darübergeben, mit Frühlingszwiebeln und Ingwer servieren."
+   "text": "Auf Reis verteilen, etwas Sud darübergeben, mit Frühlingszwiebeln und Ingwer servieren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 560,
+  "p": 35,
+  "kh": 79,
+  "z": 17,
+  "f": 9,
+  "bs": 2
+ }
 }

@@ -57,33 +57,69 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    10
+   ]
   },
   {
    "text": "Zwiebel, Karotte und Kartoffel würfeln, in etwas Öl 5 Minuten anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Wasser zugeben und köcheln, bis das Gemüse weich ist.",
-   "minutes": 15
+   "text": "Wasser zugeben und köcheln, bis das Gemüse (Zwiebel, Karotte) weich ist.",
+   "minutes": 15,
+   "use": [
+    8,
+    5,
+    6
+   ]
   },
   {
    "text": "Vom Herd nehmen, Currywürfel einrühren, bis sie gelöst sind, dann noch 3 Minuten sanft köcheln.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Hähnchen flach klopfen, in Mehl, verquirltem Ei und Panko wenden."
+   "text": "Hähnchen flach klopfen, in Mehl, verquirltem Ei und Panko wenden.",
+   "use": [
+    2,
+    1,
+    3
+   ]
   },
   {
    "text": "Im heißen Öl (ca. 170 °C) pro Seite 3–4 Minuten goldbraun ausbacken.",
-   "minutes": 7
+   "minutes": 7,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Schnitzel in Streifen schneiden und mit Reis und Currysauce servieren."
+   "text": "Schnitzel in Streifen schneiden und mit Reis und Currysauce servieren.",
+   "use": [
+    10,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 970,
+  "p": 59,
+  "kh": 125,
+  "z": 7,
+  "f": 25,
+  "bs": 7
+ }
 }

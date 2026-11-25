@@ -58,26 +58,57 @@
  "steps": [
   {
    "text": "Kartoffeln schälen, weich kochen und mit Milch und Butter zu Püree stampfen, salzen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Hack scharf anbraten, gewürfelte Zwiebel und Karotten zugeben.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Tomatenmark, Worcestershiresauce, Thymian und Brühe zugeben und sämig einkochen. Erbsen unterrühren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    4,
+    5,
+    7,
+    6,
+    3
+   ]
   },
   {
-   "text": "Ofen auf 200 °C vorheizen. Fleisch in eine Form geben, Püree darauf verstreichen und mit einer Gabel Rillen ziehen."
+   "text": "Ofen auf 200 °C vorheizen. Fleisch in eine Form geben, Püree darauf verstreichen und mit einer Gabel Rillen ziehen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit Cheddar bestreuen und goldbraun backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 800,
+  "p": 36,
+  "kh": 58,
+  "z": 10,
+  "f": 47,
+  "bs": 9
+ }
 }

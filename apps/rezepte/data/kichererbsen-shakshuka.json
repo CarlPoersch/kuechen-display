@@ -46,23 +46,49 @@
  "steps": [
   {
    "text": "Lauch in feine Ringe schneiden und in Öl weich dünsten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    7
+   ]
   },
   {
    "text": "Knoblauch, Kreuzkümmel, Spinat und Erbsen zugeben, bis der Spinat zusammenfällt, salzen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    3,
+    4,
+    1,
+    2
+   ]
   },
   {
    "text": "Mulden formen, Eier hineingeben, zudecken und stocken lassen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Mit Feta und Dill servieren."
+   "text": "Mit Feta und Dill servieren.",
+   "use": [
+    6,
+    8
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 510,
+  "p": 30,
+  "kh": 24,
+  "z": 8,
+  "f": 34,
+  "bs": 9
+ },
  "gf": true
 }

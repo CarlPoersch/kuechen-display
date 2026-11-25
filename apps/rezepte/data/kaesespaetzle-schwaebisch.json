@@ -54,25 +54,55 @@
  "steps": [
   {
    "text": "Zwiebel und Karotte fein würfeln. Speck in einem Topf auslassen, Gemüse zugeben und andünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Mehl darüberstäuben und kurz anschwitzen. Linsen und Brühe zugeben und weich kochen.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    4,
+    0,
+    5
+   ]
   },
   {
-   "text": "Mit Essig, Zucker, Salz und Pfeffer kräftig süß-sauer abschmecken."
+   "text": "Mit Essig, Zucker, Salz und Pfeffer kräftig süß-sauer abschmecken.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
    "text": "Würstchen in den letzten 10 Minuten in den Linsen erhitzen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Spätzle in Butter schwenken und mit Linsen und Würstchen servieren."
+   "text": "Spätzle in Butter schwenken und mit Linsen und Würstchen servieren.",
+   "use": [
+    9,
+    10,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 870,
+  "p": 41,
+  "kh": 82,
+  "z": 9,
+  "f": 41,
+  "bs": 10
+ }
 }

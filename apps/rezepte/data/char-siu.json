@@ -46,25 +46,50 @@
  "steps": [
   {
    "text": "Fleisch in 4 cm dicke Streifen schneiden. Mit allen Zutaten außer dem Glasier-Honig marinieren.",
-   "minutes": 120
+   "minutes": 120,
+   "use": [
+    3,
+    7,
+    0
+   ]
   },
   {
-   "text": "Ofen auf 200 °C vorheizen. Fleisch auf ein Gitter über einem Blech mit etwas Wasser legen."
+   "text": "Ofen auf 200 °C vorheizen. Fleisch auf ein Gitter über einem Blech mit etwas Wasser legen.",
+   "use": [
+    4,
+    0
+   ]
   },
   {
    "text": "Braten, nach der Hälfte wenden und mit Marinade bestreichen.",
-   "minutes": 35
+   "minutes": 35,
+   "use": []
   },
   {
    "text": "Mit Honig bestreichen und unter dem Grill karamellisieren lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    7
+   ]
   },
   {
-   "text": "In Scheiben schneiden und mit Reis servieren."
+   "text": "In Scheiben schneiden und mit Reis servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 750,
+  "p": 43,
+  "kh": 79,
+  "z": 17,
+  "f": 29,
+  "bs": 2
+ }
 }

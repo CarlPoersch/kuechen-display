@@ -41,21 +41,42 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen (nicht vorheizen ist auch möglich – dann 10 Minuten länger)."
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen (nicht vorheizen ist auch möglich – dann 10 Minuten länger).",
+   "use": []
   },
   {
-   "text": "Hefe im Wasser auflösen. Mit Mehl, Essig, Salz, Kernen und Leinsamen zu einem klebrigen Teig verrühren. Kneten ist nicht nötig."
+   "text": "Hefe im Wasser auflösen. Mit Mehl, Essig, Salz, Kernen und Leinsamen zu einem klebrigen Teig verrühren. Kneten ist nicht nötig.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
   },
   {
-   "text": "In eine gefettete Kastenform füllen, mit Haferflocken bestreuen und mit Wasser besprühen."
+   "text": "In eine gefettete Kastenform füllen, mit Haferflocken bestreuen und mit Wasser besprühen.",
+   "use": [
+    7,
+    2
+   ]
   },
   {
    "text": "Backen, bis das Brot beim Klopfen auf den Boden hohl klingt.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegan",
  "level": "einfach",
- "min": 80
+ "min": 80,
+ "nutri": {
+  "kcal": 220,
+  "p": 9,
+  "kh": 28,
+  "z": 1,
+  "f": 7,
+  "bs": 6
+ }
 }

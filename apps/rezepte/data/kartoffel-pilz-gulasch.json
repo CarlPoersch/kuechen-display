@@ -50,26 +50,52 @@
  "steps": [
   {
    "text": "Zwiebeln würfeln und in Öl goldbraun dünsten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    8
+   ]
   },
   {
    "text": "Pilze vierteln, dazugeben und anbraten, bis die Flüssigkeit verdampft ist.",
-   "minutes": 6
+   "minutes": 6,
+   "use": []
   },
   {
-   "text": "Paprikapulver und Tomatenmark einrühren, mit Brühe ablöschen."
+   "text": "Paprikapulver und Tomatenmark einrühren, mit Brühe ablöschen.",
+   "use": [
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Kartoffeln würfeln, mit Kümmel und Majoran zugeben und köcheln, bis sie weich sind und die Sauce bindet.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0,
+    6,
+    7
+   ]
   },
   {
-   "text": "Salzen, pfeffern und mit einem Klecks Schmand servieren."
+   "text": "Salzen, pfeffern und mit einem Klecks Schmand servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 280,
+  "p": 10,
+  "kh": 46,
+  "z": 7,
+  "f": 8,
+  "bs": 8
+ },
  "gf": true
 }

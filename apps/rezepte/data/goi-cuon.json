@@ -57,27 +57,58 @@
  "steps": [
   {
    "text": "Reisnudeln mit kochendem Wasser übergießen und ziehen lassen, dann abgießen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    9
+   ]
   },
   {
-   "text": "Garnelen längs halbieren, Gurke in Stifte schneiden."
+   "text": "Garnelen längs halbieren, Gurke in Stifte schneiden.",
+   "use": [
+    1,
+    6
+   ]
   },
   {
-   "text": "Reispapier kurz durch lauwarmes Wasser ziehen und auf ein feuchtes Brett legen."
+   "text": "Reispapier kurz durch lauwarmes Wasser ziehen und auf ein feuchtes Brett legen.",
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Salat, Nudeln, Gurke und Kräuter auf das untere Drittel legen, 3 Garnelenhälften darüber."
+   "text": "Salat, Nudeln, Gurke und Kräuter (Minze, Koriander) auf das untere Drittel legen, 3 Garnelenhälften darüber.",
+   "use": [
+    3,
+    2,
+    6,
+    1,
+    4,
+    5
+   ]
   },
   {
-   "text": "Seiten einschlagen und straff aufrollen."
+   "text": "Seiten einschlagen und straff aufrollen.",
+   "use": []
   },
   {
-   "text": "Dip verrühren und mit Erdnüssen bestreuen."
+   "text": "Dip verrühren und mit Erdnüssen bestreuen.",
+   "use": [
+    10
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "fisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 470,
+  "p": 27,
+  "kh": 73,
+  "z": 12,
+  "f": 9,
+  "bs": 6
+ },
  "gf": true
 }

@@ -62,35 +62,72 @@
  "steps": [
   {
    "text": "Hähnchen in Olivenöl in der Paellapfanne rundum anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    11,
+    0
+   ]
   },
   {
    "text": "Zwiebel, Paprika, Bohnen und Knoblauch zugeben und weich braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4,
+    8,
+    7,
+    5
+   ]
   },
   {
    "text": "Tomate und Paprikapulver zugeben und einkochen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6,
+    4,
+    8
+   ]
   },
   {
-   "text": "Reis einstreuen, kurz verrühren, dann heiße Brühe mit Safran angießen. Ab jetzt nicht mehr rühren."
+   "text": "Reis einstreuen, kurz verrühren, dann heiße Brühe mit Safran angießen. Ab jetzt nicht mehr rühren.",
+   "use": [
+    0,
+    10,
+    9
+   ]
   },
   {
    "text": "Bei mittlerer Hitze köcheln lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Garnelen auf den Reis drücken und weitergaren, bis die Flüssigkeit aufgesogen ist und sich am Boden eine Kruste bildet.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    0
+   ]
   },
   {
    "text": "Mit einem Tuch abgedeckt ruhen lassen und mit Zitrone servieren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 60,
+ "nutri": {
+  "kcal": 610,
+  "p": 31,
+  "kh": 70,
+  "z": 6,
+  "f": 23,
+  "bs": 4
+ },
  "gf": true
 }

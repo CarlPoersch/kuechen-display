@@ -37,18 +37,39 @@
  ],
  "steps": [
   {
-   "text": "Rote Bete und Apfel würfeln, Zwiebel fein würfeln."
+   "text": "Rote Bete und Apfel würfeln, Zwiebel fein würfeln.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Essig, Öl, Meerrettich, Salz und Pfeffer verrühren."
+   "text": "Essig, Öl, Meerrettich, Salz und Pfeffer verrühren.",
+   "use": [
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Alles mischen und mit Petersilie bestreuen."
+   "text": "Alles mischen und mit Petersilie bestreuen.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegan",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 170,
+  "p": 2,
+  "kh": 21,
+  "z": 14,
+  "f": 9,
+  "bs": 5
+ },
  "gf": true
 }

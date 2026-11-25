@@ -45,30 +45,58 @@
  ],
  "steps": [
   {
-   "text": "Zwiebeln in feine Ringe schneiden."
+   "text": "Zwiebeln in feine Ringe schneiden.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "In Butter mit dem Zucker bei mittlerer Hitze langsam tief goldbraun karamellisieren, regelmäßig rühren.",
-   "minutes": 40
+   "minutes": 40,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Mehl darüberstäuben und kurz anschwitzen, mit Wein ablöschen."
+   "text": "Mehl darüberstäuben und kurz anschwitzen, mit Wein ablöschen.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Brühe und Thymian zugeben und köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5,
+    6
+   ]
   },
   {
    "text": "Baguettescheiben mit Käse belegen und im Airfryer bei 200 °C überbacken, bis der Käse blubbert.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Suppe in Schalen füllen und die Käsebrote darauflegen."
+   "text": "Suppe in Schalen füllen und die Käsebrote darauflegen.",
+   "use": []
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 75,
+ "nutri": {
+  "kcal": 480,
+  "p": 18,
+  "kh": 44,
+  "z": 15,
+  "f": 24,
+  "bs": 5
+ },
  "airfryer": true
 }

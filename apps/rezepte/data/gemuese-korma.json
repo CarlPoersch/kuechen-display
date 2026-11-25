@@ -58,31 +58,62 @@
  "steps": [
   {
    "text": "Cashews 15 Minuten in heißem Wasser einweichen und mit wenig Wasser fein pürieren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Kardamom im Ghee anrösten, Zwiebel weich braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    9,
+    10,
+    1
+   ]
   },
   {
-   "text": "Knoblauch, Ingwer und Gewürze 1 Minute mitbraten."
+   "text": "Knoblauch, Ingwer und Gewürze (Garam Masala, Kurkuma, Kardamomkapseln) 1 Minute mitbraten.",
+   "use": [
+    2,
+    3,
+    7,
+    8,
+    9
+   ]
   },
   {
    "text": "Gemüse und 200 ml Wasser zugeben und zugedeckt bissfest garen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Basmatireis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    11
+   ]
   },
   {
    "text": "Cashewpaste, Kokosmilch und Joghurt einrühren und 5 Minuten sanft köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 610,
+  "p": 14,
+  "kh": 81,
+  "z": 9,
+  "f": 24,
+  "bs": 7
+ },
  "gf": true
 }

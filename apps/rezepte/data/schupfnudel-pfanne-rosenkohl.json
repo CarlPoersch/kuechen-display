@@ -38,23 +38,47 @@
  "steps": [
   {
    "text": "Rosenkohl halbieren und in Salzwasser bissfest kochen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Speck und Zwiebel in Butterschmalz anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    3,
+    5
+   ]
   },
   {
    "text": "Schupfnudeln zugeben und goldbraun braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Rosenkohl und Sahne unterrühren, kurz einkochen und mit Muskat und Pfeffer würzen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1,
+    4,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 610,
+  "p": 16,
+  "kh": 71,
+  "z": 6,
+  "f": 29,
+  "bs": 9
+ }
 }

@@ -45,29 +45,56 @@
  ],
  "steps": [
   {
-   "text": "Hefe in der Milch mit 1 TL Zucker auflösen."
+   "text": "Hefe in der Milch mit 1 TL Zucker auflösen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Mit Mehl, restlichem Zucker, Butter, Eiern und Salz zu einem glatten, weichen Teig kneten und gehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    0,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Teig in 12 Stücke teilen, zu Kugeln formen und nochmals gehen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Fett auf 170 °C erhitzen. Kugeln mit bemehlten Händen von der Mitte aus dünn ausziehen, der Rand bleibt dick."
+   "text": "Fett auf 170 °C erhitzen. Kugeln mit bemehlten Händen von der Mitte aus dünn ausziehen, der Rand bleibt dick.",
+   "use": []
   },
   {
    "text": "Nacheinander ausbacken, einmal wenden – die Mitte bleibt hell.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
-   "text": "Abtropfen lassen und mit Puderzucker bestäuben."
+   "text": "Abtropfen lassen und mit Puderzucker bestäuben.",
+   "use": [
+    3,
+    8
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "anspruchsvoll",
- "min": 120
+ "min": 120,
+ "nutri": {
+  "kcal": 270,
+  "p": 6,
+  "kh": 36,
+  "z": 6,
+  "f": 11,
+  "bs": 2
+ }
 }

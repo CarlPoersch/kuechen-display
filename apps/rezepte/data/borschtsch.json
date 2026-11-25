@@ -54,27 +54,59 @@
  "steps": [
   {
    "text": "Fleisch mit 2 l Wasser aufkochen, abschäumen und köcheln.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Rote Bete und Karotte raspeln, Zwiebel würfeln und mit Tomatenmark und Essig in Öl anschwitzen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Fleisch herausnehmen und würfeln. Kartoffeln und Kohl in der Brühe garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    3,
+    2
+   ]
   },
   {
    "text": "Rote-Bete-Gemüse und Fleisch zugeben, mit Knoblauch, Salz und Pfeffer abschmecken.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    0,
+    8
+   ]
   },
   {
-   "text": "Mit Dill und saurer Sahne servieren."
+   "text": "Mit Dill und saurer Sahne servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 90,
+ "nutri": {
+  "kcal": 290,
+  "p": 23,
+  "kh": 31,
+  "z": 12,
+  "f": 9,
+  "bs": 7
+ },
  "gf": true
 }

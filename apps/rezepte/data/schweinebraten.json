@@ -45,35 +45,73 @@
  ],
  "steps": [
   {
-   "text": "Schwarte rautenförmig einschneiden, ohne ins Fleisch zu schneiden."
+   "text": "Schwarte rautenförmig einschneiden, ohne ins Fleisch zu schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Fleisch rundum mit Salz, Pfeffer und Kümmel einreiben."
+   "text": "Fleisch rundum mit Salz, Pfeffer und Kümmel einreiben.",
+   "use": [
+    0,
+    4,
+    3
+   ]
   },
   {
    "text": "Mit der Schwarte nach unten in die Form legen, 100 ml Wasser angießen und im Airfryer bei 160 °C garen. Warum Schwarte nach unten: Sie weicht auf und poppt später besser auf.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0,
+    8
+   ]
   },
   {
    "text": "Wenden, die Schwarte kräftig mit grobem Salz einreiben und bei 160 °C weitergaren, bis das Fleisch innen ca. 75 °C hat.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0,
+    4
+   ]
   },
   {
    "text": "Währenddessen die Sauce im Topf ansetzen: Zwiebeln und Karotten grob gewürfelt anrösten, mit Bier und Brühe ablöschen und köcheln lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    1,
+    2,
+    0,
+    5,
+    6
+   ]
   },
   {
    "text": "Für die Kruste auf 200 °C stellen, bis die Schwarte aufpoppt. Nicht aus den Augen lassen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Bratensaft aus der Form zur Sauce geben, abseihen und leicht binden. Braten kurz ruhen lassen. Mit Knödeln und Krautsalat servieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    8,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
  "min": 120,
+ "nutri": {
+  "kcal": 710,
+  "p": 66,
+  "kh": 18,
+  "z": 6,
+  "f": 41,
+  "bs": 3
+ },
  "airfryer": true
 }

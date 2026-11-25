@@ -41,24 +41,52 @@
  ],
  "steps": [
   {
-   "text": "Muscheln waschen, Bärte entfernen. Geöffnete, die sich beim Antippen nicht schließen, wegwerfen."
+   "text": "Muscheln waschen, Bärte entfernen. Geöffnete, die sich beim Antippen nicht schließen, wegwerfen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Schalotten und Knoblauch in Butter glasig dünsten, mit Wein ablöschen und aufkochen."
+   "text": "Schalotten und Knoblauch in Butter glasig dünsten, mit Wein ablöschen und aufkochen.",
+   "use": [
+    1,
+    2,
+    4,
+    3
+   ]
   },
   {
    "text": "Muscheln zugeben und zugedeckt garen, bis sie sich öffnen, dabei einmal schütteln.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Sahne und Petersilie zugeben. Geschlossene Muscheln aussortieren."
+   "text": "Sahne und Petersilie zugeben. Geschlossene Muscheln aussortieren.",
+   "use": [
+    5,
+    6,
+    0
+   ]
   },
   {
-   "text": "Mit Baguette servieren."
+   "text": "Mit Baguette servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 880,
+  "p": 43,
+  "kh": 84,
+  "z": 9,
+  "f": 34,
+  "bs": 5
+ }
 }

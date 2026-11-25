@@ -38,25 +38,50 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C vorheizen. Blumenkohl in Röschen teilen und in Salzwasser bissfest garen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Butter schmelzen, Mehl anschwitzen, Milch einrühren und andicken lassen. Mit Salz, Pfeffer und Muskat würzen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
-   "text": "Die Hälfte des Käses einrühren."
+   "text": "Die Hälfte des Käses einrühren.",
+   "use": []
   },
   {
-   "text": "Blumenkohl in eine Form geben, Sauce darübergießen, mit restlichem Käse und Paniermehl bestreuen."
+   "text": "Blumenkohl in eine Form geben, Sauce darübergießen, mit restlichem Käse und Paniermehl bestreuen.",
+   "use": [
+    0,
+    4,
+    2,
+    6
+   ]
   },
   {
    "text": "Goldbraun überbacken.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 310,
+  "p": 15,
+  "kh": 23,
+  "z": 9,
+  "f": 18,
+  "bs": 4
+ }
 }

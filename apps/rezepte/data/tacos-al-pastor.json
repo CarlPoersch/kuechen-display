@@ -68,29 +68,63 @@
  "steps": [
   {
    "text": "Chilis entkernen, 10 Minuten in heißem Wasser einweichen und mit den übrigen Marinadezutaten pürieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Fleisch mit der Marinade mischen und kühl ziehen lassen (gern über Nacht).",
-   "minutes": 120
+   "minutes": 120,
+   "use": [
+    10,
+    0
+   ]
   },
   {
    "text": "Fleisch in einer sehr heißen Pfanne portionsweise scharf anbraten, bis die Ränder karamellisieren.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Ananas kurz in derselben Pfanne anrösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Fleisch klein schneiden, Tortillas in einer trockenen Pfanne erwärmen."
+   "text": "Fleisch klein schneiden, Tortillas in einer trockenen Pfanne erwärmen.",
+   "use": [
+    7,
+    0
+   ]
   },
   {
-   "text": "Tortillas mit Fleisch, Ananas, Zwiebel, Koriander und Salsa belegen, mit Limette servieren."
+   "text": "Tortillas mit Fleisch, Ananas, Zwiebel, Koriander und Salsa belegen, mit Limette servieren.",
+   "use": [
+    7,
+    8,
+    9,
+    10,
+    12,
+    11,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 560,
+  "p": 33,
+  "kh": 54,
+  "z": 10,
+  "f": 24,
+  "bs": 7
+ }
 }

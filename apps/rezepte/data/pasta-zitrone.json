@@ -30,23 +30,47 @@
  "steps": [
   {
    "text": "Spaghetti kochen, 1 Tasse Nudelwasser aufheben.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Zitronenschale abreiben, Saft auspressen."
+   "text": "Zitronenschale abreiben, Saft auspressen.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Butter in einer Pfanne schmelzen, Zitronenabrieb und die Hälfte des Safts zugeben."
+   "text": "Butter in einer Pfanne schmelzen, Zitronenabrieb und die Hälfte des Safts zugeben.",
+   "use": [
+    2,
+    1
+   ]
   },
   {
-   "text": "Nudeln mit Nudelwasser und Parmesan zugeben und schwenken, bis eine cremige Sauce entsteht."
+   "text": "Nudeln mit Nudelwasser und Parmesan zugeben und schwenken, bis eine cremige Sauce entsteht.",
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Mit restlichem Saft, Pfeffer und Basilikum abschmecken."
+   "text": "Mit restlichem Saft, Pfeffer und Basilikum abschmecken.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 550,
+  "p": 19,
+  "kh": 73,
+  "z": 4,
+  "f": 20,
+  "bs": 3
+ }
 }

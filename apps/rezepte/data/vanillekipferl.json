@@ -44,25 +44,51 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Butter in Stücken, Mandeln, Zucker, Eigelb und Salz rasch zu einem glatten Teig verkneten."
+   "text": "Mehl, Butter in Stücken, Mandeln, Zucker, Eigelb und Salz rasch zu einem glatten Teig verkneten.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Teig in Folie wickeln und kalt stellen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Teig zu fingerdicken Rollen formen, 5 cm lange Stücke abschneiden und zu Hörnchen biegen."
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Teig zu fingerdicken Rollen formen, 5 cm lange Stücke abschneiden und zu Hörnchen biegen.",
+   "use": []
   },
   {
    "text": "Auf Backpapier hell backen – die Spitzen dürfen kaum Farbe nehmen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Puderzucker und Vanillezucker mischen und die Kipferl noch warm darin wälzen."
+   "text": "Puderzucker und Vanillezucker mischen und die Kipferl noch warm darin wälzen.",
+   "use": [
+    3,
+    6,
+    7
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 60,
+  "p": 1,
+  "kh": 6,
+  "z": 3,
+  "f": 4,
+  "bs": 0
+ }
 }

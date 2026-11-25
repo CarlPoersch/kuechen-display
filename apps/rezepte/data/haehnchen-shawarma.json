@@ -60,23 +60,38 @@
  "steps": [
   {
    "text": "Marinadezutaten verrühren, Hähnchen darin mindestens 1 Stunde ziehen lassen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
    "text": "Hähnchen locker in den Airfryer-Korb legen (nicht stapeln, sonst wird es nicht knusprig) und bei 200 °C garen, nach der Hälfte wenden. Bei Bedarf in zwei Durchgängen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Kurz ruhen lassen und in dünne Streifen schneiden.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
-   "text": "In warmen Fladenbroten mit Salat, Gurken und Knoblauchsauce servieren."
+   "text": "In warmen Fladenbroten mit Salat, Gurken und Knoblauchsauce servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 750,
+  "p": 48,
+  "kh": 67,
+  "z": 4,
+  "f": 30,
+  "bs": 4
+ },
  "airfryer": true
 }

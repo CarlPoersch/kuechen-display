@@ -64,24 +64,56 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 175 °C Ober-/Unterhitze vorheizen."
+   "text": "Ofen auf 175 °C Ober-/Unterhitze vorheizen.",
+   "use": []
   },
   {
-   "text": "Mehl und Backpulver mischen. Quark, Zucker, Butter, Eier, Vanillezucker und Zitronenabrieb zugeben und verkneten."
+   "text": "Mehl und Backpulver mischen. Quark, Zucker, Butter, Eier, Vanillezucker und Zitronenabrieb zugeben und verkneten.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    11,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Rosinen, Mandeln und Orangeat unterkneten und zu einem Stollen formen."
+   "text": "Rosinen, Mandeln und Orangeat unterkneten und zu einem Stollen formen.",
+   "use": [
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Auf Backpapier backen; nach 30 Minuten eventuell mit Alufolie abdecken.",
-   "minutes": 55
+   "minutes": 55,
+   "use": []
   },
   {
-   "text": "Noch heiß mit flüssiger Butter bestreichen und dick mit Puderzucker bestäuben. Hält luftdicht verpackt etwa 2 Wochen."
+   "text": "Noch heiß mit flüssiger Butter bestreichen und dick mit Puderzucker bestäuben. Hält luftdicht verpackt etwa 2 Wochen.",
+   "use": [
+    11,
+    4,
+    3,
+    12
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 400,
+  "p": 8,
+  "kh": 50,
+  "z": 25,
+  "f": 19,
+  "bs": 2
+ }
 }

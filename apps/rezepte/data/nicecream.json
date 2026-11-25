@@ -25,18 +25,36 @@
  ],
  "steps": [
   {
-   "text": "Bananen in Scheiben schneiden und mindestens 4 Stunden einfrieren."
+   "text": "Bananen in Scheiben schneiden und mindestens 4 Stunden einfrieren.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Gefrorene Bananen mit Kakao und Haferdrink im Mixer cremig pürieren, zwischendurch abschaben."
+   "text": "Gefrorene Bananen mit Kakao und Haferdrink im Mixer cremig pürieren, zwischendurch abschaben.",
+   "use": [
+    0,
+    2
+   ]
   },
   {
    "text": "Erdnussbutter kurz unterziehen und sofort essen oder 30 Minuten nachfrieren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    3
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegan",
  "level": "einfach",
- "min": 5
+ "min": 5,
+ "nutri": {
+  "kcal": 230,
+  "p": 5,
+  "kh": 44,
+  "z": 23,
+  "f": 6,
+  "bs": 6
+ }
 }

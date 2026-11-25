@@ -58,21 +58,50 @@
  "steps": [
   {
    "text": "Hähnchen in Stücke schneiden und mit Gochujang, Gochugaru, Sojasauce, Zucker und Knoblauch marinieren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Kohl, Süßkartoffel und Zwiebel in mundgerechte Stücke schneiden."
+   "text": "Kohl, Süßkartoffel und Zwiebel in mundgerechte Stücke schneiden.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Alles in einer großen Pfanne mit Öl unter Rühren garen, bis Fleisch und Süßkartoffel durch sind.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    11,
+    7,
+    0
+   ]
   },
   {
-   "text": "Frühlingszwiebeln unterheben, nach Wunsch Mozzarella darauf schmelzen lassen."
+   "text": "Frühlingszwiebeln unterheben, nach Wunsch Mozzarella darauf schmelzen lassen.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 450,
+  "p": 28,
+  "kh": 35,
+  "z": 14,
+  "f": 22,
+  "bs": 5
+ }
 }

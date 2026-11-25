@@ -42,19 +42,45 @@
  "steps": [
   {
    "text": "Milch mit Zucker, Vanillezucker und Salz aufkochen, Reis einrühren und bei kleinster Hitze quellen lassen; ab und zu rühren.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    1,
+    2,
+    6,
+    3,
+    4,
+    0
+   ]
   },
   {
    "text": "Ofen auf 200 °C vorheizen. Pflaumen halbieren, mit braunem Zucker und Zimt mischen und in einer Form backen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    5,
+    2,
+    6,
+    7
+   ]
   },
   {
-   "text": "Milchreis mit den warmen Pflaumen servieren."
+   "text": "Milchreis mit den warmen Pflaumen servieren.",
+   "use": [
+    0,
+    5
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 490,
+  "p": 13,
+  "kh": 90,
+  "z": 49,
+  "f": 9,
+  "bs": 3
+ },
  "gf": true
 }

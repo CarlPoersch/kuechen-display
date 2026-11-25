@@ -37,24 +37,46 @@
  ],
  "steps": [
   {
-   "text": "Ofengrill vorheizen. Gemüse würfeln und in einer ofenfesten Pfanne in Öl weich braten.",
-   "minutes": 8
+   "text": "Ofengrill vorheizen. Gemüse (Zucchini, rote Paprikaschote, Zwiebel) würfeln und in einer ofenfesten Pfanne in Öl weich braten.",
+   "minutes": 8,
+   "use": [
+    6,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Spinat zugeben und zusammenfallen lassen."
+   "text": "Spinat zugeben und zusammenfallen lassen.",
+   "use": [
+    4
+   ]
   },
   {
    "text": "Eier mit Parmesan, Salz und Pfeffer verquirlen und darübergießen. Bei kleiner Hitze stocken lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    5
+   ]
   },
   {
    "text": "Unter dem Grill die Oberseite fest werden lassen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 320,
+  "p": 22,
+  "kh": 8,
+  "z": 5,
+  "f": 22,
+  "bs": 2
+ },
  "gf": true
 }

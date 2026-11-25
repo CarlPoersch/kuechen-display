@@ -45,26 +45,54 @@
  ],
  "steps": [
   {
-   "text": "Kürbis waschen, entkernen und mit Schale würfeln. Hokkaido muss nicht geschält werden."
+   "text": "Kürbis waschen, entkernen und mit Schale würfeln. Hokkaido muss nicht geschält werden.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel und Ingwer würfeln und in Butter andünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Kürbis zugeben, mit Brühe aufgießen und weich kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    4
+   ]
   },
   {
-   "text": "Kokosmilch zugeben und fein pürieren. Mit Salz, Pfeffer und Muskat abschmecken."
+   "text": "Kokosmilch zugeben und fein pürieren. Mit Salz, Pfeffer und Muskat abschmecken.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Kürbiskerne ohne Fett rösten und mit Kernöl über die Suppe geben."
+   "text": "Kürbiskerne ohne Fett rösten und mit Kernöl über die Suppe geben.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 260,
+  "p": 6,
+  "kh": 22,
+  "z": 10,
+  "f": 18,
+  "bs": 3
+ },
  "gf": true
 }

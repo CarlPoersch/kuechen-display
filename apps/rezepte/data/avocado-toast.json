@@ -33,21 +33,44 @@
  ],
  "steps": [
   {
-   "text": "Brot rösten."
+   "text": "Brot rösten.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Avocado mit Zitronensaft, Salz und Pfeffer zerdrücken."
+   "text": "Avocado mit Zitronensaft, Salz und Pfeffer zerdrücken.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Eier als Spiegeleier braten oder 7 Minuten kochen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Brot mit Avocado bestreichen, Ei darauflegen und mit Chili und Kresse bestreuen."
+   "text": "Brot mit Avocado bestreichen, Ei darauflegen und mit Chili und Kresse bestreuen.",
+   "use": [
+    0,
+    1,
+    5
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 310,
+  "p": 12,
+  "kh": 27,
+  "z": 2,
+  "f": 18,
+  "bs": 7
+ }
 }

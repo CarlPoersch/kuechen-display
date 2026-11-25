@@ -41,22 +41,45 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 220 °C vorheizen. Blumenkohl in 2 cm dicke Scheiben schneiden."
+   "text": "Ofen auf 220 °C vorheizen. Blumenkohl in 2 cm dicke Scheiben schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Öl, Gewürzen und Salz bestreichen und auf einem Blech backen, nach der Hälfte wenden.",
-   "minutes": 30
+   "text": "Mit Öl, Gewürzen (Kreuzkümmel, Paprika geräuchert) und Salz bestreichen und auf einem Blech backen, nach der Hälfte wenden.",
+   "minutes": 30,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Tahin mit Zitronensaft, Salz und Wasser cremig rühren."
+   "text": "Tahin mit Zitronensaft, Salz und Wasser cremig rühren.",
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Steaks mit Sauce, Petersilie und Granatapfel servieren."
+   "text": "Steaks mit Sauce, Petersilie und Granatapfel servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 370,
+  "p": 11,
+  "kh": 29,
+  "z": 10,
+  "f": 28,
+  "bs": 11
+ },
  "gf": true
 }

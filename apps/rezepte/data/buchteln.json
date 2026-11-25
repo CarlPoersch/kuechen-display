@@ -50,25 +50,46 @@
  "steps": [
   {
    "text": "Hefeteig kneten und gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": []
   },
   {
-   "text": "In 12 Stücke teilen, flach drücken, mit Pflaumenmus füllen und zu Kugeln verschließen."
+   "text": "In 12 Stücke teilen, flach drücken, mit Pflaumenmus füllen und zu Kugeln verschließen.",
+   "use": [
+    7
+   ]
   },
   {
    "text": "In flüssige Butter tauchen und dicht an dicht in eine Form setzen. Nochmals gehen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    4,
+    8
+   ]
   },
   {
    "text": "Bei 180 °C goldbraun backen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
-   "text": "Mit Puderzucker bestäuben und mit Vanillesauce servieren."
+   "text": "Mit Puderzucker bestäuben und mit Vanillesauce servieren.",
+   "use": [
+    3,
+    9
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 105
+ "min": 105,
+ "nutri": {
+  "kcal": 300,
+  "p": 6,
+  "kh": 44,
+  "z": 14,
+  "f": 11,
+  "bs": 2
+ }
 }

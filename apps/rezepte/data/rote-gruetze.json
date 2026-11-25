@@ -49,23 +49,50 @@
  "steps": [
   {
    "text": "Saft mit Zucker aufkochen, Stärke mit etwas Wasser anrühren und einrühren. Beeren zugeben und kurz aufkochen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    1,
+    2,
+    7,
+    3,
+    8,
+    0
+   ]
   },
   {
    "text": "Abkühlen lassen und kalt stellen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Milch mit Vanilleschote aufkochen. Eigelb, Zucker und Stärke verquirlen, heiße Milch langsam einrühren."
+   "text": "Milch mit Vanilleschote aufkochen. Eigelb, Zucker und Stärke verquirlen, heiße Milch langsam einrühren.",
+   "use": [
+    4,
+    5,
+    6,
+    2,
+    7,
+    3,
+    8
+   ]
   },
   {
    "text": "Zurück in den Topf geben und unter Rühren erhitzen, bis die Sauce bindet – nicht kochen lassen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": []
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 310,
+  "p": 6,
+  "kh": 56,
+  "z": 45,
+  "f": 7,
+  "bs": 5
+ },
  "gf": true
 }

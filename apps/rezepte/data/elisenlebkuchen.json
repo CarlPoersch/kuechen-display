@@ -50,25 +50,54 @@
  "steps": [
   {
    "text": "Eier mit Zucker sehr schaumig schlagen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Nüsse, Mandeln, Orangeat, Zitronat, Gewürz und Salz unterheben."
+   "text": "Nüsse, Mandeln, Orangeat, Zitronat, Gewürz und Salz unterheben.",
+   "use": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Masse kuppelförmig auf die Oblaten streichen und auf ein Blech setzen. Antrocknen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Bei 160 °C Ober-/Unterhitze backen – innen sollen sie saftig bleiben.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Kuvertüre schmelzen und die abgekühlten Lebkuchen damit überziehen."
+   "text": "Kuvertüre schmelzen und die abgekühlten Lebkuchen damit überziehen.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 250,
+  "p": 5,
+  "kh": 22,
+  "z": 20,
+  "f": 15,
+  "bs": 3
+ }
 }

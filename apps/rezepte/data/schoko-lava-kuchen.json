@@ -37,26 +37,53 @@
  ],
  "steps": [
   {
-   "text": "Backofen auf 220 °C vorheizen, vier Förmchen buttern und mit Kakao oder Mehl ausstreuen."
+   "text": "Backofen auf 220 °C vorheizen, vier Förmchen buttern und mit Kakao oder Mehl ausstreuen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Schokolade und Butter über dem Wasserbad schmelzen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Eier, Eigelb und Zucker hell aufschlagen, Schokolade unterrühren und Mehl unterheben."
+   "text": "Eier, Eigelb und Zucker hell aufschlagen, Schokolade unterrühren und Mehl unterheben.",
+   "use": [
+    2,
+    3,
+    4,
+    0,
+    5
+   ]
   },
   {
    "text": "Teig in die Förmchen füllen und backen, bis der Rand fest und die Mitte noch weich ist.",
-   "minutes": 9
+   "minutes": 9,
+   "use": []
   },
   {
    "text": "Kurz ruhen lassen, auf Teller stürzen und mit Puderzucker bestäuben.",
-   "minutes": 1
+   "minutes": 1,
+   "use": [
+    4,
+    6
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 480,
+  "p": 7,
+  "kh": 32,
+  "z": 25,
+  "f": 35,
+  "bs": 2
+ }
 }

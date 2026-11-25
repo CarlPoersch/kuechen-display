@@ -38,20 +38,45 @@
  "steps": [
   {
    "text": "Haferflocken mit Milch einweichen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Apfel mit Schale grob reiben und sofort mit Zitronensaft mischen."
+   "text": "Apfel mit Schale grob reiben und sofort mit Zitronensaft mischen.",
+   "use": [
+    2,
+    4
+   ]
   },
   {
-   "text": "Apfel, Joghurt und Honig unter die Flocken rühren."
+   "text": "Apfel, Joghurt und Honig unter die Flocken rühren.",
+   "use": [
+    2,
+    3,
+    5,
+    0
+   ]
   },
   {
-   "text": "Mit gehackten Haselnüssen servieren."
+   "text": "Mit gehackten Haselnüssen servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 10
+ "min": 10,
+ "nutri": {
+  "kcal": 390,
+  "p": 13,
+  "kh": 54,
+  "z": 27,
+  "f": 13,
+  "bs": 7
+ }
 }

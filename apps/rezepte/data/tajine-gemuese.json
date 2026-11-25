@@ -61,25 +61,62 @@
  ],
  "steps": [
   {
-   "text": "Gemüse in große Stücke schneiden."
+   "text": "Gemüse (Zwiebel, Karotten, Zucchini, Süßkartoffel) in große Stücke schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Zwiebel in Öl andünsten, Gewürze kurz mitrösten."
+   "text": "Zwiebel in Öl andünsten, Gewürze (Ras el Hanout, Zimt) kurz mitrösten.",
+   "use": [
+    0,
+    10,
+    7,
+    8
+   ]
   },
   {
-   "text": "Gemüse, Tomaten, Kichererbsen, Aprikosen und Brühe zugeben und zugedeckt köcheln.",
-   "minutes": 35
+   "text": "Gemüse (Zwiebel, Karotten, Zucchini, Süßkartoffel), Tomaten, Kichererbsen, Aprikosen und Brühe zugeben und zugedeckt köcheln.",
+   "minutes": 35,
+   "use": [
+    5,
+    4,
+    6,
+    9,
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Couscous mit heißem Wasser und Salz quellen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    11
+   ]
   },
   {
-   "text": "Tajine abschmecken und mit Couscous und Koriander servieren."
+   "text": "Tajine abschmecken und mit Couscous und Koriander servieren.",
+   "use": [
+    11,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 540,
+  "p": 18,
+  "kh": 93,
+  "z": 23,
+  "f": 10,
+  "bs": 15
+ }
 }

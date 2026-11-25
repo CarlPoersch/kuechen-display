@@ -46,22 +46,48 @@
  "steps": [
   {
    "text": "Zwiebel, Karotte und Knoblauch würfeln und in Öl weich dünsten, Kreuzkümmel kurz mitrösten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    2,
+    3,
+    7,
+    4
+   ]
   },
   {
    "text": "Linsen abspülen, mit Brühe zugeben und köcheln, bis sie zerfallen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    5
+   ]
   },
   {
-   "text": "Fein pürieren und mit Zitronensaft, Salz und Pfeffer kräftig abschmecken."
+   "text": "Fein pürieren und mit Zitronensaft, Salz und Pfeffer kräftig abschmecken.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Olivenöl und gehackter Petersilie servieren."
+   "text": "Mit Olivenöl und gehackter Petersilie servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegan",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 310,
+  "p": 18,
+  "kh": 41,
+  "z": 4,
+  "f": 8,
+  "bs": 8
+ },
  "gf": true
 }

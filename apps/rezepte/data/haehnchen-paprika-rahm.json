@@ -46,27 +46,54 @@
  "steps": [
   {
    "text": "Reis nach Packung garen.",
-   "minutes": 18
+   "minutes": 18,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Hähnchen in Streifen schneiden, salzen und in Öl rundum anbraten. Herausnehmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Zwiebel und Paprika in Streifen im Bratfett anbraten. Tomatenmark und Paprikapulver kurz mitrösten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    1,
+    3,
+    6
+   ]
   },
   {
    "text": "Mit Brühe und Sahne ablöschen und sämig einkochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    4
+   ]
   },
   {
-   "text": "Hähnchen zurückgeben, kurz ziehen lassen und mit Reis servieren."
+   "text": "Hähnchen zurückgeben, kurz ziehen lassen und mit Reis servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 670,
+  "p": 43,
+  "kh": 69,
+  "z": 7,
+  "f": 24,
+  "bs": 4
+ },
  "gf": true
 }

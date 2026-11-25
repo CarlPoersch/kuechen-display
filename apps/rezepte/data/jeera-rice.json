@@ -34,22 +34,45 @@
  "steps": [
   {
    "text": "Reis waschen, bis das Wasser klar ist, und 15 Minuten einweichen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    5
+   ]
   },
   {
-   "text": "Ghee erhitzen, Gewürze anrösten, bis der Kreuzkümmel knistert."
+   "text": "Ghee erhitzen, Gewürze (Lorbeerblatt, Kardamomkapseln) anrösten, bis der Kreuzkümmel knistert.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Abgetropften Reis kurz mitrösten, Wasser und Salz zugeben, aufkochen."
+   "text": "Abgetropften Reis kurz mitrösten, Wasser und Salz zugeben, aufkochen.",
+   "use": [
+    0,
+    5
+   ]
   },
   {
    "text": "Zugedeckt bei kleinster Hitze garen und anschließend ruhen lassen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 300,
+  "p": 5,
+  "kh": 59,
+  "z": 0,
+  "f": 4,
+  "bs": 1
+ },
  "gf": true
 }

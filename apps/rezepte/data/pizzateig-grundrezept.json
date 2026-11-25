@@ -50,22 +50,46 @@
  "steps": [
   {
    "text": "Mehl, Hefe, Wasser, Öl und Salz zu einem glatten Teig kneten und gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Salami, Paprika und Käse fein würfeln, mit Tomatenmark und Oregano mischen."
+   "text": "Salami, Paprika und Käse fein würfeln, mit Tomatenmark und Oregano mischen.",
+   "use": [
+    5,
+    7,
+    8,
+    9,
+    6
+   ]
   },
   {
    "text": "Füllung unter den Teig kneten, 12 Brötchen formen und auf ein Blech setzen. Nochmals gehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Bei 200 °C goldbraun backen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Snack",
  "diet": "fleisch",
  "level": "einfach",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 240,
+  "p": 9,
+  "kh": 31,
+  "z": 1,
+  "f": 9,
+  "bs": 2
+ }
 }

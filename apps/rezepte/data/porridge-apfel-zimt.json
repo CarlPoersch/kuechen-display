@@ -38,18 +38,39 @@
  "steps": [
   {
    "text": "Haferflocken mit Milch und Salz aufkochen und unter Rühren cremig köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1,
+    6
+   ]
   },
   {
    "text": "Apfel würfeln und mit Zimt und Sirup in einer kleinen Pfanne weich dünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Porridge in Schalen füllen, Äpfel und Walnüsse darauf verteilen."
+   "text": "Porridge in Schalen füllen, Äpfel und Walnüsse darauf verteilen.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 440,
+  "p": 15,
+  "kh": 60,
+  "z": 25,
+  "f": 15,
+  "bs": 8
+ }
 }

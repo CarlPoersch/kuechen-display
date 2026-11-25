@@ -76,30 +76,70 @@
  "steps": [
   {
    "text": "Karotte und Rettich in Streifen schneiden, mit Essig, Zucker und Salz mischen und ziehen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    5,
+    6,
+    7,
+    3,
+    8,
+    9
+   ]
   },
   {
    "text": "Hähnchen mit Fischsauce, Zucker und Knoblauch marinieren.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    2,
+    3,
+    8,
+    4
+   ]
   },
   {
    "text": "Hähnchen in der Pfanne pro Seite 5 Minuten braten, bis es karamellisiert und durch ist.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    12
+   ]
   },
   {
    "text": "Brötchen im Airfryer bei 180 °C aufbacken.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Brötchen aufschneiden, mit Mayo und Sojasauce bestreichen."
+   "text": "Brötchen aufschneiden, mit Mayo und Sojasauce bestreichen.",
+   "use": [
+    0,
+    14
+   ]
   },
   {
-   "text": "Mit Fleisch, eingelegtem Gemüse, Gurke, Koriander und Chili füllen."
+   "text": "Mit Fleisch, eingelegtem Gemüse (Karotte, Rettich), Gurke, Koriander und Chili füllen.",
+   "use": [
+    11,
+    12,
+    13,
+    5,
+    6,
+    1
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 630,
+  "p": 36,
+  "kh": 60,
+  "z": 24,
+  "f": 27,
+  "bs": 5
+ },
  "airfryer": true
 }

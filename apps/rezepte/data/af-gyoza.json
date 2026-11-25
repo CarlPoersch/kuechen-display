@@ -36,20 +36,36 @@
  ],
  "steps": [
   {
-   "text": "Gyoza gefroren in eine Schüssel geben und rundum mit Öl benetzen. Warum: Ohne Öl wird der Teig im Airfryer hart statt knusprig."
+   "text": "Gyoza gefroren in eine Schüssel geben und rundum mit Öl benetzen. Warum: Ohne Öl wird der Teig im Airfryer hart statt knusprig.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "In einer Lage in den Korb legen und bei 190 °C garen, nach der Hälfte wenden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": []
   },
   {
-   "text": "Dip verrühren, Frühlingszwiebel hineinschneiden und dazu servieren."
+   "text": "Dip verrühren, Frühlingszwiebel hineinschneiden und dazu servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "fleisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 480,
+  "p": 17,
+  "kh": 58,
+  "z": 4,
+  "f": 20,
+  "bs": 4
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

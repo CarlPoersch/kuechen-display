@@ -60,30 +60,65 @@
  ],
  "steps": [
   {
-   "text": "Für die Rösti Kartoffeln schälen, grob reiben und salzen."
+   "text": "Für die Rösti Kartoffeln schälen, grob reiben und salzen.",
+   "use": [
+    10
+   ]
   },
   {
    "text": "Butterschmalz in einer Pfanne erhitzen, Kartoffeln flach hineindrücken und goldbraun braten. Wenden (mit Teller) und fertig braten.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    7,
+    11,
+    10
+   ]
   },
   {
    "text": "Fleisch in feine Streifen schneiden, mit Mehl bestäuben und portionsweise in Butterschmalz scharf anbraten. Herausnehmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    6,
+    7,
+    11,
+    0
+   ]
   },
   {
    "text": "Zwiebel und Pilze in Scheiben im Bratfett anbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Mit Wein ablöschen, Fond und Sahne zugeben und sämig einkochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    5,
+    4
+   ]
   },
   {
-   "text": "Fleisch zurück in die Sauce geben, nur noch erwärmen, mit Zitronensaft, Salz und Pfeffer abschmecken. Mit Petersilie und Rösti servieren."
+   "text": "Fleisch zurück in die Sauce geben, nur noch erwärmen, mit Zitronensaft, Salz und Pfeffer abschmecken. Mit Petersilie und Rösti servieren.",
+   "use": [
+    8,
+    9,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 640,
+  "p": 41,
+  "kh": 42,
+  "z": 6,
+  "f": 31,
+  "bs": 6
+ }
 }

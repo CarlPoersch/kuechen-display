@@ -41,21 +41,45 @@
  ],
  "steps": [
   {
-   "text": "Gurke mit der flachen Messerseite andrücken, bis sie aufplatzt, dann in mundgerechte Stücke brechen."
+   "text": "Gurke mit der flachen Messerseite andrücken, bis sie aufplatzt, dann in mundgerechte Stücke brechen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit etwas Salz mischen und Wasser ziehen lassen, dann abgießen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Knoblauch fein hacken und mit Sojasauce, Essig, Zucker, Sesamöl und Chiliöl verrühren."
+   "text": "Knoblauch fein hacken und mit Sojasauce, Essig, Zucker, Sesamöl und Chiliöl verrühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Gurke mit dem Dressing mischen und mit Sesam bestreuen."
+   "text": "Gurke mit dem Dressing mischen und mit Sesam bestreuen.",
+   "use": [
+    0,
+    7
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegan",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 120,
+  "p": 3,
+  "kh": 12,
+  "z": 6,
+  "f": 6,
+  "bs": 2
+ }
 }

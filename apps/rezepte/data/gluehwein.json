@@ -37,19 +37,30 @@
  ],
  "steps": [
   {
-   "text": "Alle Zutaten in einen Topf geben."
+   "text": "Alle Zutaten in einen Topf geben.",
+   "use": []
   },
   {
    "text": "Langsam erhitzen, aber nicht kochen lassen – sonst verfliegt der Alkohol und es wird bitter.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
-   "text": "Abseihen, nach Geschmack nachsüßen und heiß servieren."
+   "text": "Abseihen, nach Geschmack nachsüßen und heiß servieren.",
+   "use": []
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 210,
+  "p": 1,
+  "kh": 27,
+  "z": 22,
+  "f": 0,
+  "bs": 1
+ },
  "gf": true
 }

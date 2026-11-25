@@ -29,23 +29,49 @@
  ],
  "steps": [
   {
-   "text": "Zucker, Vanillezucker, Zimt und Wasser in einer beschichteten Pfanne aufkochen."
+   "text": "Zucker, Vanillezucker, Zimt und Wasser in einer beschichteten Pfanne aufkochen.",
+   "use": [
+    1,
+    3,
+    4,
+    2
+   ]
   },
   {
    "text": "Mandeln zugeben und unter ständigem Rühren kochen, bis das Wasser verdampft und der Zucker trocken und krümelig wird.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    2,
+    1
+   ]
   },
   {
    "text": "Weiter rühren, bis der Zucker wieder schmilzt und die Mandeln glänzend überzieht.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "Sofort auf Backpapier verteilen, mit zwei Gabeln trennen und abkühlen lassen."
+   "text": "Sofort auf Backpapier verteilen, mit zwei Gabeln trennen und abkühlen lassen.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 310,
+  "p": 7,
+  "kh": 29,
+  "z": 28,
+  "f": 18,
+  "bs": 4
+ },
  "gf": true
 }

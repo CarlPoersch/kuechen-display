@@ -37,26 +37,53 @@
  ],
  "steps": [
   {
-   "text": "Brokkoli in kleine Röschen teilen. Salsiccia aus der Haut drücken und zerkrümeln."
+   "text": "Brokkoli in kleine Röschen teilen. Salsiccia aus der Haut drücken und zerkrümeln.",
+   "use": [
+    2,
+    1
+   ]
   },
   {
    "text": "Nudeln kochen, Brokkoli die letzten 4 Minuten mitkochen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Salsiccia in Öl krümelig braten, Knoblauch und Chili zugeben.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    5,
+    3,
+    4
+   ]
   },
   {
-   "text": "Nudeln und Brokkoli mit etwas Nudelwasser zugeben und schwenken, bis der Brokkoli leicht zerfällt."
+   "text": "Nudeln und Brokkoli mit etwas Nudelwasser zugeben und schwenken, bis der Brokkoli leicht zerfällt.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit Pecorino servieren."
+   "text": "Mit Pecorino servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 770,
+  "p": 31,
+  "kh": 80,
+  "z": 5,
+  "f": 37,
+  "bs": 6
+ },
  "gf": true
 }

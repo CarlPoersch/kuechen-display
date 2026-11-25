@@ -46,26 +46,52 @@
  "steps": [
   {
    "text": "Hähnchen mit Sojasauce, Essig, angedrücktem Knoblauch, Lorbeer und Pfeffer mischen und ziehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
    "text": "Hähnchen herausnehmen, trocken tupfen und in Öl rundum anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Marinade, Zucker und 150 ml Wasser zugeben und zugedeckt schmoren.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Deckel abnehmen und die Sauce sirupartig einkochen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Reis servieren."
+   "text": "Mit Reis servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 630,
+  "p": 39,
+  "kh": 57,
+  "z": 4,
+  "f": 26,
+  "bs": 1
+ }
 }

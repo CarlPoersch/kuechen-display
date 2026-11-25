@@ -50,29 +50,62 @@
  "steps": [
   {
    "text": "Fisch in 4 cm Stücke schneiden und mit Fischsauce und Pfeffer marinieren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    2,
+    5
+   ]
   },
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Zucker in einem kleinen Topf dunkelbraun karamellisieren lassen."
+   "text": "Zucker in einem kleinen Topf dunkelbraun karamellisieren lassen.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Schalotten und Knoblauch kurz darin anbraten."
+   "text": "Schalotten und Knoblauch kurz darin anbraten.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Fisch mit Marinade und Kokoswasser zugeben und offen köcheln, bis die Sauce dick ist.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0,
+    6,
+    2
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln und Chili bestreuen und mit Reis servieren."
+   "text": "Mit Frühlingszwiebeln und Chili bestreuen und mit Reis servieren.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 570,
+  "p": 45,
+  "kh": 93,
+  "z": 29,
+  "f": 2,
+  "bs": 4
+ },
  "gf": true
 }

@@ -50,20 +50,46 @@
  "steps": [
   {
    "text": "Couscous mit heißer Brühe übergießen, zugedeckt quellen lassen und mit einer Gabel auflockern.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Gemüse würfeln, Kräuter hacken."
+   "text": "Gemüse (Salatgurke, Kirschtomaten, rote Zwiebel) würfeln, Kräuter (Minze, Petersilie) hacken.",
+   "use": [
+    2,
+    3,
+    4,
+    6,
+    7
+   ]
   },
   {
-   "text": "Alles mit Zitronensaft und Öl mischen, salzen, pfeffern."
+   "text": "Alles mit Zitronensaft und Öl mischen, salzen, pfeffern.",
+   "use": [
+    8,
+    9
+   ]
   },
   {
-   "text": "Feta darüberbröseln."
+   "text": "Feta darüberbröseln.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 430,
+  "p": 14,
+  "kh": 45,
+  "z": 5,
+  "f": 21,
+  "bs": 4
+ }
 }

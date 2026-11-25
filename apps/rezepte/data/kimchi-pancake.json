@@ -52,21 +52,46 @@
  ],
  "steps": [
   {
-   "text": "Kimchi klein schneiden. Mit Mehl, Stärke, Wasser, Kimchi-Saft und Frühlingszwiebeln zu einem dickflüssigen Teig rühren."
+   "text": "Kimchi klein schneiden. Mit Mehl, Stärke, Wasser, Kimchi-Saft und Frühlingszwiebeln zu einem dickflüssigen Teig rühren.",
+   "use": [
+    0,
+    4,
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
-   "text": "Öl in einer Pfanne stark erhitzen und den Teig dünn verstreichen."
+   "text": "Öl in einer Pfanne stark erhitzen und den Teig dünn verstreichen.",
+   "use": [
+    6
+   ]
   },
   {
    "text": "Knusprig braten, wenden und auch die zweite Seite bräunen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": []
   },
   {
-   "text": "Für den Dip Sojasauce, Essig und Sesam mischen. Pfannkuchen in Stücke schneiden."
+   "text": "Für den Dip Sojasauce, Essig und Sesam mischen. Pfannkuchen in Stücke schneiden.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 400,
+  "p": 8,
+  "kh": 49,
+  "z": 2,
+  "f": 20,
+  "bs": 4
+ }
 }

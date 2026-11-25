@@ -33,22 +33,45 @@
  ],
  "steps": [
   {
-   "text": "Gurken schälen, entkernen und grob schneiden."
+   "text": "Gurken schälen, entkernen und grob schneiden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Joghurt, Knoblauch, Dill (etwas zurückbehalten), Öl und Zitronensaft fein pürieren."
+   "text": "Mit Joghurt, Knoblauch, Dill (etwas zurückbehalten), Öl und Zitronensaft fein pürieren.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Mit Salz und Pfeffer abschmecken und kalt stellen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Mit Dill und einem Schuss Olivenöl servieren."
+   "text": "Mit Dill und einem Schuss Olivenöl servieren.",
+   "use": [
+    3,
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 170,
+  "p": 6,
+  "kh": 14,
+  "z": 9,
+  "f": 11,
+  "bs": 1
+ },
  "gf": true
 }

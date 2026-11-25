@@ -42,21 +42,42 @@
  "steps": [
   {
    "text": "Walnüsse in einer Pfanne ohne Fett rösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
-   "text": "Feldsalat waschen, Birne in dünne Spalten schneiden, Granatapfelkerne auslösen."
+   "text": "Feldsalat waschen, Birne in dünne Spalten schneiden, Granatapfelkerne auslösen.",
+   "use": [
+    0,
+    3,
+    1
+   ]
   },
   {
-   "text": "Öl, Balsamico, Ahornsirup und Senf verrühren, salzen und pfeffern."
+   "text": "Öl, Balsamico, Ahornsirup und Senf verrühren, salzen und pfeffern.",
+   "use": [
+    4,
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Alles vermengen und sofort servieren."
+   "text": "Alles vermengen und sofort servieren.",
+   "use": []
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 280,
+  "p": 4,
+  "kh": 24,
+  "z": 16,
+  "f": 20,
+  "bs": 6
+ },
  "gf": true
 }

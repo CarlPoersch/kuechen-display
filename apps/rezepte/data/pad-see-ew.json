@@ -50,26 +50,50 @@
  "steps": [
   {
    "text": "Nudeln in warmem Wasser einweichen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Hähnchen in dünne Scheiben schneiden und mit Knoblauch in Öl im Wok anbraten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4,
+    9
+   ]
   },
   {
-   "text": "Gemüse zugeben und kurz mitbraten.",
-   "minutes": 2
+   "text": "Gemüse (Brokkoli oder Pak Choi) zugeben und kurz mitbraten.",
+   "minutes": 2,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Zur Seite schieben, Eier hineinschlagen und stocken lassen."
+   "text": "Zur Seite schieben, Eier hineinschlagen und stocken lassen.",
+   "use": [
+    2
+   ]
   },
   {
    "text": "Nudeln und Saucen zugeben und braten, bis die Nudeln leicht karamellisieren.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 940,
+  "p": 50,
+  "kh": 135,
+  "z": 7,
+  "f": 21,
+  "bs": 5
+ }
 }

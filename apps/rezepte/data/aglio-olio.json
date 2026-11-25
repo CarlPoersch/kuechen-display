@@ -30,24 +30,44 @@
  "steps": [
   {
    "text": "Spaghetti in gesalzenem Wasser kochen.",
-   "minutes": 9
+   "minutes": 9,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Öl mit Knoblauch und Peperoncino bei kleiner Hitze erwärmen, bis der Knoblauch hellgolden ist. Er darf nicht braun werden.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    3,
+    1
+   ]
   },
   {
-   "text": "Nudeln mit einer Kelle Nudelwasser in die Pfanne geben."
+   "text": "Nudeln mit einer Kelle Nudelwasser in die Pfanne geben.",
+   "use": []
   },
   {
-   "text": "Kräftig schwenken, bis eine leicht sämige Sauce entsteht."
+   "text": "Kräftig schwenken, bis eine leicht sämige Sauce entsteht.",
+   "use": []
   },
   {
-   "text": "Petersilie unterheben."
+   "text": "Petersilie unterheben.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 700,
+  "p": 13,
+  "kh": 75,
+  "z": 3,
+  "f": 38,
+  "bs": 4
+ }
 }

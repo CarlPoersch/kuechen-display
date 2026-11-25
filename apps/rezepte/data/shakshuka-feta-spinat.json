@@ -42,25 +42,50 @@
  "steps": [
   {
    "text": "Zwiebel und Knoblauch fein würfeln und in Öl glasig dünsten, Kreuzkümmel kurz mitrösten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    6,
+    5
+   ]
   },
   {
    "text": "Spinat zugeben und zusammenfallen lassen, salzen und pfeffern.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Vier Mulden formen, Eier hineingleiten lassen, Feta darüberbröseln."
+   "text": "Vier Mulden formen, Eier hineingleiten lassen, Feta darüberbröseln.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Zugedeckt stocken lassen, bis das Eiweiß fest ist.",
-   "minutes": 6
+   "minutes": 6,
+   "use": []
   },
   {
-   "text": "Mit warmem Fladenbrot servieren."
+   "text": "Mit warmem Fladenbrot servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Frühstück",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 530,
+  "p": 30,
+  "kh": 41,
+  "z": 4,
+  "f": 28,
+  "bs": 5
+ }
 }

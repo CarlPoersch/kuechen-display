@@ -50,24 +50,51 @@
  "steps": [
   {
    "text": "Zwiebeln fein schneiden und in Schmalz langsam goldbraun rösten.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Vom Herd nehmen, Paprika einrühren und sofort mit Essig und 200 ml Wasser ablöschen."
+   "text": "Vom Herd nehmen, Paprika einrühren und sofort mit Essig und 200 ml Wasser ablöschen.",
+   "use": [
+    3,
+    5
+   ]
   },
   {
-   "text": "Fleisch in großen Würfeln, Tomatenmark, Kümmel und 1 TL Salz zugeben, knapp mit Wasser bedecken."
+   "text": "Fleisch in großen Würfeln, Tomatenmark, Kümmel und 1 TL Salz zugeben, knapp mit Wasser bedecken.",
+   "use": [
+    4,
+    6,
+    0
+   ]
   },
   {
    "text": "Zugedeckt weich schmoren, bei Bedarf Wasser nachgießen.",
-   "minutes": 120
+   "minutes": 120,
+   "use": []
   },
   {
-   "text": "Knoblauch, Majoran und Zitronenabrieb fein hacken, unterrühren. Mit Semmel oder Nockerln servieren."
+   "text": "Knoblauch, Majoran und Zitronenabrieb fein hacken, unterrühren. Mit Semmel oder Nockerln servieren.",
+   "use": [
+    8,
+    7,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 150
+ "min": 150,
+ "nutri": {
+  "kcal": 570,
+  "p": 56,
+  "kh": 23,
+  "z": 10,
+  "f": 28,
+  "bs": 5
+ }
 }

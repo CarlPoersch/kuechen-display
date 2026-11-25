@@ -38,21 +38,43 @@
  "steps": [
   {
    "text": "Auberginen mehrmals einstechen und unter dem Ofengrill oder auf dem Gasherd rundum schwarz rösten, bis sie zusammenfallen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Etwas abkühlen lassen, Fruchtfleisch herauslöffeln und abtropfen lassen."
+   "text": "Etwas abkühlen lassen, Fruchtfleisch herauslöffeln und abtropfen lassen.",
+   "use": []
   },
   {
-   "text": "Mit Tahin, Knoblauch, Zitronensaft und Salz grob zerdrücken."
+   "text": "Mit Tahin, Knoblauch, Zitronensaft und Salz grob zerdrücken.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Mit Olivenöl, Petersilie und Paprika servieren."
+   "text": "Mit Olivenöl, Petersilie und Paprika servieren.",
+   "use": [
+    4,
+    5,
+    6
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 140,
+  "p": 3,
+  "kh": 12,
+  "z": 6,
+  "f": 10,
+  "bs": 5
+ },
  "gf": true
 }

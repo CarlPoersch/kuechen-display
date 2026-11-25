@@ -37,19 +37,41 @@
  ],
  "steps": [
   {
-   "text": "Orange in Scheiben schneiden."
+   "text": "Orange in Scheiben schneiden.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Apfelsaft, Tee, Orangenscheiben und Gewürze langsam erhitzen, nicht kochen lassen.",
-   "minutes": 10
+   "text": "Apfelsaft, Tee, Orangenscheiben und Gewürze (Zimtstangen, Nelken, Sternanis) langsam erhitzen, nicht kochen lassen.",
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Mit Honig abschmecken und heiß in Tassen servieren."
+   "text": "Mit Honig abschmecken und heiß in Tassen servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 15,
+ "nutri": {
+  "kcal": 160,
+  "p": 1,
+  "kh": 37,
+  "z": 34,
+  "f": 0,
+  "bs": 2
+ },
  "gf": true
 }

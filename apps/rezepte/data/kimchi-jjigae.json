@@ -46,31 +46,62 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Schweinebauch im Topf anbraten, bis Fett austritt.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Kimchi und Zwiebel zugeben und 3 Minuten mitbraten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    3
+   ]
   },
   {
    "text": "Gochugaru, Gochujang, Kimchisaft und Wasser zugeben und köcheln lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    4,
+    5,
+    0,
+    6
+   ]
   },
   {
    "text": "Tofu einlegen und 5 Minuten mitköcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln bestreuen und mit Reis servieren."
+   "text": "Mit Frühlingszwiebeln bestreuen und mit Reis servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 35,
+ "nutri": {
+  "kcal": 770,
+  "p": 34,
+  "kh": 75,
+  "z": 6,
+  "f": 37,
+  "bs": 7
+ },
  "gf": true
 }

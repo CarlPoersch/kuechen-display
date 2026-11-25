@@ -34,29 +34,59 @@
  "steps": [
   {
    "text": "Klebreis in Wasser einweichen (am besten über Nacht, mindestens 4 Stunden).",
-   "minutes": 240
+   "minutes": 240,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Abgießen und im Dämpfeinsatz über kochendem Wasser garen, bis er glasig ist.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   },
   {
-   "text": "Kokosmilch mit Zucker und Salz erwärmen, bis der Zucker gelöst ist. Nicht kochen."
+   "text": "Kokosmilch mit Zucker und Salz erwärmen, bis der Zucker gelöst ist. Nicht kochen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Zwei Drittel der Kokosmilch unter den heißen Reis mischen und abgedeckt ziehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1,
+    0
+   ]
   },
   {
-   "text": "Mangos schälen und in Scheiben schneiden."
+   "text": "Mangos schälen und in Scheiben schneiden.",
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Reis mit Mango anrichten, restliche Kokosmilch darüber und mit Sesam bestreuen."
+   "text": "Reis mit Mango anrichten, restliche Kokosmilch darüber und mit Sesam bestreuen.",
+   "use": [
+    0,
+    4,
+    1,
+    5
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegan",
  "level": "mittel",
  "min": 60,
+ "nutri": {
+  "kcal": 840,
+  "p": 12,
+  "kh": 152,
+  "z": 69,
+  "f": 22,
+  "bs": 7
+ },
  "gf": true
 }

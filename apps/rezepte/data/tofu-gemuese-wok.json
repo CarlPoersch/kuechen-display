@@ -58,25 +58,58 @@
  "steps": [
   {
    "text": "Reis garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    11
+   ]
   },
   {
    "text": "Tofu in Würfel schneiden, gut trocken tupfen, mit Stärke bestäuben und in 2 EL Öl rundum knusprig braten. Herausnehmen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    4,
+    10
+   ]
   },
   {
-   "text": "Gemüse klein schneiden und im restlichen Öl scharf anbraten.",
-   "minutes": 5
+   "text": "Gemüse (Brokkoli, rote Paprikaschote, Karotte) klein schneiden und im restlichen Öl scharf anbraten.",
+   "minutes": 5,
+   "use": [
+    10,
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Sojasauce, Sirup, Essig, Knoblauch und Ingwer verrühren, zugeben."
+   "text": "Sojasauce, Sirup, Essig, Knoblauch und Ingwer verrühren, zugeben.",
+   "use": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Tofu unterheben und mit Reis servieren."
+   "text": "Tofu unterheben und mit Reis servieren.",
+   "use": [
+    0,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 1000,
+  "p": 47,
+  "kh": 125,
+  "z": 17,
+  "f": 37,
+  "bs": 14
+ }
 }

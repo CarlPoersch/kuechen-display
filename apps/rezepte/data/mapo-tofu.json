@@ -62,29 +62,64 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    12
+   ]
   },
   {
    "text": "Tofu in 2 cm große Würfel schneiden und 2 Minuten in leicht gesalzenem Wasser ziehen lassen, dann abgießen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0,
+    8
+   ]
   },
   {
    "text": "Öl erhitzen, Hackfleisch krümelig und knusprig braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Doubanjiang, schwarze Bohnen, Knoblauch und Ingwer 1 Minute mitbraten, bis das Öl rot wird."
+   "text": "Doubanjiang, schwarze Bohnen, Knoblauch und Ingwer 1 Minute mitbraten, bis das Öl rot wird.",
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Brühe und Sojasauce angießen, Tofu vorsichtig hineingeben und 5 Minuten köcheln.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6,
+    7,
+    0
+   ]
   },
   {
-   "text": "Mit Stärke binden, mit Sichuanpfeffer und Frühlingszwiebeln bestreuen und mit Reis servieren."
+   "text": "Mit Stärke binden, mit Sichuanpfeffer und Frühlingszwiebeln bestreuen und mit Reis servieren.",
+   "use": [
+    8,
+    9,
+    10,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 750,
+  "p": 32,
+  "kh": 73,
+  "z": 5,
+  "f": 37,
+  "bs": 4
+ }
 }

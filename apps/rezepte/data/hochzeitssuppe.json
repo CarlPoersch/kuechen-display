@@ -67,27 +67,59 @@
  "steps": [
   {
    "text": "Huhn mit Zwiebel, Lorbeer, 1 EL Salz und 3 l Wasser aufkochen, Schaum abschöpfen und leise köcheln.",
-   "minutes": 90
+   "minutes": 90,
+   "use": [
+    0,
+    4
+   ]
   },
   {
    "text": "Eierstich: Eier, Milch, Salz und Muskat verquirlen, in eine gefettete Tasse füllen und im Wasserbad stocken lassen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Huhn herausnehmen, Brühe durch ein Sieb gießen. Gemüse fein würfeln und in der Brühe garen.",
-   "minutes": 10
+   "text": "Huhn herausnehmen, Brühe durch ein Sieb gießen. Gemüse (Karotten, Sellerieknolle, Lauchstange, Spargelspitzen) fein würfeln und in der Brühe garen.",
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    10
+   ]
   },
   {
    "text": "Aus dem Brät mit zwei Teelöffeln Klößchen formen und in der Brühe gar ziehen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Hühnerfleisch zerzupfen, Eierstich würfeln, mit Spargelspitzen in die Suppe geben und mit Schnittlauch servieren."
+   "text": "Hühnerfleisch zerzupfen, Eierstich würfeln, mit Spargelspitzen in die Suppe geben und mit Schnittlauch servieren.",
+   "use": [
+    10,
+    3,
+    11
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "anspruchsvoll",
  "min": 120,
+ "nutri": {
+  "kcal": 650,
+  "p": 56,
+  "kh": 11,
+  "z": 5,
+  "f": 43,
+  "bs": 3
+ },
  "gf": true
 }

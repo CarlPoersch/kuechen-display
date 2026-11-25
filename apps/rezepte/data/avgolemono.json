@@ -34,26 +34,52 @@
  "steps": [
   {
    "text": "Hähnchen in der Brühe gar ziehen lassen, herausnehmen und zerzupfen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Reis in der Brühe weich kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    2,
+    0
+   ]
   },
   {
-   "text": "Eier mit Zitronensaft schaumig schlagen, dann nach und nach eine Kelle heiße Brühe einrühren."
+   "text": "Eier mit Zitronensaft schaumig schlagen, dann nach und nach eine Kelle heiße Brühe einrühren.",
+   "use": [
+    3,
+    4,
+    0
+   ]
   },
   {
    "text": "Eier-Mischung bei kleiner Hitze in die Suppe rühren, nicht mehr kochen lassen, bis sie leicht bindet.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Hähnchen zugeben, salzen und mit Dill servieren."
+   "text": "Hähnchen zugeben, salzen und mit Dill servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 240,
+  "p": 25,
+  "kh": 23,
+  "z": 2,
+  "f": 5,
+  "bs": 0
+ },
  "gf": true
 }

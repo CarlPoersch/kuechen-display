@@ -38,23 +38,47 @@
  "steps": [
   {
    "text": "Zwiebel und Kartoffel würfeln und in Butter andünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    6
+   ]
   },
   {
    "text": "Brühe zugeben und köcheln, bis die Kartoffel weich ist.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    3,
+    2
+   ]
   },
   {
    "text": "Erbsen zugeben und nur kurz mitkochen, damit sie grün bleiben.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Minze zugeben, alles fein pürieren, Sahne einrühren und abschmecken."
+   "text": "Minze zugeben, alles fein pürieren, Sahne einrühren und abschmecken.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 270,
+  "p": 11,
+  "kh": 31,
+  "z": 11,
+  "f": 12,
+  "bs": 9
+ },
  "gf": true
 }

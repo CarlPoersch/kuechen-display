@@ -58,27 +58,55 @@
  "steps": [
   {
    "text": "Pilze in 300 ml heißem Wasser einweichen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Speck und Fleischwürfel anbraten, Zwiebel zugeben.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Sauerkraut, geschnittenen Kohl, Pilze mit Einweichwasser, Wein, Tomatenmark und Gewürze zugeben."
+   "text": "Sauerkraut, geschnittenen Kohl, Pilze mit Einweichwasser, Wein, Tomatenmark und Gewürze (Lorbeerblätter, Pimentkörner) zugeben.",
+   "use": [
+    0,
+    1,
+    6,
+    11,
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Zugedeckt bei kleiner Hitze schmoren.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
    "text": "Wurst in Scheiben und Backpflaumen zugeben und weiter schmoren. Schmeckt aufgewärmt noch besser.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 120,
+ "nutri": {
+  "kcal": 420,
+  "p": 24,
+  "kh": 21,
+  "z": 9,
+  "f": 27,
+  "bs": 6
+ },
  "gf": true
 }

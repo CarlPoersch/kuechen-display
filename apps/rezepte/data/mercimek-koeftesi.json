@@ -54,25 +54,57 @@
  "steps": [
   {
    "text": "Linsen mit 500 ml Wasser weich kochen, bis das Wasser fast aufgesogen ist.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Vom Herd nehmen, Bulgur einrühren und zugedeckt quellen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Zwiebel fein würfeln und in Olivenöl glasig dünsten, Tomaten- und Paprikamark kurz mitrösten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    1,
+    9,
+    4
+   ]
   },
   {
-   "text": "Zwiebelmischung, Kreuzkümmel, fein geschnittene Frühlingszwiebeln, Petersilie und Zitronensaft unter die Linsen kneten, salzen."
+   "text": "Zwiebelmischung, Kreuzkümmel, fein geschnittene Frühlingszwiebeln, Petersilie und Zitronensaft unter die Linsen kneten, salzen.",
+   "use": [
+    2,
+    5,
+    1,
+    6,
+    7,
+    8,
+    0
+   ]
   },
   {
-   "text": "Mit feuchten Händen längliche Bällchen formen und in Salatblättern mit Zitrone servieren."
+   "text": "Mit feuchten Händen längliche Bällchen formen und in Salatblättern mit Zitrone servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 420,
+  "p": 19,
+  "kh": 62,
+  "z": 5,
+  "f": 11,
+  "bs": 12
+ }
 }

@@ -50,34 +50,69 @@
  "steps": [
   {
    "text": "Pilze in Scheiben schneiden und in 1 EL Öl kräftig anbraten, herausnehmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    8
+   ]
   },
   {
    "text": "Schalotte und Knoblauch in restlichem Öl glasig dünsten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2,
+    3,
+    8
+   ]
   },
   {
    "text": "Reis zugeben und 2 Minuten anschwitzen, bis er glasig ist.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Wein ablöschen und einkochen lassen."
+   "text": "Mit Wein ablöschen und einkochen lassen.",
+   "use": [
+    4
+   ]
   },
   {
    "text": "Nach und nach Brühe zugeben und unter Rühren garen, bis der Reis cremig ist und noch Biss hat.",
-   "minutes": 18
+   "minutes": 18,
+   "use": [
+    5,
+    0
+   ]
   },
   {
    "text": "Pilze untermischen, vom Herd nehmen, Butter und Parmesan einrühren und abgedeckt ruhen lassen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    1,
+    6,
+    7
+   ]
   },
   {
-   "text": "Mit Petersilie servieren."
+   "text": "Mit Petersilie servieren.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 740,
+  "p": 21,
+  "kh": 74,
+  "z": 6,
+  "f": 38,
+  "bs": 3
+ },
  "gf": true
 }

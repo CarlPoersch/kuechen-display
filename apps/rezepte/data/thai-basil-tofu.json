@@ -46,24 +46,51 @@
  "steps": [
   {
    "text": "Reis garen. Tofu zerbröseln und gut ausdrücken.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    8,
+    0
+   ]
   },
   {
-   "text": "Knoblauch und Chili im Mörser zerstoßen und in Öl anbraten."
+   "text": "Knoblauch und Chili im Mörser zerstoßen und in Öl anbraten.",
+   "use": [
+    1,
+    2,
+    7
+   ]
   },
   {
    "text": "Tofu zugeben und braten, bis er goldbraun ist.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Saucen und Zucker zugeben, Basilikum unterheben, bis es zusammenfällt."
+   "text": "Saucen und Zucker zugeben, Basilikum unterheben, bis es zusammenfällt.",
+   "use": [
+    5,
+    6
+   ]
   },
   {
-   "text": "Mit Reis servieren."
+   "text": "Mit Reis servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 720,
+  "p": 32,
+  "kh": 90,
+  "z": 6,
+  "f": 26,
+  "bs": 5
+ }
 }

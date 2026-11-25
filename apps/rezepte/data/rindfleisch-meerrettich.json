@@ -63,28 +63,64 @@
  ],
  "steps": [
   {
-   "text": "Zwiebelhälften in einem trockenen Topf auf der Schnittfläche dunkel rösten (gibt Farbe und Geschmack)."
+   "text": "Zwiebelhälften in einem trockenen Topf auf der Schnittfläche dunkel rösten (gibt Farbe und Geschmack).",
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Fleisch in einen großen Topf legen, mit kaltem Wasser bedecken und aufkochen. Schaum abschöpfen."
+   "text": "Fleisch in einen großen Topf legen, mit kaltem Wasser bedecken und aufkochen. Schaum abschöpfen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel, Lorbeer, Pfeffer und 1 EL Salz zugeben und knapp unter dem Siedepunkt garen.",
-   "minutes": 150
+   "minutes": 150,
+   "use": [
+    4,
+    6
+   ]
   },
   {
-   "text": "Gemüse grob schneiden und mitgaren.",
-   "minutes": 30
+   "text": "Gemüse (Karotten, Sellerieknolle, Lauchstange) grob schneiden und mitgaren.",
+   "minutes": 30,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Äpfel reiben, sofort mit Zitronensaft und Meerrettich mischen, leicht salzen."
+   "text": "Äpfel reiben, sofort mit Zitronensaft und Meerrettich mischen, leicht salzen.",
+   "use": [
+    7,
+    9,
+    8
+   ]
   },
   {
-   "text": "Kartoffeln garen. Fleisch quer zur Faser in Scheiben schneiden, mit etwas Brühe, Gemüse, Kartoffeln, Apfelkren und Schnittlauch servieren."
+   "text": "Kartoffeln garen. Fleisch quer zur Faser in Scheiben schneiden, mit etwas Brühe, Gemüse (Karotten, Sellerieknolle), Kartoffeln, Apfelkren und Schnittlauch servieren.",
+   "use": [
+    10,
+    3,
+    11,
+    1,
+    2,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 180
+ "min": 180,
+ "nutri": {
+  "kcal": 720,
+  "p": 70,
+  "kh": 62,
+  "z": 16,
+  "f": 22,
+  "bs": 10
+ }
 }

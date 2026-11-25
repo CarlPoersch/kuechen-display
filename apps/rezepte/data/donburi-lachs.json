@@ -62,25 +62,59 @@
  "steps": [
   {
    "text": "Reis garen und mit Essig und Zucker würzen, abkühlen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Lachs würfeln und mit 2 EL Sojasauce und Sesamöl marinieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    8,
+    9
+   ]
   },
   {
    "text": "Edamame kochen, Avocado und Gurke schneiden, Karotte raspeln.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    6,
+    4,
+    5,
+    7
+   ]
   },
   {
-   "text": "Mayonnaise mit Sriracha verrühren."
+   "text": "Mayonnaise mit Sriracha verrühren.",
+   "use": [
+    11,
+    12
+   ]
   },
   {
-   "text": "Reis in Schalen geben, alles darauf anrichten, mit Sesam, restlicher Sojasauce und Sriracha-Mayo servieren."
+   "text": "Reis in Schalen geben, alles darauf anrichten, mit Sesam, restlicher Sojasauce und Sriracha-Mayo servieren.",
+   "use": [
+    1,
+    10,
+    8,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 890,
+  "p": 41,
+  "kh": 83,
+  "z": 9,
+  "f": 46,
+  "bs": 11
+ }
 }

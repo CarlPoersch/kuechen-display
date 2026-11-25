@@ -58,33 +58,74 @@
  "steps": [
   {
    "text": "Eier 6½ Minuten kochen, in Eiswasser abschrecken und schälen.",
-   "minutes": 7
+   "minutes": 7,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Eier in einer Mischung aus 2 EL Sojasauce, Mirin und 50 ml Wasser marinieren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    5,
+    1,
+    2
+   ]
   },
   {
    "text": "Brühe mit Ingwer und Knoblauch aufkochen und köcheln lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    3,
+    4
+   ]
   },
   {
    "text": "Fleisch in der Brühe garen, herausnehmen und in Scheiben schneiden.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    0,
+    7
+   ]
   },
   {
-   "text": "Brühe mit restlicher Sojasauce und Sesamöl abschmecken."
+   "text": "Brühe mit restlicher Sojasauce und Sesamöl abschmecken.",
+   "use": [
+    0,
+    1,
+    11
+   ]
   },
   {
    "text": "Nudeln nach Packung kochen, Spinat kurz mitgaren.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    6,
+    10
+   ]
   },
   {
-   "text": "Nudeln in Schalen, heiße Brühe darüber, mit Fleisch, halbiertem Ei, Frühlingszwiebeln und Nori belegen."
+   "text": "Nudeln in Schalen, heiße Brühe darüber, mit Fleisch, halbiertem Ei, Frühlingszwiebeln und Nori belegen.",
+   "use": [
+    6,
+    0,
+    8,
+    9,
+    7
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 660,
+  "p": 51,
+  "kh": 85,
+  "z": 9,
+  "f": 13,
+  "bs": 5
+ }
 }

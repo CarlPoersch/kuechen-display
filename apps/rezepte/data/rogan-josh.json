@@ -61,34 +61,74 @@
  ],
  "steps": [
   {
-   "text": "Ganze Gewürze im Ghee kurz anrösten."
+   "text": "Ganze Gewürze (Kaschmiri-Chilipulver, Fenchelsamen, Ingwerpulver, Kardamomkapseln, Lorbeerblätter, Zimtstange) im Ghee kurz anrösten.",
+   "use": [
+    11,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Zwiebeln goldbraun braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Fleisch zugeben und rundum anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Knoblauch, Ingwer und gemahlene Gewürze 1 Minute mitbraten."
+   "text": "Knoblauch, Ingwer und gemahlene Gewürze (Kaschmiri-Chilipulver, Fenchelsamen, Ingwerpulver, Kardamomkapseln, Lorbeerblätter, Zimtstange) 1 Minute mitbraten.",
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
-   "text": "Joghurt löffelweise einrühren, damit er nicht gerinnt, dann 300 ml Wasser angießen."
+   "text": "Joghurt löffelweise einrühren, damit er nicht gerinnt, dann 300 ml Wasser angießen.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Zugedeckt schmoren, bis das Lamm zart ist.",
-   "minutes": 90
+   "minutes": 90,
+   "use": []
   },
   {
    "text": "Basmatireis kochen und dazu servieren.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
  "min": 120,
+ "nutri": {
+  "kcal": 870,
+  "p": 42,
+  "kh": 67,
+  "z": 4,
+  "f": 48,
+  "bs": 3
+ },
  "gf": true
 }

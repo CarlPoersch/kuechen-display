@@ -58,28 +58,58 @@
  "steps": [
   {
    "text": "Zwiebel und Paprika in Olivenöl weich braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    0,
+    1,
+    5,
+    10
+   ]
   },
   {
-   "text": "Knoblauch und Gewürze 1 Minute mitbraten."
+   "text": "Knoblauch und Gewürze (Kreuzkümmel, Paprika edelsüß, Chiliflocken) 1 Minute mitbraten.",
+   "use": [
+    2,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Tomaten zugeben, salzen und einkochen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Vier Mulden formen und je ein Ei hineinschlagen."
+   "text": "Vier Mulden formen und je ein Ei hineinschlagen.",
+   "use": []
   },
   {
    "text": "Zugedeckt bei kleiner Hitze garen, bis das Eiweiß fest ist und das Eigelb noch flüssig.",
-   "minutes": 6
+   "minutes": 6,
+   "use": []
   },
   {
-   "text": "Mit Feta und Petersilie bestreuen und in der Pfanne mit Brot servieren."
+   "text": "Mit Feta und Petersilie bestreuen und in der Pfanne mit Brot servieren.",
+   "use": [
+    8,
+    9,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 450,
+  "p": 23,
+  "kh": 22,
+  "z": 13,
+  "f": 30,
+  "bs": 6
+ }
 }

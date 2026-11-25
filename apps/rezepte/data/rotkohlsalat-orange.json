@@ -37,26 +37,52 @@
  ],
  "steps": [
   {
-   "text": "Rotkohl sehr fein hobeln, mit ½ TL Salz kräftig durchkneten, damit er weich wird."
+   "text": "Rotkohl sehr fein hobeln, mit ½ TL Salz kräftig durchkneten, damit er weich wird.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Orangen schälen, filetieren und den Saft auffangen."
+   "text": "Orangen schälen, filetieren und den Saft auffangen.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Saft mit Essig, Öl, Honig, Zimt, Salz und Pfeffer verrühren und unter den Kohl mischen."
+   "text": "Saft mit Essig, Öl, Honig, Zimt, Salz und Pfeffer verrühren und unter den Kohl mischen.",
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    0
+   ]
   },
   {
    "text": "Walnüsse rösten, grob hacken und mit den Orangenfilets darübergeben.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2,
+    1
+   ]
   },
   {
    "text": "Kurz durchziehen lassen – passt gut zu Braten und Wild.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 250,
+  "p": 4,
+  "kh": 22,
+  "z": 14,
+  "f": 17,
+  "bs": 6
+ },
  "gf": true
 }

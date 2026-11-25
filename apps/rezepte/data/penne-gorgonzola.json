@@ -30,23 +30,46 @@
  "steps": [
   {
    "text": "Penne kochen.",
-   "minutes": 11
+   "minutes": 11,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Walnüsse ohne Fett rösten und grob hacken."
+   "text": "Walnüsse ohne Fett rösten und grob hacken.",
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Gorgonzola in der Sahne bei kleiner Hitze schmelzen, mit Pfeffer würzen."
+   "text": "Gorgonzola in der Sahne bei kleiner Hitze schmelzen, mit Pfeffer würzen.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Nudeln mit etwas Nudelwasser in der Sauce schwenken."
+   "text": "Nudeln mit etwas Nudelwasser in der Sauce schwenken.",
+   "use": []
   },
   {
-   "text": "Mit Walnüssen und Rucola servieren."
+   "text": "Mit Walnüssen und Rucola servieren.",
+   "use": [
+    3,
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 690,
+  "p": 23,
+  "kh": 74,
+  "z": 5,
+  "f": 32,
+  "bs": 4
+ }
 }

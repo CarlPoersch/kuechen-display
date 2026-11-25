@@ -38,32 +38,57 @@
  "steps": [
   {
    "text": "Kartoffeln mit Schale weich kochen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Pellen und noch heiß durch eine Presse drücken, ausdampfen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
-   "text": "Mit Mehl, Eigelb, Salz und Muskat rasch zu einem glatten Teig verkneten. Nicht zu lange kneten, sonst werden sie zäh."
+   "text": "Mit Mehl, Eigelb, Salz und Muskat rasch zu einem glatten Teig verkneten. Nicht zu lange kneten, sonst werden sie zäh.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Teig zu daumendicken Rollen formen und 2 cm lange Stücke abschneiden."
+   "text": "Teig zu daumendicken Rollen formen und 2 cm lange Stücke abschneiden.",
+   "use": []
   },
   {
    "text": "In siedendem Salzwasser garen, bis sie oben schwimmen, dann herausheben.",
-   "minutes": 3
+   "minutes": 3,
+   "use": []
   },
   {
    "text": "Butter mit Salbei aufschäumen lassen, bis sie nussig duftet, Gnocchi darin schwenken.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Mit Parmesan servieren."
+   "text": "Mit Parmesan servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 780,
+  "p": 21,
+  "kh": 97,
+  "z": 3,
+  "f": 34,
+  "bs": 9
+ }
 }

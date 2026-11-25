@@ -46,25 +46,54 @@
  "steps": [
   {
    "text": "Kartoffeln schälen und weich kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel fein würfeln und in Butter glasig dünsten. Corned Beef zerpflücken und kurz mitbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    3,
+    1
+   ]
   },
   {
-   "text": "Kartoffeln zugeben und grob stampfen. Mit Rote-Bete-Saft, Salz und Pfeffer abschmecken."
+   "text": "Kartoffeln zugeben und grob stampfen. Mit Rote-Bete-Saft, Salz und Pfeffer abschmecken.",
+   "use": [
+    0,
+    4,
+    5
+   ]
   },
   {
    "text": "Spiegeleier braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Labskaus mit Spiegelei, Rote Bete, Rollmops und Gewürzgurke anrichten."
+   "text": "Labskaus mit Spiegelei, Rote Bete, Rollmops und Gewürzgurke anrichten.",
+   "use": [
+    4,
+    5,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 690,
+  "p": 45,
+  "kh": 55,
+  "z": 18,
+  "f": 32,
+  "bs": 7
+ }
 }

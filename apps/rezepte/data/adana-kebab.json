@@ -63,25 +63,56 @@
  ],
  "steps": [
   {
-   "text": "Paprika und Zwiebel sehr fein hacken und ausdrücken. Mit Hack und Gewürzen kräftig verkneten, salzen."
+   "text": "Paprika und Zwiebel sehr fein hacken und ausdrücken. Mit Hack und Gewürzen (Pul Biber, Kreuzkümmel) kräftig verkneten, salzen.",
+   "use": [
+    1,
+    5,
+    2,
+    0,
+    3,
+    4
+   ]
   },
   {
-   "text": "Um flache Spieße oder zu länglichen Würsten formen."
+   "text": "Um flache Spieße oder zu länglichen Würsten formen.",
+   "use": []
   },
   {
    "text": "Tomatenmark in Butter anrösten, Bulgur und Brühe zugeben und zugedeckt quellen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    7,
+    8,
+    6,
+    9
+   ]
   },
   {
    "text": "Kebap in der Grillpfanne rundum braten, Tomaten halbiert mitgrillen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Mit Bulgur, Tomaten und Joghurt servieren."
+   "text": "Mit Bulgur, Tomaten und Joghurt servieren.",
+   "use": [
+    6,
+    10,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 750,
+  "p": 38,
+  "kh": 57,
+  "z": 9,
+  "f": 41,
+  "bs": 11
+ }
 }

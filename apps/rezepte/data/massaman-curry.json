@@ -58,30 +58,62 @@
  "steps": [
   {
    "text": "Etwas Kokosmilch erhitzen und die Currypaste darin 2 Minuten anrösten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    2,
+    1
+   ]
   },
   {
-   "text": "Fleisch zugeben und rundum anbraten."
+   "text": "Fleisch zugeben und rundum anbraten.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Restliche Kokosmilch, Wasser und Zimtstange zugeben und zugedeckt schmoren.",
-   "minutes": 75
+   "minutes": 75,
+   "use": [
+    2,
+    3,
+    10
+   ]
   },
   {
    "text": "Kartoffeln, Zwiebel und Erdnüsse zugeben und weiterköcheln, bis die Kartoffeln weich sind.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    11
+   ]
   },
   {
-   "text": "Mit Fischsauce, Tamarinde und Zucker abschmecken: mild-süß und leicht säuerlich."
+   "text": "Mit Fischsauce, Tamarinde und Zucker abschmecken: mild-süß und leicht säuerlich.",
+   "use": [
+    7,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
  "min": 120,
+ "nutri": {
+  "kcal": 1100,
+  "p": 49,
+  "kh": 100,
+  "z": 15,
+  "f": 55,
+  "bs": 6
+ },
  "gf": true
 }

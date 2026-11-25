@@ -65,27 +65,63 @@
  "steps": [
   {
    "text": "Zwiebeln fein schneiden und in Schmalz langsam goldbraun rösten. Warum so viele: Sie lösen sich auf und binden das Gulasch.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Topf vom Herd nehmen, Paprika und Tomatenmark einrühren, sofort mit Essig und etwas Wasser ablöschen (Paprika wird sonst bitter)."
+   "text": "Topf vom Herd nehmen, Paprika und Tomatenmark einrühren, sofort mit Essig und etwas Wasser ablöschen (Paprika wird sonst bitter).",
+   "use": [
+    3,
+    4,
+    8,
+    9
+   ]
   },
   {
-   "text": "Fleisch in 4 cm große Würfel schneiden und zugeben. Kümmel, Majoran, gehackten Knoblauch und 1 TL Salz zugeben."
+   "text": "Fleisch in 4 cm große Würfel schneiden und zugeben. Kümmel, Majoran, gehackten Knoblauch und 1 TL Salz zugeben.",
+   "use": [
+    0,
+    5,
+    6,
+    7
+   ]
   },
   {
    "text": "Mit Wasser knapp bedecken und zugedeckt schmoren, bis das Fleisch weich ist. Bei Bedarf Wasser nachgießen.",
-   "minutes": 120
+   "minutes": 120,
+   "use": [
+    9,
+    0
+   ]
   },
   {
-   "text": "Würstchen fächerartig einschneiden und kurz anbraten, Spiegeleier braten."
+   "text": "Würstchen fächerartig einschneiden und kurz anbraten, Spiegeleier braten.",
+   "use": [
+    10,
+    11
+   ]
   },
   {
-   "text": "Gulasch mit Würstchen, Spiegelei, gefächerter Essiggurke und Semmelknödel servieren."
+   "text": "Gulasch mit Würstchen, Spiegelei, gefächerter Essiggurke und Semmelknödel servieren.",
+   "use": [
+    10,
+    12
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 150
+ "min": 150,
+ "nutri": {
+  "kcal": 820,
+  "p": 70,
+  "kh": 29,
+  "z": 14,
+  "f": 46,
+  "bs": 7
+ }
 }

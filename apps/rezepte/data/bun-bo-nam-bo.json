@@ -69,26 +69,61 @@
  "steps": [
   {
    "text": "Fleisch in dünne Streifen schneiden, mit gehacktem Zitronengras, Knoblauch und Fischsauce marinieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    3,
+    9,
+    0
+   ]
   },
   {
    "text": "Nudeln nach Packung garen und kalt abschrecken.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Nuoc-Cham-Zutaten verrühren, bis der Zucker gelöst ist."
+   "text": "Nuoc-Cham-Zutaten verrühren, bis der Zucker gelöst ist.",
+   "use": [
+    10
+   ]
   },
   {
    "text": "Fleisch im sehr heißen Wok kurz braten.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Nudeln, Salat, Gurke und Kräuter in Schalen, Fleisch darauf, mit Erdnüssen und Sauce servieren."
+   "text": "Nudeln, Salat, Gurke und Kräuter (Zitronengras, Minze) in Schalen, Fleisch darauf, mit Erdnüssen und Sauce servieren.",
+   "use": [
+    4,
+    6,
+    5,
+    8,
+    3,
+    9,
+    1,
+    7,
+    0
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 830,
+  "p": 43,
+  "kh": 109,
+  "z": 21,
+  "f": 22,
+  "bs": 6
+ },
  "gf": true
 }

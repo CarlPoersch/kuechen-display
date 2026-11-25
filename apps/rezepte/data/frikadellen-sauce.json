@@ -49,21 +49,45 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel fein würfeln, mit Hack, Ei, Bröseln, Senf, Petersilie, Salz und Pfeffer verkneten."
+   "text": "Zwiebel fein würfeln, mit Hack, Ei, Bröseln, Senf, Petersilie, Salz und Pfeffer verkneten.",
+   "use": [
+    1,
+    0,
+    2,
+    4,
+    5
+   ]
   },
   {
    "text": "8 flache Frikadellen formen und in Öl pro Seite braten.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Gurke hobeln, mit Joghurt, Dill, Salz und Pfeffer mischen."
+   "text": "Gurke hobeln, mit Joghurt, Dill, Salz und Pfeffer mischen.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Frikadellen mit Gurkensalat und Brot oder Kartoffeln servieren."
+   "text": "Frikadellen mit Gurkensalat und Brot oder Kartoffeln servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 340,
+  "p": 28,
+  "kh": 12,
+  "z": 5,
+  "f": 19,
+  "bs": 1
+ }
 }

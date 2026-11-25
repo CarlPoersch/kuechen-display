@@ -50,27 +50,55 @@
  "steps": [
   {
    "text": "Linsen mit Kurkuma und 900 ml Wasser weich kochen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0,
+    6
+   ]
   },
   {
    "text": "Kreuzkümmel in Ghee anrösten, Zwiebel, Knoblauch und Ingwer goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    7,
+    9,
+    2,
+    4,
+    5
+   ]
   },
   {
    "text": "Tomaten zugeben und einkochen, Garam Masala unterrühren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    8
+   ]
   },
   {
    "text": "Linsen und gehackten Spinat zugeben und kurz köcheln. Mit Salz abschmecken.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Reis oder Naan servieren."
+   "text": "Mit Reis oder Naan servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 40,
+ "nutri": {
+  "kcal": 320,
+  "p": 18,
+  "kh": 43,
+  "z": 4,
+  "f": 8,
+  "bs": 10
+ },
  "gf": true
 }

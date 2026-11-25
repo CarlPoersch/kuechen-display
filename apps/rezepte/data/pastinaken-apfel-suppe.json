@@ -41,26 +41,55 @@
  ],
  "steps": [
   {
-   "text": "Pastinaken schälen und würfeln, Apfel und Zwiebel klein schneiden."
+   "text": "Pastinaken schälen und würfeln, Apfel und Zwiebel klein schneiden.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Zwiebel in Öl andünsten, Pastinaken und Apfel kurz mitdünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2,
+    5,
+    0,
+    1
+   ]
   },
   {
    "text": "Mit Brühe auffüllen und weich köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Kokosmilch zugeben, fein pürieren und mit Salz, Pfeffer und Muskat abschmecken."
+   "text": "Kokosmilch zugeben, fein pürieren und mit Salz, Pfeffer und Muskat abschmecken.",
+   "use": [
+    4,
+    6
+   ]
   },
   {
-   "text": "Mit Kürbiskernen bestreuen."
+   "text": "Mit Kürbiskernen bestreuen.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegan",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 300,
+  "p": 6,
+  "kh": 38,
+  "z": 14,
+  "f": 16,
+  "bs": 9
+ },
  "gf": true
 }

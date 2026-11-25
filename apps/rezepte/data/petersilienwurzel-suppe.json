@@ -41,26 +41,54 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel würfeln, Petersilienwurzeln und Kartoffel schälen und klein schneiden."
+   "text": "Zwiebel würfeln, Petersilienwurzeln und Kartoffel schälen und klein schneiden.",
+   "use": [
+    2,
+    0,
+    1
+   ]
   },
   {
-   "text": "Zwiebel in Butter andünsten, Gemüse kurz mitdünsten.",
-   "minutes": 5
+   "text": "Zwiebel in Butter andünsten, Gemüse (Petersilienwurzeln) kurz mitdünsten.",
+   "minutes": 5,
+   "use": [
+    2,
+    5,
+    0
+   ]
   },
   {
    "text": "Mit Brühe aufgießen und weich köcheln.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Sahne zugeben, fein pürieren und mit Salz, Pfeffer und Zitronensaft abschmecken."
+   "text": "Sahne zugeben, fein pürieren und mit Salz, Pfeffer und Zitronensaft abschmecken.",
+   "use": [
+    4,
+    7
+   ]
   },
   {
    "text": "Haselnüsse ohne Fett rösten, hacken und über die Suppe streuen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 400,
+  "p": 7,
+  "kh": 39,
+  "z": 11,
+  "f": 25,
+  "bs": 9
+ }
 }

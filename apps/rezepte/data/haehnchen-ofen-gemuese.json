@@ -45,22 +45,44 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 220 °C vorheizen."
+   "text": "Ofen auf 220 °C vorheizen.",
+   "use": []
   },
   {
-   "text": "Kartoffeln halbieren, Zwiebeln und Zucchini in Spalten schneiden, Zitrone in Scheiben."
+   "text": "Kartoffeln halbieren, Zwiebeln und Zucchini in Spalten schneiden, Zitrone in Scheiben.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Alles mit Knoblauch, Öl, Oregano, Thymian, Salz und Pfeffer auf einem Blech mischen."
+   "text": "Alles mit Knoblauch, Öl, Oregano, Thymian, Salz und Pfeffer auf einem Blech mischen.",
+   "use": [
+    5,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Hähnchen salzen, mit der Haut nach oben darauflegen und knusprig backen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 60,
+ "nutri": {
+  "kcal": 970,
+  "p": 71,
+  "kh": 42,
+  "z": 5,
+  "f": 57,
+  "bs": 6
+ },
  "gf": true
 }

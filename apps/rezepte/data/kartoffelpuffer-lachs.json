@@ -45,24 +45,53 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln schälen und mit der Zwiebel fein reiben. In einem Tuch kräftig ausdrücken."
+   "text": "Kartoffeln schälen und mit der Zwiebel fein reiben. In einem Tuch kräftig ausdrücken.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Eiern, Mehl und 1 TL Salz vermengen."
+   "text": "Mit Eiern, Mehl und 1 TL Salz vermengen.",
+   "use": [
+    2,
+    3
+   ]
   },
   {
-   "text": "Schmand mit gehacktem Dill, Zitronenabrieb, Salz und Pfeffer verrühren."
+   "text": "Schmand mit gehacktem Dill, Zitronenabrieb, Salz und Pfeffer verrühren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Öl in einer Pfanne erhitzen, je 2 EL Teig flach drücken und beidseitig goldbraun backen. Auf Küchenpapier abtropfen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Puffer mit Lachs und Dill-Schmand servieren."
+   "text": "Puffer mit Lachs und Dill-Schmand servieren.",
+   "use": [
+    5,
+    7,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 630,
+  "p": 22,
+  "kh": 51,
+  "z": 5,
+  "f": 38,
+  "bs": 6
+ }
 }

@@ -36,26 +36,53 @@
  ],
  "steps": [
   {
-   "text": "Steaks 30 Minuten vorher aus dem Kühlschrank nehmen. Butter mit Knoblauch, Kräutern, Zitrone und Salz verkneten."
+   "text": "Steaks 30 Minuten vorher aus dem Kühlschrank nehmen. Butter mit Knoblauch, Kräutern, Zitrone und Salz verkneten.",
+   "use": [
+    0,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Steaks trocken tupfen. Pfanne sehr heiß werden lassen, Öl zugeben."
+   "text": "Steaks trocken tupfen. Pfanne sehr heiß werden lassen, Öl zugeben.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Steaks pro Seite scharf anbraten (medium).",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Ruhen lassen, damit der Saft sich verteilt. Dann salzen und pfeffern.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Mit Kräuterbutter, Ofenkartoffeln und Salat servieren."
+   "text": "Mit Kräuterbutter, Ofenkartoffeln und Salat servieren.",
+   "use": [
+    2
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 730,
+  "p": 53,
+  "kh": 1,
+  "z": 0,
+  "f": 56,
+  "bs": 0
+ },
  "gf": true
 }

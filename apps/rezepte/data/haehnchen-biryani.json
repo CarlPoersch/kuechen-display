@@ -61,39 +61,77 @@
  ],
  "steps": [
   {
-   "text": "Hähnchen mit Joghurt, Gewürzen und Paste marinieren.",
-   "minutes": 60
+   "text": "Hähnchen mit Joghurt, Gewürzen (Biryani- oder Garam Masala, Chilipulver) und Paste marinieren.",
+   "minutes": 60,
+   "use": [
+    1,
+    4,
+    2,
+    3
+   ]
   },
   {
    "text": "Reis waschen und einweichen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Zwiebeln im Ghee langsam tief goldbraun braten. Die Hälfte beiseitelegen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    6,
+    7
+   ]
   },
   {
    "text": "Hähnchen zu den Zwiebeln geben und 10 Minuten schmoren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Reis mit Kardamom und Zimt in Salzwasser 5 Minuten vorkochen (er soll noch Biss haben) und abgießen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    9,
+    10
+   ]
   },
   {
-   "text": "Reis über das Hähnchen schichten, Safranmilch, Kräuter und restliche Zwiebeln darauf verteilen."
+   "text": "Reis über das Hähnchen schichten, Safranmilch, Kräuter (Minze, Koriander) und restliche Zwiebeln darauf verteilen.",
+   "use": [
+    5,
+    8,
+    6,
+    11,
+    12
+   ]
   },
   {
    "text": "Fest zugedeckt bei kleinster Hitze garen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   },
   {
-   "text": "Vor dem Servieren vorsichtig auflockern."
+   "text": "Vor dem Servieren vorsichtig auflockern.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 90,
+ "nutri": {
+  "kcal": 660,
+  "p": 28,
+  "kh": 69,
+  "z": 5,
+  "f": 29,
+  "bs": 3
+ },
  "gf": true
 }

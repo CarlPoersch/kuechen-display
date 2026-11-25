@@ -52,29 +52,61 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Spinat gut ausdrücken und hacken."
+   "text": "Ofen auf 180 °C vorheizen. Spinat gut ausdrücken und hacken.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Spinat, Ricotta, die Hälfte des Parmesans, Ei, Salz, Pfeffer und Muskat verrühren."
+   "text": "Spinat, Ricotta, die Hälfte des Parmesans, Ei, Salz, Pfeffer und Muskat verrühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Füllung in einen Gefrierbeutel geben, eine Ecke abschneiden und die Cannelloni füllen."
+   "text": "Füllung in einen Gefrierbeutel geben, eine Ecke abschneiden und die Cannelloni füllen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Knoblauch in Öl andünsten, Tomaten zugeben, salzen und kurz köcheln. Die Hälfte in eine Form geben.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    7,
+    8,
+    6
+   ]
   },
   {
-   "text": "Cannelloni darauflegen, restliche Sauce darübergießen, mit Mozzarella und Parmesan bestreuen."
+   "text": "Cannelloni darauflegen, restliche Sauce darübergießen, mit Mozzarella und Parmesan bestreuen.",
+   "use": [
+    0,
+    9,
+    3
+   ]
   },
   {
    "text": "Backen, bis die Nudeln weich sind.",
-   "minutes": 35
+   "minutes": 35,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 70,
+ "nutri": {
+  "kcal": 600,
+  "p": 31,
+  "kh": 59,
+  "z": 11,
+  "f": 27,
+  "bs": 7
+ },
  "gf": true
 }

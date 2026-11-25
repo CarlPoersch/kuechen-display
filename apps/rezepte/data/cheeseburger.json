@@ -45,24 +45,53 @@
  ],
  "steps": [
   {
-   "text": "Hack ohne viel Kneten zu 4 flachen Patties formen, mit dem Daumen eine Mulde in die Mitte drücken (so wölben sie sich nicht)."
+   "text": "Hack ohne viel Kneten zu 4 flachen Patties formen, mit dem Daumen eine Mulde in die Mitte drücken (so wölben sie sich nicht).",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Zwiebel in Ringe, Tomaten und Gurken in Scheiben schneiden."
+   "text": "Zwiebel in Ringe, Tomaten und Gurken in Scheiben schneiden.",
+   "use": [
+    3,
+    4,
+    6
+   ]
   },
   {
    "text": "Pfanne sehr heiß werden lassen, Patties mit Öl einpinseln, salzen und pro Seite braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Nach dem Wenden mit Käse belegen und zugedeckt schmelzen lassen."
+   "text": "Nach dem Wenden mit Käse belegen und zugedeckt schmelzen lassen.",
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Brötchen anrösten und mit Senf-Mayo, Salat, Patty, Tomate, Zwiebel und Gurke belegen."
+   "text": "Brötchen anrösten und mit Senf-Mayo, Salat, Patty, Tomate, Zwiebel und Gurke belegen.",
+   "use": [
+    1,
+    7,
+    5,
+    4,
+    3
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 760,
+  "p": 40,
+  "kh": 37,
+  "z": 7,
+  "f": 50,
+  "bs": 3
+ }
 }

@@ -37,22 +37,47 @@
  ],
  "steps": [
   {
-   "text": "Spinat auftauen, ausdrücken und hacken. Zwiebel würfeln und in etwas Butter dünsten."
+   "text": "Spinat auftauen, ausdrücken und hacken. Zwiebel würfeln und in etwas Butter dünsten.",
+   "use": [
+    1,
+    2,
+    6
+   ]
   },
   {
    "text": "Knödelbrot mit Milch, Eiern, Spinat, Zwiebel, Salz, Pfeffer und Muskat verkneten und ziehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    4,
+    3,
+    1,
+    2
+   ]
   },
   {
    "text": "8 Knödel formen und in siedendem Salzwasser gar ziehen lassen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
-   "text": "Restliche Butter aufschäumen, bis sie nussig riecht. Knödel damit beträufeln und mit Parmesan bestreuen."
+   "text": "Restliche Butter aufschäumen, bis sie nussig riecht. Knödel damit beträufeln und mit Parmesan bestreuen.",
+   "use": [
+    6,
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 470,
+  "p": 18,
+  "kh": 39,
+  "z": 6,
+  "f": 27,
+  "bs": 4
+ }
 }

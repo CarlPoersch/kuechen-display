@@ -46,24 +46,50 @@
  "steps": [
   {
    "text": "Kürbis schälen und klein würfeln. Nudeln in Salzwasser garen, etwas Nudelwasser aufheben.",
-   "minutes": 11
+   "minutes": 11,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Kürbis in Öl anbraten, mit einer Tasse Wasser zugedeckt weich dünsten.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    2,
+    3,
+    1,
+    7
+   ]
   },
   {
-   "text": "Die Hälfte des Kürbisses mit Sahne pürieren und zurück in die Pfanne geben."
+   "text": "Die Hälfte des Kürbisses mit Sahne pürieren und zurück in die Pfanne geben.",
+   "use": [
+    1,
+    5
+   ]
   },
   {
-   "text": "Salbei in Streifen kurz mitbraten, Nudeln und etwas Nudelwasser unterrühren."
+   "text": "Salbei in Streifen kurz mitbraten, Nudeln und etwas Nudelwasser unterrühren.",
+   "use": []
   },
   {
-   "text": "Mit Parmesan und gehackten Walnüssen servieren."
+   "text": "Mit Parmesan und gehackten Walnüssen servieren.",
+   "use": [
+    6,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 660,
+  "p": 20,
+  "kh": 84,
+  "z": 8,
+  "f": 27,
+  "bs": 5
+ }
 }

@@ -61,30 +61,61 @@
  "steps": [
   {
    "text": "Kichererbsen über Nacht einweichen (nicht kochen).",
-   "minutes": 720
+   "minutes": 720,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Abtropfen lassen und mit Zwiebel, Knoblauch, Kräutern und Gewürzen im Mixer fein, aber nicht breiig zerkleinern."
+   "text": "Abtropfen lassen und mit Zwiebel, Knoblauch, Kräutern (Petersilie, Koriander) und Gewürzen (Kreuzkümmel) im Mixer fein, aber nicht breiig zerkleinern.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Natron und Mehl unterrühren und kühl ruhen lassen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    7,
+    8
+   ]
   },
   {
-   "text": "Zu kleinen, etwas flacheren Bällchen formen. Warum flacher: Sie garen im Airfryer gleichmäßiger durch."
+   "text": "Zu kleinen, etwas flacheren Bällchen formen. Warum flacher: Sie garen im Airfryer gleichmäßiger durch.",
+   "use": []
   },
   {
    "text": "Rundum mit Öl bepinseln und bei 190 °C garen, nach der Hälfte wenden.",
-   "minutes": 14
+   "minutes": 14,
+   "use": [
+    9,
+    4
+   ]
   },
   {
-   "text": "Im Fladenbrot mit Salat, Tomaten und Tahinsauce servieren."
+   "text": "Im Fladenbrot mit Salat, Tomaten und Tahinsauce servieren.",
+   "use": [
+    10,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 660,
+  "p": 25,
+  "kh": 109,
+  "z": 10,
+  "f": 14,
+  "bs": 16
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

@@ -46,25 +46,51 @@
  "steps": [
   {
    "text": "Pilze in Scheiben schneiden und portionsweise in heißer Butter scharf anbraten. Warum portionsweise: Sonst kochen sie im eigenen Saft.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Schalotte und Knoblauch zugeben, mit Wein ablöschen."
+   "text": "Schalotte und Knoblauch zugeben, mit Wein ablöschen.",
+   "use": [
+    2,
+    3,
+    6
+   ]
   },
   {
    "text": "Sahne zugeben und cremig einkochen, salzen und pfeffern.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Tagliatelle kochen und mit der Sauce mischen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Petersilie und Parmesan servieren."
+   "text": "Mit Petersilie und Parmesan servieren.",
+   "use": [
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 600,
+  "p": 18,
+  "kh": 79,
+  "z": 8,
+  "f": 23,
+  "bs": 5
+ }
 }

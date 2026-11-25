@@ -75,32 +75,73 @@
  ],
  "steps": [
   {
-   "text": "Gemüse grob würfeln und mit allen Zutaten der Marinade aufkochen. Abkühlen lassen."
+   "text": "Gemüse (Zwiebeln, Karotte, Sellerieknolle) grob würfeln und mit allen Zutaten der Marinade aufkochen. Abkühlen lassen.",
+   "use": [
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Fleisch in eine Schüssel legen, mit Marinade bedecken und zugedeckt im Kühlschrank 3 Tage ziehen lassen, täglich wenden."
+   "text": "Fleisch in eine Schüssel legen, mit Marinade bedecken und zugedeckt im Kühlschrank 3 Tage ziehen lassen, täglich wenden.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Fleisch herausnehmen, trocken tupfen und salzen. Marinade durch ein Sieb gießen, Gemüse aufheben."
+   "text": "Fleisch herausnehmen, trocken tupfen und salzen. Marinade durch ein Sieb gießen, Gemüse (Zwiebeln, Karotte, Sellerieknolle) aufheben.",
+   "use": [
+    1,
+    4,
+    5,
+    6,
+    0
+   ]
   },
   {
-   "text": "Fleisch im Bräter in Butterschmalz rundum kräftig anbraten, Gemüse kurz mitbraten.",
-   "minutes": 10
+   "text": "Fleisch im Bräter in Butterschmalz rundum kräftig anbraten, Gemüse (Zwiebeln, Karotte, Sellerieknolle) kurz mitbraten.",
+   "minutes": 10,
+   "use": [
+    11,
+    4,
+    5,
+    6,
+    0
+   ]
   },
   {
    "text": "Mit der Marinade aufgießen und zugedeckt bei kleiner Hitze schmoren, bis es weich ist.",
-   "minutes": 150
+   "minutes": 150,
+   "use": []
   },
   {
    "text": "Fleisch warm stellen. Sauce durch ein Sieb streichen, Printen hineinbröseln, Rosinen und Sirup zugeben und sämig einkochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    13,
+    12,
+    14,
+    0
+   ]
   },
   {
-   "text": "Fleisch aufschneiden und mit Sauce, Rotkohl und Kartoffelklößen servieren."
+   "text": "Fleisch aufschneiden und mit Sauce, Rotkohl und Kartoffelklößen servieren.",
+   "use": [
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 180
+ "min": 180,
+ "nutri": {
+  "kcal": 600,
+  "p": 55,
+  "kh": 29,
+  "z": 17,
+  "f": 23,
+  "bs": 3
+ }
 }

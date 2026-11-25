@@ -63,29 +63,63 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Backpulver, Zucker, Ei und Butter rasch zu einem Mürbeteig verkneten und auf einem Blech (ca. 30 × 40 cm) ausrollen."
+   "text": "Mehl, Backpulver, Zucker, Ei und Butter rasch zu einem Mürbeteig verkneten und auf einem Blech (ca. 30 × 40 cm) ausrollen.",
+   "use": [
+    0,
+    1,
+    2,
+    7,
+    3,
+    4,
+    6
+   ]
   },
   {
-   "text": "Teig mit Marmelade bestreichen. Backofen auf 180 °C vorheizen."
+   "text": "Teig mit Marmelade bestreichen. Backofen auf 180 °C vorheizen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Butter, Zucker und Wasser aufkochen, Nüsse unterrühren und abkühlen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    4,
+    6,
+    2,
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
    "text": "Nussmasse auf dem Teig verteilen und backen, bis sie goldbraun ist.",
-   "minutes": 25
+   "minutes": 25,
+   "use": []
   },
   {
    "text": "Abkühlen lassen, in Quadrate und dann in Dreiecke schneiden.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Die Ecken in geschmolzene Kuvertüre tauchen und fest werden lassen."
+   "text": "Die Ecken in geschmolzene Kuvertüre tauchen und fest werden lassen.",
+   "use": [
+    11
+   ]
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 360,
+  "p": 5,
+  "kh": 30,
+  "z": 20,
+  "f": 25,
+  "bs": 3
+ }
 }

@@ -54,27 +54,57 @@
  "steps": [
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Knoblauch und Chilis im Mörser grob zerstoßen."
+   "text": "Knoblauch und Chilis im Mörser grob zerstoßen.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "1 EL Öl im Wok erhitzen, Knoblauch-Chili 30 Sekunden anbraten."
+   "text": "1 EL Öl im Wok erhitzen, Knoblauch-Chili 30 Sekunden anbraten.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
    "text": "Hack zugeben und krümelig braten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Saucen und Zucker zugeben, Basilikum unterheben, bis es zusammenfällt."
+   "text": "Saucen und Zucker zugeben, Basilikum unterheben, bis es zusammenfällt.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Restliches Öl in einer Pfanne stark erhitzen und die Eier knusprig braten (Spiegelei mit krossem Rand). Alles auf Reis servieren."
+   "text": "Restliches Öl in einer Pfanne stark erhitzen und die Eier knusprig braten (Spiegelei mit krossem Rand). Alles auf Reis servieren.",
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 960,
+  "p": 40,
+  "kh": 69,
+  "z": 6,
+  "f": 57,
+  "bs": 2
+ }
 }

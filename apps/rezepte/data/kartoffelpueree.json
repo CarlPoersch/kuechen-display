@@ -26,23 +26,46 @@
  "steps": [
   {
    "text": "Kartoffeln schälen, vierteln und in Salzwasser weich kochen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Abgießen und kurz ausdampfen lassen, damit das Püree nicht wässrig wird."
+   "text": "Abgießen und kurz ausdampfen lassen, damit das Püree nicht wässrig wird.",
+   "use": []
   },
   {
-   "text": "Milch mit Butter erhitzen."
+   "text": "Milch mit Butter erhitzen.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Kartoffeln durch die Presse drücken oder stampfen (nicht mixen, sonst wird es klebrig) und die Milch unterrühren."
+   "text": "Kartoffeln durch die Presse drücken oder stampfen (nicht mixen, sonst wird es klebrig) und die Milch unterrühren.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Salz und Muskat abschmecken."
+   "text": "Mit Salz und Muskat abschmecken.",
+   "use": [
+    3
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 340,
+  "p": 7,
+  "kh": 45,
+  "z": 4,
+  "f": 14,
+  "bs": 6
+ }
 }

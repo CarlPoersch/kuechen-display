@@ -53,26 +53,58 @@
  ],
  "steps": [
   {
-   "text": "Birne, Sojasauce, Zucker, Sesamöl und Knoblauch verrühren. Warum Birne: Ihre Enzyme machen das Fleisch zart."
+   "text": "Birne, Sojasauce, Zucker, Sesamöl und Knoblauch verrühren. Warum Birne: Ihre Enzyme machen das Fleisch zart.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    0
+   ]
   },
   {
    "text": "Fleisch und Zwiebel in der Marinade ziehen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    6,
+    0
+   ]
   },
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Pfanne stark erhitzen und das Fleisch portionsweise 2–3 Minuten braten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Frühlingszwiebeln und Sesam bestreuen, mit Reis und Salatblättern servieren."
+   "text": "Mit Frühlingszwiebeln und Sesam bestreuen, mit Reis und Salatblättern servieren.",
+   "use": [
+    7,
+    8,
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 750,
+  "p": 53,
+  "kh": 86,
+  "z": 16,
+  "f": 22,
+  "bs": 6
+ }
 }

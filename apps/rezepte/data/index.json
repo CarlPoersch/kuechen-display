@@ -10,6 +10,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 70,
+  "kcal": 270,
   "ing": [
    "sehr reife Bananen",
    "geschmolzene Butter",
@@ -34,6 +35,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 230,
   "ing": [
    "Mehl",
    "Backpulver",
@@ -56,6 +58,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 590,
   "ing": [
    "Kidneybohnen (Dose)",
    "Zwiebel",
@@ -84,6 +87,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 200,
   "ing": [
    "Brokkoli",
    "getrocknete Cranberrys",
@@ -110,6 +114,7 @@
   "level": "mittel",
   "min": 35,
   "gf": true,
+  "kcal": 890,
   "ing": [
    "Hähnchenflügel, geteilt",
    "Backpulver",
@@ -135,6 +140,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 800,
   "ing": [
    "Romanasalat",
    "Hähnchenbrustfilets",
@@ -160,6 +166,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 760,
   "ing": [
    "Rinderhack",
    "Burgerbrötchen",
@@ -185,6 +192,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 680,
   "ing": [
    "große Süßkartoffeln",
    "Kidneybohnen",
@@ -208,6 +216,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 160,
   "ing": [
    "weiche Butter",
    "brauner Zucker",
@@ -231,6 +240,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 390,
   "ing": [
    "Mehl",
    "Backpulver",
@@ -254,6 +264,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 400,
   "ing": [
    "Brioche oder Toast",
    "Eier",
@@ -277,6 +288,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 250,
   "ing": [
    "Eier",
    "Babyspinat",
@@ -297,6 +309,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 440,
   "ing": [
    "Hähnchenbrust",
    "Eier",
@@ -321,6 +334,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 670,
   "ing": [
    "Hähnchenbrust",
    "Karotten",
@@ -347,6 +361,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "festkochende Kartoffeln",
    "Öl",
@@ -366,6 +381,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 800,
   "ing": [
    "Makkaroni",
    "Butter",
@@ -389,6 +405,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 390,
+  "kcal": 860,
   "ing": [
    "Schweinenacken ohne Knochen",
    "brauner Zucker",
@@ -416,6 +433,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 270,
   "ing": [
    "Zartbitterschokolade",
    "Butter",
@@ -441,6 +459,7 @@
   "level": "mittel",
   "min": 35,
   "gf": true,
+  "kcal": 430,
   "ing": [
    "Süßkartoffeln (ca. 600 g)",
    "Speisestärke",
@@ -465,6 +484,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 370,
   "ing": [
    "Äpfel",
    "Staudensellerie",
@@ -486,6 +506,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 20,
+  "kcal": 210,
   "ing": [
    "Spitzkohl",
    "Karotten",
@@ -511,6 +532,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 90,
+  "kcal": 670,
   "ing": [
    "Mehl",
    "Eier",
@@ -533,6 +555,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 50,
+  "kcal": 410,
   "ing": [
    "säuerliche Äpfel",
    "Zitronensaft",
@@ -557,6 +580,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 270,
   "ing": [
    "TK-Erbsen",
    "Zwiebel",
@@ -579,6 +603,7 @@
   "level": "einfach",
   "min": 120,
   "gf": true,
+  "kcal": 690,
   "ing": [
    "Lammschulter",
    "Kartoffeln",
@@ -602,6 +627,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 440,
   "ing": [
    "zarte Haferflocken",
    "Milch oder Haferdrink",
@@ -623,6 +649,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 800,
   "ing": [
    "Lammhack (oder Rinderhack)",
    "Zwiebel",
@@ -649,6 +676,7 @@
   "diet": "vegan",
   "level": "anspruchsvoll",
   "min": 105,
+  "kcal": 880,
   "ing": [
    "Weizenmehl (Type 550)",
    "Wasser, lauwarm",
@@ -677,6 +705,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 750,
   "ing": [
    "Schweinenacken",
    "Hoisinsauce",
@@ -700,6 +729,7 @@
   "diet": "fisch",
   "level": "mittel",
   "min": 25,
+  "kcal": 680,
   "ing": [
    "Mie-Nudeln",
    "Paprika, in Streifen",
@@ -726,6 +756,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 25,
+  "kcal": 860,
   "ing": [
    "Weizennudeln",
    "Schweinehack",
@@ -754,6 +785,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 630,
   "ing": [
    "Mie-Nudeln",
    "Eier",
@@ -778,6 +810,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 590,
   "ing": [
    "gekochter Reis vom Vortag",
    "Eier",
@@ -804,6 +837,7 @@
   "diet": "vegan",
   "level": "mittel",
   "min": 45,
+  "kcal": 290,
   "ing": [
    "Frühlingsrollenblätter (TK, aufgetaut)",
    "Weißkohl",
@@ -830,6 +864,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 500,
   "ing": [
    "Weizenmehl",
    "Wasser, kalt",
@@ -856,6 +891,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 15,
+  "kcal": 690,
   "ing": [
    "Weizen- oder Mie-Nudeln",
    "Tahin oder Erdnussbutter",
@@ -883,6 +919,7 @@
   "level": "mittel",
   "min": 90,
   "gf": true,
+  "kcal": 1250,
   "ing": [
    "Schweinebauch mit Schwarte, am Stück",
    "Fünf-Gewürze-Pulver",
@@ -906,6 +943,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 30,
+  "kcal": 810,
   "ing": [
    "Hähnchenbrust, gewürfelt",
    "Sojasauce",
@@ -936,6 +974,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 25,
+  "kcal": 750,
   "ing": [
    "Seidentofu oder weicher Tofu",
    "Hackfleisch (Schwein oder Rind)",
@@ -963,6 +1002,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 710,
   "ing": [
    "Rindersteak (Hüfte), in dünnen Streifen",
    "Sojasauce",
@@ -990,6 +1030,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 900,
   "ing": [
    "Schweinebauch ohne Schwarte, in 3 cm Würfeln",
    "Zucker",
@@ -1015,6 +1056,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 230,
   "ing": [
    "Hühnerbrühe",
    "Schweinefleisch, in feinen Streifen",
@@ -1041,6 +1083,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 840,
   "ing": [
    "Schweinenacken, gewürfelt",
    "Ei",
@@ -1069,6 +1112,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 15,
+  "kcal": 120,
   "ing": [
    "Salatgurke",
    "Knoblauchzehe",
@@ -1091,6 +1135,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 25,
+  "kcal": 1000,
   "ing": [
    "fester Tofu",
    "Brokkoli",
@@ -1118,6 +1163,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 590,
   "ing": [
    "Eier",
    "Tomaten, in Spalten",
@@ -1140,6 +1186,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 380,
   "ing": [
    "Wan-Tan-Blätter",
    "Schweinehack",
@@ -1163,6 +1210,7 @@
   "diet": "vegan",
   "level": "mittel",
   "min": 30,
+  "kcal": 670,
   "ing": [
    "Auberginen",
    "Öl",
@@ -1189,6 +1237,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 1090,
   "ing": [
    "Mehl",
    "Eier",
@@ -1211,6 +1260,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 75,
+  "kcal": 390,
   "ing": [
    "weiche Butter",
    "Zucker",
@@ -1237,6 +1287,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 160,
   "ing": [
    "naturtrüber Apfelsaft",
    "schwarzer Tee",
@@ -1258,6 +1309,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 330,
   "ing": [
    "säuerliche Äpfel",
    "Mehl",
@@ -1280,6 +1332,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 430,
   "ing": [
    "Mehl",
    "Milch",
@@ -1302,6 +1355,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 75,
+  "kcal": 170,
   "ing": [
    "Rotkohl (ca. 1 kg)",
    "säuerliche Äpfel",
@@ -1329,6 +1383,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 410,
   "ing": [
    "Blätterteig (Kühlregal)",
    "Äpfel",
@@ -1352,6 +1407,7 @@
   "diet": "vegetarisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 270,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -1377,6 +1433,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 530,
   "ing": [
    "große mehligkochende Kartoffeln (je ca. 300 g)",
    "Öl",
@@ -1401,6 +1458,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 700,
   "ing": [
    "gekochte Kartoffeln",
    "Zwiebel",
@@ -1423,6 +1481,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 190,
   "ing": [
    "kleiner Weißkohl (ca. 800 g)",
    "Zwiebel",
@@ -1444,6 +1503,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 180,
   "ing": [
    "kleiner Weißkohl",
    "Speckwürfel (optional)",
@@ -1465,6 +1525,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 710,
   "ing": [
    "Schweineschulter mit Schwarte",
    "Zwiebeln",
@@ -1488,6 +1549,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 310,
   "ing": [
    "Blumenkohl",
    "Butter",
@@ -1509,6 +1571,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 450,
   "ing": [
    "festkochende Kartoffeln, am Vortag gekocht",
    "durchwachsener Speck",
@@ -1532,6 +1595,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 970,
   "ing": [
    "grobe Bratwürste",
    "festkochende Kartoffeln",
@@ -1554,6 +1618,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 410,
   "ing": [
    "säuerliche Äpfel (z. B. Boskop)",
    "gehackte Walnüsse",
@@ -1578,6 +1643,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 250,
   "ing": [
    "Brokkoli",
    "Kartoffel",
@@ -1600,6 +1666,7 @@
   "level": "einfach",
   "min": 60,
   "gf": true,
+  "kcal": 540,
   "ing": [
    "festkochende Kartoffeln",
    "Brokkoli",
@@ -1622,6 +1689,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 80,
+  "kcal": 60,
   "ing": [
    "Mehl",
    "weiche Butter",
@@ -1645,6 +1713,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 10,
+  "kcal": 380,
   "ing": [
    "Eier",
    "Milch oder Sahne",
@@ -1665,6 +1734,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 800,
   "ing": [
    "Bratwürste",
    "Zwiebel",
@@ -1689,6 +1759,7 @@
   "diet": "vegetarisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 870,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -1716,6 +1787,7 @@
   "level": "einfach",
   "min": 10,
   "gf": true,
+  "kcal": 430,
   "ing": [
    "kalter starker Kaffee",
    "Vanilleeis",
@@ -1734,6 +1806,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 250,
   "ing": [
    "Eier",
    "brauner Zucker",
@@ -1759,6 +1832,7 @@
   "level": "mittel",
   "min": 90,
   "gf": true,
+  "kcal": 670,
   "ing": [
    "getrocknete grüne Schälerbsen",
    "Wasser",
@@ -1784,6 +1858,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "Feldsalat",
    "Granatapfel",
@@ -1806,6 +1881,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 270,
   "ing": [
    "Feldsalat",
    "Speckwürfel",
@@ -1828,6 +1904,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 740,
   "ing": [
    "küchenfertige Forellen",
    "Mehl",
@@ -1849,6 +1926,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 700,
   "ing": [
    "gemischtes Hack",
    "altbackenes Brötchen",
@@ -1873,6 +1951,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 180,
+  "kcal": 1000,
   "ing": [
    "Schweineschäufele (je 400 g, mit Schwarte)",
    "Zwiebeln",
@@ -1896,6 +1975,7 @@
   "diet": "fisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 530,
   "ing": [
    "Karpfen (ca. 1,5 kg), vom Fischhändler halbiert und geschröpft",
    "Zitrone",
@@ -1919,6 +1999,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 310,
   "ing": [
    "Mandeln mit Haut",
    "Zucker",
@@ -1939,6 +2020,7 @@
   "level": "einfach",
   "min": 70,
   "gf": true,
+  "kcal": 480,
   "ing": [
    "große Paprikaschoten",
    "gemischtes Hackfleisch",
@@ -1964,6 +2046,7 @@
   "level": "einfach",
   "min": 50,
   "gf": true,
+  "kcal": 540,
   "ing": [
    "Kartoffeln",
    "Karotten",
@@ -1989,6 +2072,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 400,
   "ing": [
    "Maultaschen (Kühlregal)",
    "Zwiebeln",
@@ -2009,6 +2093,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 70,
   "ing": [
    "Mehl",
    "brauner Zucker",
@@ -2032,6 +2117,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 210,
   "ing": [
    "trockener Rotwein",
    "Orangensaft",
@@ -2053,6 +2139,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 10,
+  "kcal": 320,
   "ing": [
    "Milch",
    "Weichweizengrieß",
@@ -2073,6 +2160,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 120,
+  "kcal": 770,
   "ing": [
    "Grünkohl (frisch oder 800 g TK)",
    "Zwiebeln",
@@ -2099,6 +2187,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 170,
   "ing": [
    "Salatgurken",
    "Joghurt",
@@ -2119,6 +2208,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 80,
   "ing": [
    "Salatgurken",
    "saure Sahne",
@@ -2139,6 +2229,7 @@
   "level": "anspruchsvoll",
   "min": 150,
   "gf": true,
+  "kcal": 1260,
   "ing": [
    "Gänsekeulen",
    "Äpfel",
@@ -2161,6 +2252,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 80,
+  "kcal": 730,
   "ing": [
    "gemischtes Hackfleisch",
    "altbackenes Brötchen",
@@ -2186,6 +2278,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 480,
   "ing": [
    "Mehl (Type 405 oder Spätzlemehl)",
    "Eier",
@@ -2205,6 +2298,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 150,
+  "kcal": 260,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -2228,6 +2322,7 @@
   "level": "anspruchsvoll",
   "min": 120,
   "gf": true,
+  "kcal": 650,
   "ing": [
    "Suppenhuhn (ca. 1,5 kg)",
    "Karotten",
@@ -2255,6 +2350,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 200,
   "ing": [
    "Karotten",
    "Olivenöl",
@@ -2274,6 +2370,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 340,
   "ing": [
    "Hähnchenhack",
    "Zwiebel",
@@ -2298,6 +2395,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 50,
+  "kcal": 620,
   "ing": [
    "Hähnchenbrust",
    "Hühnerbrühe",
@@ -2322,6 +2420,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 75,
+  "kcal": 290,
   "ing": [
    "Hähnchenkeulen",
    "Karotten",
@@ -2344,6 +2443,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 620,
   "ing": [
    "Schweineschnitzel",
    "Champignons",
@@ -2368,6 +2468,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 440,
   "ing": [
    "Kabeljaufilet",
    "Kartoffeln",
@@ -2392,6 +2493,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 960,
   "ing": [
    "Eier",
    "Mehl",
@@ -2416,6 +2518,7 @@
   "level": "mittel",
   "min": 70,
   "gf": true,
+  "kcal": 810,
   "ing": [
    "festkochende Kartoffeln",
    "Rinderhack",
@@ -2439,6 +2542,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 300,
   "ing": [
    "mehligkochende Kartoffeln",
    "Lauchstangen",
@@ -2461,6 +2565,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 440,
   "ing": [
    "mehligkochende Kartoffeln",
    "Kartoffelstärke",
@@ -2480,6 +2585,7 @@
   "diet": "fisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 630,
   "ing": [
    "mehligkochende Kartoffeln",
    "Zwiebel",
@@ -2503,6 +2609,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 340,
   "ing": [
    "mehligkochende Kartoffeln",
    "Milch",
@@ -2521,6 +2628,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 420,
   "ing": [
    "mehligkochende Kartoffeln",
    "Bund Suppengrün",
@@ -2545,6 +2653,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 100,
   "ing": [
    "Früchtetee (Hagebutte-Hibiskus)",
    "Apfelsaft",
@@ -2567,6 +2676,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 680,
   "ing": [
    "Spirelli",
    "Fleischwurst oder Kochschinken",
@@ -2593,6 +2703,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 310,
   "ing": [
    "festkochende Kartoffeln",
    "Speisestärke",
@@ -2612,6 +2723,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 90,
+  "kcal": 700,
   "ing": [
    "Weißkohl (ca. 1,5 kg)",
    "gemischtes Hackfleisch",
@@ -2641,6 +2753,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 70,
   "ing": [
    "Eiweiß",
    "Zucker",
@@ -2661,6 +2774,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 430,
   "ing": [
    "Mehl",
    "Zucker",
@@ -2686,6 +2800,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 770,
   "ing": [
    "gemischtes Hackfleisch",
    "altbackenes Brötchen",
@@ -2715,6 +2830,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 260,
   "ing": [
    "Hokkaido-Kürbis (ca. 1 kg)",
    "Zwiebel",
@@ -2738,6 +2854,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 690,
   "ing": [
    "mehligkochende Kartoffeln",
    "Corned Beef",
@@ -2761,6 +2878,7 @@
   "diet": "vegetarisch",
   "level": "anspruchsvoll",
   "min": 105,
+  "kcal": 260,
   "ing": [
    "Weizenmehl (Type 550)",
    "frische Hefe",
@@ -2783,6 +2901,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 1030,
   "ing": [
    "Leberkäse (je ca. 1,5 cm)",
    "Eier",
@@ -2805,6 +2924,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 520,
   "ing": [
    "Mascarpone",
    "Magerquark",
@@ -2829,6 +2949,7 @@
   "level": "mittel",
   "min": 60,
   "gf": true,
+  "kcal": 570,
   "ing": [
    "Tellerlinsen",
    "Bund Suppengrün",
@@ -2853,6 +2974,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 80,
+  "kcal": 380,
   "ing": [
    "weiche Butter",
    "Zucker",
@@ -2878,6 +3000,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 610,
   "ing": [
    "Matjesfilets",
    "Äpfel",
@@ -2902,6 +3025,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 480,
   "ing": [
    "Milchreis",
    "Milch",
@@ -2924,6 +3048,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 50,
+  "kcal": 850,
   "ing": [
    "Penne",
    "Kochschinken",
@@ -2947,6 +3072,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 360,
   "ing": [
    "Mehl",
    "Backpulver",
@@ -2973,6 +3099,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 590,
   "ing": [
    "Nürnberger Rostbratwürste",
    "Sauerkraut",
@@ -2997,6 +3124,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 540,
   "ing": [
    "reifer Camembert",
    "weiche Butter",
@@ -3022,6 +3150,7 @@
   "level": "einfach",
   "min": 55,
   "gf": true,
+  "kcal": 660,
   "ing": [
    "Hähnchenkeulen",
    "kleine Kartoffeln",
@@ -3046,6 +3175,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 490,
   "ing": [
    "Milchreis",
    "Milch",
@@ -3069,6 +3199,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 580,
   "ing": [
    "küchenfertige Forellen",
    "Zitrone",
@@ -3091,6 +3222,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 670,
   "ing": [
    "Hähnchenbrustfilet",
    "rote Paprikaschoten",
@@ -3115,6 +3247,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 300,
   "ing": [
    "Pastinaken",
    "säuerlicher Apfel",
@@ -3137,6 +3270,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 400,
   "ing": [
    "Petersilienwurzeln",
    "mehligkochende Kartoffel",
@@ -3159,6 +3293,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 430,
   "ing": [
    "Mehl",
    "Milch",
@@ -3179,6 +3314,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 750,
   "ing": [
    "Putenbrust",
    "Champignons",
@@ -3202,6 +3338,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 80,
   "ing": [
    "Mehl",
    "Backpulver",
@@ -3227,6 +3364,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 460,
   "ing": [
    "mehligkochende Kartoffeln, gekocht",
    "Quark",
@@ -3251,6 +3389,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 400,
   "ing": [
    "Mehl",
    "Backpulver",
@@ -3279,6 +3418,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 250,
   "ing": [
    "gemischte Pilze",
    "Schalotten",
@@ -3302,6 +3442,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 260,
   "ing": [
    "gemischte Pilze",
    "Zwiebel",
@@ -3324,6 +3465,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 690,
   "ing": [
    "Blattspinat (TK oder frisch)",
    "Zwiebel",
@@ -3347,6 +3489,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 220,
   "ing": [
    "kleiner Wirsing",
    "Zwiebel",
@@ -3368,6 +3511,7 @@
   "level": "mittel",
   "min": 135,
   "gf": true,
+  "kcal": 540,
   "ing": [
    "Reh (Keule oder Schulter), gewürfelt",
    "Zwiebeln",
@@ -3395,6 +3539,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 550,
   "ing": [
    "festkochende Kartoffeln",
    "Zwiebel",
@@ -3416,6 +3561,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 260,
   "ing": [
    "weiche Butter",
    "Zucker",
@@ -3438,6 +3584,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 180,
+  "kcal": 600,
   "ing": [
    "Rinderschmorbraten (Schulter)",
    "Rotwein",
@@ -3467,6 +3614,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 150,
+  "kcal": 580,
   "ing": [
    "Rindergulasch (Wade oder Schulter)",
    "Zwiebeln",
@@ -3493,6 +3641,7 @@
   "level": "anspruchsvoll",
   "min": 135,
   "gf": true,
+  "kcal": 520,
   "ing": [
    "Rinderrouladen",
    "mittelscharfer Senf",
@@ -3520,6 +3669,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 290,
   "ing": [
    "Rosenkohl",
    "Speckwürfel",
@@ -3541,6 +3691,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 310,
   "ing": [
    "gemischte rote Beeren (TK)",
    "Kirschsaft",
@@ -3565,6 +3716,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 170,
   "ing": [
    "gekochte Rote Bete",
    "Apfel",
@@ -3587,6 +3739,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 250,
   "ing": [
    "Rotkohl",
    "Orangen",
@@ -3608,6 +3761,7 @@
   "diet": "vegan",
   "level": "mittel",
   "min": 75,
+  "kcal": 190,
   "ing": [
    "Hokkaido-Kürbis",
    "Dinkelmehl",
@@ -3630,6 +3784,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 720,
   "ing": [
    "fränkische Bratwürste (roh)",
    "Zwiebeln",
@@ -3654,6 +3809,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 80,
+  "kcal": 220,
   "ing": [
    "Dinkelvollkornmehl",
    "frische Hefe",
@@ -3676,6 +3832,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 260,
   "ing": [
    "Mehl",
    "Kakao",
@@ -3700,6 +3857,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 320,
   "ing": [
    "Milch",
    "Zartbitterschokolade",
@@ -3720,6 +3878,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 610,
   "ing": [
    "Schupfnudeln",
    "Rosenkohl",
@@ -3741,6 +3900,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 560,
   "ing": [
    "Schupfnudeln (Kühlregal)",
    "Sauerkraut",
@@ -3764,6 +3924,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 480,
   "ing": [
    "Schweinefilet",
    "Frühstücksspeck",
@@ -3787,6 +3948,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 600,
   "ing": [
    "Fleischwurst (Lyoner)",
    "Emmentaler",
@@ -3810,6 +3972,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 45,
+  "kcal": 350,
   "ing": [
    "festkochende Kartoffeln",
    "Zwiebel",
@@ -3833,6 +3996,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 105,
+  "kcal": 420,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -3859,6 +4023,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 670,
   "ing": [
    "Seelachs- oder Kabeljaufilet",
    "Mehl",
@@ -3883,6 +4048,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 340,
   "ing": [
    "Knödelbrot (altbackene Semmeln, gewürfelt)",
    "Milch",
@@ -3904,6 +4070,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 630,
   "ing": [
    "Eier",
    "Butter",
@@ -3930,6 +4097,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 290,
   "ing": [
    "weißer Spargel",
    "Wasser",
@@ -3953,6 +4121,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 120,
   "ing": [
    "Mehl",
    "kalte Butter",
@@ -3975,6 +4144,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 60,
+  "kcal": 870,
   "ing": [
    "Tellerlinsen",
    "Zwiebel",
@@ -4000,6 +4170,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 640,
   "ing": [
    "Spätzle (Kühlregal)",
    "Lauchstangen",
@@ -4021,6 +4192,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 300,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -4046,6 +4218,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 250,
   "ing": [
    "weiche Butter",
    "Zucker",
@@ -4071,6 +4244,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 320,
   "ing": [
    "weiche Butter",
    "Zucker",
@@ -4093,6 +4267,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 850,
   "ing": [
    "Kalbsschnitzel (je 150 g)",
    "Mehl",
@@ -4121,6 +4296,7 @@
   "level": "einfach",
   "min": 50,
   "gf": true,
+  "kcal": 480,
   "ing": [
    "kleiner Wirsing",
    "gemischtes Hackfleisch",
@@ -4145,6 +4321,7 @@
   "level": "mittel",
   "min": 90,
   "gf": true,
+  "kcal": 70,
   "ing": [
    "Eiweiß",
    "Puderzucker",
@@ -4165,6 +4342,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 160,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -4189,6 +4367,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 640,
   "ing": [
    "Kalbs- oder Schweinefilet",
    "Champignons",
@@ -4215,6 +4394,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 830,
   "ing": [
    "Hähnchenteile (Keulen)",
    "Speck, gewürfelt",
@@ -4240,6 +4420,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 510,
   "ing": [
    "Toastbrot",
    "Kochschinken",
@@ -4262,6 +4443,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 480,
   "ing": [
    "Mehl",
    "Eier",
@@ -4283,6 +4465,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 880,
   "ing": [
    "Mehl",
    "Wasser",
@@ -4306,6 +4489,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 1030,
   "ing": [
    "Entenbrüste",
    "Orangen",
@@ -4328,6 +4512,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "Fischfilets (Kabeljau oder Seelachs)",
    "Zucchini",
@@ -4350,6 +4535,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 970,
   "ing": [
    "Flammkuchenteig",
    "Crème fraîche",
@@ -4372,6 +4558,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 480,
   "ing": [
    "Zwiebeln",
    "Butter",
@@ -4396,6 +4583,7 @@
   "level": "einfach",
   "min": 75,
   "gf": true,
+  "kcal": 500,
   "ing": [
    "festkochende Kartoffeln",
    "Sahne",
@@ -4420,6 +4608,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 390,
   "ing": [
    "Belugalinsen",
    "rote Zwiebel",
@@ -4444,6 +4633,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 430,
   "ing": [
    "vorgegarte Maronen",
    "Zwiebel",
@@ -4466,6 +4656,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 880,
   "ing": [
    "Miesmuscheln",
    "Schalotten",
@@ -4489,6 +4680,7 @@
   "level": "mittel",
   "min": 25,
   "gf": true,
+  "kcal": 360,
   "ing": [
    "Zartbitterschokolade (70 %)",
    "Eier",
@@ -4509,6 +4701,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 80,
+  "kcal": 700,
   "ing": [
    "Mehl",
    "kalte Butter",
@@ -4535,6 +4728,7 @@
   "level": "mittel",
   "min": 60,
   "gf": true,
+  "kcal": 230,
   "ing": [
    "Aubergine",
    "Zucchini",
@@ -4558,6 +4752,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 25,
+  "kcal": 480,
   "ing": [
    "Zartbitterschokolade",
    "Butter",
@@ -4579,6 +4774,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 460,
   "ing": [
    "Mürbeteig (Kühlregal)",
    "Blattspinat (TK)",
@@ -4601,6 +4797,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 220,
   "ing": [
    "Zucchini",
    "Tomaten",
@@ -4623,6 +4820,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 240,
   "ing": [
    "Hühnerbrühe",
    "Hähnchenbrustfilet",
@@ -4644,6 +4842,7 @@
   "level": "anspruchsvoll",
   "min": 90,
   "gf": true,
+  "kcal": 330,
   "ing": [
    "Weinblätter (Glas)",
    "Rundkornreis",
@@ -4668,6 +4867,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 900,
   "ing": [
    "Schweinenacken",
    "Zwiebel",
@@ -4691,6 +4891,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 740,
   "ing": [
    "Hähnchenschenkel ohne Knochen",
    "Zwiebeln",
@@ -4715,6 +4916,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 660,
   "ing": [
    "Auberginen",
    "Kartoffeln",
@@ -4743,6 +4945,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 650,
   "ing": [
    "Feta (am Stück)",
    "Kirschtomaten",
@@ -4765,6 +4968,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 490,
   "ing": [
    "Orzo (Kritharaki)",
    "Paprikaschote",
@@ -4787,6 +4991,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 90,
+  "kcal": 810,
   "ing": [
    "Makkaroni (lange, dicke)",
    "Rinderhack",
@@ -4812,6 +5017,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 10,
+  "kcal": 220,
   "ing": [
    "griechischer Joghurt",
    "Salatgurke",
@@ -4832,6 +5038,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 320,
   "ing": [
    "Zucchini",
    "Karotte",
@@ -4857,6 +5064,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 260,
   "ing": [
    "Kartoffeln, gewürfelt",
    "Blumenkohl, in Röschen",
@@ -4885,6 +5093,7 @@
   "level": "mittel",
   "min": 60,
   "gf": true,
+  "kcal": 750,
   "ing": [
    "Hähnchenschenkel, gewürfelt",
    "Naturjoghurt",
@@ -4914,6 +5123,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 140,
   "ing": [
    "Milch",
    "Wasser",
@@ -4937,6 +5147,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 610,
   "ing": [
    "Kichererbsen, abgetropft",
    "Zwiebel",
@@ -4966,6 +5177,7 @@
   "level": "mittel",
   "min": 50,
   "gf": true,
+  "kcal": 700,
   "ing": [
    "Hähnchenbrust",
    "Joghurt",
@@ -4995,6 +5207,7 @@
   "level": "mittel",
   "min": 120,
   "gf": true,
+  "kcal": 300,
   "ing": [
    "schwarze Linsen (Urad)",
    "Kidneybohnen",
@@ -5020,6 +5233,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 320,
   "ing": [
    "gelbe Linsen (Toor oder Mung)",
    "Spinat",
@@ -5045,6 +5259,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 600,
   "ing": [
    "gelbe Linsen (Toor oder Mung Dal)",
    "Wasser",
@@ -5074,6 +5289,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 610,
   "ing": [
    "gemischtes Gemüse (Karotten, Erbsen, Bohnen, Blumenkohl)",
    "Zwiebel",
@@ -5100,6 +5316,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 10,
+  "kcal": 200,
   "ing": [
    "Milch oder Haferdrink",
    "Kurkuma",
@@ -5121,6 +5338,7 @@
   "level": "einfach",
   "min": 10,
   "gf": true,
+  "kcal": 60,
   "ing": [
    "Joghurt",
    "Salatgurke",
@@ -5140,6 +5358,7 @@
   "level": "mittel",
   "min": 90,
   "gf": true,
+  "kcal": 660,
   "ing": [
    "Hähnchenschenkel",
    "Joghurt",
@@ -5168,6 +5387,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 300,
   "ing": [
    "Basmatireis",
    "Ghee",
@@ -5189,6 +5409,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "Kartoffeln",
    "Erbsen (TK)",
@@ -5214,6 +5435,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 790,
   "ing": [
    "Kichererbsen (je 400 g)",
    "Zwiebel",
@@ -5239,6 +5461,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 410,
   "ing": [
    "Weizenmehl",
    "Trockenhefe",
@@ -5264,6 +5487,7 @@
   "level": "mittel",
   "min": 50,
   "gf": true,
+  "kcal": 480,
   "ing": [
    "Lammhack oder Rinderhack",
    "Zwiebel (für die Bällchen)",
@@ -5291,6 +5515,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 620,
   "ing": [
    "festes weißes Fischfilet (Kabeljau, Seelachs)",
    "Zwiebel",
@@ -5318,6 +5543,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 580,
   "ing": [
    "Butternut-Kürbis",
    "Kichererbsen",
@@ -5344,6 +5570,7 @@
   "level": "einfach",
   "min": 5,
   "gf": true,
+  "kcal": 250,
   "ing": [
    "reife Mango (oder 250 g Mangopüree)",
    "Naturjoghurt",
@@ -5365,6 +5592,7 @@
   "level": "mittel",
   "min": 35,
   "gf": true,
+  "kcal": 830,
   "ing": [
    "Blattspinat",
    "Paneer, gewürfelt",
@@ -5391,6 +5619,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 550,
   "ing": [
    "Paneer",
    "Zwiebel",
@@ -5418,6 +5647,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 430,
   "ing": [
    "Paneer",
    "Paprika",
@@ -5441,6 +5671,7 @@
   "level": "anspruchsvoll",
   "min": 120,
   "gf": true,
+  "kcal": 870,
   "ing": [
    "Lammschulter, gewürfelt",
    "Joghurt",
@@ -5470,6 +5701,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 310,
   "ing": [
    "Kartoffeln",
    "Erbsen (TK)",
@@ -5497,6 +5729,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 710,
   "ing": [
    "Hähnchenbrust",
    "Zwiebel",
@@ -5525,6 +5758,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 680,
   "ing": [
    "Hähnchenunterschenkel oder 400 g Schenkelfilet",
    "Joghurt",
@@ -5550,6 +5784,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 830,
   "ing": [
    "Mie-Nudeln",
    "Schweine- oder Hähnchenfleisch",
@@ -5575,6 +5810,7 @@
   "level": "anspruchsvoll",
   "min": 180,
   "gf": true,
+  "kcal": 730,
   "ing": [
    "Rindergulasch",
    "Kokosmilch",
@@ -5602,6 +5838,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 500,
   "ing": [
    "Hähnchenbrust",
    "Kokosmilch",
@@ -5629,6 +5866,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 800,
   "ing": [
    "gekochter Reis vom Vortag",
    "Hähnchenbrust",
@@ -5654,6 +5892,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 310,
   "ing": [
    "Sauerteigbrot",
    "Avocado",
@@ -5674,6 +5913,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 5,
+  "kcal": 220,
   "ing": [
    "Banane",
    "Beeren (TK)",
@@ -5693,6 +5933,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 10,
+  "kcal": 290,
   "ing": [
    "Chiasamen",
    "Hafermilch",
@@ -5712,6 +5953,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 50,
+  "kcal": 630,
   "ing": [
    "Hähnchenschenkel",
    "Sojasauce",
@@ -5735,6 +5977,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 190,
   "ing": [
    "große Champignons",
    "Frischkäse",
@@ -5756,6 +5999,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 390,
   "ing": [
    "gekochter Reis (vom Vortag)",
    "Paprikaschote",
@@ -5780,6 +6024,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 690,
   "ing": [
    "Rinderhack",
    "Langkornreis",
@@ -5805,6 +6050,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 470,
   "ing": [
    "reife Bananen",
    "Eier",
@@ -5829,6 +6075,7 @@
   "level": "einfach",
   "min": 10,
   "gf": true,
+  "kcal": 410,
   "ing": [
    "Milch",
    "Zartbitterschokolade",
@@ -5849,6 +6096,7 @@
   "level": "einfach",
   "min": 10,
   "gf": true,
+  "kcal": 30,
   "ing": [
    "Bio-Zitrone",
    "Ingwer",
@@ -5868,6 +6116,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 360,
   "ing": [
    "Hähnchenbrustfilet",
    "Honig",
@@ -5892,6 +6141,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 710,
   "ing": [
    "Lachsfilets (je 150 g)",
    "Brokkoli, in Röschen",
@@ -5914,6 +6164,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 750,
   "ing": [
    "Hähnchenschenkel",
    "Frühlingszwiebeln",
@@ -5941,6 +6192,7 @@
   "level": "einfach",
   "min": 5,
   "gf": true,
+  "kcal": 500,
   "ing": [
    "griechischer Joghurt",
    "Beeren (frisch oder TK, aufgetaut)",
@@ -5961,6 +6213,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 350,
   "ing": [
    "Haferflocken",
    "Nüsse, grob gehackt",
@@ -5983,6 +6236,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 480,
   "ing": [
    "Lachsfilets (je 150 g)",
    "weiche Butter",
@@ -6006,6 +6260,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 190,
   "ing": [
    "Rosenkohl",
    "Olivenöl",
@@ -6025,6 +6280,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 5,
+  "kcal": 440,
   "ing": [
    "Haferflocken",
    "Milch oder Haferdrink",
@@ -6047,6 +6303,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 880,
   "ing": [
    "Quinoa",
    "Süßkartoffel",
@@ -6072,6 +6329,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 730,
   "ing": [
    "Rumpsteaks (je 250 g, 3 cm dick)",
    "Öl",
@@ -6092,6 +6350,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 5,
+  "kcal": 230,
   "ing": [
    "reife Bananen (gefroren)",
    "Kakaopulver",
@@ -6110,6 +6369,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 30,
+  "kcal": 880,
   "ing": [
    "Sushireis",
    "fester Tofu",
@@ -6136,6 +6396,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 510,
   "ing": [
    "Lauchstange",
    "Babyspinat",
@@ -6159,6 +6420,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 15,
+  "kcal": 270,
   "ing": [
    "Ciabatta",
    "reife Tomaten",
@@ -6179,6 +6441,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 20,
+  "kcal": 520,
   "ing": [
    "Spaghetti oder Tonnarelli",
    "Pecorino Romano, fein gerieben",
@@ -6197,6 +6460,7 @@
   "level": "mittel",
   "min": 70,
   "gf": true,
+  "kcal": 600,
   "ing": [
    "Cannelloni",
    "Blattspinat (TK, aufgetaut)",
@@ -6221,6 +6485,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 430,
   "ing": [
    "Polenta (Maisgrieß)",
    "Gemüsebrühe",
@@ -6245,6 +6510,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 680,
   "ing": [
    "Fettuccine",
    "Butter",
@@ -6265,6 +6531,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 320,
   "ing": [
    "Eier",
    "Zucchini",
@@ -6286,6 +6553,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 510,
   "ing": [
    "Zucchini",
    "Aubergine",
@@ -6314,6 +6582,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 610,
   "ing": [
    "Gnocchi (Kühlregal)",
    "Zwiebel",
@@ -6337,6 +6606,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 530,
   "ing": [
    "Gnocchi (Kühlregal)",
    "Hokkaidokürbis",
@@ -6359,6 +6629,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 490,
   "ing": [
    "Ricotta",
    "Blattspinat (TK, aufgetaut)",
@@ -6382,6 +6653,7 @@
   "level": "mittel",
   "min": 50,
   "gf": true,
+  "kcal": 820,
   "ing": [
    "Hähnchenschenkel (mit Haut)",
    "Zwiebel",
@@ -6407,6 +6679,7 @@
   "level": "einfach",
   "min": 10,
   "gf": true,
+  "kcal": 300,
   "ing": [
    "reife Tomaten",
    "Büffelmozzarella",
@@ -6426,6 +6699,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 780,
   "ing": [
    "mehligkochende Kartoffeln",
    "Mehl",
@@ -6449,6 +6723,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 680,
   "ing": [
    "Gnocchi (Kühlregal)",
    "Cherrytomaten",
@@ -6472,6 +6747,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 470,
   "ing": [
    "Hokkaidokürbis",
    "Risottoreis",
@@ -6495,6 +6771,7 @@
   "diet": "fisch",
   "level": "mittel",
   "min": 70,
+  "kcal": 740,
   "ing": [
    "Lachsfilet ohne Haut",
    "Blattspinat (TK)",
@@ -6519,6 +6796,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 680,
   "ing": [
    "Rinderhack",
    "Zwiebel",
@@ -6548,6 +6826,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 580,
   "ing": [
    "Linguine",
    "Garnelen",
@@ -6571,6 +6850,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 40,
+  "kcal": 620,
   "ing": [
    "rote Linsen",
    "Zwiebel",
@@ -6595,6 +6875,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 440,
   "ing": [
    "Zwiebel",
    "Karotten",
@@ -6623,6 +6904,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 770,
   "ing": [
    "Orecchiette",
    "Salsiccia",
@@ -6644,6 +6926,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 220,
   "ing": [
    "Kalbshaxe (je ca. 4 cm)",
    "Mehl",
@@ -6671,6 +6954,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 490,
   "ing": [
    "Sahne",
    "Zucker",
@@ -6691,6 +6975,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 25,
+  "kcal": 400,
   "ing": [
    "Ciabatta vom Vortag",
    "reife Tomaten",
@@ -6712,6 +6997,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 750,
   "ing": [
    "Rigatoni",
    "gemischtes Hackfleisch",
@@ -6736,6 +7022,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 700,
   "ing": [
    "Rigatoni",
    "Auberginen",
@@ -6758,6 +7045,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 510,
   "ing": [
    "Borlotti- oder Cannellinibohnen (je 400 g)",
    "kleine Nudeln (Ditalini)",
@@ -6783,6 +7071,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 660,
   "ing": [
    "Rigatoni",
    "Butternut-Kürbis",
@@ -6807,6 +7096,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 640,
   "ing": [
    "Orecchiette",
    "Rosenkohl",
@@ -6829,6 +7119,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 820,
   "ing": [
    "Tagliatelle",
    "Walnüsse",
@@ -6851,6 +7142,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 580,
   "ing": [
    "Penne",
    "geschälte Tomaten (Dose)",
@@ -6872,6 +7164,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 690,
   "ing": [
    "Penne",
    "Gorgonzola",
@@ -6891,6 +7184,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 670,
   "ing": [
    "Penne",
    "getrocknete Tomaten in Öl",
@@ -6913,6 +7207,7 @@
   "diet": "vegetarisch",
   "level": "anspruchsvoll",
   "min": 180,
+  "kcal": 900,
   "ing": [
    "Pizzamehl (Tipo 00)",
    "Wasser",
@@ -6936,6 +7231,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 90,
+  "kcal": 240,
   "ing": [
    "Mehl",
    "Trockenhefe",
@@ -6960,6 +7256,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 150,
+  "kcal": 940,
   "ing": [
    "Hackfleisch (Rind und Schwein)",
    "Pancetta, fein gewürfelt",
@@ -6988,6 +7285,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 740,
   "ing": [
    "Risottoreis (Arborio, Carnaroli)",
    "Champignons oder Steinpilze",
@@ -7013,6 +7311,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 500,
   "ing": [
    "Risottoreis",
    "vorgegarte Rote Bete",
@@ -7036,6 +7335,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 490,
   "ing": [
    "dünne Kalbsschnitzel (je ca. 80 g)",
    "Scheiben Parmaschinken",
@@ -7057,6 +7357,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 730,
   "ing": [
    "Spaghetti",
    "Rinderhack",
@@ -7081,6 +7382,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 15,
+  "kcal": 700,
   "ing": [
    "Spaghetti",
    "Knoblauchzehen, in dünnen Scheiben",
@@ -7100,6 +7402,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 830,
   "ing": [
    "Spaghetti",
    "Guanciale oder Pancetta, gewürfelt",
@@ -7120,6 +7423,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 550,
   "ing": [
    "Spaghetti",
    "Bio-Zitronen",
@@ -7139,6 +7443,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 510,
   "ing": [
    "Spaghetti",
    "geschälte Tomaten (Dose)",
@@ -7159,6 +7464,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 560,
   "ing": [
    "Spaghetti",
    "Sardellenfilets",
@@ -7182,6 +7488,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 550,
   "ing": [
    "Spaghetti",
    "Thunfisch in Öl",
@@ -7205,6 +7512,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 490,
   "ing": [
    "Risottoreis",
    "grüner Spargel",
@@ -7228,6 +7536,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 600,
   "ing": [
    "Tagliatelle",
    "braune Champignons",
@@ -7251,6 +7560,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 380,
   "ing": [
    "weiße Bohnen",
    "Thunfisch (in Öl)",
@@ -7273,6 +7583,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 650,
   "ing": [
    "sehr frische Eier",
    "Zucker",
@@ -7295,6 +7606,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 200,
   "ing": [
    "Zwiebel",
    "Knoblauchzehen",
@@ -7318,6 +7630,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 670,
   "ing": [
    "Tortellini (Kühlregal)",
    "Kochschinken",
@@ -7341,6 +7654,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 350,
   "ing": [
    "Weizentortillas",
    "Tomatensauce oder passierte Tomaten",
@@ -7361,6 +7675,7 @@
   "diet": "vegan",
   "level": "mittel",
   "min": 60,
+  "kcal": 540,
   "ing": [
    "weiße Bohnen (je 400 g)",
    "Zwiebel",
@@ -7387,6 +7702,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 520,
   "ing": [
    "Hähnchenbrustfilets",
    "getrocknete Tomaten in Öl",
@@ -7409,6 +7725,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 980,
   "ing": [
    "Trofie oder Linguine",
    "Basilikumblätter",
@@ -7432,6 +7749,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 970,
   "ing": [
    "Hähnchenbrustfilets",
    "Ei",
@@ -7457,6 +7775,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 640,
   "ing": [
    "Hähnchenschenkel ohne Knochen",
    "Sojasauce",
@@ -7481,6 +7800,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 440,
   "ing": [
    "Gyoza-Teigblätter",
    "Schweinehack",
@@ -7507,6 +7827,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 560,
   "ing": [
    "Rindfleisch, hauchdünn geschnitten",
    "Zwiebel, in Streifen",
@@ -7532,6 +7853,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 810,
   "ing": [
    "Hähnchenbrustfilets",
    "Mehl",
@@ -7559,6 +7881,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 480,
   "ing": [
    "TK-Gyoza",
    "Öl",
@@ -7579,6 +7902,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 890,
   "ing": [
    "Lachs in Sushiqualität",
    "Sushireis",
@@ -7606,6 +7930,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 5,
+  "kcal": 150,
   "ing": [
    "Matcha-Pulver",
    "heißes Wasser (ca. 80 °C)",
@@ -7624,6 +7949,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 540,
   "ing": [
    "Ramen-Nudeln",
    "Hühnerbrühe",
@@ -7649,6 +7975,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 100,
   "ing": [
    "Dashi (oder Wasser mit 1 TL Dashi-Pulver)",
    "helle Misopaste",
@@ -7668,6 +7995,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 810,
   "ing": [
    "Mehl",
    "Dashi oder Wasser",
@@ -7692,6 +8020,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 650,
   "ing": [
    "Hähnchenschenkel, gewürfelt",
    "Zwiebel, in Streifen",
@@ -7715,6 +8044,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 660,
   "ing": [
    "Hühnerbrühe",
    "Sojasauce",
@@ -7741,6 +8071,7 @@
   "diet": "fisch",
   "level": "mittel",
   "min": 15,
+  "kcal": 220,
   "ing": [
    "Eier",
    "Dashi oder Wasser",
@@ -7761,6 +8092,7 @@
   "diet": "fisch",
   "level": "mittel",
   "min": 25,
+  "kcal": 780,
   "ing": [
    "Lachsfilets (je 150 g)",
    "Sojasauce",
@@ -7784,6 +8116,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 490,
   "ing": [
    "Thunfischsteaks (Sushiqualität)",
    "Sesam (hell und dunkel)",
@@ -7806,6 +8139,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 1010,
   "ing": [
    "Schweinekoteletts ohne Knochen",
    "Mehl",
@@ -7828,6 +8162,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 450,
   "ing": [
    "Udon-Nudeln (vorgegart)",
    "Dashi oder Gemüsebrühe",
@@ -7850,6 +8185,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 420,
   "ing": [
    "Udon-Nudeln (vorgegart)",
    "Paprikaschote",
@@ -7874,6 +8210,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 25,
+  "kcal": 940,
   "ing": [
    "Yakisoba- oder Mie-Nudeln",
    "Schweinebauch oder Hähnchen, in Streifen",
@@ -7900,6 +8237,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 45,
+  "kcal": 850,
   "ing": [
    "Reis",
    "Rinderhack oder Rindfleischstreifen",
@@ -7931,6 +8269,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 750,
   "ing": [
    "Rinderhüfte, hauchdünn geschnitten",
    "Birne, gerieben",
@@ -7956,6 +8295,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 450,
   "ing": [
    "Hähnchenschenkel",
    "Gochujang",
@@ -7984,6 +8324,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 590,
   "ing": [
    "kleiner Blumenkohl",
    "Speisestärke",
@@ -8010,6 +8351,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 650,
   "ing": [
    "Süßkartoffel-Glasnudeln",
    "Rindfleisch, in Streifen",
@@ -8037,6 +8379,7 @@
   "level": "mittel",
   "min": 50,
   "gf": true,
+  "kcal": 370,
   "ing": [
    "Sushireis",
    "Sesamöl",
@@ -8061,6 +8404,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 610,
   "ing": [
    "gekochter Reis vom Vortag",
    "Kimchi, gehackt",
@@ -8085,6 +8429,7 @@
   "level": "mittel",
   "min": 35,
   "gf": true,
+  "kcal": 770,
   "ing": [
    "gut gereiftes Kimchi, mit Saft",
    "Schweinebauch, in Scheiben",
@@ -8108,6 +8453,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 400,
   "ing": [
    "Kimchi (vegan oder klassisch)",
    "Mehl",
@@ -8132,6 +8478,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 550,
   "ing": [
    "Hähnchenflügel oder -schenkel",
    "Speisestärke",
@@ -8157,6 +8504,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 740,
   "ing": [
    "Reiskuchen (Tteok)",
    "Wasser oder Brühe",
@@ -8182,6 +8530,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 140,
   "ing": [
    "Auberginen",
    "Tahin",
@@ -8203,6 +8552,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 370,
   "ing": [
    "Fladenbrote",
    "Romanasalat",
@@ -8230,6 +8580,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 310,
   "ing": [
    "rote Linsen",
    "Zwiebel",
@@ -8254,6 +8605,7 @@
   "level": "einfach",
   "min": 50,
   "gf": true,
+  "kcal": 510,
   "ing": [
    "braune Linsen",
    "Langkornreis",
@@ -8276,6 +8628,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 810,
   "ing": [
    "Laksa- oder rote Currypaste",
    "Kokosmilch",
@@ -8302,6 +8655,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 750,
   "ing": [
    "Merguez",
    "Couscous",
@@ -8326,6 +8680,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 60,
+  "kcal": 540,
   "ing": [
    "Zwiebel",
    "Karotten",
@@ -8353,6 +8708,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 290,
   "ing": [
    "Lammfleisch, gewürfelt",
    "Zwiebel",
@@ -8382,6 +8738,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 490,
   "ing": [
    "Rinderhackfleisch",
    "Zwiebel",
@@ -8406,6 +8763,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 20,
+  "kcal": 270,
   "ing": [
    "sehr reife Tomaten",
    "Salatgurke",
@@ -8431,6 +8789,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 740,
   "ing": [
    "große Paprika",
    "Couscous oder gekochter Reis",
@@ -8454,6 +8813,7 @@
   "level": "mittel",
   "min": 50,
   "gf": true,
+  "kcal": 450,
   "ing": [
    "Zucchini",
    "Rinderhack",
@@ -8477,6 +8837,7 @@
   "level": "einfach",
   "min": 50,
   "gf": true,
+  "kcal": 240,
   "ing": [
    "Tomaten",
    "rote Paprika",
@@ -8501,6 +8862,7 @@
   "level": "einfach",
   "min": 15,
   "gf": true,
+  "kcal": 660,
   "ing": [
    "reife Tomaten",
    "Salatgurke",
@@ -8527,6 +8889,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 620,
   "ing": [
    "Halloumi, in dicken Scheiben",
    "Zucchini",
@@ -8550,6 +8913,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 570,
   "ing": [
    "Halloumi",
    "Zucchini",
@@ -8573,6 +8937,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "Kabeljaufilet",
    "Zwiebel",
@@ -8597,6 +8962,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 105,
+  "kcal": 620,
   "ing": [
    "Auberginen",
    "Lammhack oder Rinderhack",
@@ -8627,6 +8993,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 430,
   "ing": [
    "Paprikaschoten",
    "Zucchini",
@@ -8653,6 +9020,7 @@
   "level": "einfach",
   "min": 60,
   "gf": true,
+  "kcal": 970,
   "ing": [
    "Hähnchenschenkel (mit Haut)",
    "kleine Kartoffeln",
@@ -8677,6 +9045,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 250,
   "ing": [
    "Hokkaidokürbis (ca. 1 kg)",
    "Olivenöl",
@@ -8701,6 +9070,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 370,
   "ing": [
    "Hokkaido-Kürbis",
    "Rucola",
@@ -8724,6 +9094,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 35,
+  "kcal": 540,
   "ing": [
    "Hähnchenbrustfilet",
    "Orzo",
@@ -8749,6 +9120,7 @@
   "level": "mittel",
   "min": 60,
   "gf": true,
+  "kcal": 610,
   "ing": [
    "Paella-Reis (Bomba)",
    "Hähnchenschenkel, gewürfelt",
@@ -8777,6 +9149,7 @@
   "level": "einfach",
   "min": 50,
   "gf": true,
+  "kcal": 310,
   "ing": [
    "kleine festkochende Kartoffeln",
    "Olivenöl",
@@ -8797,6 +9170,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 890,
   "ing": [
    "Schweinenacken oder Hähnchen, gewürfelt",
    "Olivenöl",
@@ -8825,6 +9199,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 390,
   "ing": [
    "Blattspinat (oder TK)",
    "Frühlingszwiebeln",
@@ -8848,6 +9223,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 820,
   "ing": [
    "große Weizentortillas",
    "Eier",
@@ -8871,6 +9247,7 @@
   "level": "mittel",
   "min": 35,
   "gf": true,
+  "kcal": 870,
   "ing": [
    "Reis",
    "Limette",
@@ -8898,6 +9275,7 @@
   "level": "mittel",
   "min": 75,
   "gf": true,
+  "kcal": 600,
   "ing": [
    "Rinderhack",
    "Zwiebel",
@@ -8927,6 +9305,7 @@
   "level": "einfach",
   "min": 50,
   "gf": true,
+  "kcal": 460,
   "ing": [
    "Zwiebel",
    "Knoblauchzehen",
@@ -8954,6 +9333,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 780,
   "ing": [
    "Maistortillas",
    "schwarze Bohnen",
@@ -8977,6 +9357,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 640,
   "ing": [
    "Kabeljaufilet",
    "Paprikapulver",
@@ -9002,6 +9383,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 15,
+  "kcal": 450,
   "ing": [
    "reife Avocados",
    "Limette",
@@ -9025,6 +9407,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 890,
   "ing": [
    "Hähnchenbrust",
    "Weizentortillas",
@@ -9051,6 +9434,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 800,
   "ing": [
    "Hähnchenbrust, in Streifen",
    "Paprika (verschiedene Farben)",
@@ -9074,6 +9458,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 510,
   "ing": [
    "Weizentortillas",
    "Hähnchenbrust",
@@ -9099,6 +9484,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "Hokkaido-Kürbis",
    "Zwiebel",
@@ -9125,6 +9511,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 820,
   "ing": [
    "Weizentortillas",
    "geriebener Käse",
@@ -9147,6 +9534,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 560,
   "ing": [
    "Schweinenacken, in dünnen Scheiben",
    "getrocknete Ancho-Chilis (oder 2 EL Chipotle-Paste)",
@@ -9174,6 +9562,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 810,
   "ing": [
    "Weizentortillas",
    "Kidneybohnen (Dose)",
@@ -9200,6 +9589,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 370,
   "ing": [
    "großer Blumenkohl",
    "Olivenöl",
@@ -9222,6 +9612,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 550,
   "ing": [
    "Hähnchenbrustfilet",
    "Couscous",
@@ -9247,6 +9638,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 430,
   "ing": [
    "Couscous",
    "Gemüsebrühe",
@@ -9272,6 +9664,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 480,
   "ing": [
    "Zwiebel",
    "rote Paprikaschote",
@@ -9297,6 +9690,7 @@
   "diet": "vegan",
   "level": "mittel",
   "min": 40,
+  "kcal": 660,
   "ing": [
    "getrocknete Kichererbsen",
    "Zwiebel",
@@ -9323,6 +9717,7 @@
   "diet": "vegan",
   "level": "mittel",
   "min": 60,
+  "kcal": 620,
   "ing": [
    "getrocknete Kichererbsen",
    "Zwiebel",
@@ -9349,6 +9744,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 30,
+  "kcal": 920,
   "ing": [
    "Falafel (fertig oder selbst gemacht)",
    "Bulgur",
@@ -9372,6 +9768,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 15,
+  "kcal": 270,
   "ing": [
    "Kichererbsen",
    "Tahin",
@@ -9396,6 +9793,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 750,
   "ing": [
    "Hähnchenschenkel ohne Knochen",
    "Joghurt",
@@ -9424,6 +9822,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 210,
   "ing": [
    "Kichererbsen",
    "Olivenöl",
@@ -9445,6 +9844,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 920,
   "ing": [
    "Lamm- oder Rinderhack",
    "Zwiebel, fein gerieben",
@@ -9473,6 +9873,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 135,
+  "kcal": 890,
   "ing": [
    "Lammschulter, gewürfelt",
    "Zwiebeln",
@@ -9501,6 +9902,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 370,
   "ing": [
    "Basmatireis",
    "Zwiebel",
@@ -9524,6 +9926,7 @@
   "level": "einfach",
   "min": 10,
   "gf": true,
+  "kcal": 230,
   "ing": [
    "Kichererbsen",
    "gekochte Rote Bete",
@@ -9545,6 +9948,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 450,
   "ing": [
    "Zwiebel",
    "rote Paprika",
@@ -9571,6 +9975,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 530,
   "ing": [
    "Babyspinat",
    "Zwiebel",
@@ -9593,6 +9998,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 25,
+  "kcal": 220,
   "ing": [
    "feiner Bulgur",
    "glatte Petersilie",
@@ -9616,6 +10022,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 210,
   "ing": [
    "Kichererbsen",
    "stückige Tomaten",
@@ -9641,6 +10048,7 @@
   "level": "einfach",
   "min": 40,
   "gf": true,
+  "kcal": 230,
   "ing": [
    "Rote Bete (roh)",
    "Zwiebel",
@@ -9664,6 +10072,7 @@
   "level": "mittel",
   "min": 120,
   "gf": true,
+  "kcal": 420,
   "ing": [
    "Sauerkraut",
    "Weißkohl",
@@ -9690,6 +10099,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 660,
   "ing": [
    "Mehl",
    "warmes Wasser",
@@ -9714,6 +10124,7 @@
   "level": "mittel",
   "min": 90,
   "gf": true,
+  "kcal": 290,
   "ing": [
    "Rindfleisch (Suppenfleisch)",
    "Rote Bete",
@@ -9740,6 +10151,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 380,
   "ing": [
    "Rinderhüfte oder Filet",
    "Zwiebeln",
@@ -9764,6 +10176,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 760,
   "ing": [
    "Mehl",
    "Ei",
@@ -9787,6 +10200,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 530,
   "ing": [
    "gemischte Pilze",
    "Zwiebel",
@@ -9811,6 +10225,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 10,
+  "kcal": 390,
   "ing": [
    "Haferflocken",
    "Milch",
@@ -9832,6 +10247,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 670,
   "ing": [
    "dünne Schweine- oder Kalbsschnitzel (doppelt geschnitten)",
    "Kochschinken",
@@ -9854,6 +10270,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 1020,
   "ing": [
    "Greyerzer (Gruyère)",
    "Vacherin Fribourgeois oder Emmentaler",
@@ -9878,6 +10295,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 680,
   "ing": [
    "kleine festkochende Kartoffeln",
    "Raclettekäse in Scheiben",
@@ -9898,6 +10316,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 490,
   "ing": [
    "festkochende Kartoffeln, am Vortag gekocht",
    "Butterschmalz",
@@ -9916,6 +10335,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 740,
   "ing": [
    "Makkaroni",
    "festkochende Kartoffeln",
@@ -9937,6 +10357,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 200,
   "ing": [
    "Mehl",
    "Eier",
@@ -9958,6 +10379,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 50,
+  "kcal": 770,
   "ing": [
    "Tellerlinsen",
    "Zwiebel",
@@ -9983,6 +10405,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 630,
   "ing": [
    "Lachsfilets",
    "kleine Kartoffeln",
@@ -10006,6 +10429,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 120,
+  "kcal": 380,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -10032,6 +10456,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 520,
   "ing": [
    "gemischtes Hackfleisch",
    "Ei",
@@ -10056,6 +10481,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 15,
+  "kcal": 560,
   "ing": [
    "Garnelen, geschält",
    "Knoblauchzehen",
@@ -10077,6 +10503,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 470,
   "ing": [
    "festkochende Kartoffeln",
    "Olivenöl",
@@ -10101,6 +10528,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 550,
   "ing": [
    "festkochende Kartoffeln",
    "Zwiebel",
@@ -10119,6 +10547,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 30,
+  "kcal": 630,
   "ing": [
    "Reisnudeln",
    "fester Tofu",
@@ -10146,6 +10575,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 35,
+  "kcal": 640,
   "ing": [
    "gelbe Currypaste",
    "Kokosmilch",
@@ -10172,6 +10602,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 880,
   "ing": [
    "Hähnchenbrust, in Streifen",
    "grüne Currypaste",
@@ -10197,6 +10628,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 340,
   "ing": [
    "Hähnchenhack",
    "Klebreis (roh)",
@@ -10221,6 +10653,7 @@
   "level": "mittel",
   "min": 60,
   "gf": true,
+  "kcal": 840,
   "ing": [
    "Klebreis",
    "Kokosmilch",
@@ -10242,6 +10675,7 @@
   "level": "anspruchsvoll",
   "min": 120,
   "gf": true,
+  "kcal": 1100,
   "ing": [
    "Rindergulasch",
    "Massaman-Currypaste",
@@ -10268,6 +10702,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 20,
+  "kcal": 960,
   "ing": [
    "Hähnchen- oder Schweinehack",
    "Knoblauchzehen",
@@ -10293,6 +10728,7 @@
   "diet": "fisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 720,
   "ing": [
    "fester Tofu",
    "Knoblauchzehen",
@@ -10316,6 +10752,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 25,
+  "kcal": 940,
   "ing": [
    "breite Reisnudeln",
    "Hähnchenbrust",
@@ -10340,6 +10777,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 30,
+  "kcal": 830,
   "ing": [
    "Reisbandnudeln (5 mm)",
    "Garnelen",
@@ -10367,6 +10805,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 35,
+  "kcal": 880,
   "ing": [
    "Hokkaido-Kürbis, gewürfelt",
    "Tofu oder Hähnchen",
@@ -10393,6 +10832,7 @@
   "level": "einfach",
   "min": 20,
   "gf": true,
+  "kcal": 230,
   "ing": [
    "grüne Papaya (oder Kohlrabi)",
    "Karotte",
@@ -10418,6 +10858,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 410,
   "ing": [
    "Süßkartoffeln",
    "Zwiebel",
@@ -10442,6 +10883,7 @@
   "level": "einfach",
   "min": 25,
   "gf": true,
+  "kcal": 320,
   "ing": [
    "Rumpsteak",
    "Salatgurke",
@@ -10467,6 +10909,7 @@
   "level": "mittel",
   "min": 25,
   "gf": true,
+  "kcal": 580,
   "ing": [
    "Kokosmilch",
    "Hühnerbrühe",
@@ -10494,6 +10937,7 @@
   "level": "mittel",
   "min": 25,
   "gf": true,
+  "kcal": 200,
   "ing": [
    "Brühe",
    "Garnelen",
@@ -10519,6 +10963,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 150,
+  "kcal": 500,
   "ing": [
    "Rinderlende oder Hüfte",
    "Speck",
@@ -10546,6 +10991,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 45,
+  "kcal": 750,
   "ing": [
    "Lammhack",
    "rote Paprikaschote",
@@ -10572,6 +11018,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 470,
   "ing": [
    "Mehl",
    "Trockenhefe",
@@ -10600,6 +11047,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 45,
+  "kcal": 420,
   "ing": [
    "rote Linsen",
    "feiner Bulgur",
@@ -10625,6 +11073,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 20,
+  "kcal": 360,
   "ing": [
    "grüne Spitzpaprika",
    "reife Tomaten",
@@ -10647,6 +11096,7 @@
   "level": "einfach",
   "min": 35,
   "gf": true,
+  "kcal": 300,
   "ing": [
    "rote Linsen",
    "Zwiebel",
@@ -10671,6 +11121,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 105,
+  "kcal": 300,
   "ing": [
    "Rindergulasch",
    "Zwiebeln",
@@ -10697,6 +11148,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 470,
   "ing": [
    "festkochende Kartoffeln",
    "Zwiebeln",
@@ -10722,6 +11174,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 530,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -10746,6 +11199,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 580,
   "ing": [
    "Hähnchenschenkel",
    "Zwiebeln",
@@ -10771,6 +11225,7 @@
   "level": "mittel",
   "min": 105,
   "gf": true,
+  "kcal": 580,
   "ing": [
    "Schweinegulasch",
    "Zwiebeln",
@@ -10796,6 +11251,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 40,
+  "kcal": 630,
   "ing": [
    "Baguettebrötchen",
    "Hähnchenschenkel ohne Knochen",
@@ -10826,6 +11282,7 @@
   "level": "einfach",
   "min": 30,
   "gf": true,
+  "kcal": 830,
   "ing": [
    "Rinderhüfte",
    "Zitronengras",
@@ -10856,6 +11313,7 @@
   "level": "mittel",
   "min": 45,
   "gf": true,
+  "kcal": 850,
   "ing": [
    "Schweinehack",
    "Fischsauce",
@@ -10885,6 +11343,7 @@
   "level": "mittel",
   "min": 40,
   "gf": true,
+  "kcal": 570,
   "ing": [
    "festes Fischfilet (Wels, Kabeljau)",
    "Zucker",
@@ -10909,6 +11368,7 @@
   "diet": "vegan",
   "level": "einfach",
   "min": 20,
+  "kcal": 280,
   "ing": [
    "Glasnudeln",
    "Karotte",
@@ -10935,6 +11395,7 @@
   "level": "mittel",
   "min": 35,
   "gf": true,
+  "kcal": 470,
   "ing": [
    "Reispapierblätter",
    "Garnelen, gekocht",
@@ -10960,6 +11421,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 180,
+  "kcal": 820,
   "ing": [
    "Rinderknochen",
    "Rinderbrust",
@@ -10993,6 +11455,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 650,
   "ing": [
    "Hähnchenschenkel",
    "Zwiebel",
@@ -11022,6 +11485,7 @@
   "level": "mittel",
   "min": 30,
   "gf": true,
+  "kcal": 730,
   "ing": [
    "Hähnchenschenkel, gewürfelt",
    "Stängel Zitronengras, fein gehackt",
@@ -11047,6 +11511,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 340,
   "ing": [
    "Strudel- oder Filoteig",
    "säuerliche Äpfel",
@@ -11070,6 +11535,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 60,
+  "kcal": 1040,
   "ing": [
    "Hähnchenteile (Keulen, Brust)",
    "Mehl",
@@ -11097,6 +11563,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 105,
+  "kcal": 300,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -11121,6 +11588,7 @@
   "diet": "fleisch",
   "level": "anspruchsvoll",
   "min": 150,
+  "kcal": 820,
   "ing": [
    "Rindfleisch (Wadschinken)",
    "Zwiebeln",
@@ -11148,6 +11616,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 105,
+  "kcal": 790,
   "ing": [
    "Mehl",
    "frische Hefe",
@@ -11172,6 +11641,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 150,
+  "kcal": 470,
   "ing": [
    "Hirschgulasch",
    "Zwiebeln",
@@ -11198,6 +11668,7 @@
   "level": "einfach",
   "min": 45,
   "gf": true,
+  "kcal": 280,
   "ing": [
    "festkochende Kartoffeln",
    "Champignons",
@@ -11222,6 +11693,7 @@
   "diet": "fleisch",
   "level": "einfach",
   "min": 40,
+  "kcal": 520,
   "ing": [
    "Knödelbrot",
    "Bergkäse",
@@ -11244,6 +11716,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 90,
+  "kcal": 430,
   "ing": [
    "Mehl",
    "gemahlene Haselnüsse",
@@ -11268,6 +11741,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 30,
+  "kcal": 490,
   "ing": [
    "Mehl",
    "Milch",
@@ -11290,6 +11764,7 @@
   "diet": "vegetarisch",
   "level": "anspruchsvoll",
   "min": 120,
+  "kcal": 440,
   "ing": [
    "Zartbitterschokolade",
    "weiche Butter",
@@ -11313,6 +11788,7 @@
   "diet": "vegetarisch",
   "level": "einfach",
   "min": 45,
+  "kcal": 470,
   "ing": [
    "Knödelbrot",
    "Blattspinat (TK)",
@@ -11334,6 +11810,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 180,
+  "kcal": 720,
   "ing": [
    "Tafelspitz",
    "Karotten",
@@ -11360,6 +11837,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 320,
   "ing": [
    "Strudel- oder Filoteig",
    "Quark (Topfen)",
@@ -11383,6 +11861,7 @@
   "diet": "vegetarisch",
   "level": "mittel",
   "min": 75,
+  "kcal": 60,
   "ing": [
    "Mehl",
    "kalte Butter",
@@ -11405,6 +11884,7 @@
   "diet": "fleisch",
   "level": "mittel",
   "min": 150,
+  "kcal": 570,
   "ing": [
    "Rindswade",
    "Zwiebeln",

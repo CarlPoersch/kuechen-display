@@ -41,20 +41,44 @@
  ],
  "steps": [
   {
-   "text": "Avocados halbieren, Kern entfernen und das Fruchtfleisch mit einer Gabel grob zerdrücken."
+   "text": "Avocados halbieren, Kern entfernen und das Fruchtfleisch mit einer Gabel grob zerdrücken.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Sofort mit Limettensaft mischen. Warum: Die Säure verhindert, dass sie braun wird."
+   "text": "Sofort mit Limettensaft mischen. Warum: Die Säure verhindert, dass sie braun wird.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Zwiebel, Tomate, Jalapeño und gehackten Koriander unterheben."
+   "text": "Zwiebel, Tomate, Jalapeño und gehackten Koriander unterheben.",
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Mit Salz abschmecken und mit Tortilla-Chips servieren."
+   "text": "Mit Salz abschmecken und mit Tortilla-Chips servieren.",
+   "use": [
+    6,
+    7
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegan",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 450,
+  "p": 7,
+  "kh": 45,
+  "z": 3,
+  "f": 30,
+  "bs": 12
+ }
 }

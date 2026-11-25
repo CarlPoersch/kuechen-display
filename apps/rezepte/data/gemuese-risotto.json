@@ -45,27 +45,56 @@
  ],
  "steps": [
   {
-   "text": "Spargel in Stücke schneiden, Spitzen beiseitelegen."
+   "text": "Spargel in Stücke schneiden, Spitzen beiseitelegen.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Schalotte in der Hälfte der Butter andünsten, Reis glasig anschwitzen, mit Wein ablöschen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3,
+    6,
+    0,
+    4
+   ]
   },
   {
    "text": "Nach und nach Brühe zugeben und rühren. Nach 10 Minuten Spargelstücke zugeben.",
-   "minutes": 18
+   "minutes": 18,
+   "use": [
+    5,
+    1
+   ]
   },
   {
    "text": "Spitzen und Erbsen die letzten 4 Minuten mitgaren.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Vom Herd nehmen, restliche Butter, Parmesan und Zitronenabrieb einrühren."
+   "text": "Vom Herd nehmen, restliche Butter, Parmesan und Zitronenabrieb einrühren.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 490,
+  "p": 17,
+  "kh": 73,
+  "z": 7,
+  "f": 14,
+  "bs": 6
+ },
  "gf": true
 }

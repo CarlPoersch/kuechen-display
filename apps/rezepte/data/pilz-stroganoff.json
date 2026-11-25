@@ -50,24 +50,53 @@
  "steps": [
   {
    "text": "Nudeln kochen.",
-   "minutes": 9
+   "minutes": 9,
+   "use": [
+    9
+   ]
   },
   {
    "text": "Pilze in Scheiben portionsweise in Butter scharf anbraten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    7
+   ]
   },
   {
-   "text": "Zwiebel und Knoblauch zugeben, Paprika kurz mitrösten."
+   "text": "Zwiebel und Knoblauch zugeben, Paprika kurz mitrösten.",
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Brühe und Senf zugeben, etwas einkochen, vom Herd nehmen und saure Sahne einrühren."
+   "text": "Brühe und Senf zugeben, etwas einkochen, vom Herd nehmen und saure Sahne einrühren.",
+   "use": [
+    5,
+    4,
+    6
+   ]
   },
   {
-   "text": "Mit Petersilie und Nudeln servieren."
+   "text": "Mit Petersilie und Nudeln servieren.",
+   "use": [
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 530,
+  "p": 20,
+  "kh": 82,
+  "z": 9,
+  "f": 14,
+  "bs": 6
+ }
 }

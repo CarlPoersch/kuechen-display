@@ -49,31 +49,63 @@
  ],
  "steps": [
   {
-   "text": "Hack mit der Hälfte der Gewürze, gehacktem Koriander, Salz und Pfeffer verkneten und kleine Bällchen formen."
+   "text": "Hack mit der Hälfte der Gewürze (Kreuzkümmel, edelsüßes Paprikapulver, Zimt), gehacktem Koriander, Salz und Pfeffer verkneten und kleine Bällchen formen.",
+   "use": [
+    6,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Zwiebel und Knoblauch würfeln und in einer breiten Pfanne in Olivenöl anschwitzen, restliche Gewürze kurz mitrösten.",
-   "minutes": 4
+   "text": "Zwiebel und Knoblauch würfeln und in einer breiten Pfanne in Olivenöl anschwitzen, restliche Gewürze (Kreuzkümmel, edelsüßes Paprikapulver, Zimt) kurz mitrösten.",
+   "minutes": 4,
+   "use": [
+    1,
+    2,
+    9,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Tomaten zugeben und etwas einkochen lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Bällchen in die Sauce setzen und zugedeckt garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Vier Mulden formen, Eier hineinschlagen und zugedeckt stocken lassen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Mit Koriander bestreuen und direkt aus der Pfanne mit Fladenbrot essen."
+   "text": "Mit Koriander bestreuen und direkt aus der Pfanne mit Fladenbrot essen.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 490,
+  "p": 32,
+  "kh": 9,
+  "z": 5,
+  "f": 37,
+  "bs": 2
+ },
  "gf": true
 }

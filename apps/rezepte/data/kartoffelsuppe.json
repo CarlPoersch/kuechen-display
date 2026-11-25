@@ -45,32 +45,68 @@
  ],
  "steps": [
   {
-   "text": "Kartoffeln, Suppengrün und Zwiebel würfeln."
+   "text": "Kartoffeln, Suppengrün und Zwiebel würfeln.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
    "text": "Zwiebel in etwas Butter andünsten, Gemüse zugeben und kurz mitdünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    1
+   ]
   },
   {
    "text": "Brühe angießen und köcheln, bis die Kartoffeln weich sind.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    3,
+    1,
+    0
+   ]
   },
   {
-   "text": "Etwa die Hälfte grob pürieren, damit die Suppe sämig wird."
+   "text": "Etwa die Hälfte grob pürieren, damit die Suppe sämig wird.",
+   "use": []
   },
   {
-   "text": "Sahne, Majoran, Muskat, Salz und Pfeffer zugeben."
+   "text": "Sahne, Majoran, Muskat, Salz und Pfeffer zugeben.",
+   "use": [
+    4,
+    5,
+    6,
+    1
+   ]
   },
   {
    "text": "Würstchen in Scheiben schneiden und in der Suppe erwärmen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    7,
+    1
+   ]
   },
   {
-   "text": "Mit Petersilie servieren."
+   "text": "Mit Petersilie servieren.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 420,
+  "p": 14,
+  "kh": 45,
+  "z": 8,
+  "f": 21,
+  "bs": 7
+ }
 }

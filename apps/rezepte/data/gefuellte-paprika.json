@@ -50,25 +50,54 @@
  "steps": [
   {
    "text": "Reis 10 Minuten vorkochen und abgießen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Paprika köpfen und entkernen. Hack mit Reis, gewürfelter Zwiebel, Ei, Paprikapulver, Salz und Pfeffer verkneten und einfüllen."
+   "text": "Paprika köpfen und entkernen. Hack mit Reis, gewürfelter Zwiebel, Ei, Paprikapulver, Salz und Pfeffer verkneten und einfüllen.",
+   "use": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Passierte Tomaten mit Brühe und Zucker in einem Topf aufkochen, Paprika hineinsetzen und Deckel auflegen."
+   "text": "Passierte Tomaten mit Brühe und Zucker in einem Topf aufkochen, Paprika hineinsetzen und Deckel auflegen.",
+   "use": [
+    6,
+    7,
+    8,
+    0
+   ]
   },
   {
    "text": "Bei kleiner Hitze schmoren.",
-   "minutes": 45
+   "minutes": 45,
+   "use": []
   },
   {
-   "text": "Sauce mit Schmand verfeinern und abschmecken. Dazu Reis oder Kartoffelpüree."
+   "text": "Sauce mit Schmand verfeinern und abschmecken. Dazu Reis oder Kartoffelpüree.",
+   "use": [
+    9,
+    2
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 70,
+ "nutri": {
+  "kcal": 480,
+  "p": 24,
+  "kh": 39,
+  "z": 14,
+  "f": 25,
+  "bs": 6
+ },
  "gf": true
 }

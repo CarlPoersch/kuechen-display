@@ -75,24 +75,49 @@
  "steps": [
   {
    "text": "Teig kneten und gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": []
   },
   {
-   "text": "Zwiebel, Tomate, Paprika und Petersilie sehr fein hacken und mit Hack, Tomatenmark, Pul Biber und Salz verkneten."
+   "text": "Zwiebel, Tomate, Paprika und Petersilie sehr fein hacken und mit Hack, Tomatenmark, Pul Biber und Salz verkneten.",
+   "use": [
+    6,
+    7,
+    8,
+    11,
+    5,
+    9,
+    10,
+    3
+   ]
   },
   {
-   "text": "Ofen mit Blech auf höchster Stufe vorheizen. Teig in 4 Stücke teilen und hauchdünn oval ausrollen."
+   "text": "Ofen mit Blech auf höchster Stufe vorheizen. Teig in 4 Stücke teilen und hauchdünn oval ausrollen.",
+   "use": []
   },
   {
    "text": "Belag dünn verstreichen und auf dem heißen Blech knusprig backen.",
-   "minutes": 7
+   "minutes": 7,
+   "use": []
   },
   {
-   "text": "Mit Zitrone und Salat belegen und einrollen."
+   "text": "Mit Zitrone und Salat belegen und einrollen.",
+   "use": [
+    12,
+    13
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 470,
+  "p": 20,
+  "kh": 60,
+  "z": 4,
+  "f": 17,
+  "bs": 5
+ }
 }

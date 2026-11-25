@@ -65,25 +65,57 @@
  "steps": [
   {
    "text": "Kartoffeln in der Schale kochen, pellen und noch warm in Scheiben schneiden.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Zwiebel fein würfeln, mit Brühe, Essig, Senf, Zucker, Salz und Pfeffer aufkochen und über die Kartoffeln gießen. Öl unterheben und ziehen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    7,
+    8,
+    9,
+    10,
+    12,
+    6,
+    11
+   ]
   },
   {
-   "text": "Hähnchenteile salzen, nacheinander in Mehl, verquirltem Ei und Bröseln wenden. Panade nicht andrücken."
+   "text": "Hähnchenteile salzen, nacheinander in Mehl, verquirltem Ei und Bröseln wenden. Panade nicht andrücken.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Öl auf 160 °C erhitzen und die Teile goldbraun und durchgegart ausbacken (Keulen dauern länger).",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    11,
+    0,
+    5
+   ]
   },
   {
-   "text": "Auf Küchenpapier abtropfen und mit Zitronenspalten und Erdäpfelsalat servieren."
+   "text": "Auf Küchenpapier abtropfen und mit Zitronenspalten und Erdäpfelsalat servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 1040,
+  "p": 52,
+  "kh": 100,
+  "z": 6,
+  "f": 48,
+  "bs": 9
+ }
 }

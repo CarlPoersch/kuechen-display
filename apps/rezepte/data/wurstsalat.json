@@ -45,18 +45,41 @@
  ],
  "steps": [
   {
-   "text": "Wurst und Käse in feine Streifen schneiden, Zwiebel in Ringe, Gurken in Scheiben."
+   "text": "Wurst und Käse in feine Streifen schneiden, Zwiebel in Ringe, Gurken in Scheiben.",
+   "use": [
+    0,
+    2,
+    3,
+    1
+   ]
   },
   {
-   "text": "Essig, Gurkenwasser, Senf, Öl, Salz und Pfeffer verrühren."
+   "text": "Essig, Gurkenwasser, Senf, Öl, Salz und Pfeffer verrühren.",
+   "use": [
+    4,
+    5,
+    7,
+    6
+   ]
   },
   {
    "text": "Mit den Zutaten mischen und ziehen lassen. Mit Schnittlauch und Brot servieren.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "fleisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 600,
+  "p": 26,
+  "kh": 5,
+  "z": 3,
+  "f": 53,
+  "bs": 1
+ }
 }

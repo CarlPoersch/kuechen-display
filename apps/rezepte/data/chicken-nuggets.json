@@ -52,27 +52,50 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 220 °C Umluft vorheizen."
+   "text": "Ofen auf 220 °C Umluft vorheizen.",
+   "use": []
   },
   {
-   "text": "Hähnchen in mundgerechte Stücke schneiden, salzen."
+   "text": "Hähnchen in mundgerechte Stücke schneiden, salzen.",
+   "use": []
   },
   {
-   "text": "Cornflakes zerbröseln und mit Panko, Paprika, Knoblauch und Öl mischen."
+   "text": "Cornflakes zerbröseln und mit Panko, Paprika, Knoblauch und Öl mischen.",
+   "use": [
+    2,
+    3,
+    4,
+    6
+   ]
   },
   {
-   "text": "Stücke durch verquirltes Ei ziehen, in der Panade wenden und auf ein Blech legen."
+   "text": "Stücke durch verquirltes Ei ziehen, in der Panade wenden und auf ein Blech legen.",
+   "use": []
   },
   {
    "text": "Knusprig backen, nach der Hälfte wenden.",
-   "minutes": 18
+   "minutes": 18,
+   "use": []
   },
   {
-   "text": "Joghurt, Ketchup und Senf zu einem Dip verrühren."
+   "text": "Joghurt, Ketchup und Senf zu einem Dip verrühren.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 35
+ "min": 35,
+ "nutri": {
+  "kcal": 440,
+  "p": 43,
+  "kh": 35,
+  "z": 6,
+  "f": 13,
+  "bs": 2
+ }
 }

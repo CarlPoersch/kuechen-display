@@ -41,24 +41,47 @@
  ],
  "steps": [
   {
-   "text": "Gnocchi, Tomaten, Zwiebelspalten und Knoblauch mit Öl, Oregano, Salz und Pfeffer mischen. Warum ungekocht: Die Gnocchi werden im Airfryer außen knusprig und innen weich."
+   "text": "Gnocchi, Tomaten, Zwiebelspalten und Knoblauch mit Öl, Oregano, Salz und Pfeffer mischen. Warum ungekocht: Die Gnocchi werden im Airfryer außen knusprig und innen weich.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Bei 200 °C garen, alle 5 Minuten schütteln.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Mozzarella darüberzupfen und schmelzen lassen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Basilikum servieren."
+   "text": "Mit Basilikum servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 680,
+  "p": 22,
+  "kh": 91,
+  "z": 7,
+  "f": 26,
+  "bs": 6
+ },
  "airfryer": true,
  "tab": "airfryer"
 }

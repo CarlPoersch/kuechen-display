@@ -66,28 +66,62 @@
  "steps": [
   {
    "text": "Hähnchen würfeln, mit Joghurt, 1 TL Garam Masala, Kurkuma, Paprika und Salz marinieren.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Fleisch unter dem Ofengrill oder in der Pfanne kräftig anbräunen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    12,
+    0
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Ingwer in Butter goldbraun braten, Kreuzkümmel und restliches Garam Masala zugeben.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    5,
+    6,
+    7,
+    11,
+    10,
+    2
+   ]
   },
   {
    "text": "Tomaten zugeben und köcheln, dann Sahne einrühren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    8,
+    9
+   ]
   },
   {
    "text": "Hähnchen in der Sauce ziehen lassen, mit Koriander und Reis servieren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    12,
+    13
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 700,
+  "p": 50,
+  "kh": 71,
+  "z": 8,
+  "f": 22,
+  "bs": 4
+ },
  "gf": true
 }

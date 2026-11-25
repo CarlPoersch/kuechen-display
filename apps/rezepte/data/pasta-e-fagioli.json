@@ -54,25 +54,55 @@
  "steps": [
   {
    "text": "Zwiebel, Karotte und Sellerie fein würfeln und in Olivenöl weich dünsten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    4,
+    9
+   ]
   },
   {
-   "text": "Knoblauch, Tomatenmark und Rosmarin kurz mitrösten."
+   "text": "Knoblauch, Tomatenmark und Rosmarin kurz mitrösten.",
+   "use": [
+    5,
+    6,
+    8
+   ]
   },
   {
    "text": "Bohnen abspülen und mit der Brühe zugeben, köcheln lassen. Ein Drittel davon pürieren und zurückgeben.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    7
+   ]
   },
   {
    "text": "Nudeln direkt in der Suppe garen, bei Bedarf Wasser nachgießen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Mit Olivenöl, Pfeffer und Parmesan servieren."
+   "text": "Mit Olivenöl, Pfeffer und Parmesan servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 510,
+  "p": 25,
+  "kh": 64,
+  "z": 6,
+  "f": 14,
+  "bs": 15
+ }
 }

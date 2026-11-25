@@ -50,23 +50,50 @@
  "steps": [
   {
    "text": "Pommes nach Packung im Ofen oder Airfryer backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Zwiebel fein würfeln, in Öl glasig dünsten, Curry und Paprika kurz mitrösten."
+   "text": "Zwiebel fein würfeln, in Öl glasig dünsten, Curry und Paprika kurz mitrösten.",
+   "use": [
+    1,
+    2,
+    4
+   ]
   },
   {
    "text": "Ketchup, Wasser, Honig und Essig zugeben und sämig köcheln. Nach Wunsch pürieren.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    5,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Würste braten, in Stücke schneiden und mit Sauce, Currypulver und Pommes servieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    3,
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 30,
+ "nutri": {
+  "kcal": 800,
+  "p": 23,
+  "kh": 80,
+  "z": 29,
+  "f": 43,
+  "bs": 7
+ },
  "gf": true
 }

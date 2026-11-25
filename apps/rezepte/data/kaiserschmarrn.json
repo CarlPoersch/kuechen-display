@@ -45,31 +45,63 @@
  ],
  "steps": [
   {
-   "text": "Eier trennen. Eigelbe mit Mehl, Milch und Salz glatt rühren."
+   "text": "Eier trennen. Eigelbe mit Mehl, Milch und Salz glatt rühren.",
+   "use": [
+    0,
+    1,
+    2,
+    4
+   ]
   },
   {
-   "text": "Eiweiß mit Zucker steif schlagen und locker unterheben."
+   "text": "Eiweiß mit Zucker steif schlagen und locker unterheben.",
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Butter in einer großen Pfanne schmelzen, Teig hineingeben, Rosinen darüberstreuen."
+   "text": "Butter in einer großen Pfanne schmelzen, Teig hineingeben, Rosinen darüberstreuen.",
+   "use": [
+    6,
+    5
+   ]
   },
   {
    "text": "Bei mittlerer Hitze stocken lassen, bis die Unterseite goldbraun ist.",
-   "minutes": 5
+   "minutes": 5,
+   "use": []
   },
   {
-   "text": "Vierteln, wenden und mit zwei Gabeln in Stücke reißen."
+   "text": "Vierteln, wenden und mit zwei Gabeln in Stücke reißen.",
+   "use": []
   },
   {
    "text": "Etwas Puderzucker darüberstreuen und unter Wenden karamellisieren lassen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3,
+    7
+   ]
   },
   {
-   "text": "Mit Puderzucker und Zwetschgenröster servieren."
+   "text": "Mit Puderzucker und Zwetschgenröster servieren.",
+   "use": [
+    3,
+    7,
+    8
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 960,
+  "p": 27,
+  "kh": 145,
+  "z": 92,
+  "f": 29,
+  "bs": 6
+ }
 }

@@ -54,22 +54,51 @@
  "steps": [
   {
    "text": "Zwiebeln würfeln und in Öl goldbraun braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    9
+   ]
   },
   {
-   "text": "Tomatenmark und Paprika kurz einrühren, mit Brühe ablöschen."
+   "text": "Tomatenmark und Paprika kurz einrühren, mit Brühe ablöschen.",
+   "use": [
+    5,
+    2,
+    4,
+    8
+   ]
   },
   {
    "text": "Kartoffeln und Paprika würfeln, mit Kümmel und Majoran zugeben und weich köcheln.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0,
+    2,
+    4,
+    6,
+    7
+   ]
   },
   {
-   "text": "Würstchen in Scheiben darin erwärmen, mit saurer Sahne servieren."
+   "text": "Würstchen in Scheiben darin erwärmen, mit saurer Sahne servieren.",
+   "use": [
+    3,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 470,
+  "p": 15,
+  "kh": 54,
+  "z": 8,
+  "f": 22,
+  "bs": 8
+ },
  "gf": true
 }

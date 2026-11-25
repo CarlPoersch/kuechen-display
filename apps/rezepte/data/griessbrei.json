@@ -33,18 +33,38 @@
  ],
  "steps": [
   {
-   "text": "Milch mit Zucker und Salz aufkochen."
+   "text": "Milch mit Zucker und Salz aufkochen.",
+   "use": [
+    0,
+    2,
+    3
+   ]
   },
   {
    "text": "Grieß unter Rühren einrieseln lassen und unter Rühren quellen lassen, bis er andickt.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Butter einrühren und mit Zimt oder Obst servieren."
+   "text": "Butter einrühren und mit Zimt oder Obst servieren.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 10
+ "min": 10,
+ "nutri": {
+  "kcal": 320,
+  "p": 11,
+  "kh": 45,
+  "z": 27,
+  "f": 11,
+  "bs": 1
+ }
 }

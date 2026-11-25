@@ -37,28 +37,52 @@
  ],
  "steps": [
   {
-   "text": "Mehl, Zucker und Salz mischen, Eier und nach und nach die Milch einrühren, bis ein glatter Teig entsteht."
+   "text": "Mehl, Zucker und Salz mischen, Eier und nach und nach die Milch einrühren, bis ein glatter Teig entsteht.",
+   "use": [
+    0,
+    3,
+    6,
+    4,
+    1,
+    2
+   ]
   },
   {
    "text": "Butter unterrühren und den Teig ruhen lassen. Warum ruhen: Das Mehl quillt, die Crêpes reißen nicht.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    5,
+    0
+   ]
   },
   {
-   "text": "Eine beschichtete Pfanne leicht fetten und heiß werden lassen."
+   "text": "Eine beschichtete Pfanne leicht fetten und heiß werden lassen.",
+   "use": []
   },
   {
-   "text": "Eine kleine Kelle Teig hineingeben und durch Schwenken dünn verteilen."
+   "text": "Eine kleine Kelle Teig hineingeben und durch Schwenken dünn verteilen.",
+   "use": []
   },
   {
    "text": "Backen, bis der Rand sich löst, wenden und kurz weiterbacken.",
-   "minutes": 2
+   "minutes": 2,
+   "use": []
   },
   {
-   "text": "Nach Belieben füllen und falten."
+   "text": "Nach Belieben füllen und falten.",
+   "use": []
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 45
+ "min": 45,
+ "nutri": {
+  "kcal": 480,
+  "p": 18,
+  "kh": 55,
+  "z": 11,
+  "f": 21,
+  "bs": 2
+ }
 }

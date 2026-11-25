@@ -58,29 +58,64 @@
  "steps": [
   {
    "text": "Kreuzkümmel in Öl anrösten, Zwiebel glasig braten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    6,
+    10,
+    2
+   ]
   },
   {
-   "text": "Knoblauch, Ingwer, Kurkuma und Koriander 1 Minute mitbraten."
+   "text": "Knoblauch, Ingwer, Kurkuma und Koriander 1 Minute mitbraten.",
+   "use": [
+    4,
+    5,
+    7,
+    8,
+    11
+   ]
   },
   {
-   "text": "Kartoffeln und Blumenkohl zugeben, salzen und gut vermischen."
+   "text": "Kartoffeln und Blumenkohl zugeben, salzen und gut vermischen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Mit 100 ml Wasser zugedeckt garen, gelegentlich umrühren.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Tomaten und Garam Masala zugeben und offen 5 Minuten braten, bis das Gemüse leicht Farbe annimmt.",
-   "minutes": 5
+   "text": "Tomaten und Garam Masala zugeben und offen 5 Minuten braten, bis das Gemüse (Blumenkohl, Zwiebel) leicht Farbe annimmt.",
+   "minutes": 5,
+   "use": [
+    3,
+    9,
+    1,
+    2
+   ]
   },
   {
-   "text": "Mit Koriander bestreuen."
+   "text": "Mit Koriander bestreuen.",
+   "use": [
+    8,
+    11
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 260,
+  "p": 8,
+  "kh": 38,
+  "z": 7,
+  "f": 10,
+  "bs": 9
+ },
  "gf": true
 }

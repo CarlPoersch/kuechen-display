@@ -41,23 +41,50 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 200 °C vorheizen. Zucchini längs halbieren und aushöhlen, Fruchtfleisch hacken."
+   "text": "Ofen auf 200 °C vorheizen. Zucchini längs halbieren und aushöhlen, Fruchtfleisch hacken.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Hack in Öl anbraten, Zucchinifleisch, die Hälfte der Tomaten und Oregano zugeben, würzen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    1,
+    7,
+    0,
+    4,
+    5
+   ]
   },
   {
-   "text": "Zucchinihälften füllen, in eine Form setzen und restliche Tomaten drumherum geben."
+   "text": "Zucchinihälften füllen, in eine Form setzen und restliche Tomaten drumherum geben.",
+   "use": [
+    0,
+    4
+   ]
   },
   {
    "text": "Mit Käse bestreuen und backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 50,
+ "nutri": {
+  "kcal": 450,
+  "p": 27,
+  "kh": 15,
+  "z": 11,
+  "f": 32,
+  "bs": 4
+ },
  "gf": true
 }

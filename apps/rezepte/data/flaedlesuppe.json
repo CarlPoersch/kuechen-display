@@ -38,21 +38,43 @@
  "steps": [
   {
    "text": "Mehl, Eier, Milch und Salz zu einem glatten Teig verrühren und kurz quellen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    6
+   ]
   },
   {
    "text": "In wenig Butter dünne Pfannkuchen backen und abkühlen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Pfannkuchen aufrollen und in feine Streifen schneiden."
+   "text": "Pfannkuchen aufrollen und in feine Streifen schneiden.",
+   "use": []
   },
   {
-   "text": "Brühe erhitzen, Flädle in Teller geben, mit heißer Brühe übergießen und mit Schnittlauch bestreuen."
+   "text": "Brühe erhitzen, Flädle in Teller geben, mit heißer Brühe übergießen und mit Schnittlauch bestreuen.",
+   "use": [
+    3,
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 200,
+  "p": 9,
+  "kh": 22,
+  "z": 4,
+  "f": 9,
+  "bs": 1
+ }
 }

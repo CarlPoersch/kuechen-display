@@ -68,28 +68,60 @@
  "steps": [
   {
    "text": "Nudeln in lauwarmem Wasser einweichen, bis sie biegsam sind.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Sauce verrühren, bis der Zucker gelöst ist."
+   "text": "Sauce verrühren, bis der Zucker gelöst ist.",
+   "use": [
+    7,
+    8
+   ]
   },
   {
    "text": "Öl im Wok erhitzen, Knoblauch und Garnelen 2 Minuten braten und an den Rand schieben.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    5,
+    1
+   ]
   },
   {
-   "text": "Eier in den Wok schlagen und verrühren, bis sie fast gestockt sind."
+   "text": "Eier in den Wok schlagen und verrühren, bis sie fast gestockt sind.",
+   "use": [
+    2
+   ]
   },
   {
    "text": "Nudeln und Sauce zugeben und 3 Minuten braten, bis die Nudeln weich sind. Bei Bedarf einen Schuss Wasser zugeben.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    7
+   ]
   },
   {
-   "text": "Sprossen und Frühlingszwiebeln unterheben. Mit Erdnüssen, Chili und Limettenspalten servieren."
+   "text": "Sprossen und Frühlingszwiebeln unterheben. Mit Erdnüssen, Chili und Limettenspalten servieren.",
+   "use": [
+    3,
+    4,
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 830,
+  "p": 39,
+  "kh": 102,
+  "z": 31,
+  "f": 29,
+  "bs": 6
+ }
 }

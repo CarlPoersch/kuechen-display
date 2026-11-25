@@ -53,27 +53,59 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen."
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen.",
+   "use": []
   },
   {
-   "text": "Brötchen einweichen und ausdrücken. 1 Zwiebel fein würfeln."
+   "text": "Brötchen einweichen und ausdrücken. 1 Zwiebel fein würfeln.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Hack, Brötchen, Zwiebel, Eier, Senf, Paprika und Majoran verkneten, mit 1 TL Salz und Pfeffer würzen."
+   "text": "Hack, Brötchen, Zwiebel, Eier, Senf, Paprika und Majoran verkneten, mit 1 TL Salz und Pfeffer würzen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Zu einem Laib formen, in eine Form setzen und mit Speck belegen. Zweite Zwiebel grob würfeln und daneben verteilen."
+   "text": "Zu einem Laib formen, in eine Form setzen und mit Speck belegen. Zweite Zwiebel grob würfeln und daneben verteilen.",
+   "use": [
+    7,
+    2
+   ]
   },
   {
    "text": "Im Ofen backen, nach 20 Minuten die Brühe angießen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Bratensaft abgießen, mit Sahne aufkochen und mit Stärke binden. Hackbraten in Scheiben mit Sauce und Kartoffelpüree servieren."
+   "text": "Bratensaft abgießen, mit Sahne aufkochen und mit Stärke binden. Hackbraten in Scheiben mit Sauce und Kartoffelpüree servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 80
+ "min": 80,
+ "nutri": {
+  "kcal": 730,
+  "p": 41,
+  "kh": 14,
+  "z": 4,
+  "f": 56,
+  "bs": 1
+ }
 }

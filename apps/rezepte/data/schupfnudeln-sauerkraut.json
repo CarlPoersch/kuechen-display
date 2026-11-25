@@ -41,26 +41,53 @@
  ],
  "steps": [
   {
-   "text": "Zwiebel in Streifen schneiden. Sauerkraut abtropfen lassen."
+   "text": "Zwiebel in Streifen schneiden. Sauerkraut abtropfen lassen.",
+   "use": [
+    3,
+    1
+   ]
   },
   {
    "text": "Speck in einer großen Pfanne knusprig braten, Zwiebel zugeben und glasig dünsten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    2,
+    3
+   ]
   },
   {
    "text": "Sauerkraut, Kümmel, Zucker und Brühe zugeben und zugedeckt schmoren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    5,
+    7,
+    6
+   ]
   },
   {
    "text": "Schupfnudeln in einer zweiten Pfanne in Butterschmalz rundum goldbraun braten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    4
+   ]
   },
   {
-   "text": "Alles mischen und mit Salz und Pfeffer abschmecken."
+   "text": "Alles mischen und mit Salz und Pfeffer abschmecken.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 560,
+  "p": 14,
+  "kh": 74,
+  "z": 4,
+  "f": 23,
+  "bs": 8
+ }
 }

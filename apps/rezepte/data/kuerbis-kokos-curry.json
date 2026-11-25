@@ -54,26 +54,60 @@
  "steps": [
   {
    "text": "Reis nach Packungsangabe garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Kürbis schälen und würfeln, Zwiebel, Knoblauch und Ingwer fein hacken."
+   "text": "Kürbis schälen und würfeln, Zwiebel, Knoblauch und Ingwer fein hacken.",
+   "use": [
+    0,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Zwiebel, Knoblauch und Ingwer in Kokosöl andünsten, Currypaste kurz mitrösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    3,
+    4,
+    5,
+    9,
+    6
+   ]
   },
   {
    "text": "Kürbis und Kokosmilch zugeben und köcheln, bis der Kürbis weich ist.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    0,
+    2
+   ]
   },
   {
-   "text": "Kichererbsen und Spinat unterheben, mit Limettensaft und Salz abschmecken und mit Reis servieren."
+   "text": "Kichererbsen und Spinat unterheben, mit Limettensaft und Salz abschmecken und mit Reis servieren.",
+   "use": [
+    1,
+    7,
+    8,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 580,
+  "p": 14,
+  "kh": 79,
+  "z": 9,
+  "f": 23,
+  "bs": 7
+ },
  "gf": true
 }

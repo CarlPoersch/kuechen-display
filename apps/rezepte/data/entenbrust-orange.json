@@ -37,28 +37,52 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 120 °C vorheizen. Haut der Entenbrüste rautenförmig einschneiden, ohne das Fleisch zu verletzen, salzen."
+   "text": "Ofen auf 120 °C vorheizen. Haut der Entenbrüste rautenförmig einschneiden, ohne das Fleisch zu verletzen, salzen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit der Hautseite nach unten in eine kalte Pfanne legen und bei mittlerer Hitze knusprig braten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   },
   {
    "text": "Wenden, kurz anbraten und im Ofen auf dem Rost rosa garen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": []
   },
   {
    "text": "Fett aus der Pfanne bis auf 1 EL abgießen. Zucker karamellisieren, mit Saft einer Orange und Fond ablöschen und einkochen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3,
+    1,
+    2
+   ]
   },
   {
    "text": "Stärke mit wenig Wasser einrühren, Butter und Filets der zweiten Orange zugeben. Fleisch ruhen lassen, aufschneiden und mit Sauce servieren.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5,
+    4,
+    1,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 45,
+ "nutri": {
+  "kcal": 1030,
+  "p": 69,
+  "kh": 33,
+  "z": 26,
+  "f": 70,
+  "bs": 5
+ },
  "gf": true
 }

@@ -67,35 +67,61 @@
  "steps": [
   {
    "text": "Mehl und Wasser 8 Minuten zu einem glatten Teig kneten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Abgedeckt ruhen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
    "text": "Chinakohl mit Salz mischen, 10 Minuten ziehen lassen und kräftig ausdrücken.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "Kohl mit allen übrigen Füllungszutaten verkneten."
+   "text": "Kohl mit allen übrigen Füllungszutaten verkneten.",
+   "use": [
+    3
+   ]
   },
   {
-   "text": "Teig zu einer Rolle formen, in ca. 30 Stücke teilen und jedes zu einem dünnen Kreis (ca. 8 cm) ausrollen."
+   "text": "Teig zu einer Rolle formen, in ca. 30 Stücke teilen und jedes zu einem dünnen Kreis (ca. 8 cm) ausrollen.",
+   "use": []
   },
   {
-   "text": "Je 1 TL Füllung daraufgeben, zu Halbmonden falten und den Rand fest zusammendrücken."
+   "text": "Je 1 TL Füllung daraufgeben, zu Halbmonden falten und den Rand fest zusammendrücken.",
+   "use": []
   },
   {
    "text": "In kochendem Wasser garen, bis sie oben schwimmen, dann noch 2 Minuten ziehen lassen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Dip verrühren und dazu servieren."
+   "text": "Dip verrühren und dazu servieren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 500,
+  "p": 22,
+  "kh": 57,
+  "z": 2,
+  "f": 19,
+  "bs": 4
+ }
 }

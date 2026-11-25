@@ -38,17 +38,37 @@
  "steps": [
   {
    "text": "Penne kochen.",
-   "minutes": 11
+   "minutes": 11,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Tomaten, Mandeln, Knoblauch, Parmesan, Öl und Basilikum im Mixer zu einem Pesto pürieren, salzen."
+   "text": "Tomaten, Mandeln, Knoblauch, Parmesan, Öl und Basilikum im Mixer zu einem Pesto pürieren, salzen.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
-   "text": "Nudeln mit Pesto und etwas Nudelwasser mischen."
+   "text": "Nudeln mit Pesto und etwas Nudelwasser mischen.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 670,
+  "p": 19,
+  "kh": 75,
+  "z": 6,
+  "f": 31,
+  "bs": 6
+ }
 }

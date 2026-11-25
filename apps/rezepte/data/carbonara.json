@@ -34,27 +34,54 @@
  "steps": [
   {
    "text": "Spaghetti in gut gesalzenem Wasser kochen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Guanciale in einer Pfanne ohne Öl langsam knusprig auslassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Eigelbe, Ei, Pecorino und Pfeffer zu einer dicken Creme verrühren."
+   "text": "Eigelbe, Ei, Pecorino und Pfeffer zu einer dicken Creme verrühren.",
+   "use": [
+    2,
+    4,
+    5
+   ]
   },
   {
-   "text": "Pfanne vom Herd nehmen. Nudeln tropfnass zum Guanciale geben."
+   "text": "Pfanne vom Herd nehmen. Nudeln tropfnass zum Guanciale geben.",
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Eiercreme mit 3 EL Nudelwasser zugeben und kräftig schwenken, bis eine cremige Sauce entsteht. Warum vom Herd: Sonst wird das Ei zu Rührei."
+   "text": "Eiercreme mit 3 EL Nudelwasser zugeben und kräftig schwenken, bis eine cremige Sauce entsteht. Warum vom Herd: Sonst wird das Ei zu Rührei.",
+   "use": []
   },
   {
-   "text": "Mit Pecorino und Pfeffer servieren."
+   "text": "Mit Pecorino und Pfeffer servieren.",
+   "use": [
+    4,
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 25
+ "min": 25,
+ "nutri": {
+  "kcal": 830,
+  "p": 37,
+  "kh": 72,
+  "z": 3,
+  "f": 42,
+  "bs": 3
+ }
 }

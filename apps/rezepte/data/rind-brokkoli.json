@@ -68,29 +68,64 @@
  "steps": [
   {
    "text": "Rindfleisch mit Sojasauce und Stärke mischen. Warum Stärke: Sie schützt das Fleisch und hält es saftig.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1,
+    7,
+    2,
+    10,
+    0
+   ]
   },
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    12
+   ]
   },
   {
    "text": "Brokkoli 2 Minuten blanchieren und abtropfen lassen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    3
+   ]
   },
   {
    "text": "Öl im Wok stark erhitzen, Fleisch 1–2 Minuten scharf anbraten und herausnehmen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Knoblauch und Ingwer kurz anbraten, Brokkoli zugeben."
+   "text": "Knoblauch und Ingwer kurz anbraten, Brokkoli zugeben.",
+   "use": [
+    4,
+    5,
+    3
+   ]
   },
   {
-   "text": "Sauce einrühren, aufkochen lassen, Fleisch zurückgeben und 1 Minute schwenken."
+   "text": "Sauce einrühren, aufkochen lassen, Fleisch zurückgeben und 1 Minute schwenken.",
+   "use": [
+    1,
+    6,
+    7,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 710,
+  "p": 43,
+  "kh": 82,
+  "z": 11,
+  "f": 24,
+  "bs": 5
+ }
 }

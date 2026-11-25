@@ -37,22 +37,45 @@
  ],
  "steps": [
   {
-   "text": "Schinken würfeln und in Butter kurz anbraten."
+   "text": "Schinken würfeln und in Butter kurz anbraten.",
+   "use": [
+    1,
+    4
+   ]
   },
   {
    "text": "Erbsen und Sahne zugeben und leicht einkochen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    2,
+    3
+   ]
   },
   {
    "text": "Tortellini nach Packung kochen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "In der Sauce schwenken, Parmesan unterrühren und mit Pfeffer und Muskat abschmecken."
+   "text": "In der Sauce schwenken, Parmesan unterrühren und mit Pfeffer und Muskat abschmecken.",
+   "use": [
+    5,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 670,
+  "p": 30,
+  "kh": 66,
+  "z": 8,
+  "f": 32,
+  "bs": 5
+ }
 }

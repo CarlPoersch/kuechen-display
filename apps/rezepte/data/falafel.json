@@ -61,28 +61,58 @@
  "steps": [
   {
    "text": "Kichererbsen über Nacht in viel Wasser einweichen. Wichtig: nicht kochen, sonst zerfällt die Masse.",
-   "minutes": 720
+   "minutes": 720,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Abtropfen lassen und mit Zwiebel, Knoblauch, Kräutern und Gewürzen im Mixer fein, aber nicht breiig zerkleinern."
+   "text": "Abtropfen lassen und mit Zwiebel, Knoblauch, Kräutern (Petersilie, Koriander) und Gewürzen (Kreuzkümmel, Koriander) im Mixer fein, aber nicht breiig zerkleinern.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "Natron unterrühren und die Masse kühl ruhen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": [
+    8
+   ]
   },
   {
-   "text": "Walnussgroße Bällchen formen."
+   "text": "Walnussgroße Bällchen formen.",
+   "use": []
   },
   {
    "text": "In 175 °C heißem Öl portionsweise goldbraun frittieren.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    9
+   ]
   },
   {
-   "text": "Mit Salat, Tomaten und Tahinsauce im Fladenbrot servieren."
+   "text": "Mit Salat, Tomaten und Tahinsauce im Fladenbrot servieren.",
+   "use": [
+    11,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegan",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 620,
+  "p": 24,
+  "kh": 105,
+  "z": 10,
+  "f": 13,
+  "bs": 15
+ }
 }

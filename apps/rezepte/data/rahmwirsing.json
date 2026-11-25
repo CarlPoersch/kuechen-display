@@ -33,23 +33,48 @@
  ],
  "steps": [
   {
-   "text": "Wirsing vierteln, Strunk entfernen und in feine Streifen schneiden, Zwiebel würfeln."
+   "text": "Wirsing vierteln, Strunk entfernen und in feine Streifen schneiden, Zwiebel würfeln.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
    "text": "Zwiebel in Butter glasig dünsten, Wirsing zugeben und zusammenfallen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    0
+   ]
   },
   {
    "text": "Brühe und Sahne angießen und offen köcheln, bis der Wirsing weich und die Sauce cremig ist.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    4,
+    3,
+    0
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und Muskat abschmecken."
+   "text": "Mit Salz, Pfeffer und Muskat abschmecken.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 25,
+ "nutri": {
+  "kcal": 220,
+  "p": 4,
+  "kh": 17,
+  "z": 9,
+  "f": 16,
+  "bs": 6
+ },
  "gf": true
 }

@@ -1,5 +1,7 @@
 """Erzeugt Rezept-JSON-Dateien + index.json aus den kompakten Datendateien."""
 import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import naehrwerte, schritte
 
 RECIPES = []
 
@@ -103,6 +105,10 @@ def build(out_dir):
                 "servings": r["servings"], "time": r["time"], "ingredients": ingredients, "steps": steps,
                 "cat": cat, "diet": r["diet"] or OLD_DIET.get(r["id"]) or classify_diet(names), "level": r["level"] or guess_level(minutes, steps, names)}
         if minutes: data["min"] = minutes
+        # Zutaten je Schritt (mit „Gemüse (…) würfeln“) und Nährwerte pro Portion
+        raw = {"ingredients": ingredients, "steps": steps, "servings": r["servings"]}
+        schritte.annotate(raw)
+        data["nutri"], _ = naehrwerte.recipe(raw)
         if gluten_free(names): data["gf"] = True
         if r["airfryer"]:
             data["airfryer"] = True  # nutzt den Airfryer
@@ -111,6 +117,7 @@ def build(out_dir):
         with open(os.path.join(out_dir, r["id"] + ".json"), "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=1)
         entry = {k: data[k] for k in ("id", "title", "icon", "cuisine", "servings", "time", "airfryer", "tab", "cat", "diet", "level", "min", "gf") if k in data}
+        entry["kcal"] = data["nutri"]["kcal"]
         # Zutatennamen für "Was kann ich kochen?" (ohne Mengen), damit dafür nicht jedes Rezept geladen werden muss
         entry["ing"] = [i["name"] for i in ingredients if "name" in i]
         index.append(entry)
@@ -122,10 +129,18 @@ def build(out_dir):
     json.dump(bb, open(bb_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     bnames = [i["name"] for i in bb["ingredients"] if "name" in i]
     bb.update(cat="Hauptgericht", diet=classify_diet(bnames), level="anspruchsvoll", min=105)
+    for st in bb["steps"]: st.pop("use", None)
+    schritte.annotate(bb)
+    bb["nutri"], _ = naehrwerte.recipe(bb)
     json.dump(bb, open(bb_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     bbe = {k: bb[k] for k in ("id", "title", "icon", "cuisine", "servings", "time", "cat", "diet", "level", "min")}
+    bbe["kcal"] = bb["nutri"]["kcal"]
     bbe["ing"] = [i["name"] for i in bb["ingredients"] if "name" in i]
     index.insert(0, bbe)
+
+    # Nährwert-Tabelle für eigene Rezepte (die App rechnet damit selbst)
+    with open(os.path.join(out_dir, "naehrwerte.json"), "w", encoding="utf-8") as f:
+        json.dump(naehrwerte.export(), f, ensure_ascii=False, separators=(",", ":"))
 
     index.sort(key=lambda x: (x["cuisine"], x["title"]))
     with open(os.path.join(out_dir, "index.json"), "w", encoding="utf-8") as f:

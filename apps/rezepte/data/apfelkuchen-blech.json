@@ -62,24 +62,52 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 180 °C vorheizen. Äpfel schälen, in Spalten schneiden und mit Zimt mischen."
+   "text": "Ofen auf 180 °C vorheizen. Äpfel schälen, in Spalten schneiden und mit Zimt mischen.",
+   "use": [
+    6,
+    7
+   ]
   },
   {
-   "text": "Butter und Zucker schaumig rühren, Eier unterrühren, Mehl und Backpulver abwechselnd mit Milch unterrühren."
+   "text": "Butter und Zucker schaumig rühren, Eier unterrühren, Mehl und Backpulver abwechselnd mit Milch unterrühren.",
+   "use": [
+    0,
+    10,
+    1,
+    9,
+    2,
+    3,
+    8,
+    4,
+    5
+   ]
   },
   {
-   "text": "Teig auf ein gefettetes Blech streichen und mit Äpfeln belegen."
+   "text": "Teig auf ein gefettetes Blech streichen und mit Äpfeln belegen.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Streusel-Zutaten zu Krümeln reiben und darüber verteilen."
+   "text": "Streusel-Zutaten zu Krümeln reiben und darüber verteilen.",
+   "use": []
   },
   {
    "text": "Goldbraun backen.",
-   "minutes": 40
+   "minutes": 40,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 390,
+  "p": 5,
+  "kh": 52,
+  "z": 26,
+  "f": 18,
+  "bs": 3
+ }
 }

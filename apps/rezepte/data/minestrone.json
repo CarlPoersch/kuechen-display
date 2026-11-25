@@ -61,26 +61,66 @@
  ],
  "steps": [
   {
-   "text": "Alles Gemüse in kleine Würfel schneiden."
+   "text": "Alles Gemüse (Zwiebel, Karotten, Sellerie, Zucchini, grüne Bohnen) in kleine Würfel schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ]
   },
   {
    "text": "Zwiebel, Karotten und Sellerie in Olivenöl weich dünsten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0,
+    1,
+    2,
+    11
+   ]
   },
   {
    "text": "Kartoffeln, Zucchini, grüne Bohnen, Tomaten, Brühe und Parmesanrinde zugeben und köcheln.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    4,
+    3,
+    5,
+    7,
+    6,
+    8,
+    10
+   ]
   },
   {
    "text": "Bohnen und Nudeln zugeben und weiterköcheln, bis die Nudeln gar sind.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    5,
+    7,
+    9
+   ]
   },
   {
-   "text": "Rinde entfernen, mit Salz und Pfeffer abschmecken, mit Parmesan, Basilikum und einem Schuss Olivenöl servieren."
+   "text": "Rinde entfernen, mit Salz und Pfeffer abschmecken, mit Parmesan, Basilikum und einem Schuss Olivenöl servieren.",
+   "use": [
+    10,
+    12,
+    11
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 440,
+  "p": 19,
+  "kh": 61,
+  "z": 12,
+  "f": 13,
+  "bs": 13
+ }
 }

@@ -52,24 +52,51 @@
  ],
  "steps": [
   {
-   "text": "Fisch in fingerdicke Stäbchen schneiden, salzen."
+   "text": "Fisch in fingerdicke Stäbchen schneiden, salzen.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Nacheinander in Mehl, verquirltem Ei und Panko wenden."
+   "text": "Nacheinander in Mehl, verquirltem Ei und Panko wenden.",
+   "use": [
+    1,
+    3
+   ]
   },
   {
    "text": "In Öl rundum goldbraun braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    4
+   ]
   },
   {
-   "text": "Gurken, Kapern und Dill hacken und unter die Mayonnaise rühren."
+   "text": "Gurken, Kapern und Dill hacken und unter die Mayonnaise rühren.",
+   "use": [
+    7,
+    8,
+    9,
+    6
+   ]
   },
   {
-   "text": "Mit Remoulade, Zitrone und Kartoffelsalat oder Pommes servieren."
+   "text": "Mit Remoulade, Zitrone und Kartoffelsalat oder Pommes servieren.",
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 670,
+  "p": 35,
+  "kh": 29,
+  "z": 2,
+  "f": 46,
+  "bs": 2
+ }
 }

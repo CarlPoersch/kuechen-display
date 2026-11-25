@@ -38,19 +38,38 @@
  "steps": [
   {
    "text": "Tee aufbrühen und ziehen lassen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Säften, Orangenscheiben und Gewürzen erhitzen, nicht kochen.",
-   "minutes": 10
+   "text": "Mit Säften, Orangenscheiben und Gewürzen (Zimtstangen, Gewürznelken) erhitzen, nicht kochen.",
+   "minutes": 10,
+   "use": [
+    3,
+    4,
+    5
+   ]
   },
   {
-   "text": "Mit Honig abschmecken und heiß servieren."
+   "text": "Mit Honig abschmecken und heiß servieren.",
+   "use": [
+    6
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 100,
+  "p": 1,
+  "kh": 24,
+  "z": 21,
+  "f": 0,
+  "bs": 1
+ },
  "gf": true
 }

@@ -56,26 +56,51 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 220 °C vorheizen."
+   "text": "Ofen auf 220 °C vorheizen.",
+   "use": []
   },
   {
-   "text": "Gemüse und Kartoffeln in mundgerechte Stücke schneiden, mit Öl, Kräutern, Salz und Pfeffer mischen."
+   "text": "Gemüse (Paprikaschoten, Zucchini, Aubergine, rote Zwiebeln) und Kartoffeln in mundgerechte Stücke schneiden, mit Öl, Kräutern, Salz und Pfeffer mischen.",
+   "use": [
+    4,
+    6,
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Auf einem Blech verteilen und rösten, nach 20 Minuten wenden.",
-   "minutes": 35
+   "minutes": 35,
+   "use": []
   },
   {
    "text": "Feta zerbröseln, darüberstreuen und kurz mitbacken.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Joghurt mit Knoblauch und Salz verrühren und dazu servieren."
+   "text": "Joghurt mit Knoblauch und Salz verrühren und dazu servieren.",
+   "use": [
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 45,
+ "nutri": {
+  "kcal": 430,
+  "p": 16,
+  "kh": 35,
+  "z": 13,
+  "f": 26,
+  "bs": 7
+ },
  "gf": true
 }

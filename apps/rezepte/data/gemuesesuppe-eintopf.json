@@ -53,27 +53,61 @@
  ],
  "steps": [
   {
-   "text": "Gemüse putzen und mundgerecht schneiden."
+   "text": "Gemüse (Karotten, Lauchstange, Wirsing, grüne Bohnen, Zwiebel) putzen und mundgerecht schneiden.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Zwiebel in Butter andünsten, Karotten und Lauch kurz mitdünsten.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    5,
+    8,
+    1,
+    2
+   ]
   },
   {
    "text": "Kartoffeln, Bohnen, Wirsing und Brühe zugeben, aufkochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    0,
+    4,
+    3,
+    6
+   ]
   },
   {
    "text": "Mettenden in Scheiben schneiden, zugeben und alles köcheln, bis das Gemüse weich ist.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    7
+   ]
   },
   {
-   "text": "Mit Majoran, Salz und Pfeffer abschmecken und mit Petersilie servieren."
+   "text": "Mit Majoran, Salz und Pfeffer abschmecken und mit Petersilie servieren.",
+   "use": [
+    10,
+    9
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "einfach",
  "min": 50,
+ "nutri": {
+  "kcal": 540,
+  "p": 23,
+  "kh": 41,
+  "z": 10,
+  "f": 34,
+  "bs": 8
+ },
  "gf": true
 }

@@ -50,26 +50,56 @@
  "steps": [
   {
    "text": "Nudeln nach Packung garen und abtropfen lassen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Karotte und Kohl in feine Streifen schneiden, Frühlingszwiebeln in Ringe."
+   "text": "Karotte und Kohl in feine Streifen schneiden, Frühlingszwiebeln in Ringe.",
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Eier im Wok in Öl stocken lassen, zerteilen und herausnehmen.",
-   "minutes": 2
+   "minutes": 2,
+   "use": [
+    1,
+    9
+   ]
   },
   {
-   "text": "Gemüse und Knoblauch im Wok bei großer Hitze anbraten.",
-   "minutes": 3
+   "text": "Gemüse (Karotte, Weißkohl, Frühlingszwiebeln) und Knoblauch im Wok bei großer Hitze anbraten.",
+   "minutes": 3,
+   "use": [
+    5,
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Nudeln, Saucen und Ei zugeben und alles zusammen kräftig durchbraten, mit Sesamöl beträufeln.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 20
+ "min": 20,
+ "nutri": {
+  "kcal": 630,
+  "p": 23,
+  "kh": 84,
+  "z": 9,
+  "f": 22,
+  "bs": 6
+ }
 }

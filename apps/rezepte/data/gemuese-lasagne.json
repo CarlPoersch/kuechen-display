@@ -65,31 +65,63 @@
  ],
  "steps": [
   {
-   "text": "Gemüse klein würfeln und in Öl kräftig anbraten.",
-   "minutes": 10
+   "text": "Gemüse (Zucchini, Aubergine, Paprikaschoten, Zwiebel) klein würfeln und in Öl kräftig anbraten.",
+   "minutes": 10,
+   "use": [
+    13,
+    0,
+    1,
+    2,
+    3
+   ]
   },
   {
    "text": "Tomaten zugeben, salzen, pfeffern und köcheln.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    5
+   ]
   },
   {
    "text": "Béchamel: Butter schmelzen, Mehl anschwitzen, Milch einrühren und andicken lassen. Mit Muskat und Salz würzen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    7,
+    8,
+    9,
+    10
+   ]
   },
   {
-   "text": "Ofen auf 180 °C vorheizen. Abwechselnd Gemüsesauce, Platten und Béchamel in eine Form schichten."
+   "text": "Ofen auf 180 °C vorheizen. Abwechselnd Gemüsesauce, Platten und Béchamel in eine Form schichten.",
+   "use": [
+    6
+   ]
   },
   {
    "text": "Mit Béchamel, Mozzarella und Parmesan abschließen und backen.",
-   "minutes": 40
+   "minutes": 40,
+   "use": [
+    11,
+    12
+   ]
   },
   {
    "text": "Vor dem Schneiden ruhen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 90
+ "min": 90,
+ "nutri": {
+  "kcal": 510,
+  "p": 20,
+  "kh": 51,
+  "z": 18,
+  "f": 25,
+  "bs": 6
+ }
 }

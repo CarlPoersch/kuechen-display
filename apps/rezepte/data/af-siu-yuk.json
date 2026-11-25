@@ -49,35 +49,71 @@
  "steps": [
   {
    "text": "Fleisch kurz in kochendes Wasser legen, dann die Schwarte mit einer Gabel dicht einstechen.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Fleischseite (nicht die Schwarte) mit Wein, Fünf-Gewürze-Pulver, Zucker und Salz einreiben."
+   "text": "Fleischseite (nicht die Schwarte) mit Wein, Fünf-Gewürze-Pulver, Zucker und Salz einreiben.",
+   "use": [
+    0,
+    4,
+    1,
+    2,
+    3,
+    6
+   ]
   },
   {
    "text": "Unabgedeckt im Kühlschrank trocknen lassen, am besten über Nacht. Warum: Eine trockene Schwarte wird knusprig.",
-   "minutes": 240
+   "minutes": 240,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Schwarte mit Essig bestreichen und dick mit grobem Salz bedecken."
+   "text": "Schwarte mit Essig bestreichen und dick mit grobem Salz bedecken.",
+   "use": [
+    0,
+    5,
+    6,
+    3
+   ]
   },
   {
    "text": "Bei 160 °C garen.",
-   "minutes": 35
+   "minutes": 35,
+   "use": []
   },
   {
    "text": "Salzkruste abklopfen, auf 200 °C erhöhen und garen, bis die Schwarte aufpoppt.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0
+   ]
   },
   {
    "text": "Ruhen lassen, in Würfel schneiden und mit Reis und Dip servieren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 90,
+ "nutri": {
+  "kcal": 1250,
+  "p": 40,
+  "kh": 80,
+  "z": 2,
+  "f": 85,
+  "bs": 2
+ },
  "gf": true,
  "airfryer": true,
  "tab": "airfryer"

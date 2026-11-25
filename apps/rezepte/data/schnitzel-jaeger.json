@@ -45,26 +45,53 @@
  ],
  "steps": [
   {
-   "text": "Schnitzel flach klopfen, salzen, pfeffern und in Mehl wenden."
+   "text": "Schnitzel flach klopfen, salzen, pfeffern und in Mehl wenden.",
+   "use": [
+    0,
+    5
+   ]
   },
   {
    "text": "In Butterschmalz pro Seite goldbraun braten, warm stellen.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    6
+   ]
   },
   {
    "text": "Zwiebel und Pilze im Bratfett anbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    2
+   ]
   },
   {
    "text": "Mit Fond und Sahne ablöschen und sämig einkochen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    4,
+    3
+   ]
   },
   {
-   "text": "Spätzle erwärmen. Schnitzel mit Pilzsauce, Spätzle und Petersilie servieren."
+   "text": "Spätzle erwärmen. Schnitzel mit Pilzsauce, Spätzle und Petersilie servieren.",
+   "use": [
+    7,
+    0,
+    8
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 620,
+  "p": 45,
+  "kh": 46,
+  "z": 5,
+  "f": 28,
+  "bs": 3
+ }
 }

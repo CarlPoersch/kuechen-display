@@ -48,25 +48,49 @@
  ],
  "steps": [
   {
-   "text": "Butter, Zucker, Vanillezucker, Salz und Ei verrühren, Mehl zugeben und zu einem glatten Teig verkneten."
+   "text": "Butter, Zucker, Vanillezucker, Salz und Ei verrühren, Mehl zugeben und zu einem glatten Teig verkneten.",
+   "use": [
+    1,
+    2,
+    4,
+    5,
+    3,
+    0
+   ]
   },
   {
    "text": "In Folie gewickelt kalt stellen.",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
-   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Teig 3 mm dick ausrollen und Motive ausstechen."
+   "text": "Ofen auf 180 °C Ober-/Unterhitze vorheizen. Teig 3 mm dick ausrollen und Motive ausstechen.",
+   "use": []
   },
   {
-   "text": "Eigelb mit Milch verquirlen, Plätzchen bestreichen und mit Streuseln bestreuen."
+   "text": "Eigelb mit Milch verquirlen, Plätzchen bestreichen und mit Streuseln bestreuen.",
+   "use": [
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Goldgelb backen und auf dem Blech abkühlen lassen.",
-   "minutes": 9
+   "minutes": 9,
+   "use": []
   }
  ],
  "cat": "Backen",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 80
+ "min": 80,
+ "nutri": {
+  "kcal": 60,
+  "p": 1,
+  "kh": 6,
+  "z": 2,
+  "f": 4,
+  "bs": 0
+ }
 }

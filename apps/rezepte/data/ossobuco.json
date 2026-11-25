@@ -60,29 +60,60 @@
  ],
  "steps": [
   {
-   "text": "Haxenscheiben am Rand einschneiden, salzen, pfeffern und in Mehl wenden."
+   "text": "Haxenscheiben am Rand einschneiden, salzen, pfeffern und in Mehl wenden.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "In Butter von beiden Seiten kräftig anbraten und herausnehmen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    8
+   ]
   },
   {
    "text": "Zwiebel, Karotte und Sellerie fein würfeln und im Bratfett andünsten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    2,
+    3,
+    4
+   ]
   },
   {
    "text": "Mit Wein ablöschen, Fond und Tomaten zugeben, Fleisch hineinlegen und zugedeckt bei kleiner Hitze schmoren.",
-   "minutes": 90
+   "minutes": 90,
+   "use": [
+    5,
+    6,
+    7,
+    0
+   ]
   },
   {
-   "text": "Für die Gremolata Zitronenschale, Knoblauch und Petersilie fein hacken und mischen."
+   "text": "Für die Gremolata Zitronenschale, Knoblauch und Petersilie fein hacken und mischen.",
+   "use": [
+    9,
+    10,
+    11
+   ]
   },
   {
-   "text": "Ossobuco mit Gremolata bestreuen – klassisch dazu Risotto alla Milanese oder Polenta."
+   "text": "Ossobuco mit Gremolata bestreuen – klassisch dazu Risotto alla Milanese oder Polenta.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "anspruchsvoll",
- "min": 120
+ "min": 120,
+ "nutri": {
+  "kcal": 220,
+  "p": 8,
+  "kh": 15,
+  "z": 7,
+  "f": 11,
+  "bs": 3
+ }
 }

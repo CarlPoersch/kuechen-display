@@ -45,26 +45,55 @@
  ],
  "steps": [
   {
-   "text": "Brokkoli in sehr kleine Röschen schneiden, den Strunk schälen und fein würfeln."
+   "text": "Brokkoli in sehr kleine Röschen schneiden, den Strunk schälen und fein würfeln.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Kerne in einer trockenen Pfanne rösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Joghurt, Mayonnaise, Senf, Honig und Zitronensaft zum Dressing verrühren, salzen und pfeffern."
+   "text": "Joghurt, Mayonnaise, Senf, Honig und Zitronensaft zum Dressing verrühren, salzen und pfeffern.",
+   "use": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
   },
   {
    "text": "Brokkoli, fein gewürfelte Zwiebel und Cranberrys mit dem Dressing mischen und kurz durchziehen lassen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    3,
+    1
+   ]
   },
   {
-   "text": "Kerne erst vor dem Servieren darüberstreuen."
+   "text": "Kerne erst vor dem Servieren darüberstreuen.",
+   "use": [
+    2
+   ]
   }
  ],
  "cat": "Salat",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 20,
+ "nutri": {
+  "kcal": 200,
+  "p": 7,
+  "kh": 25,
+  "z": 14,
+  "f": 10,
+  "bs": 5
+ },
  "gf": true
 }

@@ -30,27 +30,52 @@
  "steps": [
   {
    "text": "Die Hälfte der Kartoffeln schälen, weich kochen und heiß durch die Presse drücken.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Restliche Kartoffeln roh schälen, fein reiben und in einem Tuch kräftig auspressen. Die abgesetzte Stärke aus dem Saft zurückgeben."
+   "text": "Restliche Kartoffeln roh schälen, fein reiben und in einem Tuch kräftig auspressen. Die abgesetzte Stärke aus dem Saft zurückgeben.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Beides mit Stärke und Salz zu einem glatten Teig verkneten."
+   "text": "Beides mit Stärke und Salz zu einem glatten Teig verkneten.",
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Brötchen würfeln und in Butter rösten (Croutons)."
+   "text": "Brötchen würfeln und in Butter rösten (Croutons).",
+   "use": [
+    3,
+    4
+   ]
   },
   {
-   "text": "12 Klöße formen, je ein paar Croutons in die Mitte drücken."
+   "text": "12 Klöße formen, je ein paar Croutons in die Mitte drücken.",
+   "use": []
   },
   {
    "text": "In siedendem Salzwasser gar ziehen lassen, bis sie oben schwimmen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "mittel",
- "min": 60
+ "min": 60,
+ "nutri": {
+  "kcal": 440,
+  "p": 9,
+  "kh": 93,
+  "z": 4,
+  "f": 4,
+  "bs": 9
+ }
 }

@@ -53,26 +53,54 @@
  ],
  "steps": [
   {
-   "text": "Fleisch in Butterschmalz portionsweise scharf anbraten und herausnehmen."
+   "text": "Fleisch in Butterschmalz portionsweise scharf anbraten und herausnehmen.",
+   "use": [
+    10,
+    0
+   ]
   },
   {
    "text": "Zwiebeln in Streifen glasig braten, Tomatenmark und Paprika kurz mitrösten.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    1,
+    2,
+    3
+   ]
   },
   {
-   "text": "Mit Rotwein ablöschen, Fleisch, Fond, Wacholder und Thymian zugeben."
+   "text": "Mit Rotwein ablöschen, Fleisch, Fond, Wacholder und Thymian zugeben.",
+   "use": [
+    4,
+    5,
+    9,
+    0
+   ]
   },
   {
    "text": "Zugedeckt bei kleiner Hitze schmoren.",
-   "minutes": 105
+   "minutes": 105,
+   "use": []
   },
   {
    "text": "Champignons in Scheiben zugeben, mit Gelee, Salz und Pfeffer abschmecken.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    6,
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 150
+ "min": 150,
+ "nutri": {
+  "kcal": 470,
+  "p": 58,
+  "kh": 15,
+  "z": 8,
+  "f": 15,
+  "bs": 3
+ }
 }

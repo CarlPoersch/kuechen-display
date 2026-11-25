@@ -57,26 +57,59 @@
  ],
  "steps": [
   {
-   "text": "Zitronengras flach klopfen und in Stücke schneiden. Warum klopfen: So gibt es mehr Aroma ab."
+   "text": "Zitronengras flach klopfen und in Stücke schneiden. Warum klopfen: So gibt es mehr Aroma ab.",
+   "use": [
+    4
+   ]
   },
   {
    "text": "Brühe, Kokosmilch, Galgant, Zitronengras und Limettenblätter aufkochen und ziehen lassen.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    1,
+    0,
+    3,
+    4,
+    5,
+    8
+   ]
   },
   {
    "text": "Hähnchen und Pilze zugeben und sanft köcheln, bis das Fleisch gar ist.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    2
+   ]
   },
   {
-   "text": "Vom Herd nehmen, mit Fischsauce, Limettensaft und Zucker abschmecken."
+   "text": "Vom Herd nehmen, mit Fischsauce, Limettensaft und Zucker abschmecken.",
+   "use": [
+    7,
+    8,
+    9
+   ]
   },
   {
-   "text": "Mit Chili und Koriander servieren. Galgant und Zitronengras werden nicht mitgegessen."
+   "text": "Mit Chili und Koriander servieren. Galgant und Zitronengras werden nicht mitgegessen.",
+   "use": [
+    10,
+    11,
+    3,
+    4
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "mittel",
  "min": 25,
+ "nutri": {
+  "kcal": 580,
+  "p": 39,
+  "kh": 19,
+  "z": 11,
+  "f": 39,
+  "bs": 2
+ },
  "gf": true
 }

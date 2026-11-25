@@ -56,28 +56,51 @@
  ],
  "steps": [
   {
-   "text": "Fleisch mehrmals einschneiden. Warum: Die Marinade zieht so tiefer ein."
+   "text": "Fleisch mehrmals einschneiden. Warum: Die Marinade zieht so tiefer ein.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Mit allen Marinadezutaten mischen und kühl ziehen lassen (gern über Nacht).",
-   "minutes": 60
+   "minutes": 60,
+   "use": []
   },
   {
    "text": "Reis kochen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    7
+   ]
   },
   {
    "text": "Überschüssige Marinade abstreifen und bei 200 °C garen, nach der Hälfte wenden, bis die Ränder dunkel werden.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    10
+   ]
   },
   {
-   "text": "Mit Zwiebelringen, Zitrone und Koriander servieren."
+   "text": "Mit Zwiebelringen, Zitrone und Koriander servieren.",
+   "use": [
+    8,
+    9,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 680,
+  "p": 41,
+  "kh": 71,
+  "z": 7,
+  "f": 25,
+  "bs": 3
+ },
  "gf": true,
  "airfryer": true,
  "tab": "airfryer"

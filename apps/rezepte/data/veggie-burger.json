@@ -61,22 +61,52 @@
  ],
  "steps": [
   {
-   "text": "Bohnen abspülen, gut trocken tupfen und grob zerdrücken."
+   "text": "Bohnen abspülen, gut trocken tupfen und grob zerdrücken.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Zwiebel und Knoblauch fein hacken, mit Bohnen, Haferflocken, Ei, Gewürzen und Salz verkneten. Kurz ruhen lassen.",
-   "minutes": 10
+   "text": "Zwiebel und Knoblauch fein hacken, mit Bohnen, Haferflocken, Ei, Gewürzen (Paprika geräuchert, Kreuzkümmel) und Salz verkneten. Kurz ruhen lassen.",
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    0,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "text": "4 Patties formen und in Öl pro Seite knusprig braten, Käse zum Schluss darauf schmelzen.",
-   "minutes": 8
+   "minutes": 8,
+   "use": [
+    7,
+    9
+   ]
   },
   {
-   "text": "Brötchen rösten und mit Sauce, Salat, Tomate und Patty belegen."
+   "text": "Brötchen rösten und mit Sauce, Salat, Tomate und Patty belegen.",
+   "use": [
+    8,
+    12,
+    11,
+    10
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 590,
+  "p": 24,
+  "kh": 60,
+  "z": 6,
+  "f": 26,
+  "bs": 10
+ }
 }

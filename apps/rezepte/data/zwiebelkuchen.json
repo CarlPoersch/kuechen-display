@@ -64,28 +64,64 @@
  "steps": [
   {
    "text": "Hefe in Milch auflösen, mit Mehl, Butter und Salz zu einem glatten Teig kneten. Abgedeckt gehen lassen.",
-   "minutes": 45
+   "minutes": 45,
+   "use": [
+    1,
+    2,
+    0,
+    3,
+    7,
+    4
+   ]
   },
   {
    "text": "Zwiebeln in feine Streifen schneiden. Speck in Butter auslassen, Zwiebeln zugeben und glasig dünsten, nicht bräunen.",
-   "minutes": 15
+   "minutes": 15,
+   "use": [
+    5,
+    6,
+    3,
+    7
+   ]
   },
   {
-   "text": "Abkühlen lassen. Saure Sahne, Sahne, Eier, Kümmel, Salz und Pfeffer verrühren und unterheben."
+   "text": "Abkühlen lassen. Saure Sahne, Sahne, Eier, Kümmel, Salz und Pfeffer verrühren und unterheben.",
+   "use": [
+    8,
+    9,
+    10,
+    11,
+    4
+   ]
   },
   {
-   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Teig auf ein gefettetes Blech ausrollen, Rand hochziehen."
+   "text": "Ofen auf 200 °C Ober-/Unterhitze vorheizen. Teig auf ein gefettetes Blech ausrollen, Rand hochziehen.",
+   "use": []
   },
   {
    "text": "Zwiebelmasse daraufstreichen und backen, bis sie goldbraun und gestockt ist.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    5
+   ]
   },
   {
-   "text": "Lauwarm servieren – klassisch mit neuem Wein (Federweißer)."
+   "text": "Lauwarm servieren – klassisch mit neuem Wein (Federweißer).",
+   "use": [
+    2
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "mittel",
- "min": 105
+ "min": 105,
+ "nutri": {
+  "kcal": 420,
+  "p": 13,
+  "kh": 41,
+  "z": 8,
+  "f": 22,
+  "bs": 4
+ }
 }

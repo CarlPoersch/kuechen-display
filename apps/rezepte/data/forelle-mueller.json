@@ -38,24 +38,53 @@
  "steps": [
   {
    "text": "Kartoffeln garen.",
-   "minutes": 20
+   "minutes": 20,
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Forellen innen und außen trocken tupfen, salzen, pfeffern und innen mit Zitronensaft beträufeln."
+   "text": "Forellen innen und außen trocken tupfen, salzen, pfeffern und innen mit Zitronensaft beträufeln.",
+   "use": [
+    0,
+    4
+   ]
   },
   {
-   "text": "In Mehl wenden und überschüssiges Mehl abklopfen."
+   "text": "In Mehl wenden und überschüssiges Mehl abklopfen.",
+   "use": [
+    1
+   ]
   },
   {
    "text": "Öl und 20 g Butter erhitzen, Forellen pro Seite goldbraun braten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    3,
+    2,
+    0
+   ]
   },
   {
-   "text": "Fisch herausnehmen. Restliche Butter in der Pfanne aufschäumen lassen, Petersilie und Zitronensaft zugeben und über den Fisch gießen."
+   "text": "Fisch herausnehmen. Restliche Butter in der Pfanne aufschäumen lassen, Petersilie und Zitronensaft zugeben und über den Fisch gießen.",
+   "use": [
+    2,
+    5,
+    4,
+    0
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 740,
+  "p": 43,
+  "kh": 55,
+  "z": 3,
+  "f": 39,
+  "bs": 6
+ }
 }

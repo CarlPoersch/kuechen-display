@@ -50,26 +50,53 @@
  "steps": [
   {
    "text": "Fleisch in feine Streifen schneiden. Portionsweise in sehr heißem Öl kurz scharf anbraten und herausnehmen.",
-   "minutes": 4
+   "minutes": 4,
+   "use": [
+    8,
+    0
+   ]
   },
   {
    "text": "Zwiebeln in Streifen und Pilze in Scheiben im Bratfett anbraten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Tomatenmark und Senf einrühren, mit Brühe ablöschen und kurz köcheln.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    5,
+    4,
+    7
+   ]
   },
   {
-   "text": "Saure Sahne und Gurkenstreifen einrühren, Fleisch zurückgeben und nur noch erwärmen."
+   "text": "Saure Sahne und Gurkenstreifen einrühren, Fleisch zurückgeben und nur noch erwärmen.",
+   "use": [
+    6,
+    0
+   ]
   },
   {
-   "text": "Mit Petersilie bestreuen, dazu Bandnudeln oder Reis."
+   "text": "Mit Petersilie bestreuen, dazu Bandnudeln oder Reis.",
+   "use": [
+    9
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
  "min": 35,
+ "nutri": {
+  "kcal": 380,
+  "p": 36,
+  "kh": 10,
+  "z": 6,
+  "f": 22,
+  "bs": 2
+ },
  "gf": true
 }

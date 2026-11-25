@@ -46,26 +46,52 @@
  "steps": [
   {
    "text": "Zwiebel fein würfeln und in Öl glasig dünsten. Reis zugeben und glasig rösten.",
-   "minutes": 3
+   "minutes": 3,
+   "use": [
+    2,
+    8,
+    0
+   ]
   },
   {
    "text": "Mit Wein ablöschen und nach und nach Brühe angießen, dabei rühren.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Die Hälfte der Roten Bete pürieren, den Rest würfeln, beides unterrühren und fertig garen.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Butter unterrühren und abschmecken."
+   "text": "Butter unterrühren und abschmecken.",
+   "use": [
+    6
+   ]
   },
   {
-   "text": "Mit Ziegenkäse-Flocken und gerösteten Walnüssen servieren."
+   "text": "Mit Ziegenkäse-Flocken und gerösteten Walnüssen servieren.",
+   "use": [
+    7
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "mittel",
  "min": 40,
+ "nutri": {
+  "kcal": 500,
+  "p": 12,
+  "kh": 71,
+  "z": 8,
+  "f": 17,
+  "bs": 4
+ },
  "gf": true
 }

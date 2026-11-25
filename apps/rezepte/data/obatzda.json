@@ -49,24 +49,51 @@
  ],
  "steps": [
   {
-   "text": "Camembert mit einer Gabel klein drücken."
+   "text": "Camembert mit einer Gabel klein drücken.",
+   "use": [
+    0
+   ]
   },
   {
-   "text": "Mit Butter, Frischkäse und Bier cremig vermengen, grobe Stücke dürfen bleiben."
+   "text": "Mit Butter, Frischkäse und Bier cremig vermengen, grobe Stücke dürfen bleiben.",
+   "use": [
+    1,
+    2,
+    6
+   ]
   },
   {
-   "text": "Zwiebel, Paprika, Kümmel, Salz und Pfeffer unterrühren."
+   "text": "Zwiebel, Paprika, Kümmel, Salz und Pfeffer unterrühren.",
+   "use": [
+    3,
+    4,
+    5
+   ]
   },
   {
    "text": "Abgedeckt kühl durchziehen lassen.",
-   "minutes": 30
+   "minutes": 30,
+   "use": []
   },
   {
-   "text": "Mit Schnittlauch, Radieschen und frischen Brezn servieren."
+   "text": "Mit Schnittlauch, Radieschen und frischen Brezn servieren.",
+   "use": [
+    7,
+    9,
+    8
+   ]
   }
  ],
  "cat": "Snack",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 15
+ "min": 15,
+ "nutri": {
+  "kcal": 540,
+  "p": 19,
+  "kh": 48,
+  "z": 3,
+  "f": 30,
+  "bs": 3
+ }
 }

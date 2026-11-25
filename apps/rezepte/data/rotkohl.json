@@ -53,24 +53,58 @@
  ],
  "steps": [
   {
-   "text": "Rotkohl vierteln, Strunk entfernen und fein hobeln. Äpfel und Zwiebel würfeln."
+   "text": "Rotkohl vierteln, Strunk entfernen und fein hobeln. Äpfel und Zwiebel würfeln.",
+   "use": [
+    0,
+    1,
+    2
+   ]
   },
   {
-   "text": "Zwiebel in Fett glasig dünsten, Zucker darin leicht karamellisieren."
+   "text": "Zwiebel in Fett glasig dünsten, Zucker darin leicht karamellisieren.",
+   "use": [
+    2,
+    4
+   ]
   },
   {
-   "text": "Kohl und Äpfel zugeben, mit Wein und Essig ablöschen. Essig hält die rote Farbe."
+   "text": "Kohl und Äpfel zugeben, mit Wein und Essig ablöschen. Essig hält die rote Farbe.",
+   "use": [
+    0,
+    1,
+    5,
+    6
+   ]
   },
   {
    "text": "Lorbeer, Nelken, Zimt und 1 TL Salz zugeben und zugedeckt weich schmoren, gelegentlich rühren.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    8,
+    9
+   ]
   },
   {
-   "text": "Gewürze entfernen und mit Gelee, Salz und Zucker süß-sauer abschmecken."
+   "text": "Gewürze (Lorbeerblätter, Nelken, Zimt) entfernen und mit Gelee, Salz und Zucker süß-sauer abschmecken.",
+   "use": [
+    10,
+    4,
+    7,
+    8,
+    9
+   ]
   }
  ],
  "cat": "Beilage",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 75
+ "min": 75,
+ "nutri": {
+  "kcal": 170,
+  "p": 2,
+  "kh": 29,
+  "z": 21,
+  "f": 5,
+  "bs": 6
+ }
 }

@@ -38,21 +38,44 @@
  "steps": [
   {
    "text": "Ofen auf 200 °C vorheizen. Lauch in Ringe schneiden und in Butter weich dünsten.",
-   "minutes": 6
+   "minutes": 6,
+   "use": [
+    1,
+    6
+   ]
   },
   {
-   "text": "Mit Spätzle und gewürfeltem Schinken mischen und in eine Form geben."
+   "text": "Mit Spätzle und gewürfeltem Schinken mischen und in eine Form geben.",
+   "use": [
+    0,
+    2
+   ]
   },
   {
-   "text": "Sahne und Eier verquirlen, salzen, pfeffern und darübergießen."
+   "text": "Sahne und Eier verquirlen, salzen, pfeffern und darübergießen.",
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Mit Käse bestreuen und goldbraun backen.",
-   "minutes": 25
+   "minutes": 25,
+   "use": [
+    5
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "fleisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 640,
+  "p": 32,
+  "kh": 45,
+  "z": 5,
+  "f": 37,
+  "bs": 4
+ }
 }

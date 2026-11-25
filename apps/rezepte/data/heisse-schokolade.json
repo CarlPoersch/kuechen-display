@@ -29,18 +29,37 @@
  ],
  "steps": [
   {
-   "text": "Milch erhitzen, gehackte Schokolade darin unter Rühren schmelzen."
+   "text": "Milch erhitzen, gehackte Schokolade darin unter Rühren schmelzen.",
+   "use": [
+    0,
+    1
+   ]
   },
   {
-   "text": "Mit Zucker und Zimt abschmecken und aufschäumen."
+   "text": "Mit Zucker und Zimt abschmecken und aufschäumen.",
+   "use": [
+    2,
+    3
+   ]
   },
   {
-   "text": "Mit Sahne servieren."
+   "text": "Mit Sahne servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Getränk",
  "diet": "vegetarisch",
  "level": "einfach",
  "min": 10,
+ "nutri": {
+  "kcal": 410,
+  "p": 11,
+  "kh": 38,
+  "z": 36,
+  "f": 23,
+  "bs": 3
+ },
  "gf": true
 }

@@ -45,27 +45,53 @@
  ],
  "steps": [
   {
-   "text": "Lamm in große Würfel schneiden, salzen und portionsweise anbraten."
+   "text": "Lamm in große Würfel schneiden, salzen und portionsweise anbraten.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Zwiebeln und Lauch in Ringen kurz mitbraten.",
-   "minutes": 5
+   "minutes": 5,
+   "use": [
+    3,
+    4
+   ]
   },
   {
    "text": "Brühe, Thymian und Lorbeer zugeben und zugedeckt köcheln.",
-   "minutes": 60
+   "minutes": 60,
+   "use": [
+    5,
+    6
+   ]
   },
   {
    "text": "Kartoffeln und Karotten in groben Stücken zugeben und weiterkochen, bis alles weich ist. Einige Kartoffeln zerfallen und binden den Eintopf.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    1,
+    2
+   ]
   },
   {
-   "text": "Mit Salz, Pfeffer und Petersilie abschmecken."
+   "text": "Mit Salz, Pfeffer und Petersilie abschmecken.",
+   "use": [
+    8
+   ]
   }
  ],
  "cat": "Suppe",
  "diet": "fleisch",
  "level": "einfach",
  "min": 120,
+ "nutri": {
+  "kcal": 690,
+  "p": 41,
+  "kh": 49,
+  "z": 8,
+  "f": 37,
+  "bs": 8
+ },
  "gf": true
 }

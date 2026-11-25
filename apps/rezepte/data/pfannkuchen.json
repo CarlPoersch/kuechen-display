@@ -34,21 +34,43 @@
  "steps": [
   {
    "text": "Mehl, Milch, Eier, Salz und Zucker glatt rühren und ruhen lassen. Warum: Das Mehl quillt, die Pfannkuchen reißen nicht.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
   },
   {
-   "text": "Wenig Butter in einer Pfanne erhitzen, eine Kelle Teig dünn verteilen."
+   "text": "Wenig Butter in einer Pfanne erhitzen, eine Kelle Teig dünn verteilen.",
+   "use": [
+    5
+   ]
   },
   {
    "text": "Goldbraun backen, wenden und fertig backen. So weiter, bis der Teig aufgebraucht ist.",
-   "minutes": 20
+   "minutes": 20,
+   "use": []
   },
   {
-   "text": "Mit Apfelmus, Marmelade oder Zimt und Zucker servieren."
+   "text": "Mit Apfelmus, Marmelade oder Zimt und Zucker servieren.",
+   "use": [
+    4
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 430,
+  "p": 16,
+  "kh": 54,
+  "z": 11,
+  "f": 16,
+  "bs": 2
+ }
 }

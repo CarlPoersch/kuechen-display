@@ -45,24 +45,50 @@
  ],
  "steps": [
   {
-   "text": "Käse grob reiben. Fonduetopf mit der halbierten Knoblauchzehe ausreiben."
+   "text": "Käse grob reiben. Fonduetopf mit der halbierten Knoblauchzehe ausreiben.",
+   "use": [
+    2,
+    0,
+    1
+   ]
   },
   {
    "text": "Wein und Zitronensaft im Topf erhitzen, den Käse nach und nach in Achterbewegungen einrühren, bis er schmilzt.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    3,
+    4,
+    0,
+    1
+   ]
   },
   {
-   "text": "Stärke mit Kirschwasser glatt rühren, einrühren und kurz aufkochen. Mit Pfeffer und Muskat würzen."
+   "text": "Stärke mit Kirschwasser glatt rühren, einrühren und kurz aufkochen. Mit Pfeffer und Muskat würzen.",
+   "use": [
+    5,
+    6,
+    7
+   ]
   },
   {
-   "text": "Brot in Würfel schneiden, jedes Stück mit etwas Kruste."
+   "text": "Brot in Würfel schneiden, jedes Stück mit etwas Kruste.",
+   "use": []
   },
   {
-   "text": "Topf auf das Rechaud stellen – das Fondue soll nur leicht köcheln. Immer wieder umrühren."
+   "text": "Topf auf das Rechaud stellen – das Fondue soll nur leicht köcheln. Immer wieder umrühren.",
+   "use": []
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 30
+ "min": 30,
+ "nutri": {
+  "kcal": 1020,
+  "p": 59,
+  "kh": 37,
+  "z": 3,
+  "f": 63,
+  "bs": 2
+ }
 }

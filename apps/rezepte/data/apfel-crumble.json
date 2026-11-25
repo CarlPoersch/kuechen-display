@@ -48,24 +48,53 @@
  ],
  "steps": [
   {
-   "text": "Ofen auf 190 °C vorheizen. Äpfel schälen, würfeln und mit Zitrone, Zucker und Zimt in eine Form geben."
+   "text": "Ofen auf 190 °C vorheizen. Äpfel schälen, würfeln und mit Zitrone, Zucker und Zimt in eine Form geben.",
+   "use": [
+    0,
+    2,
+    6,
+    3
+   ]
   },
   {
-   "text": "Mehl, Butter, braunen Zucker, Haferflocken und Salz zu groben Streuseln reiben."
+   "text": "Mehl, Butter, braunen Zucker, Haferflocken und Salz zu groben Streuseln reiben.",
+   "use": [
+    4,
+    5,
+    2,
+    6,
+    7,
+    8
+   ]
   },
   {
-   "text": "Streusel über die Äpfel verteilen."
+   "text": "Streusel über die Äpfel verteilen.",
+   "use": [
+    0
+   ]
   },
   {
    "text": "Goldbraun backen, bis der Saft am Rand blubbert.",
-   "minutes": 35
+   "minutes": 35,
+   "use": [
+    1
+   ]
   },
   {
-   "text": "Warm mit Vanilleeis oder Vanillesauce servieren."
+   "text": "Warm mit Vanilleeis oder Vanillesauce servieren.",
+   "use": []
   }
  ],
  "cat": "Dessert",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 50
+ "min": 50,
+ "nutri": {
+  "kcal": 410,
+  "p": 4,
+  "kh": 68,
+  "z": 39,
+  "f": 15,
+  "bs": 6
+ }
 }

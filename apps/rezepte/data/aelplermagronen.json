@@ -38,21 +38,45 @@
  "steps": [
   {
    "text": "Kartoffeln würfeln und mit den Nudeln in Salzwasser garen.",
-   "minutes": 12
+   "minutes": 12,
+   "use": [
+    1
+   ]
   },
   {
    "text": "Zwiebeln in Ringe schneiden und in Butter goldbraun rösten.",
-   "minutes": 10
+   "minutes": 10,
+   "use": [
+    4,
+    5
+   ]
   },
   {
-   "text": "Nudeln und Kartoffeln abgießen, mit Sahne und geriebenem Käse mischen und schmelzen lassen."
+   "text": "Nudeln und Kartoffeln abgießen, mit Sahne und geriebenem Käse mischen und schmelzen lassen.",
+   "use": [
+    1,
+    3,
+    2
+   ]
   },
   {
-   "text": "Mit Röstzwiebeln und Apfelmus servieren."
+   "text": "Mit Röstzwiebeln und Apfelmus servieren.",
+   "use": [
+    4,
+    6
+   ]
   }
  ],
  "cat": "Hauptgericht",
  "diet": "vegetarisch",
  "level": "einfach",
- "min": 40
+ "min": 40,
+ "nutri": {
+  "kcal": 740,
+  "p": 26,
+  "kh": 71,
+  "z": 6,
+  "f": 38,
+  "bs": 5
+ }
 }
