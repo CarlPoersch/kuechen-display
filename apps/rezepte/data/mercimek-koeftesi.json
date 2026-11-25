@@ -1,0 +1,78 @@
+{
+ "id": "mercimek-koeftesi",
+ "title": "Linsenbällchen (Mercimek Köftesi)",
+ "icon": "🥬",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "150 g",
+   "name": "feiner Bulgur"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Paprikamark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Romanasalat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen mit 500 ml Wasser weich kochen, bis das Wasser fast aufgesogen ist.",
+   "minutes": 15
+  },
+  {
+   "text": "Vom Herd nehmen, Bulgur einrühren und zugedeckt quellen lassen.",
+   "minutes": 15
+  },
+  {
+   "text": "Zwiebel fein würfeln und in Olivenöl glasig dünsten, Tomaten- und Paprikamark kurz mitrösten.",
+   "minutes": 5
+  },
+  {
+   "text": "Zwiebelmischung, Kreuzkümmel, fein geschnittene Frühlingszwiebeln, Petersilie und Zitronensaft unter die Linsen kneten, salzen."
+  },
+  {
+   "text": "Mit feuchten Händen längliche Bällchen formen und in Salatblättern mit Zitrone servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45
+}

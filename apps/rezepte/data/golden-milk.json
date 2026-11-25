@@ -1,0 +1,50 @@
+{
+ "id": "golden-milk",
+ "title": "Golden Milk (Kurkuma-Latte)",
+ "icon": "🥛",
+ "cuisine": "Indisch",
+ "servings": 2,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Milch oder Haferdrink"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 Stück",
+   "name": "Ingwer (2 cm)"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "schwarzer Pfeffer"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ingwer schälen und fein reiben."
+  },
+  {
+   "text": "Milch mit Kurkuma, Zimt, Ingwer und Pfeffer unter Rühren erhitzen, nicht kochen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Durch ein Sieb gießen, mit Honig süßen und aufschäumen."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 10
+}

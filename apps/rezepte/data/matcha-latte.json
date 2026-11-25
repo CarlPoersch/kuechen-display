@@ -1,0 +1,42 @@
+{
+ "id": "matcha-latte",
+ "title": "Matcha Latte",
+ "icon": "🍵",
+ "cuisine": "Japanisch",
+ "servings": 1,
+ "time": "ca. 5 Min.",
+ "ingredients": [
+  {
+   "amount": "1 TL",
+   "name": "Matcha-Pulver"
+  },
+  {
+   "amount": "60 ml",
+   "name": "heißes Wasser (ca. 80 °C)"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch oder Haferdrink"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ahornsirup"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Matcha in eine Tasse sieben und mit dem heißen Wasser klümpchenfrei aufschlagen (am besten mit einem Bambusbesen)."
+  },
+  {
+   "text": "Milch erwärmen und aufschäumen.",
+   "minutes": 2
+  },
+  {
+   "text": "Milch auf den Matcha gießen und nach Geschmack süßen."
+  }
+ ],
+ "cat": "Getränk",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 5
+}

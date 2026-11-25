@@ -1,0 +1,62 @@
+{
+ "id": "rotkohlsalat-orange",
+ "title": "Rotkohlsalat mit Orange und Walnüssen",
+ "icon": "🥗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "½",
+   "name": "Rotkohl"
+  },
+  {
+   "amount": "2",
+   "name": "Orangen"
+  },
+  {
+   "amount": "50 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Apfelessig"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Rapsöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rotkohl sehr fein hobeln, mit ½ TL Salz kräftig durchkneten, damit er weich wird."
+  },
+  {
+   "text": "Orangen schälen, filetieren und den Saft auffangen."
+  },
+  {
+   "text": "Saft mit Essig, Öl, Honig, Zimt, Salz und Pfeffer verrühren und unter den Kohl mischen."
+  },
+  {
+   "text": "Walnüsse rösten, grob hacken und mit den Orangenfilets darübergeben.",
+   "minutes": 4
+  },
+  {
+   "text": "Kurz durchziehen lassen – passt gut zu Braten und Wild.",
+   "minutes": 10
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "gf": true
+}

@@ -476,6 +476,31 @@
   ]
  },
  {
+  "id": "asia-krautsalat",
+  "title": "Asiatischer Krautsalat mit Erdnuss-Dressing",
+  "icon": "🥜",
+  "cuisine": "Asiatisch",
+  "servings": 4,
+  "time": "ca. 20 Min.",
+  "cat": "Salat",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "Spitzkohl",
+   "Karotten",
+   "rote Paprika",
+   "Frühlingszwiebeln",
+   "Koriander",
+   "Erdnussbutter",
+   "Sojasauce",
+   "Limettensaft",
+   "Sesamöl",
+   "Ahornsirup",
+   "geröstete Erdnüsse"
+  ]
+ },
+ {
   "id": "krautkrapfen",
   "title": "Allgäuer Krautkrapfen",
   "icon": "🥨",
@@ -1220,6 +1245,28 @@
    "Nelken",
    "Sternanis",
    "Honig"
+  ]
+ },
+ {
+  "id": "apfelkuechle",
+  "title": "Apfelküchle mit Zimtzucker",
+  "icon": "🍎",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "säuerliche Äpfel",
+   "Mehl",
+   "Eier",
+   "Milch",
+   "Zucker",
+   "Öl (zum Ausbacken)",
+   "Zucker (für Zimtzucker)",
+   "Zimt"
   ]
  },
  {
@@ -2129,6 +2176,47 @@
   ]
  },
  {
+  "id": "hausgemachte-spaetzle",
+  "title": "Hausgemachte Spätzle",
+  "icon": "🍝",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 30,
+  "ing": [
+   "Mehl (Type 405 oder Spätzlemehl)",
+   "Eier",
+   "Wasser",
+   "Muskat",
+   "Butter"
+  ]
+ },
+ {
+  "id": "hefezopf",
+  "title": "Hefezopf",
+  "icon": "🍞",
+  "cuisine": "Deutsch",
+  "servings": 12,
+  "time": "ca. 2 Std. 30 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 150,
+  "ing": [
+   "Mehl",
+   "frische Hefe",
+   "lauwarme Milch",
+   "Zucker",
+   "weiche Butter",
+   "Ei",
+   "Eigelb (zum Bestreichen)",
+   "Hagelzucker"
+  ]
+ },
+ {
   "id": "hochzeitssuppe",
   "title": "Hochzeitssuppe",
   "icon": "🍲",
@@ -2849,6 +2937,32 @@
   ]
  },
  {
+  "id": "nussecken",
+  "title": "Nussecken",
+  "icon": "🌰",
+  "cuisine": "Deutsch",
+  "servings": 24,
+  "time": "ca. 1 Std. 15 Min.",
+  "cat": "Backen",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 75,
+  "ing": [
+   "Mehl",
+   "Backpulver",
+   "Zucker",
+   "Ei",
+   "kalte Butter",
+   "Aprikosenmarmelade",
+   "Butter",
+   "Zucker",
+   "Wasser",
+   "gemahlene Haselnüsse",
+   "gehackte Haselnüsse",
+   "Zartbitterkuvertüre"
+  ]
+ },
+ {
   "id": "nuernberger-sauerkraut",
   "title": "Nürnberger Rostbratwürste mit Sauerkraut",
   "icon": "🌭",
@@ -2894,6 +3008,30 @@
    "Schnittlauch",
    "Brezn",
    "Radieschen"
+  ]
+ },
+ {
+  "id": "ofen-haehnchen-rosenkohl",
+  "title": "Ofen-Hähnchenkeulen mit Rosenkohl und Kartoffeln",
+  "icon": "🍗",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 55 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 55,
+  "gf": true,
+  "ing": [
+   "Hähnchenkeulen",
+   "kleine Kartoffeln",
+   "Rosenkohl",
+   "rote Zwiebel",
+   "Olivenöl",
+   "Senf",
+   "Honig",
+   "edelsüßes Paprikapulver",
+   "Thymian"
   ]
  },
  {
@@ -2986,6 +3124,28 @@
    "Öl",
    "Muskat",
    "geröstete Kürbiskerne"
+  ]
+ },
+ {
+  "id": "petersilienwurzel-suppe",
+  "title": "Petersilienwurzel-Suppe mit Haselnüssen",
+  "icon": "🥣",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "ing": [
+   "Petersilienwurzeln",
+   "mehligkochende Kartoffel",
+   "Zwiebel",
+   "Gemüsebrühe",
+   "Sahne",
+   "Butter",
+   "Haselnüsse",
+   "Zitronensaft"
   ]
  },
  {
@@ -3173,6 +3333,27 @@
    "Muskat",
    "Eier",
    "Kartoffeln"
+  ]
+ },
+ {
+  "id": "rahmwirsing",
+  "title": "Rahmwirsing",
+  "icon": "🥬",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 25 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "gf": true,
+  "ing": [
+   "kleiner Wirsing",
+   "Zwiebel",
+   "Butter",
+   "Sahne",
+   "Gemüsebrühe",
+   "Muskat"
   ]
  },
  {
@@ -3392,6 +3573,28 @@
    "Öl",
    "Meerrettich (Glas)",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "rotkohlsalat-orange",
+  "title": "Rotkohlsalat mit Orange und Walnüssen",
+  "icon": "🥗",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 20 Min.",
+  "cat": "Salat",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "gf": true,
+  "ing": [
+   "Rotkohl",
+   "Orangen",
+   "Walnüsse",
+   "Apfelessig",
+   "Rapsöl",
+   "Honig",
+   "Zimt"
   ]
  },
  {
@@ -3907,6 +4110,30 @@
   ]
  },
  {
+  "id": "wirsingeintopf-hackbaellchen",
+  "title": "Wirsingeintopf mit Hackbällchen",
+  "icon": "🥬",
+  "cuisine": "Deutsch",
+  "servings": 4,
+  "time": "ca. 50 Min.",
+  "cat": "Suppe",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 50,
+  "gf": true,
+  "ing": [
+   "kleiner Wirsing",
+   "gemischtes Hackfleisch",
+   "Ei",
+   "Zwiebel",
+   "Kartoffeln",
+   "Karotten",
+   "Gemüsebrühe",
+   "Muskat",
+   "Petersilie"
+  ]
+ },
+ {
   "id": "zimtsterne",
   "title": "Zimtsterne",
   "icon": "⭐",
@@ -4318,6 +4545,27 @@
    "Kräuter der Provence",
    "Olivenöl",
    "Basilikum"
+  ]
+ },
+ {
+  "id": "schoko-lava-kuchen",
+  "title": "Schokoladen-Lava-Kuchen",
+  "icon": "🍫",
+  "cuisine": "Französisch",
+  "servings": 4,
+  "time": "ca. 25 Min.",
+  "cat": "Dessert",
+  "diet": "vegetarisch",
+  "level": "mittel",
+  "min": 25,
+  "ing": [
+   "Zartbitterschokolade",
+   "Butter",
+   "Eier",
+   "Eigelb",
+   "Zucker",
+   "Mehl",
+   "Puderzucker (zum Bestäuben)"
   ]
  },
  {
@@ -4839,6 +5087,26 @@
    "Kardamomkapseln",
    "Ghee",
    "Basmatireis"
+  ]
+ },
+ {
+  "id": "golden-milk",
+  "title": "Golden Milk (Kurkuma-Latte)",
+  "icon": "🥛",
+  "cuisine": "Indisch",
+  "servings": 2,
+  "time": "ca. 10 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 10,
+  "ing": [
+   "Milch oder Haferdrink",
+   "Kurkuma",
+   "Zimt",
+   "Ingwer (2 cm)",
+   "schwarzer Pfeffer",
+   "Honig"
   ]
  },
  {
@@ -5457,6 +5725,27 @@
   ]
  },
  {
+  "id": "gefuellte-champignons",
+  "title": "Gefüllte Champignons mit Frischkäse",
+  "icon": "🍄",
+  "cuisine": "International",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Snack",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "ing": [
+   "große Champignons",
+   "Frischkäse",
+   "Knoblauchzehe",
+   "Schnittlauch",
+   "geriebener Parmesan",
+   "Paniermehl",
+   "Olivenöl"
+  ]
+ },
+ {
   "id": "gemuesepfanne-reis",
   "title": "Gemüse-Reispfanne mit Ei",
   "icon": "🍳",
@@ -5503,6 +5792,29 @@
    "Kreuzkümmel",
    "Cheddar",
    "Öl"
+  ]
+ },
+ {
+  "id": "hafer-bananen-pancakes",
+  "title": "Hafer-Bananen-Pancakes",
+  "icon": "🥞",
+  "cuisine": "International",
+  "servings": 2,
+  "time": "ca. 20 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 20,
+  "ing": [
+   "reife Bananen",
+   "Eier",
+   "zarte Haferflocken",
+   "Milch",
+   "Backpulver",
+   "Zimt",
+   "Butter",
+   "Ahornsirup (zum Servieren)",
+   "Beeren (zum Servieren)"
   ]
  },
  {
@@ -5618,6 +5930,27 @@
   ]
  },
  {
+  "id": "joghurt-bowl-beeren",
+  "title": "Joghurt-Bowl mit Beeren und Nüssen",
+  "icon": "🫐",
+  "cuisine": "International",
+  "servings": 2,
+  "time": "ca. 5 Min.",
+  "cat": "Frühstück",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 5,
+  "gf": true,
+  "ing": [
+   "griechischer Joghurt",
+   "Beeren (frisch oder TK, aufgetaut)",
+   "Granola",
+   "Walnüsse",
+   "Honig",
+   "Leinsamen"
+  ]
+ },
+ {
   "id": "granola",
   "title": "Knuspermüsli (Granola)",
   "icon": "🥣",
@@ -5659,6 +5992,26 @@
    "Knoblauchzehe",
    "grüner Spargel oder Brokkoli",
    "Olivenöl"
+  ]
+ },
+ {
+  "id": "ofen-rosenkohl-parmesan",
+  "title": "Ofen-Rosenkohl mit Parmesan",
+  "icon": "🥦",
+  "cuisine": "International",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Beilage",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Rosenkohl",
+   "Olivenöl",
+   "Parmesan",
+   "Bio-Zitrone",
+   "Chiliflocken"
   ]
  },
  {
@@ -6281,6 +6634,32 @@
   ]
  },
  {
+  "id": "ossobuco",
+  "title": "Ossobuco alla Milanese",
+  "icon": "🍖",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 2 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "anspruchsvoll",
+  "min": 120,
+  "ing": [
+   "Kalbshaxe (je ca. 4 cm)",
+   "Mehl",
+   "Zwiebel",
+   "Karotte",
+   "Staudensellerie",
+   "Weißwein",
+   "Kalbsfond",
+   "geschälte Tomaten",
+   "Butter",
+   "Bio-Zitrone (Schale)",
+   "Knoblauchzehe",
+   "Petersilie"
+  ]
+ },
+ {
   "id": "panna-cotta",
   "title": "Panna Cotta mit Beerensauce",
   "icon": "🍮",
@@ -6437,6 +6816,28 @@
    "Parmesan",
    "Olivenöl",
    "Chiliflocken"
+  ]
+ },
+ {
+  "id": "walnuss-salbei-pasta",
+  "title": "Pasta mit Walnuss-Salbei-Sauce",
+  "icon": "🌰",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 25 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 25,
+  "ing": [
+   "Tagliatelle",
+   "Walnüsse",
+   "Butter",
+   "Salbeiblätter",
+   "Knoblauchzehe",
+   "Sahne",
+   "Parmesan",
+   "Muskat"
   ]
  },
  {
@@ -6840,6 +7241,28 @@
   ]
  },
  {
+  "id": "thunfisch-bohnen-salat",
+  "title": "Thunfisch-Bohnen-Salat",
+  "icon": "🐟",
+  "cuisine": "Italienisch",
+  "servings": 4,
+  "time": "ca. 15 Min.",
+  "cat": "Salat",
+  "diet": "fisch",
+  "level": "einfach",
+  "min": 15,
+  "ing": [
+   "weiße Bohnen",
+   "Thunfisch (in Öl)",
+   "rote Zwiebel",
+   "Kirschtomaten",
+   "Petersilie",
+   "Olivenöl",
+   "Weißweinessig",
+   "Kapern"
+  ]
+ },
+ {
   "id": "tiramisu",
   "title": "Tiramisu",
   "icon": "☕",
@@ -7170,6 +7593,24 @@
    "Sesam",
    "Mayonnaise",
    "Sriracha"
+  ]
+ },
+ {
+  "id": "matcha-latte",
+  "title": "Matcha Latte",
+  "icon": "🍵",
+  "cuisine": "Japanisch",
+  "servings": 1,
+  "time": "ca. 5 Min.",
+  "cat": "Getränk",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 5,
+  "ing": [
+   "Matcha-Pulver",
+   "heißes Wasser (ca. 80 °C)",
+   "Milch oder Haferdrink",
+   "Ahornsirup"
   ]
  },
  {
@@ -7930,6 +8371,31 @@
   ]
  },
  {
+  "id": "kefta-tajine",
+  "title": "Kefta-Tajine mit Ei",
+  "icon": "🍳",
+  "cuisine": "Marokkanisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "Rinderhackfleisch",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Kreuzkümmel",
+   "edelsüßes Paprikapulver",
+   "Zimt",
+   "Koriander",
+   "stückige Tomaten",
+   "Eier",
+   "Olivenöl"
+  ]
+ },
+ {
   "id": "gazpacho",
   "title": "Gazpacho",
   "icon": "🍅",
@@ -8221,6 +8687,30 @@
    "Knoblauchzehe",
    "Zitronensaft",
    "Petersilie"
+  ]
+ },
+ {
+  "id": "ofenkuerbis-salat",
+  "title": "Ofenkürbis-Salat mit Feta und Kürbiskernen",
+  "icon": "🎃",
+  "cuisine": "Mediterran",
+  "servings": 4,
+  "time": "ca. 35 Min.",
+  "cat": "Salat",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 35,
+  "gf": true,
+  "ing": [
+   "Hokkaido-Kürbis",
+   "Rucola",
+   "Feta",
+   "Kürbiskerne",
+   "Granatapfel",
+   "Olivenöl",
+   "Balsamico",
+   "Honig",
+   "Chiliflocken"
   ]
  },
  {
@@ -9023,6 +9513,28 @@
   ]
  },
  {
+  "id": "rote-bete-hummus",
+  "title": "Rote-Bete-Hummus",
+  "icon": "🩷",
+  "cuisine": "Orientalisch",
+  "servings": 4,
+  "time": "ca. 10 Min.",
+  "cat": "Snack",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 10,
+  "gf": true,
+  "ing": [
+   "Kichererbsen",
+   "gekochte Rote Bete",
+   "Tahin",
+   "Knoblauchzehe",
+   "Zitrone",
+   "Olivenöl",
+   "Kreuzkümmel"
+  ]
+ },
+ {
   "id": "shakshuka",
   "title": "Shakshuka",
   "icon": "🍳",
@@ -9090,6 +9602,31 @@
    "Zitronen",
    "Olivenöl",
    "Piment oder Baharat"
+  ]
+ },
+ {
+  "id": "harissa-kichererbsen-suppe",
+  "title": "Tomaten-Kichererbsen-Suppe mit Harissa",
+  "icon": "🌶️",
+  "cuisine": "Orientalisch",
+  "servings": 4,
+  "time": "ca. 30 Min.",
+  "cat": "Suppe",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 30,
+  "gf": true,
+  "ing": [
+   "Kichererbsen",
+   "stückige Tomaten",
+   "Zwiebel",
+   "Knoblauchzehen",
+   "Harissa",
+   "Kreuzkümmel",
+   "Gemüsebrühe",
+   "Blattspinat",
+   "Zitrone",
+   "Naturjoghurt (zum Servieren)"
   ]
  },
  {
@@ -9482,6 +10019,30 @@
    "Zimt",
    "Frischkäse",
    "Puderzucker"
+  ]
+ },
+ {
+  "id": "albondigas",
+  "title": "Albóndigas in Tomatensauce",
+  "icon": "🍅",
+  "cuisine": "Spanisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "einfach",
+  "min": 45,
+  "ing": [
+   "gemischtes Hackfleisch",
+   "Ei",
+   "Paniermehl",
+   "Knoblauchzehen",
+   "Zwiebel",
+   "geräuchertes Paprikapulver",
+   "stückige Tomaten",
+   "Weißwein",
+   "Petersilie",
+   "Olivenöl"
   ]
  },
  {
@@ -10029,6 +10590,31 @@
   ]
  },
  {
+  "id": "mercimek-koeftesi",
+  "title": "Linsenbällchen (Mercimek Köftesi)",
+  "icon": "🥬",
+  "cuisine": "Türkisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegan",
+  "level": "einfach",
+  "min": 45,
+  "ing": [
+   "rote Linsen",
+   "feiner Bulgur",
+   "Zwiebel",
+   "Tomatenmark",
+   "Paprikamark",
+   "Kreuzkümmel",
+   "Frühlingszwiebeln",
+   "Petersilie",
+   "Zitrone",
+   "Olivenöl",
+   "Romanasalat"
+  ]
+ },
+ {
   "id": "menemen",
   "title": "Menemen",
   "icon": "🍳",
@@ -10147,6 +10733,30 @@
    "Knoblauchzehen",
    "saure Sahne",
    "geriebener Käse"
+  ]
+ },
+ {
+  "id": "paprikahuhn",
+  "title": "Paprikahuhn (Paprikás csirke)",
+  "icon": "🌶️",
+  "cuisine": "Ungarisch",
+  "servings": 4,
+  "time": "ca. 1 Std.",
+  "cat": "Hauptgericht",
+  "diet": "fleisch",
+  "level": "mittel",
+  "min": 60,
+  "ing": [
+   "Hähnchenschenkel",
+   "Zwiebeln",
+   "rote Paprika",
+   "edelsüßes Paprikapulver",
+   "scharfes Paprikapulver",
+   "Tomatenmark",
+   "Hühnerbrühe",
+   "saure Sahne",
+   "Mehl",
+   "Öl"
   ]
  },
  {
@@ -10574,6 +11184,31 @@
    "Wacholderbeeren",
    "getrockneter Thymian",
    "Butterschmalz"
+  ]
+ },
+ {
+  "id": "kartoffel-pilz-gulasch",
+  "title": "Kartoffel-Pilz-Gulasch",
+  "icon": "🍄",
+  "cuisine": "Österreichisch",
+  "servings": 4,
+  "time": "ca. 45 Min.",
+  "cat": "Hauptgericht",
+  "diet": "vegetarisch",
+  "level": "einfach",
+  "min": 45,
+  "gf": true,
+  "ing": [
+   "festkochende Kartoffeln",
+   "Champignons",
+   "Zwiebeln",
+   "edelsüßes Paprikapulver",
+   "Tomatenmark",
+   "Gemüsebrühe",
+   "Kümmel",
+   "Majoran",
+   "Öl",
+   "Schmand (zum Servieren)"
   ]
  },
  {

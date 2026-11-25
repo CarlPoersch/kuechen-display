@@ -1,0 +1,79 @@
+{
+ "id": "kefta-tajine",
+ "title": "Kefta-Tajine mit Ei",
+ "icon": "🍳",
+ "cuisine": "Marokkanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Rinderhackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit der Hälfte der Gewürze, gehacktem Koriander, Salz und Pfeffer verkneten und kleine Bällchen formen."
+  },
+  {
+   "text": "Zwiebel und Knoblauch würfeln und in einer breiten Pfanne in Olivenöl anschwitzen, restliche Gewürze kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Tomaten zugeben und etwas einkochen lassen.",
+   "minutes": 8
+  },
+  {
+   "text": "Bällchen in die Sauce setzen und zugedeckt garen.",
+   "minutes": 15
+  },
+  {
+   "text": "Vier Mulden formen, Eier hineinschlagen und zugedeckt stocken lassen.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Koriander bestreuen und direkt aus der Pfanne mit Fladenbrot essen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45,
+ "gf": true
+}

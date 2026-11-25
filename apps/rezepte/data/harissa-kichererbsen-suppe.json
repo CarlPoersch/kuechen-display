@@ -1,0 +1,75 @@
+{
+ "id": "harissa-kichererbsen-suppe",
+ "title": "Tomaten-Kichererbsen-Suppe mit Harissa",
+ "icon": "🌶️",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Harissa"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "100 g",
+   "name": "Blattspinat"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "",
+   "name": "Naturjoghurt (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Knoblauch würfeln und in Olivenöl andünsten, Harissa und Kreuzkümmel kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Abgetropfte Kichererbsen, Tomaten und Brühe zugeben und köcheln.",
+   "minutes": 15
+  },
+  {
+   "text": "Ein Drittel der Suppe pürieren und zurückgießen, damit sie sämig wird."
+  },
+  {
+   "text": "Spinat unterrühren und zusammenfallen lassen, mit Zitronensaft und Salz abschmecken.",
+   "minutes": 2
+  },
+  {
+   "text": "Mit einem Klecks Joghurt servieren."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "gf": true
+}

@@ -1,0 +1,72 @@
+{
+ "id": "asia-krautsalat",
+ "title": "Asiatischer Krautsalat mit Erdnuss-Dressing",
+ "icon": "🥜",
+ "cuisine": "Asiatisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "½",
+   "name": "Spitzkohl"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Erdnussbutter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Limettensaft"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ahornsirup"
+  },
+  {
+   "amount": "40 g",
+   "name": "geröstete Erdnüsse"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Spitzkohl fein schneiden, Karotten raspeln, Paprika und Frühlingszwiebeln in feine Streifen schneiden."
+  },
+  {
+   "text": "Erdnussbutter mit Sojasauce, Limettensaft, Sesamöl, Ahornsirup und 3 EL warmem Wasser cremig rühren."
+  },
+  {
+   "text": "Gemüse mit dem Dressing mischen."
+  },
+  {
+   "text": "Mit Koriander und gehackten Erdnüssen bestreuen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 20
+}

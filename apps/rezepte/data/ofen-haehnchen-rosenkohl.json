@@ -1,0 +1,69 @@
+{
+ "id": "ofen-haehnchen-rosenkohl",
+ "title": "Ofen-Hähnchenkeulen mit Rosenkohl und Kartoffeln",
+ "icon": "🍗",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 55 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenkeulen"
+  },
+  {
+   "amount": "800 g",
+   "name": "kleine Kartoffeln"
+  },
+  {
+   "amount": "500 g",
+   "name": "Rosenkohl"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "3 Zweige",
+   "name": "Thymian"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Backofen auf 200 °C Umluft vorheizen. Kartoffeln halbieren, Rosenkohl putzen und halbieren, Zwiebel in Spalten schneiden."
+  },
+  {
+   "text": "Gemüse mit 2 EL Öl, Salz und Thymian auf einem Blech mischen."
+  },
+  {
+   "text": "Öl, Senf, Honig, Paprika, Salz und Pfeffer verrühren und die Keulen damit einpinseln."
+  },
+  {
+   "text": "Keulen auf das Gemüse legen und im Ofen garen, bis die Haut knusprig ist.",
+   "minutes": 45
+  },
+  {
+   "text": "Kurz ruhen lassen und mit dem Bratensaft servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 55,
+ "gf": true
+}

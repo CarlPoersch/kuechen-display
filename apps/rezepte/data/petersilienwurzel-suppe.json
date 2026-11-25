@@ -1,0 +1,66 @@
+{
+ "id": "petersilienwurzel-suppe",
+ "title": "Petersilienwurzel-Suppe mit Haselnüssen",
+ "icon": "🥣",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Petersilienwurzeln"
+  },
+  {
+   "amount": "1",
+   "name": "mehligkochende Kartoffel"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Haselnüsse"
+  },
+  {
+   "amount": "1 Spritzer",
+   "name": "Zitronensaft"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel würfeln, Petersilienwurzeln und Kartoffel schälen und klein schneiden."
+  },
+  {
+   "text": "Zwiebel in Butter andünsten, Gemüse kurz mitdünsten.",
+   "minutes": 5
+  },
+  {
+   "text": "Mit Brühe aufgießen und weich köcheln.",
+   "minutes": 20
+  },
+  {
+   "text": "Sahne zugeben, fein pürieren und mit Salz, Pfeffer und Zitronensaft abschmecken."
+  },
+  {
+   "text": "Haselnüsse ohne Fett rösten, hacken und über die Suppe streuen.",
+   "minutes": 4
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35
+}

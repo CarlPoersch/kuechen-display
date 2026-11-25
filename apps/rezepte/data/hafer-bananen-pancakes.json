@@ -1,0 +1,66 @@
+{
+ "id": "hafer-bananen-pancakes",
+ "title": "Hafer-Bananen-Pancakes",
+ "icon": "🥞",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "reife Bananen"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "zarte Haferflocken"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Zimt"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "",
+   "name": "Ahornsirup (zum Servieren)"
+  },
+  {
+   "amount": "",
+   "name": "Beeren (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bananen zerdrücken und mit Eiern, Haferflocken, Milch, Backpulver, Zimt und einer Prise Salz verrühren."
+  },
+  {
+   "text": "Teig kurz quellen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Butter in einer Pfanne erhitzen und kleine Pancakes bei mittlerer Hitze von beiden Seiten backen.",
+   "minutes": 10
+  },
+  {
+   "text": "Mit Beeren und Ahornsirup servieren."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20
+}

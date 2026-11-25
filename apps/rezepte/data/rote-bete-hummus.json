@@ -1,0 +1,54 @@
+{
+ "id": "rote-bete-hummus",
+ "title": "Rote-Bete-Hummus",
+ "icon": "🩷",
+ "cuisine": "Orientalisch",
+ "servings": 4,
+ "time": "ca. 10 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Dose",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "250 g",
+   "name": "gekochte Rote Bete"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kichererbsen abgießen, etwas Kochwasser auffangen."
+  },
+  {
+   "text": "Alle Zutaten mit Salz in einem Mixer sehr fein pürieren, bei Bedarf etwas Kichererbsenwasser zugeben."
+  },
+  {
+   "text": "Abschmecken und mit Olivenöl beträufelt servieren – dazu Gemüsesticks oder Fladenbrot."
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 10,
+ "gf": true
+}

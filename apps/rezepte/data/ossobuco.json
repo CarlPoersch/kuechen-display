@@ -1,0 +1,88 @@
+{
+ "id": "ossobuco",
+ "title": "Ossobuco alla Milanese",
+ "icon": "🍖",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "4 Scheiben",
+   "name": "Kalbshaxe (je ca. 4 cm)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1 Stange",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kalbsfond"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "geschälte Tomaten"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butter"
+  },
+  {
+   "group": "Gremolata"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone (Schale)"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Haxenscheiben am Rand einschneiden, salzen, pfeffern und in Mehl wenden."
+  },
+  {
+   "text": "In Butter von beiden Seiten kräftig anbraten und herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Zwiebel, Karotte und Sellerie fein würfeln und im Bratfett andünsten.",
+   "minutes": 6
+  },
+  {
+   "text": "Mit Wein ablöschen, Fond und Tomaten zugeben, Fleisch hineinlegen und zugedeckt bei kleiner Hitze schmoren.",
+   "minutes": 90
+  },
+  {
+   "text": "Für die Gremolata Zitronenschale, Knoblauch und Petersilie fein hacken und mischen."
+  },
+  {
+   "text": "Ossobuco mit Gremolata bestreuen – klassisch dazu Risotto alla Milanese oder Polenta."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 120
+}

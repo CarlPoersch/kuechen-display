@@ -1,0 +1,70 @@
+{
+ "id": "ofenkuerbis-salat",
+ "title": "Ofenkürbis-Salat mit Feta und Kürbiskernen",
+ "icon": "🎃",
+ "cuisine": "Mediterran",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Hokkaido-Kürbis"
+  },
+  {
+   "amount": "100 g",
+   "name": "Rucola"
+  },
+  {
+   "amount": "150 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "40 g",
+   "name": "Kürbiskerne"
+  },
+  {
+   "amount": "1",
+   "name": "Granatapfel"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Balsamico"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliflocken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Backofen auf 200 °C Umluft vorheizen. Kürbis entkernen und in Spalten schneiden (Schale bleibt dran)."
+  },
+  {
+   "text": "Mit 2 EL Öl, Salz und Chili mischen und im Ofen weich und leicht gebräunt rösten.",
+   "minutes": 25
+  },
+  {
+   "text": "Kürbiskerne ohne Fett rösten.",
+   "minutes": 3
+  },
+  {
+   "text": "Restliches Öl, Balsamico, Honig, Salz und Pfeffer verrühren."
+  },
+  {
+   "text": "Rucola mit dem Dressing mischen, Kürbis, zerbröselten Feta, Granatapfelkerne und Kürbiskerne darauf verteilen."
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "gf": true
+}

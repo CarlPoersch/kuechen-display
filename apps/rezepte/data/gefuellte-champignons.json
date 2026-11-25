@@ -1,0 +1,57 @@
+{
+ "id": "gefuellte-champignons",
+ "title": "Gefüllte Champignons mit Frischkäse",
+ "icon": "🍄",
+ "cuisine": "International",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "16",
+   "name": "große Champignons"
+  },
+  {
+   "amount": "150 g",
+   "name": "Frischkäse"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "40 g",
+   "name": "geriebener Parmesan"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Paniermehl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Backofen auf 200 °C vorheizen. Stiele aus den Pilzen drehen und fein hacken."
+  },
+  {
+   "text": "Gehackte Stiele mit Frischkäse, gepresstem Knoblauch, Schnittlauch, Salz und Pfeffer verrühren."
+  },
+  {
+   "text": "Pilzköpfe füllen, mit Parmesan und Paniermehl bestreuen und mit Öl beträufeln."
+  },
+  {
+   "text": "Im Ofen goldbraun backen.",
+   "minutes": 15
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

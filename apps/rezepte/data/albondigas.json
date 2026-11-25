@@ -1,0 +1,74 @@
+{
+ "id": "albondigas",
+ "title": "Albóndigas in Tomatensauce",
+ "icon": "🍅",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "40 g",
+   "name": "Paniermehl"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "geräuchertes Paprikapulver"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit Ei, Paniermehl, 1 gepressten Knoblauchzehe, Salz und Pfeffer verkneten und walnussgroße Bällchen formen."
+  },
+  {
+   "text": "Bällchen in Olivenöl rundum anbraten und herausnehmen.",
+   "minutes": 8
+  },
+  {
+   "text": "Zwiebel und restlichen Knoblauch fein würfeln und im Bratfett glasig dünsten, Paprikapulver kurz mitrösten.",
+   "minutes": 4
+  },
+  {
+   "text": "Mit Weißwein ablöschen, Tomaten dazugeben und die Bällchen darin zugedeckt garen.",
+   "minutes": 20
+  },
+  {
+   "text": "Mit gehackter Petersilie bestreuen – dazu Weißbrot oder Reis."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45
+}

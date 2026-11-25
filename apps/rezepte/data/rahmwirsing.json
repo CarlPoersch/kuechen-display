@@ -1,0 +1,55 @@
+{
+ "id": "rahmwirsing",
+ "title": "Rahmwirsing",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "kleiner Wirsing"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "20 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Wirsing vierteln, Strunk entfernen und in feine Streifen schneiden, Zwiebel würfeln."
+  },
+  {
+   "text": "Zwiebel in Butter glasig dünsten, Wirsing zugeben und zusammenfallen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Brühe und Sahne angießen und offen köcheln, bis der Wirsing weich und die Sauce cremig ist.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit Salz, Pfeffer und Muskat abschmecken."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "gf": true
+}

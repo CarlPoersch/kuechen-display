@@ -1,0 +1,75 @@
+{
+ "id": "kartoffel-pilz-gulasch",
+ "title": "Kartoffel-Pilz-Gulasch",
+ "icon": "🍄",
+ "cuisine": "Österreichisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "500 g",
+   "name": "Champignons"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Majoran"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "",
+   "name": "Schmand (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln würfeln und in Öl goldbraun dünsten.",
+   "minutes": 8
+  },
+  {
+   "text": "Pilze vierteln, dazugeben und anbraten, bis die Flüssigkeit verdampft ist.",
+   "minutes": 6
+  },
+  {
+   "text": "Paprikapulver und Tomatenmark einrühren, mit Brühe ablöschen."
+  },
+  {
+   "text": "Kartoffeln würfeln, mit Kümmel und Majoran zugeben und köcheln, bis sie weich sind und die Sauce bindet.",
+   "minutes": 25
+  },
+  {
+   "text": "Salzen, pfeffern und mit einem Klecks Schmand servieren."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "gf": true
+}

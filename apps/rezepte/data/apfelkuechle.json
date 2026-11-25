@@ -1,0 +1,65 @@
+{
+ "id": "apfelkuechle",
+ "title": "Apfelküchle mit Zimtzucker",
+ "icon": "🍎",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "150 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "",
+   "name": "Öl (zum Ausbacken)"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Zucker (für Zimtzucker)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Eier, Milch, Zucker und eine Prise Salz zu einem glatten Teig rühren und ruhen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Äpfel schälen, Kerngehäuse ausstechen und in 1 cm dicke Ringe schneiden."
+  },
+  {
+   "text": "Öl in einer Pfanne gut 1 cm hoch erhitzen."
+  },
+  {
+   "text": "Apfelringe durch den Teig ziehen und von beiden Seiten goldbraun ausbacken.",
+   "minutes": 10
+  },
+  {
+   "text": "Auf Küchenpapier abtropfen lassen und noch warm in Zimtzucker wenden."
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30
+}

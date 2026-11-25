@@ -1,0 +1,70 @@
+{
+ "id": "hefezopf",
+ "title": "Hefezopf",
+ "icon": "🍞",
+ "cuisine": "Deutsch",
+ "servings": 12,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Würfel",
+   "name": "frische Hefe"
+  },
+  {
+   "amount": "250 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "80 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1",
+   "name": "Eigelb (zum Bestreichen)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Hagelzucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hefe in der lauwarmen Milch mit 1 TL Zucker auflösen."
+  },
+  {
+   "text": "Mit Mehl, restlichem Zucker, Butter, Ei und einer Prise Salz zu einem glatten Teig kneten.",
+   "minutes": 8
+  },
+  {
+   "text": "Zugedeckt an einem warmen Ort gehen lassen, bis er sich verdoppelt hat.",
+   "minutes": 60
+  },
+  {
+   "text": "Teig in drei Stränge teilen, zu einem Zopf flechten und auf ein Blech legen."
+  },
+  {
+   "text": "Nochmals gehen lassen, Backofen auf 180 °C Ober-/Unterhitze vorheizen.",
+   "minutes": 30
+  },
+  {
+   "text": "Mit Eigelb bestreichen, mit Hagelzucker bestreuen und goldbraun backen.",
+   "minutes": 30
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 150
+}

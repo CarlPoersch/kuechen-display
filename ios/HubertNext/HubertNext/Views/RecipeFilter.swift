@@ -97,10 +97,14 @@ struct RecipeFilterSheet: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var kitchen = KitchenStore.shared
     @State private var newIngredient = ""
+    @FocusState private var typing: Bool
 
     var body: some View {
         NavigationView {
             Form {
+                // Zutaten zuerst: wird getippt, bleiben Feld und Vorschläge über der Tastatur sichtbar
+                ingredientSection
+
                 Section("Sammlung") {
                     Picker("Zeigen", selection: $filter.collection) {
                         ForEach(RecipeFilter.collections, id: \.self) { Text($0) }
@@ -144,39 +148,6 @@ struct RecipeFilterSheet: View {
                          : "Sortiert nach fehlenden Zutaten. Salz, Pfeffer, Öl, Zucker und Wasser zählen als vorhanden.")
                 }
 
-                Section {
-                    ForEach(filter.include, id: \.self) { z in
-                        HStack {
-                            Text(z)
-                            Spacer()
-                            RemoveButton(name: z) { filter.include.removeAll { $0 == z } }
-                        }
-                    }
-                    HStack {
-                        Image(systemName: "plus.circle.fill").foregroundColor(Theme.accent)
-                        TextField("Zutat, z. B. Kartoffeln", text: $newIngredient)
-                            .submitLabel(.done)
-                            .onSubmit { addIngredient(newIngredient) }
-                    }
-                    let suggestions = kitchen.pantry.map(\.name).filter { !filter.include.contains($0) }.prefix(12)
-                    if !suggestions.isEmpty {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 8) {
-                                ForEach(Array(suggestions), id: \.self) { n in
-                                    Button { addIngredient(n) } label: {
-                                        Text(n).font(.subheadline)
-                                            .padding(.horizontal, 12).padding(.vertical, 6)
-                                            .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
-                                    }
-                                    .buttonStyle(.plain)
-                                }
-                            }
-                            .padding(.vertical, 2)
-                        }
-                    }
-                } header: { Text("Mit diesen Zutaten") } footer: {
-                    Text("Zeigt nur Rezepte, die alle genannten Zutaten enthalten. Vorschläge kommen aus deinem Vorrat.")
-                }
             }
             .navigationTitle("Filter").navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -201,10 +172,118 @@ struct RecipeFilterSheet: View {
         .navigationViewStyle(.stack)
     }
 
+    private var ingredientQuery: String { newIngredient.trimmingCharacters(in: .whitespaces) }
+
+    /// Vorschläge zur Eingabe – nur solche, die mit den übrigen Filtern noch Rezepte ergeben
+    private var suggestions: [IngredientSearch.Suggestion] {
+        IngredientSearch.suggest(ingredientQuery, chosen: filter.include, recipes: kitchen.recipes) { name in
+            var f = filter
+            f.include.append(name)
+            return count(f)
+        }
+    }
+
+    @ViewBuilder private var ingredientSection: some View {
+        let sugg = suggestions
+        Section {
+            // Gewählte Zutaten als Chips – antippen entfernt
+            if !filter.include.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(filter.include, id: \.self) { z in
+                            Button { withAnimation { filter.include.removeAll { $0 == z } } } label: {
+                                HStack(spacing: 6) {
+                                    Text(z).font(.subheadline.weight(.semibold)).lineLimit(1)
+                                    Image(systemName: "xmark").font(.caption2.weight(.bold))
+                                }
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 12).frame(minHeight: 34)
+                                .background(Capsule().fill(Theme.accent))
+                                .contentShape(Capsule())
+                            }
+                            .buttonStyle(.borderless)
+                            .accessibilityLabel("\(z) entfernen")
+                        }
+                    }
+                    .padding(.vertical, 4)
+                }
+            }
+            HStack(spacing: 10) {
+                Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
+                TextField(filter.include.isEmpty ? "Zutat, z. B. Kartoffeln" : "Weitere Zutat …", text: $newIngredient)
+                    .focused($typing)
+                    .submitLabel(.done)
+                    .disableAutocorrection(true)
+                    .onSubmit { addIngredient(sugg.first?.name ?? newIngredient) }
+                if !newIngredient.isEmpty {
+                    Button { newIngredient = "" } label: {
+                        Image(systemName: "xmark.circle.fill").foregroundColor(Color(UIColor.tertiaryLabel))
+                    }
+                    .buttonStyle(.borderless)
+                    .accessibilityLabel("Eingabe löschen")
+                }
+            }
+            .frame(minHeight: 44)
+            // Vorschläge beim Tippen: antippen fügt hinzu, das Feld bleibt für die nächste Zutat offen
+            ForEach(sugg) { s in
+                Button { addIngredient(s.name) } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "plus.circle").font(.title3).foregroundColor(Theme.accent).frame(width: 28)
+                        VStack(alignment: .leading, spacing: 1) {
+                            ShopSuggest.highlighted(s.name, ingredientQuery).foregroundColor(.primary).lineLimit(1)
+                            if !s.hint.isEmpty { Text(s.hint).font(.caption).foregroundColor(Theme.secondary) }
+                        }
+                        Spacer(minLength: 8)
+                        Text(s.count == 1 ? "1 Rezept" : "\(s.count) Rezepte")
+                            .font(.caption.monospacedDigit()).foregroundColor(Theme.secondary).lineLimit(1)
+                    }
+                    .frame(minHeight: 44)
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.borderless)
+                .accessibilityLabel("\(s.name) hinzufügen, \(s.count) Rezepte")
+            }
+            if !ingredientQuery.isEmpty && sugg.isEmpty {
+                Text(filter.include.isEmpty ? "Kein Rezept mit „\(ingredientQuery)“."
+                                            : "Kein Rezept mit „\(ingredientQuery)“ und den gewählten Zutaten.")
+                    .font(.subheadline).foregroundColor(Theme.secondary)
+            }
+            // Feld leer: Vorschläge aus dem Vorrat (nur solche, die Rezepte ergeben)
+            if ingredientQuery.isEmpty {
+                let fromPantry = kitchen.pantry.map(\.name)
+                    .filter { n in !filter.include.contains(where: { $0.lowercased() == n.lowercased() }) }
+                    .prefix(16)
+                    .filter { n in var f = filter; f.include.append(n); return count(f) > 0 }
+                    .prefix(10)
+                if !fromPantry.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(Array(fromPantry), id: \.self) { n in
+                                Button { addIngredient(n) } label: {
+                                    Text(n).font(.subheadline)
+                                        .padding(.horizontal, 12).frame(minHeight: 34)
+                                        .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
+                                        .contentShape(Capsule())
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                        .padding(.vertical, 2)
+                    }
+                }
+            }
+        } header: { Text("Mit diesen Zutaten") } footer: {
+            Text("Zeigt Rezepte mit allen gewählten Zutaten. „Nudeln“ findet auch Spaghetti, „Tomaten“ auch Cherrytomaten, „Sahne“ auch Rahm.")
+        }
+    }
+
     private func addIngredient(_ raw: String) {
         let z = raw.trimmingCharacters(in: .whitespaces)
-        guard !z.isEmpty, !filter.include.contains(where: { $0.lowercased() == z.lowercased() }) else { newIngredient = ""; return }
+        guard !z.isEmpty, !filter.include.contains(where: { $0.lowercased() == z.lowercased() }) else {
+            newIngredient = ""; typing = true; return
+        }
         withAnimation { filter.include.append(z) }
         newIngredient = ""
+        typing = true          // Tastatur bleibt offen für die nächste Zutat
     }
 }

@@ -15,6 +15,7 @@ struct KitchenView: View {
     @EnvironmentObject var app: AppStore
     @ObservedObject private var kitchen = KitchenStore.shared
     @State var tab: KitchenTab = .recipes
+    @ObservedObject private var jump = RecipeJump.shared
 
     var body: some View {
         VStack(spacing: 0) {
@@ -39,7 +40,17 @@ struct KitchenView: View {
         .refreshing(id: app.household?.id ?? "", every: { 15 }) {
             await KitchenStore.shared.sync(household: app.household?.id)
         }
+        // „Rezepte mit …“ aus dem Vorrat (Tab oder Startseite) → zu den Rezepten wechseln
+        .onAppear { if jump.pending != nil { tab = .recipes } }
+        .onChange(of: jump.pending) { if $0 != nil { withAnimation { tab = .recipes } } }
     }
+}
+
+/// „Rezepte mit …“: Zutat aus dem Vorrat an die Rezeptsuche übergeben
+final class RecipeJump: ObservableObject {
+    static let shared = RecipeJump()
+    @Published var pending: String?
+    func show(_ ingredient: String) { pending = ingredient }
 }
 
 // MARK: Gemeinsame Bausteine
@@ -106,13 +117,24 @@ struct RecipesTab: View {
 
     enum Sheet: String, Identifiable { case new, link, cookbook, stats; var id: String { rawValue } }
 
+    @ObservedObject private var jump = RecipeJump.shared
+
+    /// Zutat aus dem Vorrat: Suche leeren, nur diese Zutat als Filter (Ernährung bleibt)
+    private func takeJump() {
+        guard let z = jump.pending else { return }
+        jump.pending = nil
+        query = ""; category = "Alle"; cuisine = "Alle"; suggestion = nil
+        var f = RecipeFilter(diet: filter.diet)
+        f.include = [z]
+        withAnimation { filter = f }
+    }
+
     private var list: [RecipeSummary] { matching(filter).map(\.0) }
 
     /// Passende Rezepte mit fehlenden Zutaten (nur bei „Mit meinem Vorrat“ gefüllt)
     private func matching(_ f: RecipeFilter) -> [(RecipeSummary, [String])] {
         let q = query.lowercased().trimmingCharacters(in: .whitespaces)
         let pantryKeys = f.pantry ? kitchen.pantry.map { FoodCatalog.key($0.name) } : []
-        let include = f.include.map { $0.lowercased() }
         var out: [(RecipeSummary, [String])] = []
         for r in kitchen.recipes {
             let ing = (r.ing ?? []).map { $0.lowercased() }
@@ -131,7 +153,8 @@ struct RecipesTab: View {
             if f.glutenFree && r.gf != true { continue }
             if f.maxMinutes > 0 && (r.minutes ?? 999) > f.maxMinutes { continue }
             if f.level != "Alle" && r.level != f.level { continue }
-            if !include.allSatisfy({ z in ing.contains { $0.contains(z) } }) { continue }
+            // Zutaten: mit Oberbegriffen, Varianten und anderen Namen (IngredientSearch)
+            if !f.include.allSatisfy({ IngredientSearch.has(r, $0) }) { continue }
             var missing: [String] = []
             if f.pantry {
                 missing = PantryMatch.missing(r, pantry: pantryKeys)
@@ -324,6 +347,8 @@ struct RecipesTab: View {
             }
         }
         .onChange(of: dietPref) { filter.diet = $0; suggestion = nil }
+        .onAppear(perform: takeJump)
+        .onChange(of: jump.pending) { _ in takeJump() }
         .sheet(isPresented: $showFilter) { RecipeFilterSheet(filter: $filter) { matching($0).count } }
         .sheet(item: $sheet) { s in
             switch s {
@@ -1580,6 +1605,15 @@ struct PantryTab: View {
         .swipeActions(edge: .trailing) {
             Button(role: .destructive) { kitchen.delete(it) } label: { Label("Löschen", systemImage: "trash") }
             Button { kitchen.add("shop", name: it.name) } label: { Label("Einkaufen", systemImage: "cart.badge.plus") }.tint(Theme.accent)
+        }
+        // Rezepte mit dieser Zutat: nach rechts wischen (iPhone) oder gedrückt halten (überall)
+        .swipeActions(edge: .leading) {
+            Button { RecipeJump.shared.show(it.name) } label: { Label("Rezepte", systemImage: "fork.knife") }.tint(.green)
+        }
+        .contextMenu {
+            Button { RecipeJump.shared.show(it.name) } label: { Label("Rezepte mit \(it.name)", systemImage: "fork.knife") }
+            Button { kitchen.add("shop", name: it.name) } label: { Label("Auf die Einkaufsliste", systemImage: "cart.badge.plus") }
+            Button(role: .destructive) { kitchen.delete(it) } label: { Label("Löschen", systemImage: "trash") }
         }
     }
 }

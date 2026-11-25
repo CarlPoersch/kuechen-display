@@ -1,0 +1,50 @@
+{
+ "id": "joghurt-bowl-beeren",
+ "title": "Joghurt-Bowl mit Beeren und Nüssen",
+ "icon": "🫐",
+ "cuisine": "International",
+ "servings": 2,
+ "time": "ca. 5 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "200 g",
+   "name": "Beeren (frisch oder TK, aufgetaut)"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Granola"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Honig"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Leinsamen"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Joghurt in zwei Schalen verteilen."
+  },
+  {
+   "text": "Beeren, Granola, gehackte Walnüsse und Leinsamen darauf geben."
+  },
+  {
+   "text": "Mit Honig beträufeln."
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 5,
+ "gf": true
+}

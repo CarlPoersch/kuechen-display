@@ -141,6 +141,7 @@ struct ShoppingGlance: View {
 struct PantryGlanceRow: View {
     let item: KitchenItem
     @ObservedObject private var kitchen = KitchenStore.shared
+    @Environment(\.openBucketDetail) private var openDetail
 
     var body: some View {
         HStack(spacing: 8) {
@@ -161,6 +162,13 @@ struct PantryGlanceRow: View {
             .accessibilityLabel("\(item.name) entfernen")
         }
         .frame(height: 38)
+        .contentShape(Rectangle())
+        .contextMenu {
+            Button { RecipeJump.shared.show(item.name); openDetail() } label: {
+                Label("Rezepte mit \(item.name)", systemImage: "fork.knife")
+            }
+            Button { kitchen.add("shop", name: item.name) } label: { Label("Auf die Einkaufsliste", systemImage: "cart.badge.plus") }
+        }
     }
 }
 

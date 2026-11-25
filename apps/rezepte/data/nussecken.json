@@ -1,0 +1,91 @@
+{
+ "id": "nussecken",
+ "title": "Nussecken",
+ "icon": "🌰",
+ "cuisine": "Deutsch",
+ "servings": 24,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "group": "Teig"
+  },
+  {
+   "amount": "300 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "130 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "130 g",
+   "name": "kalte Butter"
+  },
+  {
+   "group": "Belag"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Aprikosenmarmelade"
+  },
+  {
+   "amount": "200 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Wasser"
+  },
+  {
+   "amount": "200 g",
+   "name": "gemahlene Haselnüsse"
+  },
+  {
+   "amount": "200 g",
+   "name": "gehackte Haselnüsse"
+  },
+  {
+   "amount": "200 g",
+   "name": "Zartbitterkuvertüre"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Backpulver, Zucker, Ei und Butter rasch zu einem Mürbeteig verkneten und auf einem Blech (ca. 30 × 40 cm) ausrollen."
+  },
+  {
+   "text": "Teig mit Marmelade bestreichen. Backofen auf 180 °C vorheizen."
+  },
+  {
+   "text": "Butter, Zucker und Wasser aufkochen, Nüsse unterrühren und abkühlen lassen.",
+   "minutes": 5
+  },
+  {
+   "text": "Nussmasse auf dem Teig verteilen und backen, bis sie goldbraun ist.",
+   "minutes": 25
+  },
+  {
+   "text": "Abkühlen lassen, in Quadrate und dann in Dreiecke schneiden.",
+   "minutes": 20
+  },
+  {
+   "text": "Die Ecken in geschmolzene Kuvertüre tauchen und fest werden lassen."
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75
+}

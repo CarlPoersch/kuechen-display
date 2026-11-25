@@ -1,0 +1,78 @@
+{
+ "id": "paprikahuhn",
+ "title": "Paprikahuhn (Paprikás csirke)",
+ "icon": "🌶️",
+ "cuisine": "Ungarisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1,2 kg",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "2 EL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "scharfes Paprikapulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen salzen und in Öl rundum goldbraun anbraten, herausnehmen.",
+   "minutes": 10
+  },
+  {
+   "text": "Zwiebeln fein würfeln und im Bratfett weich dünsten, Paprika in Streifen dazugeben.",
+   "minutes": 8
+  },
+  {
+   "text": "Topf kurz vom Herd nehmen, Paprikapulver und Tomatenmark einrühren (Paprika verbrennt sonst schnell bitter)."
+  },
+  {
+   "text": "Mit Brühe ablöschen, Hähnchen zurück in den Topf legen und zugedeckt schmoren.",
+   "minutes": 35
+  },
+  {
+   "text": "Saure Sahne mit Mehl glatt rühren, unter die Sauce ziehen und kurz aufkochen lassen.",
+   "minutes": 2
+  },
+  {
+   "text": "Abschmecken – dazu Nockerl, Spätzle oder Reis."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60
+}

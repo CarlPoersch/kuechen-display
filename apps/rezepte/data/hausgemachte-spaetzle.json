@@ -1,0 +1,53 @@
+{
+ "id": "hausgemachte-spaetzle",
+ "title": "Hausgemachte Spätzle",
+ "icon": "🍝",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Mehl (Type 405 oder Spätzlemehl)"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "ca. 150 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Eier, Wasser, 1 TL Salz und Muskat zu einem zähen Teig schlagen, bis er Blasen wirft."
+  },
+  {
+   "text": "Teig ruhen lassen.",
+   "minutes": 10
+  },
+  {
+   "text": "Teig portionsweise in kochendes Salzwasser schaben oder pressen.",
+   "minutes": 8
+  },
+  {
+   "text": "Sobald die Spätzle oben schwimmen, mit einer Schaumkelle herausheben."
+  },
+  {
+   "text": "In Butter schwenken – passt zu Braten, Gulasch und Rahmgerichten."
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 30
+}

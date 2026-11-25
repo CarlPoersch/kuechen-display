@@ -1,0 +1,74 @@
+{
+ "id": "wirsingeintopf-hackbaellchen",
+ "title": "Wirsingeintopf mit Hackbällchen",
+ "icon": "🥬",
+ "cuisine": "Deutsch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "kleiner Wirsing"
+  },
+  {
+   "amount": "400 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "500 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit Ei, Salz, Pfeffer und Muskat verkneten und kleine Bällchen formen."
+  },
+  {
+   "text": "Zwiebel würfeln und im großen Topf glasig dünsten.",
+   "minutes": 3
+  },
+  {
+   "text": "Kartoffeln und Karotten würfeln, Wirsing in Streifen schneiden, alles in den Topf geben und mit Brühe aufgießen."
+  },
+  {
+   "text": "Köcheln, bis das Gemüse fast gar ist.",
+   "minutes": 15
+  },
+  {
+   "text": "Hackbällchen einlegen und bei kleiner Hitze gar ziehen lassen.",
+   "minutes": 12
+  },
+  {
+   "text": "Mit Muskat abschmecken und mit Petersilie bestreuen."
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 50,
+ "gf": true
+}

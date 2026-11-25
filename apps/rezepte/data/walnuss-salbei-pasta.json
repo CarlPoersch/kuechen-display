@@ -1,0 +1,67 @@
+{
+ "id": "walnuss-salbei-pasta",
+ "title": "Pasta mit Walnuss-Salbei-Sauce",
+ "icon": "🌰",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Tagliatelle"
+  },
+  {
+   "amount": "100 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "12",
+   "name": "Salbeiblätter"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "60 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pasta in Salzwasser bissfest kochen, eine Tasse Nudelwasser aufheben.",
+   "minutes": 10
+  },
+  {
+   "text": "Walnüsse ohne Fett anrösten und grob hacken.",
+   "minutes": 4
+  },
+  {
+   "text": "Butter mit Salbei und angedrücktem Knoblauch aufschäumen lassen, bis der Salbei knusprig ist.",
+   "minutes": 3
+  },
+  {
+   "text": "Sahne, die Hälfte der Nüsse und Muskat zugeben und kurz köcheln.",
+   "minutes": 3
+  },
+  {
+   "text": "Pasta mit etwas Nudelwasser und Parmesan in der Sauce schwenken, mit restlichen Nüssen bestreuen."
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25
+}
