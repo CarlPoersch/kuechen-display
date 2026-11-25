@@ -167,7 +167,6 @@ struct AlarmRow: View {
 
     private var subtitle: String {
         var parts = [alarm.title, alarm.daysText]
-        if !alarm.shared { parts.append("nur ich") }
         if center.isSkipped(alarm) { parts.append("nächstes Mal übersprungen") }
         return parts.joined(separator: " · ")
     }
@@ -217,7 +216,6 @@ struct AlarmEditSheet: View {
                     Picker("Schlummern", selection: $a.snooze_min) {
                         ForEach([5, 9, 10, 15], id: \.self) { Text("\($0) Min.").tag($0) }
                     }
-                    Toggle("Für den ganzen Haushalt", isOn: $a.shared).tint(Theme.accent)
                     Picker("Ton", selection: Binding(get: { AlarmTone.from(a.sound) }, set: { t in
                         a.sound = t.rawValue
                         AlarmSound.shared.preview(t)          // gleich vorspielen
@@ -226,7 +224,7 @@ struct AlarmEditSheet: View {
                     }
                     Toggle("Langsam lauter", isOn: $a.ramp).tint(Theme.accent)
                 } footer: {
-                    Text(a.shared ? "Klingelt auf allen Geräten im Haushalt." : "Klingelt nur auf deinen Geräten.")
+                    Text("Klingelt auf allen Geräten im Haushalt. Beenden oder Schlummern auf einem Gerät gilt für alle.")
                 }
                 // Licht – nur mit Smart Home und Lampen
                 if !smart.lights.isEmpty {

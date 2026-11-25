@@ -8,9 +8,10 @@ import UIKit
 // ============================================================
 // Wecker (Bucket „Uhr“) – Design: docs/specs/2026-11-24-uhr-wecker-design.md
 //
-// Ein Wecker gehört zum Haushalt (Tabelle `alarms`). Jedes Gerät rechnet selbst aus,
-// ob gerade geklingelt wird. Beenden/Schlummern wird im Wecker gespeichert
-// (dismissed_for / snooze_for + snooze_until) und gilt damit auf allen Geräten.
+// Ein Wecker gehört zum Haushalt (Tabelle `alarms`) und klingelt auf allen Geräten des Haushalts.
+// Jedes Gerät rechnet selbst aus, ob gerade geklingelt wird. Beenden/Schlummern wird im Wecker
+// gespeichert (dismissed_for / snooze_for + snooze_until) und gilt damit auf allen Geräten:
+// Solange ein Gerät klingelt, fragt es alle 2 s nach, ob woanders schon beendet wurde.
 //   - In Hubert: großer Wecker-Bildschirm mit Ton, bis beendet (höchstens 30 min).
 //   - App zu: iOS-Mitteilung zur Weckzeit (bzw. Schlummer-Ende), auf diesem Gerät geplant.
 // ============================================================
@@ -123,6 +124,8 @@ final class AlarmCenter: ObservableObject {
     private var lastBeep = Date.distantPast
     private var ringStarted = Date.distantPast
     private var kitTrimmed = false
+    private var lastRingPoll = Date.distantPast
+    private var polling = false
     private let cacheKey = "alarms.cache"
     /// So lange klingelt ein Wecker höchstens, dann hört er von allein auf
     static let maxRing: TimeInterval = 30 * 60
@@ -137,8 +140,8 @@ final class AlarmCenter: ObservableObject {
 
     var userId: String? { api.userId }
 
-    /// Klingelt dieser Wecker auf diesem Gerät? (Haushalt = überall, sonst nur beim Besitzer)
-    func ringsHere(_ a: Alarm) -> Bool { a.shared || a.owner == userId }
+    /// Klingelt dieser Wecker auf diesem Gerät? Ja – jeder Wecker klingelt auf allen Geräten im Haushalt.
+    func ringsHere(_ a: Alarm) -> Bool { true }
 
     var sorted: [Alarm] {
         alarms.sorted { ($0.hour, $0.minute, $0.name) < ($1.hour, $1.minute, $1.name) }
@@ -160,6 +163,8 @@ final class AlarmCenter: ObservableObject {
         }
         reschedule()
         step(Date())
+        // Woanders beendet oder geschlummert → auch ein klingelnder System-Wecker hier hört auf
+        if ringing == nil { AlarmKitBridge.silenceAlerting() }
     }
 
     func load(household h: String) async {
@@ -256,6 +261,22 @@ final class AlarmCenter: ObservableObject {
         cache(); reschedule(); step(Date())
     }
 
+    /// Den klingelnden Wecker frisch vom Server holen – Beenden/Schlummern von anderen Geräten
+    private func pollRinging(_ id: String) {
+        polling = true
+        Task {
+            defer { self.polling = false }
+            guard let rows: [Alarm] = try? await self.api.select("alarms", ["id": "eq." + id]),
+                  let fresh = rows.first,
+                  let i = self.alarms.firstIndex(where: { $0.id == id }),
+                  self.alarms[i] != fresh else { return }
+            self.alarms[i] = fresh
+            self.cache()
+            self.reschedule()
+            self.step(Date())
+        }
+    }
+
     private func push(_ a: Alarm) {
         let row = a
         Task { try? await self.api.upsert("alarms", [row]) }
@@ -290,7 +311,14 @@ final class AlarmCenter: ObservableObject {
         let found = alarms.compactMap { current($0, now: now) }.min { $0.fire < $1.fire }
         if found != ringing {
             if ringing == nil, found != nil { ringStarted = now }
+            let stopped = ringing != nil && found == nil
             ringing = found
+            if stopped { AlarmKitBridge.silenceAlerting() }
+        }
+        // Klingeln: alle 2 s nachsehen, ob es auf einem anderen Gerät beendet wurde
+        if let r = ringing, now.timeIntervalSince(lastRingPoll) >= 2, !polling {
+            lastRingPoll = now
+            pollRinging(r.alarm.id)
         }
         // Licht (nur das Lichtgerät schaltet, nur wenn es Lampen gibt)
         if LightHost.shared.isHost && LightHost.hasLights { lightStep(now) }
