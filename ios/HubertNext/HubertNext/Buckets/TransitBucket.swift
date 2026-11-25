@@ -589,6 +589,40 @@ struct TransitRowView: View {
     }
 }
 
+/// Kompakte Zeile für schmale Karten: Linie (→ Umstieg), rechts „in 10 Min.“ und darunter die Abfahrt
+struct TransitCompactRow: View {
+    let row: TransitRow
+    /// Ohne Ziel (Abfahrten): Richtung zeigen – sonst weiß man nicht, wohin der Bus fährt
+    var showTitle = false
+
+    var body: some View {
+        let l = los(row.leave)
+        HStack(spacing: 6) {
+            LineBadge(line: row.line)
+            if let t = row.transferLine {
+                Image(systemName: "arrow.right").font(.caption2.weight(.bold)).foregroundColor(Theme.secondary)
+                LineBadge(line: t)
+            }
+            if showTitle {
+                Text(row.title).font(.subheadline).foregroundColor(.primary).lineLimit(1)
+            }
+            Spacer(minLength: 8)
+            VStack(alignment: .trailing, spacing: 1) {
+                Text(l.0).font(.body.weight(.bold).monospacedDigit()).foregroundColor(l.1)
+                    .lineLimit(1).minimumScaleFactor(0.8)
+                HStack(spacing: 4) {
+                    if row.delay > 0 { Text("+\(row.delay)").foregroundColor(.red) }
+                    Text("ab " + Fmt.hhmm(row.depart)).foregroundColor(row.delay > 0 ? .red : Theme.secondary)
+                }
+                .font(.caption.monospacedDigit()).lineLimit(1)
+            }
+        }
+        .frame(minHeight: 48)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+    }
+}
+
 /// "Von ▾ → Nach ▾" – Auswahl direkt in der Karte, wird sofort gespeichert.
 /// Bewusst Knöpfe mit Auswahlblatt statt "Menu": Ein Menu hat auf iOS 15 in der Karte
 /// die Detailansicht ausgelöst. Ein Knopf löst nur seine eigene Aktion aus.
@@ -713,9 +747,25 @@ struct TransitGlance: View {
                         }
                         .contentShape(Rectangle()).onTapGesture(perform: openDetail)
                     } else { status(r) }
+                } else if !wide {
+                    // Schmale Karte (iPhone): nur Linie(n), Abfahrt und „in X Min.“ –
+                    // Ziel, Haltestelle und Ankunft gibt es nach dem Antippen (Fahrt bzw. Übersicht).
+                    if rows.isEmpty {
+                        status(r)
+                    } else {
+                        GlancePager(pages: Pages.split(rows, height: space.height - 56, row: 48)) { page in
+                            VStack(alignment: .leading, spacing: 0) {
+                                ForEach(Array(page.enumerated()), id: \.element.id) { i, row in
+                                    if i > 0 { Divider() }
+                                    TransitCompactRow(row: row, showTitle: r.to == nil)
+                                        .onTapGesture { if let ref = row.ref { ride = ref } else { openDetail() } }
+                                }
+                            }
+                        }
+                    }
                 } else {
-                    // Los · Ab · An auch auf dem iPhone – mit schmaleren Spalten
-                    let col: CGFloat = wide ? 52 : 44
+                    // Breite Karte (iPad): Los · Ab · An
+                    let col: CGFloat = 52
                     if rows.isEmpty {
                         TransitHead(showArrival: r.to != nil, col: col).padding(.top, 2)
                         status(r)
