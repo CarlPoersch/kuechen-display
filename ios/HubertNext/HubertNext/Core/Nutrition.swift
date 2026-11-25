@@ -219,7 +219,7 @@ final class NutritionCalc: ObservableObject {
             guard let f = food else { continue }
             guard var qty = g else {
                 if has(hint, #"zum (an)?braten|zum einfetten|für die (form|pfanne)"#) {
-                    for i in 0..<6 { tot[i] += f.v[i] * 8 / 100 }
+                    for i in 0..<min(6, f.v.count) { tot[i] += f.v[i] * 8 / 100 }
                 }
                 continue
             }

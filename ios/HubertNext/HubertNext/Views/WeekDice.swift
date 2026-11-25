@@ -265,7 +265,7 @@ struct WeekDiceSheet: View {
     }
 
     private func weighted(_ list: [RecipeSummary], _ w: [String: Double]) -> RecipeSummary? {
-        let total = list.reduce(0) { $0 + (w[$1.id] ?? 1) }
+        let total = list.reduce(0.0) { $0 + (w[$1.id] ?? 1) }
         guard total > 0 else { return list.randomElement() }
         var x = Double.random(in: 0..<total)
         for r in list {
