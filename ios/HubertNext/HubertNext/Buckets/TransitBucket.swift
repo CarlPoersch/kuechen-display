@@ -533,9 +533,10 @@ let transitNavy = Color(red: 0.11, green: 0.21, blue: 0.31)
 struct LineBadge: View {
     let line: String
     var color: Color? = nil     // abweichende Farbe (z. B. Anschluss in gleicher Linienfarbe)
+    var compact = false         // schmaler für iPhone-Karten
     var body: some View {
         Text(line).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(.white).lineLimit(1)
-            .frame(minWidth: 34).padding(.horizontal, 6).padding(.vertical, 4)
+            .frame(minWidth: compact ? 28 : 34).padding(.horizontal, compact ? 4 : 6).padding(.vertical, 4)
             .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(color ?? lineColor(line)))
     }
 }
@@ -589,37 +590,46 @@ struct TransitRowView: View {
     }
 }
 
-/// Kompakte Zeile für schmale Karten: Linie (→ Umstieg), rechts „in 10 Min.“ und darunter die Abfahrt
+/// Kompakte Zeile für schmale Karten (iPhone): links nur Linie(n), rechts Los · Ab · An
+/// in schmalen Spalten. Haltestelle und Zwischenziel gibt es nach dem Antippen.
 struct TransitCompactRow: View {
     let row: TransitRow
+    let showArrival: Bool
     /// Ohne Ziel (Abfahrten): Richtung zeigen – sonst weiß man nicht, wohin der Bus fährt
     var showTitle = false
+    var col: CGFloat = 50
 
     var body: some View {
         let l = los(row.leave)
-        HStack(spacing: 6) {
-            LineBadge(line: row.line)
+        HStack(spacing: 5) {
+            LineBadge(line: row.line, compact: true)
             if let t = row.transferLine {
                 Image(systemName: "arrow.right").font(.caption2.weight(.bold)).foregroundColor(Theme.secondary)
-                LineBadge(line: t)
+                LineBadge(line: t, compact: true)
             }
             if showTitle {
                 Text(row.title).font(.subheadline).foregroundColor(.primary).lineLimit(1)
             }
-            Spacer(minLength: 8)
-            VStack(alignment: .trailing, spacing: 1) {
-                Text(l.0).font(.body.weight(.bold).monospacedDigit()).foregroundColor(l.1)
-                    .lineLimit(1).minimumScaleFactor(0.8)
-                HStack(spacing: 4) {
-                    if row.delay > 0 { Text("+\(row.delay)").foregroundColor(.red) }
-                    Text("ab " + Fmt.hhmm(row.depart)).foregroundColor(row.delay > 0 ? .red : Theme.secondary)
+            Spacer(minLength: 4)
+            // Spalten ohne Abstand dazwischen – genau wie die Kopfzeile (TransitHead), damit alles fluchtet
+            HStack(spacing: 0) {
+                Text(l.0).font(.subheadline.weight(.bold).monospacedDigit()).foregroundColor(l.1)
+                    .lineLimit(1).minimumScaleFactor(0.75).frame(width: col, alignment: .trailing)
+                // Verspätung: Abfahrt rot (wie an der Anzeigetafel)
+                Text(Fmt.hhmm(row.depart)).font(.subheadline.monospacedDigit())
+                    .foregroundColor(row.delay > 0 ? .red : .primary)
+                    .lineLimit(1).minimumScaleFactor(0.75).frame(width: col, alignment: .trailing)
+                if showArrival {
+                    Text(row.arrive.map { Fmt.hhmm($0) } ?? "–").font(.subheadline.monospacedDigit())
+                        .foregroundColor(Theme.secondary)
+                        .lineLimit(1).minimumScaleFactor(0.75).frame(width: col, alignment: .trailing)
                 }
-                .font(.caption.monospacedDigit()).lineLimit(1)
             }
         }
-        .frame(minHeight: 48)
+        .frame(minHeight: 44)
         .contentShape(Rectangle())
         .accessibilityElement(children: .combine)
+        .accessibilityLabel("Linie \(row.line)\(row.transferLine.map { ", Umstieg in \($0)" } ?? ""), los \(l.0), ab \(Fmt.hhmm(row.depart))\(row.delay > 0 ? ", \(row.delay) Minuten später" : "")\(showArrival ? ", an " + (row.arrive.map { Fmt.hhmm($0) } ?? "") : "")")
     }
 }
 
@@ -748,16 +758,17 @@ struct TransitGlance: View {
                         .contentShape(Rectangle()).onTapGesture(perform: openDetail)
                     } else { status(r) }
                 } else if !wide {
-                    // Schmale Karte (iPhone): nur Linie(n), Abfahrt und „in X Min.“ –
-                    // Ziel, Haltestelle und Ankunft gibt es nach dem Antippen (Fahrt bzw. Übersicht).
+                    // Schmale Karte (iPhone): nur Linie(n) und Los · Ab · An –
+                    // Haltestelle und Zwischenziel gibt es nach dem Antippen (Fahrt bzw. Übersicht).
                     if rows.isEmpty {
                         status(r)
                     } else {
-                        GlancePager(pages: Pages.split(rows, height: space.height - 56, row: 48)) { page in
+                        GlancePager(pages: Pages.split(rows, height: space.height - 76, row: 45)) { page in
                             VStack(alignment: .leading, spacing: 0) {
+                                TransitHead(showArrival: r.to != nil, col: 50).padding(.top, 4).padding(.bottom, 2)
                                 ForEach(Array(page.enumerated()), id: \.element.id) { i, row in
                                     if i > 0 { Divider() }
-                                    TransitCompactRow(row: row, showTitle: r.to == nil)
+                                    TransitCompactRow(row: row, showArrival: r.to != nil, showTitle: r.to == nil, col: 50)
                                         .onTapGesture { if let ref = row.ref { ride = ref } else { openDetail() } }
                                 }
                             }
