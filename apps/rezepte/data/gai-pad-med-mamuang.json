@@ -1,0 +1,120 @@
+{
+ "id": "gai-pad-med-mamuang",
+ "title": "Gai Pad Med Mamuang (Cashew-Hähnchen)",
+ "icon": "🥜",
+ "cuisine": "Thailändisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "100 g",
+   "name": "Cashewkerne"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3",
+   "name": "getrocknete Chilis"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Jasminreis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis kochen. Hähnchen in Streifen schneiden und mit Stärke bestäuben.",
+   "use": [
+    13,
+    11
+   ]
+  },
+  {
+   "text": "Cashews und Chilis in etwas Öl goldbraun rösten, herausnehmen.",
+   "minutes": 3,
+   "use": [
+    6,
+    12
+   ]
+  },
+  {
+   "text": "Hähnchen im heißen Wok anbraten, Knoblauch, Zwiebel und Paprika dazugeben und kurz mitbraten.",
+   "minutes": 6,
+   "use": [
+    5,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Austern-, Soja- und Fischsauce mit Zucker und 3 EL Wasser verrühren und dazugeben.",
+   "minutes": 1,
+   "use": [
+    9,
+    10
+   ]
+  },
+  {
+   "text": "Cashews, Chilis und Frühlingszwiebeln unterheben und mit Reis servieren.",
+   "use": [
+    6,
+    4,
+    13
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 640,
+  "p": 39,
+  "kh": 68,
+  "z": 8,
+  "f": 23,
+  "bs": 3
+ }
+}

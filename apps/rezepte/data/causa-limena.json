@@ -1,0 +1,105 @@
+{
+ "id": "causa-limena",
+ "title": "Causa Limeña (Kartoffel-Schichtsalat)",
+ "icon": "🥔",
+ "cuisine": "Peruanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "3",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1",
+   "name": "gelbe Chilischote"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Thunfisch"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "8",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in Salzwasser weich kochen, Eier hart kochen.",
+   "minutes": 25,
+   "use": [
+    0,
+    7
+   ]
+  },
+  {
+   "text": "Kartoffeln pellen und noch warm durch die Presse drücken. Mit Limettensaft, fein püriertem Chili, Öl und Salz zu einem glatten Teig kneten, abkühlen lassen.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Thunfisch abtropfen lassen und mit Mayonnaise und gehackter Petersilie verrühren. Avocado in dünne Scheiben schneiden.",
+   "use": [
+    4,
+    5,
+    9,
+    6
+   ]
+  },
+  {
+   "text": "Eine Form mit Folie auslegen: Kartoffelmasse, Thunfisch, Avocado und wieder Kartoffelmasse schichten und glatt streichen.",
+   "use": [
+    0,
+    4,
+    6
+   ]
+  },
+  {
+   "text": "Kalt stellen, dann stürzen und mit Eischeiben und Oliven belegen.",
+   "minutes": 30,
+   "use": [
+    8
+   ]
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 45,
+ "nutri": {
+  "kcal": 600,
+  "p": 19,
+  "kh": 49,
+  "z": 3,
+  "f": 38,
+  "bs": 9
+ }
+}

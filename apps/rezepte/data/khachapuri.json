@@ -1,0 +1,102 @@
+{
+ "id": "khachapuri",
+ "title": "Khachapuri Adjaruli (Käseschiffchen mit Ei)",
+ "icon": "🧀",
+ "cuisine": "Georgisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Trockenhefe"
+  },
+  {
+   "amount": "250 ml",
+   "name": "lauwarme Milch"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "200 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "5",
+   "name": "Eier"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Hefe, Milch, Zucker, Salz und Öl zu einem glatten Teig kneten und zugedeckt gehen lassen.",
+   "minutes": 60,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Mozzarella reiben, mit zerbröseltem Feta und 1 Ei mischen.",
+   "use": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Teig in 4 Stücke teilen, oval ausrollen, die Längsseiten einrollen und die Enden zu Spitzen zusammendrücken – es entsteht ein Schiffchen.",
+   "use": []
+  },
+  {
+   "text": "Käse in die Mitte füllen und bei 220 °C backen, bis der Teig golden ist.",
+   "minutes": 14,
+   "use": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "In jede Mitte ein Eigelb (oder ganzes Ei) geben und noch kurz backen. Mit Butter servieren und alles am Tisch verrühren.",
+   "minutes": 3,
+   "use": [
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 90,
+ "nutri": {
+  "kcal": 910,
+  "p": 42,
+  "kh": 77,
+  "z": 6,
+  "f": 48,
+  "bs": 4
+ }
+}

@@ -1,0 +1,97 @@
+{
+ "id": "pasteis-de-nata",
+ "title": "Pastéis de Nata (Puddingtörtchen)",
+ "icon": "🥧",
+ "cuisine": "Portugiesisch",
+ "servings": 6,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1 Rolle",
+   "name": "Blätterteig"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "60 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "25 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "4",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone (Schale)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen mit Blech auf 250 °C vorheizen. Blätterteig von der langen Seite eng aufrollen, in 12 Scheiben schneiden.",
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Scheiben mit nassen Daumen in die Mulden eines Muffinblechs drücken, sodass ein dünner Rand entsteht.",
+   "use": []
+  },
+  {
+   "text": "Zucker mit Wasser, Zimtstange und Zitronenschale 3 Minuten zu Sirup kochen. Mehl mit etwas Milch glatt rühren, restliche Milch erhitzen und einrühren, bis es bindet.",
+   "minutes": 5,
+   "use": [
+    2,
+    3,
+    6,
+    7,
+    4,
+    1
+   ]
+  },
+  {
+   "text": "Sirup durch ein Sieb in die Milchcreme rühren, abkühlen lassen, dann die Eigelbe einrühren.",
+   "use": [
+    1,
+    5
+   ]
+  },
+  {
+   "text": "Förmchen zu ¾ füllen und sehr heiß backen, bis die Oberfläche dunkle Flecken bekommt. Mit Zimt bestäuben.",
+   "minutes": 14,
+   "use": [
+    6,
+    8
+   ]
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 340,
+  "p": 7,
+  "kh": 39,
+  "z": 20,
+  "f": 17,
+  "bs": 1
+ }
+}

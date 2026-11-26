@@ -1,0 +1,102 @@
+{
+ "id": "fasolada",
+ "title": "Fasolada (weiße Bohnensuppe)",
+ "icon": "🫘",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "weiße Bohnen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "2 Stangen",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Lorbeerblatt"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Karotten und Sellerie in kleine Würfel schneiden, Knoblauch hacken.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "In Olivenöl weich dünsten, Tomatenmark mitrösten.",
+   "minutes": 10,
+   "use": [
+    9,
+    5
+   ]
+  },
+  {
+   "text": "Abgespülte Bohnen, Tomaten, Brühe und Lorbeer dazugeben und köcheln lassen.",
+   "minutes": 25,
+   "use": [
+    0,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Mit Salz, Pfeffer und Zitrone abschmecken und mit einem großzügigen Schuss Olivenöl servieren.",
+   "use": [
+    10,
+    9
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 350,
+  "p": 13,
+  "kh": 34,
+  "z": 9,
+  "f": 17,
+  "bs": 11
+ },
+ "gf": true
+}

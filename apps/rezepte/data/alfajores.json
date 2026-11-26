@@ -1,0 +1,91 @@
+{
+ "id": "alfajores",
+ "title": "Alfajores (Kekse mit Karamellcreme)",
+ "icon": "🍪",
+ "cuisine": "Argentinisch",
+ "servings": 6,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "100 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "60 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "150 g",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "400 g",
+   "name": "gezuckerte Kondensmilch"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Kokosraspel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kondensmilch in der geschlossenen Dose in einem Topf mit Wasser bedeckt köcheln – daraus wird Karamellcreme. Abkühlen lassen.",
+   "minutes": 120,
+   "use": [
+    7
+   ]
+  },
+  {
+   "text": "Butter, Zucker und Vanillezucker cremig rühren, Eigelbe einrühren. Stärke, Mehl und Backpulver unterkneten und kalt stellen.",
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    6,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Teig 5 mm dick ausrollen, Kreise ausstechen und bei 175 °C backen – sie sollen hell bleiben.",
+   "minutes": 10,
+   "use": []
+  },
+  {
+   "text": "Je zwei Kekse mit Karamellcreme zusammensetzen und den Rand in Kokosraspeln rollen.",
+   "use": [
+    8
+   ]
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 440,
+  "p": 7,
+  "kh": 52,
+  "z": 18,
+  "f": 22,
+  "bs": 1
+ }
+}

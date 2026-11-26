@@ -1,0 +1,112 @@
+{
+ "id": "bunny-chow",
+ "title": "Bunny Chow (Curry im Brotlaib)",
+ "icon": "🍞",
+ "cuisine": "Südafrikanisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "2",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "4",
+   "name": "Brötchen"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl anschwitzen, Gewürze (Currypulver, Garam Masala) kurz mitrösten.",
+   "minutes": 5,
+   "use": [
+    2,
+    3,
+    4,
+    9,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Hähnchen und Kartoffeln würfeln, dazugeben und rundum anbraten.",
+   "minutes": 5,
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Tomaten und Brühe dazugeben und köcheln, bis die Kartoffeln weich sind und das Curry dick ist.",
+   "minutes": 30,
+   "use": [
+    7,
+    8,
+    1
+   ]
+  },
+  {
+   "text": "Brötchen oben aufschneiden und aushöhlen – das Innere dient zum Dippen.",
+   "use": [
+    10
+   ]
+  },
+  {
+   "text": "Curry einfüllen, mit Koriander bestreuen und den Deckel daneben legen.",
+   "use": [
+    11
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60,
+ "nutri": {
+  "kcal": 530,
+  "p": 32,
+  "kh": 54,
+  "z": 8,
+  "f": 20,
+  "bs": 6
+ }
+}

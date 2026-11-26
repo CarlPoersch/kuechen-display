@@ -1,0 +1,118 @@
+{
+ "id": "lu-rou-fan",
+ "title": "Lu Rou Fan (geschmorter Schweinebauch auf Reis)",
+ "icon": "🍚",
+ "cuisine": "Taiwanisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Schweinebauch"
+  },
+  {
+   "amount": "6",
+   "name": "Schalotten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "dunkle Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Shaoxing-Wein"
+  },
+  {
+   "amount": "1 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Fünf-Gewürze-Pulver"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1",
+   "name": "Pak Choi"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schweinebauch in sehr kleine Würfel schneiden. Eier hart kochen und pellen.",
+   "minutes": 10,
+   "use": [
+    0,
+    9
+   ]
+  },
+  {
+   "text": "Schalotten in feine Ringe schneiden und in Öl knusprig braten, Knoblauch kurz mitbraten.",
+   "minutes": 8,
+   "use": [
+    1,
+    12,
+    2
+   ]
+  },
+  {
+   "text": "Fleisch dazugeben und anbraten, bis das Fett austritt.",
+   "minutes": 8,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Saucen, Wein, Zucker, Gewürze, Eier und 400 ml Wasser dazugeben und zugedeckt leise schmoren, bis alles dunkel und glänzend ist.",
+   "minutes": 60,
+   "use": [
+    5,
+    6,
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Reis kochen, Pak Choi blanchieren. Fleischsauce mit halbierten Eiern über den Reis geben.",
+   "use": [
+    10,
+    11,
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 90,
+ "nutri": {
+  "kcal": 1050,
+  "p": 37,
+  "kh": 75,
+  "z": 9,
+  "f": 66,
+  "bs": 3
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "id": "aloo-paratha",
+ "title": "Aloo Paratha (gefülltes Kartoffelbrot)",
+ "icon": "🫓",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Weizenmehl"
+  },
+  {
+   "amount": "180 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "500 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Chili"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "40 g",
+   "name": "Ghee"
+  },
+  {
+   "amount": "300 g",
+   "name": "Joghurt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Wasser und Salz zu einem weichen Teig kneten und ruhen lassen. Kartoffeln kochen.",
+   "minutes": 25,
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Kartoffeln pellen, fein zerdrücken und mit Chili, Koriander, Gewürzen (Kreuzkümmel, Garam Masala) und Salz mischen.",
+   "use": [
+    3,
+    4,
+    5,
+    2,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Teig in 6 Kugeln teilen, flach drücken, je eine Kugel Füllung hineingeben, verschließen und vorsichtig rund ausrollen.",
+   "use": []
+  },
+  {
+   "text": "In einer heißen Pfanne mit Ghee von beiden Seiten goldbraun braten.",
+   "minutes": 4,
+   "use": [
+    8
+   ]
+  },
+  {
+   "text": "Mit Joghurt (und gerne Pickles) servieren.",
+   "use": [
+    9
+   ]
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 500,
+  "p": 13,
+  "kh": 79,
+  "z": 5,
+  "f": 14,
+  "bs": 6
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "id": "chicken-karahi",
+ "title": "Chicken Karahi (Pfannencurry mit Tomate und Ingwer)",
+ "icon": "🍛",
+ "cuisine": "Pakistanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "6",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "3",
+   "name": "grüne Chilis"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "gemahlener Koriander"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "4",
+   "name": "Naan"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Öl bei hoher Hitze rundum anbraten, Knoblauch und die Hälfte des Ingwers dazugeben.",
+   "minutes": 8,
+   "use": [
+    10,
+    2
+   ]
+  },
+  {
+   "text": "Tomaten halbieren, mit der Schnittseite nach unten in die Pfanne legen und zugedeckt weich werden lassen. Haut herausziehen.",
+   "minutes": 8,
+   "use": [
+    1,
+    6,
+    11
+   ]
+  },
+  {
+   "text": "Gewürze (Kreuzkümmel, Gemahlener Koriander, Chilipulver) dazugeben und alles bei hoher Hitze einkochen, bis die Tomaten eine dicke Sauce bilden.",
+   "minutes": 10,
+   "use": [
+    1,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Joghurt einrühren, Chilis und restlichen Ingwer in Streifen dazugeben und kurz durchkochen.",
+   "minutes": 5,
+   "use": [
+    9,
+    4,
+    3
+   ]
+  },
+  {
+   "text": "Mit Koriander und Garam Masala bestreuen und mit Naan servieren.",
+   "use": [
+    6,
+    11,
+    8,
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 620,
+  "p": 35,
+  "kh": 45,
+  "z": 8,
+  "f": 33,
+  "bs": 5
+ }
+}

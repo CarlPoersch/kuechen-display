@@ -1,0 +1,131 @@
+{
+ "id": "jambalaya",
+ "title": "Jambalaya (Reispfanne aus Louisiana)",
+ "icon": "🥘",
+ "cuisine": "Amerikanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "200 g",
+   "name": "Chorizo"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "2 Stangen",
+   "name": "Staudensellerie"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "300 g",
+   "name": "Langkornreis"
+  },
+  {
+   "amount": "700 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 TL",
+   "name": "geräuchertes Paprikapulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Thymian"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Cayennepfeffer"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen würfeln, Chorizo in Scheiben schneiden und beides in Öl kräftig anbraten.",
+   "minutes": 8,
+   "use": [
+    1,
+    14
+   ]
+  },
+  {
+   "text": "Zwiebel, Paprika und Sellerie würfeln (die „heilige Dreifaltigkeit“ der Cajun-Küche), Knoblauch hacken und mitbraten.",
+   "minutes": 6,
+   "use": [
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Gewürze (geräuchertes Paprikapulver, Getrockneter Thymian, Cayennepfeffer) und Reis kurz mitrösten, dann Tomaten und Brühe angießen.",
+   "minutes": 2,
+   "use": [
+    8,
+    7,
+    9,
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "text": "Zugedeckt bei kleiner Hitze garen, ohne umzurühren.",
+   "minutes": 18,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Garnelen auf den Reis legen und zugedeckt gar ziehen lassen. Mit Frühlingszwiebeln bestreuen.",
+   "minutes": 5,
+   "use": [
+    2,
+    8,
+    13
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "nutri": {
+  "kcal": 770,
+  "p": 43,
+  "kh": 72,
+  "z": 8,
+  "f": 34,
+  "bs": 5
+ },
+ "gf": true
+}

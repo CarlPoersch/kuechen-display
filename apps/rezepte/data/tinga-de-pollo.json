@@ -1,0 +1,112 @@
+{
+ "id": "tinga-de-pollo",
+ "title": "Tinga de Pollo auf Tostadas",
+ "icon": "🌮",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "2",
+   "name": "Chipotle in Adobo (oder 2 TL geräuchertes Paprikapulver + 1 TL Chiliflocken)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "8",
+   "name": "kleine Maistortillas"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  },
+  {
+   "amount": "100 g",
+   "name": "Eisbergsalat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Salzwasser gar ziehen lassen und mit zwei Gabeln zerzupfen.",
+   "minutes": 20,
+   "use": []
+  },
+  {
+   "text": "Zwiebeln in Streifen schneiden und mit Knoblauch in Öl weich dünsten.",
+   "minutes": 8,
+   "use": [
+    1,
+    2,
+    11
+   ]
+  },
+  {
+   "text": "Tomaten, Chipotle und Oregano dazugeben, pürieren oder grob lassen, Hähnchen unterheben und einköcheln.",
+   "minutes": 10,
+   "use": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Tortillas im Ofen bei 200 °C knusprig backen (Tostadas). Bohnen erwärmen und zerdrücken.",
+   "minutes": 8,
+   "use": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Tostadas mit Bohnen bestreichen, Tinga darauf, mit Salat, Avocado und saurer Sahne toppen.",
+   "use": [
+    7,
+    10,
+    9,
+    8
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 540,
+  "p": 46,
+  "kh": 50,
+  "z": 7,
+  "f": 17,
+  "bs": 13
+ }
+}

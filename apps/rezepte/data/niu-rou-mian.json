@@ -1,0 +1,138 @@
+{
+ "id": "niu-rou-mian",
+ "title": "Niu Rou Mian (taiwanische Rindfleisch-Nudelsuppe)",
+ "icon": "🍜",
+ "cuisine": "Taiwanisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Rinderbrust"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Stück (5 cm)",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Doubanjiang"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Shaoxing-Wein"
+  },
+  {
+   "amount": "2",
+   "name": "Sternanis"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sichuanpfeffer"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "400 g",
+   "name": "Weizennudeln"
+  },
+  {
+   "amount": "2",
+   "name": "Pak Choi"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in große Würfel schneiden, kurz blanchieren und abspülen.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Ingwer in Öl anbraten, Doubanjiang und Tomatenmark mitrösten.",
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3,
+    15,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Fleisch, Tomaten, Sojasauce, Wein, Gewürze (Sternanis, Sichuanpfeffer) und Brühe dazugeben und zugedeckt sanft schmoren, bis das Fleisch weich ist.",
+   "minutes": 120,
+   "use": [
+    6,
+    7,
+    8,
+    11,
+    9,
+    10,
+    0
+   ]
+  },
+  {
+   "text": "Nudeln kochen, Pak Choi blanchieren.",
+   "minutes": 8,
+   "use": [
+    12,
+    13
+   ]
+  },
+  {
+   "text": "Nudeln in Schalen geben, Fleisch und Brühe darüber, mit Pak Choi und Frühlingszwiebeln servieren.",
+   "use": [
+    12,
+    11,
+    13,
+    14,
+    0
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 150,
+ "nutri": {
+  "kcal": 1020,
+  "p": 56,
+  "kh": 88,
+  "z": 10,
+  "f": 50,
+  "bs": 7
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "id": "salmorejo",
+ "title": "Salmorejo (kalte Tomatencreme aus Córdoba)",
+ "icon": "🍅",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "reife Tomaten"
+  },
+  {
+   "amount": "150 g",
+   "name": "Weißbrot vom Vortag"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sherryessig"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "60 g",
+   "name": "Serranoschinken"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Eier hart kochen.",
+   "minutes": 10,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Tomaten grob schneiden und mit Brot, Knoblauch und Essig sehr fein pürieren.",
+   "minutes": 3,
+   "use": [
+    0,
+    1,
+    2,
+    4
+   ]
+  },
+  {
+   "text": "Bei laufendem Mixer das Olivenöl langsam einlaufen lassen, bis die Creme dick und glänzend ist. Salzen und kalt stellen.",
+   "minutes": 30,
+   "use": [
+    3
+   ]
+  },
+  {
+   "text": "In Schalen füllen, mit gehacktem Ei, Schinkenstreifen und einem Faden Olivenöl servieren.",
+   "use": [
+    3
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 20,
+ "nutri": {
+  "kcal": 420,
+  "p": 13,
+  "kh": 28,
+  "z": 8,
+  "f": 29,
+  "bs": 5
+ }
+}

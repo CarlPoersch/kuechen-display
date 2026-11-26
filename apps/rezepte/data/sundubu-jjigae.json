@@ -1,0 +1,113 @@
+{
+ "id": "sundubu-jjigae",
+ "title": "Sundubu-jjigae (scharfer Seidentofu-Eintopf)",
+ "icon": "🍲",
+ "cuisine": "Koreanisch",
+ "servings": 2,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Seidentofu"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schweinebauch"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kimchi"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Gochugaru"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Dashi"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "2",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schweinebauch in kleine Stücke schneiden und in Sesamöl anbraten. Zwiebel, Knoblauch und Kimchi dazugeben.",
+   "minutes": 5,
+   "use": [
+    1,
+    7,
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "text": "Gochugaru kurz mitrösten (nicht verbrennen lassen), dann mit Dashi und Sojasauce aufgießen.",
+   "minutes": 5,
+   "use": [
+    5,
+    8,
+    6
+   ]
+  },
+  {
+   "text": "Seidentofu löffelweise in großen Stücken in die Suppe geben und köcheln.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Eier hineinschlagen und nur kurz garen, sodass das Eigelb weich bleibt.",
+   "minutes": 2,
+   "use": [
+    9
+   ]
+  },
+  {
+   "text": "Mit Frühlingszwiebeln bestreuen und brodelnd mit Reis servieren.",
+   "use": [
+    10,
+    11
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 960,
+  "p": 39,
+  "kh": 95,
+  "z": 6,
+  "f": 47,
+  "bs": 6
+ }
+}

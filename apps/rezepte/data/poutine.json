@@ -1,0 +1,96 @@
+{
+ "id": "poutine",
+ "title": "Poutine (Pommes mit Bratensauce und Käse)",
+ "icon": "🍟",
+ "cuisine": "Kanadisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "TK-Pommes"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Worcestersauce"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pommes nach Packung extra knusprig backen.",
+   "minutes": 25,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Für die Sauce Butter schmelzen, Mehl darin hellbraun rösten. Tomatenmark und gepressten Knoblauch kurz mitrösten.",
+   "minutes": 4,
+   "use": [
+    5,
+    2,
+    3,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Nach und nach Brühe einrühren, Worcestersauce dazugeben und dicklich einköcheln.",
+   "minutes": 8,
+   "use": [
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Mozzarella in kleine Stücke zupfen (statt der kanadischen „Cheese Curds“).",
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Pommes auf Teller verteilen, Käse darauf und mit sehr heißer Sauce übergießen, damit er anschmilzt.",
+   "use": [
+    0,
+    5,
+    1
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 510,
+  "p": 15,
+  "kh": 52,
+  "z": 3,
+  "f": 26,
+  "bs": 5
+ }
+}

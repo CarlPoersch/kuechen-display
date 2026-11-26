@@ -1,0 +1,67 @@
+{
+ "id": "sigara-boeregi",
+ "title": "Sigara Böreği (Teigröllchen mit Feta)",
+ "icon": "🧀",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "8 Blätter",
+   "name": "Yufka (oder Filoteig)"
+  },
+  {
+   "amount": "250 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Öl (zum Frittieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Feta zerbröseln und mit gehackter Petersilie und Ei mischen.",
+   "use": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Teigblätter in Dreiecke oder breite Streifen schneiden.",
+   "use": []
+  },
+  {
+   "text": "Füllung an die breite Seite setzen, Seiten einschlagen und eng zu Zigarren aufrollen. Spitze mit Wasser festkleben.",
+   "use": []
+  },
+  {
+   "text": "In heißem Öl rundum goldbraun ausbacken und auf Küchenpapier abtropfen lassen.",
+   "minutes": 6,
+   "use": [
+    4
+   ]
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 350,
+  "p": 16,
+  "kh": 25,
+  "z": 1,
+  "f": 21,
+  "bs": 1
+ }
+}

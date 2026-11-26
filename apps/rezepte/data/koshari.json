@@ -1,0 +1,113 @@
+{
+ "id": "koshari",
+ "title": "Koshari (Linsen, Reis und Nudeln mit Tomatensauce)",
+ "icon": "🍛",
+ "cuisine": "Ägyptisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "braune Linsen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "150 g",
+   "name": "kleine Nudeln"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Essig"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Linsen in Wasser bissfest kochen.",
+   "minutes": 20,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Zwiebeln in feine Ringe schneiden und in Öl langsam dunkelbraun und knusprig braten, herausnehmen.",
+   "minutes": 15,
+   "use": [
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Reis im Zwiebelöl kurz anrösten, mit den Linsen und doppelter Menge Wasser garen. Nudeln separat kochen.",
+   "minutes": 15,
+   "use": [
+    1,
+    4,
+    0,
+    2
+   ]
+  },
+  {
+   "text": "Für die Sauce Knoblauch, Kreuzkümmel und Chili anrösten, Tomaten und Essig dazugeben und einköcheln.",
+   "minutes": 10,
+   "use": [
+    7,
+    8,
+    6,
+    10
+   ]
+  },
+  {
+   "text": "Reis-Linsen, Nudeln und Kichererbsen in Schalen schichten, mit Sauce übergießen und mit Röstzwiebeln toppen.",
+   "use": [
+    1,
+    0,
+    2,
+    3,
+    4
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 630,
+  "p": 23,
+  "kh": 98,
+  "z": 9,
+  "f": 15,
+  "bs": 11
+ }
+}

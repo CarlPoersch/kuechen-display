@@ -1,0 +1,133 @@
+{
+ "id": "ropa-vieja",
+ "title": "Ropa Vieja (geschmortes Rindfleisch)",
+ "icon": "🥘",
+ "cuisine": "Kubanisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Rinderbrust"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "12",
+   "name": "grüne Oliven"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Rindfleisch in Brühe zugedeckt weich köcheln, bis es sich zerzupfen lässt. Brühe aufheben.",
+   "minutes": 120,
+   "use": [
+    10
+   ]
+  },
+  {
+   "text": "Fleisch in Fasern zupfen. Zwiebel und Paprika in Streifen schneiden, Knoblauch hacken.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    0
+   ]
+  },
+  {
+   "text": "Gemüse (Zwiebel, rote Paprika, grüne Paprika) in Öl weich braten, Tomatenmark und Gewürze (Kreuzkümmel, Getrockneter Oregano) kurz mitrösten.",
+   "minutes": 8,
+   "use": [
+    14,
+    6,
+    1,
+    2,
+    3,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Mit Wein ablöschen, Tomaten, 200 ml Brühe, Fleisch und Oliven dazugeben und dicklich einköcheln.",
+   "minutes": 20,
+   "use": [
+    9,
+    5,
+    10,
+    11,
+    0
+   ]
+  },
+  {
+   "text": "Mit Reis und warmen schwarzen Bohnen servieren.",
+   "use": [
+    12,
+    13
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 150,
+ "nutri": {
+  "kcal": 950,
+  "p": 49,
+  "kh": 74,
+  "z": 10,
+  "f": 49,
+  "bs": 9
+ },
+ "gf": true
+}

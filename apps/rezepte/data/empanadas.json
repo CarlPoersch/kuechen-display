@@ -1,0 +1,96 @@
+{
+ "id": "empanadas",
+ "title": "Empanadas mit Rinderhack",
+ "icon": "🥟",
+ "cuisine": "Argentinisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "2 Rollen",
+   "name": "Mürbeteig (oder 500 g Pizzateig)"
+  },
+  {
+   "amount": "400 g",
+   "name": "Rinderhackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "10",
+   "name": "grüne Oliven"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ein Ei hart kochen. Zwiebel und Paprika fein würfeln.",
+   "minutes": 10,
+   "use": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Hack in Öl krümelig braten, Gemüse (Zwiebel, rote Paprika) und Gewürze (Kreuzkümmel, edelsüßes Paprikapulver) dazugeben und weich dünsten, abkühlen lassen.",
+   "minutes": 10,
+   "use": [
+    8,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Gehacktes Ei und Oliven unter die Füllung mischen.",
+   "use": [
+    7
+   ]
+  },
+  {
+   "text": "Teig ausrollen, Kreise (ca. 12 cm) ausstechen, Füllung daraufgeben, zuklappen und den Rand zwirbeln oder mit einer Gabel andrücken.",
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Mit verquirltem Ei bestreichen und bei 200 °C goldbraun backen.",
+   "minutes": 20,
+   "use": []
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 980,
+  "p": 31,
+  "kh": 81,
+  "z": 30,
+  "f": 59,
+  "bs": 5
+ }
+}

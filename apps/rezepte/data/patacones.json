@@ -1,0 +1,87 @@
+{
+ "id": "patacones",
+ "title": "Patacones (frittierte Kochbananen)",
+ "icon": "🍌",
+ "cuisine": "Kolumbianisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "3",
+   "name": "grüne Kochbananen"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "½",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kochbananen schälen und in 3 cm dicke Stücke schneiden.",
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "In heißem Öl hellgelb vorbraten, herausnehmen.",
+   "minutes": 5,
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Mit einem Brettchen oder Teller flach drücken.",
+   "use": []
+  },
+  {
+   "text": "Noch einmal knusprig ausbacken und salzen.",
+   "minutes": 4,
+   "use": [
+    2
+   ]
+  },
+  {
+   "text": "Tomaten, Zwiebel und Koriander fein würfeln, mit Limette und Salz mischen und als Salsa dazu servieren.",
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    2
+   ]
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 300,
+  "p": 2,
+  "kh": 25,
+  "z": 13,
+  "f": 23,
+  "bs": 3
+ },
+ "gf": true
+}

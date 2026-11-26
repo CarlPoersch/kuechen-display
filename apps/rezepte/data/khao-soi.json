@@ -1,0 +1,120 @@
+{
+ "id": "khao-soi",
+ "title": "Khao Soi (Curry-Nudelsuppe aus Chiang Mai)",
+ "icon": "🍜",
+ "cuisine": "Thailändisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "rote Currypaste"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Palmzucker"
+  },
+  {
+   "amount": "300 g",
+   "name": "Eiernudeln"
+  },
+  {
+   "amount": "2",
+   "name": "Schalotten"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Currypaste, Curry und Kurkuma in Öl mit etwas dicker Kokosmilch anrösten, bis es duftet.",
+   "minutes": 3,
+   "use": [
+    1,
+    3,
+    12,
+    4
+   ]
+  },
+  {
+   "text": "Hähnchen in Stücke schneiden, kurz mitbraten, dann restliche Kokosmilch und Brühe dazugeben und köcheln.",
+   "minutes": 20,
+   "use": [
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Mit Fischsauce, Zucker und Limette abschmecken.",
+   "use": [
+    6,
+    7,
+    10
+   ]
+  },
+  {
+   "text": "Drei Viertel der Nudeln kochen. Den Rest in heißem Öl knusprig frittieren.",
+   "minutes": 5,
+   "use": [
+    11,
+    8,
+    12
+   ]
+  },
+  {
+   "text": "Gekochte Nudeln in Schalen geben, Suppe darüber, mit knusprigen Nudeln, Schalotten, Koriander und Limette toppen.",
+   "use": [
+    8,
+    9,
+    11,
+    10
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 45,
+ "nutri": {
+  "kcal": 940,
+  "p": 38,
+  "kh": 70,
+  "z": 13,
+  "f": 56,
+  "bs": 4
+ }
+}

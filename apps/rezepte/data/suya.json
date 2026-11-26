@@ -1,0 +1,105 @@
+{
+ "id": "suya",
+ "title": "Suya (Erdnuss-Chili-Spieße)",
+ "icon": "🍢",
+ "cuisine": "Nigerianisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rinderhüfte"
+  },
+  {
+   "amount": "60 g",
+   "name": "geröstete Erdnüsse"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Ingwerpulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Knoblauchpulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Cayennepfeffer"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Brühwürfel, zerbröselt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Erdnüsse fein mahlen und mit den Gewürzen (Ingwerpulver, Knoblauchpulver, edelsüßes Paprikapulver, Cayennepfeffer) und dem Brühwürfel zu Suya-Gewürz mischen.",
+   "use": [
+    1,
+    6,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Fleisch in dünne Streifen schneiden, mit Öl und zwei Dritteln der Gewürzmischung (Ingwerpulver, Knoblauchpulver, edelsüßes Paprikapulver, Cayennepfeffer) einreiben und ziehen lassen.",
+   "minutes": 20,
+   "use": [
+    7,
+    2,
+    3,
+    4,
+    5,
+    0
+   ]
+  },
+  {
+   "text": "Auf Spieße stecken und unter dem Ofengrill oder in der Grillpfanne scharf braten.",
+   "minutes": 8,
+   "use": []
+  },
+  {
+   "text": "Mit restlichem Gewürz bestreuen und mit Zwiebelringen, Tomaten und Gurke servieren.",
+   "use": [
+    8,
+    9,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 410,
+  "p": 37,
+  "kh": 11,
+  "z": 5,
+  "f": 24,
+  "bs": 3
+ },
+ "gf": true
+}

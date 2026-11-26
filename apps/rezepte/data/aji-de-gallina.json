@@ -1,0 +1,139 @@
+{
+ "id": "aji-de-gallina",
+ "title": "Ají de Gallina (Hähnchen in cremiger Chilisauce)",
+ "icon": "🍗",
+ "cuisine": "Peruanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "gelbe Chilischoten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "3 Scheiben",
+   "name": "Toastbrot"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "50 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "40 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "4",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "8",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "200 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in der Brühe leise gar ziehen lassen, herausnehmen und in feine Fasern zupfen. Brühe aufheben.",
+   "minutes": 20,
+   "use": [
+    9
+   ]
+  },
+  {
+   "text": "Toastbrot in der Milch einweichen. Kartoffeln und Eier kochen, Reis garen.",
+   "minutes": 20,
+   "use": [
+    5,
+    6,
+    11,
+    12,
+    14
+   ]
+  },
+  {
+   "text": "Zwiebel, Knoblauch und Chilis fein würfeln und in Öl weich dünsten, Kurkuma kurz mitrösten.",
+   "minutes": 8,
+   "use": [
+    1,
+    2,
+    3,
+    10,
+    4
+   ]
+  },
+  {
+   "text": "Eingeweichtes Brot mit Milch, Walnüssen und Parmesan zur Zwiebelmischung geben und alles fein pürieren.",
+   "use": [
+    5,
+    6,
+    7,
+    8,
+    1
+   ]
+  },
+  {
+   "text": "Sauce mit etwas Brühe cremig verdünnen, Hähnchen unterheben und kurz durchziehen lassen.",
+   "minutes": 5,
+   "use": [
+    9
+   ]
+  },
+  {
+   "text": "Mit Kartoffelscheiben, halbierten Eiern, Oliven und Reis anrichten.",
+   "use": [
+    11,
+    12,
+    13,
+    14
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "nutri": {
+  "kcal": 810,
+  "p": 55,
+  "kh": 84,
+  "z": 8,
+  "f": 28,
+  "bs": 6
+ }
+}

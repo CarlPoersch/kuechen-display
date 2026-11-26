@@ -1,0 +1,82 @@
+{
+ "id": "stamppot",
+ "title": "Stamppot mit Grünkohl und Rauchwurst",
+ "icon": "🥔",
+ "cuisine": "Niederländisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "1,2 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "400 g",
+   "name": "Grünkohl"
+  },
+  {
+   "amount": "2",
+   "name": "Mettenden"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Senf"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speckwürfel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und in Salzwasser kochen, nach 10 Minuten den klein geschnittenen Grünkohl obenauf legen und mitgaren.",
+   "minutes": 20,
+   "use": [
+    0,
+    2,
+    1
+   ]
+  },
+  {
+   "text": "Würste in heißem Wasser ziehen lassen. Speck knusprig braten.",
+   "minutes": 10,
+   "use": [
+    6
+   ]
+  },
+  {
+   "text": "Wasser abgießen, Milch und Butter dazugeben und alles grob stampfen. Speck unterheben.",
+   "use": [
+    3,
+    4,
+    6
+   ]
+  },
+  {
+   "text": "Mit der aufgeschnittenen Wurst und Senf servieren.",
+   "use": [
+    5
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 640,
+  "p": 23,
+  "kh": 63,
+  "z": 6,
+  "f": 35,
+  "bs": 11
+ }
+}

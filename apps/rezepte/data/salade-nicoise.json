@@ -1,0 +1,102 @@
+{
+ "id": "salade-nicoise",
+ "title": "Salade Niçoise",
+ "icon": "🥗",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "kleine festkochende Kartoffeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "grüne Bohnen"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Romanasalat"
+  },
+  {
+   "amount": "250 g",
+   "name": "Kirschtomaten"
+  },
+  {
+   "amount": "2 Dosen",
+   "name": "Thunfisch"
+  },
+  {
+   "amount": "12",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "6",
+   "name": "Sardellenfilets"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Dijonsenf"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln kochen, Bohnen in den letzten 5 Minuten dazugeben, Eier wachsweich kochen.",
+   "minutes": 20,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Senf, Essig und Olivenöl zu einer Vinaigrette verrühren, salzen und pfeffern.",
+   "use": [
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "text": "Salat zupfen, Kartoffeln halbieren, Tomaten halbieren, Eier vierteln.",
+   "use": [
+    3,
+    0,
+    4,
+    2
+   ]
+  },
+  {
+   "text": "Alles auf einer Platte anrichten, Thunfisch, Oliven und Sardellen darauf verteilen und mit Vinaigrette beträufeln.",
+   "use": [
+    5,
+    6,
+    7
+   ]
+  }
+ ],
+ "cat": "Salat",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 510,
+  "p": 32,
+  "kh": 26,
+  "z": 6,
+  "f": 31,
+  "bs": 6
+ }
+}

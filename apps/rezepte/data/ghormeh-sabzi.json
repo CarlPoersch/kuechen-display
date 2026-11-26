@@ -1,0 +1,118 @@
+{
+ "id": "ghormeh-sabzi",
+ "title": "Ghormeh Sabzi (Kräutereintopf mit Rind und Bohnen)",
+ "icon": "🍲",
+ "cuisine": "Persisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rindergulasch"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Schnittlauch"
+  },
+  {
+   "amount": "2 EL",
+   "name": "getrocknete Bockshornkleeblätter"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "3",
+   "name": "getrocknete Limetten (oder 1 Zitrone)"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln würfeln und in 2 EL Öl goldbraun braten, Fleisch und Kurkuma dazugeben und anbraten.",
+   "minutes": 10,
+   "use": [
+    1,
+    10,
+    8,
+    0
+   ]
+  },
+  {
+   "text": "Mit Wasser aufgießen, angestochene Limetten dazugeben und zugedeckt schmoren.",
+   "minutes": 60,
+   "use": [
+    9,
+    7
+   ]
+  },
+  {
+   "text": "Kräuter (Petersilie, Schnittlauch) sehr fein hacken und im restlichen Öl mit dem Bockshornklee dunkelgrün braten – das ist der Kern des Geschmacks.",
+   "minutes": 15,
+   "use": [
+    10,
+    3,
+    2,
+    4
+   ]
+  },
+  {
+   "text": "Kräuter (Petersilie, Koriander, Schnittlauch) und abgetropfte Bohnen in den Topf geben und weiter schmoren, bis das Fleisch zart ist.",
+   "minutes": 60,
+   "use": [
+    6,
+    2,
+    3,
+    4,
+    0
+   ]
+  },
+  {
+   "text": "Mit Basmatireis servieren.",
+   "use": [
+    11
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 150,
+ "nutri": {
+  "kcal": 700,
+  "p": 43,
+  "kh": 75,
+  "z": 3,
+  "f": 24,
+  "bs": 7
+ },
+ "gf": true
+}

@@ -1,0 +1,122 @@
+{
+ "id": "feijoada",
+ "title": "Feijoada (Bohneneintopf mit Fleisch)",
+ "icon": "🫘",
+ "cuisine": "Brasilianisch",
+ "servings": 6,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "400 g",
+   "name": "Schweinenacken"
+  },
+  {
+   "amount": "200 g",
+   "name": "Chorizo"
+  },
+  {
+   "amount": "150 g",
+   "name": "durchwachsener Speck"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "300 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "2",
+   "name": "Orangen"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Semmelbrösel"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schweinenacken in Würfel, Chorizo in Scheiben, Speck in Streifen schneiden.",
+   "use": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Speck im Topf auslassen, Nacken darin rundum anbraten. Zwiebel und Knoblauch hacken und mitdünsten.",
+   "minutes": 10,
+   "use": [
+    3,
+    1,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Bohnen mit Flüssigkeit, Brühe, Chorizo und Lorbeer dazugeben und zugedeckt leise schmoren, bis das Fleisch weich ist.",
+   "minutes": 80,
+   "use": [
+    0,
+    7,
+    2,
+    1
+   ]
+  },
+  {
+   "text": "Ein paar Kellen Bohnen zerdrücken und unterrühren – so wird der Eintopf sämig.",
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Reis kochen. Semmelbrösel in Butter goldbraun rösten (Ersatz für Farofa).",
+   "minutes": 5,
+   "use": [
+    8,
+    10,
+    11
+   ]
+  },
+  {
+   "text": "Feijoada mit Reis, Orangenscheiben und den Bröseln servieren.",
+   "use": [
+    8,
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 120,
+ "nutri": {
+  "kcal": 730,
+  "p": 35,
+  "kh": 67,
+  "z": 8,
+  "f": 35,
+  "bs": 8
+ }
+}

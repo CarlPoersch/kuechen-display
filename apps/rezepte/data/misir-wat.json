@@ -1,0 +1,92 @@
+{
+ "id": "misir-wat",
+ "title": "Misir Wat (rote Linsen mit Berbere)",
+ "icon": "🥘",
+ "cuisine": "Äthiopisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "rote Linsen"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Berbere (oder 1 EL Paprikapulver + ½ TL Cayenne + Prise Zimt)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "800 ml",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln sehr fein hacken und im Öl langsam weich und goldbraun rösten.",
+   "minutes": 12,
+   "use": [
+    1,
+    6
+   ]
+  },
+  {
+   "text": "Knoblauch, Ingwer, Berbere und Tomatenmark dazugeben und anrösten.",
+   "minutes": 3,
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Gewaschene Linsen und Brühe dazugeben und köcheln, bis sie zerfallen und dick sind.",
+   "minutes": 25,
+   "use": [
+    0,
+    7
+   ]
+  },
+  {
+   "text": "Salzen und mit Fladenbrot (oder Injera) servieren.",
+   "use": [
+    8
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 660,
+  "p": 29,
+  "kh": 106,
+  "z": 7,
+  "f": 13,
+  "bs": 12
+ }
+}

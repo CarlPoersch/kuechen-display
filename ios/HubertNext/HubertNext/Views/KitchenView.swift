@@ -403,7 +403,13 @@ struct RecipesTab: View {
          "Türkisch": "🇹🇷", "Österreichisch": "🇦🇹", "International": "🌍", "Britisch": "🇬🇧", "Schweizerisch": "🇨🇭",
          "Skandinavisch": "🇸🇪", "Ungarisch": "🇭🇺", "Polnisch": "🇵🇱", "Portugiesisch": "🇵🇹", "Libanesisch": "🇱🇧",
          "Marokkanisch": "🇲🇦", "Persisch": "🇮🇷", "Indonesisch": "🇮🇩", "Karibisch": "🌴", "Brasilianisch": "🇧🇷",
-         "Peruanisch": "🇵🇪", "Äthiopisch": "🇪🇹", "Russisch": "🇷🇺", "Tschechisch": "🇨🇿", "Israelisch": "🇮🇱", "Malaysisch": "🇲🇾"][c] ?? "🍽️"
+         "Peruanisch": "🇵🇪", "Äthiopisch": "🇪🇹", "Russisch": "🇷🇺", "Tschechisch": "🇨🇿", "Israelisch": "🇮🇱", "Malaysisch": "🇲🇾",
+         "Argentinisch": "🇦🇷", "Kolumbianisch": "🇨🇴", "Kubanisch": "🇨🇺", "Kanadisch": "🇨🇦", "Bosnisch": "🇧🇦",
+         "Bulgarisch": "🇧🇬", "Schwedisch": "🇸🇪", "Finnisch": "🇫🇮", "Niederländisch": "🇳🇱", "Belgisch": "🇧🇪",
+         "Australisch": "🇦🇺", "Georgisch": "🇬🇪", "Ukrainisch": "🇺🇦", "Palästinensisch": "🇵🇸", "Syrisch": "🇸🇾",
+         "Ägyptisch": "🇪🇬", "Nigerianisch": "🇳🇬", "Senegalesisch": "🇸🇳", "Südafrikanisch": "🇿🇦", "Pakistanisch": "🇵🇰",
+         "Sri-Lankisch": "🇱🇰", "Philippinisch": "🇵🇭", "Singapurisch": "🇸🇬", "Taiwanisch": "🇹🇼", "Bayerisch": "🥨",
+         "Schwäbisch": "🥨", "Asiatisch": "🥢", "Osteuropäisch": "🥟"][c] ?? "🍽️"
     }
 
     /// Zufallsrezept aus den gerade gefilterten Rezepten (nicht zweimal dasselbe hintereinander)

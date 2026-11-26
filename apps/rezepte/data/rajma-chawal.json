@@ -1,0 +1,110 @@
+{
+ "id": "rajma-chawal",
+ "title": "Rajma Chawal (Kidneybohnen-Curry mit Reis)",
+ "icon": "🫘",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Kidneybohnen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Ghee"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kreuzkümmel in Ghee anrösten, bis er duftet, Zwiebel dazugeben und goldbraun braten.",
+   "minutes": 8,
+   "use": [
+    5,
+    9,
+    1
+   ]
+  },
+  {
+   "text": "Knoblauch, Ingwer und Gewürze (Kreuzkümmel, Kurkuma, Garam Masala, Chilipulver) kurz mitrösten, dann pürierte Tomaten dazugeben und einkochen, bis sich das Fett absetzt.",
+   "minutes": 10,
+   "use": [
+    3,
+    4,
+    2,
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Bohnen mit Flüssigkeit dazugeben, ein paar zerdrücken und sämig köcheln. Reis kochen.",
+   "minutes": 20,
+   "use": [
+    0,
+    10
+   ]
+  },
+  {
+   "text": "Mit Koriander bestreuen und mit Reis servieren.",
+   "use": [
+    11,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 500,
+  "p": 16,
+  "kh": 85,
+  "z": 4,
+  "f": 8,
+  "bs": 11
+ },
+ "gf": true
+}

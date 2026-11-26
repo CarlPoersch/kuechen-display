@@ -1,0 +1,109 @@
+{
+ "id": "picadillo",
+ "title": "Picadillo (kubanisches Hack mit Rosinen und Oliven)",
+ "icon": "🍛",
+ "cuisine": "Kubanisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Rinderhackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "40 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "12",
+   "name": "grüne Oliven"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "2",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in kleine Würfel schneiden und in Öl knusprig braten, herausnehmen. Reis kochen.",
+   "minutes": 12,
+   "use": [
+    9,
+    11,
+    10
+   ]
+  },
+  {
+   "text": "Zwiebel, Paprika und Knoblauch würfeln und anschwitzen. Hack dazugeben und krümelig braten.",
+   "minutes": 8,
+   "use": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Tomaten, Kreuzkümmel, Rosinen, Oliven und Kapern dazugeben und einköcheln lassen.",
+   "minutes": 12,
+   "use": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Kartoffeln unterheben und mit Reis servieren – süß, salzig und herzhaft zugleich.",
+   "use": [
+    9,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 740,
+  "p": 31,
+  "kh": 80,
+  "z": 13,
+  "f": 34,
+  "bs": 6
+ },
+ "gf": true
+}

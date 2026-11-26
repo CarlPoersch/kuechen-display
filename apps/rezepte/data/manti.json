@@ -1,0 +1,119 @@
+{
+ "id": "manti",
+ "title": "Mantı (Teigtaschen mit Joghurt und Paprikabutter)",
+ "icon": "🥟",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "120 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "250 g",
+   "name": "Lammhack (oder Rinderhack)"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "400 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Paprikamark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pul Biber"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrocknete Minze"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Ei, Wasser und Salz zu einem festen Teig kneten und ruhen lassen.",
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Hack mit sehr fein geriebener Zwiebel, Petersilie, Salz und Pfeffer verkneten.",
+   "use": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Teig dünn ausrollen, in 4 cm große Quadrate schneiden, je eine kleine Kugel Füllung daraufgeben und die vier Ecken zusammendrücken.",
+   "use": []
+  },
+  {
+   "text": "In Salzwasser garen, bis sie oben schwimmen und der Teig weich ist.",
+   "minutes": 8,
+   "use": [
+    2
+   ]
+  },
+  {
+   "text": "Joghurt mit gepresstem Knoblauch und Salz verrühren. Butter mit Paprikamark, Pul Biber und Minze aufschäumen.",
+   "minutes": 2,
+   "use": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ]
+  },
+  {
+   "text": "Mantı auf Teller geben, mit Knoblauchjoghurt und der heißen Paprikabutter übergießen.",
+   "use": [
+    6,
+    8
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "anspruchsvoll",
+ "min": 90,
+ "nutri": {
+  "kcal": 700,
+  "p": 26,
+  "kh": 61,
+  "z": 6,
+  "f": 39,
+  "bs": 4
+ }
+}

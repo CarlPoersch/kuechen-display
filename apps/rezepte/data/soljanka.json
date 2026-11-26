@@ -1,0 +1,114 @@
+{
+ "id": "soljanka",
+ "title": "Soljanka",
+ "icon": "🍲",
+ "cuisine": "Russisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Fleischwurst"
+  },
+  {
+   "amount": "150 g",
+   "name": "Kochschinken"
+  },
+  {
+   "amount": "150 g",
+   "name": "Salami"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "4",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Gurkenwasser"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 l",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "100 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Wurst, Schinken und Salami in feine Streifen, Zwiebeln und Gurken in Würfel schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Zwiebeln in Öl glasig dünsten, Wurst dazugeben und anbraten, Tomatenmark und Paprika mitrösten.",
+   "minutes": 8,
+   "use": [
+    3,
+    12,
+    0,
+    6
+   ]
+  },
+  {
+   "text": "Mit Brühe, Tomaten, Gurken und Gurkenwasser aufgießen und köcheln lassen.",
+   "minutes": 20,
+   "use": [
+    8,
+    7,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Säuerlich abschmecken und mit einer Zitronenscheibe und saurer Sahne servieren.",
+   "use": [
+    10,
+    11
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 490,
+  "p": 26,
+  "kh": 16,
+  "z": 11,
+  "f": 36,
+  "bs": 3
+ },
+ "gf": true
+}

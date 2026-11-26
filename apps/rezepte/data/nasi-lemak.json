@@ -1,0 +1,114 @@
+{
+ "id": "nasi-lemak",
+ "title": "Nasi Lemak (Kokosreis mit Sambal)",
+ "icon": "🍚",
+ "cuisine": "Malaysisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Jasminreis"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1 Stück (3 cm)",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "1",
+   "name": "Pandanblatt (optional)"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "80 g",
+   "name": "geröstete Erdnüsse"
+  },
+  {
+   "group": "Sambal"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sambal Oelek"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tamarindenpaste"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis waschen und mit Kokosmilch, 150 ml Wasser, Ingwer, Pandan und Salz zugedeckt garen.",
+   "minutes": 20,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Zwiebel und Knoblauch fein hacken und in Öl weich braten, Sambal Oelek, Tamarinde und Zucker dazugeben und dicklich einköcheln.",
+   "minutes": 10,
+   "use": [
+    7,
+    8,
+    12,
+    9,
+    11
+   ]
+  },
+  {
+   "text": "Eier wachsweich kochen oder als Spiegelei braten.",
+   "use": [
+    4
+   ]
+  },
+  {
+   "text": "Reis mit Sambal, Ei, Gurkenscheiben und Erdnüssen anrichten.",
+   "use": [
+    0,
+    9,
+    6
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 50,
+ "nutri": {
+  "kcal": 790,
+  "p": 21,
+  "kh": 79,
+  "z": 13,
+  "f": 43,
+  "bs": 4
+ },
+ "gf": true
+}

@@ -1,0 +1,130 @@
+{
+ "id": "soto-ayam",
+ "title": "Soto Ayam (gelbe Hühnersuppe)",
+ "icon": "🍜",
+ "cuisine": "Indonesisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "4",
+   "name": "Schalotten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "1 TL",
+   "name": "gemahlener Koriander"
+  },
+  {
+   "amount": "2",
+   "name": "Stängel Zitronengras"
+  },
+  {
+   "amount": "4",
+   "name": "Kaffirlimettenblätter"
+  },
+  {
+   "amount": "150 g",
+   "name": "Glasnudeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Röstzwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Schalotten, Knoblauch, Ingwer, Kurkuma und Koriander zu einer Paste mörsern oder pürieren.",
+   "use": [
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Paste in Öl duftend anrösten.",
+   "minutes": 3,
+   "use": [
+    14
+   ]
+  },
+  {
+   "text": "Hähnchen, Wasser, angedrücktes Zitronengras und Limettenblätter dazugeben und köcheln.",
+   "minutes": 35,
+   "use": [
+    1,
+    7,
+    8,
+    12
+   ]
+  },
+  {
+   "text": "Hähnchen herausnehmen und zerzupfen. Eier hart kochen, Glasnudeln einweichen.",
+   "minutes": 10,
+   "use": [
+    11,
+    9
+   ]
+  },
+  {
+   "text": "Nudeln, Sprossen, Hähnchen und halbe Eier in Schalen verteilen, heiße Brühe darüber, mit Röstzwiebeln und Limette servieren.",
+   "use": [
+    9,
+    10,
+    11,
+    13,
+    12
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 520,
+  "p": 29,
+  "kh": 44,
+  "z": 5,
+  "f": 25,
+  "bs": 3
+ },
+ "gf": true
+}

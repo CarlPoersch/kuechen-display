@@ -1,0 +1,109 @@
+{
+ "id": "arancini",
+ "title": "Arancini (frittierte Risottobällchen)",
+ "icon": "🍙",
+ "cuisine": "Italienisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Risottoreis"
+  },
+  {
+   "amount": "1 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Safran"
+  },
+  {
+   "amount": "50 g",
+   "name": "Parmesan"
+  },
+  {
+   "amount": "30 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "125 g",
+   "name": "Mozzarella"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "100 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Paniermehl"
+  },
+  {
+   "amount": "1 l",
+   "name": "Öl (zum Frittieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel fein würfeln, in Butter andünsten, Reis glasig mitrösten. Nach und nach heiße Brühe mit Safran angießen und rühren, bis der Reis gar und recht fest ist.",
+   "minutes": 20,
+   "use": [
+    2,
+    5,
+    0,
+    1,
+    3
+   ]
+  },
+  {
+   "text": "Parmesan unterrühren, Risotto flach auf einem Blech ausstreichen und vollständig abkühlen lassen.",
+   "minutes": 60,
+   "use": [
+    4
+   ]
+  },
+  {
+   "text": "Mit nassen Händen Bällchen formen, in die Mitte je ein Stück Mozzarella und ein paar Erbsen drücken und gut verschließen.",
+   "use": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "In Mehl, verquirltem Ei und Paniermehl wenden.",
+   "use": [
+    9,
+    10
+   ]
+  },
+  {
+   "text": "Bei 175 °C goldbraun frittieren.",
+   "minutes": 5,
+   "use": []
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "anspruchsvoll",
+ "min": 90,
+ "nutri": {
+  "kcal": 880,
+  "p": 29,
+  "kh": 113,
+  "z": 6,
+  "f": 35,
+  "bs": 6
+ }
+}

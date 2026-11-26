@@ -1,0 +1,98 @@
+{
+ "id": "arepas",
+ "title": "Arepas mit Bohnen, Käse und Avocado",
+ "icon": "🫓",
+ "cuisine": "Kolumbianisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Maismehl (vorgekocht, z. B. P.A.N.)"
+  },
+  {
+   "amount": "400 ml",
+   "name": "warmes Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "schwarze Bohnen"
+  },
+  {
+   "amount": "150 g",
+   "name": "Gouda"
+  },
+  {
+   "amount": "2",
+   "name": "Avocados"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Maismehl mit Wasser und Salz zu einem weichen Teig verkneten und kurz quellen lassen.",
+   "minutes": 5,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "8 Kugeln formen und zu 1,5 cm dicken Fladen drücken.",
+   "use": []
+  },
+  {
+   "text": "In einer leicht geölten Pfanne bei mittlerer Hitze von beiden Seiten goldbraun braten.",
+   "minutes": 12,
+   "use": []
+  },
+  {
+   "text": "Bohnen erwärmen und grob zerdrücken. Avocado mit Limette und Salz zerdrücken, Tomaten würfeln.",
+   "use": [
+    4,
+    6,
+    7,
+    2,
+    8
+   ]
+  },
+  {
+   "text": "Arepas seitlich aufschneiden und mit Bohnen, geriebenem Käse, Avocado und Tomaten füllen.",
+   "use": [
+    4,
+    6,
+    8,
+    5
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 660,
+  "p": 24,
+  "kh": 76,
+  "z": 3,
+  "f": 30,
+  "bs": 15
+ },
+ "gf": true
+}

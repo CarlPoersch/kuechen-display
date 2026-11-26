@@ -1,0 +1,119 @@
+{
+ "id": "hainan-chicken-rice",
+ "title": "Hainanese Chicken Rice",
+ "icon": "🍗",
+ "cuisine": "Singapurisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "1 Stück (5 cm)",
+   "name": "Ingwer"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "300 g",
+   "name": "Jasminreis"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesamöl"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "group": "Saucen"
+  },
+  {
+   "amount": "2",
+   "name": "rote Chilis"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in einen Topf mit Wasser legen, halben Ingwer in Scheiben und Frühlingszwiebeln dazugeben, aufkochen und knapp unter dem Siedepunkt gar ziehen lassen.",
+   "minutes": 35,
+   "use": [
+    1,
+    3
+   ]
+  },
+  {
+   "text": "Hähnchen kurz in Eiswasser legen – so wird die Haut schön fest. Brühe aufheben.",
+   "use": []
+  },
+  {
+   "text": "Gehackten Knoblauch und etwas Ingwer in Sesamöl anschwitzen, Reis dazugeben und mit 450 ml Hühnerbrühe garen.",
+   "minutes": 20,
+   "use": [
+    2,
+    1,
+    5,
+    4
+   ]
+  },
+  {
+   "text": "Chilis mit restlichem Knoblauch, Limettensaft, Zucker und etwas Brühe pürieren. Restlichen Ingwer reiben und mit heißem Öl übergießen.",
+   "use": [
+    7,
+    2,
+    8,
+    9,
+    1,
+    11
+   ]
+  },
+  {
+   "text": "Hähnchen in Scheiben schneiden, mit Reis, Gurke, Chilisauce, Ingwer-Öl, Sojasauce und einer Tasse Brühe servieren.",
+   "use": [
+    4,
+    6,
+    7,
+    1,
+    11,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 75,
+ "nutri": {
+  "kcal": 730,
+  "p": 40,
+  "kh": 71,
+  "z": 7,
+  "f": 32,
+  "bs": 2
+ }
+}

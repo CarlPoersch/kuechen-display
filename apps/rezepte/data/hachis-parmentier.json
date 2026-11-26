@@ -1,0 +1,108 @@
+{
+ "id": "hachis-parmentier",
+ "title": "Hachis Parmentier (französischer Hack-Kartoffel-Auflauf)",
+ "icon": "🥧",
+ "cuisine": "Französisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "500 g",
+   "name": "Rinderhackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "80 g",
+   "name": "Bergkäse"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Muskat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und weich kochen.",
+   "minutes": 20,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Zwiebel, Karotte und Knoblauch fein würfeln, mit dem Hack krümelig braten, Tomatenmark mitrösten.",
+   "minutes": 10,
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Mit Rotwein ablöschen und einköcheln, bis fast keine Flüssigkeit mehr da ist.",
+   "minutes": 8,
+   "use": [
+    6
+   ]
+  },
+  {
+   "text": "Kartoffeln mit warmer Milch, Butter und Muskat zu Püree stampfen.",
+   "use": [
+    0,
+    7,
+    8,
+    10
+   ]
+  },
+  {
+   "text": "Hack in eine Form geben, Püree darüberstreichen, mit Käse bestreuen und bei 200 °C goldbraun überbacken.",
+   "minutes": 20,
+   "use": [
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60,
+ "nutri": {
+  "kcal": 740,
+  "p": 35,
+  "kh": 51,
+  "z": 7,
+  "f": 42,
+  "bs": 7
+ }
+}

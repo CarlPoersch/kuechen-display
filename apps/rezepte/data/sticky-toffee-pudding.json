@@ -1,0 +1,118 @@
+{
+ "id": "sticky-toffee-pudding",
+ "title": "Sticky Toffee Pudding",
+ "icon": "🍮",
+ "cuisine": "Britisch",
+ "servings": 8,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Datteln"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Natron"
+  },
+  {
+   "amount": "80 g",
+   "name": "weiche Butter"
+  },
+  {
+   "amount": "150 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "180 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "group": "Toffeesauce"
+  },
+  {
+   "amount": "100 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "150 g",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Datteln hacken, mit Wasser aufkochen, Natron einrühren und abkühlen lassen.",
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Butter und Zucker cremig rühren, Eier einrühren, Mehl, Backpulver und Datteln samt Flüssigkeit unterheben.",
+   "use": [
+    3,
+    8,
+    4,
+    9,
+    5,
+    6,
+    7,
+    0
+   ]
+  },
+  {
+   "text": "In eine gefettete Form füllen und bei 180 °C backen.",
+   "minutes": 30,
+   "use": []
+  },
+  {
+   "text": "Für die Sauce Butter, Zucker und Sahne aufkochen und sämig köcheln, salzen.",
+   "minutes": 5,
+   "use": [
+    3,
+    8,
+    4,
+    9,
+    10,
+    11
+   ]
+  },
+  {
+   "text": "Pudding mit Löchern einstechen, mit einem Teil der Sauce tränken und warm mit der restlichen Sauce servieren.",
+   "use": []
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 60,
+ "nutri": {
+  "kcal": 560,
+  "p": 5,
+  "kh": 74,
+  "z": 54,
+  "f": 28,
+  "bs": 3
+ }
+}

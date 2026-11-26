@@ -1,0 +1,118 @@
+{
+ "id": "arroz-con-pollo",
+ "title": "Arroz con Pollo (grüner Koriander-Reis mit Hähnchen)",
+ "icon": "🍚",
+ "cuisine": "Peruanisch",
+ "servings": 4,
+ "time": "ca. 55 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "100 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "300 g",
+   "name": "Langkornreis"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "100 ml",
+   "name": "helles Bier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen salzen und in Öl rundum goldbraun braten, herausnehmen.",
+   "minutes": 10,
+   "use": [
+    11
+   ]
+  },
+  {
+   "text": "Koriander und Spinat mit 100 ml Brühe fein pürieren.",
+   "use": [
+    1,
+    2,
+    9
+   ]
+  },
+  {
+   "text": "Zwiebel, Knoblauch, Paprika und Karotte würfeln und im Bratfett weich dünsten.",
+   "minutes": 6,
+   "use": [
+    3,
+    4,
+    5,
+    8
+   ]
+  },
+  {
+   "text": "Kräuterpüree einrühren und kurz einkochen, dann Reis, restliche Brühe und Bier dazugeben.",
+   "minutes": 2,
+   "use": [
+    6,
+    9,
+    10
+   ]
+  },
+  {
+   "text": "Hähnchen auflegen und zugedeckt bei kleiner Hitze garen.",
+   "minutes": 25,
+   "use": []
+  },
+  {
+   "text": "Erbsen unterheben, noch kurz ziehen lassen und mit etwas Limette servieren.",
+   "minutes": 5,
+   "use": [
+    7
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 55,
+ "nutri": {
+  "kcal": 740,
+  "p": 43,
+  "kh": 74,
+  "z": 7,
+  "f": 30,
+  "bs": 5
+ }
+}

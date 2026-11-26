@@ -1,0 +1,87 @@
+{
+ "id": "onigiri",
+ "title": "Onigiri (Reisdreiecke mit Lachs)",
+ "icon": "🍙",
+ "cuisine": "Japanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Sushireis"
+  },
+  {
+   "amount": "200 g",
+   "name": "Lachsfilet"
+  },
+  {
+   "amount": "2 EL",
+   "name": "japanische Mayonnaise"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "4",
+   "name": "Nori-Blätter"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sesam"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reis waschen, bis das Wasser klar ist, und mit 500 ml Wasser garen. Zugedeckt ruhen lassen.",
+   "minutes": 25,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Lachs salzen und in der Pfanne oder im Ofen garen, mit einer Gabel zerpflücken und mit Mayonnaise und Sojasauce mischen.",
+   "minutes": 10,
+   "use": [
+    1,
+    6,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Hände anfeuchten und salzen. Eine Handvoll Reis flach drücken, Füllung in die Mitte, Reis darüber schließen.",
+   "use": [
+    6,
+    0
+   ]
+  },
+  {
+   "text": "Mit beiden Händen zu einem festen Dreieck pressen.",
+   "use": []
+  },
+  {
+   "text": "Mit einem Streifen Nori umwickeln und mit Sesam bestreuen.",
+   "use": [
+    4,
+    5
+   ]
+  }
+ ],
+ "cat": "Snack",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 50,
+ "nutri": {
+  "kcal": 520,
+  "p": 18,
+  "kh": 79,
+  "z": 0,
+  "f": 14,
+  "bs": 2
+ }
+}

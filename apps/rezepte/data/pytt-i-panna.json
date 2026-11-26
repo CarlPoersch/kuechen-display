@@ -1,0 +1,91 @@
+{
+ "id": "pytt-i-panna",
+ "title": "Pytt i panna (schwedisches Bratgröstl)",
+ "icon": "🍳",
+ "cuisine": "Schwedisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "gekochte Kartoffeln"
+  },
+  {
+   "amount": "300 g",
+   "name": "Fleischwurst"
+  },
+  {
+   "amount": "200 g",
+   "name": "Kochschinken"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Butterschmalz"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "4",
+   "name": "Rote Bete (vorgegart)"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln, Wurst, Schinken und Zwiebeln in kleine Würfel schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Kartoffeln in Butterschmalz knusprig braten, nicht zu oft wenden.",
+   "minutes": 12,
+   "use": [
+    0,
+    4
+   ]
+  },
+  {
+   "text": "Zwiebeln, Wurst und Schinken dazugeben und mitbraten.",
+   "minutes": 6,
+   "use": [
+    3,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Spiegeleier braten und auf die Pfanne setzen. Mit Rote-Bete-Würfeln und Petersilie servieren.",
+   "minutes": 4,
+   "use": [
+    5,
+    6,
+    7
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 680,
+  "p": 34,
+  "kh": 57,
+  "z": 19,
+  "f": 36,
+  "bs": 10
+ }
+}

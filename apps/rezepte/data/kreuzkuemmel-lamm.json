@@ -1,0 +1,118 @@
+{
+ "id": "kreuzkuemmel-lamm",
+ "title": "Kreuzkümmel-Lamm aus dem Wok (Zi Ran Yang Rou)",
+ "icon": "🐑",
+ "cuisine": "Chinesisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Lammschulter (ohne Knochen)"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Shaoxing-Wein"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kreuzkümmelsamen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chiliflocken"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Sichuanpfeffer"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Lamm in dünne Scheiben schneiden, mit Sojasauce, Wein und Stärke mischen.",
+   "minutes": 10,
+   "use": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Kreuzkümmel und Sichuanpfeffer ohne Fett rösten und grob mörsern. Reis kochen.",
+   "use": [
+    4,
+    6,
+    12
+   ]
+  },
+  {
+   "text": "Lamm im sehr heißen Wok in zwei Portionen scharf anbraten, herausnehmen.",
+   "minutes": 4,
+   "use": []
+  },
+  {
+   "text": "Zwiebel und Knoblauch kurz pfannenrühren, Gewürze (Kreuzkümmelsamen, Chiliflocken, Sichuanpfeffer) und Chili dazugeben, Fleisch zurück in den Wok.",
+   "minutes": 2,
+   "use": [
+    7,
+    8,
+    4,
+    5,
+    6,
+    0
+   ]
+  },
+  {
+   "text": "Frühlingszwiebeln und Koriander unterheben und mit Reis servieren.",
+   "use": [
+    9,
+    10,
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 630,
+  "p": 27,
+  "kh": 57,
+  "z": 2,
+  "f": 32,
+  "bs": 3
+ }
+}

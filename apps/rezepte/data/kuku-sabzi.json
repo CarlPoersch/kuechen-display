@@ -1,0 +1,112 @@
+{
+ "id": "kuku-sabzi",
+ "title": "Kuku Sabzi (persisches Kräuteromelett)",
+ "icon": "🌿",
+ "cuisine": "Persisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "6",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "4",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "40 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Cranberrys"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2",
+   "name": "Fladenbrote"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kräuter (Petersilie, Koriander, Dill) und Frühlingszwiebeln sehr fein hacken – es soll mehr Grün als Ei sein.",
+   "use": [
+    4,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Eier mit Backpulver, Kurkuma, Salz und Pfeffer verquirlen, Kräuter (Petersilie, Koriander, Dill), gehackte Walnüsse und Cranberrys unterheben.",
+   "use": [
+    0,
+    7,
+    8,
+    5,
+    6,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Öl in einer ofenfesten Pfanne erhitzen, Masse hineingeben und bei kleiner Hitze zugedeckt stocken lassen.",
+   "minutes": 15,
+   "use": [
+    9
+   ]
+  },
+  {
+   "text": "Im Ofen bei 180 °C fertig garen, bis die Mitte fest ist.",
+   "minutes": 10,
+   "use": []
+  },
+  {
+   "text": "In Stücke schneiden, warm oder kalt mit Joghurt und Brot essen.",
+   "use": [
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 520,
+  "p": 21,
+  "kh": 42,
+  "z": 8,
+  "f": 30,
+  "bs": 4
+ }
+}

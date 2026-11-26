@@ -1,0 +1,125 @@
+{
+ "id": "moqueca",
+ "title": "Moqueca (Fischeintopf mit Kokosmilch)",
+ "icon": "🐟",
+ "cuisine": "Brasilianisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Kabeljaufilet"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "gelbe Paprika"
+  },
+  {
+   "amount": "3",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "1 EL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fisch in große Stücke schneiden, mit Limettensaft, Salz und Knoblauch marinieren.",
+   "minutes": 15,
+   "use": [
+    2,
+    7,
+    0
+   ]
+  },
+  {
+   "text": "Zwiebel, Paprika und Tomaten in Ringe bzw. Scheiben schneiden. Reis kochen.",
+   "use": [
+    3,
+    4,
+    5,
+    6,
+    12
+   ]
+  },
+  {
+   "text": "Öl in einem breiten Topf erhitzen, die Hälfte des Gemüses einschichten, Fisch und Garnelen darauflegen, mit dem restlichen Gemüse (Zwiebel, rote Paprika, gelbe Paprika, Tomaten) bedecken.",
+   "use": [
+    11,
+    1,
+    3,
+    4,
+    5,
+    6,
+    0
+   ]
+  },
+  {
+   "text": "Kokosmilch mit Paprikapulver verrühren, darübergießen und zugedeckt leise köcheln – nicht umrühren, damit der Fisch ganz bleibt.",
+   "minutes": 15,
+   "use": [
+    8,
+    9,
+    10,
+    0
+   ]
+  },
+  {
+   "text": "Mit Koriander bestreuen und mit Reis servieren.",
+   "use": [
+    10,
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 680,
+  "p": 45,
+  "kh": 65,
+  "z": 9,
+  "f": 27,
+  "bs": 5
+ },
+ "gf": true
+}

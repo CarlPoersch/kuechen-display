@@ -1,0 +1,111 @@
+{
+ "id": "pozole-rojo",
+ "title": "Pozole Rojo (Schweine-Mais-Eintopf)",
+ "icon": "🍲",
+ "cuisine": "Mexikanisch",
+ "servings": 6,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Schweineschulter"
+  },
+  {
+   "amount": "2 Dosen",
+   "name": "Mais"
+  },
+  {
+   "amount": "3",
+   "name": "getrocknete Ancho-Chilis"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "6",
+   "name": "Radieschen"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "",
+   "name": "Tortilla-Chips (zum Servieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in große Würfel schneiden und mit halber Zwiebel, Knoblauch und Brühe zugedeckt weich köcheln.",
+   "minutes": 90,
+   "use": [
+    3,
+    4,
+    6,
+    0
+   ]
+  },
+  {
+   "text": "Chilis entkernen, 15 Minuten in heißem Wasser einweichen und mit etwas Einweichwasser fein pürieren.",
+   "use": [
+    2
+   ]
+  },
+  {
+   "text": "Chilipüree, abgetropften Mais und Oregano in den Topf geben und weiter köcheln.",
+   "minutes": 20,
+   "use": [
+    2,
+    1,
+    5
+   ]
+  },
+  {
+   "text": "Kohl fein hobeln, Radieschen in Scheiben und restliche Zwiebel fein schneiden.",
+   "use": [
+    7,
+    8,
+    3
+   ]
+  },
+  {
+   "text": "Pozole in Schalen füllen, jeder toppt selbst mit Kohl, Radieschen, Zwiebel, Limette und Chips.",
+   "use": [
+    7,
+    8,
+    3,
+    9,
+    10
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 120,
+ "nutri": {
+  "kcal": 360,
+  "p": 31,
+  "kh": 26,
+  "z": 6,
+  "f": 18,
+  "bs": 4
+ }
+}

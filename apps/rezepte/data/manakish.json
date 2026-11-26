@@ -1,0 +1,110 @@
+{
+ "id": "manakish",
+ "title": "Manakish Za'atar (Fladenbrot mit Thymian-Sesam)",
+ "icon": "🫓",
+ "cuisine": "Libanesisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Trockenhefe"
+  },
+  {
+   "amount": "250 ml",
+   "name": "lauwarmes Wasser"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "4 EL",
+   "name": "getrockneter Thymian"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sesam"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sumach"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mehl, Hefe, Wasser, Zucker, Salz und 2 EL Olivenöl zu einem glatten Teig kneten und gehen lassen.",
+   "minutes": 60,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    8
+   ]
+  },
+  {
+   "text": "Thymian, Sesam und Sumach mit dem restlichen Olivenöl zu einer Paste rühren.",
+   "use": [
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Teig in 6 Stücke teilen und zu dünnen Fladen drücken, mit den Fingern Mulden eindrücken.",
+   "use": []
+  },
+  {
+   "text": "Za'atar-Paste darauf verstreichen und bei 250 °C kurz backen, bis die Ränder bräunen.",
+   "minutes": 8,
+   "use": []
+  },
+  {
+   "text": "Mit Gurke, Tomate und Minze servieren.",
+   "use": [
+    9,
+    10,
+    11
+   ]
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegan",
+ "level": "einfach",
+ "min": 90,
+ "nutri": {
+  "kcal": 620,
+  "p": 13,
+  "kh": 83,
+  "z": 5,
+  "f": 27,
+  "bs": 8
+ }
+}

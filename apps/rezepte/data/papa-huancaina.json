@@ -1,0 +1,96 @@
+{
+ "id": "papa-huancaina",
+ "title": "Papa a la Huancaína (Kartoffeln mit Käsesauce)",
+ "icon": "🧀",
+ "cuisine": "Peruanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "gelbe Chilischoten"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "150 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "4",
+   "name": "Cracker oder 1 Scheibe Toastbrot"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "8",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "1",
+   "name": "Kopfsalat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln und Eier kochen, abkühlen lassen.",
+   "minutes": 20,
+   "use": [
+    0,
+    7
+   ]
+  },
+  {
+   "text": "Chilis entkernen, mit Knoblauch in Öl kurz anschwitzen.",
+   "minutes": 3,
+   "use": [
+    1,
+    2,
+    6
+   ]
+  },
+  {
+   "text": "Mit Feta, Milch und Crackern glatt pürieren – die Sauce soll dick wie Joghurt sein.",
+   "use": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Salatblätter auf Teller legen, Kartoffelscheiben darauf, mit Sauce überziehen und mit Ei und Oliven garnieren.",
+   "use": [
+    0,
+    8
+   ]
+  }
+ ],
+ "cat": "Beilage",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 400,
+  "p": 17,
+  "kh": 39,
+  "z": 5,
+  "f": 20,
+  "bs": 6
+ }
+}

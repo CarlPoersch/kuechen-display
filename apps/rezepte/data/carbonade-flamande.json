@@ -1,0 +1,111 @@
+{
+ "id": "carbonade-flamande",
+ "title": "Carbonade Flamande (Rindfleisch in Bier)",
+ "icon": "🍺",
+ "cuisine": "Belgisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rindergulasch"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "500 ml",
+   "name": "dunkles Bier"
+  },
+  {
+   "amount": "2 Scheiben",
+   "name": "Bauernbrot"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Senf"
+  },
+  {
+   "amount": "1 EL",
+   "name": "brauner Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Apfelessig"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "3 Zweige",
+   "name": "Thymian"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "800 g",
+   "name": "TK-Pommes"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch trocken tupfen, mit Mehl bestäuben und portionsweise in Butter kräftig anbraten.",
+   "minutes": 10,
+   "use": [
+    2,
+    10,
+    0
+   ]
+  },
+  {
+   "text": "Zwiebeln in Streifen schneiden und im Bratfett goldbraun schmoren.",
+   "minutes": 10,
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Mit Bier ablöschen, Fleisch, Zucker, Essig, Lorbeer und Thymian dazugeben.",
+   "use": [
+    3,
+    6,
+    7,
+    9,
+    0
+   ]
+  },
+  {
+   "text": "Brotscheiben dick mit Senf bestreichen und obenauf legen – sie zerfallen und binden die Sauce. Zugedeckt sanft schmoren.",
+   "minutes": 150,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Umrühren, abschmecken und mit Pommes servieren.",
+   "use": [
+    11
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 165,
+ "nutri": {
+  "kcal": 900,
+  "p": 62,
+  "kh": 73,
+  "z": 8,
+  "f": 34,
+  "bs": 7
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "id": "frango-piri-piri",
+ "title": "Frango Piri-Piri (scharfes Grillhähnchen)",
+ "icon": "🌶️",
+ "cuisine": "Portugiesisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1,2 kg",
+   "name": "Hähnchenkeulen"
+  },
+  {
+   "amount": "4",
+   "name": "rote Chilischoten"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Zitronen"
+  },
+  {
+   "amount": "2 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Kopfsalat"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Chilis, Knoblauch, Saft einer Zitrone, Paprika, Oregano, Essig, Olivenöl und Salz fein pürieren.",
+   "use": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    6
+   ]
+  },
+  {
+   "text": "Keulen mehrmals einschneiden und mit der Hälfte der Sauce einreiben, mindestens 30 Minuten marinieren.",
+   "minutes": 30,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Kartoffeln in Spalten schneiden und mit den Keulen aufs Blech legen.",
+   "use": [
+    8,
+    0
+   ]
+  },
+  {
+   "text": "Bei 220 °C backen, zwischendurch mit der restlichen Sauce bestreichen.",
+   "minutes": 40,
+   "use": []
+  },
+  {
+   "text": "Mit Zitronenspalten und Salat servieren.",
+   "use": [
+    3,
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 75,
+ "nutri": {
+  "kcal": 700,
+  "p": 45,
+  "kh": 41,
+  "z": 4,
+  "f": 40,
+  "bs": 6
+ },
+ "gf": true
+}

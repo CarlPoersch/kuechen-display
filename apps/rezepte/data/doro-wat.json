@@ -1,0 +1,110 @@
+{
+ "id": "doro-wat",
+ "title": "Doro Wat (scharfer Hähnchen-Eintopf)",
+ "icon": "🍗",
+ "cuisine": "Äthiopisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "4",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Berbere (oder 2 EL Paprikapulver + 1 TL Cayenne + ½ TL Zimt)"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Zitronensaft und Salz einreiben.",
+   "use": [
+    9
+   ]
+  },
+  {
+   "text": "Zwiebeln sehr fein hacken und ohne Fett langsam rösten, bis sie stark eingekocht sind. Erst dann Butter dazugeben.",
+   "minutes": 20,
+   "use": [
+    1,
+    6
+   ]
+  },
+  {
+   "text": "Knoblauch, Ingwer, Berbere und Tomatenmark mitrösten.",
+   "minutes": 3,
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Hähnchen und Brühe dazugeben und zugedeckt schmoren, bis das Fleisch zart ist. Eier hart kochen.",
+   "minutes": 45,
+   "use": [
+    7,
+    8,
+    0
+   ]
+  },
+  {
+   "text": "Geschälte, rundum eingeritzte Eier in die Sauce legen und kurz ziehen lassen. Mit Reis (oder Injera) servieren.",
+   "minutes": 5,
+   "use": [
+    8,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 90,
+ "nutri": {
+  "kcal": 820,
+  "p": 47,
+  "kh": 63,
+  "z": 6,
+  "f": 42,
+  "bs": 4
+ },
+ "gf": true
+}

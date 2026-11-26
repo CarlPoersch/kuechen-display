@@ -1,0 +1,97 @@
+{
+ "id": "ceviche",
+ "title": "Ceviche (marinierter Fisch mit Limette)",
+ "icon": "🐟",
+ "cuisine": "Peruanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "weißes Fischfilet (sehr frisch, z. B. Dorade oder Kabeljau)"
+  },
+  {
+   "amount": "8",
+   "name": "Limetten"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chilischote"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1",
+   "name": "Süßkartoffel"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "Mais"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Süßkartoffel schälen, in dicke Scheiben schneiden und in Salzwasser gar kochen, abkühlen lassen.",
+   "minutes": 15,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Zwiebel in hauchdünne Streifen schneiden und kurz in kaltes Wasser legen – das nimmt die Schärfe.",
+   "use": [
+    2
+   ]
+  },
+  {
+   "text": "Fisch in 1,5 cm große Würfel schneiden, salzen und in eine kalte Schüssel geben. Limetten auspressen.",
+   "use": [
+    0,
+    7,
+    1
+   ]
+  },
+  {
+   "text": "Limettensaft, gehackte Chili und Zwiebel über den Fisch geben, mischen und im Kühlschrank ziehen lassen, bis er außen weiß ist.",
+   "minutes": 10,
+   "use": [
+    1,
+    3,
+    2,
+    0
+   ]
+  },
+  {
+   "text": "Koriander unterheben und sofort mit Süßkartoffel und Mais servieren. Warum frisch: Die Säure gart den Fisch nur außen, er muss Sushi-Qualität haben.",
+   "use": [
+    4,
+    5,
+    6,
+    0
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 30,
+ "nutri": {
+  "kcal": 250,
+  "p": 27,
+  "kh": 35,
+  "z": 8,
+  "f": 2,
+  "bs": 5
+ },
+ "gf": true
+}

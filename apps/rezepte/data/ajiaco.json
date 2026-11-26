@@ -1,0 +1,107 @@
+{
+ "id": "ajiaco",
+ "title": "Ajiaco (Hähnchen-Kartoffel-Suppe)",
+ "icon": "🍲",
+ "cuisine": "Kolumbianisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "1 kg",
+   "name": "Kartoffeln (gemischt mehlig und festkochend)"
+  },
+  {
+   "amount": "2",
+   "name": "Maiskolben"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 EL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "100 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kapern"
+  },
+  {
+   "amount": "1",
+   "name": "Avocado"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Zwiebel, Knoblauch und Brühe aufkochen und leise gar ziehen lassen. Herausnehmen und zerzupfen.",
+   "minutes": 25,
+   "use": [
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Kartoffeln schälen und würfeln, Maiskolben in Stücke schneiden.",
+   "use": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Kartoffeln und Mais in die Brühe geben und köcheln, bis die mehligen Kartoffeln zerfallen und die Suppe binden.",
+   "minutes": 30,
+   "use": [
+    1,
+    5
+   ]
+  },
+  {
+   "text": "Hähnchen und Oregano zurück in den Topf geben, abschmecken.",
+   "use": [
+    7
+   ]
+  },
+  {
+   "text": "Mit saurer Sahne, Kapern, Avocado und Koriander servieren.",
+   "use": [
+    8,
+    9,
+    10,
+    6
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60,
+ "nutri": {
+  "kcal": 530,
+  "p": 41,
+  "kh": 67,
+  "z": 8,
+  "f": 13,
+  "bs": 11
+ }
+}

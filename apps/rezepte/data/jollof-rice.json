@@ -1,0 +1,113 @@
+{
+ "id": "jollof-rice",
+ "title": "Jollof Rice mit Hähnchen",
+ "icon": "🍚",
+ "cuisine": "Nigerianisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "2",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chilischote"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Thymian"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "300 g",
+   "name": "Langkornreis"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen würzen und im Ofen bei 200 °C knusprig backen.",
+   "minutes": 40,
+   "use": []
+  },
+  {
+   "text": "Paprika, Tomaten, eine Zwiebel und Chili fein pürieren.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Zweite Zwiebel würfeln und in Öl anbraten, Tomatenmark kräftig mitrösten. Püree dazugeben und dick einköcheln.",
+   "minutes": 15,
+   "use": [
+    3,
+    11,
+    5
+   ]
+  },
+  {
+   "text": "Gewürze (Currypulver, Getrockneter Thymian, Lorbeerblätter), Reis und Brühe dazugeben, zugedeckt bei kleiner Hitze garen – nicht umrühren. Ein leicht angesetzter Boden gehört dazu.",
+   "minutes": 25,
+   "use": [
+    9,
+    10,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Reis auflockern und mit dem Hähnchen servieren.",
+   "use": [
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 60,
+ "nutri": {
+  "kcal": 790,
+  "p": 42,
+  "kh": 75,
+  "z": 10,
+  "f": 36,
+  "bs": 6
+ },
+ "gf": true
+}

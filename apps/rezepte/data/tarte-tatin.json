@@ -1,0 +1,77 @@
+{
+ "id": "tarte-tatin",
+ "title": "Tarte Tatin (gestürzter Apfelkuchen)",
+ "icon": "🍎",
+ "cuisine": "Französisch",
+ "servings": 8,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "1 Rolle",
+   "name": "Blätterteig"
+  },
+  {
+   "amount": "1,2 kg",
+   "name": "säuerliche Äpfel"
+  },
+  {
+   "amount": "120 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "60 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Äpfel schälen, vierteln und entkernen.",
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Zucker in einer ofenfesten Pfanne (ca. 26 cm) ohne Rühren goldbraun karamellisieren, Butter einrühren.",
+   "minutes": 6,
+   "use": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Apfelviertel dicht und hochkant in den Karamell setzen, mit Vanillezucker bestreuen und bei mittlerer Hitze garen.",
+   "minutes": 12,
+   "use": [
+    2,
+    4
+   ]
+  },
+  {
+   "text": "Blätterteig darüberlegen, Rand nach innen stecken, ein paar Löcher einstechen.",
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Goldbraun backen, 5 Minuten ruhen lassen und dann mutig auf eine Platte stürzen.",
+   "minutes": 30,
+   "use": []
+  }
+ ],
+ "cat": "Backen",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 75,
+ "nutri": {
+  "kcal": 340,
+  "p": 3,
+  "kh": 49,
+  "z": 32,
+  "f": 15,
+  "bs": 4
+ }
+}

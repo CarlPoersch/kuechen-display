@@ -1,0 +1,112 @@
+{
+ "id": "fatteh",
+ "title": "Fatteh (Kichererbsen mit Joghurt und Röstbrot)",
+ "icon": "🥣",
+ "cuisine": "Syrisch",
+ "servings": 4,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Kichererbsen"
+  },
+  {
+   "amount": "2",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "400 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tahin"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "40 g",
+   "name": "Pinienkerne"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fladenbrot in Stücke reißen, mit Olivenöl mischen und im Ofen bei 200 °C knusprig rösten.",
+   "minutes": 10,
+   "use": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Kichererbsen mit Flüssigkeit und Kreuzkümmel erwärmen.",
+   "use": [
+    0,
+    7
+   ]
+  },
+  {
+   "text": "Joghurt mit Tahin, gepresstem Knoblauch, Zitronensaft und Salz verrühren.",
+   "use": [
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Brot in eine Schale geben, Kichererbsen samt etwas Flüssigkeit darüber, dann den Joghurt.",
+   "use": [
+    0,
+    3
+   ]
+  },
+  {
+   "text": "Pinienkerne in Butter goldbraun rösten und mit der Butter darübergießen. Mit Paprika und Petersilie bestreuen.",
+   "minutes": 3,
+   "use": [
+    9,
+    8,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "nutri": {
+  "kcal": 650,
+  "p": 21,
+  "kh": 61,
+  "z": 7,
+  "f": 35,
+  "bs": 9
+ }
+}

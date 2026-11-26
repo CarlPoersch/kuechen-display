@@ -1,0 +1,87 @@
+{
+ "id": "cevapi",
+ "title": "Ćevapi mit Ajvar und Zwiebeln",
+ "icon": "🍢",
+ "cuisine": "Bosnisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Natron"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "150 g",
+   "name": "Ajvar"
+  },
+  {
+   "amount": "150 g",
+   "name": "Schmand"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hack mit gepresstem Knoblauch, Natron, Paprika, Salz und 3 EL Wasser lange und kräftig kneten – so werden sie saftig und fest.",
+   "minutes": 5,
+   "use": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Zugedeckt kalt stellen.",
+   "minutes": 30,
+   "use": []
+  },
+  {
+   "text": "Mit nassen Händen fingerlange Röllchen formen.",
+   "use": []
+  },
+  {
+   "text": "In einer Grillpfanne rundum braun braten.",
+   "minutes": 10,
+   "use": []
+  },
+  {
+   "text": "Mit Fladenbrot, Ajvar, Schmand und fein gehackter Zwiebel servieren.",
+   "use": [
+    5,
+    6,
+    7,
+    4
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 840,
+  "p": 38,
+  "kh": 70,
+  "z": 7,
+  "f": 44,
+  "bs": 5
+ }
+}

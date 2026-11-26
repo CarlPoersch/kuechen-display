@@ -1,0 +1,103 @@
+{
+ "id": "zurek",
+ "title": "Żurek (saure Mehlsuppe mit Wurst und Ei)",
+ "icon": "🥚",
+ "cuisine": "Polnisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Żur (Sauerteig-Suppenansatz, oder 3 EL Mehl + 300 ml Buttermilch)"
+  },
+  {
+   "amount": "300 g",
+   "name": "weiße Bratwurst"
+  },
+  {
+   "amount": "100 g",
+   "name": "Speck"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "600 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 l",
+   "name": "Brühe"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Majoran"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Meerrettich"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Speck und Zwiebel würfeln und im Topf anbraten. Wurst in Scheiben schneiden und mitbraten.",
+   "minutes": 6,
+   "use": [
+    2,
+    3,
+    1
+   ]
+  },
+  {
+   "text": "Kartoffeln würfeln, mit Brühe dazugeben und weich kochen. Eier hart kochen.",
+   "minutes": 15,
+   "use": [
+    4,
+    6,
+    8
+   ]
+  },
+  {
+   "text": "Żur (oder das angerührte Mehl mit Buttermilch) einrühren und aufkochen lassen.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Mit Knoblauch, Majoran und Meerrettich abschmecken.",
+   "use": [
+    5,
+    7,
+    9
+   ]
+  },
+  {
+   "text": "Mit halbierten Eiern servieren.",
+   "use": [
+    8
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 590,
+  "p": 27,
+  "kh": 37,
+  "z": 5,
+  "f": 37,
+  "bs": 5
+ }
+}

@@ -1,0 +1,122 @@
+{
+ "id": "bobotie",
+ "title": "Bobotie (Curry-Hackauflauf mit Eierguss)",
+ "icon": "🥧",
+ "cuisine": "Südafrikanisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Rinderhackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 Scheibe",
+   "name": "Toastbrot"
+  },
+  {
+   "amount": "250 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Mango-Chutney"
+  },
+  {
+   "amount": "40 g",
+   "name": "Rosinen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zitronensaft"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "3",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Brot in der Hälfte der Milch einweichen. Zwiebel und Knoblauch würfeln und in Öl weich dünsten.",
+   "minutes": 6,
+   "use": [
+    3,
+    4,
+    1,
+    2,
+    12
+   ]
+  },
+  {
+   "text": "Hack dazugeben und krümelig braten, Curry und Kurkuma mitrösten.",
+   "minutes": 8,
+   "use": [
+    6
+   ]
+  },
+  {
+   "text": "Ausgedrücktes Brot, Chutney, Rosinen und Zitronensaft untermischen, in eine Form füllen und glatt streichen.",
+   "use": [
+    3,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Eier mit der restlichen Milch verquirlen, darübergießen und Lorbeerblätter hineinstecken.",
+   "use": [
+    10,
+    4,
+    11
+   ]
+  },
+  {
+   "text": "Bei 180 °C backen, bis der Guss gestockt und goldgelb ist. Mit Reis servieren.",
+   "minutes": 35,
+   "use": [
+    13
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 75,
+ "nutri": {
+  "kcal": 830,
+  "p": 39,
+  "kh": 73,
+  "z": 16,
+  "f": 42,
+  "bs": 3
+ }
+}

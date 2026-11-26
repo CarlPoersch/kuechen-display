@@ -1,0 +1,111 @@
+{
+ "id": "pisto-manchego",
+ "title": "Pisto Manchego mit Spiegelei",
+ "icon": "🍆",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Aubergine"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "1",
+   "name": "Baguette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Alles Gemüse (Zwiebel, rote Paprika, grüne Paprika, Zucchini, Aubergine) in kleine Würfel schneiden, Knoblauch hacken.",
+   "use": [
+    6,
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Zwiebel und Paprika in Olivenöl weich dünsten.",
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2,
+    8
+   ]
+  },
+  {
+   "text": "Aubergine und Zucchini dazugeben und mitbraten, bis sie weich sind.",
+   "minutes": 10,
+   "use": [
+    4,
+    3
+   ]
+  },
+  {
+   "text": "Tomaten und Zucker dazugeben und dicklich einköcheln.",
+   "minutes": 15,
+   "use": [
+    5,
+    7
+   ]
+  },
+  {
+   "text": "Spiegeleier braten und auf das Pisto setzen, dazu Brot.",
+   "use": [
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 450,
+  "p": 16,
+  "kh": 52,
+  "z": 15,
+  "f": 20,
+  "bs": 8
+ }
+}

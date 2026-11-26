@@ -1,0 +1,94 @@
+{
+ "id": "ful-medames",
+ "title": "Ful Medames (Bohnenmus zum Frühstück)",
+ "icon": "🫘",
+ "cuisine": "Ägyptisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Kidneybohnen (oder Saubohnen)"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Bohnen mit etwas Flüssigkeit erwärmen und grob zerdrücken.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Gepressten Knoblauch, Kreuzkümmel, Zitronensaft, Salz und Olivenöl einrühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Eier wachsweich kochen. Tomaten würfeln, Petersilie hacken.",
+   "minutes": 7,
+   "use": [
+    7,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Ful in Schalen füllen, mit Tomaten, Petersilie und Olivenöl toppen, dazu Eier und warmes Brot.",
+   "use": [
+    5,
+    6,
+    4,
+    7
+   ]
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "nutri": {
+  "kcal": 660,
+  "p": 28,
+  "kh": 86,
+  "z": 5,
+  "f": 20,
+  "bs": 12
+ }
+}

@@ -1,0 +1,115 @@
+{
+ "id": "fish-and-chips",
+ "title": "Fish and Chips mit Erbsenpüree",
+ "icon": "🐟",
+ "cuisine": "Britisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "Kabeljaufilet"
+  },
+  {
+   "amount": "200 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Backpulver"
+  },
+  {
+   "amount": "250 ml",
+   "name": "kaltes helles Bier"
+  },
+  {
+   "amount": "1 kg",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1 l",
+   "name": "Öl (zum Frittieren)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Erbsen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Remoulade"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in dicke Stäbchen schneiden, abspülen und trocken tupfen.",
+   "use": [
+    4
+   ]
+  },
+  {
+   "text": "Öl auf 150 °C erhitzen und die Pommes hell vorfrittieren, herausnehmen.",
+   "minutes": 6,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Mehl, Backpulver, Salz und eiskaltes Bier zu einem dicken Teig verrühren. Erbsen kochen, mit Butter und Minze grob pürieren.",
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3,
+    6,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "Öl auf 180 °C erhitzen. Fisch in Stücke schneiden, mehlieren, durch den Teig ziehen und goldbraun ausbacken.",
+   "minutes": 6,
+   "use": [
+    5,
+    0
+   ]
+  },
+  {
+   "text": "Pommes im heißen Öl knusprig fertig frittieren und salzen.",
+   "minutes": 3,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Mit Zitrone, Erbsenpüree und Remoulade (statt Tartar Sauce) servieren.",
+   "use": [
+    9,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 50,
+ "nutri": {
+  "kcal": 790,
+  "p": 42,
+  "kh": 93,
+  "z": 8,
+  "f": 26,
+  "bs": 12
+ }
+}

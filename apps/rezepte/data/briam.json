@@ -1,0 +1,120 @@
+{
+ "id": "briam",
+ "title": "Briam (griechisches Ofengemüse)",
+ "icon": "🍆",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Zucchini"
+  },
+  {
+   "amount": "1",
+   "name": "Aubergine"
+  },
+  {
+   "amount": "1",
+   "name": "rote Paprika"
+  },
+  {
+   "amount": "2",
+   "name": "rote Zwiebeln"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "150 g",
+   "name": "Feta"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Kartoffeln, Zucchini und Aubergine in Scheiben, Paprika und Zwiebeln in Streifen schneiden.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Alles mit gehacktem Knoblauch, Oregano, Olivenöl, Salz und den Dosentomaten in einer großen Form mischen.",
+   "use": [
+    5,
+    8,
+    9,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Frische Tomatenscheiben obenauf legen und zugedeckt backen.",
+   "minutes": 45,
+   "use": [
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Abdecken und weiterbacken, bis das Gemüse (Zucchini, Aubergine, rote Paprika, rote Zwiebeln, Tomaten) weich und oben gebräunt ist.",
+   "minutes": 30,
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    6
+   ]
+  },
+  {
+   "text": "Mit Petersilie und Feta servieren – schmeckt auch lauwarm.",
+   "use": [
+    10,
+    11,
+    5
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 90,
+ "nutri": {
+  "kcal": 540,
+  "p": 15,
+  "kh": 51,
+  "z": 17,
+  "f": 33,
+  "bs": 11
+ },
+ "gf": true
+}

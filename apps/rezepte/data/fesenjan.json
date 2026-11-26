@@ -1,0 +1,110 @@
+{
+ "id": "fesenjan",
+ "title": "Fesenjan (Hähnchen in Walnuss-Granatapfel-Sauce)",
+ "icon": "🍗",
+ "cuisine": "Persisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "250 g",
+   "name": "Walnüsse"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "5 EL",
+   "name": "Granatapfelsirup"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Basmatireis"
+  },
+  {
+   "amount": "1",
+   "name": "Granatapfel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Walnüsse ohne Fett rösten und fein mahlen.",
+   "use": [
+    1,
+    0
+   ]
+  },
+  {
+   "text": "Zwiebel fein würfeln und in Öl goldbraun braten, Hähnchenstücke und Kurkuma dazugeben und anbraten.",
+   "minutes": 10,
+   "use": [
+    2,
+    8,
+    6
+   ]
+  },
+  {
+   "text": "Walnüsse, Brühe und Zimt dazugeben und zugedeckt sehr leise köcheln, bis die Sauce dunkel wird und sich Öl absetzt.",
+   "minutes": 60,
+   "use": [
+    1,
+    7,
+    5,
+    8
+   ]
+  },
+  {
+   "text": "Granatapfelsirup und Zucker einrühren und nach Geschmack süß-sauer abschmecken. Noch ziehen lassen.",
+   "minutes": 15,
+   "use": [
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Mit Basmatireis und Granatapfelkernen servieren.",
+   "use": [
+    9,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 105,
+ "nutri": {
+  "kcal": 1220,
+  "p": 53,
+  "kh": 100,
+  "z": 31,
+  "f": 66,
+  "bs": 8
+ },
+ "gf": true
+}

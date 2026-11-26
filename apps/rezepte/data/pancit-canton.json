@@ -1,0 +1,120 @@
+{
+ "id": "pancit-canton",
+ "title": "Pancit Canton (gebratene Nudeln)",
+ "icon": "🍝",
+ "cuisine": "Philippinisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Mie-Nudeln"
+  },
+  {
+   "amount": "300 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "150 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zuckerschoten"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Austernsauce"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "1",
+   "name": "Limette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen in Streifen, Gemüse (Zwiebel, Karotten, Weißkohl, Zuckerschoten) in feine Streifen schneiden.",
+   "use": [
+    3,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Zwiebel und Knoblauch in Öl anbraten, Hähnchen und Garnelen dazugeben und durchbraten.",
+   "minutes": 6,
+   "use": [
+    3,
+    4,
+    11,
+    2
+   ]
+  },
+  {
+   "text": "Gemüse (Zwiebel, Karotten, Weißkohl, Zuckerschoten) kurz mitbraten, Brühe, Soja- und Austernsauce dazugeben und aufkochen.",
+   "minutes": 3,
+   "use": [
+    10,
+    9,
+    3,
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Ungekochte Nudeln hineingeben und unter Wenden garen, bis sie die Flüssigkeit aufgesogen haben.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Mit Limettenspalten servieren.",
+   "use": [
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 470,
+  "p": 36,
+  "kh": 60,
+  "z": 10,
+  "f": 9,
+  "bs": 5
+ }
+}

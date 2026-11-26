@@ -1,0 +1,103 @@
+{
+ "id": "shish-taouk",
+ "title": "Shish Taouk (Hähnchenspieße mit Knoblauchcreme)",
+ "icon": "🍢",
+ "cuisine": "Libanesisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "700 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "150 g",
+   "name": "Knoblauchsauce"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Joghurt, Tomatenmark, Zitronensaft, gepressten Knoblauch, Gewürze (edelsüßes Paprikapulver, Zimt) und Olivenöl verrühren.",
+   "use": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Hähnchen in große Würfel schneiden und mindestens eine Stunde marinieren.",
+   "minutes": 60,
+   "use": []
+  },
+  {
+   "text": "Auf Spieße stecken und in der Grillpfanne oder unter dem Ofengrill rundum braten.",
+   "minutes": 12,
+   "use": []
+  },
+  {
+   "text": "Mit Fladenbrot, Knoblauchsauce, Gurke und Tomate servieren.",
+   "use": [
+    8,
+    9,
+    10,
+    11
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 820,
+  "p": 55,
+  "kh": 76,
+  "z": 11,
+  "f": 32,
+  "bs": 5
+ }
+}

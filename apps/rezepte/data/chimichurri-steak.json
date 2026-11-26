@@ -1,0 +1,88 @@
+{
+ "id": "chimichurri-steak",
+ "title": "Steak mit Chimichurri",
+ "icon": "🥩",
+ "cuisine": "Argentinisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Rumpsteaks"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 TL",
+   "name": "getrockneter Oregano"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chilischote"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln in Spalten schneiden, mit Öl und Salz im Ofen bei 220 °C knusprig backen.",
+   "minutes": 30,
+   "use": [
+    7,
+    6
+   ]
+  },
+  {
+   "text": "Für die Chimichurri Petersilie, Knoblauch und Chili sehr fein hacken und mit Oregano, Essig, Olivenöl und Salz verrühren – mindestens 15 Minuten ziehen lassen.",
+   "use": [
+    1,
+    3,
+    4,
+    2,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Steaks trocken tupfen und in einer sehr heißen Pfanne von jeder Seite kräftig braten.",
+   "minutes": 6,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Kurz ruhen lassen, salzen, in Streifen schneiden und mit reichlich Chimichurri servieren.",
+   "minutes": 5,
+   "use": []
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 670,
+  "p": 46,
+  "kh": 36,
+  "z": 2,
+  "f": 37,
+  "bs": 5
+ },
+ "gf": true
+}

@@ -1,0 +1,109 @@
+{
+ "id": "kottu-roti",
+ "title": "Kottu Roti (gehacktes Fladenbrot aus der Pfanne)",
+ "icon": "🥘",
+ "cuisine": "Sri-Lankisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Weizentortillas (oder Parathas)"
+  },
+  {
+   "amount": "300 g",
+   "name": "Hähnchenbrust"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  },
+  {
+   "amount": "1",
+   "name": "Lauchstange"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Chili"
+  },
+  {
+   "amount": "2 TL",
+   "name": "Currypulver"
+  },
+  {
+   "amount": "3",
+   "name": "Eier"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tortillas in schmale Streifen schneiden. Hähnchen klein würfeln, Gemüse (Zwiebel, Karotten, Weißkohl, Lauchstange) in feine Streifen.",
+   "use": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Hähnchen mit Curry in Öl scharf anbraten. Zwiebel, Knoblauch, Chili und Gemüse (Karotten, Weißkohl) dazugeben und bissfest braten.",
+   "minutes": 8,
+   "use": [
+    11,
+    2,
+    5,
+    6,
+    7,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Alles an den Rand schieben, Eier in der Mitte verrühren und stocken lassen.",
+   "minutes": 2,
+   "use": [
+    9
+   ]
+  },
+  {
+   "text": "Brotstreifen und Sojasauce dazugeben und alles mit zwei Pfannenwendern kräftig klein hacken und vermischen.",
+   "minutes": 4,
+   "use": [
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 480,
+  "p": 31,
+  "kh": 45,
+  "z": 8,
+  "f": 20,
+  "bs": 6
+ }
+}

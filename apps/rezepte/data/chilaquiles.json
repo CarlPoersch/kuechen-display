@@ -1,0 +1,112 @@
+{
+ "id": "chilaquiles",
+ "title": "Chilaquiles rojos mit Spiegelei",
+ "icon": "🍳",
+ "cuisine": "Mexikanisch",
+ "servings": 2,
+ "time": "ca. 25 Min.",
+ "ingredients": [
+  {
+   "amount": "150 g",
+   "name": "Tortilla-Chips"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "passierte Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1",
+   "name": "Jalapeño"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Brühe"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "60 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "2 EL",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Halbe Zwiebel, Knoblauch und Jalapeño mit Tomaten, Brühe und Kreuzkümmel pürieren.",
+   "use": [
+    2,
+    3,
+    4,
+    1,
+    6,
+    5
+   ]
+  },
+  {
+   "text": "Sauce in einer Pfanne einköcheln lassen, bis sie leicht dicklich ist.",
+   "minutes": 8,
+   "use": []
+  },
+  {
+   "text": "Spiegeleier in Öl braten.",
+   "minutes": 4,
+   "use": [
+    7,
+    11
+   ]
+  },
+  {
+   "text": "Chips in die Sauce geben und nur kurz schwenken – sie sollen außen weich, innen noch knusprig sein.",
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Mit Eiern, zerbröseltem Feta, saurer Sahne, Zwiebelringen und Koriander sofort servieren.",
+   "use": [
+    7,
+    8,
+    9,
+    2,
+    10
+   ]
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 25,
+ "nutri": {
+  "kcal": 680,
+  "p": 22,
+  "kh": 64,
+  "z": 11,
+  "f": 39,
+  "bs": 8
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "id": "lohikeitto",
+ "title": "Lohikeitto (finnische Lachssuppe)",
+ "icon": "🐟",
+ "cuisine": "Finnisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Lachsfilet"
+  },
+  {
+   "amount": "600 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Lauchstange"
+  },
+  {
+   "amount": "1",
+   "name": "Karotte"
+  },
+  {
+   "amount": "1 l",
+   "name": "Fischfond"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "6",
+   "name": "Pimentkörner"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Lauch in Ringe schneiden und in Butter andünsten. Kartoffeln und Karotte würfeln und dazugeben.",
+   "minutes": 4,
+   "use": [
+    2,
+    6,
+    1,
+    3
+   ]
+  },
+  {
+   "text": "Mit Fond aufgießen, Piment dazugeben und köcheln, bis die Kartoffeln fast gar sind.",
+   "minutes": 12,
+   "use": [
+    4,
+    8,
+    1
+   ]
+  },
+  {
+   "text": "Lachs ohne Haut in Würfel schneiden, mit der Sahne in die Suppe geben und nur noch gar ziehen lassen.",
+   "minutes": 5,
+   "use": [
+    0,
+    5
+   ]
+  },
+  {
+   "text": "Mit reichlich gehacktem Dill bestreuen.",
+   "use": [
+    7
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 590,
+  "p": 32,
+  "kh": 35,
+  "z": 6,
+  "f": 36,
+  "bs": 5
+ },
+ "gf": true
+}

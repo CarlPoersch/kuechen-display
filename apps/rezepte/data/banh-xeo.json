@@ -1,0 +1,143 @@
+{
+ "id": "banh-xeo",
+ "title": "Bánh Xèo (knusprige Reismehl-Pfannkuchen)",
+ "icon": "🥞",
+ "cuisine": "Vietnamesisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "200 g",
+   "name": "Reismehl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kurkuma"
+  },
+  {
+   "amount": "400 ml",
+   "name": "Kokosmilch"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "3",
+   "name": "Frühlingszwiebeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "200 g",
+   "name": "Schweinebauch"
+  },
+  {
+   "amount": "200 g",
+   "name": "Sojasprossen"
+  },
+  {
+   "amount": "1",
+   "name": "Kopfsalat"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Minze"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Öl"
+  },
+  {
+   "group": "Dip"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chili"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Reismehl, Kurkuma, Kokosmilch, Wasser, Salz und Frühlingszwiebelringe zu einem dünnen Teig verrühren und ruhen lassen.",
+   "minutes": 30,
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Für den Dip Fischsauce, Limettensaft, Zucker, 6 EL Wasser, Knoblauch und Chili verrühren.",
+   "use": [
+    11,
+    12,
+    13,
+    3,
+    14,
+    15
+   ]
+  },
+  {
+   "text": "Schweinebauch in dünne Scheiben schneiden. Garnelen putzen.",
+   "use": [
+    6,
+    5
+   ]
+  },
+  {
+   "text": "Pfanne mit Öl sehr heiß werden lassen, etwas Fleisch und Garnelen anbraten, eine Kelle Teig darüber schwenken – es soll zischen.",
+   "minutes": 2,
+   "use": [
+    10,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Sprossen auf eine Hälfte geben, zugedeckt garen, bis der Rand knusprig ist, dann zuklappen.",
+   "minutes": 3,
+   "use": [
+    7
+   ]
+  },
+  {
+   "text": "Stücke in Salatblätter mit Minze wickeln und in den Dip tauchen.",
+   "use": [
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "nutri": {
+  "kcal": 770,
+  "p": 25,
+  "kh": 59,
+  "z": 14,
+  "f": 50,
+  "bs": 4
+ },
+ "gf": true
+}

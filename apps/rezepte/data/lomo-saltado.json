@@ -1,0 +1,125 @@
+{
+ "id": "lomo-saltado",
+ "title": "Lomo Saltado (Rindfleisch aus dem Wok mit Pommes)",
+ "icon": "🥩",
+ "cuisine": "Peruanisch",
+ "servings": 4,
+ "time": "ca. 35 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Rinderhüfte"
+  },
+  {
+   "amount": "2",
+   "name": "rote Zwiebeln"
+  },
+  {
+   "amount": "3",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "gelbe Chilischote"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "½ TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "500 g",
+   "name": "TK-Pommes"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Pommes nach Packung im Ofen oder Airfryer knusprig backen, Reis kochen.",
+   "minutes": 20,
+   "use": [
+    8,
+    11
+   ]
+  },
+  {
+   "text": "Rindfleisch in fingerdicke Streifen schneiden, Zwiebeln in Spalten, Tomaten in Achtel, Chili in Streifen, Knoblauch hacken.",
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Öl im Wok sehr heiß werden lassen, Fleisch in zwei Portionen scharf anbraten und herausnehmen.",
+   "minutes": 3,
+   "use": [
+    10,
+    0
+   ]
+  },
+  {
+   "text": "Zwiebeln, Chili und Knoblauch kurz pfannenrühren, Tomaten dazugeben – sie sollen nur warm werden, nicht zerfallen.",
+   "minutes": 2,
+   "use": [
+    1,
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "text": "Fleisch zurück in den Wok, mit Sojasauce, Essig und Kreuzkümmel ablöschen und einmal durchschwenken.",
+   "minutes": 1,
+   "use": [
+    5,
+    6,
+    7,
+    0
+   ]
+  },
+  {
+   "text": "Pommes unterheben, mit Koriander bestreuen und mit Reis servieren.",
+   "use": [
+    8,
+    9,
+    11
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 35,
+ "nutri": {
+  "kcal": 680,
+  "p": 35,
+  "kh": 77,
+  "z": 5,
+  "f": 25,
+  "bs": 6
+ }
+}

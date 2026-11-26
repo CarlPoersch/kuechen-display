@@ -1,0 +1,86 @@
+{
+ "id": "syrniki",
+ "title": "Syrniki (Quarkpfannkuchen)",
+ "icon": "🥞",
+ "cuisine": "Ukrainisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Quark (trocken, z. B. Schichtkäse)"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "80 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "200 g",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "200 g",
+   "name": "Beeren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Quark mit Eiern, Zucker und Vanillezucker glatt rühren, Mehl unterheben – der Teig soll formbar sein.",
+   "use": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Mit bemehlten Händen 12 kleine, dicke Taler formen und in Mehl wenden.",
+   "use": [
+    4
+   ]
+  },
+  {
+   "text": "In Öl bei mittlerer Hitze von beiden Seiten goldbraun braten.",
+   "minutes": 10,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Mit saurer Sahne und Beeren servieren.",
+   "use": [
+    6,
+    7
+   ]
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 460,
+  "p": 23,
+  "kh": 39,
+  "z": 23,
+  "f": 24,
+  "bs": 3
+ }
+}

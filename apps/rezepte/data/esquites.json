@@ -1,0 +1,92 @@
+{
+ "id": "esquites",
+ "title": "Esquites (Mais-Salat mit Limette und Käse)",
+ "icon": "🌽",
+ "cuisine": "Mexikanisch",
+ "servings": 4,
+ "time": "ca. 20 Min.",
+ "ingredients": [
+  {
+   "amount": "2 Dosen",
+   "name": "Mais"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mayonnaise"
+  },
+  {
+   "amount": "2 EL",
+   "name": "saure Sahne"
+  },
+  {
+   "amount": "2",
+   "name": "Limetten"
+  },
+  {
+   "amount": "60 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "1",
+   "name": "Frühlingszwiebel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Mais gut abtropfen lassen und in Butter in einer heißen Pfanne anrösten, bis er stellenweise braun ist.",
+   "minutes": 8,
+   "use": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Mayonnaise, saure Sahne, Limettensaft und Chilipulver verrühren.",
+   "use": [
+    2,
+    3,
+    4,
+    6
+   ]
+  },
+  {
+   "text": "Warmen Mais mit der Creme mischen, Frühlingszwiebel und Koriander unterheben.",
+   "use": [
+    0,
+    7,
+    8
+   ]
+  },
+  {
+   "text": "In Becher füllen und mit zerbröseltem Feta und etwas Chili bestreuen.",
+   "use": [
+    5
+   ]
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 20,
+ "nutri": {
+  "kcal": 290,
+  "p": 8,
+  "kh": 29,
+  "z": 5,
+  "f": 18,
+  "bs": 4
+ },
+ "gf": true
+}

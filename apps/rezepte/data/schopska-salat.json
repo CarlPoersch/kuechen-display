@@ -1,0 +1,80 @@
+{
+ "id": "schopska-salat",
+ "title": "Schopska-Salat",
+ "icon": "🥗",
+ "cuisine": "Bulgarisch",
+ "servings": 4,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "2",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "1",
+   "name": "rote Zwiebel"
+  },
+  {
+   "amount": "200 g",
+   "name": "Feta"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sonnenblumenöl"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Tomaten, Gurke und Paprika in mundgerechte Würfel schneiden, Zwiebel in feine Ringe.",
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Mit Öl, Essig, Salz und Petersilie mischen.",
+   "use": [
+    5,
+    6,
+    7
+   ]
+  },
+  {
+   "text": "Den Feta direkt darüberreiben – so liegt er wie Schnee auf dem Salat.",
+   "use": [
+    4
+   ]
+  }
+ ],
+ "cat": "Salat",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "nutri": {
+  "kcal": 310,
+  "p": 11,
+  "kh": 15,
+  "z": 9,
+  "f": 24,
+  "bs": 4
+ },
+ "gf": true
+}

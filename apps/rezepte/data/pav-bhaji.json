@@ -1,0 +1,132 @@
+{
+ "id": "pav-bhaji",
+ "title": "Pav Bhaji (Gemüse-Curry mit Butterbrötchen)",
+ "icon": "🍞",
+ "cuisine": "Indisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "200 g",
+   "name": "Blumenkohl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Erbsen"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Garam Masala"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Chilipulver"
+  },
+  {
+   "amount": "80 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "8",
+   "name": "Brötchen"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln, Blumenkohl und Erbsen in Salzwasser weich kochen und grob zerstampfen.",
+   "minutes": 20,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Eine Zwiebel, Paprika, Knoblauch und Ingwer fein hacken und in der Hälfte der Butter weich braten.",
+   "minutes": 6,
+   "use": [
+    4,
+    3,
+    6,
+    7,
+    13,
+    10
+   ]
+  },
+  {
+   "text": "Gewürfelte Tomaten und Gewürze (Garam Masala, Chilipulver) dazugeben und einkochen, bis die Tomaten zerfallen.",
+   "minutes": 8,
+   "use": [
+    5,
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Gemüsestampf dazugeben, mit etwas Wasser zu einem dicken Mus rühren und kräftig abschmecken.",
+   "minutes": 5,
+   "use": []
+  },
+  {
+   "text": "Brötchen aufschneiden und in der restlichen Butter in der Pfanne rösten.",
+   "use": [
+    11,
+    13,
+    10
+   ]
+  },
+  {
+   "text": "Mit gehackter roher Zwiebel, Koriander, Zitrone und noch einem Stück Butter servieren.",
+   "use": [
+    4,
+    13,
+    12,
+    10
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 700,
+  "p": 20,
+  "kh": 111,
+  "z": 16,
+  "f": 21,
+  "bs": 14
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "id": "sabich",
+ "title": "Sabich (Pita mit Aubergine und Ei)",
+ "icon": "🥙",
+ "cuisine": "Israelisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "2",
+   "name": "Auberginen"
+  },
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "4",
+   "name": "Pitabrote"
+  },
+  {
+   "amount": "150 g",
+   "name": "Hummus"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Tahinsauce"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Salatgurke"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "2",
+   "name": "Gewürzgurken"
+  },
+  {
+   "amount": "6 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Auberginen in 1 cm dicke Scheiben schneiden, salzen, mit Olivenöl bestreichen und im Ofen bei 220 °C goldbraun backen.",
+   "minutes": 25,
+   "use": [
+    0,
+    9
+   ]
+  },
+  {
+   "text": "Eier hart kochen und in Scheiben schneiden.",
+   "minutes": 10,
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Tomaten, Gurke und Petersilie fein würfeln und mit Zitrone und Salz zu Salat mischen.",
+   "use": [
+    5,
+    6,
+    7,
+    10
+   ]
+  },
+  {
+   "text": "Pita aufschneiden, mit Hummus bestreichen und mit Aubergine, Ei, Salat und Gurkenscheiben füllen. Mit Tahinsauce beträufeln.",
+   "use": [
+    3,
+    0,
+    4
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 660,
+  "p": 21,
+  "kh": 57,
+  "z": 11,
+  "f": 40,
+  "bs": 11
+ }
+}

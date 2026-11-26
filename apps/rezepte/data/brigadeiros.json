@@ -1,0 +1,61 @@
+{
+ "id": "brigadeiros",
+ "title": "Brigadeiros (Schoko-Trüffel)",
+ "icon": "🍫",
+ "cuisine": "Brasilianisch",
+ "servings": 6,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "gezuckerte Kondensmilch"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Kakao"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "80 g",
+   "name": "Schokoraspel"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kondensmilch, Kakao und Butter in einem Topf bei mittlerer Hitze ständig rühren.",
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Die Masse ist fertig, wenn sie sich als Ganzes vom Topfboden löst. Auf einen gebutterten Teller geben und abkühlen lassen.",
+   "minutes": 30,
+   "use": []
+  },
+  {
+   "text": "Mit gebutterten Händen kleine Kugeln rollen und in Schokoraspeln wälzen.",
+   "use": [
+    3
+   ]
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 30,
+ "nutri": {
+  "kcal": 190,
+  "p": 6,
+  "kh": 13,
+  "z": 12,
+  "f": 12,
+  "bs": 2
+ },
+ "gf": true
+}

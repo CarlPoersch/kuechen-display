@@ -1,0 +1,96 @@
+{
+ "id": "chakhokhbili",
+ "title": "Chakhokhbili (Hähnchen-Tomaten-Schmortopf)",
+ "icon": "🍅",
+ "cuisine": "Georgisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "800 g",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chilischote"
+  },
+  {
+   "amount": "1 TL",
+   "name": "gemahlener Koriander"
+  },
+  {
+   "amount": "1 TL",
+   "name": "edelsüßes Paprikapulver"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Koriander"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Basilikum"
+  },
+  {
+   "amount": "1",
+   "name": "Fladenbrot"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen ohne Fett in einem Schmortopf von allen Seiten braun anbraten.",
+   "minutes": 12,
+   "use": []
+  },
+  {
+   "text": "Zwiebeln in Ringe schneiden, dazugeben und im Bratfett weich dünsten.",
+   "minutes": 8,
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Tomaten häuten und würfeln, mit Gewürzen (Gemahlener Koriander, edelsüßes Paprikapulver) dazugeben und zugedeckt schmoren.",
+   "minutes": 30,
+   "use": [
+    2,
+    5,
+    6
+   ]
+  },
+  {
+   "text": "Knoblauch, Chili und Kräuter (Koriander, Basilikum) fein hacken, unterrühren und kurz ziehen lassen. Mit Brot servieren.",
+   "minutes": 5,
+   "use": [
+    3,
+    4,
+    9,
+    7,
+    8
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60,
+ "nutri": {
+  "kcal": 490,
+  "p": 38,
+  "kh": 31,
+  "z": 9,
+  "f": 24,
+  "bs": 5
+ }
+}

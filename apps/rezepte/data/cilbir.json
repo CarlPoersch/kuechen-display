@@ -1,0 +1,88 @@
+{
+ "id": "cilbir",
+ "title": "Çılbır (pochierte Eier auf Knoblauchjoghurt)",
+ "icon": "🥚",
+ "cuisine": "Türkisch",
+ "servings": 2,
+ "time": "ca. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Eier"
+  },
+  {
+   "amount": "300 g",
+   "name": "griechischer Joghurt"
+  },
+  {
+   "amount": "1",
+   "name": "Knoblauchzehe"
+  },
+  {
+   "amount": "40 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Pul Biber"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Dill"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Essig"
+  },
+  {
+   "amount": "2",
+   "name": "Fladenbrote"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Joghurt mit gepresstem Knoblauch und Salz verrühren und auf zwei Teller streichen – er soll Zimmertemperatur haben.",
+   "use": [
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Wasser mit Essig zum Sieden bringen, einen Strudel rühren und die Eier einzeln darin pochieren.",
+   "minutes": 4,
+   "use": [
+    6,
+    0
+   ]
+  },
+  {
+   "text": "Butter aufschäumen lassen und Pul Biber einrühren.",
+   "minutes": 1,
+   "use": [
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Eier auf den Joghurt setzen, mit Chilibutter beträufeln, mit Dill bestreuen und mit warmem Brot servieren.",
+   "use": [
+    0,
+    1,
+    3,
+    5
+   ]
+  }
+ ],
+ "cat": "Frühstück",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 15,
+ "nutri": {
+  "kcal": 820,
+  "p": 33,
+  "kh": 71,
+  "z": 9,
+  "f": 45,
+  "bs": 4
+ }
+}

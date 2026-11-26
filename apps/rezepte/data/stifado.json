@@ -1,0 +1,118 @@
+{
+ "id": "stifado",
+ "title": "Stifado (Rindfleisch-Schmortopf mit Perlzwiebeln)",
+ "icon": "🥘",
+ "cuisine": "Griechisch",
+ "servings": 4,
+ "time": "ca. 2 Std. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "1 kg",
+   "name": "Rindergulasch"
+  },
+  {
+   "amount": "600 g",
+   "name": "Perlzwiebeln oder Schalotten"
+  },
+  {
+   "amount": "3",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Rotwein"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Rotweinessig"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "4",
+   "name": "Nelken"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Piment"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "300 g",
+   "name": "Orzo"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebeln kurz überbrühen und schälen.",
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "Fleisch portionsweise in Olivenöl kräftig anbraten.",
+   "minutes": 10,
+   "use": [
+    11,
+    0
+   ]
+  },
+  {
+   "text": "Zwiebeln und Knoblauch dazugeben und anrösten, Tomatenmark mitrösten.",
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Mit Wein und Essig ablöschen, Tomaten, Gewürze (Zimtstange, Nelken, Lorbeerblätter, Piment) und etwas Wasser dazugeben und zugedeckt sanft schmoren.",
+   "minutes": 120,
+   "use": [
+    5,
+    6,
+    4,
+    7,
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "text": "Orzo kochen und dazu servieren.",
+   "use": [
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 150,
+ "nutri": {
+  "kcal": 890,
+  "p": 66,
+  "kh": 76,
+  "z": 14,
+  "f": 31,
+  "bs": 7
+ }
+}

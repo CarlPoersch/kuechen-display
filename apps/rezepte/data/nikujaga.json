@@ -1,0 +1,119 @@
+{
+ "id": "nikujaga",
+ "title": "Nikujaga (Rindfleisch-Kartoffel-Schmorgericht)",
+ "icon": "🥔",
+ "cuisine": "Japanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "300 g",
+   "name": "Rinderhüfte"
+  },
+  {
+   "amount": "600 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "100 g",
+   "name": "Zuckerschoten"
+  },
+  {
+   "amount": "500 ml",
+   "name": "Dashi"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Mirin"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Sake"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Sushireis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Fleisch in hauchdünne Scheiben, Kartoffeln in große Stücke, Zwiebel in Spalten, Karotten schräg schneiden.",
+   "use": [
+    1,
+    2,
+    3,
+    0
+   ]
+  },
+  {
+   "text": "Fleisch in Öl kurz anbraten, Zwiebel, Kartoffeln und Karotten dazugeben.",
+   "minutes": 3,
+   "use": [
+    10,
+    2,
+    1,
+    3,
+    0
+   ]
+  },
+  {
+   "text": "Dashi, Sake, Zucker und Mirin dazugeben, aufkochen und abschäumen. Mit einem Stück Backpapier als Deckel köcheln.",
+   "minutes": 10,
+   "use": [
+    5,
+    8,
+    4,
+    9,
+    7
+   ]
+  },
+  {
+   "text": "Sojasauce dazugeben und weiter köcheln, bis die Kartoffeln weich sind.",
+   "minutes": 12,
+   "use": [
+    6,
+    1
+   ]
+  },
+  {
+   "text": "Zuckerschoten kurz mitgaren und mit Reis servieren.",
+   "minutes": 3,
+   "use": [
+    4,
+    11
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 580,
+  "p": 27,
+  "kh": 93,
+  "z": 15,
+  "f": 9,
+  "bs": 6
+ }
+}

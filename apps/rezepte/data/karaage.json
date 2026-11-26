@@ -1,0 +1,98 @@
+{
+ "id": "karaage",
+ "title": "Karaage (japanisches Brathähnchen)",
+ "icon": "🍗",
+ "cuisine": "Japanisch",
+ "servings": 4,
+ "time": "ca. 50 Min.",
+ "ingredients": [
+  {
+   "amount": "700 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sake"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gerieben"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "100 g",
+   "name": "Kartoffelstärke"
+  },
+  {
+   "amount": "1 l",
+   "name": "Öl (zum Frittieren)"
+  },
+  {
+   "amount": "1",
+   "name": "Zitrone"
+  },
+  {
+   "amount": "4 EL",
+   "name": "japanische Mayonnaise"
+  },
+  {
+   "amount": "¼",
+   "name": "Weißkohl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit Haut in große Stücke schneiden und mit Sojasauce, Sake, Ingwer und Knoblauch marinieren.",
+   "minutes": 30,
+   "use": [
+    1,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Stücke gut abtropfen lassen und in Stärke wenden.",
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Bei 165 °C hellgolden frittieren, herausnehmen und kurz ruhen lassen.",
+   "minutes": 4,
+   "use": []
+  },
+  {
+   "text": "Bei 190 °C ein zweites Mal kurz frittieren – das macht sie extra knusprig.",
+   "minutes": 1,
+   "use": []
+  },
+  {
+   "text": "Mit Zitrone, Mayonnaise und fein gehobeltem Kohl servieren.",
+   "use": [
+    7,
+    8,
+    9
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "mittel",
+ "min": 50,
+ "nutri": {
+  "kcal": 630,
+  "p": 34,
+  "kh": 28,
+  "z": 2,
+  "f": 41,
+  "bs": 2
+ }
+}

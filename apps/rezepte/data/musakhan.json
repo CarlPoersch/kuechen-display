@@ -1,0 +1,100 @@
+{
+ "id": "musakhan",
+ "title": "Musakhan (Sumach-Hähnchen auf Zwiebeln)",
+ "icon": "🍗",
+ "cuisine": "Palästinensisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Hähnchenschenkel"
+  },
+  {
+   "amount": "5",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Sumach"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Piment"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Kreuzkümmel"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "4",
+   "name": "Fladenbrote"
+  },
+  {
+   "amount": "40 g",
+   "name": "Pinienkerne"
+  },
+  {
+   "amount": "150 g",
+   "name": "Joghurt"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen mit 1 EL Sumach, Piment, Kreuzkümmel, Salz und etwas Öl einreiben und bei 200 °C backen.",
+   "minutes": 40,
+   "use": [
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Zwiebeln in Streifen schneiden und im restlichen Olivenöl langsam weich und süß schmoren. 2 EL Sumach unterrühren.",
+   "minutes": 25,
+   "use": [
+    1,
+    5,
+    2
+   ]
+  },
+  {
+   "text": "Pinienkerne ohne Fett rösten.",
+   "use": [
+    7
+   ]
+  },
+  {
+   "text": "Fladenbrote mit Zwiebeln belegen, Hähnchen darauflegen und noch kurz im Ofen knusprig backen.",
+   "minutes": 6,
+   "use": [
+    6,
+    1
+   ]
+  },
+  {
+   "text": "Mit Pinienkernen bestreuen und mit Joghurt servieren.",
+   "use": [
+    7,
+    8
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 75,
+ "nutri": {
+  "kcal": 1010,
+  "p": 48,
+  "kh": 78,
+  "z": 9,
+  "f": 56,
+  "bs": 7
+ }
+}

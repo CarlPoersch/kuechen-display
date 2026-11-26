@@ -1,0 +1,92 @@
+{
+ "id": "crema-catalana",
+ "title": "Crema Catalana",
+ "icon": "🍮",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 30 Min.",
+ "ingredients": [
+  {
+   "amount": "500 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Bio-Zitrone (Schale)"
+  },
+  {
+   "amount": "1",
+   "name": "Zimtstange"
+  },
+  {
+   "amount": "4",
+   "name": "Eigelb"
+  },
+  {
+   "amount": "80 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "4 EL",
+   "name": "brauner Zucker"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Milch mit Zitronenschale und Zimtstange aufkochen und ziehen lassen.",
+   "minutes": 10,
+   "use": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "text": "Eigelbe, Zucker und Stärke glatt rühren. Gewürze (Zimtstange) aus der Milch nehmen.",
+   "use": [
+    3,
+    4,
+    6,
+    5,
+    0,
+    2
+   ]
+  },
+  {
+   "text": "Milch unter Rühren zur Eimasse geben, zurück in den Topf und bei kleiner Hitze rühren, bis die Creme bindet.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "In flache Schälchen füllen und kalt stellen.",
+   "minutes": 120,
+   "use": []
+  },
+  {
+   "text": "Kurz vor dem Servieren mit braunem Zucker bestreuen und mit dem Brenner karamellisieren.",
+   "use": [
+    4,
+    6
+   ]
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 30,
+ "nutri": {
+  "kcal": 300,
+  "p": 7,
+  "kh": 46,
+  "z": 41,
+  "f": 10,
+  "bs": 0
+ },
+ "gf": true
+}

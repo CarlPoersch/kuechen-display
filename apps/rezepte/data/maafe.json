@@ -1,0 +1,118 @@
+{
+ "id": "maafe",
+ "title": "Maafe (Erdnuss-Eintopf mit Süßkartoffel)",
+ "icon": "🥜",
+ "cuisine": "Senegalesisch",
+ "servings": 4,
+ "time": "ca. 1 Std.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "Hähnchenschenkel ohne Knochen"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Ingwer, gehackt"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Tomatenmark"
+  },
+  {
+   "amount": "1 Dose",
+   "name": "stückige Tomaten"
+  },
+  {
+   "amount": "120 g",
+   "name": "Erdnussbutter"
+  },
+  {
+   "amount": "1",
+   "name": "Süßkartoffel"
+  },
+  {
+   "amount": "2",
+   "name": "Karotten"
+  },
+  {
+   "amount": "600 ml",
+   "name": "Hühnerbrühe"
+  },
+  {
+   "amount": "1",
+   "name": "rote Chilischote"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Öl"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchen würfeln und in Öl anbraten. Zwiebel, Knoblauch und Ingwer dazugeben und weich dünsten.",
+   "minutes": 10,
+   "use": [
+    11,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Tomatenmark mitrösten, dann Tomaten und Brühe dazugeben.",
+   "minutes": 2,
+   "use": [
+    4,
+    5,
+    9
+   ]
+  },
+  {
+   "text": "Erdnussbutter mit etwas heißer Brühe glatt rühren und einrühren.",
+   "use": [
+    6,
+    9
+   ]
+  },
+  {
+   "text": "Süßkartoffel und Karotten würfeln, mit der Chili dazugeben und leise köcheln, bis alles weich und die Sauce sämig ist.",
+   "minutes": 30,
+   "use": [
+    7,
+    8,
+    10
+   ]
+  },
+  {
+   "text": "Mit Reis servieren.",
+   "use": [
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 60,
+ "nutri": {
+  "kcal": 790,
+  "p": 39,
+  "kh": 82,
+  "z": 14,
+  "f": 34,
+  "bs": 8
+ },
+ "gf": true
+}

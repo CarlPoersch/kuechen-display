@@ -1,0 +1,89 @@
+{
+ "id": "pavlova",
+ "title": "Pavlova mit Sahne und Beeren",
+ "icon": "🍓",
+ "cuisine": "Australisch",
+ "servings": 8,
+ "time": "ca. 2 Std.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "Eiweiß"
+  },
+  {
+   "amount": "220 g",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Speisestärke"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Weißweinessig"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 Pck.",
+   "name": "Vanillezucker"
+  },
+  {
+   "amount": "400 g",
+   "name": "gemischte Beeren"
+  },
+  {
+   "amount": "2",
+   "name": "Maracujas"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 120 °C vorheizen. Eiweiß steif schlagen, Zucker langsam einrieseln lassen und weiterschlagen, bis die Masse glänzt.",
+   "minutes": 8,
+   "use": [
+    0,
+    1
+   ]
+  },
+  {
+   "text": "Stärke und Essig unterheben (sie machen die Mitte weich wie Marshmallow).",
+   "use": [
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Als großen Kreis mit Mulde auf Backpapier streichen und backen.",
+   "minutes": 90,
+   "use": []
+  },
+  {
+   "text": "Im ausgeschalteten Ofen bei leicht geöffneter Tür abkühlen lassen.",
+   "minutes": 60,
+   "use": []
+  },
+  {
+   "text": "Kurz vor dem Servieren mit Vanillesahne, Beeren und Maracuja belegen.",
+   "use": [
+    4,
+    6,
+    7
+   ]
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 120,
+ "nutri": {
+  "kcal": 260,
+  "p": 3,
+  "kh": 36,
+  "z": 34,
+  "f": 12,
+  "bs": 3
+ }
+}

@@ -1,0 +1,100 @@
+{
+ "id": "churros",
+ "title": "Churros mit Schokoladensauce",
+ "icon": "🍩",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "250 ml",
+   "name": "Wasser"
+  },
+  {
+   "amount": "50 g",
+   "name": "Butter"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Salz"
+  },
+  {
+   "amount": "150 g",
+   "name": "Mehl"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "1 l",
+   "name": "Öl (zum Frittieren)"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zimt"
+  },
+  {
+   "amount": "150 g",
+   "name": "Zartbitterschokolade"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Sahne"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Wasser, Butter und Salz aufkochen, Mehl auf einmal einrühren und rühren, bis sich ein Kloß bildet.",
+   "minutes": 2,
+   "use": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Teig kurz abkühlen lassen, dann die Eier nacheinander einarbeiten. In einen Spritzbeutel mit Sterntülle füllen.",
+   "use": [
+    4
+   ]
+  },
+  {
+   "text": "Öl auf 180 °C erhitzen, 12 cm lange Stränge hineinspritzen und goldbraun ausbacken.",
+   "minutes": 4,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Auf Küchenpapier abtropfen lassen und in Zimtzucker wälzen.",
+   "use": [
+    6
+   ]
+  },
+  {
+   "text": "Sahne erhitzen, Schokolade darin schmelzen und die Churros hineindippen.",
+   "use": [
+    9,
+    8
+   ]
+  }
+ ],
+ "cat": "Dessert",
+ "diet": "vegetarisch",
+ "level": "mittel",
+ "min": 40,
+ "nutri": {
+  "kcal": 800,
+  "p": 11,
+  "kh": 61,
+  "z": 32,
+  "f": 56,
+  "bs": 5
+ }
+}

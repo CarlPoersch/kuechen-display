@@ -1,0 +1,116 @@
+{
+ "id": "sinigang",
+ "title": "Sinigang na Hipon (saure Tamarinden-Suppe mit Garnelen)",
+ "icon": "🍲",
+ "cuisine": "Philippinisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Garnelen"
+  },
+  {
+   "amount": "1,5 l",
+   "name": "Wasser"
+  },
+  {
+   "amount": "3 EL",
+   "name": "Tamarindenpaste"
+  },
+  {
+   "amount": "2",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "1",
+   "name": "Rettich"
+  },
+  {
+   "amount": "200 g",
+   "name": "grüne Bohnen"
+  },
+  {
+   "amount": "1",
+   "name": "Aubergine"
+  },
+  {
+   "amount": "100 g",
+   "name": "Spinat"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Fischsauce"
+  },
+  {
+   "amount": "2",
+   "name": "grüne Chilis"
+  },
+  {
+   "amount": "250 g",
+   "name": "Reis"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Wasser mit Tomaten und Zwiebel in Spalten aufkochen.",
+   "minutes": 10,
+   "use": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Rettich in Scheiben, Aubergine in Stücke und Bohnen in Abschnitte schneiden, Rettich zuerst garen.",
+   "minutes": 8,
+   "use": [
+    5,
+    7,
+    6
+   ]
+  },
+  {
+   "text": "Tamarindenpaste und Fischsauce einrühren, Bohnen, Aubergine und Chilis dazugeben.",
+   "minutes": 6,
+   "use": [
+    2,
+    9,
+    6,
+    7,
+    10
+   ]
+  },
+  {
+   "text": "Garnelen hineingeben und nur gar ziehen lassen, zum Schluss den Spinat. Säuerlich abschmecken.",
+   "minutes": 3,
+   "use": [
+    0,
+    8
+   ]
+  },
+  {
+   "text": "Mit Reis servieren.",
+   "use": [
+    11
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 400,
+  "p": 26,
+  "kh": 71,
+  "z": 13,
+  "f": 2,
+  "bs": 7
+ },
+ "gf": true
+}

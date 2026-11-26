@@ -1,0 +1,100 @@
+{
+ "id": "imam-bayildi",
+ "title": "İmam Bayıldı (gefüllte Auberginen)",
+ "icon": "🍆",
+ "cuisine": "Türkisch",
+ "servings": 4,
+ "time": "ca. 1 Std. 15 Min.",
+ "ingredients": [
+  {
+   "amount": "4",
+   "name": "kleine Auberginen"
+  },
+  {
+   "amount": "3",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "4",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "4",
+   "name": "Tomaten"
+  },
+  {
+   "amount": "1",
+   "name": "grüne Paprika"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Zucker"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "200 ml",
+   "name": "Wasser"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Auberginen längs streifig schälen, salzen und 20 Minuten ziehen lassen, trocken tupfen.",
+   "minutes": 20,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "In der Hälfte des Olivenöls rundum anbraten, bis sie weich werden.",
+   "minutes": 10,
+   "use": [
+    7
+   ]
+  },
+  {
+   "text": "Zwiebeln in Streifen schneiden, mit Knoblauch und Paprika im restlichen Öl langsam weich schmoren. Gehäutete Tomaten, Zucker und Petersilie unterrühren.",
+   "minutes": 15,
+   "use": [
+    1,
+    2,
+    4,
+    7,
+    3,
+    6,
+    5
+   ]
+  },
+  {
+   "text": "Auberginen längs aufschneiden, in eine Form legen und üppig mit dem Gemüse füllen. Wasser angießen.",
+   "use": [
+    0,
+    8
+   ]
+  },
+  {
+   "text": "Bei 180 °C backen, bis sie butterweich sind. Lauwarm oder kalt servieren.",
+   "minutes": 35,
+   "use": []
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "vegan",
+ "level": "mittel",
+ "min": 75,
+ "nutri": {
+  "kcal": 350,
+  "p": 6,
+  "kh": 33,
+  "z": 19,
+  "f": 24,
+  "bs": 12
+ },
+ "gf": true
+}

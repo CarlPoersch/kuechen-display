@@ -1,0 +1,90 @@
+{
+ "id": "caldo-verde",
+ "title": "Caldo Verde (Kartoffel-Grünkohl-Suppe)",
+ "icon": "🥬",
+ "cuisine": "Portugiesisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "800 g",
+   "name": "mehligkochende Kartoffeln"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "250 g",
+   "name": "Grünkohl"
+  },
+  {
+   "amount": "150 g",
+   "name": "Chorizo"
+  },
+  {
+   "amount": "1,2 l",
+   "name": "Gemüsebrühe"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Zwiebel und Knoblauch hacken und in 2 EL Olivenöl andünsten. Kartoffeln schälen, würfeln und dazugeben.",
+   "minutes": 5,
+   "use": [
+    1,
+    2,
+    6,
+    0
+   ]
+  },
+  {
+   "text": "Mit Brühe aufgießen und weich kochen.",
+   "minutes": 20,
+   "use": [
+    5
+   ]
+  },
+  {
+   "text": "Grünkohl von den Stielen zupfen und in sehr feine Streifen schneiden. Chorizo in Scheiben schneiden und knusprig braten.",
+   "use": [
+    3,
+    4
+   ]
+  },
+  {
+   "text": "Suppe fein pürieren, Grünkohl hineingeben und kurz mitkochen, bis er hellgrün ist.",
+   "minutes": 4,
+   "use": [
+    3
+   ]
+  },
+  {
+   "text": "Mit Chorizo und einem Faden Olivenöl servieren.",
+   "use": [
+    4,
+    6
+   ]
+  }
+ ],
+ "cat": "Suppe",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 490,
+  "p": 18,
+  "kh": 44,
+  "z": 5,
+  "f": 28,
+  "bs": 7
+ }
+}

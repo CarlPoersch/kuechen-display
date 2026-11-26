@@ -1,0 +1,81 @@
+{
+ "id": "pao-de-queijo",
+ "title": "Pão de Queijo (Käsebällchen)",
+ "icon": "🧀",
+ "cuisine": "Brasilianisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "250 g",
+   "name": "Tapiokastärke (oder Kartoffelstärke)"
+  },
+  {
+   "amount": "125 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "60 ml",
+   "name": "Öl"
+  },
+  {
+   "amount": "1 TL",
+   "name": "Salz"
+  },
+  {
+   "amount": "2",
+   "name": "Eier"
+  },
+  {
+   "amount": "120 g",
+   "name": "Parmesan"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Ofen auf 200 °C vorheizen. Milch, Öl und Salz aufkochen.",
+   "minutes": 3,
+   "use": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "text": "Über die Stärke gießen und sofort glatt rühren, kurz abkühlen lassen.",
+   "minutes": 5,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Eier nacheinander einarbeiten, dann den geriebenen Käse – der Teig ist klebrig.",
+   "use": [
+    4,
+    5
+   ]
+  },
+  {
+   "text": "Mit geölten Händen walnussgroße Kugeln formen und auf ein Blech setzen.",
+   "use": []
+  },
+  {
+   "text": "Goldgelb backen, bis sie aufgegangen sind. Warm essen – innen bleiben sie schön zäh.",
+   "minutes": 22,
+   "use": []
+  }
+ ],
+ "cat": "Snack",
+ "diet": "vegetarisch",
+ "level": "einfach",
+ "min": 40,
+ "nutri": {
+  "kcal": 520,
+  "p": 15,
+  "kh": 55,
+  "z": 2,
+  "f": 27,
+  "bs": 1
+ },
+ "gf": true
+}

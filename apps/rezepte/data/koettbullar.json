@@ -1,0 +1,121 @@
+{
+ "id": "koettbullar",
+ "title": "Köttbullar mit Rahmsauce und Preiselbeeren",
+ "icon": "🧆",
+ "cuisine": "Schwedisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "500 g",
+   "name": "gemischtes Hackfleisch"
+  },
+  {
+   "amount": "1",
+   "name": "Zwiebel"
+  },
+  {
+   "amount": "40 g",
+   "name": "Paniermehl"
+  },
+  {
+   "amount": "100 ml",
+   "name": "Milch"
+  },
+  {
+   "amount": "1",
+   "name": "Ei"
+  },
+  {
+   "amount": "1 Prise",
+   "name": "Piment"
+  },
+  {
+   "amount": "2 EL",
+   "name": "Butter"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Rinderbrühe"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Sahne"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Sojasauce"
+  },
+  {
+   "amount": "1 EL",
+   "name": "Mehl"
+  },
+  {
+   "amount": "800 g",
+   "name": "Kartoffeln"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Preiselbeeren"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Paniermehl in Milch einweichen. Zwiebel sehr fein reiben. Kartoffeln kochen.",
+   "minutes": 20,
+   "use": [
+    2,
+    10,
+    3,
+    1,
+    11
+   ]
+  },
+  {
+   "text": "Hack mit Brösel-Milch, Zwiebel, Ei, Piment, Salz und Pfeffer verkneten und kleine Bällchen formen.",
+   "use": [
+    3,
+    1,
+    4,
+    5
+   ]
+  },
+  {
+   "text": "In Butter rundum goldbraun braten und herausnehmen.",
+   "minutes": 10,
+   "use": [
+    6
+   ]
+  },
+  {
+   "text": "Mehl im Bratfett anschwitzen, mit Brühe und Sahne ablöschen, Sojasauce dazugeben und sämig köcheln.",
+   "minutes": 5,
+   "use": [
+    10,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "text": "Bällchen in der Sauce erwärmen und mit Kartoffeln und Preiselbeeren servieren.",
+   "use": [
+    9,
+    11,
+    12
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 750,
+  "p": 31,
+  "kh": 49,
+  "z": 6,
+  "f": 47,
+  "bs": 6
+ }
+}

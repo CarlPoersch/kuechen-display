@@ -1,0 +1,106 @@
+{
+ "id": "bacalhau-a-bras",
+ "title": "Bacalhau à Brás (Stockfisch mit Kartoffelstroh und Ei)",
+ "icon": "🐟",
+ "cuisine": "Portugiesisch",
+ "servings": 4,
+ "time": "ca. 40 Min.",
+ "ingredients": [
+  {
+   "amount": "400 g",
+   "name": "Kabeljaufilet (oder gewässerter Stockfisch)"
+  },
+  {
+   "amount": "500 g",
+   "name": "festkochende Kartoffeln"
+  },
+  {
+   "amount": "2",
+   "name": "Zwiebeln"
+  },
+  {
+   "amount": "2",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "6",
+   "name": "Eier"
+  },
+  {
+   "amount": "12",
+   "name": "schwarze Oliven"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "300 ml",
+   "name": "Öl (zum Frittieren)"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Kartoffeln schälen und in sehr feine Streifen hobeln, gut trocken tupfen.",
+   "use": [
+    1
+   ]
+  },
+  {
+   "text": "In heißem Öl portionsweise goldgelb frittieren und salzen.",
+   "minutes": 8,
+   "use": [
+    8
+   ]
+  },
+  {
+   "text": "Fisch in Salzwasser kurz gar ziehen lassen und in Flocken zerpflücken.",
+   "minutes": 6,
+   "use": [
+    0
+   ]
+  },
+  {
+   "text": "Zwiebeln in Streifen schneiden und mit Knoblauch in Olivenöl weich dünsten, Fisch dazugeben.",
+   "minutes": 8,
+   "use": [
+    2,
+    3,
+    7,
+    0
+   ]
+  },
+  {
+   "text": "Kartoffelstroh unterheben, verquirlte Eier darübergeben und bei kleiner Hitze nur cremig stocken lassen.",
+   "minutes": 2,
+   "use": [
+    1,
+    4
+   ]
+  },
+  {
+   "text": "Mit Oliven und Petersilie servieren.",
+   "use": [
+    5,
+    6
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fisch",
+ "level": "mittel",
+ "min": 40,
+ "nutri": {
+  "kcal": 480,
+  "p": 32,
+  "kh": 27,
+  "z": 4,
+  "f": 28,
+  "bs": 4
+ },
+ "gf": true
+}

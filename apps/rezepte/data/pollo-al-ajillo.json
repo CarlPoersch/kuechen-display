@@ -1,0 +1,88 @@
+{
+ "id": "pollo-al-ajillo",
+ "title": "Pollo al Ajillo (Knoblauch-Hähnchen)",
+ "icon": "🧄",
+ "cuisine": "Spanisch",
+ "servings": 4,
+ "time": "ca. 45 Min.",
+ "ingredients": [
+  {
+   "amount": "1,2 kg",
+   "name": "Hähnchenteile"
+  },
+  {
+   "amount": "12",
+   "name": "Knoblauchzehen"
+  },
+  {
+   "amount": "150 ml",
+   "name": "Weißwein"
+  },
+  {
+   "amount": "2",
+   "name": "Lorbeerblätter"
+  },
+  {
+   "amount": "1 Zweig",
+   "name": "Thymian"
+  },
+  {
+   "amount": "4 EL",
+   "name": "Olivenöl"
+  },
+  {
+   "amount": "½ Bund",
+   "name": "Petersilie"
+  },
+  {
+   "amount": "1",
+   "name": "Baguette"
+  }
+ ],
+ "steps": [
+  {
+   "text": "Hähnchenteile salzen und in Olivenöl rundum goldbraun braten.",
+   "minutes": 12,
+   "use": [
+    0,
+    5
+   ]
+  },
+  {
+   "text": "Knoblauchzehen ungeschält leicht andrücken, mit Lorbeer und Thymian dazugeben und mitbraten.",
+   "minutes": 3,
+   "use": [
+    1,
+    4
+   ]
+  },
+  {
+   "text": "Mit Weißwein ablöschen und zugedeckt schmoren, bis das Fleisch gar ist.",
+   "minutes": 25,
+   "use": [
+    2,
+    0
+   ]
+  },
+  {
+   "text": "Deckel abnehmen, Sauce etwas einkochen, mit Petersilie bestreuen und mit Baguette zum Auftunken servieren.",
+   "minutes": 5,
+   "use": [
+    6,
+    7
+   ]
+  }
+ ],
+ "cat": "Hauptgericht",
+ "diet": "fleisch",
+ "level": "einfach",
+ "min": 45,
+ "nutri": {
+  "kcal": 720,
+  "p": 45,
+  "kh": 38,
+  "z": 2,
+  "f": 40,
+  "bs": 2
+ }
+}
