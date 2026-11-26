@@ -5,9 +5,9 @@ import naehrwerte, schritte
 
 RECIPES = []
 
-def R(id, title, icon, cuisine, servings, time, ings, steps, airfryer=False, cat=None, level=None, diet=None):
+def R(id, title, icon, cuisine, servings, time, ings, steps, airfryer=False, cat=None, level=None, diet=None, source=None):
     RECIPES.append(dict(id=id, title=title, icon=icon, cuisine=cuisine, servings=servings,
-                        time=time, ings=ings, steps=steps, airfryer=airfryer, cat=cat, level=level, diet=diet))
+                        time=time, ings=ings, steps=steps, airfryer=airfryer, cat=cat, level=level, diet=diet, source=source))
 
 OLD_DIET = {"af-gyoza": "fleisch", "rotkohl": "vegetarisch"}
 
@@ -105,6 +105,7 @@ def build(out_dir):
                 "servings": r["servings"], "time": r["time"], "ingredients": ingredients, "steps": steps,
                 "cat": cat, "diet": r["diet"] or OLD_DIET.get(r["id"]) or classify_diet(names), "level": r["level"] or guess_level(minutes, steps, names)}
         if minutes: data["min"] = minutes
+        if r.get("source"): data["source"] = r["source"]
         # Zutaten je Schritt (mit „Gemüse (…) würfeln“) und Nährwerte pro Portion
         raw = {"ingredients": ingredients, "steps": steps, "servings": r["servings"]}
         schritte.annotate(raw)
