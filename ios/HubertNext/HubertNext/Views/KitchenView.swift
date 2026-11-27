@@ -107,19 +107,23 @@ func cookedText(_ m: RecipeMeta) -> String? {
 
 struct RecipesTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
+    @Environment(\.horizontalSizeClass) private var hSize
     @State private var query = ""
-    @State private var category = "Alle"
-    @State private var cuisine = "Alle"
     @State private var filter = RecipeFilter(diet: DietPreference.kitchen)   // Voreinstellung der Küche, sonst „Alle“
     @AppStorage("hubert.diet.kitchen") private var dietPref = "Alle"
+    @AppStorage("hubert.kitchen.daily") private var showDaily = true          // Rezept des Tages oben
+    @AppStorage("hubert.kitchen.dailyAsked") private var dailyAsked = false   // beim ersten Öffnen gefragt?
+    @State private var askDaily = false
     @State private var showFilter = false
-    @State private var suggestion: RecipeSummary?
     @State private var sheet: Sheet?
-    @State private var pendingOpen: String?      // aus der Statistik gewählt – öffnet nach dem Schließen
+    @State private var pendingOpen: String?      // aus Statistik/Würfel gewählt – öffnet nach dem Schließen
+    @State private var pendingCook: (Recipe, Int)?
     @State private var openId = ""
     @State private var opening = false
+    @State private var openAirfryer = false
+    @ObservedObject private var session = CookSession.shared
 
-    enum Sheet: String, Identifiable { case new, link, cookbook, stats; var id: String { rawValue } }
+    enum Sheet: String, Identifiable { case new, link, cookbook, stats, dice; var id: String { rawValue } }
 
     @ObservedObject private var jump = RecipeJump.shared
 
@@ -127,199 +131,64 @@ struct RecipesTab: View {
     private func takeJump() {
         guard let z = jump.pending else { return }
         jump.pending = nil
-        query = ""; category = "Alle"; cuisine = "Alle"; suggestion = nil
+        query = ""
         var f = RecipeFilter(diet: filter.diet)
         f.include = [z]
         withAnimation { filter = f }
     }
 
-    private var list: [RecipeSummary] { matching(filter).map(\.0) }
+    private func matching(_ f: RecipeFilter) -> [(RecipeSummary, [String])] { f.apply(kitchen.recipes, query: query) }
 
-    /// Passende Rezepte mit fehlenden Zutaten (nur bei „Mit meinem Vorrat“ gefüllt)
-    private func matching(_ f: RecipeFilter) -> [(RecipeSummary, [String])] {
-        let q = query.lowercased().trimmingCharacters(in: .whitespaces)
-        let pantryKeys = f.pantry ? kitchen.pantry.map { FoodCatalog.key($0.name) } : []
-        var out: [(RecipeSummary, [String])] = []
-        for r in kitchen.recipes {
-            let ing = (r.ing ?? []).map { $0.lowercased() }
-            if !q.isEmpty && !(r.title.lowercased().contains(q) || (r.cuisine ?? "").lowercased().contains(q) || ing.contains(where: { $0.contains(q) })) { continue }
-            if category != "Alle" && r.cat != category { continue }
-            if cuisine != "Alle" && (r.cuisine ?? "Sonstige") != cuisine { continue }
-            let m = kitchen.meta[r.id]
-            switch f.collection {
-            case "Eigene": if r.owner == nil { continue }
-            case "Airfryer": if r.airfryer != true { continue }
-            case "Favoriten": if m?.favorite != true { continue }
-            case "Lange nicht": if let d = m?.lastCookedDate, Date().timeIntervalSince(d) <= 21 * 86400 { continue }
-            default: break
-            }
-            if !RecipeFilter.fits(r, diet: f.diet) { continue }
-            if f.glutenFree && r.gf != true { continue }
-            if f.maxMinutes > 0 && (r.minutes ?? 999) > f.maxMinutes { continue }
-            if f.level != "Alle" && r.level != f.level { continue }
-            // Zutaten: mit Oberbegriffen, Varianten und anderen Namen (IngredientSearch)
-            if !f.include.allSatisfy({ IngredientSearch.has(r, $0) }) { continue }
-            var missing: [String] = []
-            if f.pantry {
-                missing = PantryMatch.missing(r, pantry: pantryKeys)
-                if missing.count > f.maxMissing { continue }
-            }
-            out.append((r, missing))
-        }
-        if f.pantry { out.sort { $0.1.count < $1.1.count } }
-        else if f.collection == "Favoriten" {
-            // Lange nicht (oder nie) Gekochtes zuerst, damit nicht immer dieselben oben stehen
-            out.sort { (kitchen.meta[$0.0.id]?.lastCookedDate ?? .distantPast) < (kitchen.meta[$1.0.id]?.lastCookedDate ?? .distantPast) }
-        }
-        return out
-    }
+    private var favs: Bool { filter.collection == "Favoriten" }
 
     var body: some View {
         let results = matching(filter)   // einmal pro Zeichnen
+        let chips = filter.chips
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                HStack(spacing: 10) {
-                    HStack {
-                        Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
-                        TextField("Rezept oder Zutat suchen", text: $query).disableAutocorrection(true)
-                        if !query.isEmpty {
-                            Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundColor(Theme.secondary) }
-                                .buttonStyle(.borderless)
-                        }
-                    }
-                    .padding(10)
-                    .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
-                    Button { showFilter = true } label: {
-                        Image(systemName: filter.isActive ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease")
-                            .font(.headline).foregroundColor(filter.isActive ? .white : Theme.accent)
-                            .frame(width: 40, height: 40)
-                            .background(Circle().fill(filter.isActive ? Theme.accent : Color(UIColor.tertiarySystemFill)))
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityLabel(filter.isActive ? "Filter (aktiv)" : "Filter")
+                searchRow(active: chips.count)
+
+                // Rezept des Tages – schmale Zeile, nur ohne Suche/Filter (abschaltbar unter ⋯)
+                if showDaily && query.isEmpty && filter == RecipeFilter(diet: dietPref), let r = kitchen.recipeOfTheDay() {
+                    NavigationLink(destination: RecipeDetailView(id: r.id)) { dailyRow(r) }
+                        .buttonStyle(.plain)
                 }
 
-                // Rezept des Tages (früher eigener Bucket) – nur ohne Suche/Filter, damit die Liste oben bleibt
-                if query.isEmpty && filter == RecipeFilter(diet: dietPref), let r = kitchen.recipeOfTheDay() {
-                    NavigationLink(destination: RecipeDetailView(id: r.id)) {
-                        HStack(spacing: 14) {
-                            Text(r.icon).font(.system(size: 44))
-                            VStack(alignment: .leading, spacing: 3) {
-                                Text("REZEPT DES TAGES").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
-                                Text(r.title).font(.headline).foregroundColor(.primary).lineLimit(2)
-                                Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · "))
-                                    .font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
-                            }
-                            Spacer(minLength: 0)
-                            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
-                        }
-                        .padding(14)
-                        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
-                    }
-                    .buttonStyle(.plain)
-                }
-
-                // Schnellwahl: Mit dem Vorrat kochen und Airfryer – direkt sichtbar statt im Filter
-                HStack(spacing: 10) {
-                    QuickTile(emoji: "🧺", title: "Mit meinem Vorrat", detail: pantryDetail, on: filter.pantry) {
-                        withAnimation { filter.pantry.toggle(); suggestion = nil }
-                    }
-                    QuickTile(emoji: "🔥", title: "Airfryer", detail: "\(kitchen.recipes.filter { $0.airfryer == true }.count) Rezepte",
-                              on: filter.collection == "Airfryer") {
-                        withAnimation { filter.collection = filter.collection == "Airfryer" ? "Alle" : "Airfryer"; suggestion = nil }
-                    }
-                }
-                if filter.collection == "Airfryer" {
-                    NavigationLink(destination: AirfryerTab().navigationTitle("Airfryer").navigationBarTitleDisplayMode(.inline)) {
-                        HStack(spacing: 12) {
-                            Image(systemName: "thermometer").font(.headline).foregroundColor(.orange)
-                                .frame(width: 32, height: 32).background(Circle().fill(Color.orange.opacity(0.15)))
-                            VStack(alignment: .leading, spacing: 1) {
-                                Text("Backofen umrechnen & Garzeiten").font(.subheadline.weight(.semibold)).foregroundColor(.primary)
-                                Text("Temperatur, Zeit und Spickzettel für den Airfryer").font(.caption).foregroundColor(Theme.secondary)
-                            }
-                            Spacer(minLength: 0)
-                            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
-                        }
-                        .padding(12)
-                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.card))
-                    }
-                    .buttonStyle(.plain)
-                    .transition(.opacity)
-                }
-
-                // Kategorien
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(RecipeFilter.categories, id: \.0) { c in
-                            Button { withAnimation { category = c.0; suggestion = nil } } label: {
-                                HStack(spacing: 5) {
-                                    Text(c.1)
-                                    Text(c.0 == "Alle" ? "Alle Gerichte" : c.0).font(.subheadline.weight(.semibold))
-                                }
-                                .padding(.horizontal, 14).padding(.vertical, 7)
-                                .foregroundColor(category == c.0 ? .white : .primary)
-                                .background(Capsule().fill(category == c.0 ? Theme.accent : Theme.card))
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                }
-
-                // Länder / Küchen
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach([("Alle", kitchen.recipes.count)] + cuisines, id: \.0) { c in
-                            Button { withAnimation { cuisine = c.0; suggestion = nil } } label: {
-                                HStack(spacing: 5) {
-                                    Text(c.0 == "Alle" ? "🌍" : Self.flag(c.0))
-                                    Text(c.0 == "Alle" ? "Alle Länder" : c.0).font(.subheadline.weight(.medium))
-                                    Text("\(c.1)").font(.caption).foregroundColor(cuisine == c.0 ? .white.opacity(0.8) : Theme.secondary)
-                                }
-                                .padding(.horizontal, 12).padding(.vertical, 6)
-                                .foregroundColor(cuisine == c.0 ? .white : .primary)
-                                .background(Capsule().fill(cuisine == c.0 ? Theme.accent : Theme.card))
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                }
-
-                // Aktive Filter – antippen entfernt sie
-                let chips = otherChips
+                // Aktive Filter – nur sichtbar, wenn etwas gesetzt ist; antippen entfernt
                 if !chips.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 8) {
                             ForEach(Array(chips.enumerated()), id: \.offset) { _, c in
                                 Button { withAnimation { c.clear(&filter) } } label: {
                                     HStack(spacing: 4) {
-                                        Text(c.label).font(.subheadline.weight(.medium))
+                                        Text(c.label).font(.subheadline.weight(.medium)).lineLimit(1)
                                         Image(systemName: "xmark").font(.caption2.weight(.bold))
                                     }
                                     .foregroundColor(Theme.accent)
-                                    .padding(.horizontal, 12).padding(.vertical, 6)
+                                    .padding(.horizontal, 12).frame(minHeight: 32)
                                     .background(Capsule().fill(Theme.accent.opacity(0.14)))
                                 }
                                 .buttonStyle(.plain)
                                 .accessibilityLabel("Filter \(c.label) entfernen")
                             }
-                            Button("Alle zurücksetzen") { withAnimation { filter = RecipeFilter() } }
+                            Button("Alle löschen") { withAnimation { filter = RecipeFilter() } }
                                 .font(.subheadline).buttonStyle(.borderless)
                         }
                     }
                 }
 
-                if let r = suggestion { suggestionCard(r) }
+                // Airfryer gewählt: Umrechner gleich mit anbieten
+                if filter.airfryer { airfryerHint }
 
                 if kitchen.recipes.isEmpty {
                     ProgressView().frame(maxWidth: .infinity).padding(.top, 40)
                 } else if results.isEmpty {
                     VStack(spacing: 10) {
                         Text(filter.pantry && kitchen.pantry.isEmpty ? "Trag im Vorrat ein, was du da hast – dann zeigt Hubert, was sich damit kochen lässt."
-                             : filter.collection == "Favoriten" && kitchen.favorites.isEmpty ? "Noch keine Favoriten – tipp bei einem Rezept auf das Herz."
+                             : favs && kitchen.favorites.isEmpty ? "Noch keine Favoriten – tippe in einem Rezept auf das Herz oder halte eines gedrückt."
                              : "Keine passenden Rezepte").foregroundColor(Theme.secondary).multilineTextAlignment(.center)
-                        if filter.isActive || category != "Alle" || cuisine != "Alle" {
-                            Button("Filter zurücksetzen") { withAnimation { filter = RecipeFilter(); category = "Alle"; cuisine = "Alle" } }
+                        if filter.isActive || !query.isEmpty {
+                            Button("Filter zurücksetzen") { withAnimation { filter = RecipeFilter(); query = "" } }
                                 .buttonStyle(.borderless)
                         }
                     }
@@ -327,73 +196,163 @@ struct RecipesTab: View {
                 } else {
                     Text(results.count == 1 ? "1 Rezept" : "\(results.count) Rezepte")
                         .font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
-                }
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 165), spacing: 14)], spacing: 14) {
-                    ForEach(results, id: \.0.id) { item in
-                        NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
-                            RecipeCard(recipe: item.0, missing: filter.pantry ? item.1 : nil)
+                    if hSize == .compact {
+                        // iPhone: ruhige Liste – mehr Rezepte pro Bildschirm
+                        LazyVStack(spacing: 0) {
+                            ForEach(Array(results.enumerated()), id: \.element.0.id) { i, item in
+                                if i > 0 { Divider().padding(.leading, 70) }
+                                NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
+                                    RecipeRow(recipe: item.0, missing: filter.pantry ? item.1 : nil)
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
-                        .buttonStyle(.plain)
+                        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
+                    } else {
+                        // iPad / Wand-iPad: Kacheln
+                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 165), spacing: 14)], spacing: 14) {
+                            ForEach(results, id: \.0.id) { item in
+                                NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
+                                    RecipeCard(recipe: item.0, missing: filter.pantry ? item.1 : nil)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
                     }
                 }
             }
             .padding()
-            .padding(.bottom, 146)      // Platz für die schwebenden Knöpfe unten rechts
+            .padding(.bottom, 84)      // Platz für die Plus-Taste unten rechts
         }
-        // Hinzufügen und Zufall schweben unten rechts – gut mit dem Daumen erreichbar,
-        // die Suchzeile oben bleibt frei
-        .overlay(alignment: .bottomTrailing) { floatingButtons }
-        // Statistik braucht man selten → oben in der Leiste
+        .overlay(alignment: .bottomTrailing) { addButton }
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button { sheet = .stats } label: { Image(systemName: "chart.bar") }
-                    .accessibilityLabel("Koch-Statistik")
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                // Favoriten: nur Favoriten zeigen
+                Button { withAnimation(.easeOut(duration: 0.2)) { filter.collection = favs ? "Alle" : "Favoriten" } } label: {
+                    Image(systemName: favs ? "heart.fill" : "heart")
+                }
+                .accessibilityLabel(favs ? "Alle Rezepte zeigen" : "Nur Favoriten zeigen")
+                Button { sheet = .dice } label: { Image(systemName: "die.face.5") }
+                    .accessibilityLabel("Rezept würfeln")
+                Menu {
+                    Button { sheet = .stats } label: { Label("Koch-Statistik", systemImage: "chart.bar") }
+                    Button { openAirfryer = true } label: { Label("Airfryer umrechnen", systemImage: "thermometer") }
+                    Toggle(isOn: $showDaily) { Label("Rezept des Tages zeigen", systemImage: "sun.max") }
+                } label: { Image(systemName: "ellipsis.circle") }
+                .accessibilityLabel("Mehr")
             }
         }
-        .onChange(of: dietPref) { filter.diet = $0; suggestion = nil }
-        .onAppear(perform: takeJump)
+        .onChange(of: dietPref) { filter.diet = $0 }
+        .onAppear {
+            takeJump()
+            if !dailyAsked { askDaily = true }
+        }
         .onChange(of: jump.pending) { _ in takeJump() }
+        .alert("Rezept des Tages anzeigen?", isPresented: $askDaily) {
+            Button("Ja, gerne") { showDaily = true; dailyAsked = true }
+            Button("Nein") { showDaily = false; dailyAsked = true }
+        } message: {
+            Text("Oben in der Küche steht dann jeden Tag ein Vorschlag. Ändern kannst du das jederzeit unter „⋯“.")
+        }
         .sheet(isPresented: $showFilter) { RecipeFilterSheet(filter: $filter) { matching($0).count } }
         .sheet(item: $sheet, onDismiss: {
-            // Erst wenn die Statistik zu ist, das Rezept öffnen (sonst liegt es unter dem Blatt)
-            guard let id = pendingOpen else { return }
-            pendingOpen = nil
-            openId = id
-            opening = true
+            // Erst wenn das Blatt zu ist, das Rezept öffnen bzw. kochen (sonst liegt es darunter)
+            if let c = pendingCook {
+                pendingCook = nil
+                session.start(c.0, portions: c.1)
+            } else if let id = pendingOpen {
+                pendingOpen = nil
+                openId = id
+                opening = true
+            }
         }) { s in
             switch s {
             case .new: NewRecipeSheet()
             case .link: ImportLinkSheet()
             case .cookbook: CookbookSheet()
             case .stats: KitchenStatsView { pendingOpen = $0 }
+            case .dice: RecipeDiceSheet(onOpen: { pendingOpen = $0 }, onCook: { pendingCook = ($0, $1) })
             }
         }
         .background(
-            NavigationLink(destination: RecipeDetailView(id: openId).id(openId), isActive: $opening) { EmptyView() }.hidden()
+            ZStack {
+                NavigationLink(destination: RecipeDetailView(id: openId).id(openId), isActive: $opening) { EmptyView() }
+                NavigationLink(destination: AirfryerTab().navigationTitle("Airfryer").navigationBarTitleDisplayMode(.inline),
+                               isActive: $openAirfryer) { EmptyView() }
+            }
+            .hidden()
         )
     }
 
-    /// Untertitel der Vorrat-Kachel: wie viele Rezepte mit dem Vorrat gehen
-    private var pantryDetail: String {
-        if kitchen.pantry.isEmpty { return "Vorrat ist noch leer" }
-        var f = filter; f.pantry = true
-        let n = matching(f).count
-        return n == 1 ? "1 Rezept möglich" : "\(n) Rezepte möglich"
+    /// Suche + Filter-Knopf (mit Zahl der aktiven Filter)
+    private func searchRow(active: Int) -> some View {
+        HStack(spacing: 10) {
+            HStack {
+                Image(systemName: "magnifyingglass").foregroundColor(Theme.secondary)
+                TextField("Rezept oder Zutat suchen", text: $query).disableAutocorrection(true)
+                if !query.isEmpty {
+                    Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundColor(Theme.secondary) }
+                        .buttonStyle(.borderless)
+                        .accessibilityLabel("Suche löschen")
+                }
+            }
+            .padding(10)
+            .frame(minHeight: 44)
+            .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+            Button { showFilter = true } label: {
+                Image(systemName: "line.3.horizontal.decrease")
+                    .font(.headline).foregroundColor(Theme.accent)
+                    .frame(width: 44, height: 44)
+                    .background(RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .fill(active > 0 ? Theme.accent.opacity(0.14) : Color(UIColor.tertiarySystemFill)))
+                    .overlay(alignment: .topTrailing) {
+                        if active > 0 {
+                            Text("\(active)").font(.caption2.weight(.bold)).foregroundColor(.white)
+                                .frame(minWidth: 18, minHeight: 18)
+                                .background(Capsule().fill(Theme.accent))
+                                .offset(x: 5, y: -5)
+                        }
+                    }
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(active > 0 ? "Filter, \(active) aktiv" : "Filter")
+        }
     }
 
-    /// Aktive Filter außer den beiden Schnellwahlen (die zeigen ihren Zustand selbst)
-    private var otherChips: [(label: String, clear: (inout RecipeFilter) -> Void)] {
-        var f = filter
-        f.pantry = false
-        if f.collection == "Airfryer" { f.collection = "Alle" }
-        return f.chips
+    private func dailyRow(_ r: RecipeSummary) -> some View {
+        HStack(spacing: 12) {
+            Text(r.icon).font(.system(size: 26))
+                .frame(width: 44, height: 44)
+                .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+            VStack(alignment: .leading, spacing: 1) {
+                Text("Rezept des Tages").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                Text(r.title).font(.body.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
+            }
+            Spacer(minLength: 8)
+            if let t = r.minutes { Text(RecipeRow.duration(t)).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1) }
+            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Color(UIColor.tertiaryLabel))
+        }
+        .padding(.horizontal, 12).padding(.vertical, 10)
+        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
+        .accessibilityElement(children: .combine)
     }
 
-    /// Küchen mit Anzahl, die häufigsten zuerst
-    private var cuisines: [(String, Int)] {
-        Dictionary(grouping: kitchen.recipes) { $0.cuisine ?? "Sonstige" }
-            .map { ($0.key, $0.value.count) }
-            .sorted { $0.1 != $1.1 ? $0.1 > $1.1 : $0.0 < $1.0 }
+    private var airfryerHint: some View {
+        Button { openAirfryer = true } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "thermometer").font(.headline).foregroundColor(.orange)
+                    .frame(width: 32, height: 32).background(Circle().fill(Color.orange.opacity(0.15)))
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("Backofen umrechnen & Garzeiten").font(.subheadline.weight(.semibold)).foregroundColor(.primary)
+                    Text("Temperatur, Zeit und Spickzettel für den Airfryer").font(.caption).foregroundColor(Theme.secondary)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Theme.secondary)
+            }
+            .padding(12)
+            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.card))
+        }
+        .buttonStyle(.plain)
     }
 
     static func flag(_ c: String) -> String {
@@ -412,91 +371,71 @@ struct RecipesTab: View {
          "Schwäbisch": "🥨", "Asiatisch": "🥢", "Osteuropäisch": "🥟"][c] ?? "🍽️"
     }
 
-    /// Zufallsrezept aus den gerade gefilterten Rezepten (nicht zweimal dasselbe hintereinander)
-    private func shuffle() {
-        let favs = filter.collection == "Favoriten"
-        let pool = list.isEmpty && !favs ? kitchen.recipes : list
-        guard !pool.isEmpty else { return }
-        var pick = pool.randomElement()!
-        if pool.count > 1 { while pick.id == suggestion?.id { pick = pool.randomElement()! } }
-        withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) { suggestion = pick }
-    }
-
-    private func suggestionCard(_ r: RecipeSummary) -> some View {
-        HStack(spacing: 16) {
-            Text(r.icon).font(.system(size: 54))
-            VStack(alignment: .leading, spacing: 4) {
-                Text((filter.collection == "Favoriten" ? "🎲 AUS DEINEN FAVORITEN" : "🎲 ZUFALLSREZEPT") + (cuisine == "Alle" ? "" : " · " + cuisine.uppercased()))
-                    .font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
-                Text(r.title).font(.title3.weight(.bold)).lineLimit(2)
-                Text([r.cuisine, r.time].compactMap { $0 }.joined(separator: " · ")).font(.subheadline).foregroundColor(Theme.secondary)
-                if let c = kitchen.meta[r.id].flatMap(cookedText) { Text(c).font(.caption).foregroundColor(Theme.secondary) }
-                HStack(spacing: 10) {
-                    NavigationLink(destination: RecipeDetailView(id: r.id)) {
-                        Text("Ansehen").font(.subheadline.weight(.semibold)).foregroundColor(.white)
-                            .padding(.horizontal, 16).padding(.vertical, 8).background(Capsule().fill(Theme.accent))
-                    }
-                    Button { shuffle() } label: {
-                        Label("Anderes", systemImage: "arrow.triangle.2.circlepath").font(.subheadline.weight(.semibold))
-                            .padding(.horizontal, 14).padding(.vertical, 8)
-                            .background(Capsule().fill(Color(UIColor.tertiarySystemFill)))
-                    }
-                    Button { withAnimation { suggestion = nil } } label: {
-                        Image(systemName: "xmark").font(.subheadline.weight(.semibold)).foregroundColor(Theme.secondary)
-                            .frame(width: 34, height: 34)
-                    }
-                    .accessibilityLabel("Vorschlag schließen")
-                }
-                .buttonStyle(.plain)
-                .padding(.top, 4)
-            }
-            Spacer(minLength: 0)
+    /// Einzige schwebende Taste: Rezept hinzufügen
+    private var addButton: some View {
+        Menu {
+            Button { sheet = .new } label: { Label("Neues Rezept", systemImage: "square.and.pencil") }
+            Button { sheet = .link } label: { Label("Rezept aus Link", systemImage: "link") }
+            Button { sheet = .cookbook } label: { Label("Familien-Kochbuch", systemImage: "book.closed") }
+        } label: {
+            Image(systemName: "plus").font(.system(size: 24, weight: .semibold)).foregroundColor(.white)
+                .frame(width: 58, height: 58)
+                .background(Circle().fill(Theme.accent))
+                .shadow(color: Theme.accent.opacity(0.35), radius: 10, y: 4)
         }
-        .padding(18)
-        .background(RoundedRectangle(cornerRadius: 22, style: .continuous).fill(Theme.card))
-        .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(Theme.accent.opacity(0.35), lineWidth: 1.5))
-        .transition(.scale(scale: 0.95).combined(with: .opacity))
-    }
-
-    /// Favoriten und Zufall (klein) über Hinzufügen (groß, Tint) – unten rechts
-    private var floatingButtons: some View {
-        let favs = filter.collection == "Favoriten"
-        return VStack(spacing: 14) {
-            // Herz schaltet auf „nur Favoriten“ um; der Würfel würfelt dann nur aus ihnen
-            Button {
-                withAnimation(.easeOut(duration: 0.2)) { filter.collection = favs ? "Alle" : "Favoriten"; suggestion = nil }
-            } label: {
-                Image(systemName: favs ? "heart.fill" : "heart").font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(favs ? .white : Theme.accent)
-                    .frame(width: 48, height: 48)
-                    .background(Circle().fill(favs ? Theme.accent : Theme.card))
-                    .shadow(color: .black.opacity(0.16), radius: 8, y: 3)
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel(favs ? "Alle Rezepte zeigen" : "Nur Favoriten zeigen")
-
-            Button { shuffle() } label: {
-                Image(systemName: "die.face.5").font(.system(size: 20, weight: .semibold)).foregroundColor(Theme.accent)
-                    .frame(width: 48, height: 48)
-                    .background(Circle().fill(Theme.card))
-                    .shadow(color: .black.opacity(0.16), radius: 8, y: 3)
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("Zufallsrezept")
-
-            Menu {
-                Button { sheet = .new } label: { Label("Neues Rezept", systemImage: "square.and.pencil") }
-                Button { sheet = .link } label: { Label("Rezept aus Link", systemImage: "link") }
-                Button { sheet = .cookbook } label: { Label("Familien-Kochbuch", systemImage: "book.closed") }
-            } label: {
-                Image(systemName: "plus").font(.system(size: 24, weight: .semibold)).foregroundColor(.white)
-                    .frame(width: 58, height: 58)
-                    .background(Circle().fill(Theme.accent))
-                    .shadow(color: Theme.accent.opacity(0.35), radius: 10, y: 4)
-            }
-            .accessibilityLabel("Rezept hinzufügen")
-        }
+        .accessibilityLabel("Rezept hinzufügen")
         .padding(.trailing, 20).padding(.bottom, 20)
+    }
+}
+
+/// Rezept als Listenzeile (iPhone): Emoji klein, Titel, „Land · Zeit · kcal“, Herz nur bei Favoriten
+struct RecipeRow: View {
+    let recipe: RecipeSummary
+    var missing: [String]? = nil
+    @ObservedObject private var kitchen = KitchenStore.shared
+
+    static func duration(_ m: Int) -> String {
+        m < 60 ? "\(m) Min." : m % 60 == 0 ? "\(m / 60) Std." : "\(m / 60) Std. \(m % 60) Min."
+    }
+
+    var body: some View {
+        let fav = kitchen.isFavorite(recipe.id)
+        HStack(spacing: 12) {
+            Text(recipe.icon).font(.system(size: 26))
+                .frame(width: 46, height: 46)
+                .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(recipe.title).font(.body.weight(.semibold)).foregroundColor(.primary)
+                    .lineLimit(2).multilineTextAlignment(.leading)
+                Text(meta).font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
+                if let miss = missing {
+                    Label(miss.isEmpty ? "Alles da" : "Fehlt: " + miss.prefix(2).joined(separator: ", ") + (miss.count > 2 ? " +\(miss.count - 2)" : ""),
+                          systemImage: miss.isEmpty ? "checkmark.circle.fill" : "cart")
+                        .font(.caption.weight(.semibold)).lineLimit(1)
+                        .foregroundColor(miss.isEmpty ? .green : Theme.secondary)
+                }
+            }
+            Spacer(minLength: 6)
+            if fav { Image(systemName: "heart.fill").font(.caption).foregroundColor(Theme.accent).accessibilityLabel("Favorit") }
+            Image(systemName: "chevron.right").font(.caption.weight(.semibold)).foregroundColor(Color(UIColor.tertiaryLabel))
+        }
+        .padding(.horizontal, 12).padding(.vertical, 10)
+        .frame(minHeight: 66)
+        .contentShape(Rectangle())
+        .contextMenu {
+            Button { kitchen.toggleFavorite(recipe.id) } label: {
+                fav ? Label("Aus Favoriten entfernen", systemImage: "heart.slash") : Label("Zu Favoriten", systemImage: "heart")
+            }
+        }
+    }
+
+    private var meta: String {
+        var parts: [String] = []
+        if let c = recipe.cuisine { parts.append(c) }
+        if let m = recipe.minutes { parts.append(Self.duration(m)) } else if let t = recipe.time { parts.append(t) }
+        if let k = recipe.kcal { parts.append("\(k) kcal") }
+        if let o = recipe.owner { parts.insert(o, at: 0) }
+        return parts.joined(separator: " · ")
     }
 }
 
@@ -573,6 +512,7 @@ struct RecipeCard: View {
             }
             Text([recipe.cuisine, recipe.time].compactMap { $0 }.joined(separator: " · "))
                 .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+            if let k = recipe.kcal { Text("\(k) kcal").font(.caption).foregroundColor(Theme.secondary) }
             Spacer(minLength: 0)
             if let miss = missing {
                 Label(miss.isEmpty ? "Alles da" : "Fehlt: " + miss.prefix(2).joined(separator: ", ") + (miss.count > 2 ? " +\(miss.count - 2)" : ""),
