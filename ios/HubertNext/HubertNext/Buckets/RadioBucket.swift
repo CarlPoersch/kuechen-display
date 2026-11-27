@@ -237,23 +237,96 @@ final class RadioPlayer: NSObject, ObservableObject, AVPlayerItemMetadataOutputP
                                     from track: AVPlayerItemTrack?) {
         let item = groups.first?.items.first { ($0.commonKey == .commonKeyTitle) || ($0.identifier?.rawValue.contains("StreamTitle") ?? false) }
             ?? groups.first?.items.first
-        let t = item?.stringValue?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let t = item?.stringValue
         Task { @MainActor in
-            RadioPlayer.shared.song = (t?.isEmpty ?? true) ? nil : t
-            RadioPlayer.shared.updateNowPlaying()
+            let p = RadioPlayer.shared
+            p.song = RadioPlayer.clean(t, station: p.current?.name)
+            p.updateNowPlaying()
         }
+    }
+
+    /// Songtitel vom Sender aufräumen: „*** Verkehr“ → „Verkehr“, Sendername allein → nichts
+    static func clean(_ raw: String?, station: String?) -> String? {
+        guard var t = raw?.trimmingCharacters(in: .whitespacesAndNewlines), !t.isEmpty else { return nil }
+        let junk = CharacterSet(charactersIn: "*#~_|•·-–— ").union(.whitespaces)
+        t = t.trimmingCharacters(in: junk)
+        t = t.replacingOccurrences(of: #"\s{2,}"#, with: " ", options: .regularExpression)
+        // Werbe-/Kennungstexte ohne Inhalt
+        let lower = t.lowercased()
+        if t.isEmpty || lower == station?.lowercased() || lower.hasPrefix("http") || lower.contains("jetzt hören") { return nil }
+        // GROSSBUCHSTABEN lesbar machen
+        if t == t.uppercased() && t.count > 4 { t = t.capitalized }
+        return t
+    }
+
+    /// „Interpret – Titel“ trennen (wenn der Sender es so schickt)
+    var songParts: (title: String, artist: String?)? {
+        guard let s = song else { return nil }
+        for sep in [" - ", " – ", " — ", " / "] {
+            let parts = s.components(separatedBy: sep)
+            if parts.count >= 2, !parts[0].isEmpty, !parts[1].isEmpty {
+                return (parts.dropFirst().joined(separator: sep), parts[0])
+            }
+        }
+        return (s, nil)
     }
 
     // MARK: Sperrbildschirm und Kontrollzentrum
 
+    private var artCache: [String: UIImage] = [:]
+
     func updateNowPlaying() {
         guard let s = current else { return }
-        var info: [String: Any] = [MPMediaItemPropertyTitle: song ?? s.name,
-                                   MPMediaItemPropertyArtist: song == nil ? "Radio" : s.name,
+        // Mit Song: „Titel“ / „Interpret · Sender“; sonst „Sender“ / „Live-Radio“
+        let parts = songParts
+        var info: [String: Any] = [MPMediaItemPropertyTitle: parts?.title ?? s.name,
+                                   MPMediaItemPropertyArtist: parts.map { p in [p.artist, s.name].compactMap { $0 }.joined(separator: " · ") } ?? "Live-Radio",
                                    MPNowPlayingInfoPropertyIsLiveStream: true,
                                    MPNowPlayingInfoPropertyPlaybackRate: playing ? 1.0 : 0.0]
-        info[MPMediaItemPropertyAlbumTitle] = "Hubert Radio"
+        if let img = artCache[s.id] ?? Self.initialsArt(s) {
+            info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: img.size) { _ in img }
+        }
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+        if artCache[s.id] == nil { loadArt(s) }
+    }
+
+    /// Logo des Senders laden (auf weißem Grund, wie ein App-Cover) – danach Anzeige aktualisieren
+    private func loadArt(_ s: RadioStation) {
+        guard let l = s.favicon ?? logos[s.id], let url = URL(string: l) else {
+            artCache[s.id] = Self.initialsArt(s)
+            return
+        }
+        Task {
+            guard let (d, _) = try? await URLSession.shared.data(from: url), let logo = UIImage(data: d) else {
+                artCache[s.id] = Self.initialsArt(s); return
+            }
+            let size = CGSize(width: 600, height: 600)
+            let img = UIGraphicsImageRenderer(size: size).image { _ in
+                UIColor.white.setFill()
+                UIRectFill(CGRect(origin: .zero, size: size))
+                let inset: CGFloat = 70
+                let box = CGRect(x: inset, y: inset, width: size.width - 2 * inset, height: size.height - 2 * inset)
+                let r = min(box.width / logo.size.width, box.height / logo.size.height)
+                let w = logo.size.width * r, h = logo.size.height * r
+                logo.draw(in: CGRect(x: box.midX - w / 2, y: box.midY - h / 2, width: w, height: h))
+            }
+            artCache[s.id] = img
+            if current?.id == s.id { updateNowPlaying() }
+        }
+    }
+
+    /// Farbiges Kürzel als Cover („B3“, „DLF“), wenn es kein Logo gibt
+    static func initialsArt(_ s: RadioStation) -> UIImage? {
+        let size = CGSize(width: 600, height: 600)
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            UIColor(Color(hex: s.color)).setFill()
+            UIRectFill(CGRect(origin: .zero, size: size))
+            let text = s.initials as NSString
+            let font = UIFont.systemFont(ofSize: s.initials.count > 3 ? 150 : 210, weight: .bold)
+            let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: UIColor.white]
+            let t = text.size(withAttributes: attrs)
+            text.draw(at: CGPoint(x: (size.width - t.width) / 2, y: (size.height - t.height) / 2), withAttributes: attrs)
+        }
     }
 
     private func setupRemote() {
