@@ -172,7 +172,10 @@ struct HomeView: View {
                             })
                             // Kein Wechsel in den Bearbeiten-Modus beim Ziehen: Das entfernte das Kontextmenü,
                             // während es noch offen war → Absturz.
-                            .onDrag { dragging = inst.id; DragWatch.ping(); return NSItemProvider(object: inst.id as NSString) }
+                            .opacity(dragging == inst.id ? 0.3 : 1)
+                            // Beim Ziehen hebt sich nur das abgerundete Symbol ab – wie auf dem iPhone-Home-Bildschirm
+                            .onDrag({ dragging = inst.id; DragWatch.ping(); return NSItemProvider(object: inst.id as NSString) },
+                                    preview: { AppIconTile(kind: kind).contentShape(.dragPreview, RoundedRectangle(cornerRadius: 16, style: .continuous)) })
                             .onDrop(of: [UTType.text], delegate: BucketDrop(target: inst.id, dragging: $dragging, store: store))
                     }
                 }
@@ -238,14 +241,22 @@ struct AppIcon: View {
     var title: String? = nil      // eigener Name aus den Einstellungen
     var body: some View {
         VStack(spacing: 6) {
-            Image(systemName: kind.symbol)
-                .font(.system(size: 30, weight: .medium)).foregroundColor(.white)
-                .frame(width: 68, height: 68)
-                .background(RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(LinearGradient(colors: [kind.tint.opacity(0.85), kind.tint], startPoint: .top, endPoint: .bottom)))
+            AppIconTile(kind: kind)
                 .shadow(color: .black.opacity(0.12), radius: 4, y: 2)
             Text(title ?? kind.name).font(.caption).lineLimit(1)
         }
+    }
+}
+
+/// Nur das abgerundete Symbol (auch Vorschau beim Ziehen)
+struct AppIconTile: View {
+    let kind: BucketKind
+    var body: some View {
+        Image(systemName: kind.symbol)
+            .font(.system(size: 30, weight: .medium)).foregroundColor(.white)
+            .frame(width: 68, height: 68)
+            .background(RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(LinearGradient(colors: [kind.tint.opacity(0.85), kind.tint], startPoint: .top, endPoint: .bottom)))
     }
 }
 

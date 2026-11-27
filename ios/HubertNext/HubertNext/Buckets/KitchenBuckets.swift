@@ -24,7 +24,7 @@ enum KitchenBuckets {
         },
         itemLinks: true,
         settings: { binding in AnyView(KitchenSettings(config: binding)) },
-        modes: [BucketMode(id: "overview", name: "Übersicht", symbol: "fork.knife"),
+        modes: [BucketMode(id: "overview", name: "Küche", symbol: "fork.knife"),
                 BucketMode(id: "shop", name: "Einkauf", symbol: "cart.fill"),
                 BucketMode(id: "pantry", name: "Vorrat", symbol: "archivebox.fill")]
     )
@@ -299,6 +299,7 @@ struct KitchenCardGlance: View {
 
 struct KitchenGlance: View {
     @ObservedObject private var kitchen = KitchenStore.shared
+    @ObservedObject private var session = CookSession.shared
     @Environment(\.glanceSpace) private var space
     @Environment(\.openBucketDetail) private var openDetail
     @AppStorage("hubert.kitchen.daily") private var showDaily = true
@@ -322,8 +323,31 @@ struct KitchenGlance: View {
             Tile(tab: .pantry, symbol: "archivebox.fill", detail: kitchen.pantry.isEmpty ? nil : "\(kitchen.pantry.count)"),
         ]
         VStack(alignment: .leading, spacing: 10) {
+            // Wird gerade gekocht: oben, mit Schritt – Antippen öffnet den Kochmodus beim selben Schritt
+            if let r = session.recipe {
+                Button { session.resume() } label: {
+                    HStack(spacing: 10) {
+                        Text(r.icon).font(.system(size: 26))
+                            .frame(width: 44, height: 44)
+                            .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Theme.accent.opacity(0.14)))
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text("Wird gerade gekocht").font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                            Text(r.title).font(.subheadline.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
+                            Text(session.page < r.steps.count ? "Schritt \(session.page + 1) von \(r.steps.count)" : "Fertig – guten Appetit")
+                                .font(.caption).foregroundColor(Theme.secondary).lineLimit(1)
+                        }
+                        Spacer(minLength: 6)
+                        Text("Weiter").font(.subheadline.weight(.semibold)).foregroundColor(.white)
+                            .padding(.horizontal, 14).frame(minHeight: 34)
+                            .background(Capsule().fill(Theme.accent))
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Weiterkochen: \(r.title)")
+            }
             // Heute: Geplantes, sonst Rezept des Tages – plus Würfel
-            if space.height >= 150 || space.width >= 320 {
+            else if space.height >= 150 || space.width >= 320 {
                 HStack(spacing: 10) {
                     if let r = today.first ?? suggestion {
                         Button { KitchenLaunch.shared.open(recipe: r.id); openDetail() } label: {
