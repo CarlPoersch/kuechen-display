@@ -3,18 +3,30 @@ import Combine
 
 // ============================================================
 // Küchen-Buckets:
-//  - Küche (App): Rezepte, Woche, Einkauf, Vorrat, Airfryer
+//  - Küche (App + Karte): Rezepte, Woche, Einkauf, Vorrat, Airfryer.
+//    Die Karte schaltet oben am Titel um: Übersicht · Einkauf · Vorrat
 //  - Timer (App): mehrere Timer gleichzeitig
 //  - Einkauf & Vorrat (Startseite): oben am Titel umschalten; abhaken, hinzufügen, entfernen
 //  - Küche (Startseite): heute geplant + Schnellzugriffe in die Küchen-App
 //  - Rezept des Tages (Startseite): jeden Tag ein anderes Rezept
 // ============================================================
 enum KitchenBuckets {
+    /// Küche: App + eine Karte auf der Startseite. Oben am Titel umschalten: Übersicht, Einkauf, Vorrat.
+    /// (ID bleibt „kueche“, damit vorhandene App-Symbole bleiben.)
     static let kitchen = BucketKind(
-        id: "kueche", name: "Küche", symbol: "fork.knife", tint: .orange, art: .tool,
-        interests: ["haushalt"], blurb: "Rezepte, Kochmodus, Wochenplan, Einkauf, Vorrat – gemeinsam im Haushalt.",
-        detail: { _ in AnyView(KitchenView()) },
-        settings: { binding in AnyView(KitchenSettings(config: binding)) }
+        id: "kueche", name: "Küche", symbol: "fork.knife", tint: .orange, art: .glance,
+        interests: ["haushalt"], blurb: "Rezepte, Kochmodus, Wochenplan, Einkauf und Vorrat – die Karte zeigt oben umschaltbar Übersicht, Einkaufsliste oder Vorrat.",
+        glance: { inst, _ in AnyView(KitchenCardGlance(bucketId: inst.id)) },
+        detail: { inst in
+            // Von der Karte: gewählter Bereich; sonst passend zur Ansicht der Karte
+            let mode = BucketModes.shared.mode(inst.id, default: "overview")
+            return AnyView(KitchenView(tab: KitchenLaunch.shared.takeTab(fallback: mode == "shop" ? .shop : mode == "pantry" ? .pantry : .recipes)))
+        },
+        itemLinks: true,
+        settings: { binding in AnyView(KitchenSettings(config: binding)) },
+        modes: [BucketMode(id: "overview", name: "Übersicht", symbol: "fork.knife"),
+                BucketMode(id: "shop", name: "Einkauf", symbol: "cart.fill"),
+                BucketMode(id: "pantry", name: "Vorrat", symbol: "archivebox.fill")]
     )
 
     /// „Uhr“: Wecker und Timer (ID bleibt „timer“, damit bestehende App-Symbole bleiben)
@@ -32,6 +44,7 @@ enum KitchenBuckets {
         detail: { inst in AnyView(KitchenView(tab: BucketModes.shared.mode(inst.id, default: "shop") == "pantry" ? .pantry : .shop)) },
         itemLinks: true,
         parent: "kueche",         // Widget der Küche
+        inCatalog: false,         // steckt jetzt in der Karte „Küche“ (oben umschalten); bestehende Karten bleiben
         modes: [BucketMode(id: "shop", name: "Einkauf", symbol: "cart.fill"),
                 BucketMode(id: "pantry", name: "Vorrat", symbol: "archivebox.fill")]
     )
@@ -43,7 +56,8 @@ enum KitchenBuckets {
         glance: { _, _ in AnyView(KitchenGlance()) },
         detail: { _ in AnyView(KitchenView(tab: KitchenLaunch.shared.takeTab())) },
         itemLinks: true,
-        parent: "kueche"
+        parent: "kueche",
+        inCatalog: false          // steckt jetzt in der Karte „Küche“ (Ansicht „Übersicht“)
     )
 
     static let recipeOfDay = BucketKind(
@@ -262,10 +276,24 @@ final class KitchenLaunch: ObservableObject {
     func open(recipe id: String) { tab = .recipes; recipe = id }
     func openDice() { tab = .recipes; dice = true }
     /// Bereich einmal abholen (danach wieder Standard)
-    func takeTab() -> KitchenTab {
-        let t = tab ?? .recipes
+    func takeTab(fallback: KitchenTab = .recipes) -> KitchenTab {
+        let t = tab ?? fallback
         tab = nil
         return t
+    }
+}
+
+/// Karte „Küche“: je nach gewählter Ansicht Übersicht, Einkaufsliste oder Vorrat
+struct KitchenCardGlance: View {
+    let bucketId: String
+    @ObservedObject private var modes = BucketModes.shared
+
+    var body: some View {
+        if modes.mode(bucketId, default: "overview") == "overview" {
+            KitchenGlance()
+        } else {
+            ShoppingGlance(bucketId: bucketId)
+        }
     }
 }
 
