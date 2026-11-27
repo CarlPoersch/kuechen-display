@@ -82,7 +82,7 @@ enum BucketRegistry {
                                          KitchenBuckets.kitchen, KitchenBuckets.widget, KitchenBuckets.shopping, KitchenBuckets.recipeOfDay,
                                          KitchenBuckets.timer, GuestWifiBucket.kind, MensaBucket.kind, FilmBucket.kind, FocusBucket.kind,
                                          PollenBucket.kind, ReiseBucket.kind, StundenplanBucket.kind, ZieleBucket.kind, StromBucket.kind,
-                                         RemoteBucket.kind, SpotifyBucket.kind, SmartHomeBucket.kind, ClockBucket.alarmWidget] + comingSoon
+                                         RemoteBucket.kind, SpotifyBucket.kind, RadioBucket.kind, SmartHomeBucket.kind, ClockBucket.alarmWidget] + comingSoon
 
     static func kind(_ id: String) -> BucketKind? { all.first { $0.id == id } }
     /// Was man hinzufügen kann (Katalog, Einrichtung)
