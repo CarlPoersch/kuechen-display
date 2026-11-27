@@ -107,7 +107,6 @@ func cookedText(_ m: RecipeMeta) -> String? {
 
 struct RecipesTab: View {
     @ObservedObject private var kitchen = KitchenStore.shared
-    @Environment(\.horizontalSizeClass) private var hSize
     @State private var query = ""
     @State private var filter = RecipeFilter(diet: DietPreference.kitchen)   // Voreinstellung der Küche, sonst „Alle“
     @AppStorage("hubert.diet.kitchen") private var dietPref = "Alle"
@@ -196,27 +195,13 @@ struct RecipesTab: View {
                 } else {
                     Text(results.count == 1 ? "1 Rezept" : "\(results.count) Rezepte")
                         .font(.footnote.weight(.semibold)).foregroundColor(Theme.secondary)
-                    if hSize == .compact {
-                        // iPhone: ruhige Liste – mehr Rezepte pro Bildschirm
-                        LazyVStack(spacing: 0) {
-                            ForEach(Array(results.enumerated()), id: \.element.0.id) { i, item in
-                                if i > 0 { Divider().padding(.leading, 70) }
-                                NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
-                                    RecipeRow(recipe: item.0, missing: filter.pantry ? item.1 : nil)
-                                }
-                                .buttonStyle(.plain)
+                    // Kacheln auf allen Geräten (iPhone zwei Spalten, iPad mehr)
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 158), spacing: 12)], spacing: 12) {
+                        ForEach(results, id: \.0.id) { item in
+                            NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
+                                RecipeCard(recipe: item.0, missing: filter.pantry ? item.1 : nil)
                             }
-                        }
-                        .background(RoundedRectangle(cornerRadius: 16, style: .continuous).fill(Theme.card))
-                    } else {
-                        // iPad / Wand-iPad: Kacheln
-                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 165), spacing: 14)], spacing: 14) {
-                            ForEach(results, id: \.0.id) { item in
-                                NavigationLink(destination: RecipeDetailView(id: item.0.id)) {
-                                    RecipeCard(recipe: item.0, missing: filter.pantry ? item.1 : nil)
-                                }
-                                .buttonStyle(.plain)
-                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }
