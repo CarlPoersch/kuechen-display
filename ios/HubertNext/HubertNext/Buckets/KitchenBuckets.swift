@@ -5,6 +5,7 @@ import SwiftUI
 //  - Küche (App): Rezepte, Woche, Einkauf, Vorrat, Airfryer
 //  - Timer (App): mehrere Timer gleichzeitig
 //  - Einkauf & Vorrat (Startseite): oben am Titel umschalten; abhaken, hinzufügen, entfernen
+//  - Küche (Startseite): heute geplant + Schnellzugriffe in die Küchen-App
 //  - Rezept des Tages (Startseite): jeden Tag ein anderes Rezept
 // ============================================================
 enum KitchenBuckets {
@@ -32,6 +33,16 @@ enum KitchenBuckets {
         parent: "kueche",         // Widget der Küche
         modes: [BucketMode(id: "shop", name: "Einkauf", symbol: "cart.fill"),
                 BucketMode(id: "pantry", name: "Vorrat", symbol: "archivebox.fill")]
+    )
+
+    /// Karte „Küche“ auf der Startseite: heute geplant + Schnellzugriffe – damit niemand bis zu den App-Symbolen scrollen muss
+    static let widget = BucketKind(
+        id: "kueche-karte", name: "Küche", symbol: "fork.knife", tint: .orange, art: .glance,
+        interests: ["haushalt"], blurb: "Schnell in die Küche: was heute gekocht wird, Rezepte, Woche, Einkauf, Vorrat und der Würfel.",
+        glance: { _, _ in AnyView(KitchenGlance()) },
+        detail: { _ in AnyView(KitchenView(tab: KitchenLaunch.shared.takeTab())) },
+        itemLinks: true,
+        parent: "kueche"
     )
 
     static let recipeOfDay = BucketKind(
@@ -234,5 +245,106 @@ struct KitchenSettings: View {
                  : "Die Küche zeigt nur noch passende Rezepte (\(diet)). Für zwischendurch alles: in Rezepte beim Filter auf „Alle“ stellen.")
                 .font(.footnote).foregroundColor(Theme.secondary)
         }
+    }
+}
+
+// MARK: Karte „Küche“ auf der Startseite
+
+/// Womit die Küche aufgehen soll, wenn man von der Karte kommt (Bereich, Rezept, Würfel)
+final class KitchenLaunch: ObservableObject {
+    static let shared = KitchenLaunch()
+    private var tab: KitchenTab?
+    @Published var recipe: String?
+    @Published var dice = false
+
+    func open(_ t: KitchenTab) { tab = t }
+    func open(recipe id: String) { tab = .recipes; recipe = id }
+    func openDice() { tab = .recipes; dice = true }
+    /// Bereich einmal abholen (danach wieder Standard)
+    func takeTab() -> KitchenTab {
+        let t = tab ?? .recipes
+        tab = nil
+        return t
+    }
+}
+
+struct KitchenGlance: View {
+    @ObservedObject private var kitchen = KitchenStore.shared
+    @Environment(\.glanceSpace) private var space
+    @Environment(\.openBucketDetail) private var openDetail
+    @AppStorage("hubert.kitchen.daily") private var showDaily = true
+
+    private struct Tile: Identifiable {
+        let tab: KitchenTab; let symbol: String; let detail: String?
+        var id: String { tab.rawValue }
+    }
+
+    var body: some View {
+        let today = kitchen.planned(on: Date()).compactMap { kitchen.summary($0.recipeId) }
+        let suggestion = today.isEmpty && showDaily ? kitchen.recipeOfTheDay() : nil
+        let openShop = kitchen.shop.filter { !$0.done }.count
+        let week = (0..<7).reduce(0) { n, i in
+            n + kitchen.planned(on: Calendar.current.date(byAdding: .day, value: i, to: Date()) ?? Date()).count
+        }
+        let tiles = [
+            Tile(tab: .recipes, symbol: "book.fill", detail: nil),
+            Tile(tab: .week, symbol: "calendar", detail: week > 0 ? "\(week) geplant" : nil),
+            Tile(tab: .shop, symbol: "cart.fill", detail: openShop > 0 ? "\(openShop) offen" : nil),
+            Tile(tab: .pantry, symbol: "archivebox.fill", detail: kitchen.pantry.isEmpty ? nil : "\(kitchen.pantry.count)"),
+        ]
+        VStack(alignment: .leading, spacing: 10) {
+            // Heute: Geplantes, sonst Rezept des Tages – plus Würfel
+            if space.height >= 150 || space.width >= 320 {
+                HStack(spacing: 10) {
+                    if let r = today.first ?? suggestion {
+                        Button { KitchenLaunch.shared.open(recipe: r.id); openDetail() } label: {
+                            HStack(spacing: 10) {
+                                Text(r.icon).font(.system(size: 26))
+                                VStack(alignment: .leading, spacing: 1) {
+                                    Text(today.isEmpty ? "Vorschlag für heute" : today.count > 1 ? "Heute · \(today.count) Gerichte" : "Heute gekocht wird")
+                                        .font(.caption.weight(.semibold)).foregroundColor(Theme.accent)
+                                    Text(r.title).font(.subheadline.weight(.semibold)).foregroundColor(.primary).lineLimit(1)
+                                }
+                                Spacer(minLength: 0)
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        Text("Heute nichts geplant").font(.subheadline).foregroundColor(Theme.secondary)
+                        Spacer(minLength: 0)
+                    }
+                    Button { KitchenLaunch.shared.openDice(); openDetail() } label: {
+                        Image(systemName: "die.face.5").font(.headline).foregroundColor(Theme.accent)
+                            .frame(width: 44, height: 44)
+                            .background(Circle().fill(Theme.accent.opacity(0.14)))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Rezept würfeln")
+                }
+            }
+            // Schnellzugriffe: auf schmalen Karten 2×2, auf breiten in einer Reihe
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 68), spacing: 8)], spacing: 8) {
+                ForEach(tiles) { t in
+                    Button { KitchenLaunch.shared.open(t.tab); openDetail() } label: {
+                        VStack(spacing: 3) {
+                            Image(systemName: t.symbol).font(.system(size: 18, weight: .semibold)).foregroundColor(Theme.accent)
+                            Text(t.tab.rawValue).font(.caption.weight(.semibold)).foregroundColor(.primary)
+                                .lineLimit(1).minimumScaleFactor(0.8)
+                            if let d = t.detail {
+                                Text(d).font(.caption2).foregroundColor(Theme.secondary).lineLimit(1).minimumScaleFactor(0.8)
+                            }
+                        }
+                        .frame(maxWidth: .infinity, minHeight: 58)
+                        .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Color(UIColor.tertiarySystemFill)))
+                        .contentShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(t.tab.rawValue + (t.detail.map { ", " + $0 } ?? ""))
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .topLeading)
+        .task { if kitchen.recipes.isEmpty { await kitchen.loadRecipes() } }
     }
 }

@@ -125,6 +125,13 @@ struct RecipesTab: View {
     enum Sheet: String, Identifiable { case new, link, cookbook, stats, dice; var id: String { rawValue } }
 
     @ObservedObject private var jump = RecipeJump.shared
+    @ObservedObject private var launch = KitchenLaunch.shared
+
+    /// Von der Küchen-Karte: Rezept direkt öffnen oder den Würfel zeigen
+    private func takeLaunch() {
+        if let id = launch.recipe { launch.recipe = nil; openId = id; opening = true }
+        if launch.dice { launch.dice = false; sheet = .dice }
+    }
 
     /// Zutat aus dem Vorrat: Suche leeren, nur diese Zutat als Filter (Ernährung bleibt)
     private func takeJump() {
@@ -229,9 +236,13 @@ struct RecipesTab: View {
         }
         .onChange(of: dietPref) { filter.diet = $0 }
         .onAppear {
+            let fromCard = launch.recipe != nil || launch.dice
             takeJump()
-            if !dailyAsked { askDaily = true }
+            takeLaunch()
+            if !dailyAsked && !fromCard { askDaily = true }
         }
+        .onChange(of: launch.recipe) { _ in takeLaunch() }
+        .onChange(of: launch.dice) { _ in takeLaunch() }
         .onChange(of: jump.pending) { _ in takeJump() }
         .alert("Rezept des Tages anzeigen?", isPresented: $askDaily) {
             Button("Ja, gerne") { showDaily = true; dailyAsked = true }
