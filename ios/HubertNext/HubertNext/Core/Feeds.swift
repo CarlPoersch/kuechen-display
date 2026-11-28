@@ -178,9 +178,22 @@ struct Article: Decodable {
 }
 
 struct MatchDetail: Decodable {
-    struct Side: Decodable { let n: String; let score: String?; let win: Bool?; let ht: String? }
+    struct Side: Decodable { let n: String; let id: String?; let score: String?; let win: Bool?; let ht: String? }
     struct Event: Decodable, Hashable { let min: String; let kind: String; let side: String; let who: String; let extra: String }
-    struct Player: Decodable, Hashable { let n: String; let nr: String; let pos: String }
+    /// Ereignis eines Spielers: goal · pen · own · yellow · yellowred · red · in · out, dazu die Minute („73'“)
+    struct PlayerEvent: Decodable, Hashable { let k: String; let m: String }
+    struct Player: Decodable, Hashable {
+        let n: String; let nr: String; let pos: String
+        let id: String?
+        let ln: String?            // Nachname fürs Spielfeld
+        let fp: Int?               // Platz in der Formation (0 = Bank)
+        let ev: [PlayerEvent]?
+        var last: String { (ln?.isEmpty == false ? ln : nil) ?? n.split(separator: " ").last.map(String.init) ?? n }
+        var events: [PlayerEvent] { ev ?? [] }
+        func has(_ k: String) -> Bool { events.contains { $0.k == k } }
+        var goals: Int { events.filter { $0.k == "goal" || $0.k == "pen" }.count }
+        var subMinute: String? { events.first { $0.k == "in" || $0.k == "out" }?.m }
+    }
     struct Lineup: Decodable { let form: String; let xi: [Player]; let bench: [Player] }
     struct Lineups: Decodable { let h: Lineup?; let a: Lineup? }
     let state: String
@@ -192,6 +205,38 @@ struct MatchDetail: Decodable {
     let lineups: Lineups
     let venue: String?
     let ref: String?
+}
+
+/// Tabelle eines Wettbewerbs (Funktion „spiel“): eine oder mehrere Gruppen, Zonen, Form je Team-ID
+struct LeagueTable: Decodable {
+    struct Row: Decodable, Identifiable, Hashable {
+        let id: String
+        let n: String              // Name (deutsch, wie im Spielplan)
+        let k: String?             // Kürzel
+        let p: Int                 // Platz
+        let sp: Int; let s: Int; let u: Int; let nl: Int
+        let tf: Int; let tg: Int; let td: Int; let pk: Int
+        let z: Int?                // Zone (Index in zones)
+    }
+    struct Group: Decodable { let n: String?; let rows: [Row] }
+    struct Zone: Decodable, Hashable { let c: String; let t: String; var color: Color { Color(hex: c.replacingOccurrences(of: "#", with: "")) } }
+    let l: String
+    let live: Bool?
+    let groups: [Group]
+    let zones: [Zone]
+    let form: [String: [String]]
+
+    var isEmpty: Bool { groups.isEmpty }
+    /// Gruppe, in der dieses Team steht (bei Ligen die eine Tabelle)
+    func group(with team: String?) -> Group? {
+        guard let t = team else { return groups.first }
+        return groups.first { $0.rows.contains { $0.id == t } }
+    }
+    func row(_ team: String?) -> Row? {
+        guard let t = team else { return nil }
+        for g in groups { if let r = g.rows.first(where: { $0.id == t }) { return r } }
+        return nil
+    }
 }
 
 // MARK: Laden
@@ -282,8 +327,31 @@ final class FeedService: ObservableObject {
         do { news = try await get("news"); newsAt = Date() } catch { print("News:", error) }
     }
 
+    /// Eigene Funktion „spiel“: Spieldetails mit Positionen und Tabellen (nur Fußball)
+    private func spielGet<T: Decodable>(_ path: String, _ query: [URLQueryItem] = []) async throws -> T {
+        let data = try await SupabaseClient.shared.raw("GET", "/functions/v1/spiel/" + path, query: query)
+        return try JSONDecoder().decode(T.self, from: data)
+    }
+
     func match(lg: String, id: String) async throws -> MatchDetail {
-        try await get("match", [URLQueryItem(name: "lg", value: lg), URLQueryItem(name: "id", value: id)])
+        try await spielGet("match", [URLQueryItem(name: "lg", value: lg), URLQueryItem(name: "id", value: id)])
+    }
+
+    // MARK: Tabellen
+
+    /// Tabellen je Wettbewerb (z. B. "soccer/ger.1"); leere Tabelle = Wettbewerb ohne Tabelle (Pokal)
+    @Published private(set) var tables: [String: LeagueTable] = [:]
+    private var tableAt: [String: Date] = [:]
+
+    /// Läuft im Wettbewerb ein Spiel, jede Minute, sonst alle 10 Minuten
+    func tableInterval(_ l: String) -> TimeInterval { tables[l]?.live == true ? 60 : 600 }
+
+    func loadTable(_ l: String) async {
+        if let t = tableAt[l], Date().timeIntervalSince(t) < tableInterval(l) - 2 { return }
+        do {
+            tables[l] = try await spielGet("table", [URLQueryItem(name: "l", value: l)])
+            tableAt[l] = Date()
+        } catch { print("Tabelle:", l, error) }
     }
 
     func article(_ key: String) async throws -> Article {

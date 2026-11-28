@@ -376,7 +376,11 @@ struct MatchRow: View {
 struct SportDetail: View {
     let follows: [SportFollow]
     @State private var only = "alle"
+    /// 0 Spiele · 1 Tabellen (nur wenn man Fußball-Wettbewerben folgt)
+    @State private var mode = 0
     @ObservedObject private var feed = FeedService.shared
+
+    private var tableLeagues: [String] { SportBucket.tableLeagues(follows) }
 
     private var leagues: [String] { SportBucket.leagues(follows) }
     private var key: String { FeedService.key(leagues) }
@@ -394,31 +398,49 @@ struct SportDetail: View {
         let byDay = Dictionary(grouping: pre) { Calendar.current.startOfDay(for: $0.start) }
         let days = byDay.keys.sorted().map { Day(id: $0, matches: byDay[$0] ?? []) }
         List {
-            // Sportarten als Kapseln (bei vielen Sportarten passt kein Segment mehr)
-            if sports.count > 1 {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        chip("alle", "Alle")
-                        ForEach(sports, id: \.self) { s in chip(s, (SportBucket.emoji[s] ?? "") + " " + (SportBucket.sportName[s] ?? s)) }
-                    }
-                    .padding(.vertical, 2)
-                }
-                .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
+            if !tableLeagues.isEmpty {
+                Picker("", selection: $mode) { Text("Spiele").tag(0); Text("Tabellen").tag(1) }
+                    .pickerStyle(.segmented).listRowBackground(Color.clear).listRowInsets(EdgeInsets())
             }
-            if follows.isEmpty { Text("Du folgst noch niemandem – oben rechts über den Regler einstellen.").foregroundColor(Theme.secondary) }
-            else if feed.sportFeeds[key] == nil { ProgressView() }
-            else if all.isEmpty { Text("Gerade keine Spiele").foregroundColor(Theme.secondary) }
-            section("Live", all.filter { $0.isLive }.sorted { $0.start < $1.start })
-            // Favoriten oben zusätzlich – im Tagesplan darunter stehen sie trotzdem (mit Stern)
-            section("Meine Favoriten", pre.filter { SportBucket.isFav($0, follows) })
-            // Demnächst: nach Tagen, innerhalb des Tages nach Uhrzeit
-            ForEach(days) { d in
-                section(days.first?.id == d.id ? "Demnächst · " + Fmt.dayLabel(d.id) : Fmt.dayLabel(d.id), d.matches, timeOnly: true)
+            if mode == 1 && !tableLeagues.isEmpty {
+                SportTablesContent(leagues: tableLeagues, follows: follows)
+            } else {
+                games(all: all, pre: pre, days: days)
             }
-            section("Ergebnisse", all.filter { $0.state == "post" }.sorted { $0.start > $1.start })
         }
         .listStyle(.insetGrouped)
         .refreshing(id: key, every: { FeedService.shared.sportInterval(key) }) { await FeedService.shared.loadSport(leagues: leagues) }
+        // Tabellen nur laden, solange „Tabellen“ offen ist
+        .refreshing(id: "tab\(mode):" + tableLeagues.joined(separator: ","),
+                    every: { tableLeagues.map { FeedService.shared.tableInterval($0) }.min() ?? 600 }) {
+            guard mode == 1 else { return }
+            for l in tableLeagues { await FeedService.shared.loadTable(l) }
+        }
+    }
+
+    @ViewBuilder private func games(all: [Match], pre: [Match], days: [Day]) -> some View {
+        // Sportarten als Kapseln (bei vielen Sportarten passt kein Segment mehr)
+        if sports.count > 1 {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    chip("alle", "Alle")
+                    ForEach(sports, id: \.self) { s in chip(s, (SportBucket.emoji[s] ?? "") + " " + (SportBucket.sportName[s] ?? s)) }
+                }
+                .padding(.vertical, 2)
+            }
+            .listRowBackground(Color.clear).listRowInsets(EdgeInsets())
+        }
+        if follows.isEmpty { Text("Du folgst noch niemandem – oben rechts über den Regler einstellen.").foregroundColor(Theme.secondary) }
+        else if feed.sportFeeds[key] == nil { ProgressView() }
+        else if all.isEmpty { Text("Gerade keine Spiele").foregroundColor(Theme.secondary) }
+        section("Live", all.filter { $0.isLive }.sorted { $0.start < $1.start })
+        // Favoriten oben zusätzlich – im Tagesplan darunter stehen sie trotzdem (mit Stern)
+        section("Meine Favoriten", pre.filter { SportBucket.isFav($0, follows) })
+        // Demnächst: nach Tagen, innerhalb des Tages nach Uhrzeit
+        ForEach(days) { d in
+            section(days.first?.id == d.id ? "Demnächst · " + Fmt.dayLabel(d.id) : Fmt.dayLabel(d.id), d.matches, timeOnly: true)
+        }
+        section("Ergebnisse", all.filter { $0.state == "post" }.sorted { $0.start > $1.start })
     }
 
     private func chip(_ id: String, _ title: String) -> some View {
@@ -444,194 +466,4 @@ struct SportDetail: View {
     }
 }
 
-struct MatchDetailView: View {
-    let match: Match
-    var follows: [SportFollow] = []
-    @State private var detail: MatchDetail?
-    @State private var tab = 0
-    @ObservedObject private var feed = FeedService.shared
-
-    /// Aktueller Stand aus der Liste (Tennis hat keine eigenen Details)
-    private var live: Match { feed.current(match.id) ?? match }
-
-    var body: some View {
-        List {
-            Section { (live.isRace ? AnyView(raceHeader) : AnyView(header)).listRowBackground(Color.clear) }
-            if live.isRace {
-                raceSections
-            } else if live.sport != "fb" && live.sport != "tn" {
-                // Basketball, Eishockey, Football, Baseball: Stand oben, dazu Ort
-                if let v = live.venue { Section(header: Text("Ort")) { Label(v, systemImage: "mappin.and.ellipse") } }
-                Section { Text(live.comp + (live.round.map { " · " + $0 } ?? "")).foregroundColor(Theme.secondary) }
-            } else if live.sport == "tn" {
-                Section(header: Text("Sätze")) { MatchRow(match: live, follows: follows).padding(.vertical, 6) }
-                if let v = live.venue { Section(header: Text("Ort")) { Text(v) } }
-                if let n = live.note { Section { Text(n).foregroundColor(Theme.secondary) } }
-            } else if let d = detail {
-                Picker("", selection: $tab) {
-                    Text("Ticker").tag(0); Text("Statistik").tag(1); Text("Aufstellung").tag(2)
-                }
-                .pickerStyle(.segmented).listRowBackground(Color.clear).listRowInsets(EdgeInsets())
-                if tab == 0 { events(d) } else if tab == 1 { stats(d) } else { lineups(d) }
-                if d.venue != nil || d.ref != nil {
-                    Section {
-                        if let v = d.venue { Label(v, systemImage: "mappin.and.ellipse") }
-                        if let r = d.ref { Label("Schiedsrichter: " + r, systemImage: "person") }
-                    }
-                }
-            } else {
-                ProgressView()
-            }
-        }
-        .listStyle(.insetGrouped)
-        .navigationTitle(live.comp)
-        .navigationBarTitleDisplayMode(.inline)
-        .refreshing(every: { live.isLive ? 30 : 600 }) { await load() }
-    }
-
-    private func load() async {
-        if !follows.isEmpty { await feed.loadSport(leagues: SportBucket.leagues(follows)) }
-        guard live.sport == "fb", let lg = live.lg, let id = live.eid else { return }
-        if let d = try? await feed.match(lg: lg, id: id) { detail = d }
-    }
-
-    private var raceHeader: some View {
-        VStack(spacing: 6) {
-            Text("🏎️").font(.system(size: 44))
-            Text(live.a.n).font(.title2.weight(.bold))
-            Text([live.venue, live.b.n.isEmpty ? nil : live.b.n].compactMap { $0 }.joined(separator: " · "))
-                .font(.subheadline).foregroundColor(Theme.secondary).multilineTextAlignment(.center)
-            Text(live.isLive ? "Rennen läuft" : live.state == "pre" ? "Rennen " + Fmt.dayLabel(live.start) + " " + Fmt.hhmm(live.start) : "Ergebnis")
-                .font(.subheadline.weight(live.isLive ? .bold : .regular))
-                .foregroundColor(live.isLive ? .red : Theme.secondary)
-        }
-        .frame(maxWidth: .infinity).padding(.vertical, 8)
-    }
-
-    @ViewBuilder private var raceSections: some View {
-        if let field = live.field, !field.isEmpty {
-            Section(header: Text("Ergebnis")) {
-                ForEach(field, id: \.self) { d in
-                    let fav = SportBucket.favDriver(d.id, follows)
-                    HStack(spacing: 12) {
-                        Text("\(d.pos)").font(.headline.monospacedDigit()).frame(width: 28, alignment: .leading)
-                            .foregroundColor(d.pos <= 3 ? Theme.accent : .primary)
-                        VStack(alignment: .leading, spacing: 1) {
-                            HStack(spacing: 4) {
-                                Text(d.n).fontWeight(fav ? .semibold : .regular)
-                                if fav { Image(systemName: "star.fill").font(.caption2).foregroundColor(.yellow) }
-                            }
-                            if let t = d.t { Text(t).font(.caption).foregroundColor(Theme.secondary) }
-                        }
-                        Spacer()
-                        if let c = d.c { Text(c).font(.caption.monospaced()).foregroundColor(Theme.secondary) }
-                    }
-                }
-            }
-        }
-        if let ss = live.sessions, !ss.isEmpty {
-            Section(header: Text("Zeitplan")) {
-                ForEach(ss, id: \.self) { x in
-                    HStack {
-                        Text(x.n)
-                        Spacer()
-                        Text(Fmt.dayLabel(x.date) + " " + Fmt.hhmm(x.date)).foregroundColor(Theme.secondary).monospacedDigit()
-                    }
-                }
-            }
-        }
-    }
-
-    private var header: some View {
-        VStack(spacing: 6) {
-            if let r = live.round { Text(r.uppercased()).font(.caption.weight(.semibold)).foregroundColor(Theme.secondary) }
-            HStack(alignment: .center) {
-                Text(live.a.n + live.a.flag).font(.title3.weight(.semibold)).multilineTextAlignment(.center).frame(maxWidth: .infinity)
-                VStack(spacing: 2) {
-                    if live.hasScore && live.state != "pre" {
-                        Text("\(live.a.score ?? "-") : \(live.b.score ?? "-")").font(.system(size: 44, weight: .bold).monospacedDigit())
-                    } else if live.state == "pre" {
-                        Text(Fmt.hhmm(live.start)).font(.system(size: 34, weight: .semibold).monospacedDigit())
-                    } else {
-                        Text("vs").font(.title2).foregroundColor(Theme.secondary)
-                    }
-                    Text(live.isLive ? (live.sport == "tn" ? "LIVE" : live.detailDE) : live.state == "pre" ? Fmt.dayLabel(live.start) : (live.detail.isEmpty ? "Ende" : live.detailDE))
-                        .font(.subheadline.weight(live.isLive ? .bold : .regular))
-                        .foregroundColor(live.isLive ? .red : Theme.secondary)
-                    if let ht = detail?.h.ht, let at = detail?.a.ht, live.state != "pre" {
-                        Text("Halbzeit \(ht):\(at)").font(.caption).foregroundColor(Theme.secondary)
-                    }
-                }
-                .frame(minWidth: 120)
-                Text(live.b.n + live.b.flag).font(.title3.weight(.semibold)).multilineTextAlignment(.center).frame(maxWidth: .infinity)
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 8)
-    }
-
-    @ViewBuilder private func events(_ d: MatchDetail) -> some View {
-        Section {
-            if d.events.isEmpty { Text(d.state == "pre" ? "Noch nicht angepfiffen" : "Noch keine Ereignisse").foregroundColor(Theme.secondary) }
-            ForEach(Array(d.events.reversed().enumerated()), id: \.offset) { _, e in
-                HStack(spacing: 10) {
-                    Text(e.min).font(.subheadline.monospacedDigit()).foregroundColor(Theme.secondary).frame(width: 46, alignment: .leading)
-                    Text(icon(e.kind)).frame(width: 24)
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(e.who.isEmpty ? label(e.kind) : e.who).fontWeight(e.kind == "goal" || e.kind == "pen" ? .semibold : .regular)
-                        Text([e.side == "h" ? d.h.n : d.a.n, e.extra].filter { !$0.isEmpty }.joined(separator: " · "))
-                            .font(.footnote).foregroundColor(Theme.secondary)
-                    }
-                }
-            }
-        }
-    }
-
-    private func icon(_ k: String) -> String {
-        ["goal": "⚽️", "pen": "⚽️", "own": "⚽️", "yellow": "🟨", "red": "🟥", "sub": "🔄"][k] ?? "•"
-    }
-    private func label(_ k: String) -> String {
-        ["goal": "Tor", "pen": "Elfmeter", "own": "Eigentor", "yellow": "Gelbe Karte", "red": "Rote Karte", "sub": "Wechsel"][k] ?? ""
-    }
-
-    @ViewBuilder private func stats(_ d: MatchDetail) -> some View {
-        Section {
-            if d.stats.isEmpty { Text("Noch keine Statistik").foregroundColor(Theme.secondary) }
-            ForEach(Array(d.stats.enumerated()), id: \.offset) { _, r in
-                if r.count == 3 {
-                    HStack {
-                        Text(r[1]).font(.body.monospacedDigit().weight(.semibold)).frame(width: 60, alignment: .leading)
-                        Spacer(); Text(r[0]).foregroundColor(Theme.secondary); Spacer()
-                        Text(r[2]).font(.body.monospacedDigit().weight(.semibold)).frame(width: 60, alignment: .trailing)
-                    }
-                }
-            }
-        }
-    }
-
-    @ViewBuilder private func lineups(_ d: MatchDetail) -> some View {
-        if d.lineups.h == nil && d.lineups.a == nil {
-            Section { Text("Aufstellung noch nicht bekannt").foregroundColor(Theme.secondary) }
-        }
-        team(d.h.n, d.lineups.h)
-        team(d.a.n, d.lineups.a)
-    }
-
-    @ViewBuilder private func team(_ name: String, _ lineup: MatchDetail.Lineup?) -> some View {
-        if let l = lineup {
-            Section(header: Text(name + (l.form.isEmpty ? "" : " · " + l.form))) {
-                ForEach(l.xi, id: \.self) { p in
-                    HStack {
-                        Text(p.nr).font(.subheadline.monospacedDigit()).foregroundColor(Theme.secondary).frame(width: 30, alignment: .leading)
-                        Text(p.n)
-                        Spacer()
-                        Text(p.pos).font(.caption).foregroundColor(Theme.secondary)
-                    }
-                }
-                if !l.bench.isEmpty {
-                    Text("Bank: " + l.bench.map { $0.n }.joined(separator: ", ")).font(.footnote).foregroundColor(Theme.secondary)
-                }
-            }
-        }
-    }
-}
+// Spielseite (MatchDetailView): Buckets/SportMatch.swift
