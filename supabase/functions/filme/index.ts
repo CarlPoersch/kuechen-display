@@ -198,8 +198,18 @@ async function feed(p: string, x: string) {
     region: "DE", with_release_type: "3|2", "release_date.gte": day(-7), "release_date.lte": day(14),
     sort_by: "popularity.desc", without_genres: without,
   }, 3 * 3600_000);
-  const kino: Item[] = (kinoJ.results ?? []).filter((r: any) => r.poster_path).slice(0, 20)
-    .map((r: any) => ({ ...base(r, "movie"), kino: true }));
+  // TMDB liefert als release_date den weltweiten Erststart (bei Wiederaufführungen z. B. 2006).
+  // Deshalb je Film den deutschen Kinostart (Typ 2/3) nachschlagen, der im Zeitfenster liegt.
+  const from = day(-7), to = day(14);
+  const kinoTop = (kinoJ.results ?? []).filter((r: any) => r.poster_path).slice(0, 20);
+  const kino: Item[] = await Promise.all(kinoTop.map(async (r: any) => {
+    const d = await details("movie", r.id).catch(() => null);
+    const rel = (d?.release_dates?.results ?? []).find((x: any) => x.iso_3166_1 === "DE")?.release_dates ?? [];
+    const dates: string[] = rel.filter((x: any) => x.type === 2 || x.type === 3)
+      .map((x: any) => String(x.release_date ?? "").slice(0, 10)).filter(Boolean).sort();
+    const de = dates.filter((x) => x >= from && x <= to)[0] ?? dates.filter((x) => x <= to).pop();
+    return { ...base(r, "movie"), date: de ?? r.release_date, kino: true };
+  }));
 
   let stream: Item[] = [], tv: Item[] = [];
   if (prov) {
