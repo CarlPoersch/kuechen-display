@@ -893,7 +893,21 @@ struct CookModeView: View {
     }
     @State private var showIngredients = false
     @State private var confirmCancel = false
+    @State private var pantryUsed: [KitchenItem] = []      // passende Vorräte → Frage „aufgebraucht?“
+    @State private var askPantryNow = false
+    @AppStorage("hubert.kitchen.askPantry") private var askPantry = true
     @StateObject private var voice = SpeechControl()
+
+    /// Gekocht: erst fragen, was aus dem Vorrat leer ist (wenn etwas passt), dann abschließen
+    private func finishCooking() {
+        let used = askPantry ? PantryMatch.used(recipe, pantry: kitchen.pantry) : []
+        if used.isEmpty {
+            kitchen.markCooked(recipe.id); session.end()
+        } else {
+            pantryUsed = used
+            askPantryNow = true
+        }
+    }
 
     private var count: Int { recipe.steps.count + 1 }   // + Fertig-Seite
 
@@ -1004,6 +1018,14 @@ struct CookModeView: View {
         }
         .onDisappear { voice.stop() }
         .sheet(isPresented: $showIngredients) { ingredientSheet }
+        .sheet(isPresented: $askPantryNow) {
+            PantryUsedSheet(recipe: recipe, items: pantryUsed) {
+                askPantryNow = false
+                kitchen.markCooked(recipe.id)
+                // Blatt erst schließen lassen, dann den Kochmodus beenden
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { session.end() }
+            }
+        }
         .cancelCookingAlert($confirmCancel)
         .overlay(TimerAlarmOverlay())
     }
@@ -1123,9 +1145,7 @@ struct CookModeView: View {
                     .background(Capsule().fill(Theme.accent.opacity(0.12)))
             }
             .buttonStyle(.plain)
-            SoftButton(title: "Gekocht – fertig", symbol: "checkmark", primary: true) {
-                kitchen.markCooked(recipe.id); session.end()
-            }
+            SoftButton(title: "Gekocht – fertig", symbol: "checkmark", primary: true) { finishCooking() }
             .frame(maxWidth: 360)
         }
         .padding()
@@ -1939,5 +1959,99 @@ enum StepIngredients {
             for i in hit where !out.contains(i) { out.append(i) }
         }
         return out.map { ings[$0] }
+    }
+}
+
+// MARK: Nach dem Kochen: Was ist aus dem Vorrat aufgebraucht?
+
+struct PantryUsedSheet: View {
+    let recipe: Recipe
+    let items: [KitchenItem]
+    let onDone: () -> Void
+    @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var kitchen = KitchenStore.shared
+
+    enum Choice: Int { case keep, empty, rebuy }
+    @State private var choices: [String: Choice] = [:]
+
+    private func choice(_ it: KitchenItem) -> Binding<Choice> {
+        Binding(get: { choices[it.id] ?? .keep }, set: { choices[it.id] = $0 })
+    }
+    private var changed: Int { choices.values.filter { $0 != .keep }.count }
+
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    ForEach(items) { it in
+                        VStack(alignment: .leading, spacing: 10) {
+                            HStack(spacing: 8) {
+                                Text(it.name).font(.body.weight(.semibold))
+                                Spacer(minLength: 8)
+                                Text([it.amount, it.place].filter { !$0.isEmpty }.joined(separator: " · "))
+                                    .font(.subheadline).foregroundColor(Theme.secondary).lineLimit(1)
+                            }
+                            Picker(it.name, selection: choice(it)) {
+                                Text("Noch da").tag(Choice.keep)
+                                Text("Leer").tag(Choice.empty)
+                                Text("Nachkaufen").tag(Choice.rebuy)
+                            }
+                            .pickerStyle(.segmented)
+                            .labelsHidden()
+                        }
+                        .padding(.vertical, 6)
+                    }
+                } header: {
+                    HStack {
+                        Text("Aus deinem Vorrat")
+                        Spacer()
+                        Button("Alles leer") { withAnimation { for it in items { choices[it.id] = .empty } } }
+                            .font(.subheadline.weight(.semibold)).textCase(nil)
+                    }
+                } footer: {
+                    Text("„Leer“ nimmt es aus dem Vorrat. „Nachkaufen“ setzt es zusätzlich auf die Einkaufsliste. Ausschalten lässt sich die Frage in den Einstellungen der Küche.")
+                }
+            }
+            .listStyle(.insetGrouped)
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 8) {
+                    Button { apply() } label: {
+                        Text(changed == 0 ? "Fertig" : "Übernehmen (\(changed))").font(.headline).foregroundColor(.white)
+                            .frame(maxWidth: .infinity, minHeight: 50)
+                            .background(RoundedRectangle(cornerRadius: 14, style: .continuous).fill(Theme.accent))
+                    }
+                    Button { onDone() } label: {
+                        Text("Alles noch da").font(.headline).foregroundColor(Theme.accent)
+                            .frame(maxWidth: .infinity, minHeight: 44)
+                    }
+                }
+                .buttonStyle(.plain)
+                .padding(.horizontal, 16).padding(.top, 10).padding(.bottom, 6)
+                .frame(maxWidth: 560)
+                .frame(maxWidth: .infinity)
+                .background(.regularMaterial)
+            }
+            .navigationTitle("Was ist aufgebraucht?")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Zurück") { dismiss() } } }
+        }
+        .navigationViewStyle(.stack)
+    }
+
+    private func apply() {
+        for it in items {
+            switch choices[it.id] ?? .keep {
+            case .keep: break
+            case .empty:
+                kitchen.delete(it)
+            case .rebuy:
+                kitchen.delete(it)
+                let k = KitchenStore.key(it.name)
+                if !kitchen.shop.contains(where: { !$0.done && KitchenStore.key($0.name) == k }) {
+                    kitchen.add("shop", name: it.name)
+                }
+            }
+        }
+        onDone()
     }
 }

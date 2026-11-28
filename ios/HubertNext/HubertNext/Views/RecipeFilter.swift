@@ -114,6 +114,18 @@ enum PantryMatch {
             || key.hasSuffix("öl") || key == "zucker" || key.hasPrefix("öl")
     }
 
+    /// Vorratseinträge, die zu den Zutaten eines Rezepts passen (ohne Salz, Pfeffer, Öl …) – für „aufgebraucht?“
+    static func used(_ r: Recipe, pantry: [KitchenItem]) -> [KitchenItem] {
+        let keys = r.ingredients.map(\.name).filter { n in
+            let k = KitchenStore.key(n)
+            return !k.isEmpty && !isStaple(k)
+        }.map { FoodCatalog.key($0) }
+        return pantry.filter { p in
+            let pk = FoodCatalog.key(p.name)
+            return keys.contains { FoodCatalog.matches(pk, $0) }
+        }
+    }
+
     static func missing(_ r: RecipeSummary, pantry: [FoodKey]) -> [String] {
         (r.ing ?? []).filter { name in
             let k = KitchenStore.key(name)

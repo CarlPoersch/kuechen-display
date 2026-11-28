@@ -247,6 +247,7 @@ struct RecipeOfDayDetail: View {
 struct KitchenSettings: View {
     @Binding var config: [String: JSON]
     @AppStorage("hubert.diet.kitchen") private var diet = "Alle"
+    @AppStorage("hubert.kitchen.askPantry") private var askPantry = true
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -258,6 +259,11 @@ struct KitchenSettings: View {
             Text(diet == "Alle"
                  ? "Rezepte zeigen alles. Wählst du Vegetarisch oder Vegan, siehst du nur noch passende Rezepte – auf allen deinen Geräten."
                  : "Die Küche zeigt nur noch passende Rezepte (\(diet)). Für zwischendurch alles: in Rezepte beim Filter auf „Alle“ stellen.")
+                .font(.footnote).foregroundColor(Theme.secondary)
+
+            Text("NACH DEM KOCHEN").font(.footnote).foregroundColor(Theme.secondary).padding(.top, 10)
+            Toggle("Nach Vorrat fragen", isOn: $askPantry).tint(Theme.accent)
+            Text("Nach „Gekocht – fertig“ fragt Hubert, was aus dem Vorrat aufgebraucht ist – und setzt es auf Wunsch auf die Einkaufsliste. Gilt für dieses Gerät.")
                 .font(.footnote).foregroundColor(Theme.secondary)
         }
     }
