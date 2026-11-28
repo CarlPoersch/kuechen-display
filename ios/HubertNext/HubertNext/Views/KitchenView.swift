@@ -893,8 +893,7 @@ struct CookModeView: View {
     }
     @State private var showIngredients = false
     @State private var confirmCancel = false
-    @State private var pantryUsed: [KitchenItem] = []      // passende Vorräte → Frage „aufgebraucht?“
-    @State private var askPantryNow = false
+    @State private var pantryAsk: PantryAsk?               // passende Vorräte → Frage „aufgebraucht?“
     @AppStorage("hubert.kitchen.askPantry") private var askPantry = true
     @StateObject private var voice = SpeechControl()
 
@@ -904,8 +903,7 @@ struct CookModeView: View {
         if used.isEmpty {
             kitchen.markCooked(recipe.id); session.end()
         } else {
-            pantryUsed = used
-            askPantryNow = true
+            pantryAsk = PantryAsk(items: used)   // Daten stecken im Item → Blatt ist sofort gefüllt
         }
     }
 
@@ -1018,9 +1016,9 @@ struct CookModeView: View {
         }
         .onDisappear { voice.stop() }
         .sheet(isPresented: $showIngredients) { ingredientSheet }
-        .sheet(isPresented: $askPantryNow) {
-            PantryUsedSheet(recipe: recipe, items: pantryUsed) {
-                askPantryNow = false
+        .sheet(item: $pantryAsk) { ask in
+            PantryUsedSheet(recipe: recipe, items: ask.items) {
+                pantryAsk = nil
                 kitchen.markCooked(recipe.id)
                 // Blatt erst schließen lassen, dann den Kochmodus beenden
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { session.end() }
@@ -1963,6 +1961,12 @@ enum StepIngredients {
 }
 
 // MARK: Nach dem Kochen: Was ist aus dem Vorrat aufgebraucht?
+
+/// Inhalt für das „aufgebraucht?“-Blatt – als Item, damit die Liste beim Öffnen schon da ist
+struct PantryAsk: Identifiable {
+    let id = UUID()
+    let items: [KitchenItem]
+}
 
 struct PantryUsedSheet: View {
     let recipe: Recipe
